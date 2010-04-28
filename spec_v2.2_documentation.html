@@ -13,6 +13,34 @@
   <style type="text/css">
     h1, h2, h3, h4, h5, h6 {
       color: rgb(36, 104, 153);
+      margin-bottom: .25em;
+      margin-top: .25em;
+    }
+    
+    body {
+      line-height: 1.4;
+    }
+    
+    p, td {
+      margin-bottom: 1em;
+      font-size: .875em;
+    }
+    
+    caption {
+      margin-bottom: 1em;
+      font-size: .75em;
+    }
+    
+    acronym {
+      border-bottom: 1px dotted #000;
+      cursor: help;
+    }
+    
+    .page-title .version {
+      display: block;
+      font-size: .5em;
+      font-style: italic;
+      color: #666;
     }
     
     @media print {
@@ -39,15 +67,30 @@
     
     table {
       margin: 0 auto;
+      margin-bottom: 1em;
+      border-collapse: separate;
+      border-spacing: .2em;
     }
     
     thead th {
-      text-transform: uppercase;
+      text-transform: capitalize;
+      white-space: nowrap;
       min-width: 6em;
+      background-color: #0054af;
+      color: #fff;
+    }
+    
+    th, td {
+      padding: .3em;
+      vertical-align: middle;
     }
     
     tbody tr:nth-child(2n) {
       background-color: #c2e2f9;
+    }
+    
+    tbody tr:nth-child(2n+1) {
+      background-color: #eaf2ff;
     }
     
     /* Use the <code> tag for bits of code and <var> for variables and objects. */
@@ -59,13 +102,13 @@
     /* make sure the text wraps; otherwise, we get ugly ugly scrollbars for
      * pre-formatted text. This works in most browsers (listed below).
      */
-    pre {
+    /*pre {
       white-space: pre-wrap;       /* css-3 */
-      white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-      white-space: -pre-wrap;      /* Opera 4-6 */
-      white-space: -o-pre-wrap;    /* Opera 7 */
-      word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    }
+      /*white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+      /*white-space: -pre-wrap;      /* Opera 4-6 */
+      /*white-space: -o-pre-wrap;    /* Opera 7 */
+      /*word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    /*}*/
     
     /* Use the <file> tag for file and directory paths and names. */
     file {
@@ -75,6 +118,7 @@
     /* Use the <kbd> tag for stuff the user should type. */
     kbd {
       color: #600000;
+      background-color: #eaf2ff;
     }
     
     div.note {
@@ -87,20 +131,6 @@
       width: 3in;
     }
     
-    UL.nobullets {
-      list-style-type: none;
-      list-style-image: none;
-      margin-left: -1em;
-    }
-    
-    /* Table Column Headers */
-    .hdr {
-      color: #006;
-      font-weight: bold;
-      background-color: #dddddd; }
-    .hdr2 {
-      color: #006;
-      background-color: #eeeeee; }
   </style>
   
   <script type="text/javascript">
@@ -147,10 +177,15 @@
   <div class="wrap">
     <div class="group">
       <div class="main">
+        <div class="content-navigation">
+          <ol>
+            <li><a href="#"></a></li>
+          </ol>
+        </div>
         <div id="generalintro" class="rev1">
-          <h2 class="page-title"><acronym title="Voting Information Project">VIP</acronym> Format Specification, Version 2.2 (2010-04-22)</h2>
+          <h2 class="page-title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 2.2 (2010-04-22)</span></h2>
       
-          <h2>General introduction</h2>
+          <h2>General Introduction</h2>
           <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that let's programmer's take a voter's address, compare it to <a href="#streetsegment">street segments</a> to determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct, allows information disseminators to let that voter know about his or her <a href="#pollinglocationitems">polling location</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballot</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administration</a>, and <a href="#electionofficial">election officials</a>. After the election, voter's can learn <a href="#contestresult">who won</a>.</p>
           
           <h3>General Specification</h3>
