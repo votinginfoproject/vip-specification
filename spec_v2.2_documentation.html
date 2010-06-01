@@ -121,6 +121,22 @@
       background-color: #eaf2ff;
     }
     
+    .content-navigation {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 1em;
+    }
+    
+    .content-navigation .header {
+      font-size: .875em;
+    }
+    
+    .content-navigation .links {
+      font-size: .75em;
+      margin-bottom: 1em;
+    }
+    
     div.note {
       -moz-border-radius: 12px 12px 12px 12px;
       background-color: #fffff0;
@@ -178,8 +194,35 @@
     <div class="group">
       <div class="main">
         <div class="content-navigation">
-          <ol>
-            <li><a href="#"></a></li>
+          <h2 class="header">Top-Level Items</h2>
+          <ol class="links">
+            <li><a href="#sourceitems">Source subtags</a></li>
+            <li><a href="#electionitems">Election subtags</a></li>
+            <li><a href="#stateitems">State subtags</a></li>
+            <li><a href="#localityitems">Locality subtags</a></li>
+            <li><a href="#precinctitems">Precinct subtags</a></li>
+            <li><a href="#precinctsplititems">Precinct Split subtags</a></li>
+            <li><a href="#electionadministration">Election Administration subtags</a></li>
+            <li><a href="#electionofficial">Election Official subtags</a></li>
+            <li><a href="#pollinglocationitems">Polling Location subtags</a></li>
+            <li><a href="#earlyvotesiteitems">Early Vote Site subtags</a></li>
+            <li><a href="#contestitems">Contest subtags</a></li>
+            <li><a href="#electoraldistrictitems">Electoral District subtags</a></li>
+            <li><a href="#ballotitems">Ballot subtags</a></li>
+            <li><a href="#candidateitems">Candidate subtags</a></li>
+            <li><a href="#campaignissueitems">Campaign Issue subtags</a></li>
+            <li><a href="#candidatestatementitems">Candidate Statement subtags</a></li>
+            <li><a href="#referendumitems">Referendum subtags</a></li>
+            <li><a href="#customballotitems">Custom Ballot subtags</a></li>
+            <li><a href="#ballotresponseitems">Ballot Response subtags</a></li>
+            <li><a href="#streetsegment">Street Segment</a></li>
+            <li><a href="#contestresult">Contest Result</a></li>
+            <li><a href="#ballotresponseresult">Ballot Response Result (e.g., Candidate Result)</a></li>
+          </ol>
+          <h2 class="header">Custom Types</h2>
+          <ol class="links">
+            <li><a href="#detailaddresstype">Detail Address subtags</a></li>
+            <li><a href="#simpleaddresstype">Simple Address subtags</a></li>
           </ol>
         </div>
         <div id="generalintro" class="rev1">
@@ -193,7 +236,7 @@
           <p>The actual election information specifies collection of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b> (VIP is short for "voting information project"). See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
       
           <div id="toplevel">
-            <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tag is the <b>source</b> object. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm">FIPS number</a>, but this is <b>not required</b>. As mentioned above, id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
+            <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tag is the <b>source</b> object. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><acronym title="Federal Information Processing Standards">FIPS</acronym> number</a>, but this is <b>not required</b>. As mentioned above, id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
             <p>In general, subtag data can appear a maximum of one time within each top-level tag object and in any order. Exceptions are noted below.</p>
             <p>For the data itself, the special characters &amp;, &lt;, and &gt; need to be encoded as &amp;amp;, &amp;lt;, and &amp;gt;, respectively</p>
           
@@ -214,134 +257,7 @@
               <p>where again 321113 is the id in the Iowa file, and 3705 is the id in the supplementing file. If the supplementing file needs to link to Michael Smith (e.g., for a candidate statement), it should link <b>internally</b>, using the 3705 ID.</p>
             </div>
       
-          </div>
-       
-          <div class="toplevelitems rev1">
-            <h2>Top level items</h2>
-            
-            <table>
-              <thead>
-                <tr>
-                  <th>Tag</th>
-                  <th>Section</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>source</td>
-                  <td><a href="#sourceitems">Source subtags</a></td>
-                </tr>
-                <tr>
-                  <td>election</td>
-                  <td><a href="#electionitems">Election subtags</a></td>
-                </tr>
-                <tr>
-                  <td>state</td>
-                  <td><a href="#stateitems">State subtags</a></td>
-                </tr>
-                <tr>
-                  <td>locality</td>
-                  <td><a href="#localityitems">Locality subtags</a></td>
-                </tr>
-                <tr>
-                  <td>precinct</td>
-                  <td><a href="#precinctitems">Precinct subtags</a></td>
-                </tr>
-                <tr>
-                  <td>precinct_split</td>
-                  <td><a href="#precinctsplititems">Precinct Split subtags</a></td>
-                </tr>
-                <tr>
-                  <td>election_administration</td>
-                  <td><a href="#electionadministration">Election Administration subtags</a></td>
-                </tr>
-                <tr>
-                  <td>election_official</td>
-                  <td><a href="#electionofficial">Election Official subtags</a></td>
-                </tr>
-                <tr>
-                  <td>polling_location</td>
-                  <td><a href="#pollinglocationitems">Polling Location subtags</a></td>
-                </tr>
-                <tr>
-                  <td>early_vote_site</td>
-                  <td><a href="#earlyvotesiteitems">Early Vote Site
-            subtags</a></td>
-                </tr>
-                <tr class="rev7">
-                  <td>contest</td>
-                  <td><a href="#contestitems">Contest subtags</a></td>
-                </tr>
-                <tr>
-                  <td>electoral_district</td>
-                  <td><a href="#electoraldistrictitems">Electoral District subtags</a></td>
-                </tr>
-                <tr>
-                  <td>ballot</td>
-                  <td><a href="#ballotitems">Ballot subtags</a></td>
-                </tr>
-                <tr>
-                  <td>candidate</td>
-                  <td><a href="#candidateitems">Candidate subtags</a></td>
-                </tr>
-                <tr>
-                  <td>campaign_issue</td>
-                  <td><a href="#campaignissueitems">Campaign Issue subtags</a></td>
-                </tr>
-                <tr>
-                  <td>candidate_statement</td>
-                  <td><a href="#candidatestatementitems">Candidate Statement subtags</a></td>
-                </tr>
-                <tr>
-                  <td>referendum</td>
-                  <td><a href="#referendumitems">Referendum subtags</a></td>
-                </tr>
-                <tr>
-                  <td>custom_ballot</td>
-                  <td><a href="#customballotitems">Custom Ballot subtags</a></td>
-                </tr>
-                <tr>
-                  <td>ballot_response</td>
-                  <td><a href="#ballotresponseitems">Ballot Response subtags</a></td>
-                </tr>
-                <tr>
-                  <td>street_segment</td>
-                  <td><a href="#streetsegment">Street Segment</a></td>
-                </tr>
-                <tr>
-                  <td>contest_result</td>
-                  <td><a href="#contestresult">Contest Result</a></td>
-                </tr>
-                <tr>
-                  <td>ballot_response_result</td>
-                  <td><a href="#ballotresponseresult">Ballot Response Result (e.g., Candidate Result)</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-      
-          <div class="toplevelitems rev20">
-            <h2>Custom Types</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Tag</th>
-                  <th>Section</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>detailAddressType</td>
-                  <td><a href="#detailaddresstype">Detail Address subtags</a></td>
-                </tr>
-                <tr>
-                  <td>simpleAddressType</td>
-                  <td><a href="#simpleaddresstype">Simple Address subtags</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-      
+          </div>      
         </div>
       
         <div class="rev11">
@@ -680,7 +596,7 @@
                 <td>polling_location_id</td>
                 <td>Integer</td>
                 <td>Optional</td>
-                <td>If everyone in a locality voters at the same polling location, the <b>polling_location_id</b> specifies a link to the
+                <td>If everyone in a locality votes at the same polling location, the <b>polling_location_id</b> specifies a link to the
           locality's polling location object. Use the <b>early_vote_site</b> for early vote centers.</td>
                 <td>If the <b>polling_location_id</b> field is missing or invalid, the
           implementation is required to ignore it.</td>
