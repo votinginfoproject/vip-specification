@@ -70,6 +70,7 @@
       margin-bottom: 1em;
       border-collapse: separate;
       border-spacing: .2em;
+      width: 100%;
     }
     
     thead th {
@@ -125,6 +126,15 @@
       float: right;
       width: 20%;
       position: relative;
+    }
+    
+    .checkboxes {
+      line-height: 1;
+      margin-bottom: 1em;
+    }
+    
+    .checkboxes p {
+      margin-bottom: 0;
     }
     
     .content-navigation {
@@ -203,6 +213,12 @@
     <div class="group">
       <div class="sidebar group">
         <div class="content-navigation">
+          <h2 class="header">Show</h2>
+          <div class="checkboxes">
+            <p><input class="filter-check" type="checkbox" name="polling-check" /><label for="polling-check">Polling Locations</label></p>
+            <p><input class="filter-check" type="checkbox" name="candidate-check" /><label for="candidate-check">Candidate Information</label></p>
+            <p><input class="filter-check" type="checkbox" name="election-check" /><label for="election-check">Election Official</label></p>
+          </div>
           <h2 class="header">Top-Level Items</h2>
           <ol class="links">
             <li><a href="#sourceitems">Source</a></li>
@@ -244,7 +260,7 @@
           
           <h3>General Specification</h3>
           
-          <p>The actual election information specifies collection of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b> (VIP is short for "voting information project"). See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
+          <p>The actual election information specifies collection of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
       
           <div id="toplevel">
             <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tag is the <b>source</b> object. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><acronym title="Federal Information Processing Standards">FIPS</acronym> number</a>, but this is <b>not required</b>. As mentioned above, id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
@@ -2600,9 +2616,9 @@
         <table>
           <thead>
             <tr>
-              <td><b>Date</b></td>
-              <td><b>Author</b></td>
-              <td><b>Description</b></td>
+              <th>Date</th>
+              <th>Author</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
@@ -2727,20 +2743,55 @@
   <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shBrushXml.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      var sections = [];
+      var sections = {};
       SyntaxHighlighter.all();
       
       $('.sidebar .content-navigation .links li').each(function(){
-        sections.push($('a',this).attr('href'));
+        sections[$('a',this).attr('href')] = $(this);
       });
+      /*
+        [source, election object always shown]
+        1) Polling locations <-default [state,. locality, prec., prec. split, street seg., detail address]
+          a) early vote as as well? [early_vote_site, early_vote_site_id fields]
+        2) Candidate information [contest, electoral_district_id fields, ballot, cand.]
+          b) referenda as well? [referendum, ballot_response]
+          c) need custom contest (e.g., recall, judge retention)? [custom_ballot]
+        3) Election official information [election_admin, election_official]
+          a) ballot image as well (if not take about ballot_image_id fields)
+        4) See everything? [everything else, including "external linking" paragraph]
+      */
+      //setTimeout(hideSections,5000);
+      $('.checkboxes input[type=checkbox]').change(eventHandler);
       
-      setTimeout(hideSections,5000);
+      function eventHandler(e) {
+        //console.log(e);
+        switch(e.type) {
+          case 'change':
+            var name = e.target && e.target.name;
+            switch(name) {
+              case 'polling-check':
+                alert(name);
+                break;
+              case 'candidate-check':
+                alert(name);
+                break;
+              case 'election-check':
+                alert(name);
+                break;
+            }
+            break;
+        }
+      }
       
       function hideSections() {
-        var len = sections.length;
-        console.log(sections);
-        while(len--) {
+        //var len = sections.length;
+        //console.log(sections);
+        /*while(len--) {
           $(sections[len]).hide();
+        }*/
+        for(var sect in sections) {
+          $(sect).hide();
+          sections[sect].hide();
         }
       }
     });
