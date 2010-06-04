@@ -121,10 +121,14 @@
       background-color: #eaf2ff;
     }
     
+    .sidebar {
+      float: right;
+      width: 20%;
+      position: relative;
+    }
+    
     .content-navigation {
-      position: fixed;
-      bottom: 0;
-      left: 0;
+      position: absolute;
       padding: 1em;
     }
     
@@ -135,6 +139,11 @@
     .content-navigation .links {
       font-size: .75em;
       margin-bottom: 1em;
+    }
+    
+    .main {
+      float: left;
+      width: 80%;
     }
     
     div.note {
@@ -192,39 +201,41 @@
 
   <div class="wrap">
     <div class="group">
-      <div class="main">
+      <div class="sidebar group">
         <div class="content-navigation">
           <h2 class="header">Top-Level Items</h2>
           <ol class="links">
-            <li><a href="#sourceitems">Source subtags</a></li>
-            <li><a href="#electionitems">Election subtags</a></li>
-            <li><a href="#stateitems">State subtags</a></li>
-            <li><a href="#localityitems">Locality subtags</a></li>
-            <li><a href="#precinctitems">Precinct subtags</a></li>
-            <li><a href="#precinctsplititems">Precinct Split subtags</a></li>
-            <li><a href="#electionadministration">Election Administration subtags</a></li>
-            <li><a href="#electionofficial">Election Official subtags</a></li>
-            <li><a href="#pollinglocationitems">Polling Location subtags</a></li>
-            <li><a href="#earlyvotesiteitems">Early Vote Site subtags</a></li>
-            <li><a href="#contestitems">Contest subtags</a></li>
-            <li><a href="#electoraldistrictitems">Electoral District subtags</a></li>
-            <li><a href="#ballotitems">Ballot subtags</a></li>
-            <li><a href="#candidateitems">Candidate subtags</a></li>
-            <li><a href="#campaignissueitems">Campaign Issue subtags</a></li>
-            <li><a href="#candidatestatementitems">Candidate Statement subtags</a></li>
-            <li><a href="#referendumitems">Referendum subtags</a></li>
-            <li><a href="#customballotitems">Custom Ballot subtags</a></li>
-            <li><a href="#ballotresponseitems">Ballot Response subtags</a></li>
+            <li><a href="#sourceitems">Source</a></li>
+            <li><a href="#electionitems">Election</a></li>
+            <li><a href="#stateitems">State</a></li>
+            <li><a href="#localityitems">Locality</a></li>
+            <li><a href="#precinctitems">Precinct</a></li>
+            <li><a href="#precinctsplititems">Precinct Split</a></li>
+            <li><a href="#electionadministration">Election Administration</a></li>
+            <li><a href="#electionofficial">Election Official</a></li>
+            <li><a href="#pollinglocationitems">Polling Location</a></li>
+            <li><a href="#earlyvotesiteitems">Early Vote Site</a></li>
+            <li><a href="#contestitems">Contest</a></li>
+            <li><a href="#electoraldistrictitems">Electoral District</a></li>
+            <li><a href="#ballotitems">Ballot</a></li>
+            <li><a href="#candidateitems">Candidate</a></li>
+            <li><a href="#campaignissueitems">Campaign Issue</a></li>
+            <li><a href="#candidatestatementitems">Candidate Statement</a></li>
+            <li><a href="#referendumitems">Referendum</a></li>
+            <li><a href="#customballotitems">Custom Ballot</a></li>
+            <li><a href="#ballotresponseitems">Ballot Response</a></li>
             <li><a href="#streetsegment">Street Segment</a></li>
             <li><a href="#contestresult">Contest Result</a></li>
-            <li><a href="#ballotresponseresult">Ballot Response Result (e.g., Candidate Result)</a></li>
+            <li><a href="#ballotresponseresult">Ballot Response Result</a></li>
           </ol>
           <h2 class="header">Custom Types</h2>
           <ol class="links">
-            <li><a href="#detailaddresstype">Detail Address subtags</a></li>
-            <li><a href="#simpleaddresstype">Simple Address subtags</a></li>
+            <li><a href="#detailaddresstype">Detail Address</a></li>
+            <li><a href="#simpleaddresstype">Simple Address</a></li>
           </ol>
         </div>
+      </div>
+      <div class="main">
         <div id="generalintro" class="rev1">
           <h2 class="page-title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 2.2 (2010-04-22)</span></h2>
       
@@ -260,8 +271,8 @@
           </div>      
         </div>
       
-        <div class="rev11">
-          <h2 id="sourceitems">Source items</h2>
+        <div id="sourceitems" class="rev11">
+          <h2>Source items</h2>
       
           <table>
             <caption>The Source object represents the organization that is publishing the information. This object is the only required object in the feed file, and only one source object is allowed to be present.</caption>
@@ -360,8 +371,8 @@
           </pre>
         </div>
       
-        <div class="rev1">
-          <h2 id="electionitems">Election items</h2>
+        <div id="electionitems" class="rev1">
+          <h2>Election items</h2>
       
           <table>
             <caption>The Election object represents an Election Day, which usually consists of many individual contests and/or referenda. <span class="rev22">A feed must contain <b>exactly one</b> Election object. All relationships in the feed (e.g., street segment to precinct [split] to polling location) are assumed to relate only to the Election specified by this object. It is permissible, and recommended, to combine unrelated contests (e.g., a special election and a general election) that occur on the same day into one feed with one Election object.</span></caption>
@@ -498,8 +509,8 @@
           </pre>
         </div>
         
-        <div>
-          <h2 id="stateitems">State items</h2>
+        <div id="stateitems">
+          <h2>State items</h2>
           
           <table>
             <caption>The State object includes state-wide election information. The ID attribute is the state's FIPS code.</caption>
@@ -543,8 +554,8 @@
           </pre>
         </div>
       
-        <div class="rev3">
-          <h2 id="localityitems">Locality items</h2>
+        <div id="localityitems" class="rev3">
+          <h2>Locality items</h2>
           <table>
             <caption>The Locality object represents the jurisdiction below the state (e.g., county).</caption>
             <thead>
@@ -631,8 +642,8 @@
           </pre>
         </div>
         
-        <div class="rev3">
-          <h2 id="precinctitems">Precinct</h2>
+        <div id="precinctitems" class="rev3">
+          <h2>Precinct</h2>
         
           <table>
             <caption>The Precinct object represents a precinct, which is contained within a Locality. Subtag data must appear in the order below.</caption>
@@ -755,8 +766,8 @@
           </pre>
         </div>
       
-        <div class="rev3">
-          <h2 id="precinctsplititems">Precinct Split</h2>
+        <div id="precinctsplititems" class="rev3">
+          <h2>Precinct Split</h2>
       
           <table>
             <caption>The Precinct Split object represents a part of a precinct. The Precinct Split object will link to its "parent" Precinct object. Subtag data must appear in the order below.</caption>
@@ -839,8 +850,8 @@
           </pre>
         </div>
       
-        <div class="rev11">
-          <h2 id="electionadministration">Election Administration</h2>
+        <div id="electionadministration" class="rev11">
+          <h2>Election Administration</h2>
           
           <table>
             <caption>The Election Administration represents an institution for serving a locality's (or state's) election functions.</caption>
@@ -1005,8 +1016,8 @@
           </pre>
         </div>
       
-        <div class="rev11">
-          <h2 id="electionofficial">Election Official</h2>
+        <div id="electionofficial" class="rev11">
+          <h2>Election Official</h2>
       
           <table>
             <caption>The Election Official object comprises the name and contact information for an election official.</caption>
@@ -1076,8 +1087,8 @@
           </pre>
         </div>
       
-        <div class="rev3">
-          <h2 id="pollinglocationitems">Polling Location</h2>
+        <div id="pollinglocationitems" class="rev3">
+          <h2>Polling Location</h2>
           
           <table>
             <caption>The Polling Location object represents a site where voters cast ballots on Election Day.</caption>
@@ -1139,8 +1150,8 @@
           </pre>
         </div>
       
-        <div class="rev4">
-          <h2 id="earlyvotesiteitems">Early Vote Site items</h2>
+        <div id="earlyvotesiteitems" class="rev4">
+          <h2>Early Vote Site items</h2>
           
           <table>
             <caption>The Early Vote Site object represents a place where completed ballots can be returned prior to the election, or on Election Day. This object can represent: a registrar's office that offers early voting, a temporary early vote site, a ballot drop box, or similar location.</caption>
@@ -1263,8 +1274,8 @@
           </pre>
         </div>
         
-        <div class="rev9">
-          <h2 id="contestitems">Contest items</h2>
+        <div id="contestitems" class="rev9">
+          <h2>Contest items</h2>
       
           <table>
             <caption>The Contest object represents a single contest, which could be between candidates, adoption of a resolution, or retention of judges (among other possibilities). The geographic scope of the Contest object is the Electoral District, which the Contest object links to.</caption>
@@ -1418,8 +1429,8 @@
           </pre>
         </div>
         
-        <div class="rev3">
-          <h2 id="electoraldistrictitems">Electoral District items</h2>
+        <div id="electoraldistrictitems" class="rev3">
+          <h2>Electoral District items</h2>
       
           <table>
             <caption>The Electoral District object represents the geographic area in which a single contest is held. Examples of Electoral District include: statewide, congressional district, a state senate district, and a fire district. The geographic area that comprises a Electoral District is defined by which precinct or precinct splits link to the Electoral District.</caption>
@@ -1480,13 +1491,13 @@
           </pre>
         </div>
         
-        <div class="rev1">
+        <div id="ballotitems" class="rev1">
       
-          <h2 id="ballotitems">Ballot items</h2>
+          <h2>Ballot items</h2>
       
           <table>
             <caption>The Ballot object represents the ballot item for <b>one contest</b>. The Ballot object is linked to by the corresponding Contest object. The Ballot object links to the Candidate objects or Referendum objects that compose the ballot. Subtag data must appear in the order below.</caption>
-            <tbody>
+            <thead>
               <tr>
                 <th>Tag</th>
                 <th>Data type</th>
@@ -1495,6 +1506,8 @@
                 <th>Description</th>
                 <th>Error handling</th>
               </tr>
+            </thead>
+            <tbody>
               <tr>
                 <td>referendum_id</td>
                 <td>Integer</td>
@@ -1560,12 +1573,12 @@
           </pre>
         </div>
       
-        <div class="rev1">
-          <h2 id="candidateitems">Candidate items</h2>
+        <div id="candidateitems" class="rev1">
+          <h2>Candidate items</h2>
       
           <table>
             <caption>The candidate object represents a candidate. If a candidate is running in multiple contests, the same Candidate object may be used provided that the candidate's name, party, etc. appear the same in the ballot items for both contests.</caption>
-            <tbody>
+            <thead>
               <tr>
                 <th>Tag</th>
                 <th>Data type</th>
@@ -1574,6 +1587,8 @@
                 <th>Description</th>
                 <th>Error handling</th>
               </tr>
+            </thead>
+            <tbody>
               <tr>
                 <td>name</td>
                 <td>String</td>
@@ -1676,8 +1691,8 @@
           </pre>
         </div>
       
-        <div class="rev12">
-          <h2 id="campaignissueitems">Campaign Issue items</h2>
+        <div id="campaignissueitems" class="rev12">
+          <h2>Campaign Issue items</h2>
       
           <table>
             <caption>The campaign issue object represents an issue that candidates take positions on. A campaign issue object is linked to an election (not a contest) so that multiple candidates across contests can take positions on the same issue.</caption>
@@ -1739,8 +1754,8 @@
           </pre>
         </div>
       
-        <div class="rev12">
-          <h2 id="candidatestatementitems">Candidate Statement items</h2>
+        <div id="candidatestatementitems" class="rev12">
+          <h2>Candidate Statement items</h2>
       
           <table>
             <caption>The candidate statement object represents a position that a candidate has taken on an issue.</caption>
@@ -1801,8 +1816,8 @@
           </pre>
         </div>
       
-        <div class="rev1">
-          <h2 id="referendumitems">Referendum items</h2>
+        <div id="referendumitems" class="rev1">
+          <h2>Referendum items</h2>
       
           <table>
             <caption>The Referendum object provides information about a referendum before the voters, including summary statements on each side.</caption>
@@ -1916,8 +1931,8 @@
           </pre>
         </div>
         
-        <div class="rev3">
-          <h2 id="customballotitems">Custom Ballot items</h2>
+        <div id="customballotitems" class="rev3">
+          <h2>Custom Ballot items</h2>
       
           <table>
             <caption>A Custom Ballot object represents a ballot for a contest that neither pits candidates against each other nor is a referendum. Examples include recall elections and the retention of judges. A Custom Ballot object consists of multiple Ballot Response objects and it links to these objects.</caption>
@@ -1968,9 +1983,9 @@
           </pre>
         </div>
       
-        <div class="rev3">
+        <div id="ballotresponseitems" class="rev3">
       
-        <h2 id="ballotresponseitems">Ballot Response items</h2>
+        <h2>Ballot Response items</h2>
       
         <table>
           <caption>A Ballot Response object represents a line on the ballot. Common examples might include "yes" or "no" for referenda, or a judge's name for a retention contest.</caption>
@@ -2022,8 +2037,8 @@
           </pre>
         </div>
       
-        <div class="rev11">
-          <h2 id="streetsegment">Street Segment</h2>
+        <div id="streetsegment" class="rev11">
+          <h2>Street Segment</h2>
       
           <table>
             <caption>A Street Segment objection represents a portion of a street and the links to the precinct (and possibly precinct split) that this geography (i.e., segment) is contained within. The start address house number must be less than the end address house number unless the segment consists of only one address in which case these values are equal.</caption>
@@ -2126,8 +2141,8 @@
           </pre>
         </div>
       
-        <div class="rev21">
-          <h2 id="contestresult">Contest Result</h2>
+        <div id="contestresult" class="rev21">
+          <h2>Contest Result</h2>
       
           <table>
             <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
@@ -2219,8 +2234,8 @@
           </pre>
         </div>
       
-        <div class="rev21">
-          <h2 id="ballotresponseresult">Ballot Response Result (e.g., Candidate Result)</h2>
+        <div id="ballotresponseresult" class="rev21">
+          <h2>Ballot Response Result (e.g., Candidate Result)</h2>
       
           <table>
             <caption>A Ballot Response Result provides the candidates' or referenda responses' vote totals. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
@@ -2284,8 +2299,8 @@
         </div>
       
       
-        <div class="rev20">
-          <h2 id="detailaddresstype">Detail Address (Type) items</h2>
+        <div id="detailaddresstype" class="rev20">
+          <h2>Detail Address (Type) items</h2>
           
           <table>
             <caption>A Detail Address is an address that includes details such as street direction. It is a type and not an object, so no ID is required.</caption>
@@ -2414,8 +2429,8 @@
           </pre>
         </div>
       
-        <div class="rev20">
-          <h2 id="simpleaddresstype">Simple Address (Type) items</h2>
+        <div id="simpleaddresstype" class="rev20">
+          <h2>Simple Address (Type) items</h2>
           
           <table>
             <caption>A Simple Address is an address that combines each address line into one string. It is a type and not an object, so no ID is required.</caption>
@@ -2510,10 +2525,8 @@
           </pre>
         </div>
       
-        <div class="rev21">
-          <h2 id="certificationtype">Certification Enumeration</h2>
-          <span style="font-style: italic;"></span><br>
-          <br>
+        <div id="certificationtype" class="rev21">
+          <h2>Certification Enumeration</h2>
           <table>
             <caption>The Certification Enumeration provides information of the level of completeness of results. Lowercase is required.</caption>
             <thead>
@@ -2538,42 +2551,48 @@
             </tbody>
           </table>
         </div>
-      
-        <h3>Term definitions</h3>
-        <ol>
-          <li><b>Required</b> - Any implementation that does not implement things noted as required is not considered a conforming implementation.</li>
-          <li><b>Optional</b> - Conforming implementations may validly ignore anything marked optional and still be considered conforming.</li>
-        </ol>
         
-        <h3>Field types</h3>
+        <div id="termdefs">
+          <h3>Term definitions</h3>
+          <dl>
+            <dt>Required</dt>
+            <dd>Any implementation that does not implement things noted as required is not considered a conforming implementation.</dd>
+            <dt>Optional</dt>
+            <dd>Conforming implementations may validly ignore anything marked optional and still be considered conforming.</dd>
+          </dl>
+        </div>
         
-        <table>
-          <thead>
-            <tr>
-              <th>Field type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Date</td>
-              <td><b>Date</b> fields are required to be valid xs:date format (as defined by <a href="http://www.w3.org/TR/xmlschema-2/#date">The XML Schema specification</a>), which is yyyy-mm-dd &lt;optional timezone info&gt;</td>
-            </tr>
-            <tr>
-              <td>DateTime</td>
-              <td><b>DateTime</b> fields are required to be valid xs:dateTime format (as defined by <a href="http://www.w3.org/TR/xmlschema-2/#dateTime">The XML Schema specification</a>), which is "YYYY-MM-DDThh:mm:ss" &lt;optional timezone info&gt;<br>
-              </td>
-            </tr>
-            <tr>
-              <td>String</td>
-              <td><b>String</b> fields contain arbitrary UTF-8 text. These fields are required to be valid UTF-8. Further restrictions on the content of a String field may be included in each field description</td>
-            </tr>
-            <tr>
-              <td>Integer</td>
-              <td><b>Integer</b> fields describe a numeric value. The value of an integer field is required to be representable as a two's complement 64 bit signed integer. That is, the value must be between -9223372036854775807 and 9223372036854775807</td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="fieldtypes">
+          <h3>Field types</h3>
+          
+          <table>
+            <thead>
+              <tr>
+                <th>Field type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Date</td>
+                <td><b>Date</b> fields are required to be valid xs:date format (as defined by <a href="http://www.w3.org/TR/xmlschema-2/#date">The XML Schema specification</a>), which is yyyy-mm-dd &lt;optional timezone info&gt;</td>
+              </tr>
+              <tr>
+                <td>DateTime</td>
+                <td><b>DateTime</b> fields are required to be valid xs:dateTime format (as defined by <a href="http://www.w3.org/TR/xmlschema-2/#dateTime">The XML Schema specification</a>), which is "YYYY-MM-DDThh:mm:ss" &lt;optional timezone info&gt;<br>
+                </td>
+              </tr>
+              <tr>
+                <td>String</td>
+                <td><b>String</b> fields contain arbitrary UTF-8 text. These fields are required to be valid UTF-8. Further restrictions on the content of a String field may be included in each field description</td>
+              </tr>
+              <tr>
+                <td>Integer</td>
+                <td><b>Integer</b> fields describe a numeric value. The value of an integer field is required to be representable as a two's complement 64 bit signed integer. That is, the value must be between -9223372036854775807 and 9223372036854775807</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         
         <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
       
@@ -2708,7 +2727,22 @@
   <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shBrushXml.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
+      var sections = [];
       SyntaxHighlighter.all();
+      
+      $('.sidebar .content-navigation .links li').each(function(){
+        sections.push($('a',this).attr('href'));
+      });
+      
+      setTimeout(hideSections,5000);
+      
+      function hideSections() {
+        var len = sections.length;
+        console.log(sections);
+        while(len--) {
+          $(sections[len]).hide();
+        }
+      }
     });
   </script>
 </body>
