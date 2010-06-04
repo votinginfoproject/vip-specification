@@ -2761,29 +2761,26 @@
         4) See everything? [everything else, including "external linking" paragraph]
       */
       //setTimeout(hideSections,5000);
-      $('.checkboxes input[type=checkbox]').change(eventHandler);
-      
-      function eventHandler(e) {
-        //console.log(e);
-        switch(e.type) {
-          case 'change':
-            var name = e.target && e.target.name;
-            switch(name) {
-              case 'polling-check':
-                alert(name);
-                break;
-              case 'candidate-check':
-                alert(name);
-                break;
-              case 'election-check':
-                alert(name);
-                break;
-            }
-            break;
+      $('.checkboxes input[type=checkbox]').bind({
+        change: function(e) {
+          var name = e.target && e.target.name;
+          switch(name) {
+            case 'polling-check':
+              if(e.target.checked) {
+                hideSections([]);
+              }
+              break;
+            case 'candidate-check':
+              alert(name);
+              break;
+            case 'election-check':
+              alert(name);
+              break;
+          }
         }
-      }
+      });
       
-      function hideSections() {
+      function hideSections(arr) {
         //var len = sections.length;
         //console.log(sections);
         /*while(len--) {
