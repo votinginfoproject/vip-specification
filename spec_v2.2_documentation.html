@@ -213,12 +213,6 @@
     <div class="group">
       <div class="sidebar group">
         <div class="content-navigation">
-          <h2 class="header">Show</h2>
-          <div class="checkboxes">
-            <p><input class="filter-check" type="checkbox" name="polling-check" /><label for="polling-check">Polling Locations</label></p>
-            <p><input class="filter-check" type="checkbox" name="candidate-check" /><label for="candidate-check">Candidate Information</label></p>
-            <p><input class="filter-check" type="checkbox" name="election-check" /><label for="election-check">Election Official</label></p>
-          </div>
           <h2 class="header">Top-Level Items</h2>
           <ol class="links">
             <li><a href="#sourceitems">Source</a></li>
@@ -2743,52 +2737,93 @@
   <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shBrushXml.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      var sections = {};
-      SyntaxHighlighter.all();
+      var sections = {},
+          filterNav = ['<h2 class="header">Show</h2>',
+      '<ul class="checkboxes">',
+        '<li><input class="filter-check" type="checkbox" checked="checked" name="polling-check" /><label for="polling-check">Polling Locations</label>',
+          '<ul>',
+            '<li><input class="filter-check" type="checkbox" checked="checked" name="early-vote-check" /><label for="early-vote-check">Early Vote</label></li>',
+          '</ul>',
+        '</li>',
+        '<li><input class="filter-check" type="checkbox" checked="checked" name="candidate-check" /><label for="candidate-check">Candidate Information</label>',
+          '<ul>',
+            '<li><input class="filter-check" type="checkbox" checked="checked" name="referenda-check" /><label for="referenda-check">Referenda</label></li>',
+            '<li><input class="filter-check" type="checkbox" checked="checked" name="custom-contest-check" /><label for="custom-contest-check">Custom Contest</label></li>',
+        '</li>',
+        '<li><input class="filter-check" type="checkbox" checked="checked" name="election-check" /><label for="election-check">Election Official</label></li>',
+      '</ul>'].join('');
       
       $('.sidebar .content-navigation .links li').each(function(){
         sections[$('a',this).attr('href')] = $(this);
       });
-      /*
-        [source, election object always shown]
-        1) Polling locations <-default [state,. locality, prec., prec. split, street seg., detail address]
-          a) early vote as as well? [early_vote_site, early_vote_site_id fields]
-        2) Candidate information [contest, electoral_district_id fields, ballot, cand.]
-          b) referenda as well? [referendum, ballot_response]
-          c) need custom contest (e.g., recall, judge retention)? [custom_ballot]
-        3) Election official information [election_admin, election_official]
-          a) ballot image as well (if not take about ballot_image_id fields)
-        4) See everything? [everything else, including "external linking" paragraph]
-      */
-      //setTimeout(hideSections,5000);
+      
+      $('.sidebar .content-navigation').prepend(filterNav);
+
       $('.checkboxes input[type=checkbox]').bind({
         change: function(e) {
           var name = e.target && e.target.name;
           switch(name) {
             case 'polling-check':
-              if(e.target.checked) {
-                hideSections([]);
-              }
+              toggleSections([
+                '#pollinglocationitems',
+                '#stateitems',
+                '#localityitems',
+                '#precinctitems',
+                '#precinctsplititems',
+                '#streetsegment',
+                '#detailaddresstype'
+              ]);
+              break;
+            case 'early-vote-check':
+              toggleSections([
+                '#earlyvotesiteitems'
+              ]);
               break;
             case 'candidate-check':
-              alert(name);
+              toggleSections([
+                '#contestitems',
+                '#contestresult',
+                '#electoraldistrictitems',
+                '#ballotitems',
+                '#candidateitems',
+                '#campaignissueitems',
+                '#candidatestatementitems'
+              ]);
+              break;
+            case 'referenda-check':
+              toggleSections([
+                '#referendumitems',
+                '#ballotresponseitems',
+                '#ballotresponseresult'
+              ]);
+              break;
+            case 'custom-contest-check':
+              toggleSections([
+                '#customballotitems'
+              ]);
               break;
             case 'election-check':
-              alert(name);
+              toggleSections([
+                '#electionadministration',
+                '#electionofficial'
+              ]);
               break;
           }
         }
+        
+        // wrap all pre sections with the Syntax Highlighter
+        SyntaxHighlighter.all();
       });
       
-      function hideSections(arr) {
+      function toggleSections(arr) {
         //var len = sections.length;
         //console.log(sections);
         /*while(len--) {
           $(sections[len]).hide();
         }*/
-        for(var sect in sections) {
-          $(sect).hide();
-          sections[sect].hide();
+        for(var sect in sections) if (jQuery.inArray(sect,arr)!=-1) {
+          $(sect).toggle();
+          sections[sect].toggle();
         }
       }
     });
