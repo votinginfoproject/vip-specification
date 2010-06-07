@@ -191,7 +191,7 @@
   </script>
 </head>
 <body>
-  <div class="header group">
+  <div id="#top" class="header group">
     <div class="logo"><img title="VIP logo" alt="Voting Information Project" src="http://votinginfoproject.org/images/vip_logo.jpg" /></div>
     <div class="tagline">Easy access to essential voting information</div>
   </div> <!-- /.header -->
@@ -2811,9 +2811,10 @@
           }
         }
         
-        // wrap all pre sections with the Syntax Highlighter
-        SyntaxHighlighter.all();
       });
+      
+      // wrap all pre sections with the Syntax Highlighter
+      SyntaxHighlighter.all();
       
       function toggleSections(arr) {
         //var len = sections.length;
