@@ -2309,6 +2309,14 @@
           <h2>Detail Address (Type) items</h2>
           
           <table>
+            <!-- for non-IE support
+            <colgroup>
+             <col class="show"/>
+             <col class="visible_class"/>
+             <col class="invisible_class"/>
+             <col class="invisible_class"/>
+             <col class="invisible_class"/>
+            </colgroup> -->
             <caption>A Detail Address is an address that includes details such as street direction. It is a type and not an object, so no ID is required.</caption>
             <thead>
               <tr>
@@ -2816,6 +2824,7 @@
               toggleSections([
                 '#externallinking'
               ]);
+              toggleColumns();
               break;
           }
         }
@@ -2852,6 +2861,14 @@
           $(sect).slideToggle();
           sections[sect].slideToggle();
         }
+      }
+      
+      // TODO: extremely hackalicious. make less so.
+      function toggleColumns() {
+        $('table tr').each(function() { 
+            $('td:eq(4)',this).toggle();
+            $('th:eq(4)',this).toggle();
+        });
       }
     });
   </script>
