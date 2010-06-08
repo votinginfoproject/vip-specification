@@ -128,27 +128,31 @@
       position: relative;
     }
     
+    .fixed {
+      position: fixed;
+      top: 0;
+    }
+    
     .checkboxes {
       line-height: 1;
+    }
+    
+    .checkboxes, .content-navigation .links {
       margin-bottom: 1em;
     }
     
-    .checkboxes p {
-      margin-bottom: 0;
-    }
-    
     .content-navigation {
-      position: fixed;
       padding: 1em;
+      font-size: .75em;
     }
     
     .content-navigation .header {
       font-size: .875em;
+      min-width: 1em;
     }
     
-    .content-navigation .links {
-      font-size: .75em;
-      margin-bottom: 1em;
+    .content-navigation .checkboxes li li {
+      padding-left: .75em;
     }
     
     .main {
@@ -191,7 +195,7 @@
   </script>
 </head>
 <body>
-  <div id="#top" class="header group">
+  <div id="top" class="header group">
     <div class="logo"><img title="VIP logo" alt="Voting Information Project" src="http://votinginfoproject.org/images/vip_logo.jpg" /></div>
     <div class="tagline">Easy access to essential voting information</div>
   </div> <!-- /.header -->
@@ -213,7 +217,7 @@
     <div class="group">
       <div class="sidebar group">
         <div class="content-navigation">
-          <h2 class="header">Top-Level Items</h2>
+          <h2 class="h4">Top-Level Items</h2>
           <ol class="links">
             <li><a href="#sourceitems">Source</a></li>
             <li><a href="#electionitems">Election</a></li>
@@ -238,7 +242,7 @@
             <li><a href="#contestresult">Contest Result</a></li>
             <li><a href="#ballotresponseresult">Ballot Response Result</a></li>
           </ol>
-          <h2 class="header">Custom Types</h2>
+          <h2 class="h4">Custom Types</h2>
           <ol class="links">
             <li><a href="#detailaddresstype">Detail Address</a></li>
             <li><a href="#simpleaddresstype">Simple Address</a></li>
@@ -2738,7 +2742,8 @@
   <script type="text/javascript">
     $(document).ready(function() {
       var sections = {},
-          filterNav = ['<h2 class="header">Show</h2>',
+          top = $('.sidebar .content-navigation').offset().top - parseFloat($('.sidebar .content-navigation').css('marginTop').replace(/auto/, 0)),
+          filterNav = ['<h2 class="h4">Show</h2>',
       '<ul class="checkboxes">',
         '<li><input class="filter-check" type="checkbox" checked="checked" name="polling-check" /><label for="polling-check">Polling Locations</label>',
           '<ul>',
@@ -2749,6 +2754,7 @@
           '<ul>',
             '<li><input class="filter-check" type="checkbox" checked="checked" name="referenda-check" /><label for="referenda-check">Referenda</label></li>',
             '<li><input class="filter-check" type="checkbox" checked="checked" name="custom-contest-check" /><label for="custom-contest-check">Custom Contest</label></li>',
+          '</ul>',
         '</li>',
         '<li><input class="filter-check" type="checkbox" checked="checked" name="election-check" /><label for="election-check">Election Official</label></li>',
       '</ul>'].join('');
@@ -2782,19 +2788,16 @@
             case 'candidate-check':
               toggleSections([
                 '#contestitems',
-                '#contestresult',
                 '#electoraldistrictitems',
                 '#ballotitems',
                 '#candidateitems',
-                '#campaignissueitems',
                 '#candidatestatementitems'
               ]);
               break;
             case 'referenda-check':
               toggleSections([
                 '#referendumitems',
-                '#ballotresponseitems',
-                '#ballotresponseresult'
+                '#ballotresponseitems'
               ]);
               break;
             case 'custom-contest-check':
@@ -2808,23 +2811,47 @@
                 '#electionofficial'
               ]);
               break;
+            case 'results-check':
+              toggleSections([
+                '#contestresult',
+                '#campaignissueitems',
+                '#ballotresponseresult'
+              ]);
+              break;
           }
         }
-        
       });
+      
+      /*$('.checkboxes input').ready(function () {
+        $('.checkboxes input[name=early-vote-check]').click();
+        $('.checkboxes input[name=referenda-check]').click();
+        $('.checkboxes input[name=custom-contest-check]').click();
+        $('.checkboxes input[name=election-check]').click();
+        $('.checkboxes input[name=results-check]').click();
+      });*/
       
       // wrap all pre sections with the Syntax Highlighter
       SyntaxHighlighter.all();
       
+      // as the window scrolls, realign sidebar to top
+      $(window).scroll(function (e) {
+        // what the y position of the scroll is
+        var y = $(this).scrollTop();
+      
+        // whether that's below the form
+        if (y >= top) {
+          // if so, ad the fixed class
+          $('.sidebar .content-navigation').addClass('fixed');
+        } else {
+          // otherwise remove it
+          $('.sidebar .content-navigation').removeClass('fixed');
+        }
+      });
+
       function toggleSections(arr) {
-        //var len = sections.length;
-        //console.log(sections);
-        /*while(len--) {
-          $(sections[len]).hide();
-        }*/
         for(var sect in sections) if (jQuery.inArray(sect,arr)!=-1) {
-          $(sect).toggle();
-          sections[sect].toggle();
+          $(sect).slideToggle();
+          sections[sect].slideToggle();
         }
       }
     });
