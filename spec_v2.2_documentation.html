@@ -237,6 +237,10 @@
             <li><a href="#detailaddresstype">Detail Address</a></li>
             <li><a href="#simpleaddresstype">Simple Address</a></li>
           </ol>
+          <h2 class="h4">Revision History</h2>
+          <ol class="links">
+            <li><a href="#changelog">Changelog</a></li>
+          </ol>
         </div>
       </div>
       <div class="main">
@@ -2609,125 +2613,127 @@
         </div>
         
         <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
-      
-        <h2> Revision information</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Author</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="rev0" onclick="highlight('rev0')">
-              <td>10-23-2007</td>
-              <td>dannyb</td>
-              <td>Entry for initial draft.</td>
-            </tr>
-            <tr class="rev1" onclick="highlight('rev1')">
-              <td>10-24-2007</td>
-              <td>dannyb</td>
-              <td>Added more top level items, finished off listing of tags</td>
-            </tr>
-            <tr class="rev2" onclick="highlight('rev2')">
-              <td>10-26-2007</td>
-              <td>dannyb</td>
-              <td>Edited text of some entries, added race objects, registration
-        info became a URL.</td>
-            </tr>
-            <tr class="rev3" onclick="highlight('rev3')">
-              <td>11-7-2007</td>
-              <td>Aaron Strauss</td>
-              <td>Added geographic elements, including tabulation district.
-        Added custom ballots.</td>
-            </tr>
-            <tr class="rev4" onclick="highlight('rev4')">
-              <td>11-12-2007</td>
-              <td>Aaron Strauss</td>
-              <td>Added ballot drop location. Switched referendum to ballot
-        response items. Added statewide tabulation area. Fixed typos.</td>
-            </tr>
-            <tr class="rev5" onclick="highlight('rev5')">
-              <td>11-21-2007</td>
-              <td>Aaron Strauss</td>
-              <td>Races link to elections rather than the other way around</td>
-            </tr>
-            <tr class="rev6" onclick="highlight('rev6')">
-              <td>11-26-2007</td>
-              <td>Aaron Strauss</td>
-              <td>Minor fixes to referendum (effect_of_abstain) and races
-        (partisan and party_primary)</td>
-            </tr>
-            <tr class="rev7" onclick="highlight('rev7')">
-              <td>11-28-2007</td>
-              <td>dannyb</td>
-              <td>Add a root element and rename a few elements for
-        consistency/niceness.</td>
-            </tr>
-            <tr class="rev8" onclick="highlight('rev8')">
-              <td>12-05-2007</td>
-              <td>Aaron Strauss</td>
-              <td>Minor changes.</td>
-            </tr>
-            <tr class="rev9" onclick="highlight('rev9')">
-              <td>12-15-2007</td>
-              <td>Aaron Strauss</td>
-              <td>Races now called contests. Fixed documentation for
-        contest.partisan, contest.primary_party, and
-        referendum.effect_of_abstain. Added ballot.write_in. </td>
-            </tr>
-            <tr class="rev10" onclick="highlight('rev10')">
-              <td>01-08-2008</td>
-              <td>Aaron Strauss</td>
-              <td>Added number of candidates elected and voting for in the
-        Contest object. Added polling hours.</td>
-            </tr>
-            <tr class="rev11" onclick="highlight('rev11')">
-              <td>03-06-2008</td>
-              <td>Aaron Strauss</td>
-              <td>Added source object. Added custom note object. Added election adminstration and election official objects. Added street segment and street address objects. <b>Backwards Incompatibility:</b> removed elections_url and rules_url from the state object; these fields are now in the election administration object linked from a state. The source object is required.</td>
-            </tr>
-            <tr class="rev12" onclick="highlight('rev12')">
-              <td>04-22-2008</td>
-              <td>Aaron Strauss</td>
-              <td>Added campaign issues and candidate statements. Added two more tags in the source object. Added three more URLs to the election_administration object. Added inter-contest ordering to overall ballots. <b>Backwards Incompatibility:</b> Changed EIP to VIP.</td>
-            </tr>
-            <tr class="rev13" onclick="highlight('rev13')">
-              <td>06-24-2008</td>
-              <td>Aaron Strauss</td>
-              <td>Added subtags to Ballot Drop Location, Election Administration, Contest, and Referendum. <b>Backwards Incompatibility:</b> Changed Candidate objects's subtag street_address to filed_mailing_address.</td>
-            </tr>
-            <tr class="rev14" onclick="highlight('rev14')">
-              <td>10-01-2008</td>
-              <td>Aaron Strauss</td>
-              <td>Added subtags of mail-only and ballot_drop_location_id to precinct. Added subtag zip to street_address.</td>
-            </tr>
-            <tr class="rev15" onclick="highlight('rev15')">
-              <td>10-10-2008</td>
-              <td>Aaron Strauss</td>
-              <td>Added voter_services subtag to election_administration. Allowed multiple polling_location_id subtags in the precinct and precinct_split objects.</td>
-            <tr class="rev20" onclick="highlight('rev20')">
-              <td>05-19-2009</td>
-              <td>Aaron Strauss</td>
-              <td>See <a href="http://www.votinginfoproject.org/blog">Blog Posting</a> for the numerous changes.</td>
-            </tr>
-            <tr class="rev21" onclick="highlight('rev21')">
-              <td>10-31-2009</td>
-              <td>Aaron Strauss</td>
-              <td>Results.</td>
-            </tr>
-            <tr class="rev22" onclick="highlight('rev22')">
-              <td>04-22-2010</td>
-              <td>Aaron Strauss</td>
-              <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element, and change the order attribute of the candidate_id field (in the ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
-            </tr>
-          </tbody>
-        </table>
-      
-        <script type="text/javascript">
-          document.writeln('<font size="-1">Click on a row to highlight changes made to a particular revision of this document.<\/font>');
-        </script>
+        
+        <div id="changelog">
+          <h2> Revision information</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Author</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="rev0" onclick="highlight('rev0')">
+                <td>10-23-2007</td>
+                <td>dannyb</td>
+                <td>Entry for initial draft.</td>
+              </tr>
+              <tr class="rev1" onclick="highlight('rev1')">
+                <td>10-24-2007</td>
+                <td>dannyb</td>
+                <td>Added more top level items, finished off listing of tags</td>
+              </tr>
+              <tr class="rev2" onclick="highlight('rev2')">
+                <td>10-26-2007</td>
+                <td>dannyb</td>
+                <td>Edited text of some entries, added race objects, registration
+          info became a URL.</td>
+              </tr>
+              <tr class="rev3" onclick="highlight('rev3')">
+                <td>11-7-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Added geographic elements, including tabulation district.
+          Added custom ballots.</td>
+              </tr>
+              <tr class="rev4" onclick="highlight('rev4')">
+                <td>11-12-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Added ballot drop location. Switched referendum to ballot
+          response items. Added statewide tabulation area. Fixed typos.</td>
+              </tr>
+              <tr class="rev5" onclick="highlight('rev5')">
+                <td>11-21-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Races link to elections rather than the other way around</td>
+              </tr>
+              <tr class="rev6" onclick="highlight('rev6')">
+                <td>11-26-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Minor fixes to referendum (effect_of_abstain) and races
+          (partisan and party_primary)</td>
+              </tr>
+              <tr class="rev7" onclick="highlight('rev7')">
+                <td>11-28-2007</td>
+                <td>dannyb</td>
+                <td>Add a root element and rename a few elements for
+          consistency/niceness.</td>
+              </tr>
+              <tr class="rev8" onclick="highlight('rev8')">
+                <td>12-05-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Minor changes.</td>
+              </tr>
+              <tr class="rev9" onclick="highlight('rev9')">
+                <td>12-15-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Races now called contests. Fixed documentation for
+          contest.partisan, contest.primary_party, and
+          referendum.effect_of_abstain. Added ballot.write_in. </td>
+              </tr>
+              <tr class="rev10" onclick="highlight('rev10')">
+                <td>01-08-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added number of candidates elected and voting for in the
+          Contest object. Added polling hours.</td>
+              </tr>
+              <tr class="rev11" onclick="highlight('rev11')">
+                <td>03-06-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added source object. Added custom note object. Added election adminstration and election official objects. Added street segment and street address objects. <b>Backwards Incompatibility:</b> removed elections_url and rules_url from the state object; these fields are now in the election administration object linked from a state. The source object is required.</td>
+              </tr>
+              <tr class="rev12" onclick="highlight('rev12')">
+                <td>04-22-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added campaign issues and candidate statements. Added two more tags in the source object. Added three more URLs to the election_administration object. Added inter-contest ordering to overall ballots. <b>Backwards Incompatibility:</b> Changed EIP to VIP.</td>
+              </tr>
+              <tr class="rev13" onclick="highlight('rev13')">
+                <td>06-24-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added subtags to Ballot Drop Location, Election Administration, Contest, and Referendum. <b>Backwards Incompatibility:</b> Changed Candidate objects's subtag street_address to filed_mailing_address.</td>
+              </tr>
+              <tr class="rev14" onclick="highlight('rev14')">
+                <td>10-01-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added subtags of mail-only and ballot_drop_location_id to precinct. Added subtag zip to street_address.</td>
+              </tr>
+              <tr class="rev15" onclick="highlight('rev15')">
+                <td>10-10-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added voter_services subtag to election_administration. Allowed multiple polling_location_id subtags in the precinct and precinct_split objects.</td>
+              <tr class="rev20" onclick="highlight('rev20')">
+                <td>05-19-2009</td>
+                <td>Aaron Strauss</td>
+                <td>See <a href="http://www.votinginfoproject.org/blog">Blog Posting</a> for the numerous changes.</td>
+              </tr>
+              <tr class="rev21" onclick="highlight('rev21')">
+                <td>10-31-2009</td>
+                <td>Aaron Strauss</td>
+                <td>Results.</td>
+              </tr>
+              <tr class="rev22" onclick="highlight('rev22')">
+                <td>04-22-2010</td>
+                <td>Aaron Strauss</td>
+                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element, and change the order attribute of the candidate_id field (in the ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
+              </tr>
+            </tbody>
+          </table>
+        
+          <script type="text/javascript">
+            document.writeln('<font size="-1">Click on a row to highlight changes made to a particular revision of this document.<\/font>');
+          </script>
+        </div>
       </div>
     </div> <!-- /.group -->
       
@@ -2759,6 +2765,8 @@
         '<li><input class="filter-check" type="checkbox" name="election-check" /><label for="election-check">Election Official</label></li>',
         '<li><input class="filter-check" type="checkbox" name="results-check" /><label for="results-check">Results</label></li>',
         '<li><input class="filter-check" type="checkbox" name="misc-check" /><label for="misc-check">Miscellaneous</label></li>',
+        '<li><input class="filter-check" type="checkbox" name="optional-check" /><label for="optional-check">Optional Fields</label></li>',
+        '<li><input class="filter-check" type="checkbox" name="changelog-check" /><label for="changelog-check">Changelog</label></li>',
       '</ul>'].join('');
       
       $('.sidebar .content-navigation .links li').each(function(){
@@ -2826,6 +2834,14 @@
               ]);
               toggleColumns();
               break;
+            case 'optional-check':
+              toggleOptional();
+              break;
+            case 'changelog-check':
+              toggleSections([
+                '#changelog'
+              ]);
+              break;
           }
         }
       });
@@ -2837,6 +2853,8 @@
       $('.checkboxes input[name=election-check]').trigger('change');
       $('.checkboxes input[name=results-check]').trigger('change');
       $('.checkboxes input[name=misc-check]').trigger('change');
+      $('.checkboxes input[name=optional-check]').trigger('change');
+      $('.checkboxes input[name=changelog-check]').trigger('change');
       
       // wrap all pre sections with the Syntax Highlighter
       SyntaxHighlighter.all();
@@ -2864,10 +2882,19 @@
       }
       
       // TODO: extremely hackalicious. make less so.
+      function toggleOptional() {
+        $('table tr').each(function() {
+          if(($('td:eq(2)',this).text()).match(/Optional/)) {
+            $(this).toggle();
+          }
+        });
+      }
+      
+      // TODO: extremely hackalicious. make less so.
       function toggleColumns() {
         $('table tr').each(function() { 
-            $('td:eq(4)',this).toggle();
-            $('th:eq(4)',this).toggle();
+          $('td:eq(4)',this).toggle();
+          $('th:eq(4)',this).toggle();
         });
       }
     });
