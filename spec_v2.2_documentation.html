@@ -248,11 +248,11 @@
           <h2 class="page-title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 2.2 (2010-04-22)</span></h2>
       
           <h2>General Introduction</h2>
-          <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that let's programmer's take a voter's address, compare it to <a href="#streetsegment">street segments</a> to determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct, allows information disseminators to let that voter know about his or her <a href="#pollinglocationitems">polling location</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballot</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administration</a>, and <a href="#electionofficial">election officials</a>. After the election, voter's can learn <a href="#contestresult">who won</a>.</p>
+          <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmer's take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct, allows information disseminators (such as Google) let that voter know about his or her <a href="#pollinglocationitems">polling location</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballot</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administration</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
           
           <h3>General Specification</h3>
           
-          <p>The actual election information specifies collection of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
+          <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
       
           <div id="toplevel">
             <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tag is the <b>source</b> object. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><acronym title="Federal Information Processing Standards">FIPS</acronym> number</a>, but this is <b>not required</b>. As mentioned above, id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
@@ -2762,7 +2762,7 @@
             '<li><input class="filter-check" type="checkbox" name="custom-contest-check" /><label for="custom-contest-check">Custom Contest</label></li>',
           '</ul>',
         '</li>',
-        '<li><input class="filter-check" type="checkbox" name="election-check" /><label for="election-check">Election Official</label></li>',
+        '<li><input class="filter-check" type="checkbox" checked="checked" name="election-check" /><label for="election-check">Election Official</label></li>',
         '<li><input class="filter-check" type="checkbox" name="results-check" /><label for="results-check">Results</label></li>',
         '<li><input class="filter-check" type="checkbox" name="misc-check" /><label for="misc-check">Miscellaneous</label></li>',
         '<li><input class="filter-check" type="checkbox" name="optional-check" /><label for="optional-check">Optional Fields</label></li>',
@@ -2850,7 +2850,7 @@
       $('.checkboxes input[name=early-vote-check]').trigger('change');
       $('.checkboxes input[name=referenda-check]').trigger('change');
       $('.checkboxes input[name=custom-contest-check]').trigger('change');
-      $('.checkboxes input[name=election-check]').trigger('change');
+      //$('.checkboxes input[name=election-check]').trigger('change');
       $('.checkboxes input[name=results-check]').trigger('change');
       $('.checkboxes input[name=misc-check]').trigger('change');
       $('.checkboxes input[name=optional-check]').trigger('change');
@@ -2886,6 +2886,7 @@
         $('table tr').each(function() {
           if(($('td:eq(2)',this).text()).match(/Optional/)) {
             $(this).toggle();
+            //if($('td:eq(4)',this).hidden())
           }
         });
       }
