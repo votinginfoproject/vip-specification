@@ -1575,8 +1575,8 @@
           
           <pre class="brush: xml">
             &lt;ballot id="234122"&gt;
-              &lt;candidate_id order="1"&gt;3705&lt;/candidate_id&gt;
-              &lt;candidate_id order="2"&gt;3706&lt;/candidate_id&gt;
+              &lt;candidate_id sort_order="1"&gt;3705&lt;/candidate_id&gt;
+              &lt;candidate_id sort_order="2"&gt;3706&lt;/candidate_id&gt;
               &lt;write_in&gt;yes&lt;/write_in&gt;
               &lt;image_url&gt;http://elections.state.gov/ballots/images.php?race=sen15&lt;/image_url&gt;
             &lt;/ballot&gt;
@@ -1935,8 +1935,8 @@
               &lt;text&gt;Blah blah blah&lt;/text&gt;
               &lt;passage_threshold&gt;three-fifths&lt;/passage_threshold&gt;
               &lt;effect_of_abstain&gt;Abstaining is equivalent to voting no&lt;/effect_of_abstain&gt;
-              &lt;ballot_response_id order="1"&gt;111111&lt;/ballot_response_id&gt;
-              &lt;ballot_response_id order="2"&gt;111112&lt;/ballot_response_id&gt;
+              &lt;ballot_response_id sort_order="1"&gt;111111&lt;/ballot_response_id&gt;
+              &lt;ballot_response_id sort_order="2"&gt;111112&lt;/ballot_response_id&gt;
             &lt;/referendum&gt;
           </pre>
         </div>
@@ -1987,8 +1987,8 @@
           <pre class="brush: xml">
             &lt;custom_ballot id="50001"&gt;
               &lt;heading&gt;Should Judge Smith be retained?&lt;/heading&gt;
-              &lt;ballot_response_id order="1"&gt;120001&lt;/ballot_response_id&gt;
-              &lt;ballot_response_id order="2"&gt;120002&lt;/ballot_response_id&gt;
+              &lt;ballot_response_id sort_order="1"&gt;120001&lt;/ballot_response_id&gt;
+              &lt;ballot_response_id sort_order="2"&gt;120002&lt;/ballot_response_id&gt;
             &lt;/custom_ballot&gt;
           </pre>
         </div>
@@ -2025,6 +2025,7 @@
         <pre class="brush: xml">
           &lt;ballot_response id="120001"&gt;
             &lt;text&gt;Yes&lt;/text&gt;
+            &lt;sort_order&gt;1&lt;/sort_order&gt;
           &lt;/ballot_response&gt;
         </pre>
       
@@ -2725,7 +2726,7 @@
               <tr class="rev22" onclick="highlight('rev22')">
                 <td>04-22-2010</td>
                 <td>Aaron Strauss</td>
-                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element, and change the order attribute of the candidate_id field (in the ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
+                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element, and changed the order attribute of the candidate_id field (in the ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
               </tr>
             </tbody>
           </table>
