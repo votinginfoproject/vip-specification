@@ -1021,6 +1021,7 @@
               &lt;where_do_i_vote_url&gt;http://www.localelections.st.gov/where_vote.html&lt;/where_do_i_vote_url&gt;
               &lt;rules_url&gt;http://www.localelections.st.gov/election_law.html&lt;/rules_url&gt;
               &lt;voter_services&gt;Early voting and absentee ballot request are available beginning October 1. Voter registration is always available.&lt;/voter_services&gt;
+              &lt;what_is_on_my_ballot_url&gt;http://www.localelections.st.gov/myballot.html&lt;/what_is_on_my_ballot_url&gt;
               &lt;hours&gt;M-F 9am-6pm Sat 9am-Noon&lt;/hours&gt;
             &lt;/election_administration&gt;
           </pre>
@@ -1669,7 +1670,7 @@
                 <td>If the <b>email_address</b> field is invalid the
           implementation is required to ignore it.</td>
               </tr>
-              <tr>
+              <tr class="rev22">
                 <td>sort_order</td>
                 <td>Integer</td>
                 <td>Optional</td>
@@ -1972,7 +1973,7 @@
                 <td><b>Required; multiple allowed</b></td>
                 <td>The <b>ballot_response_id</b> specifies a link to a ballot
           response element. Multiple <b>ballot_response_id</b> tags may be
-          present. This element has an optional attribute named <b>order</b>
+          present. This element has an optional attribute named <b>sort_order</b>
           that may be specified, giving the ordering of the elements as they
           appear on the actual ballot. </td>
                 <td>If no <b>ballot_response_id</b> field is invalid, the
@@ -2018,6 +2019,14 @@
         implementation is required to ignore the ballot response
         element containing it.</td>
             </tr>
+              <tr class="rev22">
+                <td>sort_order</td>
+                <td>Integer</td>
+                <td>Optional</td>
+                <td>Recommended. The <b>sort_order</b> specifies position of the punches on the ballot item for that type of contest. Recommended for types of contests where the positions of the punches are fixed. Numbers are relative (with lowest appearing first) and need not be consecutive.</td>
+                <td>If the <b>sort_order</b> field is invalid the
+          implementation is required to ignore it. The implementation should check for a sort order in the ballot element. If none exists, the candidates should be ordered either alphabetically or randomly with a note specifying this ordering and that the true ballot ordering is likely to be different.</td>
+              </tr>
           </tbody>
         </table>
       
@@ -2726,7 +2735,7 @@
               <tr class="rev22" onclick="highlight('rev22')">
                 <td>04-22-2010</td>
                 <td>Aaron Strauss</td>
-                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element, and changed the order attribute of the candidate_id field (in the ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
+                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the custom_ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
               </tr>
             </tbody>
           </table>
