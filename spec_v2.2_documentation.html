@@ -3,46 +3,46 @@
 <head>
   <title>VIP Spec Version 2.2</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  
+
   <link rel="stylesheet" media="screen" href="http://fwab.jungshadow.com/css/screen.css" type="text/css" />
-  
+
   <!-- Syntax Highlighter -->
   <link rel="stylesheet" media="screen" href="http://fwab.jungshadow.com/css/fw/sh/shCore.css" type="text/css" />
   <link rel="stylesheet" media="screen" href="http://fwab.jungshadow.com/css/fw/sh/shThemeDefault.css" type="text/css" />
-  
+
   <style type="text/css">
     h1, h2, h3, h4, h5, h6 {
       color: rgb(36, 104, 153);
       margin-bottom: .25em;
       margin-top: .25em;
     }
-    
+
     body {
       line-height: 1.4;
     }
-    
+
     p, td {
       margin-bottom: 1em;
       font-size: .875em;
     }
-    
+
     caption {
       margin-bottom: 1em;
       font-size: .75em;
     }
-    
+
     acronym {
       border-bottom: 1px dotted #000;
       cursor: help;
     }
-    
+
     .page-title .version {
       display: block;
       font-size: .5em;
       font-style: italic;
       color: #666;
     }
-    
+
     @media print {
       /* Darker version for printing */
       h1, h2, h3, h4, h5, h6 {
@@ -50,21 +50,21 @@
         font-family: helvetica, sans-serif;
       }
     }
-    
+
     caption {
       text-align: left;
       font-style: italic;
     }
-    
+
     /* Definition lists: definition term bold */
     dt {
       font-weight: bold;
     }
-    
+
     address {
       text-align: right;
     }
-    
+
     table {
       margin: 0 auto;
       margin-bottom: 1em;
@@ -72,7 +72,7 @@
       border-spacing: .2em;
       width: 100%;
     }
-    
+
     thead th {
       text-transform: capitalize;
       white-space: nowrap;
@@ -80,20 +80,20 @@
       background-color: #0054af;
       color: #fff;
     }
-    
+
     th, td {
       padding: .3em;
       vertical-align: middle;
     }
-    
+
     tbody tr:nth-child(2n) {
       background-color: #c2e2f9;
     }
-    
+
     tbody tr:nth-child(2n+1) {
       background-color: #eaf2ff;
     }
-    
+
     /* make sure the text wraps; otherwise, we get ugly ugly scrollbars for
      * pre-formatted text. This works in most browsers (listed below).
      */
@@ -104,51 +104,51 @@
       /*white-space: -o-pre-wrap;    /* Opera 7 */
       /*word-wrap: break-word;       /* Internet Explorer 5.5+ */
     /*}*/
-    
+
     /* Use the <file> tag for file and directory paths and names. */
     file {
       color: #905050;
       font-family: monospace;
     }
-    
+
     .sidebar {
       float: right;
       width: 18%;
       position: relative;
     }
-    
+
     .fixed {
       position: fixed;
       top: 0;
     }
-    
+
     .checkboxes {
       line-height: 1;
     }
-    
+
     .checkboxes, .content-navigation .links {
       margin-bottom: 1em;
     }
-    
+
     .content-navigation {
       padding: 1em;
       font-size: .75em;
     }
-    
+
     .content-navigation .header {
       font-size: .875em;
       min-width: 1em;
     }
-    
+
     .content-navigation .checkboxes li li {
       padding-left: .75em;
     }
-    
+
     .main {
       float: left;
       width: 80%;
     }
-    
+
     div.note {
       -moz-border-radius: 12px 12px 12px 12px;
       background-color: #fffff0;
@@ -158,9 +158,9 @@
       padding: 1px;
       width: 3in;
     }
-    
+
   </style>
-  
+
   <script type="text/javascript">
     function highlight(name) {
       if (document.getElementsByTagName) {
@@ -188,7 +188,7 @@
     <div class="logo"><img title="VIP logo" alt="Voting Information Project" src="http://votinginfoproject.org/images/vip_logo.jpg" /></div>
     <div class="tagline">Easy access to essential voting information</div>
   </div> <!-- /.header -->
-  
+
   <div class="nav-container">
     <div class="navbar group">
       <ul class="nav">
@@ -199,7 +199,7 @@
       </ul> <!-- /.nav -->
     </div> <!-- /.navbar -->
   </div> <!-- /.nav-container -->
-    
+
   <hr />
 
   <div class="wrap">
@@ -246,22 +246,22 @@
       <div class="main">
         <div id="generalintro" class="rev1">
           <h2 class="page-title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 2.2 (2010-04-22)</span></h2>
-      
+
           <h2>General Introduction</h2>
           <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmer's take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct, allows information disseminators (such as Google) let that voter know about his or her <a href="#pollinglocationitems">polling location</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballot</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administration</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
-          
+
           <h3>General Specification</h3>
-          
+
           <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
-      
+
           <div id="toplevel">
             <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tag is the <b>source</b> object. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><acronym title="Federal Information Processing Standards">FIPS</acronym> number</a>, but this is <b>not required</b>. As mentioned above, id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
             <p>In general, subtag data can appear a maximum of one time within each top-level tag object and in any order. Exceptions are noted below.</p>
             <p>For the data itself, the special characters &amp;, &lt;, and &gt; need to be encoded as &amp;amp;, &amp;lt;, and &amp;gt;, respectively</p>
-          
+
             <div id="externallinking">
               <h3>Linking Externally</h3>
-        
+
               <div class="rev12">
                 <p>Each element other than the root vip_object may (i.e., optionally) include the attributes <b>external_source_vip_id</b> and <b>external_source_datetime</b>, which indicate that the linked element is not found in the current document but in an external document with the specified vip_id and datetime in the external document's top-level <b>source</b> object. For this reason, the source object is required in every feed document. Two examples might elucidate the above discussion of external linking. Consider the case when an organization supplements Iowa's data on candidates with candidates' statements on issues. In the <b>candidate_statement</b> object, the organization links to state data by specifying</p>
                 <pre class="brush: xml">
@@ -271,19 +271,19 @@
                 <pre class="brush: xml">
                   &lt;candidate candidate_id external_source_vip_id="19" external_source_datetime="2008-06-05T15:45:10" external_source_object_id="321113" id="3705"&gt;
                     &lt;name&gt;Michael Smith&lt;/name&gt;
-                    &lt;email_address&gt;msmith@smithin2008.org&lt;/email_address&gt;
+                    &lt;email&gt;msmith@smithin2008.org&lt;/email&gt;
                   &lt;/candidate&gt;
                 </pre>
                 <p>where again 321113 is the id in the Iowa file, and 3705 is the id in the supplementing file. If the supplementing file needs to link to Michael Smith (e.g., for a candidate statement), it should link <b>internally</b>, using the 3705 ID.</p>
               </div>
             </div>
-      
-          </div>      
+
+          </div>
         </div>
-      
+
         <div id="sourceitems" class="rev11">
           <h2>Source items</h2>
-      
+
           <table>
             <caption>The Source object represents the organization that is publishing the information. This object is the only required object in the feed file, and only one source object is allowed to be present.</caption>
             <thead>
@@ -355,7 +355,7 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a source element:</p>
           <pre class="brush: xml">
             &lt;source id="0"&gt;
@@ -380,10 +380,10 @@
             &lt;/source&gt;
           </pre>
         </div>
-      
+
         <div id="electionitems" class="rev1">
           <h2>Election items</h2>
-      
+
           <table>
             <caption>The Election object represents an Election Day, which usually consists of many individual contests and/or referenda. <span class="rev22">A feed must contain <b>exactly one</b> Election object. All relationships in the feed (e.g., street segment to precinct [split] to polling location) are assumed to relate only to the Election specified by this object. It is permissible, and recommended, to combine unrelated contests (e.g., a special election and a general election) that occur on the same day into one feed with one Election object.</span></caption>
             <thead>
@@ -500,7 +500,7 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for an election element:</p>
           <pre class="brush: xml">
             &lt;election id="12345"&gt;
@@ -518,10 +518,10 @@
             &lt;/election&gt;
           </pre>
         </div>
-        
+
         <div id="stateitems">
           <h2>State items</h2>
-          
+
           <table>
             <caption>The State object includes state-wide election information. The ID attribute is the state's FIPS code.</caption>
             <thead>
@@ -553,9 +553,9 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a state element:</p>
-          
+
           <pre class="brush: xml">
             &lt;state id="1"&gt;
               &lt;name&gt;Alabama&lt;/name&gt;
@@ -563,7 +563,7 @@
             &lt;/state&gt;
           </pre>
         </div>
-      
+
         <div id="localityitems" class="rev3">
           <h2>Locality items</h2>
           <table>
@@ -639,9 +639,9 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a locality element:</p>
-          
+
           <pre class="brush: xml">
             &lt;locality id="1000"&gt;
               &lt;name&gt;Howard&lt;/name&gt;
@@ -651,10 +651,10 @@
             &lt;/locality&gt;
           </pre>
         </div>
-        
+
         <div id="precinctitems" class="rev3">
           <h2>Precinct</h2>
-        
+
           <table>
             <caption>The Precinct object represents a precinct, which is contained within a Locality. Subtag data must appear in the order below.</caption>
             <thead>
@@ -737,9 +737,9 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Three example XML's for a precinct element. The first is a standard, in-person precinct. The second is a mail-in precinct with a precinct specific drop location. The third is a mail-in precinct with multiple drop locations spread around the county.</p>
-          
+
           <pre class="brush: xml">
             &lt;precinct id="4567"&gt;
               &lt;name&gt;Camelot&lt;/name&gt;
@@ -749,7 +749,7 @@
               &lt;polling_location_id&gt;3845&lt;/polling_location_id&gt;
             &lt;/precinct&gt;
           </pre>
-          
+
           <pre class="brush: xml">
             &lt;precinct id="1003"&gt;
               &lt;name&gt;2&lt;/name&gt;
@@ -761,7 +761,7 @@
               &lt;early_vote_site_id&gt;1324&lt;/early_vote_site_id&gt;
             &lt;/precinct&gt;
           </pre>
-          
+
           <pre class="brush: xml">
             &lt;precinct id="1043"&gt;
               &lt;name&gt;Multiple-drop precinct&lt;/name&gt;
@@ -775,10 +775,10 @@
             &lt;/precinct&gt;
           </pre>
         </div>
-      
+
         <div id="precinctsplititems" class="rev3">
           <h2>Precinct Split</h2>
-      
+
           <table>
             <caption>The Precinct Split object represents a part of a precinct. The Precinct Split object will link to its "parent" Precinct object. Subtag data must appear in the order below.</caption>
             <thead>
@@ -846,7 +846,7 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a precinct split element:</p>
           <pre class="brush: xml">
             &lt;precinct_split id="104567"&gt;
@@ -859,10 +859,10 @@
             &lt;/precinct_split&gt;
           </pre>
         </div>
-      
+
         <div id="electionadministration" class="rev11">
           <h2>Election Administration</h2>
-          
+
           <table>
             <caption>The Election Administration represents an institution for serving a locality's (or state's) election functions.</caption>
             <thead>
@@ -993,9 +993,9 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for an election administration element:</p>
-          
+
           <pre class="brush: xml">
             &lt;election_administration id="3456"&gt;
               &lt;name&gt;Howard County Board of Elections&lt;/name&gt;
@@ -1026,10 +1026,10 @@
             &lt;/election_administration&gt;
           </pre>
         </div>
-      
+
         <div id="electionofficial" class="rev11">
           <h2>Election Official</h2>
-      
+
           <table>
             <caption>The Election Official object comprises the name and contact information for an election official.</caption>
             <thead>
@@ -1085,7 +1085,7 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for an election official element:</p>
           <pre class="brush: xml">
             &lt;election_official id="1023"&gt;
@@ -1097,10 +1097,10 @@
             &lt;/election_official&gt;
           </pre>
         </div>
-      
+
         <div id="pollinglocationitems" class="rev3">
           <h2>Polling Location</h2>
-          
+
           <table>
             <caption>The Polling Location object represents a site where voters cast ballots on Election Day.</caption>
             <thead>
@@ -1143,9 +1143,9 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a polling location element:</p>
-          
+
           <pre class="brush: xml">
             &lt;polling_location id="4567"&gt;
               &lt;address&gt;
@@ -1160,10 +1160,10 @@
             &lt;/polling_location&gt;
           </pre>
         </div>
-      
+
         <div id="earlyvotesiteitems" class="rev4">
           <h2>Early Vote Site items</h2>
-          
+
           <table>
             <caption>The Early Vote Site object represents a place where completed ballots can be returned prior to the election, or on Election Day. This object can represent: a registrar's office that offers early voting, a temporary early vote site, a ballot drop box, or similar location.</caption>
             <thead>
@@ -1242,7 +1242,7 @@
                 <td>Highly recommended. The <b>start_date</b> specifies the first date for early voting (or ballot drop-off) at this site. </td>
                 <td>If the <b>start_date</b> field is invalid or not present,
           the implementation is required to ignore it and assume that the early vote site is operational.</td>
-              </tr>    
+              </tr>
               <tr class="rev22">
                 <td>end_date</td>
                 <td>Date</td>
@@ -1250,7 +1250,7 @@
                 <td>Highly recommended. The <b>end_date</b> specifies the last date for early voting (or ballot drop-off) at this site. </td>
                 <td>If the <b>end_date</b> field is invalid or not present,
           the implementation is required to ignore it and assume that the early vote site is operational.</td>
-              </tr>    
+              </tr>
               <tr class="rev13 rev22">
                 <td>dates_times_open</td>
                 <td>String</td>
@@ -1261,9 +1261,9 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a polling location element:</p>
-          
+
           <pre class="brush: xml">
             &lt;early_vote_site id="5467"&gt;
               &lt;name&gt;Springfield Ballot Drop&lt;/name&gt;
@@ -1284,10 +1284,10 @@
             &lt;/early_vote_site&gt;
           </pre>
         </div>
-        
+
         <div id="contestitems" class="rev9">
           <h2>Contest items</h2>
-      
+
           <table>
             <caption>The Contest object represents a single contest, which could be between candidates, adoption of a resolution, or retention of judges (among other possibilities). The geographic scope of the Contest object is the Electoral District, which the Contest object links to.</caption>
             <thead>
@@ -1420,7 +1420,7 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a ballot element:</p>
           <pre class="brush: xml">
             &lt;contest id="122312"&gt;
@@ -1439,10 +1439,10 @@
             &lt;/contest&gt;
           </pre>
         </div>
-        
+
         <div id="electoraldistrictitems" class="rev3">
           <h2>Electoral District items</h2>
-      
+
           <table>
             <caption>The Electoral District object represents the geographic area in which a single contest is held. Examples of Electoral District include: statewide, congressional district, a state senate district, and a fire district. The geographic area that comprises a Electoral District is defined by which precinct or precinct splits link to the Electoral District.</caption>
             <thead>
@@ -1484,7 +1484,7 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Two examples of electoral area element.</p>
           <pre class="brush: xml">
             &lt;electoral_district id="1000"&gt;
@@ -1492,7 +1492,7 @@
               &lt;type&gt;statewide&lt;/type&gt;
             &lt;/electoral_district&gt;
           </pre>
-          
+
           <pre class="brush: xml">
             &lt;electoral_district id="1034"&gt;
               &lt;name&gt;SD-34&lt;/name&gt;
@@ -1501,11 +1501,11 @@
             &lt;/electoral_district&gt;
           </pre>
         </div>
-        
+
         <div id="ballotitems" class="rev1">
-      
+
           <h2>Ballot items</h2>
-      
+
           <table>
             <caption>The Ballot object represents the ballot item for <b>one contest</b>. The Ballot object is linked to by the corresponding Contest object. The Ballot object links to the Candidate objects or Referendum objects that compose the ballot. Subtag data must appear in the order below.</caption>
             <thead>
@@ -1571,9 +1571,9 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a ballot element:</p>
-          
+
           <pre class="brush: xml">
             &lt;ballot id="234122"&gt;
               &lt;candidate_id sort_order="1"&gt;3705&lt;/candidate_id&gt;
@@ -1583,10 +1583,10 @@
             &lt;/ballot&gt;
           </pre>
         </div>
-      
+
         <div id="candidateitems" class="rev1">
           <h2>Candidate items</h2>
-      
+
           <table>
             <caption>The candidate object represents a candidate. If a candidate is running in multiple contests, the same Candidate object may be used provided that the candidate's name, party, etc. appear the same in the ballot items for both contests.</caption>
             <thead>
@@ -1665,9 +1665,9 @@
                 <td>email</td>
                 <td>String</td>
                 <td>Optional</td>
-                <td>The <b>email_address</b> specifies the email address of the
+                <td>The <b>email</b> specifies the email address of the
           candidate.</td>
-                <td>If the <b>email_address</b> field is invalid the
+                <td>If the <b>email</b> field is invalid the
           implementation is required to ignore it.</td>
               </tr>
               <tr class="rev22">
@@ -1680,9 +1680,9 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a candidate element:</p>
-          
+
           <pre class="brush: xml">
             &lt;candidate id="3705"&gt;
               &lt;name&gt;Daniel Berlin&lt;/name&gt;
@@ -1697,14 +1697,14 @@
                 &lt;state&gt;OH&lt;/state&gt;
                 &lt;zip&gt;20852&lt;/zip&gt;
               &lt;/filed_mailing_address&gt;
-              &lt;email_address&gt;dberlin@example.org&lt;/email_address&gt;
+              &lt;email&gt;dberlin@example.org&lt;/email&gt;
             &lt;/candidate&gt;
           </pre>
         </div>
-      
+
         <div id="campaignissueitems" class="rev12">
           <h2>Campaign Issue items</h2>
-      
+
           <table>
             <caption>The campaign issue object represents an issue that candidates take positions on. A campaign issue object is linked to an election (not a contest) so that multiple candidates across contests can take positions on the same issue.</caption>
             <thead>
@@ -1752,9 +1752,9 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a campaign issue element:</p>
-          
+
           <pre class="brush: xml">
             &lt;campaign_issue id="77777"&gt;
               &lt;name&gt;School Vouchers&lt;/name&gt;
@@ -1764,10 +1764,10 @@
             &lt;/campaign_issue&gt;
           </pre>
         </div>
-      
+
         <div id="candidatestatementitems" class="rev12">
           <h2>Candidate Statement items</h2>
-      
+
           <table>
             <caption>The candidate statement object represents a position that a candidate has taken on an issue.</caption>
             <thead>
@@ -1814,9 +1814,9 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a candidate statement element:</p>
-          
+
           <pre class="brush: xml">
             &lt;candidate_statement id="88888"&gt;
               &lt;candidate_id&gt;3705&lt;/candidate_id&gt;
@@ -1826,10 +1826,10 @@
             &lt;/candidate_statement&gt;
           </pre>
         </div>
-      
+
         <div id="referendumitems" class="rev1">
           <h2>Referendum items</h2>
-      
+
           <table>
             <caption>The Referendum object provides information about a referendum before the voters, including summary statements on each side.</caption>
             <thead>
@@ -1927,7 +1927,7 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a candidate element:</p>
           <pre class="brush: xml">
             &lt;referendum id="30001"&gt;
@@ -1941,10 +1941,10 @@
             &lt;/referendum&gt;
           </pre>
         </div>
-        
+
         <div id="customballotitems" class="rev3">
           <h2>Custom Ballot items</h2>
-      
+
           <table>
             <caption>A Custom Ballot object represents a ballot for a contest that neither pits candidates against each other nor is a referendum. Examples include recall elections and the retention of judges. A Custom Ballot object consists of multiple Ballot Response objects and it links to these objects.</caption>
             <thead>
@@ -1982,9 +1982,9 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a custom ballot element: </p>
-      
+
           <pre class="brush: xml">
             &lt;custom_ballot id="50001"&gt;
               &lt;heading&gt;Should Judge Smith be retained?&lt;/heading&gt;
@@ -1993,11 +1993,11 @@
             &lt;/custom_ballot&gt;
           </pre>
         </div>
-      
+
         <div id="ballotresponseitems" class="rev3">
-      
+
         <h2>Ballot Response items</h2>
-      
+
         <table>
           <caption>A Ballot Response object represents a line on the ballot. Common examples might include "yes" or "no" for referenda, or a judge's name for a retention contest.</caption>
           <thead>
@@ -2029,7 +2029,7 @@
               </tr>
           </tbody>
         </table>
-      
+
         <p>Four example XML's for a custom ballot response element: </p>
         <pre class="brush: xml">
           &lt;ballot_response id="120001"&gt;
@@ -2037,29 +2037,29 @@
             &lt;sort_order&gt;1&lt;/sort_order&gt;
           &lt;/ballot_response&gt;
         </pre>
-      
+
         <pre class="brush: xml">
           &lt;ballot_response id="120002"&gt;
             &lt;text&gt;No&lt;/text&gt;
             &lt;/ballot_response&gt;
           </pre>
-      
+
           <pre class="brush: xml">
             &lt;ballot_response id="120003"&gt;
               &lt;text&gt;Retain&lt;/text&gt;
             &lt;/ballot_response&gt;
           </pre>
-      
+
           <pre class="brush: xml">
             &lt;ballot_response id="120004"&gt;
               &lt;text&gt;Do Not Retain&lt;/text&gt;
             &lt;/ballot_response&gt;
           </pre>
         </div>
-      
+
         <div id="streetsegment" class="rev11">
           <h2>Street Segment</h2>
-      
+
           <table>
             <caption>A Street Segment objection represents a portion of a street and the links to the precinct (and possibly precinct split) that this geography (i.e., segment) is contained within. The start address house number must be less than the end address house number unless the segment consists of only one address in which case these values are equal.</caption>
             <thead>
@@ -2140,7 +2140,7 @@
               </tr>
             </tbody>
           </table>
-        
+
           <p>Example XML for a street segment element: </p>
           <pre class="brush: xml">
             &lt;street_segment id="1210001"&gt;
@@ -2160,10 +2160,10 @@
             &lt;/street_segment&gt;
           </pre>
         </div>
-      
+
         <div id="contestresult" class="rev21">
           <h2>Contest Result</h2>
-      
+
           <table>
             <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
             <thead>
@@ -2242,7 +2242,7 @@
               </tr>
             </tbody>
           </table>
-      
+
           <p>Example XML for a street segment element: </p>
           <pre class="brush: xml">
             &lt;contest_result id="4410001" certification="certified"&gt;
@@ -2253,10 +2253,10 @@
             &lt;/contest_result&gt;
           </pre>
         </div>
-      
+
         <div id="ballotresponseresult" class="rev21">
           <h2>Ballot Response Result (e.g., Candidate Result)</h2>
-      
+
           <table>
             <caption>A Ballot Response Result provides the candidates' or referenda responses' vote totals. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
             <thead>
@@ -2317,11 +2317,11 @@
             &lt;/ballot_response_result&gt;
           </pre>
         </div>
-      
-      
+
+
         <div id="detailaddresstype" class="rev20">
           <h2>Detail Address (Type) items</h2>
-          
+
           <table>
             <!-- for non-IE support
             <colgroup>
@@ -2456,10 +2456,10 @@
             &lt;/non_house_address&gt;
           </pre>
         </div>
-      
+
         <div id="simpleaddresstype" class="rev20">
           <h2>Simple Address (Type) items</h2>
-          
+
           <table>
             <caption>A Simple Address is an address that combines each address line into one string. It is a type and not an object, so no ID is required.</caption>
             <thead>
@@ -2525,7 +2525,7 @@
               </tr>
             </tbody>
           </table>
-          
+
           <p>Example XML for a Simple Addresses, which would appear within Polling Location and Early Vote Site items (among others):</p>
           <pre class="brush: xml">
             &lt;address&gt;
@@ -2543,7 +2543,7 @@
               &lt;zip&gt;22003&lt;/zip&gt;
             &lt;/address&gt;<br>
           </pre>
-          
+
           <pre class="brush: xml">
             &lt;address&gt;
               &lt;house_number&gt;1120B&lt;/house_number&gt;
@@ -2552,7 +2552,7 @@
             &lt;/address&gt;
           </pre>
         </div>
-      
+
         <div id="certificationtype" class="rev21">
           <h2>Certification Enumeration</h2>
           <table>
@@ -2579,7 +2579,7 @@
             </tbody>
           </table>
         </div>
-        
+
         <div id="termdefs">
           <h3>Term definitions</h3>
           <dl>
@@ -2589,10 +2589,10 @@
             <dd>Conforming implementations may validly ignore anything marked optional and still be considered conforming.</dd>
           </dl>
         </div>
-        
+
         <div id="fieldtypes">
           <h3>Field types</h3>
-          
+
           <table>
             <thead>
               <tr>
@@ -2621,9 +2621,9 @@
             </tbody>
           </table>
         </div>
-        
+
         <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
-        
+
         <div id="changelog">
           <h2> Revision information</h2>
           <table>
@@ -2735,23 +2735,23 @@
               <tr class="rev22" onclick="highlight('rev22')">
                 <td>04-22-2010</td>
                 <td>Aaron Strauss</td>
-                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the custom_ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type.</td>
+                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style field to locality, precinct, and precinct_split elements. Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the custom_ballot element) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type. Clarified that the candidate email address field is email not email_address.</td>
               </tr>
             </tbody>
           </table>
-        
+
           <script type="text/javascript">
             document.writeln('<font size="-1">Click on a row to highlight changes made to a particular revision of this document.<\/font>');
           </script>
         </div>
       </div>
     </div> <!-- /.group -->
-      
+
     <hr />
-    
+
     <div class="footer">&copy; Copyright 2009 Voting Information Project <a href="#">Home</a> - <a href="#">About the Project</a> - <a href="#">Privacy Policy</a> - <a href="http://feeds.feedburner.com/VoterInformationProject">RSS</a></div> <!-- /footer -->
   </div>
-  
+
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shCore.js"></script>
   <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shBrushXml.js"></script>
@@ -2778,11 +2778,11 @@
         '<li><input class="filter-check" type="checkbox" name="optional-check" /><label for="optional-check">Optional Fields</label></li>',
         '<li><input class="filter-check" type="checkbox" name="changelog-check" /><label for="changelog-check">Changelog</label></li>',
       '</ul>'].join('');
-      
+
       $('.sidebar .content-navigation .links li').each(function(){
         sections[$('a',this).attr('href')] = $(this);
       });
-      
+
       $('.sidebar .content-navigation').prepend(filterNav);
 
       $('.checkboxes input[type=checkbox]').bind({
@@ -2855,7 +2855,7 @@
           }
         }
       });
-      
+
       // make sure the non-essential items are hidden
       $('.checkboxes input[name=early-vote-check]').trigger('change');
       $('.checkboxes input[name=referenda-check]').trigger('change');
@@ -2865,15 +2865,15 @@
       $('.checkboxes input[name=misc-check]').trigger('change');
       $('.checkboxes input[name=optional-check]').trigger('change');
       $('.checkboxes input[name=changelog-check]').trigger('change');
-      
+
       // wrap all pre sections with the Syntax Highlighter
       SyntaxHighlighter.all();
-      
+
       // as the window scrolls, realign sidebar to top
       $(window).scroll(function (e) {
         // what the y position of the scroll is
         var y = $(this).scrollTop();
-      
+
         // whether that's below the form
         if (y >= top) {
           // if so, ad the fixed class
@@ -2890,7 +2890,7 @@
           sections[sect].slideToggle();
         }
       }
-      
+
       // TODO: extremely hackalicious. make less so.
       function toggleOptional() {
         $('table tr').each(function() {
@@ -2900,10 +2900,10 @@
           }
         });
       }
-      
+
       // TODO: extremely hackalicious. make less so.
       function toggleColumns() {
-        $('table tr').each(function() { 
+        $('table tr').each(function() {
           $('td:eq(4)',this).toggle();
           $('th:eq(4)',this).toggle();
         });
@@ -2911,4 +2911,4 @@
     });
   </script>
 </body>
-</html>
+</html> 
