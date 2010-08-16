@@ -2093,10 +2093,10 @@
               <tr>
                 <td>odd_even_both</td>
                 <td>oebEnum</td>
-                <td>Optional</td>
-                <td>The <b>odd_even_both</b> field specifies whether the odd side of the street (in terms of house numbers), the even side, or both are in included in the street segment. Valid strings are "odd", "even", or "both". It does not apply to start_apartment_number or end_apartment_number</td>
+                <td>Required</td>
+                <td>The <b>odd_even_both</b> field specifies whether the odd side of the street (in terms of house numbers), the even side, or both are in included in the street segment. Valid strings are "odd", "even", or "both". It does not apply to start_apartment_number or end_apartment_number.</td>
                 <td>If the <b>odd_even_both</b> field is not present or invalid, the
-          implementation is required default to <b>odd</b>.</td>
+          implementation is required to ignore the street segment element containing it.</td>
               </tr>
               <tr class="rev20">
                 <td>start_apartment_number</td>
