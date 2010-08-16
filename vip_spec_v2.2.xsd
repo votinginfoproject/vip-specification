@@ -290,7 +290,7 @@
             <xs:all>
               <xs:element name="start_house_number" type="xs:integer" />
               <xs:element name="end_house_number" type="xs:integer" />
-              <xs:element minOccurs="0" name="odd_even_both" type="oebEnum" />
+              <xs:element name="odd_even_both" type="oebEnum" />
               <xs:element minOccurs="0" name="start_apartment_number" type="xs:integer" />
               <xs:element minOccurs="0" name="end_apartment_number" type="xs:integer" />
               <xs:element name="non_house_address" type="detailAddressType" />
