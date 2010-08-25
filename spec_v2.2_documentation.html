@@ -94,17 +94,6 @@
       background-color: #eaf2ff;
     }
 
-    /* make sure the text wraps; otherwise, we get ugly ugly scrollbars for
-     * pre-formatted text. This works in most browsers (listed below).
-     */
-    /*pre {
-      white-space: pre-wrap;       /* css-3 */
-      /*white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-      /*white-space: -pre-wrap;      /* Opera 4-6 */
-      /*white-space: -o-pre-wrap;    /* Opera 7 */
-      /*word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    /*}*/
-
     /* Use the <file> tag for file and directory paths and names. */
     file {
       color: #905050;
@@ -147,6 +136,21 @@
     .main {
       float: left;
       width: 80%;
+    }
+    
+    .important-note {
+      margin: 0 auto;
+      display: block;
+      background-color: #ccc;
+      border: 1px dashed #666;
+      padding: .5em;
+      margin: .25em;
+      text-align: center;
+      font-size: 1.2em;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      -webkit-box-shadow: 0px 3px 5px #888;
+      box-shadow: 0px 3px 5px #888;
     }
 
     div.note {
@@ -263,7 +267,7 @@
               <h3>Linking Externally</h3>
 
               <div class="rev12">
-                <p>Each element other than the root vip_object may (i.e., optionally) include the attributes <b>external_source_vip_id</b> and <b>external_source_datetime</b>, which indicate that the linked element is not found in the current document but in an external document with the specified vip_id and datetime in the external document's top-level <b>source</b> object. For this reason, the source object is required in every feed document. Two examples might elucidate the above discussion of external linking. Consider the case when an organization supplements Iowa's data on candidates with candidates' statements on issues. In the <b>candidate_statement</b> object, the organization links to state data by specifying</p>
+                <p>Each element other than the root vip_object may (i.e. optionally) include the attributes <b>external_source_vip_id</b> and <b>external_source_datetime</b>, which indicate that the linked element is not found in the current document but in an external document with the specified vip_id and datetime in the external document's top-level <b>source</b> object. For this reason, the source object is required in every feed document. Two examples might elucidate the above discussion of external linking. Consider the case when an organization supplements Iowa's data on candidates with candidates' statements on issues. In the <b>candidate_statement</b> object, the organization links to state data by specifying</p>
                 <pre class="brush: xml">
                   &lt;candidate_id external_source_vip_id="19" external_source_datetime="2008-06-05T15:45:10"&gt;321113&lt;candidate_id&gt;
                 </pre>
@@ -656,7 +660,7 @@
           <h2>Precinct</h2>
 
           <table>
-            <caption>The Precinct object represents a precinct, which is contained within a Locality. Subtag data must appear in the order below.</caption>
+            <caption>The Precinct object represents a precinct, which is contained within a Locality. <strong>Subtag data must appear in the order below.</strong></caption>
             <thead>
               <tr>
                 <th>Tag</th>
@@ -739,6 +743,7 @@
           </table>
 
           <p>Three example XML's for a precinct element. The first is a standard, in-person precinct. The second is a mail-in precinct with a precinct specific drop location. The third is a mail-in precinct with multiple drop locations spread around the county.</p>
+          <!--<p class="important-note"><strong>Subtag data must appear in the order below.</strong></p>-->
 
           <pre class="brush: xml">
             &lt;precinct id="4567"&gt;
@@ -780,7 +785,7 @@
           <h2>Precinct Split</h2>
 
           <table>
-            <caption>The Precinct Split object represents a part of a precinct. The Precinct Split object will link to its "parent" Precinct object. Subtag data must appear in the order below.</caption>
+            <caption>The Precinct Split object represents a part of a precinct. The Precinct Split object will link to its "parent" Precinct object. <strong>Subtag data must appear in the order below.</strong></caption>
             <thead>
               <tr>
                 <th>Tag</th>
@@ -1507,7 +1512,7 @@
           <h2>Ballot items</h2>
 
           <table>
-            <caption>The Ballot object represents the ballot item for <b>one contest</b>. The Ballot object is linked to by the corresponding Contest object. The Ballot object links to the Candidate objects or Referendum objects that compose the ballot. Subtag data must appear in the order below.</caption>
+            <caption>The Ballot object represents the ballot item for <b>one contest</b>. The Ballot object is linked to by the corresponding Contest object. The Ballot object links to the Candidate objects or Referendum objects that compose the ballot. <strong>Subtag data must appear in the order below.</strong></caption>
             <thead>
               <tr>
                 <th>Tag</th>
