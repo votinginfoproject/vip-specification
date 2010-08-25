@@ -2900,8 +2900,11 @@
       function toggleOptional() {
         $('table tr').each(function() {
           if(($('td:eq(2)',this).text()).match(/Optional/)) {
-            $(this).toggle();
-            //if($('td:eq(4)',this).hidden())
+            if($('.checkboxes input[name=optional-check]').is(':checked')) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
           }
         });
       }
@@ -2909,8 +2912,13 @@
       // TODO: extremely hackalicious. make less so.
       function toggleColumns() {
         $('table tr').each(function() {
-          $('td:eq(4)',this).toggle();
-          $('th:eq(4)',this).toggle();
+          if($('.checkboxes input[name=misc-check]').is(':checked')) {
+            $('td:eq(4)',this).show();
+            $('th:eq(4)',this).show();
+          } else {
+            $('td:eq(4)',this).hide();
+            $('th:eq(4)',this).hide();
+          }
         });
       }
     });
