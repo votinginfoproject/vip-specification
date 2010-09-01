@@ -55,7 +55,7 @@
               <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:integer" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="early_vote_site_id" type="xs:integer" />
               <xs:element minOccurs="0" name="ballot_style_image_url" type="xs:string" />
-            </xs:all>
+            </xs:sequence>
             <xs:attribute name="id" type="xs:integer" use="required" />
           </xs:complexType>
         </xs:element>
@@ -281,6 +281,7 @@
           <xs:complexType>
             <xs:all>
               <xs:element name="text" type="xs:string" />
+              <xs:element minOccurs="0" name="sort_order" type="xs:integer" />
             </xs:all>
             <xs:attribute name="id" type="xs:integer" use="required" />
           </xs:complexType>

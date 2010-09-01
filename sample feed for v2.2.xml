@@ -370,8 +370,8 @@ Note that the ID attributes are unique throughout the file.
 	</referendum>
 	<custom_ballot id="90012">
 		<heading>Should Judge Carlton Smith be retained?</heading>
-		<ballot_response_id sort_order="1">120001</ballot_response_id>
-		<ballot_response_id sort_order="2">120002</ballot_response_id>
+		<ballot_response_id>120001</ballot_response_id>
+		<ballot_response_id>120002</ballot_response_id>
 	</custom_ballot>
 	<ballot_response id="120001">
 		<sort_order>1</sort_order>
