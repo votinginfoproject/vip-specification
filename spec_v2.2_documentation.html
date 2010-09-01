@@ -137,7 +137,7 @@
       float: left;
       width: 80%;
     }
-    
+
     .important-note {
       margin: 0 auto;
       display: block;
@@ -2537,23 +2537,8 @@
               &lt;line1&gt;543 E Falls Church Rd.&lt;/line1&gt;
               &lt;line2&gt;Second Floor&lt;/line2&gt;
               &lt;city&gt;Annandale&lt;/city&gt;
-            &lt;/address&gt;
-          </pre>
-          <pre class="brush: xml">
-            &lt;address&gt;
-              &lt;street_name&gt;E Guinevere Dr&lt;/street_name&gt;
-              &lt;address_direction&gt;SE&lt;/address_direction&gt;
-              &lt;apartment&gt;616S&lt;/apartment&gt;
-              &lt;city&gt;Annandale&lt;/city&gt;
+              &lt;state&gt;VA&lt;/state&gt;
               &lt;zip&gt;22003&lt;/zip&gt;
-            &lt;/address&gt;<br>
-          </pre>
-
-          <pre class="brush: xml">
-            &lt;address&gt;
-              &lt;house_number&gt;1120B&lt;/house_number&gt;
-              &lt;street_name&gt;E Guinevere Dr SE&lt;/street_name&gt;
-              &lt;city&gt;Annandale&lt;/city&gt;
             &lt;/address&gt;
           </pre>
         </div>
@@ -2738,9 +2723,9 @@
                 <td>Results.</td>
               </tr>
               <tr class="rev22" onclick="highlight('rev22')">
-                <td>04-22-2010</td>
+                <td>08-31-2010</td>
                 <td>Aaron Strauss</td>
-                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style_image_url field to locality, precinct, and precinct_split elements. Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the referendum and custom_ballot elements) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type. Clarified that the candidate email address field is email not email_address.</td>
+                <td><ul><li>Require exactly one election object.<li>Added start_date and end_date to early_vote_site element.<li>Added polling_location_id and early_vote_site_id fields to locality element.<li>Changed dates_times_open to days_times_open in early_vote_site. <li>Added filing_closed_date field to contest element.<li>Added ballot_style_image_url field to locality, precinct, and precinct_split elements.<li>Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the referendum and custom_ballot elements) to sort_order for consistency.<li>Added what_is_on_my_ballot_url field to election_administration element.<li>Added village as valid locality type (in documentation).<li>Changed the partisan field in the contest element from required to optional (and marked for possible future deletion).<li>Added house_number_prefix field to detail_address type.<li>Clarified that the candidate email address field is email not email_address.</ul></td>
               </tr>
             </tbody>
           </table>

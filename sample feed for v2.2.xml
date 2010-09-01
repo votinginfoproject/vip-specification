@@ -2,7 +2,7 @@
 <!--
 
 Sample XML file for Voting Information Project (VIP) Spec Version 2.2
-Date: 2010-08-11
+Date: 2010-09-01
 
 A sample file for one state's (Ohio's) election. In this hypothetical version of Ohio, the state comprises only three counties.
 Each county has multiple precincts; one precinct is split; precincts sometimes share the same polling location. One county has a common drop
@@ -138,6 +138,7 @@ Note that the ID attributes are unique throughout the file.
         <am_i_registered_url>http://www.elections.oh.us/check_reg.html</am_i_registered_url>
         <absentee_url>http://www.elections.oh.us/early_absentee.html</absentee_url>
         <where_do_i_vote_url>http://www.elections.oh.us/where_vote.html</where_do_i_vote_url>
+        <what_is_on_my_ballot_url>http://www.elections.oh.us/ballot_guide.html</what_is_on_my_ballot_url>
         <rules_url>http://codes.ohio.gov/orc/35</rules_url>
         <voter_services>Early voting and absentee ballot request are available beginning October 1. Voter registration is always available.</voter_services>
         <hours>M-F 9am-6pm Sat 9am-Noon</hours>
@@ -199,16 +200,15 @@ Note that the ID attributes are unique throughout the file.
         <locality_id>101</locality_id>
         <directions>Next to Post Office.</directions>
         <voter_services>Early voting is available.</voter_services>
-	  <start_date>2010-10-01</start_date>
+	    <start_date>2010-10-01</start_date>
         <end_date>2010-11-04</end_date>
-        <dates_times_open>Mon-Fri: 9am - 6pm. Sat. and Sun.: 10am - 7pm.</dates_times_open>
+        <days_times_open>Mon-Fri: 9am - 6pm. Sat. and Sun.: 10am - 7pm.</days_times_open>
 	</early_vote_site>
 	<contest id="60001">
 		<election_id>1</election_id>
 		<electoral_district_id>70001</electoral_district_id>
 		<type>general</type>
 		<partisan>yes</partisan>
-		<electorate_specifications>All voters registered by October 20th, 2010.</electorate_specifications>
 		<office>State Treasurer</office>
 		<ballot_id>80001</ballot_id>
 		<ballot_placement>1</ballot_placement>
@@ -219,7 +219,6 @@ Note that the ID attributes are unique throughout the file.
 		<electoral_district_id>70001</electoral_district_id>
 		<type>general</type>
 		<partisan>yes</partisan>
-		<electorate_specifications>All voters registered by October 20th, 2010.</electorate_specifications>
 		<office>Attorney General</office>
 		<ballot_id>80002</ballot_id>
 		<ballot_placement>2</ballot_placement>
@@ -241,7 +240,6 @@ Note that the ID attributes are unique throughout the file.
 		<electoral_district_id>70003</electoral_district_id>
 		<type>general</type>
 		<partisan>no</partisan>
-		<electorate_specifications>All voters registered by October 20th, 2010.</electorate_specifications>
 		<office>County Commisioner</office>
 		<ballot_id>80004</ballot_id>
 		<ballot_placement>4</ballot_placement>
@@ -251,7 +249,6 @@ Note that the ID attributes are unique throughout the file.
 		<electoral_district_id>70003</electoral_district_id>
 		<type>general</type>
 		<partisan>no</partisan>
-		<electorate_specifications>All voters registered by October 20th, 2010.</electorate_specifications>
 		<office>County Supervisor At Large</office>
       	<number_elected>2</number_elected>
 		<number_voting_for>2</number_voting_for>
@@ -263,7 +260,6 @@ Note that the ID attributes are unique throughout the file.
 		<electoral_district_id>70003</electoral_district_id>
 		<type>referendum</type>
 		<partisan>no</partisan>
-		<electorate_specifications>All voters registered by October 20th, 2010.</electorate_specifications>
 		<ballot_id>80006</ballot_id>
 		<ballot_placement>6</ballot_placement>
 	</contest>
@@ -272,7 +268,6 @@ Note that the ID attributes are unique throughout the file.
 		<electoral_district_id>70003</electoral_district_id>
 		<type>judge retention</type>
 		<partisan>no</partisan>
-		<electorate_specifications>All voters registered by October 20th, 2010.</electorate_specifications>
 		<ballot_id>80007</ballot_id>
 		<ballot_placement>5</ballot_placement>
 	</contest>
