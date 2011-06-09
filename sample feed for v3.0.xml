@@ -7,7 +7,7 @@ File would be named: vipFeed-39-2012-11-06.xml
 
 A sample file for one state's (Ohio's) election. In this hypothetical version of Ohio, the state comprises only three counties.
 Each county has multiple precincts; one precinct is split; precincts sometimes share the same polling location. One county has a common drop
-location, while another county has a precinct with a specific mail location.
+location, while another county has a precinct with a specific mail location. The mail-only precinct comprises the entire town of Rural, OH.
 Five candidate contests are occuring in one November election, along with one county referendum, and one judge retention.
 One of the candidate contests is a special state senate primary; the state senate district comprises one full county
 and one precinct split in a neighboring county.
@@ -62,6 +62,8 @@ Note that the ID attributes are unique throughout the file.
 	<precinct id="10101">
 		<name>Fake Twp</name>
 		<locality_id>101</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
 		<polling_location_id>20121</polling_location_id>
 	</precinct>
 	<precinct id="10102">
@@ -69,6 +71,7 @@ Note that the ID attributes are unique throughout the file.
 		<locality_id>101</locality_id>
 		<electoral_district_id>70001</electoral_district_id>
 		<electoral_district_id>70002</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
 		<polling_location_id>20122</polling_location_id>
 	</precinct>
 	<precinct id="10103">
@@ -99,7 +102,7 @@ Note that the ID attributes are unique throughout the file.
 		<electoral_district_id>70001</electoral_district_id>
 		<electoral_district_id>70002</electoral_district_id>
 	      <mail_only>yes</mail_only>
-		<early_vote_site_id>30203</early_vote_site_id>
+		<early_vote_site_id>30204</early_vote_site_id>
 	</precinct>
 	<precinct id="10301">
 		<name>1-A</name>
@@ -191,19 +194,34 @@ Note that the ID attributes are unique throughout the file.
 		<directions>Enter at main doors and take a left.</directions>
 	</polling_location>
 	<early_vote_site id="30203">
+        <name>Adams Early Vote Center</name>
+        <address>
+          <location_name>Adams County Government Center</location_name>
+          <line1>321 Main St.</line1>
+	    <line1>Suite 200</line1>
+          <city>Adams</city>
+          <state>OH</state>
+          <zip>42224</zip>
+        </address>
+        <directions>Follow signs to early vote</directions>
+        <voter_services>Early voting is available.</voter_services>
+	  <start_date>2012-10-01</start_date>
+        <end_date>2012-11-04</end_date>
+        <days_times_open>Mon-Fri: 9am - 6pm. Sat. and Sun.: 10am - 7pm.</days_times_open>
+	</early_vote_site>
+	<early_vote_site id="30204">
         <name>Springfield Ballot Drop</name>
         <address>
-          <location_name>Early Vote Kiosk Number 52</location_name>
           <line1>321 Main St.</line1>
           <city>Springfield</city>
-          <state>IL</state>
+          <state>OH</state>
           <zip>44444</zip>
         </address>
         <directions>Next to Post Office.</directions>
-        <voter_services>Early voting is available.</voter_services>
-	    <start_date>2012-10-01</start_date>
-        <end_date>2012-11-04</end_date>
-        <days_times_open>Mon-Fri: 9am - 6pm. Sat. and Sun.: 10am - 7pm.</days_times_open>
+        <voter_services>Ballot drop only</voter_services>
+	  <start_date>2012-10-01</start_date>
+        <end_date>2012-11-06</end_date>
+        <days_times_open>Open all days, all times.</days_times_open>
 	</early_vote_site>
 	<contest id="60001">
 		<election_id>1</election_id>
@@ -473,5 +491,17 @@ Note that the ID attributes are unique throughout the file.
           <zip>22003</zip>
         </non_house_address>
         <precinct_id>10102</precinct_id>
+    </street_segment>
+    <street_segment id="1210004">
+        <start_house_number>0</start_house_number>
+        <end_house_number>9999999</end_house_number>
+        <odd_even_both>both</odd_even_both>
+        <non_house_address>
+          <street_name>*</street_name>
+          <city>Rural</city>
+          <state>OH</state>
+          <zip>43321</zip>
+        </non_house_address>
+        <precinct_id>10203</precinct_id>
     </street_segment>
 </vip_object>
