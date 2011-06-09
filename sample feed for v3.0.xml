@@ -198,7 +198,7 @@ Note that the ID attributes are unique throughout the file.
         <address>
           <location_name>Adams County Government Center</location_name>
           <line1>321 Main St.</line1>
-	    <line1>Suite 200</line1>
+	    <line2>Suite 200</line2>
           <city>Adams</city>
           <state>OH</state>
           <zip>42224</zip>
