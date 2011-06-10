@@ -1,248 +1,110 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
 <head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>VIP Spec Version 3.0</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-  <link rel="stylesheet" media="screen" href="http://fwab.jungshadow.com/css/screen.css" type="text/css" />
-  <link rel="stylesheet" href="http://votinginfoproject.org/a/css/screen/main.css" type="text/css" media="screen, projection" />
+<meta name="DC.creator" content="Happy Cog Studios - http://www.happycog.com" />
+<meta name="DC.language" content="en" />
+<meta name="DC.publisher" content="Voting Information Project - www.votinginfoproject.org" />
+<meta name="description" content="Partnering with election boards, campaign managers, user experience architects, graphic designers, and application developers to better serve voters." /> 
+<meta name="keywords" content="" />
+<!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
 
-  <!-- Syntax Highlighter -->
-  <link rel="stylesheet" media="screen" href="http://fwab.jungshadow.com/css/fw/sh/shCore.css" type="text/css" />
-  <link rel="stylesheet" media="screen" href="http://fwab.jungshadow.com/css/fw/sh/shThemeDefault.css" type="text/css" />
+<link rel="shortcut icon" type="image/ico" href="http://votinginfoproject.org/a/img/favicon.ico" />
 
-  <style type="text/css">
-    h1, h2, h3, h4, h5, h6 {
-      color: rgb(36, 104, 153);
-      margin-bottom: .25em;
-      margin-top: .25em;
-    }
+<!--[if IE 6]><![endif]-->
+<link rel="stylesheet" href="http://votinginfoproject.org/a/css/screen/main.css" type="text/css" media="screen, projection" />
 
-    body {
-      line-height: 1.4;
-    }
+<!-- Syntax Highlighter -->
+<link rel="stylesheet" media="screen" href="http://votinginfoproject.org/a/css/syntax/shCore.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="http://votinginfoproject.org/a/css/syntax/shThemeDefault.css" type="text/css" />
 
-    p, td {
-      margin-bottom: 1em;
-      font-size: .875em;
-    }
-
-    caption {
-      margin-bottom: 1em;
-      font-size: .75em;
-    }
-
-    acronym {
-      border-bottom: 1px dotted #000;
-      cursor: help;
-    }
-
-    .page-title .version {
-      display: block;
-      font-size: .5em;
-      font-style: italic;
-      color: #666;
-    }
-
-    @media print {
-      /* Darker version for printing */
-      h1, h2, h3, h4, h5, h6 {
-        color: #000080;
-        font-family: helvetica, sans-serif;
-      }
-    }
-
-    caption {
-      text-align: left;
-      font-style: italic;
-    }
-
-    /* Definition lists: definition term bold */
-    dt {
-      font-weight: bold;
-    }
-
-    address {
-      text-align: right;
-    }
-
-    table {
-      margin: 0 auto;
-      margin-bottom: 1em;
-      border-collapse: separate;
-      border-spacing: .2em;
-      width: 100%;
-    }
-
-    thead th {
-      text-transform: capitalize;
-      white-space: nowrap;
-      min-width: 6em;
-      background-color: #0054af;
-      color: #fff;
-    }
-
-    th, td {
-      padding: .3em;
-      vertical-align: middle;
-    }
-
-    tbody tr:nth-child(2n) {
-      background-color: #c2e2f9;
-    }
-
-    tbody tr:nth-child(2n+1) {
-      background-color: #eaf2ff;
-    }
-
-    /* make sure the text wraps; otherwise, we get ugly ugly scrollbars for
-     * pre-formatted text. This works in most browsers (listed below).
-     */
-    /*pre {
-      white-space: pre-wrap;       /* css-3 */
-      /*white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-      /*white-space: -pre-wrap;      /* Opera 4-6 */
-      /*white-space: -o-pre-wrap;    /* Opera 7 */
-      /*word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    /*}*/
-
-    /* Use the <file> tag for file and directory paths and names. */
-    file {
-      color: #905050;
-      font-family: monospace;
-    }
-
-    .sidebar {
-      float: right;
-      width: 18%;
-      position: relative;
-    }
-
-    .fixed {
-      position: fixed;
-      top: 0;
-    }
-
-    .checkboxes {
-      line-height: 1;
-    }
-
-    .checkboxes, .content-navigation .links {
-      margin-bottom: 1em;
-    }
-
-    .content-navigation {
-      padding: 1em;
-      font-size: .75em;
-    }
-
-    .content-navigation .header {
-      font-size: .875em;
-      min-width: 1em;
-    }
-
-    .content-navigation .checkboxes li li {
-      padding-left: .75em;
-    }
-
-    .main {
-      float: left;
-      width: 80%;
-    }
-
-    div.note {
-      -moz-border-radius: 12px 12px 12px 12px;
-      background-color: #fffff0;
-      border: 2px solid #6060a0;
-      float: right;
-      margin-right: 0%;
-      padding: 1px;
-      width: 3in;
-    }
-
-  </style>
-
-  <script type="text/javascript">
-    function highlight(name) {
-      if (document.getElementsByTagName) {
-        tags = [ 'span', 'div', 'tr', 'td' ];
-        var elements;
-        for (i in tags) {
-          elements  = document.getElementsByTagName(tags[i]);
-          if (elements) {
-            for (var j = 0, element; element = elements[j]; j++) {
-              var elementName = element.getAttribute("class");
-              if (elementName == name) {
-                element.style.backgroundColor = "#C0F0C0";
-              } else if (elementName && elementName.indexOf("rev") == 0) {
-                element.style.backgroundColor = "#FFFFFF";
-              }
-            }
-          }
-        }
-      }
-    }
-  </script>
+<!--[if IE]>
+<link rel="stylesheet" href="/a/css/screen/patches/win-ie-all.css" type="text/css" media="screen, projection" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" href="/a/css/screen/patches/win-ie7.css" type="text/css" media="screen, projection" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="/a/css/screen/patches/win-ie6-below.css" type="text/css" media="screen, projection" />
+<![endif]-->
+<!--[if lte IE 6]><script type="text/javascript" src="/a/js/lib/ddpng.js"></script><![endif]-->
+<link href="/rss" type="application/rss+xml" title="RSS: Voting Information Project" rel="alternate"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://votinginfoproject.org/a/js/core.js"></script>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+<!-- removed because of loading issues - moved to bottom of page -->
+<!--<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=votinginfo"></script>-->
+<script type="text/javascript">
+var addthis_config = {
+     ui_cobrand: "VIP",
+     ui_header_color: "#ffffff",
+     ui_header_background: "#011938",
+     ui_click: "true"
+}
+</script>
 </head>
-<body>
+
+<body id="www-votinginformationproject-org" class="sect-blog pg-2col">
+<p class="skip"><a href="#content">Skip to content</a>. <a href="#nav">Skip to main navigation</a>.</p>
+
+<hr />
+
+<div id="page">
+  <div class="section" id="header">
     <div id="intro">
-						<h1><a href="/"><img src="/a/img/logo-vip-sml.png" alt="Voting Information Project" /></a></h1>
-						
-			<h2>Partnering with election boards, campaign managers, user experience architects, graphic designers, and application developers to better serve voters.</h2>
-			
-			<ul id="nav">
-				<li class="nav-learn-more"><a href="http://votinginfoproject.org/about">Learn More</a></li>
-				<li class="nav-our-projects"><a href="http://votinginfoproject.org/projects">Our Projects</a></li>
-				<li class="nav-get-involved"><a href="http://votinginfoproject.org/interest">Get Involved</a></li>
-			</ul><!-- /end #main-nav -->
-		</div><!-- /end #intro -->
+      <h1><a href="http://votinginfoproject.org/"><img src="http://votinginfoproject.org/a/img/logo-vip-sml.png" alt="Voting Information Project" /></a></h1>
+      
+      <h2>Partnering with election boards, campaign managers, user experience architects, graphic designers, and application developers to better serve voters.</h2>
+      
+      <ul id="nav">
+	<li class="nav-learn-more"><a href="http://votinginfoproject.org/about">Learn More</a></li>
+	<li class="nav-our-projects"><a href="http://votinginfoproject.org/projects">Our Projects</a></li>
+	<li class="nav-get-involved"><a href="http://votinginfoproject.org/interest">Get Involved</a></li>
+	</ul><!-- /end #main-nav -->
+      </div><!-- /end #intro -->
+    <ul id="sec-nav">
+      <li class="nav-blog"><a href="http://votinginfoproject.org/blog">Blog</a></li>
+      <li class="nav-partners"><a href="http://votinginfoproject.org/partners">Partners</a></li>
+      <li class="nav-news-events"><a href="http://votinginfoproject.org/news_events">News &amp; Events</a></li>
+      <li class="nav-rss"><a href="http://votinginfoproject.org/rss">RSS</a></li>
+      <li class="nav-twitter"><a href="http://twitter.com/votinginfo"><img src="" alt="Twitter" /></a></li>
+      <li class="nav-facebook"><a href="http://www.facebook.com/pages/Voting-Information-Project"><img src="" alt="Facebook" /></a></li>
+      </ul><!-- /end #sec-nav -->
+    <div id="utility">
+      <ul>
+	<li class="nav-feed-repo"><a href="http://votinginfoproject.org/feeds">Feed Repository</a></li>
+	<li class="nav-feed-sub"><a href="http://votinginfoproject.org/feeds/submission">Submit Your Feed!</a></li>
+	<li class="nav-login"><a href="http://votinginfoproject.org/login">Log In</a></li>
+	<li class="nav-register last"><a href="http://votinginfoproject.org/register">Become a VIP member</a></li>
+	</ul>
+      <form id="search-form" method="post" action="http://votinginfoproject.org/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="6" />
+<input type="hidden" name="XID" value="499bae66b08e2cd48d363e4555a1c64aaae87a35" />
+<input type="hidden" name="RP" value="search" />
+<input type="hidden" name="NRP" value="search/no_results" />
+<input type="hidden" name="RES" value="10" />
+<input type="hidden" name="status" value="not closed" />
+<input type="hidden" name="channel" value="interest|blog|events|news|partners|projects|static" />
+<input type="hidden" name="search_in" value="everywhere" />
+<input type="hidden" name="where" value="exact" />
+<input type="hidden" name="site_id" value="1" />
+</div>
 
-  <hr />
 
-  <div class="wrap">
-    <div class="group">
-      <div class="sidebar group">
-        <div class="content-navigation">
-          <h2 class="h4">Top-Level Items</h2>
-          <ol class="links">
-            <li><a href="#externallinking">Linking Externally</a></li>
-            <li><a href="#sourceitems">Source</a></li>
-            <li><a href="#electionitems">Election</a></li>
-            <li><a href="#stateitems">State</a></li>
-            <li><a href="#localityitems">Locality</a></li>
-            <li><a href="#precinctitems">Precinct</a></li>
-            <li><a href="#precinctsplititems">Precinct Split</a></li>
-            <li><a href="#electionadministration">Election Administration</a></li>
-            <li><a href="#electionofficial">Election Official</a></li>
-            <li><a href="#pollinglocationitems">Polling Location</a></li>
-            <li><a href="#earlyvotesiteitems">Early Vote Site</a></li>
-            <li><a href="#contestitems">Contest</a></li>
-            <li><a href="#electoraldistrictitems">Electoral District</a></li>
-            <li><a href="#ballotitems">Ballot</a></li>
-            <li><a href="#candidateitems">Candidate</a></li>
-            <!-- <li><a href="#campaignissueitems">Campaign Issue</a></li>
-            <li><a href="#candidatestatementitems">Candidate Statement</a></li> -->
-            <li><a href="#referendumitems">Referendum</a></li>
-            <li><a href="#customballotitems">Custom Ballot</a></li>
-            <li><a href="#ballotresponseitems">Ballot Response</a></li>
-            <li><a href="#streetsegment">Street Segment</a></li>
-            <li><a href="#contestresult">Contest Result</a></li>
-            <li><a href="#ballotlineresult">Ballot Line Result</a></li>
-          </ol>
-          <h2 class="h4">Custom Types</h2>
-          <ol class="links">
-            <li><a href="#detailaddresstype">Detail Address</a></li>
-            <li><a href="#simpleaddresstype">Simple Address</a></li>
-          </ol>
-          <h2 class="h4">Revision History</h2>
-          <ol class="links">
-            <li><a href="#changelog">Changelog</a></li>
-          </ol>
-        </div>
-      </div>
-      <div class="main">
-        <div id="generalintro" class="rev1">
-          <h2 class="page-title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 3.0 (2011-06-15)</span></h2>
+<p class="search"><label for="search-field">Search</label> <input type="text" name="keywords" value="" maxlength="100" id="search-field" /><input type="image" src="http://votinginfoproject.org/a/img/btn-search.png" name="search" alt="Search" id="search-btn" /></p>
+</form>
+      </div><!-- /end #utility -->
+    </div><!-- /end #header.section -->
+
+  <div class="section" id="content">
+    <div class="mod" id="primary">
+       <div id="generalintro" class="rev1">
+          <h1 class="title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 3.0<!-- (2011-06-15)--></span></h1>
 
           <h2>General Introduction</h2>
           <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmer's take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct, allows information disseminators (such as Google and Microsoft) let that voter know about his or her <a href="#pollinglocationitems">polling location</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballot</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administration</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
@@ -259,29 +121,10 @@
           <h3>Naming convention</h3>
           <p>The file containing the VIP feed should be named vipFeed-[<a href="http://www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <br/><br/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
 
-            <!-- <div id="externallinking">
-              <h3>Linking Externally</h3>
-
-              <div class="rev12">
-                <p>Each element other than the root vip_object may (i.e., optionally) include the attributes <b>external_source_vip_id</b> and <b>external_source_datetime</b>, which indicate that the linked element is not found in the current document but in an external document with the specified vip_id and datetime in the external document's top-level <b>source</b> object. For this reason, the source object is required in every feed document. Two examples might elucidate the above discussion of external linking. Consider the case when an organization supplements Iowa's data on candidates with candidates' statements on issues. In the <b>candidate_statement</b> object, the organization links to state data by specifying</p>
-                <pre class="brush: xml">
-                  &lt;candidate_id external_source_vip_id="19" external_source_datetime="2008-06-05T15:45:10"&gt;321113&lt;candidate_id&gt;
-                </pre>
-                <p>where 321113 matches Michael Smith's candidate id attribute in the Iowa feed published on 2008-06-05 at 15:45:10. Note that the organization supplementing Iowa's data never has to specify the candidate's name. In a second case, the organization supplementing Iowa's data knows Michael Smith's email address. Here, the organization adds to the <b>candidate</b> object by specifying</p>
-                <pre class="brush: xml">
-                  &lt;candidate candidate_id external_source_vip_id="19" external_source_datetime="2008-06-05T15:45:10" external_source_object_id="321113" id="3705"&gt;
-                    &lt;name&gt;Michael Smith&lt;/name&gt;
-                    &lt;email&gt;msmith@smithin2008.org&lt;/email&gt;
-                  &lt;/candidate&gt;
-                </pre>
-                <p>where again 321113 is the id in the Iowa file, and 3705 is the id in the supplementing file. If the supplementing file needs to link to Michael Smith (e.g., for a candidate statement), it should link <b>internally</b>, using the 3705 ID.</p>
-              </div>
-            </div> -->
-
           </div>
         </div>
 
-        <div id="sourceitems" class="rev11">
+        <div id="sourceitems" class="datatable">
           <h2>Source items</h2>
 
           <table>
@@ -362,7 +205,7 @@
               &lt;name&gt;State of Alabama&lt;/name&gt;
               &lt;vip_id&gt;1&lt;/vip_id&gt;
               &lt;datetime&gt;2008-06-05T15:45:10&lt;/datetime&gt;
-              &lt;description&gt;The State of Alabama is the official source of eletion information in Alabama. This feed provides information on election dates, districts, offices, candidates, and precinct boundaries.&lt;/description&gt;
+              &lt;description&gt;The State of Alabama is the official source of election information in Alabama. This feed provides information on election dates, districts, offices, candidates, and precinct boundaries.&lt;/description&gt;
               &lt;organization_url&gt;http://www.sos.state.al.us/Elections&lt;/organization_url&gt;
               &lt;feed_contact_id&gt;1555122&lt;/feed_contact_id&gt;
               &lt;tou_url&gt;http://www.sos.state.al.us/vipFeed/terms_of_use.html&lt;/tou_url&gt;
@@ -381,7 +224,7 @@
           </pre>
         </div>
 
-        <div id="electionitems" class="rev1">
+        <div id="electionitems" class="datatable">
           <h2>Election items</h2>
 
           <table>
@@ -519,7 +362,7 @@
           </pre>
         </div>
 
-        <div id="stateitems">
+        <div id="stateitems" class="datatable">
           <h2>State items</h2>
 
           <table>
@@ -571,7 +414,7 @@
           </pre>
         </div>
 
-        <div id="localityitems" class="rev3">
+        <div id="localityitems" class="datatable">
           <h2>Locality items</h2>
           <table>
             <caption>The Locality object represents the jurisdiction below the state (e.g., county). Subtag data must appear in the order below.</caption>
@@ -658,7 +501,7 @@
           </pre>
         </div>
 
-        <div id="precinctitems" class="rev3">
+        <div id="precinctitems" class="datatable">
           <h2>Precinct</h2>
 
           <table>
@@ -790,7 +633,7 @@
           </pre>
         </div>
 
-        <div id="precinctsplititems" class="rev3">
+        <div id="precinctsplititems" class="datatable">
           <h2>Precinct Split</h2>
 
           <table>
@@ -874,7 +717,7 @@
           </pre>
         </div>
 
-        <div id="electionadministration" class="rev11">
+        <div id="electionadministration" class="datatable">
           <h2>Election Administration</h2>
 
           <table>
@@ -1041,7 +884,7 @@
           </pre>
         </div>
 
-        <div id="electionofficial" class="rev11">
+        <div id="electionofficial" class="datatable">
           <h2>Election Official</h2>
 
           <table>
@@ -1112,7 +955,7 @@
           </pre>
         </div>
 
-        <div id="pollinglocationitems" class="rev3">
+        <div id="pollinglocationitems" class="datatable">
           <h2>Polling Location</h2>
 
           <table>
@@ -1175,7 +1018,7 @@
           </pre>
         </div>
 
-        <div id="earlyvotesiteitems" class="rev4">
+        <div id="earlyvotesiteitems" class="datatable">
           <h2>Early Vote Site items</h2>
 
           <table>
@@ -1226,8 +1069,8 @@
           locality_id if the ballot must be dropped in the correct locality.</td>
                 <td>If the <b>locality_id</b> field is invalid or not present, the
           implementation is required to ignore it. If <b>state_id</b> is not present as well, then the implementation should assume that the early vote site is linked to a locality, precinct, or precinct_split through the early_vote_site_id fields in those elements.</td>
-              </tr> 
-              <tr> -->
+              </tr> --> 
+              <tr>
                 <td>directions</td>
                 <td>String</td>
                 <td>Optional</td>
@@ -1297,7 +1140,7 @@
           </pre>
         </div>
 
-        <div id="contestitems" class="rev9">
+        <div id="contestitems" class="datatable">
           <h2>Contest items</h2>
 
           <table>
@@ -1452,7 +1295,7 @@
           </pre>
         </div>
 
-        <div id="electoraldistrictitems" class="rev3">
+        <div id="electoraldistrictitems" class="datatable">
           <h2>Electoral District items</h2>
 
           <table>
@@ -1514,7 +1357,7 @@
           </pre>
         </div>
 
-        <div id="ballotitems" class="rev1">
+        <div id="ballotitems" class="datatable">
 
           <h2>Ballot items</h2>
 
@@ -1596,7 +1439,7 @@
           </pre>
         </div>
 
-        <div id="candidateitems" class="rev1">
+        <div id="candidateitems" class="datatable">
           <h2>Candidate items</h2>
 
           <table>
@@ -1840,7 +1683,7 @@
           </pre>
         </div> -->
 
-        <div id="referendumitems" class="rev1">
+        <div id="referendumitems" class="datatable">
           <h2>Referendum items</h2>
 
           <table>
@@ -1955,7 +1798,7 @@
           </pre>
         </div>
 
-        <div id="customballotitems" class="rev3">
+        <div id="customballotitems" class="datatable">
           <h2>Custom Ballot items</h2>
 
           <table>
@@ -2007,7 +1850,7 @@
           </pre>
         </div>
 
-        <div id="ballotresponseitems" class="rev3">
+        <div id="ballotresponseitems" class="datatable">
 
         <h2>Ballot Response items</h2>
 
@@ -2070,7 +1913,7 @@
           </pre>
         </div>
 
-        <div id="streetsegment" class="rev11">
+        <div id="streetsegment" class="datatable">
           <h2>Street Segment</h2>
 
           <table>
@@ -2174,7 +2017,7 @@
           </pre>
         </div>
 
-        <div id="contestresult" class="rev21">
+        <div id="contestresult" class="datatable">
           <h2>Contest Result</h2>
 
           <table>
@@ -2267,7 +2110,7 @@
           </pre>
         </div>
 
-        <div id="ballotlineresult" class="rev21">
+        <div id="ballotlineresult" class="datatable">
           <h2>Ballot Line Result (e.g., Candidate Result)</h2>
 
           <table>
@@ -2347,18 +2190,10 @@
         </div>
 
 
-        <div id="detailaddresstype" class="rev20">
+        <div id="detailaddresstype" class="datatable">
           <h2>Detail Address (Type) items</h2>
 
           <table>
-            <!-- for non-IE support
-            <colgroup>
-             <col class="show"/>
-             <col class="visible_class"/>
-             <col class="invisible_class"/>
-             <col class="invisible_class"/>
-             <col class="invisible_class"/>
-            </colgroup> -->
             <caption>A Detail Address is an address that includes details such as street direction. It is a type and not an object, so no ID is required.</caption>
             <thead>
               <tr>
@@ -2442,7 +2277,7 @@
                 <td>The <b>state</b> specifies the two-letter state abbreviation of the address.</td>
                 <td>If the <b>state</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
               </tr>
-              <tr><a href="#souceitems">
+              <tr>
                 <td>zip</td>
                 <td>String</td>
                 <td><b>Optional</b></td>
@@ -2485,7 +2320,7 @@
           </pre>
         </div>
 
-        <div id="simpleaddresstype" class="rev20">
+        <div id="simpleaddresstype" class="datatable">
           <h2>Simple Address (Type) items</h2>
 
           <table>
@@ -2581,7 +2416,7 @@
           </pre>
         </div>
 
-        <div id="certificationtype" class="rev21">
+        <div id="certificationtype" class="datatable">
           <h2>Certification Enumeration</h2>
           <table>
             <caption>The Certification Enumeration provides information of the level of completeness of results. Lowercase is required.</caption>
@@ -2618,7 +2453,7 @@
           </dl>
         </div>
 
-        <div id="fieldtypes">
+        <div id="fieldtypes" class="datatable">
           <h3>Field types</h3>
 
           <table>
@@ -2651,153 +2486,82 @@
         </div>
 
         <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
-
-        <div id="changelog">
-          <h2> Revision information</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Author</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="rev0" onclick="highlight('rev0')">
-                <td>10-23-2007</td>
-                <td>dannyb</td>
-                <td>Entry for initial draft.</td>
-              </tr>
-              <tr class="rev1" onclick="highlight('rev1')">
-                <td>10-24-2007</td>
-                <td>dannyb</td>
-                <td>Added more top level items, finished off listing of tags</td>
-              </tr>
-              <tr class="rev2" onclick="highlight('rev2')">
-                <td>10-26-2007</td>
-                <td>dannyb</td>
-                <td>Edited text of some entries, added race objects, registration
-          info became a URL.</td>
-              </tr>
-              <tr class="rev3" onclick="highlight('rev3')">
-                <td>11-7-2007</td>
-                <td>Aaron Strauss</td>
-                <td>Added geographic elements, including tabulation district.
-          Added custom ballots.</td>
-              </tr>
-              <tr class="rev4" onclick="highlight('rev4')">
-                <td>11-12-2007</td>
-                <td>Aaron Strauss</td>
-                <td>Added ballot drop location. Switched referendum to ballot
-          response items. Added statewide tabulation area. Fixed typos.</td>
-              </tr>
-              <tr class="rev5" onclick="highlight('rev5')">
-                <td>11-21-2007</td>
-                <td>Aaron Strauss</td>
-                <td>Races link to elections rather than the other way around</td>
-              </tr>
-              <tr class="rev6" onclick="highlight('rev6')">
-                <td>11-26-2007</td>
-                <td>Aaron Strauss</td>
-                <td>Minor fixes to referendum (effect_of_abstain) and races
-          (partisan and party_primary)</td>
-              </tr>
-              <tr class="rev7" onclick="highlight('rev7')">
-                <td>11-28-2007</td>
-                <td>dannyb</td>
-                <td>Add a root element and rename a few elements for
-          consistency/niceness.</td>
-              </tr>
-              <tr class="rev8" onclick="highlight('rev8')">
-                <td>12-05-2007</td>
-                <td>Aaron Strauss</td>
-                <td>Minor changes.</td>
-              </tr>
-              <tr class="rev9" onclick="highlight('rev9')">
-                <td>12-15-2007</td>
-                <td>Aaron Strauss</td>
-                <td>Races now called contests. Fixed documentation for
-          contest.partisan, contest.primary_party, and
-          referendum.effect_of_abstain. Added ballot.write_in. </td>
-              </tr>
-              <tr class="rev10" onclick="highlight('rev10')">
-                <td>01-08-2008</td>
-                <td>Aaron Strauss</td>
-                <td>Added number of candidates elected and voting for in the
-          Contest object. Added polling hours.</td>
-              </tr>
-              <tr class="rev11" onclick="highlight('rev11')">
-                <td>03-06-2008</td>
-                <td>Aaron Strauss</td>
-                <td>Added source object. Added custom note object. Added election adminstration and election official objects. Added street segment and street address objects. <b>Backwards Incompatibility:</b> removed elections_url and rules_url from the state object; these fields are now in the election administration object linked from a state. The source object is required.</td>
-              </tr>
-              <tr class="rev12" onclick="highlight('rev12')">
-                <td>04-22-2008</td>
-                <td>Aaron Strauss</td>
-                <td>Added campaign issues and candidate statements. Added two more tags in the source object. Added three more URLs to the election_administration object. Added inter-contest ordering to overall ballots. <b>Backwards Incompatibility:</b> Changed EIP to VIP.</td>
-              </tr>
-              <tr class="rev13" onclick="highlight('rev13')">
-                <td>06-24-2008</td>
-                <td>Aaron Strauss</td>
-                <td>Added subtags to Ballot Drop Location, Election Administration, Contest, and Referendum. <b>Backwards Incompatibility:</b> Changed Candidate objects's subtag street_address to filed_mailing_address.</td>
-              </tr>
-              <tr class="rev14" onclick="highlight('rev14')">
-                <td>10-01-2008</td>
-                <td>Aaron Strauss</td>
-                <td>Added subtags of mail-only and ballot_drop_location_id to precinct. Added subtag zip to street_address.</td>
-              </tr>
-              <tr class="rev15" onclick="highlight('rev15')">
-                <td>10-10-2008</td>
-                <td>Aaron Strauss</td>
-                <td>Added voter_services subtag to election_administration. Allowed multiple polling_location_id subtags in the precinct and precinct_split objects.</td>
-              <tr class="rev20" onclick="highlight('rev20')">
-                <td>05-19-2009</td>
-                <td>Aaron Strauss</td>
-                <td>See <a href="http://www.votinginfoproject.org/blog">Blog Posting</a> for the numerous changes.</td>
-              </tr>
-              <tr class="rev21" onclick="highlight('rev21')">
-                <td>10-31-2009</td>
-                <td>Aaron Strauss</td>
-                <td>Results.</td>
-              </tr>
-              <tr class="rev22" onclick="highlight('rev22')">
-                <td>04-22-2010</td>
-                <td>Aaron Strauss</td>
-                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style_image_url field to locality, precinct, and precinct_split elements. Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the referendum and custom_ballot elements) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type. Clarified that the candidate email address field is email not email_address.</td>
-              </tr>
-              <tr class="rev23" onclick="highlight('rev23')">
-                <td>04-11-2010</td>
-                <td>Aaron Strauss</td>
-                <td>Dropped deprecated polling_location.name from xsd. Changed name of object from ballot_response_result to ballot_line_result to clear up confusion. Fixed typo in results objects' jurisdiction_id items. Added candidate_id to ballot_line_response item to help make the posting of results clearer.</td>
-              </tr>
-              <tr class="rev30" onclick="highlight('rev30')">
-                <td>04-11-2010</td>
-                <td>Aaron Strauss</td>
-                <td>Added naming convention. Added requirement in documentation of one election object. Dropped campaign issues and candidate statements. Dropped polling_location_id, and ballot_style_image_url fields to locality element (which were added in version 2.2); rather, towns and localities can be assigned one polling location by using the wildcard in a street segment (wildcard documentation added in version 3.0). Added optional number field to precinct. Clarified locality-wide early vote center documentation. Removed state_id and locality_id fields from early_vote_site object. Added early_vote_site_id to state object for cases of state-wide early vote sites. Deprecated sort_order attribute for ballot.candidate_id.</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <script type="text/javascript">
-            document.writeln('<font size="-1">Click on a row to highlight changes made to a particular revision of this document.<\/font>');
-          </script>
-        </div>
+    </div>
+    <div id="additional" class="push">
+      <div class="mod nav">
+      <h3>Top-Level Items</h3>
+          <ol class="links">
+            <li><a href="#externallinking">Linking Externally</a></li>
+            <li><a href="#sourceitems">Source</a></li>
+            <li><a href="#electionitems">Election</a></li>
+            <li><a href="#stateitems">State</a></li>
+            <li><a href="#localityitems">Locality</a></li>
+            <li><a href="#precinctitems">Precinct</a></li>
+            <li><a href="#precinctsplititems">Precinct Split</a></li>
+            <li><a href="#electionadministration">Election Administration</a></li>
+            <li><a href="#electionofficial">Election Official</a></li>
+            <li><a href="#pollinglocationitems">Polling Location</a></li>
+            <li><a href="#earlyvotesiteitems">Early Vote Site</a></li>
+            <li><a href="#contestitems">Contest</a></li>
+            <li><a href="#electoraldistrictitems">Electoral District</a></li>
+            <li><a href="#ballotitems">Ballot</a></li>
+            <li><a href="#candidateitems">Candidate</a></li>
+            <!-- <li><a href="#campaignissueitems">Campaign Issue</a></li>
+            <li><a href="#candidatestatementitems">Candidate Statement</a></li> -->
+            <li><a href="#referendumitems">Referendum</a></li>
+            <li><a href="#customballotitems">Custom Ballot</a></li>
+            <li><a href="#ballotresponseitems">Ballot Response</a></li>
+            <li><a href="#streetsegment">Street Segment</a></li>
+            <li><a href="#contestresult">Contest Result</a></li>
+            <li><a href="#ballotlineresult">Ballot Line Result</a></li>
+          </ol>
+          <h3>Custom Types</h3>
+          <ol class="links">
+            <li><a href="#detailaddresstype">Detail Address</a></li>
+            <li><a href="#simpleaddresstype">Simple Address</a></li>
+          </ol>
+          <h3>Revision History</h3>
+          <ol class="links">
+            <li><a href="#changelog">Changelog</a></li>
+          </ol>
       </div>
-    </div> <!-- /.group -->
 
+      <div class="mod" id="about">
+	<h3>About VIP</h3>
+	<p>VIP partners with election officials and experts in the development, design, and user experience communities to help voters answer their basic questions about voting. <a href="http://votinginfoproject.org/about" class="full">Learn More</a></p>
+      </div>
+    </div>
     <hr />
+</div><!-- /end #content.section -->
+</div><!-- /end #page -->
 
-    <div class="footer">&copy; Copyright 2009 Voting Information Project <a href="#">Home</a> - <a href="#">About the Project</a> - <a href="#">Privacy Policy</a> - <a href="http://feeds.feedburner.com/VoterInformationProject">RSS</a></div> <!-- /footer -->
-  </div>
+<div class="section" id="footer">
+  <p>&copy; Copyright 2011 Voting Information Project</p>
+  <ul>
+    <li class="nav-feed-repo"><a href="http://votinginfoproject.org/feeds">Feed Repository</a></li>
+    <li class="nav-feed-sub"><a href="http://votinginfoproject.org/feeds/submission">Submit Your Feed!</a></li>
+    <li class="nav-register"><a href="http://votinginfoproject.org/register">Register</a></li>
+    <li class="nav-faq"><a href="http://votinginfoproject.org/faq">FAQ</a></li>
+    <li class="nav-contact"><a href="http://votinginfoproject.org/contact">Contact Us</a></li>
+    <li class="nav-twitter"><a href="http://twitter.com/votinginfo">Twitter</a></li>
+    <li class="nav-facebook"><a href="http://www.facebook.com/pages/Voting-Information-Project/">Facebook</a></li>
+    <li class="nav-google"><a href="http://electioncenter.googlelabs.com/">Google</a></li>
+    <li class="nav-github"><a href="http://github.com/votinginfoproject">Github</a></li>
+    <li class="nav-tos"><a href="http://votinginfoproject.org/tos">Terms of Service</a></li>
+    <li class="nav-privacy"><a href="http://votinginfoproject.org/privacy">Privacy Policy</a></li>
+    <li class="nav-sitemap"><a href="http://votinginfoproject.org/sitemap">Sitemap</a></li>
+    </ul>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=votinginfo"></script><!-- /end #footer.section -->
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-  <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shCore.js"></script>
-  <script type="text/javascript" src="http://fwab.jungshadow.com/js/fw/sh/shBrushXml.js"></script>
+  <script type="text/javascript" src="http://votinginfoproject.org/a/js/syntax/shCore.js"></script>
+  <script type="text/javascript" src="http://votinginfoproject.org/a/js/syntax/shBrushXml.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       var sections = {},
-          top = $('.sidebar .content-navigation').offset().top - parseFloat($('.sidebar .content-navigation').css('marginTop').replace(/auto/, 0)),
-          filterNav = ['<h2 class="h4">Show</h2>',
+          top = $('#additional .nav').offset().top - parseFloat($('#additional .nav').css('marginTop').replace(/auto/, 0)),
+          filterNav = ['<div class="mod"><h3>Show</h3>',
       '<ul class="checkboxes">',
         '<li><input class="filter-check" type="checkbox" checked="checked" name="polling-check" /><label for="polling-check">Polling Locations</label>',
           '<ul>',
@@ -2815,13 +2579,13 @@
         '<li><input class="filter-check" type="checkbox" name="misc-check" /><label for="misc-check">Miscellaneous</label></li>',
         '<li><input class="filter-check" type="checkbox" name="optional-check" /><label for="optional-check">Optional Fields</label></li>',
         '<li><input class="filter-check" type="checkbox" name="changelog-check" /><label for="changelog-check">Changelog</label></li>',
-      '</ul>'].join('');
+      '</ul></div>'].join('');
 
-      $('.sidebar .content-navigation .links li').each(function(){
+      $('#additional .nav .links li').each(function(){
         sections[$('a',this).attr('href')] = $(this);
       });
 
-      $('.sidebar .content-navigation').prepend(filterNav);
+      $('#additional .nav').prepend(filterNav);
 
       $('.checkboxes input[type=checkbox]').bind({
         change: function(e) {
@@ -2912,10 +2676,10 @@
         // whether that's below the form
         if (y >= top) {
           // if so, ad the fixed class
-          $('.sidebar .content-navigation').addClass('fixed');
+          $('#additional').addClass('fixed');
         } else {
           // otherwise remove it
-          $('.sidebar .content-navigation').removeClass('fixed');
+          $('#additional').removeClass('fixed');
         }
       });
 
