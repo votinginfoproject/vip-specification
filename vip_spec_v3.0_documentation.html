@@ -9,7 +9,7 @@
 <meta name="DC.creator" content="Happy Cog Studios - http://www.happycog.com" />
 <meta name="DC.language" content="en" />
 <meta name="DC.publisher" content="Voting Information Project - www.votinginfoproject.org" />
-<meta name="description" content="Partnering with election boards, campaign managers, user experience architects, graphic designers, and application developers to better serve voters." /> 
+<meta name="description" content="Partnering with election boards, campaign managers, user experience architects, graphic designers, and application developers to better serve voters." />
 <meta name="keywords" content="" />
 <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
 
@@ -57,9 +57,9 @@ var addthis_config = {
   <div class="section" id="header">
     <div id="intro">
       <h1><a href="http://votinginfoproject.org/"><img src="http://votinginfoproject.org/a/img/logo-vip-sml.png" alt="Voting Information Project" /></a></h1>
-      
+
       <h2>Partnering with election boards, campaign managers, user experience architects, graphic designers, and application developers to better serve voters.</h2>
-      
+
       <ul id="nav">
 	<li class="nav-learn-more"><a href="http://votinginfoproject.org/about">Learn More</a></li>
 	<li class="nav-our-projects"><a href="http://votinginfoproject.org/projects">Our Projects</a></li>
@@ -101,7 +101,7 @@ var addthis_config = {
       </div><!-- /end #utility -->
     </div><!-- /end #header.section -->
 
-  <div class="section documentation" id="content">
+  <div class="section" id="content">
     <div class="mod" id="primary">
        <div id="generalintro" class="rev1">
           <h1 class="title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 3.0<!-- (2011-06-15)--></span></h1>
@@ -111,7 +111,7 @@ var addthis_config = {
 
           <h3>General Specification</h3>
 
-          <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/faq">here</a>.</p>
+          <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
 
           <div id="toplevel">
             <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><acronym title="Federal Information Processing Standards">FIPS</acronym> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
@@ -125,7 +125,7 @@ var addthis_config = {
         </div>
 
         <div id="sourceitems" class="datatable">
-          <h3>Source items</h3>
+          <h2>Source items</h2>
 
           <table>
             <caption>The Source object represents the organization that is publishing the information. This object is the only required object in the feed file, and only one source object is allowed to be present.</caption>
@@ -225,7 +225,7 @@ var addthis_config = {
         </div>
 
         <div id="electionitems" class="datatable">
-          <h3>Election items</h3>
+          <h2>Election items</h2>
 
           <table>
             <caption>The Election object represents an Election Day, which usually consists of many individual contests and/or referenda. <span class="rev22">A feed must contain <b>exactly one</b> Election object. All relationships in the feed (e.g., street segment to precinct [split] to polling location) are assumed to relate only to the Election specified by this object. It is permissible, and recommended, to combine unrelated contests (e.g., a special election and a general election) that occur on the same day into one feed with one Election object.</span></caption>
@@ -363,7 +363,7 @@ var addthis_config = {
         </div>
 
         <div id="stateitems" class="datatable">
-          <h3>State items</h3>
+          <h2>State items</h2>
 
           <table>
             <caption>The State object includes state-wide election information. The ID attribute is often the state's FIPS code.  Subtag data must appear in the order below.</caption>
@@ -415,7 +415,7 @@ var addthis_config = {
         </div>
 
         <div id="localityitems" class="datatable">
-          <h3>Locality items</h3>
+          <h2>Locality items</h2>
           <table>
             <caption>The Locality object represents the jurisdiction below the state (e.g., county). Subtag data must appear in the order below.</caption>
             <thead>
@@ -502,7 +502,7 @@ var addthis_config = {
         </div>
 
         <div id="precinctitems" class="datatable">
-          <h3>Precinct</h3>
+          <h2>Precinct</h2>
 
           <table>
             <caption>The Precinct object represents a precinct, which is contained within a Locality. Subtag data must appear in the order below. <br/><br/>While the id attribute does not have to be static across feeds for one election, the combination of vip_id, locality.name, precinct.ward, precinct.name, and precinct.number should remain constant across feeds for one election. (Note that not all of the fields just mentioned are required -- omitting those non-required fields is fine.</caption>
@@ -634,7 +634,7 @@ var addthis_config = {
         </div>
 
         <div id="precinctsplititems" class="datatable">
-          <h3>Precinct Split</h3>
+          <h2>Precinct Split</h2>
 
           <table>
             <caption>The Precinct Split object represents a part of a precinct. The Precinct Split object will link to its "parent" Precinct object. Subtag data must appear in the order below.</caption>
@@ -718,7 +718,7 @@ var addthis_config = {
         </div>
 
         <div id="electionadministration" class="datatable">
-          <h3>Election Administration</h3>
+          <h2>Election Administration</h2>
 
           <table>
             <caption>The Election Administration represents an institution for serving a locality's (or state's) election functions.</caption>
@@ -885,7 +885,7 @@ var addthis_config = {
         </div>
 
         <div id="electionofficial" class="datatable">
-          <h3>Election Official</h3>
+          <h2>Election Official</h2>
 
           <table>
             <caption>The Election Official object comprises the name and contact information for an election official.</caption>
@@ -956,7 +956,7 @@ var addthis_config = {
         </div>
 
         <div id="pollinglocationitems" class="datatable">
-          <h3>Polling Location</h3>
+          <h2>Polling Location</h2>
 
           <table>
             <caption>The Polling Location object represents a site where voters cast ballots on Election Day.</caption>
@@ -1019,7 +1019,7 @@ var addthis_config = {
         </div>
 
         <div id="earlyvotesiteitems" class="datatable">
-          <h3>Early Vote Site items</h3>
+          <h2>Early Vote Site items</h2>
 
           <table>
             <caption>The Early Vote Site object represents a place where ballots can be cast prior to the election, or drop boxes on Election Day. This object can represent: a registrar's office that offers early voting, a temporary early vote site, a ballot drop box, or similar location.</caption>
@@ -1069,7 +1069,7 @@ var addthis_config = {
           locality_id if the ballot must be dropped in the correct locality.</td>
                 <td>If the <b>locality_id</b> field is invalid or not present, the
           implementation is required to ignore it. If <b>state_id</b> is not present as well, then the implementation should assume that the early vote site is linked to a locality, precinct, or precinct_split through the early_vote_site_id fields in those elements.</td>
-              </tr> --> 
+              </tr> -->
               <tr>
                 <td>directions</td>
                 <td>String</td>
@@ -1078,7 +1078,7 @@ var addthis_config = {
           locating the ballot drop location.</td>
                 <td>If the <b>directions</b> field is invalid or not present,
           the implementation is required to ignore it.</td>
-              </tr> 
+              </tr>
               <tr>
                 <td>voter_services</td>
                 <td>String</td>
@@ -1141,7 +1141,7 @@ var addthis_config = {
         </div>
 
         <div id="contestitems" class="datatable">
-          <h3>Contest items</h3>
+          <h2>Contest items</h2>
 
           <table>
             <caption>The Contest object represents a single contest, which could be between candidates, adoption of a resolution, or retention of judges (among other possibilities). The geographic scope of the Contest object is the Electoral District, which the Contest object links to.</caption>
@@ -1296,7 +1296,7 @@ var addthis_config = {
         </div>
 
         <div id="electoraldistrictitems" class="datatable">
-          <h3>Electoral District items</h3>
+          <h2>Electoral District items</h2>
 
           <table>
             <caption>The Electoral District object represents the geographic area in which a single contest is held. Examples of Electoral District include: statewide, congressional district, a state senate district, and a fire district. The geographic area that comprises a Electoral District is defined by which precinct or precinct splits link to the Electoral District.</caption>
@@ -1359,7 +1359,7 @@ var addthis_config = {
 
         <div id="ballotitems" class="datatable">
 
-          <h3>Ballot items</h3>
+          <h2>Ballot items</h2>
 
           <table>
             <caption>The Ballot object represents the ballot item for <b>one contest</b>. The Ballot object is linked to by the corresponding Contest object. The Ballot object links to the Candidate objects or Referendum objects that compose the ballot. Subtag data must appear in the order below.</caption>
@@ -1440,7 +1440,7 @@ var addthis_config = {
         </div>
 
         <div id="candidateitems" class="datatable">
-          <h3>Candidate items</h3>
+          <h2>Candidate items</h2>
 
           <table>
             <caption>The candidate object represents a candidate. If a candidate is running in multiple contests, the same Candidate object may be used provided that the candidate's name, party, etc. appear the same in the ballot items for both contests.</caption>
@@ -1559,7 +1559,7 @@ var addthis_config = {
         </div>
 
         <!-- <div id="campaignissueitems" class="rev12">
-          <h3>Campaign Issue items</h3>
+          <h2>Campaign Issue items</h2>
 
           <table>
             <caption>The campaign issue object represents an issue that candidates take positions on. A campaign issue object is linked to an election (not a contest) so that multiple candidates across contests can take positions on the same issue.</caption>
@@ -1622,7 +1622,7 @@ var addthis_config = {
         </div> -->
 
         <!-- <div id="candidatestatementitems" class="rev12">
-          <h3>Candidate Statement items</h3>
+          <h2>Candidate Statement items</h2>
 
           <table>
             <caption>The candidate statement object represents a position that a candidate has taken on an issue.</caption>
@@ -1684,7 +1684,7 @@ var addthis_config = {
         </div> -->
 
         <div id="referendumitems" class="datatable">
-          <h3>Referendum items</h3>
+          <h2>Referendum items</h2>
 
           <table>
             <caption>The Referendum object provides information about a referendum before the voters, including summary statements on each side.</caption>
@@ -1799,7 +1799,7 @@ var addthis_config = {
         </div>
 
         <div id="customballotitems" class="datatable">
-          <h3>Custom Ballot items</h3>
+          <h2>Custom Ballot items</h2>
 
           <table>
             <caption>A Custom Ballot object represents a ballot for a contest that neither pits candidates against each other nor is a referendum. Examples include recall elections and the retention of judges. A Custom Ballot object consists of multiple Ballot Response objects and it links to these objects.</caption>
@@ -1852,7 +1852,7 @@ var addthis_config = {
 
         <div id="ballotresponseitems" class="datatable">
 
-        <h3>Ballot Response items</h3>
+        <h2>Ballot Response items</h2>
 
         <table>
           <caption>A Ballot Response object represents a line on the ballot. Common examples might include "yes" or "no" for referenda, or a judge's name for a retention contest.</caption>
@@ -1914,7 +1914,7 @@ var addthis_config = {
         </div>
 
         <div id="streetsegment" class="datatable">
-          <h3>Street Segment</h3>
+          <h2>Street Segment</h2>
 
           <table>
             <caption>A Street Segment objection represents a portion of a street and the links to the precinct (and possibly precinct split) that this geography (i.e., segment) is contained within. The start address house number must be less than the end address house number unless the segment consists of only one address in which case these values are equal.</caption>
@@ -2018,10 +2018,10 @@ var addthis_config = {
         </div>
 
         <div id="contestresult" class="datatable">
-          <h3>Contest Result</h3>
+          <h2>Contest Result</h2>
 
           <table>
-            <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationtype">certificationEnum</a>.</caption>
+            <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
             <thead>
               <tr>
                 <th>Tag</th>
@@ -2111,7 +2111,7 @@ var addthis_config = {
         </div>
 
         <div id="ballotlineresult" class="datatable">
-          <h3>Ballot Line Result (e.g., Candidate Result)</h3>
+          <h2>Ballot Line Result (e.g., Candidate Result)</h2>
 
           <table>
             <caption>A Ballot Line Result provides the candidates' or referenda responses' vote totals. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
@@ -2191,7 +2191,7 @@ var addthis_config = {
 
 
         <div id="detailaddresstype" class="datatable">
-          <h3>Detail Address (Type) items</h3>
+          <h2>Detail Address (Type) items</h2>
 
           <table>
             <caption>A Detail Address is an address that includes details such as street direction. It is a type and not an object, so no ID is required.</caption>
@@ -2321,7 +2321,7 @@ var addthis_config = {
         </div>
 
         <div id="simpleaddresstype" class="datatable">
-          <h3>Simple Address (Type) items</h3>
+          <h2>Simple Address (Type) items</h2>
 
           <table>
             <caption>A Simple Address is an address that combines each address line into one string. It is a type and not an object, so no ID is required.</caption>
@@ -2417,7 +2417,7 @@ var addthis_config = {
         </div>
 
         <div id="certificationtype" class="datatable">
-          <h3>Certification Enumeration</h3>
+          <h2>Certification Enumeration</h2>
           <table>
             <caption>The Certification Enumeration provides information of the level of completeness of results. Lowercase is required.</caption>
             <thead>
@@ -2443,7 +2443,7 @@ var addthis_config = {
           </table>
         </div>
 
-        <div id="termdefs" class="datatable">
+        <div id="termdefs">
           <h3>Term definitions</h3>
           <dl>
             <dt>Required</dt>
@@ -2486,12 +2486,143 @@ var addthis_config = {
         </div>
 
         <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
+        
+        <div id="changelog" class="datatable">
+          <h2>Revision information</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Author</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="rev0" onclick="highlight('rev0')">
+                <td>10-23-2007</td>
+                <td>dannyb</td>
+                <td>Entry for initial draft.</td>
+              </tr>
+              <tr class="rev1" onclick="highlight('rev1')">
+                <td>10-24-2007</td>
+                <td>dannyb</td>
+                <td>Added more top level items, finished off listing of tags</td>
+              </tr>
+              <tr class="rev2" onclick="highlight('rev2')">
+                <td>10-26-2007</td>
+                <td>dannyb</td>
+                <td>Edited text of some entries, added race objects, registration
+          info became a URL.</td>
+              </tr>
+              <tr class="rev3" onclick="highlight('rev3')">
+                <td>11-7-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Added geographic elements, including tabulation district.
+          Added custom ballots.</td>
+              </tr>
+              <tr class="rev4" onclick="highlight('rev4')">
+                <td>11-12-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Added ballot drop location. Switched referendum to ballot
+          response items. Added statewide tabulation area. Fixed typos.</td>
+              </tr>
+              <tr class="rev5" onclick="highlight('rev5')">
+                <td>11-21-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Races link to elections rather than the other way around</td>
+              </tr>
+              <tr class="rev6" onclick="highlight('rev6')">
+                <td>11-26-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Minor fixes to referendum (effect_of_abstain) and races
+          (partisan and party_primary)</td>
+              </tr>
+              <tr class="rev7" onclick="highlight('rev7')">
+                <td>11-28-2007</td>
+                <td>dannyb</td>
+                <td>Add a root element and rename a few elements for
+          consistency/niceness.</td>
+              </tr>
+              <tr class="rev8" onclick="highlight('rev8')">
+                <td>12-05-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Minor changes.</td>
+              </tr>
+              <tr class="rev9" onclick="highlight('rev9')">
+                <td>12-15-2007</td>
+                <td>Aaron Strauss</td>
+                <td>Races now called contests. Fixed documentation for
+          contest.partisan, contest.primary_party, and
+          referendum.effect_of_abstain. Added ballot.write_in. </td>
+              </tr>
+              <tr class="rev10" onclick="highlight('rev10')">
+                <td>01-08-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added number of candidates elected and voting for in the
+          Contest object. Added polling hours.</td>
+              </tr>
+              <tr class="rev11" onclick="highlight('rev11')">
+                <td>03-06-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added source object. Added custom note object. Added election adminstration and election official objects. Added street segment and street address objects. <b>Backwards Incompatibility:</b> removed elections_url and rules_url from the state object; these fields are now in the election administration object linked from a state. The source object is required.</td>
+              </tr>
+              <tr class="rev12" onclick="highlight('rev12')">
+                <td>04-22-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added campaign issues and candidate statements. Added two more tags in the source object. Added three more URLs to the election_administration object. Added inter-contest ordering to overall ballots. <b>Backwards Incompatibility:</b> Changed EIP to VIP.</td>
+              </tr>
+              <tr class="rev13" onclick="highlight('rev13')">
+                <td>06-24-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added subtags to Ballot Drop Location, Election Administration, Contest, and Referendum. <b>Backwards Incompatibility:</b> Changed Candidate objects's subtag street_address to filed_mailing_address.</td>
+              </tr>
+              <tr class="rev14" onclick="highlight('rev14')">
+                <td>10-01-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added subtags of mail-only and ballot_drop_location_id to precinct. Added subtag zip to street_address.</td>
+              </tr>
+              <tr class="rev15" onclick="highlight('rev15')">
+                <td>10-10-2008</td>
+                <td>Aaron Strauss</td>
+                <td>Added voter_services subtag to election_administration. Allowed multiple polling_location_id subtags in the precinct and precinct_split objects.</td>
+              <tr class="rev20" onclick="highlight('rev20')">
+                <td>05-19-2009</td>
+                <td>Aaron Strauss</td>
+                <td>See <a href="http://www.votinginfoproject.org/blog">Blog Posting</a> for the numerous changes.</td>
+              </tr>
+              <tr class="rev21" onclick="highlight('rev21')">
+                <td>10-31-2009</td>
+                <td>Aaron Strauss</td>
+                <td>Results.</td>
+              </tr>
+              <tr class="rev22" onclick="highlight('rev22')">
+                <td>04-22-2010</td>
+                <td>Aaron Strauss</td>
+                <td>Require exactly one election object. Added start_date and end_date to early_vote_site element. Added polling_location_id and early_vote_site_id fields to locality element. Changed dates_times_open to days_times_open in early_vote_site. Added filing_closed_date field to contest element. Added ballot_style_image_url field to locality, precinct, and precinct_split elements. Added sort_order to candidate element and to ballot_response element, and changed the order attribute of the candidate_id field (in the ballot element; as well as the ballot_response_id field in the referendum and custom_ballot elements) to sort_order for consistency. Added what_is_on_my_ballot_url field to election_administration element. Added village as valid locality type. Changed the partisan field in the contest element from required to optional (and marked for possible future deletion). Added house_number_prefix field to detail_address type. Clarified that the candidate email address field is email not email_address.</td>
+              </tr>
+              <tr class="rev23" onclick="highlight('rev23')">
+                <td>04-11-2010</td>
+                <td>Aaron Strauss</td>
+                <td>Dropped deprecated polling_location.name from xsd. Changed name of object from ballot_response_result to ballot_line_result to clear up confusion. Fixed typo in results objects' jurisdiction_id items. Added candidate_id to ballot_line_response item to help make the posting of results clearer.</td>
+              </tr>
+              <tr class="rev30" onclick="highlight('rev30')">
+                <td>04-11-2010</td>
+                <td>Aaron Strauss</td>
+                <td>Added naming convention. Added requirement in documentation of one election object. Dropped campaign issues and candidate statements. Dropped polling_location_id, and ballot_style_image_url fields to locality element (which were added in version 2.2); rather, towns and localities can be assigned one polling location by using the wildcard in a street segment (wildcard documentation added in version 3.0). Added optional number field to precinct. Clarified locality-wide early vote center documentation. Removed state_id and locality_id fields from early_vote_site object. Added early_vote_site_id to state object for cases of state-wide early vote sites. Deprecated sort_order attribute for ballot.candidate_id.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <script type="text/javascript">
+            document.writeln('<font size="-1">Click on a row to highlight changes made to a particular revision of this document.<\/font>');
+          </script>
+        </div>       
+        
     </div>
     <div id="additional" class="push">
       <div class="mod nav">
       <h3>Top-Level Items</h3>
           <ol class="links">
-            <li><a href="#externallinking">Linking Externally</a></li>
             <li><a href="#sourceitems">Source</a></li>
             <li><a href="#electionitems">Election</a></li>
             <li><a href="#stateitems">State</a></li>
@@ -2519,14 +2650,18 @@ var addthis_config = {
           <ol class="links">
             <li><a href="#detailaddresstype">Detail Address</a></li>
             <li><a href="#simpleaddresstype">Simple Address</a></li>
-            <li><a href="#certificationtype">Certification Enumeration</a></li>
+            <li><a href="#certificationtype">Certification Enum</a></li>
+          </ol>
+          <h3>Revision History</h3>
+          <ol class="links">
+            <li><a href="#changelog">Changelog</a></li>
           </ol>
       </div>
 
-      <div class="mod" id="about">
+<!--      <div class="mod" id="about">
 	<h3>About VIP</h3>
 	<p>VIP partners with election officials and experts in the development, design, and user experience communities to help voters answer their basic questions about voting. <a href="http://votinginfoproject.org/about" class="full">Learn More</a></p>
-      </div>
+      </div> -->
     </div>
     <hr />
 </div><!-- /end #content.section -->
@@ -2573,8 +2708,9 @@ var addthis_config = {
         '</li>',
         '<li><input class="filter-check" type="checkbox" checked="checked" name="election-check" /><label for="election-check">Election Official</label></li>',
         '<li><input class="filter-check" type="checkbox" name="results-check" /><label for="results-check">Results</label></li>',
-        '<li><input class="filter-check" type="checkbox" name="misc-check" /><label for="misc-check">Miscellaneous</label></li>',
+        '<li><input class="filter-check" type="checkbox" name="misc-check" /><label for="misc-check">Error Handling & Misc</label></li>',
         '<li><input class="filter-check" type="checkbox" name="optional-check" /><label for="optional-check">Optional Fields</label></li>',
+        '<li><input class="filter-check" type="checkbox" name="changelog-check" /><label for="changelog-check">Changelog</label></li>',
       '</ul></div>'].join('');
 
       $('#additional .nav .links li').each(function(){
@@ -2635,9 +2771,6 @@ var addthis_config = {
               ]);
               break;
             case 'misc-check':
-              toggleSections([
-                '#externallinking'
-              ]);
               toggleColumns();
               break;
             case 'optional-check':
@@ -2707,4 +2840,4 @@ var addthis_config = {
     });
   </script>
 </body>
-</html> 
+</html>
