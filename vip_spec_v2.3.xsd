@@ -63,6 +63,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="number" type="xs:string" />
               <xs:element minOccurs="1" maxOccurs="1" name="locality_id" type="xs:integer" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="electoral_district_id" type="xs:integer" />
               <xs:element minOccurs="0" maxOccurs="1" name="ward" type="xs:string" />
