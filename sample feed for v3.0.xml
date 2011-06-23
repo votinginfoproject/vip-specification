@@ -184,6 +184,7 @@ Note that the ID attributes are unique throughout the file.
 	<polling_location id="20122">
 		<address><location_name>Adams Church</location_name><line1>123 Main St.</line1><city>Adams</city><state>OH</state><zip>33333</zip></address>
 		<directions>Enter through door by parking lot.</directions>
+        	<photo_url>http://www.seo.gov/photo20122.jpg</photo_url>
 	</polling_location>
 	<polling_location id="20201">
 		<address><location_name>Bath Firehouse Church</location_name><line1>123 State St.</line1><city>Bath</city><state>OH</state><zip>33333</zip></address>

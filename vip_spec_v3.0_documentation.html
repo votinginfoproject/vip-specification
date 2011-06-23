@@ -107,11 +107,11 @@ var addthis_config = {
           <h1 class="title"><acronym title="Voting Information Project">VIP</acronym> Format Specification <span class="version">Version 3.0<!-- (2011-06-15)--></span></h1>
 
           <h2>General Introduction</h2>
-          <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmer's take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct, allows information disseminators (such as Google and Microsoft) let that voter know about his or her <a href="#pollinglocationitems">polling location</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballot</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administration</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
+          <p>Welcome to the <a href="http://www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
 
           <h3>General Specification</h3>
 
-          <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details. The file naming standard is <a href="http://www.votinginfoproject.org/index.cfm?objectid=95FDF9E5-1D09-317F-BBADD2A46EC576BA">here</a>.</p>
+          <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="http://code.google.com/p/election-info-standard/downloads/list">sample xml file and xsd file</a> for more details.
 
           <div id="toplevel">
             <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><acronym title="Federal Information Processing Standards">FIPS</acronym> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
@@ -996,6 +996,16 @@ var addthis_config = {
           time) that Election Day polling locations are open. This information
           overrides any information specified in the Election object.</td>
                 <td>If the <b>polling_hours</b> field is invalid or missing, the
+          implementation is required to ignore it.</td>
+              </tr>
+              <tr class="rev30">
+                <td>photo_url</td>
+                <td>String</td>
+                <td>Optional</td>
+                <td>The <b>photo_url</b> is a url that points to a picture of this polling location.
+                 At the moment, one picture is permitted per polling location, though multiple pictures
+                 may be allowed in future revisions.</td>
+                <td>If the <b>photo_url</b> field is invalid or missing, the
           implementation is required to ignore it.</td>
               </tr>
             </tbody>
@@ -2486,7 +2496,7 @@ var addthis_config = {
         </div>
 
         <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
-        
+
         <div id="changelog" class="datatable">
           <h2>Revision information</h2>
           <table>
@@ -2608,7 +2618,7 @@ var addthis_config = {
               <tr class="rev30" onclick="highlight('rev30')">
                 <td>04-11-2010</td>
                 <td>Aaron Strauss</td>
-                <td>Added naming convention. Added requirement in documentation of one election object. Dropped campaign issues and candidate statements. Dropped polling_location_id, and ballot_style_image_url fields to locality element (which were added in version 2.2); rather, towns and localities can be assigned one polling location by using the wildcard in a street segment (wildcard documentation added in version 3.0). Added optional number field to precinct. Clarified locality-wide early vote center documentation. Removed state_id and locality_id fields from early_vote_site object. Added early_vote_site_id to state object for cases of state-wide early vote sites. Deprecated sort_order attribute for ballot.candidate_id.</td>
+                <td>Added naming convention. Added requirement in documentation of one election object. Dropped campaign issues and candidate statements. Dropped polling_location_id, and ballot_style_image_url fields to locality element (which were added in version 2.2); rather, towns and localities can be assigned one polling location by using the wildcard in a street segment (wildcard documentation added in version 3.0). Added optional number field to precinct. Clarified locality-wide early vote center documentation. Removed state_id and locality_id fields from early_vote_site object. Added early_vote_site_id to state object for cases of state-wide early vote sites. Added polling_location.photo_url field for pictures of polling locations. Deprecated sort_order attribute for ballot.candidate_id.</td>
               </tr>
             </tbody>
           </table>
@@ -2616,8 +2626,8 @@ var addthis_config = {
           <script type="text/javascript">
             document.writeln('<font size="-1">Click on a row to highlight changes made to a particular revision of this document.<\/font>');
           </script>
-        </div>       
-        
+        </div>
+
     </div>
     <div id="additional" class="push">
       <div class="mod nav">

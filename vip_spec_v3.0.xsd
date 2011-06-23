@@ -125,6 +125,7 @@
               <xs:element name="address" type="simpleAddressType" />
               <xs:element minOccurs="0" name="directions" type="xs:string" />
               <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
+              <xs:element minOccurs="0" name="photo_url" type="xs:string" />
             </xs:all>
             <xs:attribute name="id" type="xs:integer" use="required" />
           </xs:complexType>
