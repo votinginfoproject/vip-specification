@@ -1,3 +1,3 @@
 # Voting Information Project XML Specification #
 
-This XML specification defines the relationships among a number of election related elements. Please see the [documentation](http://votinginfoproject.github.com/vip-specification/vip_spec_v3.0_documentation.html).
+This XML specification defines the relationships among a number of election related elements. Please see the [documentation](http://votinginfoproject.github.com/vip-specification/).
