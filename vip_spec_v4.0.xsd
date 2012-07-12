@@ -318,11 +318,10 @@
             <xs:all>
               <xs:element name="state_id" type="xs:integer" />
               <xs:element name="name" type="xs:string" />
-              <xs:element minOccurs="0" name="partial_identification" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="partial_identification" type="partialIdType" />
               <xs:element minOccurs="0" name="category" type="idCategoryEnum" />
               <xs:element minOccurs="0" name="id_requirement" type="idRequirementsEnum" />
-              <xs:element minOccurs="0" name="additional_required_category" type="idCategoryEnum" />
-              <xs:element minOccurs="0" name="address_match" type="addressMatchEnum" />
+              <xs:element minOccurs="0" name="additional_required_category" type="idRequirementsEnum" />
             </xs:all>
             <xs:attribute name="id" type="xs:integer" use="required" />
           </xs:complexType>
@@ -443,7 +442,7 @@
   <xs:simpleType name="idCategoryEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="initial"/>
-      <xs:enumeration value="daily life"/>
+      <xs:enumeration value="daily_life"/>
       <xs:enumeration value="financial"/>
       <xs:enumeration value="student"/>
       <xs:enumeration value="health"/>
@@ -462,29 +461,60 @@
 
   <xs:simpleType name="idRequirementsEnum">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="name"/>
-      <xs:enumeration value="signature"/>
-      <xs:enumeration value="photo"/>
-      <xs:enumeration value="expiration"/>
-      <xs:enumeration value="issued"/>
-      <xs:enumeration value="address"/>
-      <xs:enumeration value="dob"/>
-      <xs:enumeration value="Name"/>
-      <xs:enumeration value="Signature"/>
-      <xs:enumeration value="Photo"/>
-      <xs:enumeration value="Expiration"/>
-      <xs:enumeration value="Issued"/>
-      <xs:enumeration value="Address"/>
-      <xs:enumeration value="Dob"/>
-      <xs:enumeration value="NAME"/>
-      <xs:enumeration value="SIGNATURE"/>
+      <xs:enumeration value="COPY"/>
+      <xs:enumeration value="CERT"/>
       <xs:enumeration value="PHOTO"/>
-      <xs:enumeration value="EXPIRATION"/>
-      <xs:enumeration value="ISSUED"/>
-      <xs:enumeration value="ADDRESS"/>
+      <xs:enumeration value="ADX"/>
+      <xs:enumeration value="SIG"/>
+      <xs:enumeration value="UNIV"/>
+      <xs:enumeration value="IDENT"/>
+      <xs:enumeration value="PHOTO"/>
+      <xs:enumeration value="NAME"/>
+      <xs:enumeration value="PREAD"/>
+      <xs:enumeration value="PREP"/>
+      <xs:enumeration value="AD"/>
+      <xs:enumeration value="ADS"/>
+      <xs:enumeration value="IADS"/>
+      <xs:enumeration value="ADC"/>
+      <xs:enumeration value="ADX"/>
+      <xs:enumeration value="IADX"/>
+      <xs:enumeration value="HAVA"/>
+      <xs:enumeration value="PART1"/>
+      <xs:enumeration value="ADSORPART"/>
+      <xs:enumeration value="ADXORPART"/>
+      <xs:enumeration value="LISTOPART"/>
+      <xs:enumeration value="LISTOFEE"/>
+      <xs:enumeration value="SIGOPART"/>
       <xs:enumeration value="DOB"/>
+      <xs:enumeration value="SIG"/>
+      <xs:enumeration value="VALID"/>
+      <xs:enumeration value="CURVAL"/>
+      <xs:enumeration value="CURR"/>
+      <xs:enumeration value="VAL"/>
+      <xs:enumeration value="VALXSR"/>
+      <xs:enumeration value="NOTEXP"/>
+      <xs:enumeration value="EXPLAST"/>
+      <xs:enumeration value="EXP12MO"/>
+      <xs:enumeration value="DATE30DUE"/>
+      <xs:enumeration value="DATE30DAY"/>
+      <xs:enumeration value="DATE90DAY"/>
+      <xs:enumeration value="DATE3MO"/>
+      <xs:enumeration value="DATE9MO"/>
+      <xs:enumeration value="DATEELX"/>
+      <xs:enumeration value="DATELAST"/>
+      <xs:enumeration value="DATE1YR"/>
+      <xs:enumeration value="CT"/>
+      <xs:enumeration value="NONFIRST"/>
+      <xs:enumeration value="DATELASTYR"/>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="partialIdType">
+    <xs:all>
+      <xs:element minOccurs="0" name="id_requirement" type="idRequirementsEnum"/>
+      <xs:element minOccurs="0" name="additional_required_category" type="idRequirementsEnum"/>
+    </xs:all>
+  </xs:complexType>
 
   <xs:simpleType name="addressMatchEnum">
     <xs:restriction base="xs:string">
