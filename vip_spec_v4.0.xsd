@@ -324,6 +324,7 @@
               <xs:element minOccurs="0" name="additional_required_category" type="idRequirementsEnum" />
             </xs:all>
             <xs:attribute name="id" type="xs:integer" use="required" />
+            <xs:attribute name="verified" type="yesNoEnum" />
           </xs:complexType>
         </xs:element>
 
@@ -335,6 +336,8 @@
 	      <xs:element name="response" type="xs:string" />
 	      <xs:element name="citation" type="citationType" />
 	    </xs:all>
+            <xs:attribute name="id" type="xs:integer" use="required" />
+            <xs:attribute name="verified" type="yesNoEnum" />
 	  </xs:complexType>
 	</xs:element>
 
@@ -347,6 +350,8 @@
 	      <xs:element name="response" type="xs:string" />
 	      <xs:element name="citation" type="citationType" />
 	    </xs:all>
+            <xs:attribute name="id" type="xs:integer" use="required" />
+            <xs:attribute name="verified" type="yesNoEnum" />
 	  </xs:complexType>
 	</xs:element>
 	<!-- /END Rules of the Road -->
@@ -513,6 +518,7 @@
     <xs:all>
       <xs:element minOccurs="0" name="id_requirement" type="idRequirementsEnum"/>
       <xs:element minOccurs="0" name="additional_required_category" type="idRequirementsEnum"/>
+      <xs:element minOccurs="0" name="voter_identification_id" type="xs:integer"/>
     </xs:all>
   </xs:complexType>
 
