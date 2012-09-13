@@ -1,0 +1,604 @@
+<?xml version="1.0"?>
+<!--
+
+Sample XML file for Voting Information Project (VIP) Spec Version 4.0
+Date: 2012-05-09
+File would be named: vipFeed-39-2012-11-06.xml
+
+A sample file for one state's (Ohio's) election. In this hypothetical version of Ohio, the state comprises only
+three counties. Each county has multiple precincts; one precinct is split; precincts sometimes share the same
+polling location. One county has a common drop location, while another county has a precinct with a specific
+mail location. The mail-only precinct comprises the entire town of Rural, OH. One polling location and a drop
+location have latitude/longitude coordinates.
+
+Five candidate contests are occuring in one November election, along with one county referendum, and one judge
+retention. One of the candidate contests is a special state senate primary; the state senate district comprises
+one full county and one precinct split in a neighboring county.
+
+The other contests are either statewide or countywide; the county contests are non-partisan.
+
+A voter, looking to cast a ballot, will need to know that they will need to present one of the following:
+
+  1. A current and valid photo identification
+  2. A military identification
+  3. A copy of a current utility bill, bank statement, government check, paycheck, or other government document (other than a notice of election or a voter registration notification sent by a board of elections) that shows the voter's name and current address.
+
+Note that the ID attributes are unique throughout the file.
+
+-->
+<vip_object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://election-info-standard.googlecode.com/files/election_spec_v4.0.xsd" schemaVersion="4.0">
+      <source id="0">
+        <name>State of Ohio</name>
+        <vip_id>39</vip_id>
+        <datetime>2012-10-31T15:45:10</datetime>
+        <description>The State of Ohio is the official source of eletion information in Ohio. This feed provides information on election dates, districts, offices, candidates, and precinct boundaries.</description>
+        <organization_url>http://www.sos.state.oh.us/</organization_url>
+        <feed_contact_id>1555122</feed_contact_id>
+        <tou_url>http://www.sos.state.oh.us/vipFeed/terms_of_use.html</tou_url>
+      </source>
+	<election id="1">
+		<date>2012-11-06</date>
+		<election_type>Federal</election_type>
+		<state_id>39</state_id>
+		<statewide>yes</statewide>
+		<registration_info>http://www.sos.state.oh.us/sos/PublicAffairs/VoterInfoGuide.aspx?Section=14</registration_info>
+		<absentee_ballot_info>http://www.sos.state.oh.us/sos/PublicAffairs/VoterInfoGuide.aspx?Section=16</absentee_ballot_info>
+		<results_url>http://www.sos.state.oh.us/sos/ElectionsVoter/electionResults.aspx</results_url>
+            <polling_hours>7am-8pm</polling_hours>
+            <election_day_registration>no</election_day_registration>
+            <registration_deadline>2012-10-01</registration_deadline>
+            <absentee_request_deadline>2012-11-01</absentee_request_deadline>
+	</election>
+	<state id="39">
+		<name>Ohio</name>
+		<election_administration_id>3456</election_administration_id>
+	</state>
+	<locality id="101">
+		<name>Adams</name>
+		<state_id>39</state_id>
+		<type>county</type>
+		<early_vote_site_id>30203</early_vote_site_id>
+		<election_machine_type>Hart eSlate/VBO</election_machine_type>
+		<pollbook_type>Hart ePollbook</pollbook_type>
+	</locality>
+	<locality id="102">
+		<name>Allen</name>
+		<state_id>39</state_id>
+		<type>county</type>
+	</locality>
+	<locality id="103">
+		<name>Ashland</name>
+		<state_id>39</state_id>
+		<type>county</type>
+	</locality>
+	<precinct id="10101">
+		<name>Fake Twp</name>
+		<locality_id>101</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
+		<polling_location_id>20121</polling_location_id>
+	</precinct>
+	<precinct id="10102">
+		<name>Psuedo Twp</name>
+		<locality_id>101</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70002</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
+		<polling_location_id>20122</polling_location_id>
+	</precinct>
+	<precinct id="10103">
+		<name>SharesTwoOtherLocations Twp</name>
+		<locality_id>101</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
+		<polling_location_id>20121</polling_location_id>
+		<polling_location_id>20122</polling_location_id>
+	</precinct>
+	<precinct id="10201">
+		<name>Bath Twp A</name>
+		<locality_id>102</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70002</electoral_district_id>
+		<polling_location_id>20201</polling_location_id>
+	</precinct>
+	<precinct id="10202">
+		<name>Bath Twp B</name>
+		<locality_id>102</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70002</electoral_district_id>
+		<polling_location_id>20201</polling_location_id>
+	</precinct>
+	<precinct id="10203">
+		<name>Rural Twp Mail In </name>
+		<locality_id>102</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70002</electoral_district_id>
+	      <mail_only>yes</mail_only>
+		<early_vote_site_id>30204</early_vote_site_id>
+	</precinct>
+	<precinct id="10301">
+		<name>1-A</name>
+		<locality_id>103</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
+		<ward>1</ward>
+		<polling_location_id>20301</polling_location_id>
+	</precinct>
+	<precinct id="10302">
+		<name>1-B</name>
+		<locality_id>103</locality_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70002</electoral_district_id>
+		<ward>1</ward>
+		<polling_location_id>20301</polling_location_id>
+	</precinct>
+	<precinct_split id="30101">
+		<name>Fake Twp-A</name>
+		<precinct_id>10101</precinct_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70002</electoral_district_id>
+            <ballot_style_image_url>http://www.example.com/precinct_split_101_ballot.pdf</ballot_style_image_url>
+	</precinct_split>
+	<precinct_split id="30102">
+		<name>Fake Twp-B</name>
+		<precinct_id>10101</precinct_id>
+		<electoral_district_id>70001</electoral_district_id>
+		<electoral_district_id>70003</electoral_district_id>
+	</precinct_split>
+    <election_administration id="3456">
+        <eo_id>3457</eo_id>
+        <ovc_id>3458</ovc_id>
+        <physical_address><location_name>Government Center</location_name><line1>12 Chad Ct.</line1><city>Columbus</city><state>OH</state><zip>33333</zip></physical_address>
+        <mailing_address><line1>P.O. Box 1776</line1><city>Columbus</city><state>OH</state><zip>33333</zip></mailing_address>
+        <elections_url>http://www.sos.state.oh.us/sos/ElectionsVoter/ohioElections.aspx</elections_url>
+        <registration_url>http://www.elections.oh.us/register.html</registration_url>
+        <am_i_registered_url>http://www.elections.oh.us/check_reg.html</am_i_registered_url>
+        <absentee_url>http://www.elections.oh.us/early_absentee.html</absentee_url>
+        <where_do_i_vote_url>http://www.elections.oh.us/where_vote.html</where_do_i_vote_url>
+        <what_is_on_my_ballot_url>http://www.elections.oh.us/ballot_guide.html</what_is_on_my_ballot_url>
+        <rules_url>http://codes.ohio.gov/orc/35</rules_url>
+        <voter_services>Early voting and absentee ballot request are available beginning October 1. Voter registration is always available.</voter_services>
+        <hours>M-F 9am-6pm Sat 9am-Noon</hours>
+    </election_administration>
+    <election_official id="3457">
+        <name>Robert Smith</name>
+        <phone>(101) 555-1212</phone>
+        <fax>(101) 555-1213</fax>
+        <email>rsmith@ohio.gov</email>
+    </election_official>
+    <election_official id="3458">
+        <name>Roberta Smith</name>
+        <title>Head of Elections</title>
+        <phone>(101) 555-1212</phone>
+        <fax>(101) 555-1213</fax>
+        <email>rsmith@ohio.gov</email>
+    </election_official>
+    <election_official id="1555122">
+        <name>Alissa P. Hacker</name>
+        <title>Information Technology Specialist</title>
+        <phone>(101) 555-1235</phone>
+        <fax>(101) 555-1236</fax>
+        <email>ahacker@ohio.gov</email>
+    </election_official>
+    <election_official id="3459">
+        <name>Robert Miller</name>
+        <title>Overseas Voter Contact</title>
+        <phone>(101) 555-1215</phone>
+        <fax>(101) 555-1216</fax>
+        <email>rmiller@ohio.gov</email>
+    </election_official>
+
+    <polling_location id="20121">
+      <address>
+	<location_name>Springfield Elementary</location_name>
+	<line1>123 Main St.</line1>
+	<city>Fake Twp</city>
+	<state>OH</state>
+	<zip>33333</zip>
+	<point>
+	  <lat>39.03991</lat>
+	  <long>-76.99542</long>
+	</point>
+      </address>
+      <directions>Enter through gym door.</directions>
+      <polling_hours>7:30am-8:30pm</polling_hours>
+    </polling_location>
+    <polling_location id="20122">
+      <address>
+	<location_name>Adams Church</location_name>
+	<line1>123 Main St.</line1>
+	<city>Adams</city>
+	<state>OH</state>
+	<zip>33333</zip>
+      </address>
+      <directions>Enter through door by parking lot.</directions>
+      <photo_url>http://www.seo.gov/photo20122.jpg</photo_url>
+    </polling_location>
+    <polling_location id="20201">
+      <address><location_name>Bath Firehouse Church</location_name><line1>123 State St.</line1><city>Bath</city><state>OH</state><zip>33333</zip></address>
+      <directions>Enter through big red door.</directions>
+    </polling_location>
+    <polling_location id="20301">
+      <address><location_name>Ashland City High School</location_name><line1>123 Center St.</line1><city>Ashland</city><state>OH</state><zip>33333</zip></address>
+      <directions>Enter at main doors and take a left.</directions>
+    </polling_location>
+    <early_vote_site id="30203">
+      <name>Adams Early Vote Center</name>
+      <address>
+	<location_name>Adams County Government Center</location_name>
+	<line1>321 Main St.</line1>
+	<line2>Suite 200</line2>
+	<city>Adams</city>
+	<state>OH</state>
+	<zip>42224</zip>
+      </address>
+      <directions>Follow signs to early vote</directions>
+      <voter_services>Early voting is available.</voter_services>
+      <start_date>2012-10-01</start_date>
+      <end_date>2012-11-04</end_date>
+      <days_times_open>Mon-Fri: 9am - 6pm. Sat. and Sun.: 10am - 7pm.</days_times_open>
+    </early_vote_site>
+
+    <early_vote_site id="30204">
+      <name>Springfield Ballot Drop</name>
+      <address>
+	<line1>321 Main St.</line1>
+	<city>Springfield</city>
+	<state>OH</state>
+	<zip>44444</zip>
+	<point>
+	  <lat>39.03991</lat>
+	  <long>-76.99542</long>
+	</point>
+      </address>
+      <directions>Next to Post Office.</directions>
+      <voter_services>Ballot drop only</voter_services>
+      <start_date>2012-10-01</start_date>
+      <end_date>2012-11-06</end_date>
+      <days_times_open>Open all days, all times.</days_times_open>
+    </early_vote_site>
+
+    <contest id="60001">
+      <election_id>1</election_id>
+      <electoral_district_id>70001</electoral_district_id>
+      <type>general</type>
+      <partisan>yes</partisan>
+      <office>State Treasurer</office>
+      <ballot_id>80001</ballot_id>
+      <ballot_placement>1</ballot_placement>
+      <filing_closed_date>2012-05-10</filing_closed_date>
+    </contest>
+    <contest id="60002">
+      <election_id>1</election_id>
+      <electoral_district_id>70001</electoral_district_id>
+      <type>general</type>
+      <partisan>yes</partisan>
+      <office>Attorney General</office>
+      <ballot_id>80002</ballot_id>
+      <ballot_placement>2</ballot_placement>
+    </contest>
+    <contest id="60003">
+      <election_id>1</election_id>
+      <electoral_district_id>70002</electoral_district_id>
+      <type>primary</type>
+      <partisan>yes</partisan>
+      <primary_party>Democrat</primary_party>
+      <electorate_specifications>All voters registered in the Democratic Party by October 20th, 2012.</electorate_specifications>
+      <special>yes</special>
+      <office>State Senate</office>
+      <ballot_id>80003</ballot_id>
+      <ballot_placement>3</ballot_placement>
+    </contest>
+    <contest id="60004">
+      <election_id>1</election_id>
+      <electoral_district_id>70003</electoral_district_id>
+      <type>general</type>
+      <partisan>no</partisan>
+      <office>County Commisioner</office>
+      <ballot_id>80004</ballot_id>
+      <ballot_placement>4</ballot_placement>
+    </contest>
+    <contest id="60005">
+      <election_id>1</election_id>
+      <electoral_district_id>70003</electoral_district_id>
+      <type>general</type>
+      <partisan>no</partisan>
+      <office>County Supervisor At Large</office>
+      <number_elected>2</number_elected>
+      <number_voting_for>2</number_voting_for>
+      <ballot_id>80005</ballot_id>
+      <ballot_placement>4</ballot_placement>
+    </contest>
+    <contest id="60006">
+      <election_id>1</election_id>
+      <electoral_district_id>70003</electoral_district_id>
+      <type>referendum</type>
+      <partisan>no</partisan>
+      <ballot_id>80006</ballot_id>
+      <ballot_placement>6</ballot_placement>
+    </contest>
+    <contest id="60007">
+      <election_id>1</election_id>
+      <electoral_district_id>70003</electoral_district_id>
+      <type>judge retention</type>
+      <partisan>no</partisan>
+      <ballot_id>80007</ballot_id>
+      <ballot_placement>5</ballot_placement>
+    </contest>
+    <electoral_district id="70001">
+      <name>statewide</name>
+      <type>statewide</type>
+    </electoral_district>
+    <electoral_district id="70002">
+      <name>SD-13</name>
+      <type>State Senate</type>
+    </electoral_district>
+    <electoral_district id="70003">
+      <name>Ashland County</name>
+      <type>County</type>
+    </electoral_district>
+    <ballot id="80001">
+      <candidate_id>90001</candidate_id>
+      <candidate_id>90002</candidate_id>
+      <candidate_id>90003</candidate_id>
+    </ballot>
+    <ballot id="80002">
+      <candidate_id>90004</candidate_id>
+      <candidate_id>90005</candidate_id>
+    </ballot>
+    <ballot id="80003">
+      <candidate_id>90006</candidate_id>
+      <candidate_id>90007</candidate_id>
+    </ballot>
+    <ballot id="80004">
+      <candidate_id>90008</candidate_id>
+      <candidate_id>90009</candidate_id>
+    </ballot>
+    <ballot id="80005">
+      <candidate_id>90010</candidate_id>
+    </ballot>
+    <ballot id="80006">
+      <referendum_id>90011</referendum_id>
+    </ballot>
+    <ballot id="80007">
+      <custom_ballot_id>90012</custom_ballot_id>
+      <write_in>no</write_in>
+    </ballot>
+    <candidate id="90001">
+      <name>Daniel Berlin</name>
+      <party>Democrat</party>
+      <candidate_url>http://www.dberlin.org</candidate_url>
+      <biography>Daniel Berlin grew up somewhere</biography>
+      <phone>123-456-7890</phone>
+      <photo_url>http://www.dberlin.org/dannyb.jpg</photo_url>
+      <filed_mailing_address><line1>123 Fake St.</line1><city>Rockville</city><state>OH</state><zip>20852</zip></filed_mailing_address>
+      <email>dberlin@example.com</email>
+      <sort_order>1</sort_order>
+    </candidate>
+    <candidate id="90002">
+      <name>Berlin Opponent</name>
+      <party>Republican</party>
+      <sort_order>2</sort_order>
+    </candidate>
+    <candidate id="90003">
+      <name>Third Party Person</name>
+      <party>Libertarian</party>
+      <sort_order>3</sort_order>
+    </candidate>
+    <candidate id="90004">
+      <name>Goodie Lawyer</name>
+      <party>Democrat</party>
+    </candidate>
+    <candidate id="90005">
+      <name>Betty Lawschool</name>
+      <party>Republican</party>
+    </candidate>
+    <candidate id="90006">
+      <name>Goodie Liberal</name>
+      <party>Democrat</party>
+    </candidate>
+    <candidate id="90007">
+      <name>Carl Moderation</name>
+      <party>Democrat</party>
+    </candidate>
+    <candidate id="90008">
+      <name>Justin Fication</name>
+    </candidate>
+    <candidate id="90009">
+      <name>Count E. Betterer</name>
+    </candidate>
+    <candidate id="90010">
+      <name>Runner Solo</name>
+    </candidate>
+    <referendum id="90011">
+      <title>Proposition 37</title>
+      <subtitle>A referendum to ban smoking indoors</subtitle>
+      <brief>A yes vote is a vote to ban smoking indoors.</brief>
+      <text>Shall the State of Ohio ... (full text of referendum as it appears on the ballot).</text>
+      <pro_statement>Vote yes please</pro_statement>
+      <con_statement>Vote no please</con_statement>
+      <passage_threshold>three-fifths</passage_threshold>
+      <effect_of_abstain>Abstaining has no effect</effect_of_abstain>
+      <ballot_response_id>120001</ballot_response_id>
+      <ballot_response_id>120002</ballot_response_id>
+    </referendum>
+    <custom_ballot id="90012">
+      <heading>Should Judge Carlton Smith be retained?</heading>
+      <ballot_response_id>120001</ballot_response_id>
+      <ballot_response_id>120002</ballot_response_id>
+    </custom_ballot>
+    <ballot_response id="120001">
+      <sort_order>1</sort_order>
+      <text>Yes</text>
+    </ballot_response>
+    <ballot_response id="120002">
+      <sort_order>2</sort_order>
+      <text>No</text>
+    </ballot_response>
+    <contest_result id="61004" certification="certified">
+      <contest_id>60004</contest_id>
+      <jurisdiction_id>70003</jurisdiction_id>
+      <entire_district>Yes</entire_district>
+      <total_votes>1002</total_votes>
+      <total_valid_votes>1000</total_valid_votes>
+      <overvotes>1</overvotes>
+      <blank_votes>1</blank_votes>
+      <accepted_provisional_votes>1</accepted_provisional_votes>
+      <rejected_votes>2</rejected_votes>
+    </contest_result>
+    <ballot_line_result id="91008" certification="certified">
+      <contest_id>60004</contest_id>
+      <jurisdiction_id>70003</jurisdiction_id>
+      <entire_district>Yes</entire_district>
+      <candidate_id>90008</candidate_id>
+      <votes>510</votes>
+      <victorious>Yes</victorious>
+    </ballot_line_result>
+    <ballot_line_result id="91009" certification="certified">
+      <contest_id>60004</contest_id>
+      <jurisdiction_id>70003</jurisdiction_id>
+      <entire_district>Yes</entire_district>
+      <candidate_id>90009</candidate_id>
+      <votes>490</votes>
+      <victorious>No</victorious>
+    </ballot_line_result>
+    <contest_result id="61006" certification="certified">
+      <contest_id>60006</contest_id>
+      <jurisdiction_id>10103</jurisdiction_id>
+      <entire_district>No</entire_district>
+      <total_votes>250</total_votes>
+    </contest_result>
+    <ballot_line_result id="62006" certification="certified">
+      <contest_id>60006</contest_id>
+      <jurisdiction_id>10103</jurisdiction_id>
+      <entire_district>No</entire_district>
+      <ballot_response_id>120001</ballot_response_id>
+      <votes>150</votes>
+    </ballot_line_result>
+    <ballot_line_result id="63006" certification="certified">
+      <contest_id>60006</contest_id>
+      <jurisdiction_id>10103</jurisdiction_id>
+      <entire_district>No</entire_district>
+      <ballot_response_id>120002</ballot_response_id>
+      <votes>100</votes>
+    </ballot_line_result>
+    <street_segment id="1210001">
+      <start_house_number>1</start_house_number>
+      <end_house_number>10</end_house_number>
+      <odd_even_both>both</odd_even_both>
+      <non_house_address>
+        <street_direction>E</street_direction>
+        <street_name>Guinevere</street_name>
+        <street_suffix>Dr</street_suffix>
+        <address_direction>SE</address_direction>
+        <apartment>616S</apartment>
+        <state>VA</state>
+        <city>Annandale</city>
+        <zip>22003</zip>
+      </non_house_address>
+      <precinct_id>10101</precinct_id>
+    </street_segment>
+    <street_segment id="1210002">
+      <start_house_number>1</start_house_number>
+      <end_house_number>9</end_house_number>
+      <odd_even_both>odd</odd_even_both>
+      <non_house_address>
+        <street_name>Main</street_name>
+        <street_suffix>Dr</street_suffix>
+        <state>VA</state>
+        <city>Annandale</city>
+        <zip>22003</zip>
+      </non_house_address>
+      <precinct_id>10101</precinct_id>
+      <precinct_split_id>30102</precinct_split_id>
+    </street_segment>
+    <street_segment id="1210003">
+      <start_house_number>2</start_house_number>
+      <end_house_number>2</end_house_number>
+      <odd_even_both>both</odd_even_both>
+      <non_house_address>
+        <house_number_prefix>NW</house_number_prefix>
+        <house_number_suffix>A</house_number_suffix>
+        <street_name>Main</street_name>
+        <street_suffix>Dr</street_suffix>
+        <state>VA</state>
+        <city>Annandale</city>
+        <zip>22003</zip>
+      </non_house_address>
+      <precinct_id>10102</precinct_id>
+    </street_segment>
+    <street_segment id="1210004">
+      <start_house_number>0</start_house_number>
+      <end_house_number>9999999</end_house_number>
+      <odd_even_both>both</odd_even_both>
+      <non_house_address>
+        <street_name>*</street_name>
+        <city>Rural</city>
+        <state>OH</state>
+        <zip>43321</zip>
+      </non_house_address>
+      <precinct_id>10203</precinct_id>
+    </street_segment>
+
+    <voter_identification id="1310001" verified="yes">
+      <state_id>39</state_id>
+      <name>State-Issued Driver&apos;s Licence</name>
+      <id_requirement>NAME</id_requirement>
+      <id_requirement>VAL</id_requirement>
+      <id_requirement>ADS</id_requirement>
+      <id_requirement>PHOTO</id_requirement>
+    </voter_identification>
+
+    <voter_identification id="1310002">
+      <state_id>39</state_id>
+      <name>Electric Utility Bill</name>
+      <category>Residence</category>
+      <category>Daily Life</category>
+      <id_requirement>COPY</id_requirement>
+      <id_requirement>DATE1YR</id_requirement>
+      <id_requirement>NAME</id_requirement>
+      <id_requirement>ADX</id_requirement>
+    </voter_identification>
+
+    <voter_identification id="1310003">
+      <state_id>39</state_id>
+      <name>Bank Statement</name>
+      <category>Financial</category>
+      <category>Daily Life</category>
+      <id_requirement>NAME</id_requirement>
+      <id_requirement>ADX</id_requirement>
+      <partial>
+	<additional_id_requirement>PHOTO</additional_id_requirement>
+      </partial>
+    </voter_identification>
+
+    <voter_id_rules id="1510001" verified="yes">
+      <state_id>39</state_id>
+      <question>Who must show ID to vote?</question>
+      <response>All voters except military voters, overseas voters, those allowed by the Voting Accessibility for the Elderly and Handicapped Act to vote absentee, and any other voter who is allowed to vote absentee by federal law.</response>
+      <citation>
+	<section>Ohio Code &sect;17-3-50</section>
+	<url>http://link.com/to/pdf/</url>
+      </citation>
+    </voter_id_rules>
+
+    <voter_id_rules id="1510002" verified="yes">
+      <state_id>39</state_id>
+      <question>What are acceptable forms of voter id?</question>
+      <response>Acceptable IDs include &mdash; but are not limited to &mdash; a US passport, driver's license, state ID card, student ID card, a copy of a recent utility bill, or the sample ballot booklet mailed from the county elections office.</response>
+      <citation>
+	<section>Ohio Code &sect;17-3-50</section>
+	<url>http://link.com/to/pdf/</url>
+      </citation>
+    </voter_id_rules>
+
+    <election_rules id="1410001">
+      <state_id>39</state_id>
+      <topic>Voter Registration</topic>
+      <question>What are the eligibility requirements to register to vote?</question>
+      <response>An individual must: be a United States citizen, reside in Ohio, be at least 18 years old, have not been convicted of a disqualifying felony (or have rights restored) and have not been legally declared &quot;mentally incompetent&quot; by a court.</response>
+      <citation>
+	<url>http://link.com/to/sos/site/</url>
+      </citation>
+    </election_rules>
+</vip_object>
