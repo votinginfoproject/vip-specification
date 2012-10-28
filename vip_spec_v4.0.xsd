@@ -320,6 +320,7 @@
               <xs:element name="name" type="xs:string" />
               <xs:element minOccurs="0" name="partial_identification" type="partialIdType" />
               <xs:element minOccurs="0" maxOccurrs="unbounded" name="category" type="idCategoryEnum" />
+	      <xs:element minOccurs="0" maxOccurrs="unbounded" name="ruleset_id" type="idRuleSetEnum" />
               <xs:element minOccurs="0" maxOccurrs="unbounded" name="id_requirement" type="idRequirementsEnum" />
             </xs:all>
             <xs:attribute name="id" type="xs:integer" use="required" />
@@ -442,7 +443,18 @@
     </xs:restriction>
   </xs:simpleType>
 
-<!-- Types for Rules of the Road -->
+  <!-- Types for Rules of the Road -->
+  <xs:simpleType name="idRuleSetEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="firsttime" />
+      <xs:enumeration value="notregistered" />
+      <xs:enumeration value="allother" />
+      <xs:enumeration value="FIRSTTIME" />
+      <xs:enumeration value="NOTREGISTERED" />
+      <xs:enumeration value="ALLOTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="idCategoryEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="initial"/>
