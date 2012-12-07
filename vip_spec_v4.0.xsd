@@ -319,9 +319,9 @@
               <xs:element name="state_id" type="xs:integer" />
               <xs:element name="name" type="xs:string" />
               <xs:element minOccurs="0" name="partial_identification" type="partialIdType" />
-              <xs:element minOccurs="0" maxOccurrs="unbounded" name="category" type="idCategoryEnum" />
-	      <xs:element minOccurs="0" maxOccurrs="unbounded" name="ruleset_id" type="idRuleSetEnum" />
-              <xs:element minOccurs="0" maxOccurrs="unbounded" name="id_requirement" type="idRequirementsEnum" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="category" type="idCategoryEnum" />
+	      <xs:element minOccurs="0" maxOccurs="unbounded" name="ruleset_id" type="idRuleSetEnum" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="id_requirement" type="idRequirementsEnum" />
             </xs:all>
             <xs:attribute name="id" type="xs:integer" use="required" />
             <xs:attribute name="verified" type="yesNoEnum" />
@@ -477,7 +477,7 @@
 
   <xs:simpleType name="idRequirementsEnum">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="AD" />"
+      <xs:enumeration value="AD" />
       <xs:enumeration value="ADC" />
       <xs:enumeration value="ADS" />
       <xs:enumeration value="ADSORPART" />
