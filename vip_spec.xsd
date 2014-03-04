@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:kml="http://www.opengis.net/kml/2.2">
-    <xs:import namespace="http://www.opengis.net/kml/2.2" schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"/>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="4.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:kml="http://www.opengis.net/kml/2.2">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+	<xs:import namespace="http://www.opengis.net/kml/2.2" schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"/>
     <xs:element name="vip_object">
         <xs:complexType>
             <xs:choice maxOccurs="unbounded">
@@ -285,7 +286,7 @@
             <xs:element name="city" type="xs:string"/>
             <xs:element name="state" type="xs:string"/>
             <xs:element name="zip" type="xs:string"/>
-            <xs:element name="gis_xy" type="xs:string"/>
+            <xs:element name="gis_xy" type="xs:string" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
     <xs:complexType name="votesWithCertification">
@@ -363,8 +364,8 @@
             <xs:element name="early_vote_site_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element minOccurs="0" maxOccurs="unbounded" name="pollbook_type" type="xs:string" />
             <xs:element name="precinct" type="precinctType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="polygon" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="multiGeometry" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Polygon" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MultiGeometry" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
@@ -382,8 +383,8 @@
             <xs:element name="precinct_split" type="precinct_splitType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="polling_location" type="polling_locationType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="registered_voters" type="xs:integer" maxOccurs="1" minOccurs="0"  />
-			<xs:element name="polygon" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="multiGeometry" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Polygon" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MultiGeometry" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
         <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
@@ -395,8 +396,8 @@
             <xs:element name="polling_location_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="ballot_style_image_url" type="xs:string" minOccurs="0"/>
 			<xs:element name="registered_voters" type="xs:integer" maxOccurs="1" minOccurs="0"  />
-			<xs:element name="polygon" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="multiGeometry" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Polygon" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="MultiGeometry" xmlns="http://www.opengis.net/kml/2.2" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
         <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
@@ -410,7 +411,7 @@
         <xs:attribute name="id" type="xs:string" use="required" />
     </xs:complexType>
     <xs:complexType name="contestType">
-        <xs:choice>
+        <xs:choice maxOccurs="unbounded">
             <xs:element name="election_id" type="xs:string" maxOccurs="1"/>
             <xs:element name="electoral_district_id" type="xs:string"/>
             <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -420,18 +421,20 @@
             <xs:element name="special" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
             <xs:element name="office" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="filing_closed_date" type="xs:date" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="term" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="number_elected" type="xs:integer" minOccurs="0" maxOccurs="1"/>
             <xs:element name="number_voting_for" type="xs:integer" minOccurs="0" maxOccurs="1"/>
             <xs:element name="ballot_id" type="xs:string" minOccurs="0"/>
             <xs:element name="ballot_placement" type="xs:integer" minOccurs="0" maxOccurs="1"/>
             <xs:element name="write_in" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
             <xs:element name="candidate" type="candidateType" minOccurs="0"/>
+			<xs:element name="referendum" type="referendumType" minOccurs="0" />
 			<xs:element name="contest_result" type="contest_resultType" minOccurs="0" />
         </xs:choice>
         <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     <xs:complexType name="candidateType">
-        <xs:all>
+        <xs:choice maxOccurs="unbounded">
             <xs:element name="name" type="xs:string"/>
             <xs:element minOccurs="0" name="incumbent" type="yesNoEnum" />
             <xs:element name="last_name" type="xs:string"/>
@@ -444,7 +447,7 @@
             <xs:element name="email" type="xs:string" minOccurs="0"/>
             <xs:element name="candidate_status" type="xs:string" minOccurs="0"/>
             <xs:element name="sort_order" type="xs:integer" minOccurs="0"/>
-        </xs:all>
+        </xs:choice>
         <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     <xs:complexType name="referendumType">
@@ -457,7 +460,7 @@
             <xs:element name="con_statement" type="xs:string" minOccurs="0"/>
             <xs:element name="passage_threshold" type="xs:string" minOccurs="0"/>
             <xs:element name="effect_of_abstain" type="xs:string" minOccurs="0"/>
-            <xs:element name="electoral_district_id" type="xs:string"/>
+            <xs:element name="electoral_district_id" type="xs:string" minOccurs="0" />
             <xs:element name="ballot_placement" type="xs:integer" minOccurs="0"/>
 			<xs:element name="contest_result" type="contest_resultType" minOccurs="0" />
             <xs:element name="ballot_response_id">
@@ -481,7 +484,7 @@
         <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
     <xs:complexType name="contest_resultType">
-        <xs:all>
+        <xs:choice maxOccurs="unbounded">
             <xs:element name="contest_id" type="xs:string" minOccurs="0"/>
             <xs:element name="referendum_id" type="xs:string" minOccurs="0" />
             <xs:element name="jurisdiction_id" type="xs:string"/>
@@ -495,7 +498,7 @@
             <xs:element name="rejected_votes" type="xs:integer" minOccurs="0"/>
             <xs:element name="machine_id" type="xs:string" minOccurs="0"/>
             <xs:element name="ballot_line_result" type="ballot_line_resultType" minOccurs="0"/>
-        </xs:all>
+        </xs:choice>
         <xs:attribute name="id" type="xs:string" use="required"/>
         <xs:attribute name="certification" type="certificationEnum" use="required"/>
     </xs:complexType>
