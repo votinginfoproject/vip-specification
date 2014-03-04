@@ -177,8 +177,8 @@
                             <xs:element name="candidate_id" minOccurs="0">
                                 <xs:complexType>
                                     <xs:simpleContent>
-                                        <xs:extension base="xs:integer">
-                                            <xs:attribute name="sort_order" type="xs:string"/>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="sort_order" type="xs:integer"/>
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
@@ -327,7 +327,16 @@
             <xs:enumeration value="other"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="oebEnum">
+    <xs:simpleType name="jurisdictionTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="precinct"/>
+            <xs:enumeration value="locality"/>
+            <xs:enumeration value="state"/>
+            <xs:enumeration value="precinct-split"/>
+            <xs:enumeration value="other"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="oebEnum">
         <xs:restriction base="xs:string">
             <xs:enumeration value="odd"/>
             <xs:enumeration value="even"/>
@@ -488,6 +497,7 @@
             <xs:element name="contest_id" type="xs:string" minOccurs="0"/>
             <xs:element name="referendum_id" type="xs:string" minOccurs="0" />
             <xs:element name="jurisdiction_id" type="xs:string"/>
+			<xs:element name="jurisdiction_type" type="jurisdictionTypeEnum"/>
             <xs:element name="vote_type" type="voteTypeEnum"/>
             <xs:element name="entire_district" type="yesNoEnum"/>
             <xs:element name="total_votes" type="xs:integer" minOccurs="0"/>
@@ -507,6 +517,7 @@
             <xs:element name="contest_id" type="xs:string" minOccurs="0"/>
             <xs:element name="referendum_id" type="xs:string" minOccurs="0" />
             <xs:element name="jurisdiction_id" type="xs:string"/>
+			<xs:element name="jurisdiction_type" type="jurisdictionTypeEnum"/>
             <xs:element name="vote_type" type="voteTypeEnum"/>
             <xs:element name="entire_district" type="yesNoEnum"/>
             <xs:element name="candidate_id" type="xs:string" minOccurs="0"/>
