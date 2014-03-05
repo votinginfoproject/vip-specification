@@ -1,3 +1,5 @@
 # Voting Information Project XML Specification #
 
 This XML specification defines the relationships among a number of election related elements. Please see the [documentation](http://votinginfoproject.github.com/vip-specification/).
+
+The current version of the schema naming has changed, and now the current version is always named vip_spec.xsd, the version number is included in the text of the schema.  Previous versions of the schema are archived with the version number appended.
