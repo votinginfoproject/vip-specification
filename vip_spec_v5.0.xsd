@@ -24,6 +24,7 @@
                             <xs:element name="date" type="xs:date"/>
                             <xs:element name="election_type" type="electionTypeEnum" minOccurs="0"/>
                             <xs:element name="name" type="xs:string" minOccurs="0"/>
+                            <xs:element name="division_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element name="state_id" type="xs:string"/>
                             <xs:element name="statewide" type="yesNoEnum" minOccurs="0"/>
                             <xs:element name="registration_info" type="xs:string" minOccurs="0"/>
