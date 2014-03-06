@@ -19,24 +19,24 @@
                         <xs:attribute name="id" type="xs:string" use="required"/>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="election" minOccurs="1" maxOccurs="1">
+                <xs:element name="election" minOccurs="1">
                     <xs:complexType>
-                        <xs:all>
-                            <xs:element name="date" type="xs:date"/>
-                            <xs:element name="election_type" type="electionTypeEnum" minOccurs="0"/>
-                            <xs:element name="name" type="xs:string" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element name="date" type="xs:date" maxOccurs="1"/>
+                            <xs:element name="election_type" type="electionTypeEnum" minOccurs="0"  maxOccurs="1"/>
+                            <xs:element name="name" type="xs:string" minOccurs="0"  maxOccurs="1"/>
 							<xs:element name="division_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                            <xs:element name="state_id" type="xs:string"/>
-                            <xs:element name="statewide" type="yesNoEnum" minOccurs="0"/>
-                            <xs:element name="registration_info" type="xs:string" minOccurs="0"/>
-                            <xs:element name="absentee_ballot_info" type="xs:string" minOccurs="0"/>
-                            <xs:element name="results_url" type="xs:string" minOccurs="0"/>
-                            <xs:element name="polling_hours" type="xs:string" minOccurs="0"/>
-                            <xs:element name="election_day_registration" type="yesNoEnum" minOccurs="0"/>
-                            <xs:element name="registration_deadline" type="xs:date" minOccurs="0"/>
-                            <xs:element name="absentee_request_deadline" type="xs:date" minOccurs="0"/>
-                            <xs:element name="uocava_mail_deadline" type="xs:date" minOccurs="0"/>
-                        </xs:all>
+							<xs:element name="state_id" type="xs:string"  maxOccurs="1"/>
+                            <xs:element name="statewide" type="yesNoEnum" minOccurs="0"  maxOccurs="1"/>
+                            <xs:element name="registration_info" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="absentee_ballot_info" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+                            <xs:element name="results_url" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="polling_hours" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="election_day_registration" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="registration_deadline" type="xs:date" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="absentee_request_deadline" type="xs:date" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="uocava_mail_deadline" type="xs:date" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
                         <xs:attribute name="id" type="xs:string" use="required"/>
                     </xs:complexType>
                 </xs:element>
