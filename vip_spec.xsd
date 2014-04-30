@@ -194,7 +194,7 @@
                         <xs:all>
                             <xs:element name="precinct_split_id" type="xs:string" minOccurs="0"/>
                             <xs:element name="precinct_id" type="xs:string" minOccurs="0"/>
-                            <xs:element name="electoral_district_id" type="xs:integer"/>
+                            <xs:element name="electoral_district_id" type="xs:string"/>
                         </xs:all>
                     </xs:complexType>
                 </xs:element>
