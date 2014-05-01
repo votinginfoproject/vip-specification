@@ -173,7 +173,7 @@
                         <xs:all>
                             <xs:element name="election_id" type="xs:string"/>
                             <xs:element name="contest_id" type="xs:string" minOccurs="0"/>					
-                            <xs:element name="referndum_id" type="xs:string" minOccurs="0"/>					
+                            <xs:element name="referendum_id" type="xs:string" minOccurs="0"/>					
                             <xs:element name="sort_order" type="xs:string" minOccurs="0"/>
                             <xs:element name="candidate_id" minOccurs="0">
                                 <xs:complexType>
