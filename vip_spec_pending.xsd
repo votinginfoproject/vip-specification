@@ -152,7 +152,7 @@
                                     </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="contest_id" minOccurs="0" maxOccurs="unbounded">
+                            <xs:element name="candidate_id" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="xs:string">
@@ -178,15 +178,6 @@
 						</xs:sequence>
 						<xs:attribute name="id" type="xs:string" use="required"/>
                         <xs:attribute name="name" type="xs:string" use="optional"/>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="precinct_split_electoral_district">
-                    <xs:complexType>
-                        <xs:all>
-                            <xs:element name="precinct_split_id" type="xs:string" minOccurs="0"/>
-                            <xs:element name="precinct_id" type="xs:string" minOccurs="0"/>
-                            <xs:element name="electoral_district_id" type="xs:string"/>
-                        </xs:all>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="precinct_split_ballot_style">
@@ -242,7 +233,7 @@
                             <xs:element name="city" type="xs:string" minOccurs="0"/>
                             <xs:element name="zip" type="xs:string" minOccurs="0"/>
                             <xs:element name="state_id" type="xs:string" minOccurs="0"/>
-                            <xs:element name="precinct_id" type="xs:string"/>
+                            <xs:element name="precinct_id" type="xs:string" minOccurs="0"/>
                             <xs:element name="precinct_split_id" type="xs:string" minOccurs="0"/>
                         </xs:all>
                         <xs:attribute name="id" type="xs:string" use="required"/>
@@ -284,12 +275,12 @@
     <xs:complexType name="simpleAddressType">
         <xs:all>
             <xs:element name="location_name" type="xs:string" minOccurs="0"/>
-            <xs:element name="line1" type="xs:string"/>
+            <xs:element name="line1" type="xs:string" minOccurs="0"/>
             <xs:element name="line2" type="xs:string" minOccurs="0"/>
             <xs:element name="line3" type="xs:string" minOccurs="0"/>
-            <xs:element name="city" type="xs:string"/>
-            <xs:element name="state" type="xs:string"/>
-            <xs:element name="zip" type="xs:string"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="state" type="xs:string" minOccurs="0"/>
+            <xs:element name="zip" type="xs:string" minOccurs="0"/>
             <xs:element name="gis_xy" type="xs:string" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
