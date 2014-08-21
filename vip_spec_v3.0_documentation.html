@@ -565,7 +565,7 @@ var addthis_config = {
                 <td>mail_only</td>
                 <td>yesNoEnum</td>
                 <td>Optional</td>
-                <td>The <b>mail_only</b> specifies whether voters in the precinct vote only by mailing their ballots (with the possible option of dropping off their ballots as well). Valid values are "yes" and "no", with "no" being the default is the tag is not present.</td>
+                <td>The <b>mail_only</b> specifies whether voters in the precinct vote only by mailing their ballots (with the possible option of dropping off their ballots as well). Valid values are "yes" and "no", with "no" being the default if the tag is not present.</td>
                 <td>If the <b>mail_only</b> field is missing or invalid, the implementation is required to default to "no".</td>
               </tr>
               <tr>
@@ -2291,12 +2291,12 @@ var addthis_config = {
                 <td>zip</td>
                 <td>String</td>
                 <td><b>Optional</b></td>
-                <td>Highly recommended. The <b>zip</b> specifies the zip code of the address. It may be 5 or 9 digits, and it may include a hypen ('-'). It is requires as it helps with geocoding, which is crucial for distributors.</td>
+                <td>Highly recommended. The <b>zip</b> specifies the zip code of the address. It may be 5 or 9 digits, and it may include a hypen ('-'). It is required as it helps with geocoding, which is crucial for distributors.</td>
                 <td>If the <b>zip</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
               </tr>
             </tbody>
           </table>
-          <p>Example XML for a Detail Addresses, which would appear within Street Segment objects: </p>
+          <p>Example XML for Detail Addresses, which would appear within Street Segment objects: </p>
           <pre class="brush: xml">
             &lt;non_house_address&gt;
               &lt;street_direction&gt;E&lt;/street_direction&gt;
@@ -2399,7 +2399,7 @@ var addthis_config = {
             </tbody>
           </table>
 
-          <p>Example XML for a Simple Addresses, which would appear within Polling Location and Early Vote Site items (among others):</p>
+          <p>Example XML for a Simple Addresses, which would appear within Polling Locations, Early Vote Sites, Candidates, and Election Administrations:</p>
           <pre class="brush: xml">
             &lt;address&gt;
               &lt;line1&gt;543 E Falls Church Rd.&lt;/line1&gt;
