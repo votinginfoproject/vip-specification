@@ -1,0 +1,13 @@
+<election id="12345">
+  <date>2007-09-15</date>
+  <statewide>yes</statewide>
+  <state_id>49</state_id>
+  <election_type>Federal</election_type>
+  <results_url>http://elections.results.org</results_url>
+  <registration_info>To register for this election, blah blah blah</registration_info>
+  <absentee_ballot_info>To request an absentee ballot, blah blah blah</absentee_ballot_info>
+  <polling_hours>7am-8pm</polling_hours>
+  <election_day_registration>yes</election_day_registration>
+  <registration_deadline>2009-10-01</registration_deadline>
+  <absentee_request_deadline>2009-11-01</absentee_request_deadline>
+</election>

@@ -1,0 +1,14 @@
+<contest id="122312">
+  <election_id>12345</election_id>
+  <type>Primary run-off</type>
+  <electoral_district_id>37</electoral_district_id>
+  <partisan>yes</partisan>
+  <primary_party>Federalist</primary_party>
+  <electorate_specifications>Must be registered with the party in question by August 10, 2008 to vote in the primary election.</electorate_specifications>
+  <special>yes</special>
+  <office>County supervisor</office>
+  <number_elected>1</number_elected>
+  <number_voting_for>1</number_voting_for>
+  <ballot_id>30017</ballot_id>
+  <ballot_placement>1</ballot_placement>
+</contest>

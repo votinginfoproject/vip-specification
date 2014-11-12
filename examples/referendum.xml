@@ -1,0 +1,9 @@
+<referendum id="30001">
+  <title>Proposition 37</title>
+  <subtitle>A referendum to give Daniel Berlin more money</subtitle>
+  <text>Blah blah blah</text>
+  <passage_threshold>three-fifths</passage_threshold>
+  <effect_of_abstain>Abstaining is equivalent to voting no</effect_of_abstain>
+  <ballot_response_id sort_order="1">111111</ballot_response_id>
+  <ballot_response_id sort_order="2">111112</ballot_response_id>
+</referendum>

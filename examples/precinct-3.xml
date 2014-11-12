@@ -1,0 +1,10 @@
+<precinct id="1043">
+  <name>Multiple-drop precinct</name>
+  <locality_id>169</locality_id>
+  <electoral_district_id>100044</electoral_district_id>
+  <electoral_district_id>100056</electoral_district_id>
+  <mail_only>yes</mail_only>
+  <early_vote_site_id>1334</early_vote_site_id>
+  <early_vote_site_id>1335</early_vote_site_id>
+  <early_vote_site_id>1336</early_vote_site_id>
+</precinct>

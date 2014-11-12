@@ -1,0 +1,9 @@
+<precinct id="1003">
+  <name>2</name>
+  <locality_id>168</locality_id>
+  <electoral_district_id>100044</electoral_district_id>
+  <electoral_district_id>100056</electoral_district_id>
+  <ward>1</ward>
+  <mail_only>yes</mail_only>
+  <early_vote_site_id>1324</early_vote_site_id>
+</precinct>

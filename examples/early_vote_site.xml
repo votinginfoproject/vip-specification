@@ -1,0 +1,17 @@
+<early_vote_site id="5467">
+  <name>Springfield Ballot Drop</name>
+  <address>
+    <location_name>Early Vote Kiosk Number 52</location_name>
+    <line1>321 Main St.</line1>
+    <city>Springfield</city>
+    <state>IL</state>
+    <zip>44444</zip>
+  </address>
+  <state_id>32</state_id>
+  <locality_id>101</locality_id>
+  <directions>Next to Post Office.</directions>
+  <voter_services>Early voting is available.</voter_services>
+  <start_date>2010-10-01</start_date>
+  <end_date>2010-11-04</end_date>
+  <days_times_open> Mon-Fri: 9am - 6pm. Sat. and Sun.: 10am - 7pm.</days_times_open>
+</early_vote_site>

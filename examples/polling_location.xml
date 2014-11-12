@@ -1,0 +1,11 @@
+<polling_location id="4567">
+  <address>
+    <location_name>Springfield Elementary</location_name>
+    <line1>123 Main St.</line1>
+    <city>Springfield</city>
+    <state>IL</state>
+    <zip>44444</zip>
+  </address>
+  <directions>Enter through gym door.</directions>
+  <polling_hours>7:30am-8:30pm</polling_hours>
+</polling_location>

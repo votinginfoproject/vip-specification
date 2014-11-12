@@ -1,0 +1,16 @@
+<candidate id="3705">
+  <name>Daniel Berlin</name>
+  <party>Democrat</party>
+  <candidate_url>http://www.dberlin.org</candidate_url>
+  <bio>Daniel Berlin is a lawyer</bio>
+  <phone>123-456-7890</phone>
+  <photo>http://www.dberlin.org/dannyb.jpg</photo>
+  <filed_mailing_address>
+    <line1>123 Fake St.</line1>
+    <city>Rockville</city>
+    <state>OH</state>
+    <zip>20852</zip>
+  </filed_mailing_address>
+  <email>dberlin@example.org</email>
+  <sort_order>2</sort_order>
+</candidate>

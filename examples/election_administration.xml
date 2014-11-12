@@ -1,0 +1,27 @@
+<election_administration id="3456">
+  <name>Howard County Board of Elections</name>
+  <eo_id>12345</eo_id>
+  <ovc_id>12346</ovc_id>
+  <physical_address>
+    <location_name>Government Center</location_name>
+    <line1>12 Chad Ct.</line1>
+    <city>Tempe</city>
+    <state>AZ</state>
+    <zip>88898</zip>
+  </physical_address>
+  <mailing_address>
+    <line1>P.O. Box 32</line1>
+    <city>Tempe</city>
+    <state>AZ</state>
+    <zip>88898</zip>
+  </mailing_address>
+  <elections_url>http://www.localelections.st.gov</elections_url>
+  <registration_url>http://www.localelections.st.gov/register.html</registration_url>
+  <am_i_registered_url>http://www.localelections.st.gov/check_reg.html</am_i_registered_url>
+  <absentee_url>http://www.localelections.st.gov/early_absentee.html</absentee_url>
+  <where_do_i_vote_url>http://www.localelections.st.gov/where_vote.html</where_do_i_vote_url>
+  <rules_url>http://www.localelections.st.gov/election_law.html</rules_url>
+  <voter_services>Early voting and absentee ballot request are available beginning October 1. Voter registration is always available.</voter_services>
+  <what_is_on_my_ballot_url>http://www.localelections.st.gov/myballot.html</what_is_on_my_ballot_url>
+  <hours>M-F 9am-6pm Sat 9am-Noon</hours>
+</election_administration>

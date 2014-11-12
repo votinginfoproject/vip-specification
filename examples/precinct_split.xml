@@ -1,0 +1,8 @@
+<precinct_split id="104567">
+  <name>Camelot_a</name>
+  <precinct_id>4567</precinct_id>
+  <electoral_district_id>100032</electoral_district_id>
+  <electoral_district_id>100062</electoral_district_id>
+  <polling_location_id>1325</polling_location_id>
+  <ballot_style_image_url>http://bit.ly/20330303</ballot_style_image_url>
+</precinct_split>

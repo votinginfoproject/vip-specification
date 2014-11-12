@@ -1,0 +1,15 @@
+<street_segment id="1210001">
+  <start_house_number>1</start_house_number>
+  <end_house_number>10</end_house_number>
+  <odd_even_both>both</odd_even_both>
+  <non_house_address>
+    <street_direction>E</street_direction>
+    <street_name>Guinevere</street_name>
+    <street_suffix>Dr</street_suffix>
+    <address_direction>SE</address_direction>
+    <state>VA</state>
+    <city>Annandale</city>
+    <zip>22003</zip>
+  </non_house_address>
+  <precinct_id>10101</precinct_id>
+</street_segment>
