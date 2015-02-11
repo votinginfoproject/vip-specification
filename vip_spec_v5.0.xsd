@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:kml="http://www.opengis.net/kml/2.2">
+    <xs:import namespace="http://www.opengis.net/kml/2.2" schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"/>
+    <xs:element name="vip_object">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="source" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="vip_id" type="xs:integer"/>
+                            <xs:element name="datetime" type="xs:dateTime"/>
+                            <xs:element name="description" type="xs:string" minOccurs="0"/>
+                            <xs:element name="organization_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="feed_contact_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="tou_url" type="xs:string" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="election" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="date" type="xs:date"/>
+                            <xs:element name="election_type" type="electionTypeEnum" minOccurs="0"/>
+                            <xs:element name="name" type="xs:string" minOccurs="0"/>
+                            <xs:element name="division_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="state_id" type="xs:string"/>
+                            <xs:element name="statewide" type="yesNoEnum" minOccurs="0"/>
+                            <xs:element name="registration_info" type="xs:string" minOccurs="0"/>
+                            <xs:element name="absentee_ballot_info" type="xs:string" minOccurs="0"/>
+                            <xs:element name="results_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="polling_hours" type="xs:string" minOccurs="0"/>
+                            <xs:element name="election_day_registration" type="yesNoEnum" minOccurs="0"/>
+                            <xs:element name="registration_deadline" type="xs:date" minOccurs="0"/>
+                            <xs:element name="absentee_request_deadline" type="xs:date" minOccurs="0"/>
+                            <xs:element name="uocava_mail_deadline" type="xs:date" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="state">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="abbreviation" type="xs:string"/>
+                            <xs:element name="region" type="xs:string" minOccurs="0"/>
+                            <xs:element name="election_administration_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="early_vote_site_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="locality" type="localityType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="precinct" type="precinctType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="precinct_split" type="precinct_splitType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="contest" type="contestType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="candidate" type="candidateType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="referendum" type="referendumType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="ballot_response" type="ballot_responseType" minOccurs="0" maxOccurs="unbounded"/>
+
+                <xs:element name="election_administration">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string" minOccurs="0"/>
+                            <xs:element name="eo_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ovc_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="physical_address" type="simpleAddressType" minOccurs="0"/>
+                            <xs:element name="mailing_address" type="simpleAddressType" minOccurs="0"/>
+                              <xs:element minOccurs="0" name="phone" type="xs:string" />
+                              <xs:element minOccurs="0" name="email" type="xs:string" />
+                            <xs:element name="elections_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="registration_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="am_i_registered_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="absentee_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="where_do_i_vote_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="what_is_on_my_ballot_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="rules_url" type="xs:string" minOccurs="0"/>
+                            <xs:element name="voter_services" type="xs:string" minOccurs="0"/>
+                            <xs:element name="hours" type="xs:string" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="election_official">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="title" type="xs:string" minOccurs="0"/>
+                            <xs:element name="phone" type="xs:string" minOccurs="0"/>
+                            <xs:element name="fax" type="xs:string" minOccurs="0"/>
+                            <xs:element name="email" type="xs:string" minOccurs="0"/>
+                            <xs:element name="election_administration_id" type="xs:string" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="polling_location">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string" minOccurs="0"/>
+                            <xs:element name="address" type="simpleAddressType"/>
+                            <xs:element name="directions" type="xs:string" minOccurs="0"/>
+                            <xs:element name="polling_hours" type="xs:string" minOccurs="0"/>
+                            <xs:element name="photo_url" type="xs:string" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="early_vote_site">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string" minOccurs="0"/>
+                            <xs:element name="address" type="simpleAddressType"/>
+                            <xs:element name="directions" type="xs:string" minOccurs="0"/>
+                            <xs:element name="voter_services" type="xs:string" minOccurs="0"/>
+                            <xs:element name="start_date" type="xs:date" minOccurs="0"/>
+                            <xs:element name="end_date" type="xs:date" minOccurs="0"/>
+                            <xs:element name="days_times_open" type="xs:string" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="electoral_district">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="type" type="xs:string" minOccurs="0"/>
+                            <xs:element name="number" type="xs:integer" minOccurs="0"/>
+                            <xs:element name="description" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ballot">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="referendum_id" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="sort_order" type="xs:integer"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="contest_id" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="sort_order" type="xs:integer"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="custom_ballot_id" type="xs:string" minOccurs="0"/>
+                              <xs:element minOccurs="0" name="write_in" type="yesNoEnum" />
+                            <xs:element name="image_url" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ballot_style">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="election_id" type="xs:string"/>
+                            <xs:element name="contest_id" type="xs:string" minOccurs="0"/>					
+                            <xs:element name="referndum_id" type="xs:string" minOccurs="0"/>					
+                            <xs:element name="sort_order" type="xs:string" minOccurs="0"/>
+                            <xs:element name="candidate_id" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:integer">
+                                            <xs:attribute name="sort_order" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                        <xs:attribute name="name" type="xs:string" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="precinct_split_electoral_district">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="precinct_split_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="precinct_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="electoral_district_id" type="xs:integer"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="precinct_split_ballot_style">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="precinct_split_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="precinct_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ballot_style_id" type="xs:string"/>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="party">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="major_party" type="yesNoEnum" minOccurs="0"/>
+                            <xs:element name="abbreviation" type="xs:string" minOccurs="0"/>
+                            <xs:element name="initial" type="xs:string" minOccurs="0"/>
+                            <xs:element name="sort_order" type="xs:integer" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="custom_ballot">
+                    <xs:complexType>
+                        <xs:choice maxOccurs="unbounded">
+                            <xs:element name="heading" type="xs:string"/>
+                            <xs:sequence maxOccurs="unbounded">
+                                <xs:element name="ballot_response_id">
+                                    <xs:complexType>
+                                        <xs:simpleContent>
+                                            <xs:extension base="xs:integer">
+                                                <xs:attribute name="sort_order" type="xs:integer"/>
+                                            </xs:extension>
+                                        </xs:simpleContent>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:choice>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="street_segment">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="start_house_number" type="xs:integer"/>
+                            <xs:element name="end_house_number" type="xs:integer"/>
+                            <xs:element name="odd_even_both" type="oebEnum"/>
+                            <xs:element name="start_apartment_number" type="xs:integer" minOccurs="0"/>
+                            <xs:element name="end_apartment_number" type="xs:integer" minOccurs="0"/>
+                            <xs:element name="non_house_address" type="detailAddressType" minOccurs="0"/>
+                            <xs:element name="city" type="xs:string" minOccurs="0"/>
+                            <xs:element name="zip" type="xs:string" minOccurs="0"/>
+                            <xs:element name="state_id" type="xs:string" minOccurs="0"/>
+                            <xs:element name="precinct_id" type="xs:string"/>
+                            <xs:element name="precinct_split_id" type="xs:string" minOccurs="0"/>
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="contest_result" type="contest_resultType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="ballot_line_result" type="ballot_line_resultType" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+            <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.2"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="detailAddressType">
+        <xs:all>
+            <xs:element name="house_number" type="xs:integer" minOccurs="0"/>
+            <xs:element name="house_number_prefix" type="xs:string" minOccurs="0"/>
+            <xs:element name="house_number_suffix" type="xs:string" minOccurs="0"/>
+            <xs:element name="street_direction" type="xs:string" minOccurs="0"/>
+            <xs:element name="street_name" type="xs:string"/>
+            <xs:element name="street_suffix" type="xs:string" minOccurs="0"/>
+            <xs:element name="address_direction" type="xs:string" minOccurs="0"/>
+            <xs:element name="apartment" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+            <xs:element name="zip" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="simpleAddressType">
+        <xs:all>
+            <xs:element name="location_name" type="xs:string" minOccurs="0"/>
+            <xs:element name="line1" type="xs:string"/>
+            <xs:element name="line2" type="xs:string" minOccurs="0"/>
+            <xs:element name="line3" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+            <xs:element name="zip" type="xs:string"/>
+            <xs:element name="gis_xy" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="votesWithCertification">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute name="certification" type="certificationEnum"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="certificationEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="unofficial_partial"/>
+            <xs:enumeration value="unofficial_complete"/>
+            <xs:enumeration value="certified"/>
+            <xs:enumeration value="Unofficial_partial"/>
+            <xs:enumeration value="Unofficial_complete"/>
+            <xs:enumeration value="Unofficial_Partial"/>
+            <xs:enumeration value="Unofficial_Complete"/>
+            <xs:enumeration value="Certified"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="yesNoEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+            <xs:enumeration value="Yes"/>
+            <xs:enumeration value="No"/>
+            <xs:enumeration value="YES"/>
+            <xs:enumeration value="NO"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="electionTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="general"/>
+            <xs:enumeration value="primary-open"/>
+            <xs:enumeration value="primary-closed"/>
+            <xs:enumeration value="special"/>
+            <xs:enumeration value="other"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="oebEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="odd"/>
+            <xs:enumeration value="even"/>
+            <xs:enumeration value="both"/>
+            <xs:enumeration value="Odd"/>
+            <xs:enumeration value="Even"/>
+            <xs:enumeration value="Both"/>
+            <xs:enumeration value="ODD"/>
+            <xs:enumeration value="EVEN"/>
+            <xs:enumeration value="BOTH"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="voteTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="in-precinct-opscan"/>
+            <xs:enumeration value="in-precinct-dre"/>
+            <xs:enumeration value="earlyvote-opscan"/>
+            <xs:enumeration value="earlyvote-dre"/>
+            <xs:enumeration value="absentee-central"/>
+            <xs:enumeration value="absentee-in-precinct"/>
+            <xs:enumeration value="provisional"/>
+            <xs:enumeration value="unspecified"/>
+            <xs:enumeration value="unknown"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="localityType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="parent_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="election_administration_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="early_vote_site_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="pollbook_type" type="xs:string" />
+            <xs:element name="precinct" type="precinctType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="geometry" type="MultiGeometryType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="precinctType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="number" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="locality_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="electoral_district_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ward" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="mail_only" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="polling_location_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="early_vote_site_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ballot_style_image_url" type="xs:string" minOccurs="0"/>
+            <xs:element name="precinct_split" type="precinct_splitType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="polling_location" type="polling_locationType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="geometry" type="MultiGeometryType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="PolygonType" final="#all">
+        <xs:complexContent>
+            <xs:extension base="kml:AbstractGeometryType">
+                <xs:sequence>
+                    <xs:element ref="kml:extrude" minOccurs="0"/>
+                    <xs:element ref="kml:tessellate" minOccurs="0"/>
+                    <xs:element ref="kml:altitudeModeGroup" minOccurs="0"/>
+                    <xs:element ref="kml:outerBoundaryIs" minOccurs="0"/>
+                    <xs:element ref="kml:innerBoundaryIs" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="kml:PolygonSimpleExtensionGroup" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="kml:PolygonObjectExtensionGroup" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="MultiGeometryType" final="#all">
+        <xs:complexContent>
+            <xs:extension base="kml:AbstractGeometryType">
+                <xs:sequence>
+                    <xs:element ref="kml:AbstractGeometryGroup" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="kml:MultiGeometrySimpleExtensionGroup" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="kml:MultiGeometryObjectExtensionGroup" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="precinct_splitType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="precinct_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="electoral_district_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="polling_location_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ballot_style_image_url" type="xs:string" minOccurs="0"/>
+            <xs:element name="geometry" type="MultiGeometryType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="polling_locationType">
+        <xs:all>
+            <xs:element name="address" type="simpleAddressType" />
+            <xs:element minOccurs="0" name="directions" type="xs:string" />
+            <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
+            <xs:element minOccurs="0" name="photo_url" type="xs:string" />
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="contestType">
+        <xs:all>
+            <xs:element name="election_id" type="xs:string"/>
+            <xs:element name="electoral_district_id" type="xs:string"/>
+            <xs:element name="type" type="xs:string" minOccurs="0"/>
+            <xs:element name="partisan" type="yesNoEnum" minOccurs="0"/>
+            <xs:element name="primary_party_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="electorate_specifications" type="xs:string" minOccurs="0"/>
+            <xs:element name="special" type="yesNoEnum" minOccurs="0"/>
+            <xs:element name="office" type="xs:string" minOccurs="0"/>
+            <xs:element name="filing_closed_date" type="xs:date" minOccurs="0"/>
+            <xs:element name="number_elected" type="xs:integer" minOccurs="0"/>
+            <xs:element name="number_voting_for" type="xs:integer" minOccurs="0"/>
+            <xs:element name="ballot_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="ballot_placement" type="xs:integer" minOccurs="0"/>
+            <xs:element name="write_in" type="yesNoEnum" minOccurs="0"/>
+            <xs:element name="candidate" type="candidateType" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="candidateType">
+        <xs:all>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element minOccurs="0" name="incumbent" type="yesNoEnum" />
+            <xs:element name="last_name" type="xs:string"/>
+            <xs:element name="party_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="candidate_url" type="xs:string" minOccurs="0"/>
+            <xs:element name="biography" type="xs:string" minOccurs="0"/>
+            <xs:element name="phone" type="xs:string" minOccurs="0"/>
+            <xs:element name="photo_url" type="xs:string" minOccurs="0"/>
+            <xs:element name="filed_mailing_address" type="simpleAddressType" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="candidate_status" type="xs:string" minOccurs="0"/>
+            <xs:element name="sort_order" type="xs:integer" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="referendumType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="subtitle" type="xs:string" minOccurs="0"/>
+            <xs:element name="brief" type="xs:string" minOccurs="0"/>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="pro_statement" type="xs:string" minOccurs="0"/>
+            <xs:element name="con_statement" type="xs:string" minOccurs="0"/>
+            <xs:element name="passage_threshold" type="xs:string" minOccurs="0"/>
+            <xs:element name="effect_of_abstain" type="xs:string" minOccurs="0"/>
+            <xs:element name="electoral_district_id" type="xs:string"/>
+            <xs:element name="ballot_placement" type="xs:integer" minOccurs="0"/>
+            <xs:element name="ballot_response_id">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:integer">
+                            <xs:attribute name="sort_order" type="xs:integer"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ballot_response" type="ballot_responseType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ballot_responseType">
+        <xs:all>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="sort_order" type="xs:integer" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="contest_resultType">
+        <xs:all>
+            <xs:element name="contest_id" type="xs:string"/>
+            <xs:element name="referendum_id" type="xs:string" />
+            <xs:element name="jurisdiction_id" type="xs:string"/>
+            <xs:element name="vote_type" type="voteTypeEnum"/>
+            <xs:element name="entire_district" type="yesNoEnum"/>
+            <xs:element name="total_votes" type="xs:integer" minOccurs="0"/>
+            <xs:element name="total_valid_votes" type="xs:integer" minOccurs="0"/>
+            <xs:element name="overvotes" type="xs:integer" minOccurs="0"/>
+            <xs:element name="blank_votes" type="xs:integer" minOccurs="0"/>
+            <xs:element name="accepted_provisional_votes" type="xs:integer" minOccurs="0"/>
+            <xs:element name="rejected_votes" type="xs:integer" minOccurs="0"/>
+            <xs:element name="machine_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="ballot_line_result" type="ballot_line_resultType" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="certification" type="certificationEnum" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ballot_line_resultType">
+        <xs:all>
+            <xs:element name="contest_id" type="xs:string"/>
+            <xs:element name="referendum_id" type="xs:string" />
+            <xs:element name="jurisdiction_id" type="xs:string"/>
+            <xs:element name="vote_type" type="voteTypeEnum"/>
+            <xs:element name="entire_district" type="yesNoEnum"/>
+            <xs:element name="candidate_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="ballot_response_id" type="xs:string" minOccurs="0"/>
+            <xs:element name="votes" type="xs:integer"/>
+            <xs:element name="victorious" type="yesNoEnum" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="certification" type="certificationEnum" use="required"/>
+    </xs:complexType>
+</xs:schema>
