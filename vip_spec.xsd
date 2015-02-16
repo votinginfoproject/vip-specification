@@ -174,7 +174,8 @@
               <xs:element name="name" type="xs:string" />
               <xs:element minOccurs="0" name="type" type="xs:string" />
               <xs:element minOccurs="0" name="number" type="xs:integer" />
-			  <xs:element minOccurs="0"	name="common_id" type="xs:string" />
+              <xs:element minOccurs="0" name="common_id" type="commonIdType" />
+              <xs:element minOccurs="0" name="parent_id" type="xs:string" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
@@ -363,7 +364,13 @@
         <xs:element name="zip" type="xs:string"/>
     </xs:all> 
 </xs:complexType> 
-  
+<xs:complexType name="commonIdType">
+    <xs:all>
+        <xs:element name="id_value" type="xs:string" />
+        <xs:element name="id_type" type="commonIdEnum" />
+    </xs:all>
+
+</xs:complexType>
 <xs:complexType name="simpleAddressType">
     <xs:all>
         <xs:element minOccurs="0" name="location_name" type="xs:string"/> 
@@ -407,6 +414,15 @@
       <xs:enumeration value="NO"/>
     </xs:restriction>
   </xs:simpleType> 
+  
+  <xs:simpleType name="commonIdEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ocdid"/>
+      <xs:enumeration value="fips"/>
+      <xs:enumeration value="state_id"/>
+      <xs:enumeration value="local_id"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="oebEnum">
     <xs:restriction base="xs:string">
