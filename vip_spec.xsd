@@ -419,8 +419,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="ocdid"/>
       <xs:enumeration value="fips"/>
-      <xs:enumeration value="OCDID"/>
-      <xs:enumeration value="FIPS"/>
       <xs:enumeration value="state_id"/>
       <xs:enumeration value="local_id"/>
     </xs:restriction>
