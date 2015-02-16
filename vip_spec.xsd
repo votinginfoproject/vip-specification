@@ -174,7 +174,7 @@
               <xs:element name="name" type="xs:string" />
               <xs:element minOccurs="0" name="type" type="xs:string" />
               <xs:element minOccurs="0" name="number" type="xs:integer" />
-              <xs:element minOccurs="0"	name="common_id" type="commonIdType" />
+              <xs:element minOccurs="0" name="common_id" type="commonIdType" />
               <xs:element minOccurs="0" name="parent_id" type="xs:string" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
