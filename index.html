@@ -27,16 +27,16 @@
 
       <ul class="nav desktop-nav">
 	<li>
-	  <a href="/about/">About</a>
+	  <a href="//www.votinginfoproject.org/about/">About</a>
 	</li>
 	<li>
-	  <a href="/news/">News</a>
+	  <a href="//www.votinginfoproject.org/news/">News</a>
 	</li>
 	<li>
-	  <a href="/projects/">Projects</a>
+	  <a href="//www.votinginfoproject.org/projects/">Projects</a>
 	</li>
 	<li>
-	  <a href="/get-involved/">Get Involved</a>
+	  <a href="//www.votinginfoproject.org/get-involved/">Get Involved</a>
 	</li>
       </ul>
 
@@ -61,18 +61,18 @@
           <h1 class="title"><abbr title="Voting Information Project">VIP</abbr> Format Specification <span class="version">Version 3.0</span></h1>
 
           <h2>General Introduction</h2>
-          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
+          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
 
           <h3>General Specification</h3>
 
           <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="//github.com/votinginfoproject/vip-specification/">sample xml file and xsd file</a> for more details.
 
-          <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><abbr title="Federal Information Processing Standards">FIPS</abbr> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
+          <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="//www.census.gov/geo/reference/ansi_statetables.html"><abbr title="Federal Information Processing Standards">FIPS</abbr> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
           <p>In general, subtag data can appear a maximum of one time within each top-level tag object and in any order. Exceptions are noted below.</p>
           <p>For the data itself, the special characters &amp;, &lt;, and &gt; need to be encoded as &amp;amp;, &amp;lt;, and &amp;gt;, respectively</p>
 
           <h3>Naming convention</h3>
-          <p>The file containing the VIP feed should be named vipFeed-[<a href="http://www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <br/><br/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
+          <p>The file containing the VIP feed should be named vipFeed-[<a href="//www.census.gov/geo/reference/ansi_statetables.html">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <br/><br/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
 
           <div id="sourceitems" class="datatable">
             <h2>Source items</h2>
@@ -2026,14 +2026,14 @@
 	<div class="left-column column">
 	  <h4>Partners</h4>
 	  <div class="logo-partners desktop-logo-partners">
-	    <a href="http://pewtrusts.org" class="pew">Pew</a>
-	    <a href="https://google.com" class="google">Google</a>
+	    <a href="//pewtrusts.org" class="pew">Pew</a>
+	    <a href="//google.com" class="google">Google</a>
 	  </div>
 	  <h4>Collaborators</h4>
 	  <div class="logo-collab desktop-logo-collab">
-	    <a href="https://wordpress.com/" class="wordpress">Wordpress</a>
-	    <a href="https://disqus.com/" class="disqus">Disqus</a>
-	    <a href="https://foursquare.com/" class="foursquare">foursquare</a>
+	    <a href="//wordpress.com/" class="wordpress">Wordpress</a>
+	    <a href="//disqus.com/" class="disqus">Disqus</a>
+	    <a href="//foursquare.com/" class="foursquare">foursquare</a>
 	  </div>
 	  
 	</div>
@@ -2051,32 +2051,32 @@
 	    General inquires: <a href="mailto:info@votinginfoproject.org">info@votinginfoproject.org</a>
 	  </div>
 	  <div class="social-links">
-	    <a href="https://www.facebook.com/VotingInfo" class="facebook">
+	    <a href="//www.facebook.com/VotingInfo" class="facebook">
 	      Facebook
 	    </a>
-	    <a href="https://twitter.com/VotingInfo" class="twitter">
+	    <a href="//twitter.com/VotingInfo" class="twitter">
 	      Twitter
 	    </a>
 	    <a href="#" class="googleplus">
 	      Google Plus
 	    </a>
-	    <a href="https://github.com/votinginfoproject" class="github">
+	    <a href="//github.com/votinginfoproject" class="github">
 	      Github
 	    </a>
 	  </div>
 	</div>
 	
 	<div class="footer-nav group">
-	  <a href="/about/">ABOUT</a>|
-	  <a href="/news/">NEWS</a>|
-	  <a href="/projects/">PROJECTS</a>|
-	  <a href="/get-involved/">GET INVOLVED</a>
+	  <a href="//www.votinginfoproject.org/about/">ABOUT</a>|
+	  <a href="//www.votinginfoproject.org/news/">NEWS</a>|
+	  <a href="//www.votinginfoproject.org/projects/">PROJECTS</a>|
+	  <a href="//www.votinginfoproject.org/get-involved/">GET INVOLVED</a>
 	</div>
 	<div class="footer-nav footer-sub-nav">
-	  <a href="https://www.votinginfoproject.org/terms-service/"> TERMS OF SERVICE </a> |
-	  <a href="https://www.votinginfoproject.org/privacy-policy/"> PRIVACY POLICY </a> |
-	  <a href="http://oxidedesign.com/"> Website design by Oxide Design Co. </a> |
-	  <a href="https://www.votinginfoproject.org"> ©2014 Voting Information Project </a>
+	  <a href="//www.votinginfoproject.org/terms-service/"> TERMS OF SERVICE </a> |
+	  <a href="//www.votinginfoproject.org/privacy-policy/"> PRIVACY POLICY </a> |
+	  <a href="//oxidedesign.com/"> Website design by Oxide Design Co. </a> |
+	  <a href="//www.votinginfoproject.org"> &copy;2014 Voting Information Project </a>
 	</div>
       </div>
     </div>
@@ -2084,19 +2084,19 @@
   <nav class="shifter-navigation nav-wrap">
     <ul class="nav">
       <li>
-	<a href="/about/">About</a>
+	<a href="//www.votinginfoproject.org/about/">About</a>
       </li>
       <li>
-	<a href="/news/">News</a>
+	<a href="//www.votinginfoproject.org/news/">News</a>
       </li>
       <li>
-	<a href="/projects/">Projects</a>
+	<a href="//www.votinginfoproject.org/projects/">Projects</a>
       </li>
       <li>
-	<a href="/get-involved/">Get Involved</a>
+	<a href="//www.votinginfoproject.org/get-involved/">Get Involved</a>
       </li>
     </ul>
   </nav>
-  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/vendor/prism.js"></script>
+  <script src="//vip-website-assets.s3.amazonaws.com/core/js/vendor/prism.js"></script>
 </body>
 </html>
