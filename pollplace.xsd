@@ -34,7 +34,7 @@
         <xs:attribute name="id" type="xs:string" use="required" />
       </xs:complexType>
       <xs:complexType name="pollingLocationScheduleType">
-        <xs:sequence>
+        <xs:all>
             <xs:element minOccurs="0" name="start_date" type="xs:date" />
             <xs:element minOccurs="0" name="end_date" type="xs:date" />
             <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
@@ -42,7 +42,7 @@
             <xs:element minOccurs="0" name="close_hour" type="xs:string" />
             <xs:element minOccurs="0" name="subject_to_change" type="yesNoEnum" />
             <xs:element minOccurs="0" name="time_zone" type="xs:string" />
-        </xs:sequence>
+        </xs:all>
       </xs:complexType>  
       <xs:complexType name="simpleAddressType">
         <xs:all>
