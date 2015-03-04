@@ -323,29 +323,27 @@
 <!-- stubbing out some of the new elements for discussion
 
 <xs:complexType name="pollingLocationType">
-	<xs:all>
-		<xs:element name="address" type="simpleAddressType" />
-        <xs:element minOccurs="0" name="directions" type="xs:string" />
-        <xs:element minOccurs="0" name="schedule" type="PollingLocationScheduleType" />
-		<xs:element minOccurs="0" name="photo_url" type="xs:string" />
-		<xs:element minOccurs="0" name="early_voting" type="yesNoEnum" />
-		<xs:element minOccurs="0" name="drop_box" type="yesNoEnum" />
-	</xs:all>
-	<xs:attribute name="id" type="xs:string" use="required" />
-</xs:complexType>
-
-<xs:complexType name="pollingLocationScheduleType">
-	<xs:choice>
-		<xs:element minOccurs="0" name="start_date" type="xs:date" />
-		<xs:element minOccurs="0" name="end_date" type="xs:date" />
-		<xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-		<xs:element minOccurs="0" name="open_hour" type="xs:string" />
-		<xs:element minOccurs="0" name="close_hour" type="xs:string" />
-	</xs:choice>
-</xs:complexType>
-
-
-
+        <xs:sequence>
+            <xs:element name="address" type="simpleAddressType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="directions" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="photo_url" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="yesNoEnum" />
+            <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="yesNoEnum" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="schedule" type="pollingLocationScheduleType" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required" />
+      </xs:complexType>
+      <xs:complexType name="pollingLocationScheduleType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="start_date" type="xs:date" />
+            <xs:element minOccurs="0" name="end_date" type="xs:date" />
+            <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
+            <xs:element minOccurs="0" name="open_hour" type="xs:string" />
+            <xs:element minOccurs="0" name="close_hour" type="xs:string" />
+            <xs:element minOccurs="0" name="subject_to_change" type="yesNoEnum" />
+            <xs:element minOccurs="0" name="time_zone" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>  
 //-->
 
 
