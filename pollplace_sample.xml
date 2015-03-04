@@ -1,0 +1,85 @@
+<vip_object schemaVersion="3">
+  <source id="1">
+    <name>Department of Elections, Commonwealth of Virginia</name>
+    <vip_id>51</vip_id>
+    <datetime>2014-08-25T15:48:59</datetime>
+    <description>The Department of Elections is the official source</description>
+    <organization_url>http://www.elections.virginia.gov/</organization_url>
+    <feed_contact_id></feed_contact_id>
+    <tou_url></tou_url>
+  </source>
+  <polling_location id="80000">
+    <address>
+      <location_name>SALEM PRESBYTERIAN CHURCH</location_name>
+      <line1>5394 Studley Rd</line1>
+      <line2></line2>
+      <line3></line3>
+      <city>Mechanicsville</city>
+      <state>VA</state>
+      <zip>231166655</zip>
+    </address>
+    <directions></directions>
+    <photo_url></photo_url>
+    <schedule>
+      <start_date>2015-02-02-05:00</start_date>
+      <end_date>2015-02-10-05:00</end_date>
+      <open_hour>08:00 AM</open_hour>
+      <close_hour>07:00 PM</close_hour>
+      <subject_to_change>No</subject_to_change>
+      <time_zone>UTC-5:00</time_zone>
+    </schedule>
+    <schedule>
+      <start_date>2015-02-11-05:00</start_date>
+      <end_date>2015-02-11-05:00</end_date>
+      <open_hour>02:00 PM</open_hour>
+      <close_hour>05:00 PM</close_hour>
+      <subject_to_change>No</subject_to_change>
+      <time_zone>UTC-5:00</time_zone>
+    </schedule>
+    <schedule>
+      <start_date>2015-02-11-05:00</start_date>
+      <end_date>2015-02-11-05:00</end_date>
+      <open_hour>08:00 AM</open_hour>
+      <close_hour>01:00 PM</close_hour>
+      <subject_to_change>No</subject_to_change>
+      <time_zone>UTC-5:00</time_zone>
+    </schedule>
+  </polling_location>
+  <polling_location id="80001">
+    <address>
+      <location_name>Lake Jackson Fire Station</location_name>
+      <line1>11310 Coles Dr</line1>
+      <line2></line2>
+      <line3></line3>
+      <city>Manassas</city>
+      <state>VA</state>
+      <zip>20112</zip>
+    </address>
+    <directions></directions>
+    <photo_url></photo_url>
+    <schedule>
+      <start_date>2015-02-02-05:00</start_date>
+      <end_date>2015-02-10-05:00</end_date>
+      <open_hour>08:00 AM</open_hour>
+      <close_hour>07:00 PM</close_hour>
+      <subject_to_change>No</subject_to_change>
+      <time_zone>UTC-5:00</time_zone>
+    </schedule>
+    <schedule>
+      <start_date>2015-02-11-05:00</start_date>
+      <end_date>2015-02-11-05:00</end_date>
+      <open_hour>02:00 PM</open_hour>
+      <close_hour>05:00 PM</close_hour>
+      <subject_to_change>No</subject_to_change>
+      <time_zone>UTC-5:00</time_zone>
+    </schedule>
+    <schedule>
+      <start_date>2015-02-11-05:00</start_date>
+      <end_date>2015-02-11-05:00</end_date>
+      <open_hour>08:00 AM</open_hour>
+      <close_hour>01:00 PM</close_hour>
+      <subject_to_change>No</subject_to_change>
+      <time_zone>UTC-5:00</time_zone>
+    </schedule>
+  </polling_location>
+</vip_object>

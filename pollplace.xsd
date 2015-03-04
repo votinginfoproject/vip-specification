@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="vip_object">    
+    <xs:complexType>
+     <xs:choice maxOccurs="unbounded">
+      <xs:element minOccurs="1" maxOccurs="1" name="source">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="name" type="xs:string" />
+              <xs:element name="vip_id" type="xs:string" />
+              <xs:element name="datetime" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="description" type="xs:string" />
+              <xs:element minOccurs="0" name="organization_url" type="xs:string" />
+              <xs:element minOccurs="0" name="feed_contact_id" type="xs:string" />
+              <xs:element minOccurs="0" name="tou_url" type="xs:string" />
+            </xs:all>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="polling_location" type="pollingLocationType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute fixed="3.0" name="schemaVersion" type="xs:decimal" use="required" />
+    </xs:complexType>
+  </xs:element> 
+      <xs:complexType name="pollingLocationType">
+        <xs:sequence>
+            <xs:element name="address" type="simpleAddressType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="directions" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="photo_url" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="yesNoEnum" />
+            <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="yesNoEnum" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="schedule" type="pollingLocationScheduleType" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required" />
+      </xs:complexType>
+      <xs:complexType name="pollingLocationScheduleType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="start_date" type="xs:date" />
+            <xs:element minOccurs="0" name="end_date" type="xs:date" />
+            <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
+            <xs:element minOccurs="0" name="open_hour" type="xs:string" />
+            <xs:element minOccurs="0" name="close_hour" type="xs:string" />
+            <xs:element minOccurs="0" name="subject_to_change" type="yesNoEnum" />
+            <xs:element minOccurs="0" name="time_zone" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>  
+      <xs:complexType name="simpleAddressType">
+        <xs:all>
+            <xs:element minOccurs="0" name="location_name" type="xs:string"/> 
+            <xs:element name="line1" type="xs:string"/>
+            <xs:element minOccurs="0" name="line2" type="xs:string"/>
+            <xs:element minOccurs="0" name="line3" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+            <xs:element name="zip" type="xs:string"/>
+        </xs:all> 
+      </xs:complexType>
+      <xs:simpleType name="yesNoEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="yes"/>
+          <xs:enumeration value="no"/>
+          <xs:enumeration value="Yes"/>
+          <xs:enumeration value="No"/>
+          <xs:enumeration value="YES"/>
+          <xs:enumeration value="NO"/>
+        </xs:restriction>
+      </xs:simpleType>   
+</xs:schema>
