@@ -65,8 +65,9 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element maxOccurs="1" type="xs:boolean" name="or_by_appointment" />
-            <xs:element maxOccurs="1" type="xs:boolean" name="only_by_appointment" />
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="or_by_appointment" />
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="only_by_appointment" />
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:boolean" name="subject_to_change" />
         </xs:sequence>
       </xs:complexType>  
       <xs:complexType name="simpleAddressType">

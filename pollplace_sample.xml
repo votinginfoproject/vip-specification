@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <vip_object schemaVersion="3">
   <source id="1">
     <name>Department of Elections, Commonwealth of Virginia</name>
@@ -8,78 +9,94 @@
     <feed_contact_id></feed_contact_id>
     <tou_url></tou_url>
   </source>
-  <polling_location id="80000">
+  <polling_location id="80011">
     <address>
-      <location_name>SALEM PRESBYTERIAN CHURCH</location_name>
-      <line1>5394 Studley Rd</line1>
+      <location_name>Appalachian College of Pharmacy</location_name>
+      <line1>1060 Dragon Rd</line1>
       <line2></line2>
       <line3></line3>
-      <city>Mechanicsville</city>
+      <city>OAKWOOD</city>
       <state>VA</state>
-      <zip>231166655</zip>
+      <zip>24631</zip>
     </address>
-    <directions></directions>
+    <directions>Room 108</directions>
     <photo_url></photo_url>
-    <schedule>
-      <start_date>2015-02-02-05:00</start_date>
-      <end_date>2015-02-10-05:00</end_date>
-      <open_hour>08:00 AM</open_hour>
-      <close_hour>07:00 PM</close_hour>
-      <subject_to_change>No</subject_to_change>
-      <time_zone>UTC-5:00</time_zone>
-    </schedule>
-    <schedule>
-      <start_date>2015-02-11-05:00</start_date>
-      <end_date>2015-02-11-05:00</end_date>
-      <open_hour>02:00 PM</open_hour>
-      <close_hour>05:00 PM</close_hour>
-      <subject_to_change>No</subject_to_change>
-      <time_zone>UTC-5:00</time_zone>
-    </schedule>
-    <schedule>
-      <start_date>2015-02-11-05:00</start_date>
-      <end_date>2015-02-11-05:00</end_date>
-      <open_hour>08:00 AM</open_hour>
-      <close_hour>01:00 PM</close_hour>
-      <subject_to_change>No</subject_to_change>
-      <time_zone>UTC-5:00</time_zone>
-    </schedule>
+    <hours_open>
+      <hours_open_id>1</hours_open_id>
+      <schedule>
+        <start_date>2015-02-02-05:00</start_date>
+        <end_date>2015-02-10-05:00</end_date>
+        <hours>
+          <start_time>08:00:00-05:00</start_time>
+          <end_time>19:00:00-05:00</end_time>
+        </hours>
+        <or_by_appointment>false</or_by_appointment>
+        <only_by_appointment>false</only_by_appointment>
+        <subject_to_change>false</subject_to_change>
+      </schedule>
+    </hours_open>
+    <hours_open>
+      <hours_open_id>2</hours_open_id>
+      <schedule>
+        <start_date>2015-02-11-05:00</start_date>
+        <end_date>2015-02-11-05:00</end_date>
+        <hours>
+          <start_time>08:00:00-05:00</start_time>
+          <end_time>13:00:00-05:00</end_time>
+        </hours>
+        <hours>
+          <start_time>14:00:00-05:00</start_time>
+          <end_time>20:00:00-05:00</end_time>
+        </hours>
+        <or_by_appointment>false</or_by_appointment>
+        <only_by_appointment>false</only_by_appointment>
+        <subject_to_change>false</subject_to_change>
+      </schedule>
+    </hours_open>
   </polling_location>
-  <polling_location id="80001">
+  <polling_location id="80012">
     <address>
-      <location_name>Lake Jackson Fire Station</location_name>
-      <line1>11310 Coles Dr</line1>
+      <location_name>WOODLAWN SCHOOL</location_name>
+      <line1>745 WOODLAWN RD</line1>
       <line2></line2>
       <line3></line3>
-      <city>Manassas</city>
+      <city>WOODLAWN</city>
       <state>VA</state>
-      <zip>20112</zip>
+      <zip>243813419</zip>
     </address>
-    <directions></directions>
+    <directions>CAFETERIA</directions>
     <photo_url></photo_url>
-    <schedule>
-      <start_date>2015-02-02-05:00</start_date>
-      <end_date>2015-02-10-05:00</end_date>
-      <open_hour>08:00 AM</open_hour>
-      <close_hour>07:00 PM</close_hour>
-      <subject_to_change>No</subject_to_change>
-      <time_zone>UTC-5:00</time_zone>
-    </schedule>
-    <schedule>
-      <start_date>2015-02-11-05:00</start_date>
-      <end_date>2015-02-11-05:00</end_date>
-      <open_hour>02:00 PM</open_hour>
-      <close_hour>05:00 PM</close_hour>
-      <subject_to_change>No</subject_to_change>
-      <time_zone>UTC-5:00</time_zone>
-    </schedule>
-    <schedule>
-      <start_date>2015-02-11-05:00</start_date>
-      <end_date>2015-02-11-05:00</end_date>
-      <open_hour>08:00 AM</open_hour>
-      <close_hour>01:00 PM</close_hour>
-      <subject_to_change>No</subject_to_change>
-      <time_zone>UTC-5:00</time_zone>
-    </schedule>
+    <hours_open>
+      <hours_open_id>1</hours_open_id>
+      <schedule>
+        <start_date>2015-02-02-05:00</start_date>
+        <end_date>2015-02-10-05:00</end_date>
+        <hours>
+          <start_time>08:00:00-05:00</start_time>
+          <end_time>19:00:00-05:00</end_time>
+        </hours>
+        <or_by_appointment>false</or_by_appointment>
+        <only_by_appointment>false</only_by_appointment>
+        <subject_to_change>false</subject_to_change>
+      </schedule>
+    </hours_open>
+    <hours_open>
+      <hours_open_id>2</hours_open_id>
+      <schedule>
+        <start_date>2015-02-11-05:00</start_date>
+        <end_date>2015-02-11-05:00</end_date>
+        <hours>
+          <start_time>08:00:00-05:00</start_time>
+          <end_time>13:00:00-05:00</end_time>
+        </hours>
+        <hours>
+          <start_time>14:00:00-05:00</start_time>
+          <end_time>20:00:00-05:00</end_time>
+        </hours>
+        <or_by_appointment>false</or_by_appointment>
+        <only_by_appointment>false</only_by_appointment>
+        <subject_to_change>false</subject_to_change>
+      </schedule>
+    </hours_open>
   </polling_location>
 </vip_object>
