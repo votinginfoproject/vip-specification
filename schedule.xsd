@@ -1,0 +1,52 @@
+<!-- Structured element specifying hours that a location is open. This
+     allows precincts to simply reference the hours_open_id element instead
+     of using a structured string repeatedly.
+     Sample:
+     <hours_open>
+      <hours_open_id>1</hours_open_id>
+      <schedule>
+        <start_date>2014-10-20</start_date>
+        <end_date>2014-10-30</end_date>
+        <hours>
+          <start>09:00:00-05:00</start>
+          <end>12:00:00-05:00</end>
+        </hours>
+        <hours>
+          <start>13:00:00-05:00</start>
+          <end>18:00:00-05:00</end>
+        </hours>
+        <or_by_appointment>true</or_by_appointment>
+      </schedule>
+      <schedule>
+        <start_date>2014-11-01</start_date>
+        <end_date>2014-11-01</end_date>
+        <hours>
+          <start_time>07:00:00-05:00</start_time>
+          <end_time>21:00:00-05:00</end_time>
+        </hours>
+      </schedule>
+     </hours_open>
+  -->
+<xs:element name="hours_open">
+  <xs:complexType>
+    <xs:element type="xs:integer" name="hours_open_id" />
+    <xs:element maxOccurs="unbounded" name="schedule">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element type="xs:date" name="start_date" />
+          <xs:element type="xs:date" name="end_date" />
+          <xs:element maxOccurs="unbounded" name="hours">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="1" type="xs:time" name="start_time" pattern="HH:mm:ss('Z'|('+'|'-')HH:mm)" />
+                <xs:element maxOccurs="1" type="xs:time" name="end_time" pattern="HH:mm:ss[('Z'|('+'|'-')HH:mm)" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element maxOccurs="1" type="xs:boolean" name="or_by_appointment" />
+          <xs:element maxOccurs="1" type="xs:boolean" name="only_by_appointment" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:complexType>
+</xs:element>
