@@ -29,6 +29,7 @@
             <xs:element minOccurs="0" maxOccurs="1" name="photo_url" type="xs:string" />
             <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="yesNoEnum" />
             <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="yesNoEnum" />
+            <xs:element minOccurs="0" maxOccurs="1" name="polling_hours" type="xs:string" />
             <xs:element name="hours_open" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:sequence>
@@ -44,7 +45,6 @@
         <xs:sequence>
             <xs:element minOccurs="0" name="start_date" type="xs:date" />
             <xs:element minOccurs="0" name="end_date" type="xs:date" />
-            <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
             <xs:element minOccurs="0" maxOccurs="unbounded" name="hours">
                 <xs:complexType>
                     <xs:sequence>
