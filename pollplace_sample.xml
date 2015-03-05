@@ -21,38 +21,8 @@
     </address>
     <directions>Room 108</directions>
     <photo_url></photo_url>
-    <hours_open>
-      <hours_open_id>1</hours_open_id>
-      <schedule>
-        <start_date>2015-02-02-05:00</start_date>
-        <end_date>2015-02-10-05:00</end_date>
-        <hours>
-          <start_time>08:00:00-05:00</start_time>
-          <end_time>19:00:00-05:00</end_time>
-        </hours>
-        <or_by_appointment>false</or_by_appointment>
-        <only_by_appointment>false</only_by_appointment>
-        <subject_to_change>false</subject_to_change>
-      </schedule>
-    </hours_open>
-    <hours_open>
-      <hours_open_id>2</hours_open_id>
-      <schedule>
-        <start_date>2015-02-11-05:00</start_date>
-        <end_date>2015-02-11-05:00</end_date>
-        <hours>
-          <start_time>08:00:00-05:00</start_time>
-          <end_time>13:00:00-05:00</end_time>
-        </hours>
-        <hours>
-          <start_time>14:00:00-05:00</start_time>
-          <end_time>20:00:00-05:00</end_time>
-        </hours>
-        <or_by_appointment>false</or_by_appointment>
-        <only_by_appointment>false</only_by_appointment>
-        <subject_to_change>false</subject_to_change>
-      </schedule>
-    </hours_open>
+    <hours_open_id>1</hours_open_id>
+    <hours_open_id>2</hours_open_id>
   </polling_location>
   <polling_location id="80012">
     <address>
@@ -66,37 +36,37 @@
     </address>
     <directions>CAFETERIA</directions>
     <photo_url></photo_url>
-    <hours_open>
-      <hours_open_id>1</hours_open_id>
-      <schedule>
-        <start_date>2015-02-02-05:00</start_date>
-        <end_date>2015-02-10-05:00</end_date>
-        <hours>
-          <start_time>08:00:00-05:00</start_time>
-          <end_time>19:00:00-05:00</end_time>
-        </hours>
-        <or_by_appointment>false</or_by_appointment>
-        <only_by_appointment>false</only_by_appointment>
-        <subject_to_change>false</subject_to_change>
-      </schedule>
-    </hours_open>
-    <hours_open>
-      <hours_open_id>2</hours_open_id>
-      <schedule>
-        <start_date>2015-02-11-05:00</start_date>
-        <end_date>2015-02-11-05:00</end_date>
-        <hours>
-          <start_time>08:00:00-05:00</start_time>
-          <end_time>13:00:00-05:00</end_time>
-        </hours>
-        <hours>
-          <start_time>14:00:00-05:00</start_time>
-          <end_time>20:00:00-05:00</end_time>
-        </hours>
-        <or_by_appointment>false</or_by_appointment>
-        <only_by_appointment>false</only_by_appointment>
-        <subject_to_change>false</subject_to_change>
-      </schedule>
-    </hours_open>
+    <hours_open_id>1</hours_open_id>
+    <hours_open_id>2</hours_open_id>
   </polling_location>
+  <hours_open id="1">
+    <schedule>
+      <start_date>2015-02-02-05:00</start_date>
+      <end_date>2015-02-10-05:00</end_date>
+      <hours>
+        <start_time>08:00:00-05:00</start_time>
+        <end_time>19:00:00-05:00</end_time>
+      </hours>
+      <or_by_appointment>false</or_by_appointment>
+      <only_by_appointment>false</only_by_appointment>
+      <subject_to_change>false</subject_to_change>
+    </schedule>
+  </hours_open>
+  <hours_open id="2">
+    <schedule>
+      <start_date>2015-02-11-05:00</start_date>
+      <end_date>2015-02-11-05:00</end_date>
+      <hours>
+        <start_time>08:00:00-05:00</start_time>
+        <end_time>13:00:00-05:00</end_time>
+      </hours>
+      <hours>
+        <start_time>14:00:00-05:00</start_time>
+        <end_time>20:00:00-05:00</end_time>
+      </hours>
+      <or_by_appointment>false</or_by_appointment>
+      <only_by_appointment>false</only_by_appointment>
+      <subject_to_change>false</subject_to_change>
+    </schedule>
+  </hours_open>
 </vip_object>
