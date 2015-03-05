@@ -41,6 +41,7 @@
             <xs:element minOccurs="0" name="open_hour" type="xs:string" />
             <xs:element minOccurs="0" name="close_hour" type="xs:string" />
             <xs:element minOccurs="0" name="subject_to_change" type="yesNoEnum" />
+            <xs:element minOccurs="0" name="by_appointment" type="yesNoEnum" />
             <xs:element minOccurs="0" name="time_zone" type="xs:string" />
         </xs:all>
       </xs:complexType>  
