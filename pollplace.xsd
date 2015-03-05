@@ -29,21 +29,45 @@
             <xs:element minOccurs="0" maxOccurs="1" name="photo_url" type="xs:string" />
             <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="yesNoEnum" />
             <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="yesNoEnum" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="schedule" type="pollingLocationScheduleType" />
+            <xs:element name="hours_open" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element type="xs:integer" name="hours_open_id" />
+                        <xs:element name="schedule" type="pollingLocationScheduleType" minOccurs="0" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="id" type="xs:string" use="required" />
       </xs:complexType>
       <xs:complexType name="pollingLocationScheduleType">
-        <xs:all>
+        <xs:sequence>
             <xs:element minOccurs="0" name="start_date" type="xs:date" />
             <xs:element minOccurs="0" name="end_date" type="xs:date" />
             <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-            <xs:element minOccurs="0" name="open_hour" type="xs:string" />
-            <xs:element minOccurs="0" name="close_hour" type="xs:string" />
-            <xs:element minOccurs="0" name="subject_to_change" type="yesNoEnum" />
-            <xs:element minOccurs="0" name="by_appointment" type="yesNoEnum" />
-            <xs:element minOccurs="0" name="time_zone" type="xs:string" />
-        </xs:all>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="hours">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="1" name="start_time">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:time">
+                                    <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element maxOccurs="1" name="end_time">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:time">
+                                    <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="1" type="xs:boolean" name="or_by_appointment" />
+            <xs:element maxOccurs="1" type="xs:boolean" name="only_by_appointment" />
+        </xs:sequence>
       </xs:complexType>  
       <xs:complexType name="simpleAddressType">
         <xs:all>
