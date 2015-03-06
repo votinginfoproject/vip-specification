@@ -1,0 +1,8 @@
+name,party,candidate_url,biography,phone,photo_url,filed_mailing_address_location_name,filed_mailing_address_line1,filed_mailing_address_line2,filed_mailing_address_line3,filed_mailing_address_city,filed_mailing_address_state,filed_mailing_address_zip,email,sort_order,id
+Barack Obama,DEM,http://www.barackobama.com,,,,,,,,,,,info@obamabiden.com,1,3100047456984
+No Preference,DEM,,,,,,,,,,,,,2,3100047456987
+Newt Gingrich,REP,http://www.newt.org,,,,,,,,,,,info@newt.org,1,3100047466988
+Ron Paul,REP,http://www.ronpaul2012.org,,,,,,,,,,,,2,3100047466989
+Mitt Romney,REP,http://www.mittromney.com,,,,,,,,,,,,3,3100047466991
+Rick Santorum,REP,http://www.ricksantorum.com,,,,,,,,,,,,4,3100047466992
+No Preference,REP,,,,,,,,,,,,,5,3100047466994

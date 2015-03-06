@@ -74,6 +74,9 @@
           <h3>Naming convention</h3>
           <p>The file containing the VIP feed should be named vipFeed-[<a href="http://www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <br/><br/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
 
+          <h3>Comma-delimited flat files</h3>
+          <p>If your office is producing flat files instead of an XML file, the files must be comma-delimited .txt files. While the format of the files differs slightly from the XML, the attributes included must conform to the field specifications below.<br/><br/> Examples of the flat files are below each XML example, along with the files included to link those elements when the files are compiled into an XML feed. To read more about the flat files, see complete file header templates and look at example files, you can do so in this <a href="https://github.com/votinginfoproject/csv-templates">GitHub repository.</a> </p>
+
           <div id="sourceitems" class="datatable">
             <h2>Source items</h2>
 
@@ -154,7 +157,7 @@
             <pre class="line-numbers" data-src="examples/source-2.xml"></pre>
 
             <p>Example comma-delimited .txt file for a source element:</p>
-            <object width="300" height="300" type="text/plain" data="examples/source.txt" border="0" ></object>
+            <pre class="line-numbers" data-src="examples/source_txt.xml"></pre>
           </div>
 
           <div id="electionitems" class="datatable">
@@ -279,6 +282,9 @@
 
             <p>Example XML for an election element:</p>
             <pre class="line-numbers" data-src="examples/election.xml"></pre>
+
+            <p>Example comma-delimited .txt file for an election element:</p>
+            <pre class="line-numbers" data-src="examples/election_txt.xml"></pre>
           </div>
 
           <div id="stateitems" class="datatable">
@@ -325,6 +331,9 @@
 
             <p>Example XML for a state element:</p>
             <pre class="line-numbers" data-src="examples/state.xml"></pre>
+
+            <p>Example comma-delimited .txt file for a state element:</p>
+            <pre class="line-numbers" data-src="examples/state_txt.xml"></pre>
           </div>
 
           <div id="localityitems" class="datatable">
@@ -404,6 +413,9 @@
 
             <p>Example XML for a locality element:</p>
             <pre class="line-numbers" data-src="examples/locality.xml"></pre>
+
+            <p>Example comma-delimited .txt file for localities:</p>
+            <pre class="line-numbers" data-src="examples/locality_txt.xml"></pre>
           </div>
 
           <div id="precinctitems" class="datatable">
@@ -505,6 +517,9 @@
             <pre class="line-numbers" data-src="examples/precinct-1.xml"></pre>
             <pre class="line-numbers" data-src="examples/precinct-2.xml"></pre>
             <pre class="line-numbers" data-src="examples/precinct-3.xml"></pre>
+
+            <p>Example comma-delimited .txt file for precincts:</p>
+            <pre class="line-numbers" data-src="examples/precinct_txt.xml"></pre>
           </div>
 
           <div id="precinctsplititems" class="datatable">
@@ -580,6 +595,9 @@
 
             <p>Example XML for a precinct split element:</p>
             <pre class="line-numbers" data-src="examples/precinct_split.xml"></pre>
+
+            <p>Example comma-delimited .txt file for precinct_splits:</p>
+            <pre class="line-numbers" data-src="examples/precinct_split_txt.xml"></pre>
           </div>
 
           <div id="electionadministration" class="datatable">
@@ -719,6 +737,9 @@
             <p>Example XML for an election administration element:</p>
 
             <pre class="line-numbers" data-src="examples/election_administration.xml"></pre>
+
+            <p>Example comma-delimited .txt file for election administration offices:</p>
+            <pre class="line-numbers" data-src="examples/election_administration_txt.xml"></pre>
           </div>
 
           <div id="electionofficial" class="datatable">
@@ -782,6 +803,9 @@
 
             <p>Example XML for an election official element:</p>
             <pre class="line-numbers" data-src="examples/election_official.xml"></pre>
+
+            <p>Example comma-delimited .txt file for an election officials:</p>
+            <pre class="line-numbers" data-src="examples/election_official_txt.xml"></pre>
           </div>
 
           <div id="pollinglocationitems" class="datatable">
@@ -839,8 +863,14 @@
             </table>
 
             <p>Example XML for a polling location element:</p>
-
             <pre class="line-numbers" data-src="examples/polling_location.xml"></pre>
+
+            <p>Example comma-delimited .txt file for a polling locations:</p>
+            <pre class="line-numbers" data-src="examples/polling_location_txt.xml"></pre>
+
+            <p>Example comma-delimited .txt files for polling locations linked to precincts or precinct splits:</p>
+            <pre class="line-numbers" data-src="examples/precinct_polling_location_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct_split_polling_location_txt.xml"></pre>
           </div>
 
           <div id="earlyvotesiteitems" class="datatable">
@@ -925,8 +955,15 @@
             </table>
 
             <p>Example XML for an early vote element:</p>
-
             <pre class="line-numbers" data-src="examples/early_vote_site.xml"></pre>
+
+            <p>Example comma-delimited .txt file for early vote sites:</p>
+            <pre class="line-numbers" data-src="examples/early_vote_site_txt.xml"></pre>
+
+            <p>Example comma-delimited .txt files for early vote sites linked to localities, state or precincts:</p>
+            <pre class="line-numbers" data-src="examples/locality_early_vote_site_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/state_early_vote_site_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct_early_vote_site_txt.xml"></pre>
           </div>
 
           <div id="contestitems" class="datatable">
@@ -1065,8 +1102,11 @@
               </tbody>
             </table>
 
-            <p>Example XML for a ballot element:</p>
+            <p>Example XML for a contest element:</p>
             <pre class="line-numbers" data-src="examples/contest.xml"></pre>
+
+            <p>Example comma-delimited .txt file for contests:</p>
+            <pre class="line-numbers" data-src="examples/contest_txt.xml"></pre>
           </div>
 
           <div id="electoraldistrictitems" class="datatable">
@@ -1117,6 +1157,13 @@
             <p>Two examples of electoral area element.</p>
             <pre class="line-numbers" data-src="examples/electoral_district-1.xml"></pre>
             <pre class="line-numbers" data-src="examples/electoral_district-2.xml"></pre>
+
+            <p>Example comma-delimited .txt file for an electoral districts:</p>
+            <pre class="line-numbers" data-src="examples/electoral_district_txt.xml"></pre>
+
+            <p>Example comma-delimited .txt files for electoral districts linked to precincts or precinct splits:</p>
+            <pre class="line-numbers" data-src="examples/precinct_electoral_district_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct_split_electoral_district_txt.xml"></pre>
           </div>
 
           <div id="ballotitems" class="datatable">
@@ -1190,8 +1237,10 @@
             </table>
 
             <p>Example XML for a ballot element:</p>
-
             <pre class="line-numbers" data-src="examples/ballot.xml"></pre>
+
+            <p>Example comma-delimited .txt file for ballot records (races or referenda):</p>
+            <pre class="line-numbers" data-src="examples/ballot_txt.xml"></pre>
           </div>
 
           <div id="candidateitems" class="datatable">
@@ -1294,6 +1343,12 @@
             <p>Example XML for a candidate element:</p>
 
             <pre class="line-numbers" data-src="examples/candidate.xml"></pre>
+
+            <p>Example comma-delimited .txt file for candidates:</p>
+            <pre class="line-numbers" data-src="examples/candidate_txt.xml"></pre>
+
+            <p>Example comma-delimited .txt files for candidates linked to ballot records:</p>
+            <pre class="line-numbers" data-src="examples/ballot_candidate_txt.xml"></pre>
           </div>
 
           <div id="referendumitems" class="datatable">
@@ -1390,7 +1445,7 @@
 		    response element. Multiple <b>ballot_response_id</b> tags may be
 		    present. This element has an optional attribute named <b>order</b> that may be specified, giving the ordering of the responses as they appear on the
 		    actual ballot.</td>
-                  <td>If no <b>ballot_response_id</b> field is invalid, the
+                  <td>If no <b>ballot_response_id</b> field is present or the field is invalid, the
 		    implementation is required to ignore the referendum element
 		    containing it.</td>
 		</tr>
@@ -1399,6 +1454,13 @@
 
             <p>Example XML for a referendum element:</p>
             <pre class="line-numbers" data-src="examples/referendum.xml"></pre>
+
+            <p>Example comma-delimited .txt file for a referendum element:</p>
+            <pre class="line-numbers" data-src="examples/referendum_txt.xml"></pre>
+
+            <p>Example comma-delimited .txt files for a referendum element linked to ballot responses and referendum ballot responses:</p>
+            <pre class="line-numbers" data-src="examples/ballot_response_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/referendum_ballot_response_txt.xml"></pre>
           </div>
 
           <div id="customballotitems" class="datatable">
@@ -1443,8 +1505,10 @@
             </table>
 
             <p>Example XML for a custom ballot element:</p>
-
             <pre class="line-numbers" data-src="examples/custom_ballot.xml"></pre>
+
+            <p>Example comma-delimited .txt file for custom ballot records:</p>
+            <pre class="line-numbers" data-src="examples/custom_ballot_txt.xml"></pre>
           </div>
 
           <div id="ballotresponseitems" class="datatable">
@@ -1488,6 +1552,9 @@
 	    <pre class="line-numbers" data-src="examples/ballot_response-2.xml"></pre>
 	    <pre class="line-numbers" data-src="examples/ballot_response-3.xml"></pre>
 	    <pre class="line-numbers" data-src="examples/ballot_response-4.xml"></pre>
+
+            <p>Example comma-delimited .txt file for custom ballot responses:</p>
+            <pre class="line-numbers" data-src="examples/custom_ballot_ballot_response_txt.xml"></pre>
           </div>
 
           <div id="streetsegment" class="datatable">
@@ -1576,6 +1643,9 @@
 
             <p>Example XML for a street segment element: </p>
             <pre class="line-numbers" data-src="examples/street_segment.xml"></pre>
+
+            <p>Example comma-delimited .txt file for street segments:</p>
+            <pre class="line-numbers" data-src="examples/street_segment_txt.xml"></pre>
           </div>
 
           <div id="contestresult" class="datatable">
@@ -1662,6 +1732,9 @@
 
             <p>Example XML for a contest result element:</p>
             <pre class="line-numbers" data-src="examples/contest_result.xml"></pre>
+
+            <p>Example comma-delimited .txt files for contest results:</p>
+            <pre class="line-numbers" data-src="examples/contest_result_txt.xml"></pre>
           </div>
 
           <div id="ballotlineresult" class="datatable">
@@ -1733,6 +1806,9 @@
             </table>
             <p>Example XML for a ballot line result element:</p>
             <pre class="line-numbers" data-src="examples/ballot_line_result.xml"></pre>
+
+            <p>Example comma-delimited .txt files for ballot line results:</p>
+            <pre class="line-numbers" data-src="examples/ballot_line_result_txt.xml"></pre>
           </div>
 
           <div id="detailaddresstype" class="datatable">
