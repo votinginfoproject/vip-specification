@@ -27,12 +27,12 @@
                             <xs:element name="name" type="xs:string" minOccurs="0"  maxOccurs="1"/>
 							<xs:element name="division_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 							<xs:element name="state_id" type="xs:string"  maxOccurs="1"/>
-                            <xs:element name="statewide" type="yesNoEnum" minOccurs="0"  maxOccurs="1"/>
+                            <xs:element name="statewide" type="xs:boolean" minOccurs="0"  maxOccurs="1"/>
                             <xs:element name="registration_info" type="xs:string" minOccurs="0" maxOccurs="1"/>
                             <xs:element name="absentee_ballot_info" type="xs:string" minOccurs="0"  maxOccurs="1"/>
                             <xs:element name="results_url" type="xs:string" minOccurs="0" maxOccurs="1"/>
                             <xs:element name="polling_hours" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                            <xs:element name="election_day_registration" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+                            <xs:element name="election_day_registration" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
                             <xs:element name="registration_deadline" type="xs:date" minOccurs="0" maxOccurs="1"/>
                             <xs:element name="absentee_request_deadline" type="xs:date" minOccurs="0" maxOccurs="1"/>
                             <xs:element name="uocava_mail_deadline" type="xs:date" minOccurs="0" maxOccurs="1"/>
@@ -162,7 +162,7 @@
                                 </xs:complexType>
                             </xs:element>
                             <xs:element name="custom_ballot_id" type="xs:string" minOccurs="0"/>
-                              <xs:element minOccurs="0" name="write_in" type="yesNoEnum" />
+                              <xs:element minOccurs="0" name="write_in" type="xs:boolean" />
                             <xs:element name="image_url" type="xs:string" minOccurs="0"/>
                         </xs:sequence>
                         <xs:attribute name="id" type="xs:string" use="required"/>
@@ -211,7 +211,7 @@
                     <xs:complexType>
                         <xs:all>
                             <xs:element name="name" type="xs:string"/>
-                            <xs:element name="major_party" type="yesNoEnum" minOccurs="0"/>
+                            <xs:element name="major_party" type="xs:boolean" minOccurs="0"/>
                             <xs:element name="abbreviation" type="xs:string" minOccurs="0"/>
                             <xs:element name="initial" type="xs:string" minOccurs="0"/>
                             <xs:element name="sort_order" type="xs:integer" minOccurs="0"/>
@@ -309,16 +309,6 @@
             <xs:enumeration value="Certified"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="yesNoEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="yes"/>
-            <xs:enumeration value="no"/>
-            <xs:enumeration value="Yes"/>
-            <xs:enumeration value="No"/>
-            <xs:enumeration value="YES"/>
-            <xs:enumeration value="NO"/>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="electionTypeEnum">
         <xs:restriction base="xs:string">
             <xs:enumeration value="general"/>
@@ -386,7 +376,7 @@
             <xs:element name="locality_id" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="electoral_district_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="ward" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="mail_only" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="mail_only" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
             <xs:element name="polling_location_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="early_vote_site_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="ballot_style_image_url" type="xs:string" minOccurs="0"/>
@@ -425,10 +415,10 @@
             <xs:element name="election_id" type="xs:string" maxOccurs="1"/>
             <xs:element name="electoral_district_id" type="xs:string"/>
             <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="partisan" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="partisan" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
             <xs:element name="primary_party_id" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="electorate_specifications" type="xs:string" minOccurs="0"/>
-            <xs:element name="special" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="special" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
             <xs:element name="office" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="filing_closed_date" type="xs:date" minOccurs="0" maxOccurs="1"/>
             <xs:element name="term" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -436,7 +426,7 @@
             <xs:element name="number_voting_for" type="xs:integer" minOccurs="0" maxOccurs="1"/>
             <xs:element name="ballot_id" type="xs:string" minOccurs="0"/>
             <xs:element name="ballot_placement" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="write_in" type="yesNoEnum" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="write_in" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
             <xs:element name="candidate" type="candidateType" minOccurs="0"/>
 			<xs:element name="referendum" type="referendumType" minOccurs="0" />
 			<xs:element name="contest_result" type="contest_resultType" minOccurs="0" />
@@ -446,7 +436,7 @@
     <xs:complexType name="candidateType">
         <xs:choice maxOccurs="unbounded">
             <xs:element name="name" type="xs:string"/>
-            <xs:element minOccurs="0" name="incumbent" type="yesNoEnum" />
+            <xs:element minOccurs="0" name="incumbent" type="xs:boolean" />
             <xs:element name="last_name" type="xs:string"/>
             <xs:element name="party_id" type="xs:string" minOccurs="0"/>
             <xs:element name="candidate_url" type="xs:string" minOccurs="0"/>
@@ -500,7 +490,7 @@
             <xs:element name="jurisdiction_id" type="xs:string"/>
 			<xs:element name="jurisdiction_type" type="jurisdictionTypeEnum"/>
             <xs:element name="vote_type" type="voteTypeEnum"/>
-            <xs:element name="entire_district" type="yesNoEnum"/>
+            <xs:element name="entire_district" type="xs:boolean"/>
             <xs:element name="total_votes" type="xs:integer" minOccurs="0"/>
             <xs:element name="total_valid_votes" type="xs:integer" minOccurs="0"/>
             <xs:element name="overvotes" type="xs:integer" minOccurs="0"/>
@@ -520,11 +510,11 @@
             <xs:element name="jurisdiction_id" type="xs:string"/>
 			<xs:element name="jurisdiction_type" type="jurisdictionTypeEnum"/>
             <xs:element name="vote_type" type="voteTypeEnum"/>
-            <xs:element name="entire_district" type="yesNoEnum"/>
+            <xs:element name="entire_district" type="xs:boolean"/>
             <xs:element name="candidate_id" type="xs:string" minOccurs="0"/>
             <xs:element name="ballot_response_id" type="xs:string" minOccurs="0"/>
             <xs:element name="votes" type="xs:integer"/>
-            <xs:element name="victorious" type="yesNoEnum" minOccurs="0"/>
+            <xs:element name="victorious" type="xs:boolean" minOccurs="0"/>
         </xs:all>
         <xs:attribute name="id" type="xs:string" use="required"/>
         <xs:attribute name="certification" type="certificationEnum" use="required"/>
