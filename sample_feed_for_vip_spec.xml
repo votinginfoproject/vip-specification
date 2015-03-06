@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+<vip_object schemaVersion="3">
+  <source id="1">
+    <name>Department of Elections, Commonwealth of Virginia</name>
+    <vip_id>51</vip_id>
+    <datetime>2014-08-25T15:48:59</datetime>
+    <description>The Department of Elections is the official source</description>
+    <organization_url>http://www.elections.virginia.gov/</organization_url>
+  </source>
+  <state id="51">
+    <name>Virginia</name>
+    <election_administration_id>40133</election_administration_id>
+  </state>
+  <locality id="70027">
+    <name>ESSEX COUNTY</name>
+    <state_id>51</state_id>
+    <type>COUNTY</type>
+    <election_administration_id>40027</election_administration_id>
+    <polling_location_id>80011</polling_location_id>
+  </locality>
+  <locality id="70101">
+    <name>COLONIAL HEIGHTS CITY</name>
+    <state_id>51</state_id>
+    <type>Independent City</type>
+    <election_administration_id>40100</election_administration_id>
+    <polling_location_id>80012</polling_location_id>
+  </locality>
+  <precinct id="90023">
+    <name>003 - THIRD</name>
+    <number>0003</number>
+    <locality_id>70101</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80437</polling_location_id>
+  </precinct>
+  <precinct id="90154">
+    <name>001 - FIRST</name>
+    <number>0001</number>
+    <locality_id>70101</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80280</polling_location_id>
+  </precinct>
+  <precinct id="90455">
+    <name>002 - SECOND</name>
+    <number>0002</number>
+    <locality_id>70101</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80064</polling_location_id>
+  </precinct>
+  <precinct id="90866">
+    <name>005 - FIFTH</name>
+    <number>0005</number>
+    <locality_id>70101</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80403</polling_location_id>
+  </precinct>
+  <precinct id="90953">
+    <name>101 - GREATER TAPPAHANNOCK</name>
+    <number>0101</number>
+    <locality_id>70027</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80038</polling_location_id>
+  </precinct>
+  <precinct id="91299">
+    <name>301 - SOUTH</name>
+    <number>0301</number>
+    <locality_id>70027</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80420</polling_location_id>
+  </precinct>
+  <precinct id="92060">
+    <name>401 - CENTRAL</name>
+    <number>0401</number>
+    <locality_id>70027</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80058</polling_location_id>
+  </precinct>
+  <precinct id="92127">
+    <name>004 - FOURTH</name>
+    <number>0004</number>
+    <locality_id>70101</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80175</polling_location_id>
+  </precinct>
+  <precinct id="92260">
+    <name>201 - NORTH</name>
+    <number>0201</number>
+    <locality_id>70027</locality_id>
+    <mail_only>no</mail_only>
+    <polling_location_id>80146</polling_location_id>
+  </precinct>
+  <polling_location id="80011">
+    <address>
+      <location_name>Appalachian College of Pharmacy</location_name>
+      <line1>1060 Dragon Rd</line1>
+      <city>OAKWOOD</city>
+      <state>VA</state>
+      <zip>24631</zip>
+    </address>
+    <directions>Room 108</directions>
+    <early_voting>yes</early_voting>
+    <hours_open_id>10009</hours_open_id>
+    <hours_open_id>10010</hours_open_id>
+  </polling_location>
+  <polling_location id="80012">
+    <address>
+      <location_name>WOODLAWN SCHOOL</location_name>
+      <line1>745 WOODLAWN RD</line1>
+      <city>WOODLAWN</city>
+      <state>VA</state>
+      <zip>243813419</zip>
+    </address>
+    <directions>CAFETERIA</directions>
+    <early_voting>yes</early_voting>
+    <hours_open_id>10009</hours_open_id>
+    <hours_open_id>10010</hours_open_id>
+  </polling_location>
+  <polling_location id="80038">
+    <address>
+      <location_name>TAPPAHANNOCK-ESSEX VOL FIRE DEPT </location_name>
+      <line1>620 AIRPORT ROAD</line1>
+      <city>TAPPAHANNOCK</city>
+      <state>VA</state>
+      <zip>22560</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80058">
+    <address>
+      <location_name>JAMES MOORE TERMINAL BUILDING</location_name>
+      <line1>1450 AVIATION ROAD</line1>
+      <city>TAPPAHANNOCK</city>
+      <state>VA</state>
+      <zip>22560</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80064">
+    <address>
+      <location_name>COL HEIGHTS MIDDLE SCHOOL</location_name>
+      <line1>500 Conduit Rd</line1>
+      <city>Colonial Heights</city>
+      <state>VA</state>
+      <zip>238343546</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80146">
+    <address>
+      <location_name>ANTIOCH BAPTIST CHURCH</location_name>
+      <line1>454 LLOYDS ROAD</line1>
+      <city>Champlain</city>
+      <state>VA</state>
+      <zip>22438</zip>
+    </address>
+    <directions>Fellowship Hall</directions>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80175">
+    <address>
+      <location_name>CHHS TECHNICAL CENTER</location_name>
+      <line1>3451 Conduit Rd</line1>
+      <city>Colonial Heights</city>
+      <state>VA</state>
+      <zip>238342625</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80280">
+    <address>
+      <location_name>COMMUNITY BUILDING</location_name>
+      <line1>157 Roanoke Ave</line1>
+      <city>Colonial Heights</city>
+      <state>VA</state>
+      <zip>238343244</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80403">
+    <address>
+      <location_name>TUSSING ELEMENTARY SCHOOL</location_name>
+      <line1>5501 Conduit Rd</line1>
+      <city>Colonial Heights</city>
+      <state>VA</state>
+      <zip>238342121</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80420">
+    <address>
+      <location_name>EPHESUS BAPTIST CHURCH</location_name>
+      <line1>287 EPHESUS CHURCH ROAD</line1>
+      <city>Dunnsville</city>
+      <state>VA</state>
+      <zip>22454</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <polling_location id="80437">
+    <address>
+      <location_name>LAKEVIEW ELEMENTARY SCHOOL</location_name>
+      <line1>401 Taswell Ave</line1>
+      <city>Colonial Heights</city>
+      <state>VA</state>
+      <zip>238341548</zip>
+    </address>
+    <early_voting>no</early_voting>
+    <hours_open_id>20009</hours_open_id>
+  </polling_location>
+  <hours_open id="10009">
+    <schedule>
+      <start_date>2015-02-02-05:00</start_date>
+      <end_date>2015-02-10-05:00</end_date>
+      <hours>
+        <start_time>08:00:00-05:00</start_time>
+        <end_time>19:00:00-05:00</end_time>
+      </hours>
+      <or_by_appointment>false</or_by_appointment>
+      <only_by_appointment>false</only_by_appointment>
+      <subject_to_change>false</subject_to_change>
+    </schedule>
+  </hours_open>
+  <hours_open id="10010">
+    <schedule>
+      <start_date>2015-02-11-05:00</start_date>
+      <end_date>2015-02-11-05:00</end_date>
+      <hours>
+        <start_time>08:00:00-05:00</start_time>
+        <end_time>13:00:00-05:00</end_time>
+      </hours>
+      <hours>
+        <start_time>14:00:00-05:00</start_time>
+        <end_time>20:00:00-05:00</end_time>
+      </hours>
+      <or_by_appointment>false</or_by_appointment>
+      <only_by_appointment>false</only_by_appointment>
+      <subject_to_change>false</subject_to_change>
+    </schedule>
+  </hours_open>
+  <hours_open id="20009">
+    <schedule>
+      <start_date>2015-02-17-05:00</start_date>
+      <end_date>2015-02-17-05:00</end_date>
+      <hours>
+        <start_time>06:00:00-05:00</start_time>
+        <end_time>19:00:00-05:00</end_time>
+      </hours>
+      <or_by_appointment>false</or_by_appointment>
+      <only_by_appointment>false</only_by_appointment>
+      <subject_to_change>false</subject_to_change>
+    </schedule>
+  </hours_open>
+  <electoral_district id="60014">
+    <name>Congressional District - 07</name>
+    <type>MCD</type>
+    <number>7</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:7</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60026">
+    <name>Congressional District - 02</name>
+    <type>MCD</type>
+    <number>2</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:2</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60038">
+    <name>Congressional District - 10</name>
+    <type>MCD</type>
+    <number>10</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:10</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60044">
+    <name>Congressional District - 03</name>
+    <type>MCD</type>
+    <number>3</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:3</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60056">
+    <name>Statewide</name>
+    <type>State</type>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60067">
+    <name>Congressional District - 05</name>
+    <type>MCD</type>
+    <number>5</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:5</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60074">
+    <name>Congressional District - 08</name>
+    <type>MCD</type>
+    <number>8</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:8</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60110">
+    <name>Congressional District - 09</name>
+    <type>MCD</type>
+    <number>9</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:9</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60121">
+    <name>Congressional District - 01</name>
+    <type>MCD</type>
+    <number>1</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:1</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60130">
+    <name>Congressional District - 04</name>
+    <type>MCD</type>
+    <number>4</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:4</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60133">
+    <name>Congressional District - 06</name>
+    <type>MCD</type>
+    <number>6</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:6</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+  <electoral_district id="60138">
+    <name>Congressional District - 11</name>
+    <type>MCD</type>
+    <number>11</number>
+    <common_id>
+      <id_value>ocd-division/country:us/state:va/cd:11</id_value>
+      <id_type>ocdid</id_type>
+    </common_id>
+  </electoral_district>
+</vip_object>
