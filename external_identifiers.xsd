@@ -1,0 +1,46 @@
+<!-- Allows creators to associate arbitrary external identifiers with any
+     entity. For example, here are a few for Durham County, NC:
+
+     <external_identifier>
+      <type>ocd-id</type>
+      <value>ocd-division/country:us/state:nc/county:durham</value>
+     </external_identifier>
+     <external_identifier>
+      <type>FIPS</type>
+      <value>37063</value>
+     </external_identifier>
+     <external_identifier>
+      <type>GNIS</type>
+      <value>1008550</value>
+     </external_identifier>
+     <external_identifer>
+      <type>census</type>
+      <value>99063</value>
+     </external_identifier>
+
+     Here are a few for Senator Al Franken:
+
+     <external_identifier>
+      <type>opensecrets</type>
+      <value>N00029016</value>
+     </external_identifier>
+     <external_identifier>
+      <type>votesmart</type>
+      <value>108924</value>
+     </external_identifier>
+     <external_identifier>
+      <type>thomas</type>
+      <value>F000457</value>
+     </external_identifier>
+     <external_identifier>
+      <type>imdb</type>
+      <value>nm0291253</value>
+     </external_identifier>
+  -->
+<xsd:complexType name="external_identifier">
+  <xsd:all>
+    <!-- SURVEY: Should 'type' be a string or an enumeration? -->
+    <xsd:element type="xsd:string" name="type"/>
+    <xsd:element type="xsd:string" name="value"/>
+  </xsd:all>
+</xsd:complexType>
