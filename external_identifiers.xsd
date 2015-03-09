@@ -10,7 +10,7 @@
       <value>37063</value>
      </external_identifier>
      <external_identifier>
-      <type>GNIS</type>
+      <othertype>GNIS</othertype>
       <value>1008550</value>
      </external_identifier>
      <external_identifer>
@@ -40,7 +40,15 @@
 <xsd:complexType name="external_identifier">
   <xsd:all>
     <!-- SURVEY: Should 'type' be a string or an enumeration? -->
-    <xsd:element type="xsd:string" name="type"/>
+    <xsd:element type="identifierType" name="type"/>
+    <xsd:element type="xsd:string" name="othertype"/>
     <xsd:element type="xsd:string" name="value"/>
   </xsd:all>
 </xsd:complexType>
+
+<xsd:simpleType name="identifierType">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="ocd-id"/>
+    <xsd:enumeration value="FIPS"/>
+  </xsd:restriction>
+</xsd:simpleType>
