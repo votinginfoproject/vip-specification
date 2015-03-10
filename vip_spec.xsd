@@ -430,5 +430,5 @@
       <xs:enumeration value="BOTH"/>
     </xs:restriction>
   </xs:simpleType> 
-
+  
 </xs:schema>
