@@ -10,30 +10,36 @@
       <value>37063</value>
      </external_identifier>
      <external_identifier>
+      <type>OTHER</type>
       <othertype>GNIS</othertype>
       <value>1008550</value>
      </external_identifier>
      <external_identifer>
-      <type>census</type>
+      <type>OTHER</type>
+      <othertype>census</othertype>
       <value>99063</value>
      </external_identifier>
 
      Here are a few for Senator Al Franken:
 
      <external_identifier>
-      <type>opensecrets</type>
+      <type>OTHER</type>
+      <othertype>opensecrets</othertype>
       <value>N00029016</value>
      </external_identifier>
      <external_identifier>
-      <type>votesmart</type>
+      <type>OTHER</type>
+      <othertype>votesmart</othertype>
       <value>108924</value>
      </external_identifier>
      <external_identifier>
-      <type>thomas</type>
+      <type>OTHER</type>
+      <othertype>thomas</othertype>
       <value>F000457</value>
      </external_identifier>
      <external_identifier>
-      <type>imdb</type>
+      <type>OTHER</type>
+      <othertype>imdb</othertype>
       <value>nm0291253</value>
      </external_identifier>
   -->
@@ -50,5 +56,9 @@
   <xsd:restriction base="xsd:string">
     <xsd:enumeration value="ocd-id"/>
     <xsd:enumeration value="FIPS"/>
+    <xsd:enumeration value="national"/>
+    <xsd:enumeration value="state"/>
+    <xsd:enumeration value="local"/>
+    <xsd:enumeration value="OTHER"/>
   </xsd:restriction>
 </xsd:simpleType>
