@@ -429,6 +429,30 @@
         </xs:all>
         <xs:attribute name="id" type="xs:string" use="required" />
     </xs:complexType>
+    <!-- The officeBody type should contain only "persistent" information. -->
+    <xs:complexType name="officeBody">
+        <xs:all>
+            <!-- District encompassing the entire body. -->
+            <xs:element name="electoral_district_id" type="xs:string"/>
+            <xs:element name="name" type="xs:string" minOccurs="1"/>
+            <!-- Default office name for a body member. -->
+            <xs:element name="office_name" type="xs:string" minOccurs="1"/>
+        </xs:all>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <!-- The office type should contain only "persistent" information. -->
+    <xs:complexType name="office">
+        <xs:element name="electoral_district_id" type="xs:string"/>
+        <!-- If there is no name, there must be a body. -->
+        <xs:choice>
+            <xs:element name="name" type="xs:string"/>
+            <xs:all>
+                <xs:element name="office_body_id" type="xs:string" minOccurs="1"/>
+                <xs:element name="name" type="xs:string" minOccurs="0"/>
+            </xs:all>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
     <xs:complexType name="contestType">
         <xs:all>
             <xs:element name="election_id" type="xs:string"/>
@@ -438,7 +462,7 @@
             <xs:element name="primary_party_id" type="xs:string" minOccurs="0"/>
             <xs:element name="electorate_specifications" type="xs:string" minOccurs="0"/>
             <xs:element name="special" type="yesNoEnum" minOccurs="0"/>
-            <xs:element name="office" type="xs:string" minOccurs="0"/>
+            <xs:element name="office_id" type="xs:string" minOccurs="0"/>
             <xs:element name="filing_closed_date" type="xs:date" minOccurs="0"/>
             <xs:element name="number_elected" type="xs:integer" minOccurs="0"/>
             <xs:element name="number_voting_for" type="xs:integer" minOccurs="0"/>
