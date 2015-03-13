@@ -27,16 +27,16 @@
 
       <ul class="nav desktop-nav">
 	<li>
-	  <a href="//www.votinginfoproject.org/about/">About</a>
+	  <a href="/about/">About</a>
 	</li>
 	<li>
-	  <a href="//www.votinginfoproject.org/news/">News</a>
+	  <a href="/news/">News</a>
 	</li>
 	<li>
-	  <a href="//www.votinginfoproject.org/projects/">Projects</a>
+	  <a href="/projects/">Projects</a>
 	</li>
 	<li>
-	  <a href="//www.votinginfoproject.org/get-involved/">Get Involved</a>
+	  <a href="/get-involved/">Get Involved</a>
 	</li>
       </ul>
 
@@ -61,18 +61,21 @@
           <h1 class="title"><abbr title="Voting Information Project">VIP</abbr> Format Specification <span class="version">Version 3.0</span></h1>
 
           <h2>General Introduction</h2>
-          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
+          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
 
           <h3>General Specification</h3>
 
           <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="//github.com/votinginfoproject/vip-specification/">sample xml file and xsd file</a> for more details.
 
-          <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="//www.census.gov/geo/reference/ansi_statetables.html"><abbr title="Federal Information Processing Standards">FIPS</abbr> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
+          <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><abbr title="Federal Information Processing Standards">FIPS</abbr> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
           <p>In general, subtag data can appear a maximum of one time within each top-level tag object and in any order. Exceptions are noted below.</p>
           <p>For the data itself, the special characters &amp;, &lt;, and &gt; need to be encoded as &amp;amp;, &amp;lt;, and &amp;gt;, respectively</p>
 
           <h3>Naming convention</h3>
-          <p>The file containing the VIP feed should be named vipFeed-[<a href="//www.census.gov/geo/reference/ansi_statetables.html">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <br/><br/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
+          <p>The file containing the VIP feed should be named vipFeed-[<a href="http://www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <p/><p/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
+
+          <h3>Comma-delimited flat files</h3>
+          <p>If your office is producing flat files instead of an XML file, the files must be comma-delimited .txt files. While the format of the files differs slightly from the XML, the attributes included must conform to the field specifications below.<p/><p/> Examples of the flat files are below each XML example, along with the files included to link those elements when the files are compiled into an XML feed. To read more about the flat files, see complete file header templates and look at example files, you can do so in this <a href="https://github.com/votinginfoproject/csv-templates">GitHub repository.</a> </p>
 
           <div id="sourceitems" class="datatable">
             <h2>Source items</h2>
@@ -152,6 +155,9 @@
             <p>Example XML for a source element:</p>
             <pre class="line-numbers" data-src="examples/source-1.xml"></pre>
             <pre class="line-numbers" data-src="examples/source-2.xml"></pre>
+
+            <p>If your office is producing flat files, the source element is in a comma-delimited .txt file named source.txt. Example file for a source element:</p>
+            <pre class="line-numbers" data-src="examples/source_txt.xml"></pre>
           </div>
 
           <div id="electionitems" class="datatable">
@@ -276,6 +282,9 @@
 
             <p>Example XML for an election element:</p>
             <pre class="line-numbers" data-src="examples/election.xml"></pre>
+
+            <p>If your office is producing flat files, the election element is in a comma-delimited .txt file named election.txt. Example file for an election element:</p>
+            <pre class="line-numbers" data-src="examples/election_txt.xml"></pre>
           </div>
 
           <div id="stateitems" class="datatable">
@@ -322,6 +331,9 @@
 
             <p>Example XML for a state element:</p>
             <pre class="line-numbers" data-src="examples/state.xml"></pre>
+
+            <p>If your office is producing flat files, the state element is in a comma-delimited .txt file named state.txt. Example file for a state element:</p>
+            <pre class="line-numbers" data-src="examples/state_txt.xml"></pre>
           </div>
 
           <div id="localityitems" class="datatable">
@@ -401,6 +413,9 @@
 
             <p>Example XML for a locality element:</p>
             <pre class="line-numbers" data-src="examples/locality.xml"></pre>
+
+            <p>If your office is producing flat files, the locality elements are in a comma-delimited .txt file named locality.txt. Example file for localities:</p>
+            <pre class="line-numbers" data-src="examples/locality_txt.xml"></pre>
           </div>
 
           <div id="precinctitems" class="datatable">
@@ -502,6 +517,9 @@
             <pre class="line-numbers" data-src="examples/precinct-1.xml"></pre>
             <pre class="line-numbers" data-src="examples/precinct-2.xml"></pre>
             <pre class="line-numbers" data-src="examples/precinct-3.xml"></pre>
+
+            <p>If your office is producing flat files, the precinct elements are in a comma-delimited .txt file named precinct.txt. Example file for precincts:</p>
+            <pre class="line-numbers" data-src="examples/precinct_txt.xml"></pre>
           </div>
 
           <div id="precinctsplititems" class="datatable">
@@ -577,6 +595,9 @@
 
             <p>Example XML for a precinct split element:</p>
             <pre class="line-numbers" data-src="examples/precinct_split.xml"></pre>
+
+            <p>If your office is producing flat files, the precinct split elements are in a comma-delimited .txt file named precinct_split.txt. Example file for precinct_splits:</p>
+            <pre class="line-numbers" data-src="examples/precinct_split_txt.xml"></pre>
           </div>
 
           <div id="electionadministration" class="datatable">
@@ -716,6 +737,9 @@
             <p>Example XML for an election administration element:</p>
 
             <pre class="line-numbers" data-src="examples/election_administration.xml"></pre>
+
+            <p>If your office is producing flat files, the election administration elements are in a comma-delimited .txt file named election_administration.txt. Example file for election administration offices:</p>
+            <pre class="line-numbers" data-src="examples/election_administration_txt.xml"></pre>
           </div>
 
           <div id="electionofficial" class="datatable">
@@ -779,6 +803,9 @@
 
             <p>Example XML for an election official element:</p>
             <pre class="line-numbers" data-src="examples/election_official.xml"></pre>
+
+            <p>If your office is producing flat files, the election official elements are in a comma-delimited .txt file named election_official.txt. Example file for election officials:</p>
+            <pre class="line-numbers" data-src="examples/election_official_txt.xml"></pre>
           </div>
 
           <div id="pollinglocationitems" class="datatable">
@@ -836,8 +863,14 @@
             </table>
 
             <p>Example XML for a polling location element:</p>
-
             <pre class="line-numbers" data-src="examples/polling_location.xml"></pre>
+
+            <p>If your office is producing flat files, the polling location elements are in a comma-delimited .txt file named polling_location.txt. Example file for polling locations:</p>
+            <pre class="line-numbers" data-src="examples/polling_location_txt.xml"></pre>
+
+            <p>If your office is producing flat files, the polling location elements are linked to precincts or precinct splits through a comma-delimited .txt file named precinct_polling_location.txt or precinct_split_polling_location.txt. Example files for polling locations linked to precincts or precinct splits:</p>
+            <pre class="line-numbers" data-src="examples/precinct_polling_location_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct_split_polling_location_txt.xml"></pre>
           </div>
 
           <div id="earlyvotesiteitems" class="datatable">
@@ -922,8 +955,15 @@
             </table>
 
             <p>Example XML for an early vote element:</p>
-
             <pre class="line-numbers" data-src="examples/early_vote_site.xml"></pre>
+
+            <p>If your office is producing flat files, the early vote site elements are in a comma-delimited .txt file named early_vote_site.txt. Example file for early vote sites:</p>
+            <pre class="line-numbers" data-src="examples/early_vote_site_txt.xml"></pre>
+
+            <p>If your office is producing flat files, the early vote site elements are linked to localities, state or precincts through a comma-delimited .txt file named locality_early_vote_site.txt, state_early_vote_site.txt or precinct_early_vote_site.txt. Example files for early vote sites linked to localities, state or precincts:</p>
+            <pre class="line-numbers" data-src="examples/locality_early_vote_site_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/state_early_vote_site_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct_early_vote_site_txt.xml"></pre>
           </div>
 
           <div id="contestitems" class="datatable">
@@ -1062,8 +1102,11 @@
               </tbody>
             </table>
 
-            <p>Example XML for a ballot element:</p>
+            <p>Example XML for a contest element:</p>
             <pre class="line-numbers" data-src="examples/contest.xml"></pre>
+
+            <p>If your office is producing flat files, the contest elements are in a comma-delimited .txt file named contest.txt. Example file for contests:</p>
+            <pre class="line-numbers" data-src="examples/contest_txt.xml"></pre>
           </div>
 
           <div id="electoraldistrictitems" class="datatable">
@@ -1114,6 +1157,13 @@
             <p>Two examples of electoral area element.</p>
             <pre class="line-numbers" data-src="examples/electoral_district-1.xml"></pre>
             <pre class="line-numbers" data-src="examples/electoral_district-2.xml"></pre>
+
+            <p>If your office is producing flat files, the electoral district elements are in a comma-delimited .txt file named electoral_districts.txt. Example file for electoral districts:</p>
+            <pre class="line-numbers" data-src="examples/electoral_district_txt.xml"></pre>
+
+            <p>If your office is producing flat files, the electoral district elements are linked to precincts or precinct splits through a comma-delimited .txt file named precinct_electoral_district.txt or precinct_split_electoral_district.txt. Example files for electoral districts linked to precincts or precinct splits:</p>
+            <pre class="line-numbers" data-src="examples/precinct_electoral_district_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct_split_electoral_district_txt.xml"></pre>
           </div>
 
           <div id="ballotitems" class="datatable">
@@ -1187,8 +1237,10 @@
             </table>
 
             <p>Example XML for a ballot element:</p>
-
             <pre class="line-numbers" data-src="examples/ballot.xml"></pre>
+
+            <p>If your office is producing flat files, the ballot elements are in a comma-delimited .txt file named ballot.txt. Example file for ballot records (races or referenda):</p>
+            <pre class="line-numbers" data-src="examples/ballot_txt.xml"></pre>
           </div>
 
           <div id="candidateitems" class="datatable">
@@ -1291,6 +1343,12 @@
             <p>Example XML for a candidate element:</p>
 
             <pre class="line-numbers" data-src="examples/candidate.xml"></pre>
+
+            <p>If your office is producing flat files, the candidate elements are in a comma-delimited .txt file named candidate.txt. Example file for candidates:</p>
+            <pre class="line-numbers" data-src="examples/candidate_txt.xml"></pre>
+
+            <p>If your office is producing flat files, the ballot elements are linked to candidates through a comma-delimited .txt file named ballot_candidate.txt. Example file for candidates linked to ballot records:</p>
+            <pre class="line-numbers" data-src="examples/ballot_candidate_txt.xml"></pre>
           </div>
 
           <div id="referendumitems" class="datatable">
@@ -1387,7 +1445,7 @@
 		    response element. Multiple <b>ballot_response_id</b> tags may be
 		    present. This element has an optional attribute named <b>order</b> that may be specified, giving the ordering of the responses as they appear on the
 		    actual ballot.</td>
-                  <td>If no <b>ballot_response_id</b> field is invalid, the
+                  <td>If no <b>ballot_response_id</b> field is present or the field is invalid, the
 		    implementation is required to ignore the referendum element
 		    containing it.</td>
 		</tr>
@@ -1396,6 +1454,13 @@
 
             <p>Example XML for a referendum element:</p>
             <pre class="line-numbers" data-src="examples/referendum.xml"></pre>
+
+            <p>If your office is producing flat files, the referendum elements are in a comma-delimited .txt file named referendum.txt. Example file for a referendum element:</p>
+            <pre class="line-numbers" data-src="examples/referendum_txt.xml"></pre>
+
+            <p>If your office is producing flat files, the referendum elements are linked to ballot responses through comma-delimited .txt files named ballot_response.txt and referendum_ballot_response.txt. Example file for a referendum element linked to ballot responses and referendum ballot responses:</p>
+            <pre class="line-numbers" data-src="examples/ballot_response_txt.xml"></pre>
+            <pre class="line-numbers" data-src="examples/referendum_ballot_response_txt.xml"></pre>
           </div>
 
           <div id="customballotitems" class="datatable">
@@ -1440,8 +1505,10 @@
             </table>
 
             <p>Example XML for a custom ballot element:</p>
-
             <pre class="line-numbers" data-src="examples/custom_ballot.xml"></pre>
+
+            <p>If your office is producing flat files, the custom ballot elements are in a comma-delimited .txt file named custom_ballot.txt. Example file for custom ballot records:</p>
+            <pre class="line-numbers" data-src="examples/custom_ballot_txt.xml"></pre>
           </div>
 
           <div id="ballotresponseitems" class="datatable">
@@ -1485,6 +1552,9 @@
 	    <pre class="line-numbers" data-src="examples/ballot_response-2.xml"></pre>
 	    <pre class="line-numbers" data-src="examples/ballot_response-3.xml"></pre>
 	    <pre class="line-numbers" data-src="examples/ballot_response-4.xml"></pre>
+
+            <p>If your office is producing flat files, the custom ballot response elements are in a comma-delimited .txt file named custom_ballot_response.txt. Example file for custom ballot responses:</p>
+            <pre class="line-numbers" data-src="examples/custom_ballot_ballot_response_txt.xml"></pre>
           </div>
 
           <div id="streetsegment" class="datatable">
@@ -1573,13 +1643,16 @@
 
             <p>Example XML for a street segment element: </p>
             <pre class="line-numbers" data-src="examples/street_segment.xml"></pre>
+
+            <p>If your office is producing flat files, the street segment elements are in a comma-delimited .txt file named street_segment.txt. Example file for street segments:</p>
+            <pre class="line-numbers" data-src="examples/street_segment_txt.xml"></pre>
           </div>
 
           <div id="contestresult" class="datatable">
             <h2>Contest Result</h2>
 
             <table>
-              <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
+              <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationtype">certificationEnum</a>.</caption>
               <thead>
 		<tr>
                   <th>Tag</th>
@@ -1659,13 +1732,16 @@
 
             <p>Example XML for a contest result element:</p>
             <pre class="line-numbers" data-src="examples/contest_result.xml"></pre>
+
+            <p>If your office is producing flat files, the contest result elements are in a comma-delimited .txt file named contest_results.txt. Example file for contest results:</p>
+            <pre class="line-numbers" data-src="examples/contest_result_txt.xml"></pre>
           </div>
 
           <div id="ballotlineresult" class="datatable">
             <h2>Ballot Line Result (e.g. Candidate Result)</h2>
 
             <table>
-              <caption>A Ballot Line Result provides the candidates' or referenda responses' vote totals. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
+              <caption>A Ballot Line Result provides the candidates' or referenda responses' vote totals. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationtype">certificationEnum</a>.</caption>
               <thead>
 		<tr>
                   <th>Tag</th>
@@ -1730,6 +1806,9 @@
             </table>
             <p>Example XML for a ballot line result element:</p>
             <pre class="line-numbers" data-src="examples/ballot_line_result.xml"></pre>
+
+            <p>If your office is producing flat files, the ballot line result elements are in a comma-delimited .txt file named ballot_line_result.txt. Example file for ballot line results:</p>
+            <pre class="line-numbers" data-src="examples/ballot_line_result_txt.xml"></pre>
           </div>
 
           <div id="detailaddresstype" class="datatable">
@@ -1914,7 +1993,7 @@
           <div id="certificationtype" class="datatable">
             <h2>Certification Enumeration</h2>
             <table>
-              <caption>The Certification Enumeration provides information of the level of completeness of results. Lowercase is required.</caption>
+              <caption>The Certification Enumeration provides information of the level of completeness of results.</caption>
               <thead>
 		<tr>
                   <th>Enumeration</th>
@@ -2026,14 +2105,14 @@
 	<div class="left-column column">
 	  <h4>Partners</h4>
 	  <div class="logo-partners desktop-logo-partners">
-	    <a href="//pewtrusts.org" class="pew">Pew</a>
-	    <a href="//google.com" class="google">Google</a>
+	    <a href="http://pewtrusts.org" class="pew">Pew</a>
+	    <a href="https://google.com" class="google">Google</a>
 	  </div>
 	  <h4>Collaborators</h4>
 	  <div class="logo-collab desktop-logo-collab">
-	    <a href="//wordpress.com/" class="wordpress">Wordpress</a>
-	    <a href="//disqus.com/" class="disqus">Disqus</a>
-	    <a href="//foursquare.com/" class="foursquare">foursquare</a>
+	    <a href="https://wordpress.com/" class="wordpress">Wordpress</a>
+	    <a href="https://disqus.com/" class="disqus">Disqus</a>
+	    <a href="https://foursquare.com/" class="foursquare">foursquare</a>
 	  </div>
 	  
 	</div>
@@ -2051,32 +2130,32 @@
 	    General inquires: <a href="mailto:info@votinginfoproject.org">info@votinginfoproject.org</a>
 	  </div>
 	  <div class="social-links">
-	    <a href="//www.facebook.com/VotingInfo" class="facebook">
+	    <a href="https://www.facebook.com/VotingInfo" class="facebook">
 	      Facebook
 	    </a>
-	    <a href="//twitter.com/VotingInfo" class="twitter">
+	    <a href="https://twitter.com/VotingInfo" class="twitter">
 	      Twitter
 	    </a>
 	    <a href="#" class="googleplus">
 	      Google Plus
 	    </a>
-	    <a href="//github.com/votinginfoproject" class="github">
+	    <a href="https://github.com/votinginfoproject" class="github">
 	      Github
 	    </a>
 	  </div>
 	</div>
 	
 	<div class="footer-nav group">
-	  <a href="//www.votinginfoproject.org/about/">ABOUT</a>|
-	  <a href="//www.votinginfoproject.org/news/">NEWS</a>|
-	  <a href="//www.votinginfoproject.org/projects/">PROJECTS</a>|
-	  <a href="//www.votinginfoproject.org/get-involved/">GET INVOLVED</a>
+	  <a href="/about/">ABOUT</a>|
+	  <a href="/news/">NEWS</a>|
+	  <a href="/projects/">PROJECTS</a>|
+	  <a href="/get-involved/">GET INVOLVED</a>
 	</div>
 	<div class="footer-nav footer-sub-nav">
-	  <a href="//www.votinginfoproject.org/terms-service/"> TERMS OF SERVICE </a> |
-	  <a href="//www.votinginfoproject.org/privacy-policy/"> PRIVACY POLICY </a> |
-	  <a href="//oxidedesign.com/"> Website design by Oxide Design Co. </a> |
-	  <a href="//www.votinginfoproject.org"> &copy;2014 Voting Information Project </a>
+	  <a href="https://www.votinginfoproject.org/terms-service/"> TERMS OF SERVICE </a> |
+	  <a href="https://www.votinginfoproject.org/privacy-policy/"> PRIVACY POLICY </a> |
+	  <a href="http://oxidedesign.com/"> Website design by Oxide Design Co. </a> |
+	  <a href="https://www.votinginfoproject.org"> ©2014 Voting Information Project </a>
 	</div>
       </div>
     </div>
@@ -2084,19 +2163,19 @@
   <nav class="shifter-navigation nav-wrap">
     <ul class="nav">
       <li>
-	<a href="//www.votinginfoproject.org/about/">About</a>
+	<a href="/about/">About</a>
       </li>
       <li>
-	<a href="//www.votinginfoproject.org/news/">News</a>
+	<a href="/news/">News</a>
       </li>
       <li>
-	<a href="//www.votinginfoproject.org/projects/">Projects</a>
+	<a href="/projects/">Projects</a>
       </li>
       <li>
-	<a href="//www.votinginfoproject.org/get-involved/">Get Involved</a>
+	<a href="/get-involved/">Get Involved</a>
       </li>
     </ul>
   </nav>
-  <script src="//vip-website-assets.s3.amazonaws.com/core/js/vendor/prism.js"></script>
+  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/vendor/prism.js"></script>
 </body>
 </html>
