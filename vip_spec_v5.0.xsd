@@ -2,6 +2,41 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:kml="http://www.opengis.net/kml/2.2">
     <xs:import namespace="http://www.opengis.net/kml/2.2" schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"/>
     <xs:element name="vip_object">
+        <!-- A string with a required language specifier. -->
+        <xs:complexType name="langString">
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="lang" type="xs:language" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+        <!-- A text value in one or more languages. For example,
+
+            <xs:element name="greeting" type="multiLangText"/>
+
+        would allow--
+
+            <greeting>
+                <text lang="en">Hello</text>
+                <text lang="es">Hola</text>
+                <text lang="fr">Bonjour</text>
+            </greeting>
+
+        or (e.g. if only English is available)--
+
+            <greeting>Hello</greeting>
+        -->
+        <xs:complexType name="multiLangText">
+            <xs:union>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <!-- A simple string can be provided instead if only English is available. -->
+                <xs:string/>
+            </xs:union>
+        </xs:complexType>
         <xs:complexType>
             <xs:choice maxOccurs="unbounded">
                 <xs:element name="source" minOccurs="1" maxOccurs="1">
