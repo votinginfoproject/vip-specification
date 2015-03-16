@@ -1,48 +1,48 @@
 <!-- Start of enumerated values -->
-<xsd:simpleType name="VoteVariation">
+<xs:simpleType name="VoteVariation">
   <!-- Unmodified from P1622.2 6.3.28 -->
-  <xsd:restriction base="xsd:string">
-    <xsd:enumeration value="approval"/>
-    <xsd:enumeration value="cumulative"/>
-    <xsd:enumeration value="IRV"/>
-    <xsd:enumeration value="N-of-M"/>
-  </xsd:restriction>
-</xsd:simpleType>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="approval"/>
+    <xs:enumeration value="cumulative"/>
+    <xs:enumeration value="IRV"/>
+    <xs:enumeration value="N-of-M"/>
+  </xs:restriction>
+</xs:simpleType>
 
-<xsd:simpleType name="CandidateStatus">
+<xs:simpleType name="CandidateStatus">
   <!-- Currently in (unreleased) V31 of the draft standard -->
-  <xsd:restriction base="xsd:string">
-    <xsd:enumeration value="advanced-to-runoff"/>
-    <xsd:enumeration value="filed"/>
-    <xsd:enumeration value="qualified"/>
-    <xsd:enumeration value="winner"/>
-    <xsd:enumeration value="withdrawn"/>
-    <xsd:enumeration value="write-in"/>
-  </xsd:restriction>
-</xsd:simpleType>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="advanced-to-runoff"/>
+    <xs:enumeration value="filed"/>
+    <xs:enumeration value="qualified"/>
+    <xs:enumeration value="winner"/>
+    <xs:enumeration value="withdrawn"/>
+    <xs:enumeration value="write-in"/>
+  </xs:restriction>
+</xs:simpleType>
 
 <!-- End of enumerated values -->
 
 <!-- Abstract base classes for ballots and contests -->
-<xsd:complexType name="BallotSelection" abstract="true">
+<xs:complexType name="BallotSelection" abstract="true">
   <!-- Modified from P1622.2 6.3.1 to remove VoteCounts -->
-  <xsd:element name="id" type="xsd:ID"/>
+  <xs:element name="id" type="xs:ID"/>
   <!-- Question: What's the use case for ballotSelectionID? -->
-</xsd:complexType>
+</xs:complexType>
 
-<xsd:complexType name="Contest" abstract="true">
+<xs:complexType name="Contest" abstract="true">
   <!-- Slightly modified from P1622.2 6.3.5 -->
-  <xsd:element name="ballot_selection_id" type="xsd:ID" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="ballot_selection_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
   <!-- See the feature/external-identifier branch for specifics. The
        national/state/local contest codes would all be here. -->
-  <xsd:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
-  <xsd:element name="electoral_district_id" type="xsd:ID"/>
-  <xsd:element name="id" type="xsd:ID"/>
-  <xsd:element name="abbreviation" type="xsd:string"/>
-  <xsd:element name="name" type="xsd:string"/>
-  <xsd:element name="voteVariation" type="VoteVariation"/>
+  <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="electoral_district_id" type="xs:ID"/>
+  <xs:element name="id" type="xs:ID"/>
+  <xs:element name="abbreviation" type="xs:string"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="voteVariation" type="VoteVariation"/>
   <!-- Start of non-P1622.2 elements -->
-  <xsd:element name="electorate_specification" type="xsd:string"/>
+  <xs:element name="electorate_specification" type="xs:string"/>
   <!-- End of non-P1622.2 elements -->
   <!-- Notes:
        The following fields are reflected in the 'CandidateChoice' object:
@@ -53,152 +53,152 @@
        The ballot_id and ballot_placement fields are obsoleted by the
        OrderedContests element.
     -->
-</xsd:complexType>
+</xs:complexType>
 <!-- End of abstract base classes -->
 
-<xsd:complexType name="Contact">
+<xs:complexType name="Contact">
   <!-- Unmodified from P1622.2 6.3.4 -->
-  <xsd:element name="id" type="xsd:ID"/>
-  <xsd:element name="URL" type="xsd:anyURI" minOccurs="0" maxOccurs="unbounded"/>
-  <xsd:element name="addressLine" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
-  <xsd:element name="email" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
-  <xsd:element name="fax" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="id" type="xs:ID"/>
+  <xs:element name="URL" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="addressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
   <!-- See the feature/schedule branch for details -->
-  <xsd:element name="hours" type="hours_open" minOccurs="0"/>
-  <xsd:element name="name" type="xsd:string"/>
-  <xsd:element name="phone" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
-</xsd:complexType>
+  <xs:element name="hours" type="hours_open" minOccurs="0"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:complexType>
 
-<xsd:complexType name="Person">
+<xs:complexType name="Person">
   <!-- Unmodified from revised P1622.2 6.3.14 -->
-  <xsd:element name="id" type="xsd:ID"/>
-  <xsd:element name="date_of_birth" type="xsd:date" minOccurs="0"/>
-  <xsd:element name="contact_id" type="xsd:ID" minOccurs="0" maxOccurs="unbounded"/>
-  <xsd:element name="party_id" type="xsd:ID" minOccurs="0"/>
-  <xsd:element name="firstName" type="xsd:string" minOccurs="0"/>
-  <xsd:element name="lastName" type="xsd:string"/>
-  <xsd:element name="middleName" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
-  <xsd:element name="nickname" type="xsd:string" minOccurs="0"/>
-  <xsd:element name="prefix" type="xsd:string" minOccurs="0"/>
-  <xsd:element name="profession" type="xsd:string" minOccurs="0"/>
-  <xsd:element name="title" type="xsd:string" minOccurs="0"/>
-</xsd:complexType>
+  <xs:element name="id" type="xs:ID"/>
+  <xs:element name="date_of_birth" type="xs:date" minOccurs="0"/>
+  <xs:element name="contact_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="party_id" type="xs:ID" minOccurs="0"/>
+  <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+  <xs:element name="lastName" type="xs:string"/>
+  <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="nickname" type="xs:string" minOccurs="0"/>
+  <xs:element name="prefix" type="xs:string" minOccurs="0"/>
+  <xs:element name="profession" type="xs:string" minOccurs="0"/>
+  <xs:element name="title" type="xs:string" minOccurs="0"/>
+</xs:complexType>
 
 <!-- Party extends BallotSelection since people can vote straight-party -->
-<xsd:complexType name="Party">
+<xs:complexType name="Party">
   <!-- Mostly unmodified from revised P1622.2 6.3.12 -->
-  <xsd:complexContent>
-    <xsd:extension base="BallotSelection">
-      <xsd:element name="abbreviation" type="xsd:string"/>
-      <xsd:element name="name" type="xsd:string"/>
-      <xsd:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:complexContent>
+    <xs:extension base="BallotSelection">
+      <xs:element name="abbreviation" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
       <!-- Start of non-P1622.2 elements -->
-      <xsd:element name="colorCode" type="xsd:string" pattern="[0-9a-f]{6}"/>
-      <xsd:element name="logoUrl" type="xsd:anyURI" minOccurs="0"/>
+      <xs:element name="colorCode" type="xs:string" pattern="[0-9a-f]{6}"/>
+      <xs:element name="logoUrl" type="xs:anyURI" minOccurs="0"/>
       <!-- End of non-P1622.2 elements -->
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
-<xsd:complexType name="Office">
+<xs:complexType name="Office">
   <!-- Largely unmodified from revised P1622.2 6.3.10 -->
-  <xsd:sequence>
-    <xsd:element name="electoral_district_id" type="xsd:ID"/>
-    <xsd:element name="id" type="xsd:ID"/>
-    <xsd:element name="name" type="xsd:string"/>
-    <xsd:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
-    <xsd:element name="partisan" type="xsd:boolean" minOccurs="0"/>
-    <xsd:element name="termEndDate" type="xsd:date" minOccurs="0"/>
-    <xsd:element name="termStartDate" type="xsd:date" minOccurs="0"/>
-    <xsd:element name="termType" type="TermType"/>
-  </xsd:sequence>
-</xsd:complexType>
+  <xs:sequence>
+    <xs:element name="electoral_district_id" type="xs:ID"/>
+    <xs:element name="id" type="xs:ID"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="partisan" type="xs:boolean" minOccurs="0"/>
+    <xs:element name="termEndDate" type="xs:date" minOccurs="0"/>
+    <xs:element name="termStartDate" type="xs:date" minOccurs="0"/>
+    <xs:element name="termType" type="TermType"/>
+  </xs:sequence>
+</xs:complexType>
 
-<xsd:complexType name="Candidate">
+<xs:complexType name="Candidate">
   <!-- Unmodified from revised P1622.2 6.3.3 -->
-  <xsd:element name="party_id" type="xsd:ID" minOccurs="0"/>
-  <xsd:element name="person_id" type="xsd:ID" minOccurs="0"/>
-  <xsd:element name="id" type="xsd:ID"/>
-  <xsd:element name="ballotName" type="xsd:string"/>
-  <xsd:element name="fileDate" type="xsd:dateTime"/>
-  <xsd:element name="isIncumbent" type="xsd:boolean"/>
-  <xsd:element name="isTopTicket" type="xsd:boolean"/>
-  <xsd:element name="status" type="CandidateStatus"/>
-</xsd:complexType>
+  <xs:element name="party_id" type="xs:ID" minOccurs="0"/>
+  <xs:element name="person_id" type="xs:ID" minOccurs="0"/>
+  <xs:element name="id" type="xs:ID"/>
+  <xs:element name="ballotName" type="xs:string"/>
+  <xs:element name="fileDate" type="xs:dateTime"/>
+  <xs:element name="isIncumbent" type="xs:boolean"/>
+  <xs:element name="isTopTicket" type="xs:boolean"/>
+  <xs:element name="status" type="CandidateStatus"/>
+</xs:complexType>
 
-<xsd:complexType name="CandidateSelection">
+<xs:complexType name="CandidateSelection">
   <!-- Unmodified from revised P1622.2 6.3.1.2 -->
-  <xsd:complexContent>
-    <xsd:extension base="BallotSelection">
-      <xsd:sequence>
-        <xsd:element name="candidate_id" type="xsd:ID" maxOccurs="unbounded"/>
-        <xsd:element name="endorsement_party_id" type="xsd:ID" minOccurs="0" maxOccurs="unbounded"/>
-      </xsd:sequence>
-      <xsd:element name="isWriteIn" type="xsd:boolean"/>
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+  <xs:complexContent>
+    <xs:extension base="BallotSelection">
+      <xs:sequence>
+        <xs:element name="candidate_id" type="xs:ID" maxOccurs="unbounded"/>
+        <xs:element name="endorsement_party_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:element name="isWriteIn" type="xs:boolean"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 <!-- This replaces the contest element from VIP -->
-<xsd:complexType name="CandidateChoice">
+<xs:complexType name="CandidateChoice">
   <!-- Unmodified from revised P1622.2 6.3.5.1.2 -->
-  <xsd:complexContent>
-    <xsd:extension base="Contest">
-      <xsd:sequence>
-        <xsd:element name="office_id" type="xsd:ID" minOccurs="0"/>
-        <xsd:element name="primary_party_id" type="xsd:ID" minOccurs="0"/>
-      </xsd:sequence>
-      <xsd:element name="numberElected" type="xsd:integer"/>
-      <xsd:element name="votesAllowed" type="xsd:integer"/>
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+  <xs:complexContent>
+    <xs:extension base="Contest">
+      <xs:sequence>
+        <xs:element name="office_id" type="xs:ID" minOccurs="0"/>
+        <xs:element name="primary_party_id" type="xs:ID" minOccurs="0"/>
+      </xs:sequence>
+      <xs:element name="numberElected" type="xs:integer"/>
+      <xs:element name="votesAllowed" type="xs:integer"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
-<xsd:complexType name="RetentionElection">
+<xs:complexType name="RetentionElection">
   <!-- Currently in (unreleased) V31 of the draft standard -->
-  <xsd:complexContent>
-    <xsd:extension base="BallotMeasure">
-      <xsd:sequence>
-        <xsd:element name="candidate_id" type="xsd:ID"/>
-        <xsd:element minOccurs="0" name="office_id" type="xsd:ID"/>
-      </xsd:sequence>
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+  <xs:complexContent>
+    <xs:extension base="BallotMeasure">
+      <xs:sequence>
+        <xs:element name="candidate_id" type="xs:ID"/>
+        <xs:element minOccurs="0" name="office_id" type="xs:ID"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 <!-- This replaces the "referendum" element in VIP -->
-<xsd:complexType name="BallotMeasure">
+<xs:complexType name="BallotMeasure">
   <!-- Slightly modified from revised P1622.2 6.3.5.1.1 -->
-  <xsd:complexContent>
-    <xsd:extension base="Contest">
-      <xsd:sequence>
-        <xsd:element name="FullText" type="xsd:string" minOccurs="0"/>
-        <xsd:element name="SummaryText" type="xsd:string" minOccurs="0"/>
+  <xs:complexContent>
+    <xs:extension base="Contest">
+      <xs:sequence>
+        <xs:element name="FullText" type="xs:string" minOccurs="0"/>
+        <xs:element name="SummaryText" type="xs:string" minOccurs="0"/>
         <!-- Info URL added from current VIP spec. -->
-        <xsd:element name="infoUrl" type="xsd:anyURI"/>
+        <xs:element name="infoUrl" type="xs:anyURI"/>
         <!-- SURVEY: How much are the pro/con statements and other parts of
              VIP around referenda actually used? -->
-      </xsd:sequence>
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 <!-- Generic string for a ballot measure (referendum) selection -->
-<xsd:complexType name="BallotMeasureSelection">
+<xs:complexType name="BallotMeasureSelection">
   <!-- Unmodified from revised P1622.2 6.3.1.1 -->
-  <xsd:complexContent>
-    <xsd:extension base="BallotSelection">
-      <xsd:element name="selection" type="xsd:string"/>
-    </xsd:extension>
-  </xsd:complexContent>
-</xsd:complexType>
+  <xs:complexContent>
+    <xs:extension base="BallotSelection">
+      <xs:element name="selection" type="xs:string"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 
 <!-- Pairs up the contest with all the ballot selections for that contest -->
-<xsd:complexType name="OrderedContest">
+<xs:complexType name="OrderedContest">
   <!-- Unmodified from revised P1622.2 6.3.11 -->
-  <xsd:sequence>
-    <xsd:element name="contest_id" type="xsd:ID"/>
-    <xsd:element name="ballot_selection_id" type="xsd:ID" minOccurs="0" maxOccurs="unbounded"/>
-  </xsd:sequence>
-  <xsd:element name="id" type="xsd:ID" minOccurs="1"/>
-</xsd:complexType>
+  <xs:sequence>
+    <xs:element name="contest_id" type="xs:ID"/>
+    <xs:element name="ballot_selection_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+  <xs:element name="id" type="xs:ID" minOccurs="1"/>
+</xs:complexType>
