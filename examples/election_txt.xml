@@ -1,0 +1,2 @@
+date,election_type,state_id,statewide,registration_info,absentee_ballot_info,results_url,polling_hours,election_day_registration,registration_deadline,absentee_request_deadline,id
+2012-05-08,FEDERAL,37,YES,http://www.ncsbe.gov/content.aspx?id=23,http://www.ncsbe.gov/content.aspx?id=16,http://www.ncsbe.gov/content.aspx?id=69,6AM - 7PM,NO,2012-04-13,2012-04-24,2003

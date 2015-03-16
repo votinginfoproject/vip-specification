@@ -1,0 +1,4 @@
+referendum_id,custom_ballot_id,write_in,image_url,id
+,,no,,410004745
+,,no,,410004746
+810005909,,no,,41100368
