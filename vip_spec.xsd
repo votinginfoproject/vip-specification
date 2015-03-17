@@ -137,7 +137,7 @@
               <xs:element minOccurs="0" name="primary_party" type="xs:string" />
               <xs:element minOccurs="0" name="electorate_specifications" type="xs:string" />
               <xs:element minOccurs="0" name="special" type="yesNoEnum" />
-              <xs:element minOccurs="0" name="office" type="xs:string" />
+              <xs:element minOccurs="0" name="office" type="interText" />
               <xs:element minOccurs="0" name="filing_closed_date" type="xs:date" />
               <xs:element minOccurs="0" name="number_elected" type="xs:integer" />
               <xs:element minOccurs="0" name="number_voting_for" type="xs:integer" />
@@ -197,12 +197,12 @@
         <xs:element name="referendum">
           <xs:complexType>
             <xs:choice maxOccurs="unbounded">
-              <xs:element name="title" type="xs:string" />
-              <xs:element minOccurs="0" name="subtitle" type="xs:string" />
-              <xs:element minOccurs="0" name="brief" type="xs:string" />
-              <xs:element name="text" type="xs:string" />
-              <xs:element minOccurs="0" name="pro_statement" type="xs:string" />
-              <xs:element minOccurs="0" name="con_statement" type="xs:string" />
+              <xs:element name="title" type="interText" />
+              <xs:element minOccurs="0" name="subtitle" type="interText" />
+              <xs:element minOccurs="0" name="brief" type="interText" />
+              <xs:element name="text" type="interText" />
+              <xs:element minOccurs="0" name="pro_statement" type="interText" />
+              <xs:element minOccurs="0" name="con_statement" type="interText" />
               <xs:element minOccurs="0" name="passage_threshold" type="xs:string" />
               <xs:element minOccurs="0" name="effect_of_abstain" type="xs:string" />
               <xs:element name="ballot_response_id">
@@ -360,6 +360,48 @@
         <xs:element name="zip" type="xs:string"/>
     </xs:all> 
 </xs:complexType> 
+<xs:complexType name="langString">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="lang" type="xs:language" use="required"/>
+        </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+<!--
+interText (short for "internationalized text"): a type representing a block
+  of text translated into one or more languages.
+For example, an instance of:
+    <xs:element name="office" type="interText"/>
+could be:
+    <office inter_text_id="office_mayor">
+        <text lang="en">Mayor</text>
+        <text lang="es">Alcalde</text>
+        <text lang="zh">市長</text>
+    </office>
+or (e.g. if only English is available):
+    <office>Mayor</office>
+The optional "inter_text_id" attribute is useful for tracking the string
+source, for example if the translated values came from localized resource
+files.
+-->
+<xs:complexType name="interText">
+    <xs:union>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="inter_text_id" type="xs:string"/>
+        </xs:complexType>
+        <xs:complexType>
+            <!-- The language defaults to English in this case. -->
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="inter_text_id" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:union>
+</xs:complexType>
 <xs:complexType name="pollingLocationType">
     <xs:sequence>
         <xs:element name="address" type="simpleAddressType" />
