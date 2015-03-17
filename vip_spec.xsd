@@ -362,47 +362,31 @@ langString: a type representing a string with a language specified.
 </xs:complexType>
 <!--
 
-interText (short for "internationalized text"): a type representing a block
-  of text translated into one or more languages.
+internationalizedText: a type representing a block of text translated into
+  one or more languages.
 
 For example, an instance of:
 
-    <xs:element name="office" type="interText"/>
+    <xs:element name="office" type="internationalizedText"/>
 
 could be:
 
-    <office inter_text_id="office_mayor">
+    <office internationalized_text_id="office_mayor">
         <text lang="en">Mayor</text>
         <text lang="es">Alcalde</text>
         <text lang="zh">市長</text>
     </office>
 
-or (e.g. if only English is available):
-
-    <office>Mayor</office>
-
-The optional "inter_text_id" attribute is useful for tracking the string
-source, for example if the translated values came from localized resource
-files.
+The optional "internationalized_text_id" attribute can be used to track
+the source of the strings, for example if the translated values came from
+localized resource files.
 
 -->
-<xs:complexType name="interText">
-    <xs:union>
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
-            </xs:sequence>
-            <xs:attribute name="inter_text_id" type="xs:string"/>
-        </xs:complexType>
-        <xs:complexType>
-            <!-- The language defaults to English in this case. -->
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="inter_text_id" type="xs:string"/>
-                </xs:extension>
-            </xs:simpleContent>
-        </xs:complexType>
-    </xs:union>
+<xs:complexType name="internationalizedText">
+    <xs:sequence>
+        <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="internationalized_text_id" type="xs:string"/>
 </xs:complexType>
 <xs:complexType name="detailAddressType">
     <xs:all>
