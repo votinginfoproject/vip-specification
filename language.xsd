@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- working version of VIP schema based on 3.0 for comments
+    changed all id types to string
+    added ocdid to district 
+    reference elements for polling location
+ -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="vip_object">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+      <xs:element name="referendum">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+              <xs:element name="title" type="internationalizedText" />
+              <xs:element minOccurs="0" name="subtitle" type="internationalizedText" />
+              <xs:element minOccurs="0" name="brief" type="internationalizedText" />
+              <xs:element name="text" type="internationalizedText" />
+              <xs:element minOccurs="0" name="pro_statement" type="internationalizedText" />
+              <xs:element minOccurs="0" name="con_statement" type="internationalizedText" />
+              <xs:element minOccurs="0" name="passage_threshold" type="xs:string" />
+              <xs:element minOccurs="0" name="effect_of_abstain" type="xs:string" />
+              <xs:element name="ballot_response_id">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="sort_order" type="xs:integer" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+    <xs:complexType name="langString">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="lang" type="xs:language" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="internationalizedText">
+        <xs:sequence>
+            <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="inter_text_id" type="xs:string"/>   
+    </xs:complexType>
+</xs:schema>
