@@ -46,6 +46,6 @@
         <xs:sequence>
             <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="inter_text_id" type="xs:string"/>   
+        <xs:attribute name="internationalized_text_id" type="xs:string"/>   
     </xs:complexType>
 </xs:schema>
