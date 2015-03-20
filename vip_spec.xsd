@@ -378,13 +378,6 @@
         </xs:extension>
     </xs:simpleContent>
 </xs:complexType>
-    <xs:complexType name="langString">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="lang" type="xs:language" use="required"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
     <xs:complexType name="internationalizedText">
         <xs:sequence>
             <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
