@@ -321,7 +321,6 @@
   </xs:element>
 
 <!-- stubbing out some of the new elements for discussion
-
 <xs:complexType name="pollingLocationType">
 	<xs:all>
 		<xs:element name="address" type="simpleAddressType" />
@@ -333,7 +332,6 @@
 	</xs:all>
 	<xs:attribute name="id" type="xs:string" use="required" />
 </xs:complexType>
-
 <xs:complexType name="pollingLocationScheduleType">
 	<xs:choice>
 		<xs:element minOccurs="0" name="start_date" type="xs:date" />
@@ -343,15 +341,10 @@
 		<xs:element minOccurs="0" name="close_hour" type="xs:string" />
 	</xs:choice>
 </xs:complexType>
-
-
-
 //-->
 
 <!--
-
 langString: a type representing a string with a language specified.
-
 -->
 <xs:complexType name="langString">
     <xs:simpleContent>
@@ -361,26 +354,19 @@ langString: a type representing a string with a language specified.
     </xs:simpleContent>
 </xs:complexType>
 <!--
-
 internationalizedText: a type representing a block of text translated into
   one or more languages.
-
 For example, an instance of:
-
     <xs:element name="office" type="internationalizedText"/>
-
 could be:
-
     <office internationalized_text_id="office_mayor">
         <text lang="en">Mayor</text>
         <text lang="es">Alcalde</text>
         <text lang="zh">市長</text>
     </office>
-
 The optional "internationalized_text_id" attribute can be used to track
 the source of the strings, for example if the translated values came from
 localized resource files.
-
 -->
 <xs:complexType name="internationalizedText">
     <xs:sequence>
