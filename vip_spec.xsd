@@ -28,12 +28,12 @@
               <xs:element name="date" type="xs:date" />
               <xs:element minOccurs="0" name="election_type" type="xs:string" />
               <xs:element name="state_id" type="xs:string" />
-              <xs:element minOccurs="0" name="statewide" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="statewide" type="xs:boolean" />
               <xs:element minOccurs="0" name="registration_info" type="xs:string" />
               <xs:element minOccurs="0" name="absentee_ballot_info" type="xs:string" />
               <xs:element minOccurs="0" name="results_url" type="xs:string" />
               <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-              <xs:element minOccurs="0" name="election_day_registration" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="election_day_registration" type="xs:boolean" />
               <xs:element minOccurs="0" name="registration_deadline" type="xs:date" />
               <xs:element minOccurs="0" name="absentee_request_deadline" type="xs:date" />
             </xs:all>
@@ -70,7 +70,7 @@
               <xs:element minOccurs="1" maxOccurs="1" name="locality_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="electoral_district_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="1" name="ward" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="1" name="mail_only" type="yesNoEnum" />
+              <xs:element minOccurs="0" maxOccurs="1" name="mail_only" type="xs:boolean" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="early_vote_site_id" type="xs:string" />
               <xs:element minOccurs="0" name="ballot_style_image_url" type="xs:string" />
@@ -154,10 +154,10 @@
               <xs:element name="election_id" type="xs:string" />
               <xs:element name="electoral_district_id" type="xs:string" />
               <xs:element name="type" type="xs:string" />
-              <xs:element minOccurs="0" name="partisan" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="partisan" type="xs:boolean" />
               <xs:element minOccurs="0" name="primary_party" type="xs:string" />
               <xs:element minOccurs="0" name="electorate_specifications" type="xs:string" />
-              <xs:element minOccurs="0" name="special" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="special" type="xs:boolean" />
               <xs:element minOccurs="0" name="office" type="xs:string" />
               <xs:element minOccurs="0" name="filing_closed_date" type="xs:date" />
               <xs:element minOccurs="0" name="number_elected" type="xs:integer" />
@@ -194,7 +194,7 @@
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="custom_ballot_id" type="xs:string" />
-              <xs:element minOccurs="0" name="write_in" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="write_in" type="xs:boolean" />
               <xs:element minOccurs="0" name="image_url" type="xs:string" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
@@ -288,7 +288,7 @@
             <xs:all>
               <xs:element name="contest_id" type="xs:string" />
               <xs:element name="jurisdiction_id" type="xs:string" />
-              <xs:element name="entire_district" type="yesNoEnum" />
+              <xs:element name="entire_district" type="xs:boolean" />
               <xs:element minOccurs="0" name="total_votes" type="xs:integer" />
               <xs:element minOccurs="0" name="total_valid_votes" type="xs:integer" />
               <xs:element minOccurs="0" name="overvotes" type="xs:integer" />
@@ -305,11 +305,11 @@
             <xs:all>
               <xs:element name="contest_id" type="xs:string" />
               <xs:element name="jurisdiction_id" type="xs:string" />
-              <xs:element name="entire_district" type="yesNoEnum" />
+              <xs:element name="entire_district" type="xs:boolean" />
               <xs:element name="candidate_id" minOccurs="0" type="xs:string" />
               <xs:element name="ballot_response_id" minOccurs="0" type="xs:string" />
               <xs:element name="votes" type="xs:integer" />
-              <xs:element name="victorious" minOccurs="0" type="yesNoEnum" />
+              <xs:element name="victorious" minOccurs="0" type="xs:boolean" />
             </xs:all>
             <xs:attribute name="id" type="xs:string" use="required" />
             <xs:attribute name="certification" type="certificationEnum" use="required" />
@@ -328,8 +328,8 @@
         <xs:element minOccurs="0" name="directions" type="xs:string" />
         <xs:element minOccurs="0" name="schedule" type="PollingLocationScheduleType" />
 		<xs:element minOccurs="0" name="photo_url" type="xs:string" />
-		<xs:element minOccurs="0" name="early_voting" type="yesNoEnum" />
-		<xs:element minOccurs="0" name="drop_box" type="yesNoEnum" />
+		<xs:element minOccurs="0" name="early_voting" type="xs:boolean" />
+		<xs:element minOccurs="0" name="drop_box" type="xs:boolean" />
 	</xs:all>
 	<xs:attribute name="id" type="xs:string" use="required" />
 </xs:complexType>
@@ -443,17 +443,6 @@ localized resource files.
     </xs:restriction>
   </xs:simpleType> 
 
-  <xs:simpleType name="yesNoEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="yes"/>
-      <xs:enumeration value="no"/>
-      <xs:enumeration value="Yes"/>
-      <xs:enumeration value="No"/>
-      <xs:enumeration value="YES"/>
-      <xs:enumeration value="NO"/>
-    </xs:restriction>
-  </xs:simpleType> 
-  
   <xs:simpleType name="commonIdEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ocdid"/>
@@ -476,5 +465,4 @@ localized resource files.
       <xs:enumeration value="BOTH"/>
     </xs:restriction>
   </xs:simpleType> 
-
 </xs:schema>
