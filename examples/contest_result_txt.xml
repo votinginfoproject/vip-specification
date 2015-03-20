@@ -1,0 +1,7 @@
+contest_id,jurisdiction_id,entire_district,total_votes,total_valid_votes,overvotes,blank_votes,accepted_provisional_votes,rejected_votes,id,certification
+320004745,37,yes,1500000,1500000,0,0,0,0,6333001011,certified
+320004746,37,yes,1500000,1500000,0,0,0,0,6333001012,certified
+320004747,37,yes,1500000,1500000,0,0,0,0,6333001013,certified
+320004801,37,yes,1500005,1500000,5,0,5,0,6333001014,certified
+320004802,37,yes,1500100,1500000,100,0,0,0,6333001015,certified
+32100368,37,yes,,820006216,1250000,1250000,0,0,0,0,63330062306,certified

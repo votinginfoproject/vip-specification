@@ -1,0 +1,4 @@
+election_id,electoral_district_id,type,partisan,primary_party,electorate_specifications,special,office,filing_closed_date,number_elected,number_voting_for,ballot_id,ballot_placement,id
+2003,330004745,PRIMARY,YES,DEM,,NO,PRESIDENTIAL PREFERENCE,2011-12-22,1,1,410004745,1,320004745
+2003,330004746,PRIMARY,YES,REP,,NO,PRESIDENTIAL PREFERENCE,2011-12-22,1,1,410004746,1,320004746
+2003,330004745,REFERENDUM,NO,,,,,,,,41100368,2,32100368
