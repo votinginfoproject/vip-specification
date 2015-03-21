@@ -62,30 +62,19 @@
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="precinct">
+	<xs:element name="precinct">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="1" name="number" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="precinct_split_name" type="xs:string" />
               <xs:element minOccurs="1" maxOccurs="1" name="locality_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="electoral_district_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="1" name="ward" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="1" name="mail_only" type="xs:boolean" />
-              <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="unbounded" name="early_vote_site_id" type="xs:string" />
-              <xs:element minOccurs="0" name="ballot_style_image_url" type="xs:string" />
-            </xs:sequence>
-            <xs:attribute name="id" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="precinct_split">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
-              <xs:element minOccurs="1" maxOccurs="1" name="precinct_id" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="unbounded" name="electoral_district_id" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="mail_only" type="yesNoEnum" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:string" />
               <xs:element minOccurs="0" name="ballot_style_image_url" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="external_identifier_id" type="xs:string" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
@@ -270,16 +259,14 @@
         </xs:element>
         <xs:element name="street_segment">
           <xs:complexType>
-            <xs:all>
+            <xs:sequence>
               <xs:element name="start_house_number" type="xs:integer" />
               <xs:element name="end_house_number" type="xs:integer" />
               <xs:element name="odd_even_both" type="oebEnum" />
-              <xs:element minOccurs="0" name="start_apartment_number" type="xs:integer" />
-              <xs:element minOccurs="0" name="end_apartment_number" type="xs:integer" />
               <xs:element name="non_house_address" type="detailAddressType" />
+              <xs:element name="unit_number" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="precinct_id" type="xs:string" />
-              <xs:element minOccurs="0" name="precinct_split_id" type="xs:string" />
-            </xs:all>
+            </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
         </xs:element>
@@ -315,111 +302,120 @@
             <xs:attribute name="certification" type="certificationEnum" use="required" />
           </xs:complexType>
         </xs:element>
+        <xs:element name="external_identifier">
+            <xs:complexType>
+              <xs:all>
+                <xs:element type="identifierType" name="type"/>
+                <xs:element type="xs:string" minOccurs="0" name="othertype"/>
+                <xs:element type="xs:string" minOccurs="0" name="value"/>
+              </xs:all>
+              <xs:attribute name="id" type="xs:string" use="required" />
+            </xs:complexType>
+        </xs:element>
       </xs:choice>
       <xs:attribute fixed="3.0" name="schemaVersion" type="xs:decimal" use="required" />
     </xs:complexType>
   </xs:element>
 
-<!-- stubbing out some of the new elements for discussion
-<xs:complexType name="pollingLocationType">
-	<xs:all>
-		<xs:element name="address" type="simpleAddressType" />
-        <xs:element minOccurs="0" name="directions" type="xs:string" />
-        <xs:element minOccurs="0" name="schedule" type="PollingLocationScheduleType" />
-		<xs:element minOccurs="0" name="photo_url" type="xs:string" />
-		<xs:element minOccurs="0" name="early_voting" type="xs:boolean" />
-		<xs:element minOccurs="0" name="drop_box" type="xs:boolean" />
-	</xs:all>
-	<xs:attribute name="id" type="xs:string" use="required" />
-</xs:complexType>
-<xs:complexType name="pollingLocationScheduleType">
-	<xs:choice>
-		<xs:element minOccurs="0" name="start_date" type="xs:date" />
-		<xs:element minOccurs="0" name="end_date" type="xs:date" />
-		<xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-		<xs:element minOccurs="0" name="open_hour" type="xs:string" />
-		<xs:element minOccurs="0" name="close_hour" type="xs:string" />
-	</xs:choice>
-</xs:complexType>
-//-->
+  <!-- stubbing out some of the new elements for discussion
+       <xs:complexType name="pollingLocationType">
+       <xs:all>
+       <xs:element name="address" type="simpleAddressType" />
+       <xs:element minOccurs="0" name="directions" type="xs:string" />
+       <xs:element minOccurs="0" name="schedule" type="PollingLocationScheduleType" />
+       <xs:element minOccurs="0" name="photo_url" type="xs:string" />
+       <xs:element minOccurs="0" name="early_voting" type="xs:boolean" />
+       <xs:element minOccurs="0" name="drop_box" type="xs:boolean" />
+       </xs:all>
+       <xs:attribute name="id" type="xs:string" use="required" />
+       </xs:complexType>
+       <xs:complexType name="pollingLocationScheduleType">
+       <xs:choice>
+       <xs:element minOccurs="0" name="start_date" type="xs:date" />
+       <xs:element minOccurs="0" name="end_date" type="xs:date" />
+       <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
+       <xs:element minOccurs="0" name="open_hour" type="xs:string" />
+       <xs:element minOccurs="0" name="close_hour" type="xs:string" />
+       </xs:choice>
+       </xs:complexType>
+       //-->
 
-<!--
-langString: a type representing a string with a language specified.
--->
-<xs:complexType name="langString">
+  <!--
+      langString: a type representing a string with a language specified.
+  -->
+  <xs:complexType name="langString">
     <xs:simpleContent>
-        <xs:extension base="xs:string">
-            <xs:attribute name="lang" type="xs:language" use="required"/>
-        </xs:extension>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lang" type="xs:language" use="required"/>
+      </xs:extension>
     </xs:simpleContent>
-</xs:complexType>
-<!--
-internationalizedText: a type representing a block of text translated into
-  one or more languages.
+  </xs:complexType>
+  <!--
+      internationalizedText: a type representing a block of text translated into
+      one or more languages.
 
 For example, an instance of:
 
-    <xs:element name="office" type="internationalizedText"/>
+<xs:element name="office" type="internationalizedText"/>
 
 could be:
 
-    <office internationalized_text_id="office_mayor">
-        <text lang="en">Mayor</text>
-        <text lang="es">Alcalde</text>
-        <text lang="zh">市長</text>
-    </office>
+<office internationalized_text_id="office_mayor">
+<text lang="en">Mayor</text>
+<text lang="es">Alcalde</text>
+<text lang="zh">市長</text>
+</office>
 
 The optional "internationalized_text_id" attribute can be used to track
 the source of the strings, for example if the translated values came from
 localized resource files.
--->
-<xs:complexType name="internationalizedText">
+  -->
+  <xs:complexType name="internationalizedText">
     <xs:sequence>
-        <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
     <xs:attribute name="internationalized_text_id" type="xs:string"/>
-</xs:complexType>
-<xs:complexType name="detailAddressType">
+  </xs:complexType>
+  <xs:complexType name="detailAddressType">
     <xs:all>
-        <xs:element minOccurs="0" name="house_number" type="xs:integer"/> 
-        <xs:element minOccurs="0" name="house_number_prefix" type="xs:string"/> 
-        <xs:element minOccurs="0" name="house_number_suffix" type="xs:string"/> 
-        <xs:element minOccurs="0" name="street_direction" type="xs:string"/> 
-        <xs:element name="street_name" type="xs:string"/> 
-        <xs:element minOccurs="0" name="street_suffix" type="xs:string"/> 
-        <xs:element minOccurs="0" name="address_direction" type="xs:string"/> 
-        <xs:element minOccurs="0" name="apartment" type="xs:string"/>
-        <xs:element name="city" type="xs:string"/>
-        <xs:element name="state" type="xs:string"/>
-        <xs:element name="zip" type="xs:string"/>
+      <xs:element minOccurs="0" name="house_number" type="xs:integer"/> 
+      <xs:element minOccurs="0" name="house_number_prefix" type="xs:string"/> 
+      <xs:element minOccurs="0" name="house_number_suffix" type="xs:string"/> 
+      <xs:element minOccurs="0" name="street_direction" type="xs:string"/> 
+      <xs:element name="street_name" type="xs:string"/> 
+      <xs:element minOccurs="0" name="street_suffix" type="xs:string"/> 
+      <xs:element minOccurs="0" name="address_direction" type="xs:string"/> 
+      <xs:element minOccurs="0" name="apartment" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="state" type="xs:string"/>
+      <xs:element name="zip" type="xs:string"/>
     </xs:all> 
-</xs:complexType> 
-<xs:complexType name="commonIdType">
+  </xs:complexType> 
+  <xs:complexType name="commonIdType">
     <xs:all>
-        <xs:element name="id_value" type="xs:string" />
-        <xs:element name="id_type" type="commonIdEnum" />
+      <xs:element name="id_value" type="xs:string" />
+      <xs:element name="id_type" type="commonIdEnum" />
     </xs:all>
-
-</xs:complexType>
-<xs:complexType name="simpleAddressType">
+  </xs:complexType>
+  <xs:complexType name="simpleAddressType">
     <xs:all>
-        <xs:element minOccurs="0" name="location_name" type="xs:string"/> 
-        <xs:element name="line1" type="xs:string"/>
-        <xs:element minOccurs="0" name="line2" type="xs:string"/>
-        <xs:element minOccurs="0" name="line3" type="xs:string"/>
-        <xs:element name="city" type="xs:string"/>
-        <xs:element name="state" type="xs:string"/>
-        <xs:element name="zip" type="xs:string"/>
+      <xs:element minOccurs="0" name="location_name" type="xs:string"/> 
+      <xs:element name="line1" type="xs:string"/>
+      <xs:element minOccurs="0" name="line2" type="xs:string"/>
+      <xs:element minOccurs="0" name="line3" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="state" type="xs:string"/>
+      <xs:element name="zip" type="xs:string"/>
     </xs:all> 
-</xs:complexType> 
+  </xs:complexType> 
 
-<xs:complexType name="votesWithCertification">
-  <xs:simpleContent>
-    <xs:extension base="xs:integer">
-      <xs:attribute name="certification" type="certificationEnum" />
-    </xs:extension>
-  </xs:simpleContent>
-</xs:complexType>
+  <xs:complexType name="votesWithCertification">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+	<xs:attribute name="certification" type="certificationEnum" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:simpleType name="certificationEnum">
     <xs:restriction base="xs:string">
@@ -431,15 +427,6 @@ localized resource files.
       <xs:enumeration value="Unofficial_Partial"/>
       <xs:enumeration value="Unofficial_Complete"/>
       <xs:enumeration value="Certified"/>
-    </xs:restriction>
-  </xs:simpleType> 
-
-  <xs:simpleType name="commonIdEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ocdid"/>
-      <xs:enumeration value="fips"/>
-      <xs:enumeration value="state_id"/>
-      <xs:enumeration value="local_id"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -455,5 +442,16 @@ localized resource files.
       <xs:enumeration value="EVEN"/>
       <xs:enumeration value="BOTH"/>
     </xs:restriction>
-  </xs:simpleType> 
+  </xs:simpleType>
+  
+  <xs:simpleType name="identifierType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ocd-id"/>
+      <xs:enumeration value="fips"/>
+      <xs:enumeration value="national"/>
+      <xs:enumeration value="state"/>
+      <xs:enumeration value="local"/>
+      <xs:enumeration value="other"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
