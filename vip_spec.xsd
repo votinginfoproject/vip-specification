@@ -356,14 +356,19 @@ langString: a type representing a string with a language specified.
 <!--
 internationalizedText: a type representing a block of text translated into
   one or more languages.
+
 For example, an instance of:
+
     <xs:element name="office" type="internationalizedText"/>
+
 could be:
+
     <office internationalized_text_id="office_mayor">
         <text lang="en">Mayor</text>
         <text lang="es">Alcalde</text>
         <text lang="zh">市長</text>
     </office>
+
 The optional "internationalized_text_id" attribute can be used to track
 the source of the strings, for example if the translated values came from
 localized resource files.
