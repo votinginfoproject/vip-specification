@@ -303,14 +303,14 @@
           </xs:complexType>
         </xs:element>
         <xs:element name="external_identifier">
-            <xs:complexType>
-              <xs:all>
-                <xs:element type="identifierType" name="type"/>
-                <xs:element type="xs:string" minOccurs="0" name="othertype"/>
-                <xs:element type="xs:string" minOccurs="0" name="value"/>
-              </xs:all>
-              <xs:attribute name="id" type="xs:string" use="required" />
-            </xs:complexType>
+          <xs:complexType>
+            <xs:all>
+              <xs:element type="identifierType" name="type"/>
+              <xs:element type="xs:string" minOccurs="0" name="othertype"/>
+              <xs:element type="xs:string" minOccurs="0" name="value"/>
+            </xs:all>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
         </xs:element>
       </xs:choice>
       <xs:attribute fixed="3.0" name="schemaVersion" type="xs:decimal" use="required" />
@@ -319,26 +319,26 @@
 
   <!-- stubbing out some of the new elements for discussion
        <xs:complexType name="pollingLocationType">
-       <xs:all>
-       <xs:element name="address" type="simpleAddressType" />
-       <xs:element minOccurs="0" name="directions" type="xs:string" />
-       <xs:element minOccurs="0" name="schedule" type="PollingLocationScheduleType" />
-       <xs:element minOccurs="0" name="photo_url" type="xs:string" />
-       <xs:element minOccurs="0" name="early_voting" type="xs:boolean" />
-       <xs:element minOccurs="0" name="drop_box" type="xs:boolean" />
-       </xs:all>
-       <xs:attribute name="id" type="xs:string" use="required" />
+         <xs:all>
+           <xs:element name="address" type="simpleAddressType" />
+           <xs:element minOccurs="0" name="directions" type="xs:string" />
+           <xs:element minOccurs="0" name="schedule" type="PollingLocationScheduleType" />
+           <xs:element minOccurs="0" name="photo_url" type="xs:string" />
+           <xs:element minOccurs="0" name="early_voting" type="xs:boolean" />
+	   <xs:element minOccurs="0" name="drop_box" type="xs:boolean" />
+	 </xs:all>
+         <xs:attribute name="id" type="xs:string" use="required" />
        </xs:complexType>
        <xs:complexType name="pollingLocationScheduleType">
-       <xs:choice>
-       <xs:element minOccurs="0" name="start_date" type="xs:date" />
-       <xs:element minOccurs="0" name="end_date" type="xs:date" />
-       <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-       <xs:element minOccurs="0" name="open_hour" type="xs:string" />
-       <xs:element minOccurs="0" name="close_hour" type="xs:string" />
-       </xs:choice>
+         <xs:choice>
+           <xs:element minOccurs="0" name="start_date" type="xs:date" />
+           <xs:element minOccurs="0" name="end_date" type="xs:date" />
+           <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
+           <xs:element minOccurs="0" name="open_hour" type="xs:string" />
+           <xs:element minOccurs="0" name="close_hour" type="xs:string" />
+         </xs:choice>
        </xs:complexType>
-       //-->
+  -->
 
   <!--
       langString: a type representing a string with a language specified.
@@ -354,21 +354,21 @@
       internationalizedText: a type representing a block of text translated into
       one or more languages.
 
-For example, an instance of:
+      For example, an instance of:
 
-<xs:element name="office" type="internationalizedText"/>
+        <xs:element name="office" type="internationalizedText"/>
 
-could be:
+      could be:
 
-<office internationalized_text_id="office_mayor">
-<text lang="en">Mayor</text>
-<text lang="es">Alcalde</text>
-<text lang="zh">市長</text>
-</office>
+        <office internationalized_text_id="office_mayor">
+          <text lang="en">Mayor</text>
+          <text lang="es">Alcalde</text>
+          <text lang="zh">市長</text>
+        </office>
 
-The optional "internationalized_text_id" attribute can be used to track
-the source of the strings, for example if the translated values came from
-localized resource files.
+      The optional "internationalized_text_id" attribute can be used to track
+      the source of the strings, for example if the translated values came from
+      localized resource files.
   -->
   <xs:complexType name="internationalizedText">
     <xs:sequence>
