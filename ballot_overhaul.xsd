@@ -1,183 +1,99 @@
 <!-- Start of enumerated values -->
-<xs:simpleType name="VoteVariation">
-  <!-- Unmodified from P1622.2 6.3.28 -->
+<xs:simpleType name="BallotMeasureType">
   <xs:restriction base="xs:string">
-    <xs:enumeration value="approval"/>
-    <xs:enumeration value="cumulative"/>
-    <xs:enumeration value="IRV"/>
-    <xs:enumeration value="N-of-M"/>
+    <xs:enumeration value="ballot-measure"/>
+    <xs:enumeration value="initiative"/>
+    <xs:enumeration value="referendum"/>
+    <xs:enumeration value="other"/>
   </xs:restriction>
 </xs:simpleType>
 
-<xs:simpleType name="CandidateStatus">
-  <!-- Currently in (unreleased) V31 of the draft standard -->
+<xs:simpleType name="CandidatePostElectionStatus">
   <xs:restriction base="xs:string">
     <xs:enumeration value="advanced-to-runoff"/>
-    <xs:enumeration value="filed"/>
-    <xs:enumeration value="qualified"/>
+    <xs:enumeration value="projected-winner"/>
     <xs:enumeration value="winner"/>
     <xs:enumeration value="withdrawn"/>
     <xs:enumeration value="write-in"/>
   </xs:restriction>
 </xs:simpleType>
 
+<xs:simpleType name="CandidatePreElectionStatus">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="filed"/>
+    <xs:enumeration value="qualified"/>
+    <xs:enumeration value="withdrawn"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="TermType">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="full-term"/>
+    <xs:enumeration value="unexpired-term"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="VoteVariation">
+  <!-- NOTE: This is an absolute mess and conflates all sorts of concepts.
+       What if there's a super-majority RCV contest? Just ... ugh. Putting
+       this here for the sake of initial compatability but it just needs
+       to be nuked from orbit and started all over again.
+    -->
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="1-of-M"/>
+    <xs:enumeration value="approval"/>
+    <xs:enumeration value="cumulative"/>
+    <xs:enumeration value="majority"/>
+    <xs:enumeration value="N-of-M"/>
+    <xs:enumeration value="other"/>
+    <xs:enumeration value="plurality"/>
+    <xs:enumeration value="proportional"/>
+    <xs:enumeration value="range"/>
+    <xs:enumeration value="RCV"/>
+    <xs:enumeration value="RCV-borda"/>
+    <xs:enumeration value="super-majority"/>
+  </xs:restriction>
+</xs:simpleType>
 <!-- End of enumerated values -->
 
 <!-- Abstract base classes for ballots and contests -->
 <xs:complexType name="BallotSelection" abstract="true">
-  <!-- Modified from P1622.2 6.3.1 to remove VoteCounts -->
-  <xs:element name="id" type="xs:ID"/>
-  <!-- Question: What's the use case for ballotSelectionID? -->
+  <xs:attribute name="id" type="xs:ID"/>
 </xs:complexType>
 
 <xs:complexType name="Contest" abstract="true">
-  <!-- Slightly modified from P1622.2 6.3.5 -->
-  <xs:element name="ballot_selection_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
-  <!-- See the feature/external-identifier branch for specifics. The
-       national/state/local contest codes would all be here. -->
-  <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="electoral_district_id" type="xs:ID"/>
-  <xs:element name="id" type="xs:ID"/>
-  <xs:element name="abbreviation" type="xs:string"/>
-  <xs:element name="name" type="xs:string"/>
-  <xs:element name="voteVariation" type="VoteVariation"/>
-  <!-- Start of non-P1622.2 elements -->
-  <xs:element name="electorate_specification" type="xs:string"/>
-  <!-- End of non-P1622.2 elements -->
-  <!-- Notes:
-       The following fields are reflected in the 'CandidateChoice' object:
-       o partisan;
-       o primary_party;
-       o office; and
-       o number_elected and number_voting_for.
-       The ballot_id and ballot_placement fields are obsoleted by the
-       OrderedContests element.
-    -->
+  <xs:sequence>
+    <xs:element minOccurs="0" maxOccurs="unbounded" name="ballot_selection_id" type="xs:IDREF"/>
+    <xs:element minOccurs="0" maxOccurs="unbounded" name="external_identifier" type="external_identifier"/>
+    <xs:element name="electoral_district_id" type="xs:IDREF"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element minOccurs="0" name="abbreviation" type="xs:string"/>
+    <xs:element minOccurs="0" name="ballotTitle" type="xs:string"/>
+    <xs:element minOccurs="0" name="ballotSubTitle" type="xs:string"/>
+    <xs:element minOccurs="0" name="hasRotation" type="xs:boolean"/>
+    <xs:element minOccurs="0" name="voteVariation" type="VoteVariation"/>
+    <xs:element minOccurs="0" name="otherVoteVariation" type="xs:string"/>
+    <xs:element minOccurs="0" name="electorate_specification" type="xs:string"/>
+  </xs:sequence>
+  <xs:attribute name="id" type="xs:ID"/>
 </xs:complexType>
 <!-- End of abstract base classes -->
 
-<xs:complexType name="Contact">
-  <!-- Unmodified from P1622.2 6.3.4 -->
-  <xs:element name="id" type="xs:ID"/>
-  <xs:element name="URL" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="addressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-  <!-- See the feature/schedule branch for details -->
-  <xs:element name="hours" type="hours_open" minOccurs="0"/>
-  <xs:element name="name" type="xs:string"/>
-  <xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-</xs:complexType>
-
-<xs:complexType name="Person">
-  <!-- Unmodified from revised P1622.2 6.3.14 -->
-  <xs:element name="id" type="xs:ID"/>
-  <xs:element name="date_of_birth" type="xs:date" minOccurs="0"/>
-  <xs:element name="contact_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="party_id" type="xs:ID" minOccurs="0"/>
-  <xs:element name="firstName" type="xs:string" minOccurs="0"/>
-  <xs:element name="lastName" type="xs:string"/>
-  <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-  <xs:element name="nickname" type="xs:string" minOccurs="0"/>
-  <xs:element name="prefix" type="xs:string" minOccurs="0"/>
-  <xs:element name="profession" type="xs:string" minOccurs="0"/>
-  <xs:element name="title" type="xs:string" minOccurs="0"/>
-</xs:complexType>
-
-<!-- Party extends BallotSelection since people can vote straight-party -->
-<xs:complexType name="Party">
-  <!-- Mostly unmodified from revised P1622.2 6.3.12 -->
-  <xs:complexContent>
-    <xs:extension base="BallotSelection">
-      <xs:element name="abbreviation" type="xs:string"/>
-      <xs:element name="name" type="xs:string"/>
-      <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
-      <!-- Start of non-P1622.2 elements -->
-      <xs:element name="colorCode" type="xs:string" pattern="[0-9a-f]{6}"/>
-      <xs:element name="logoUrl" type="xs:anyURI" minOccurs="0"/>
-      <!-- End of non-P1622.2 elements -->
-    </xs:extension>
-  </xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="Office">
-  <!-- Largely unmodified from revised P1622.2 6.3.10 -->
-  <xs:sequence>
-    <xs:element name="electoral_district_id" type="xs:ID"/>
-    <xs:element name="id" type="xs:ID"/>
-    <xs:element name="name" type="xs:string"/>
-    <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
-    <xs:element name="partisan" type="xs:boolean" minOccurs="0"/>
-    <xs:element name="termEndDate" type="xs:date" minOccurs="0"/>
-    <xs:element name="termStartDate" type="xs:date" minOccurs="0"/>
-    <xs:element name="termType" type="TermType"/>
-  </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="Candidate">
-  <!-- Unmodified from revised P1622.2 6.3.3 -->
-  <xs:element name="party_id" type="xs:ID" minOccurs="0"/>
-  <xs:element name="person_id" type="xs:ID" minOccurs="0"/>
-  <xs:element name="id" type="xs:ID"/>
-  <xs:element name="ballotName" type="xs:string"/>
-  <xs:element name="fileDate" type="xs:dateTime"/>
-  <xs:element name="isIncumbent" type="xs:boolean"/>
-  <xs:element name="isTopTicket" type="xs:boolean"/>
-  <xs:element name="status" type="CandidateStatus"/>
-</xs:complexType>
-
-<xs:complexType name="CandidateSelection">
-  <!-- Unmodified from revised P1622.2 6.3.1.2 -->
-  <xs:complexContent>
-    <xs:extension base="BallotSelection">
-      <xs:sequence>
-        <xs:element name="candidate_id" type="xs:ID" maxOccurs="unbounded"/>
-        <xs:element name="endorsement_party_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:element name="isWriteIn" type="xs:boolean"/>
-    </xs:extension>
-  </xs:complexContent>
-</xs:complexType>
-
-<!-- This replaces the contest element from VIP -->
-<xs:complexType name="CandidateChoice">
-  <!-- Unmodified from revised P1622.2 6.3.5.1.2 -->
-  <xs:complexContent>
-    <xs:extension base="Contest">
-      <xs:sequence>
-        <xs:element name="office_id" type="xs:ID" minOccurs="0"/>
-        <xs:element name="primary_party_id" type="xs:ID" minOccurs="0"/>
-      </xs:sequence>
-      <xs:element name="numberElected" type="xs:integer"/>
-      <xs:element name="votesAllowed" type="xs:integer"/>
-    </xs:extension>
-  </xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="RetentionElection">
-  <!-- Currently in (unreleased) V31 of the draft standard -->
-  <xs:complexContent>
-    <xs:extension base="BallotMeasure">
-      <xs:sequence>
-        <xs:element name="candidate_id" type="xs:ID"/>
-        <xs:element minOccurs="0" name="office_id" type="xs:ID"/>
-      </xs:sequence>
-    </xs:extension>
-  </xs:complexContent>
-</xs:complexType>
-
 <!-- This replaces the "referendum" element in VIP -->
-<xs:complexType name="BallotMeasure">
-  <!-- Slightly modified from revised P1622.2 6.3.5.1.1 -->
+<xs:complexType name="BallotMeasureContest">
   <xs:complexContent>
     <xs:extension base="Contest">
       <xs:sequence>
-        <xs:element name="FullText" type="xs:string" minOccurs="0"/>
-        <xs:element name="SummaryText" type="xs:string" minOccurs="0"/>
+        <xs:element minOccurs="0" name="ConStatement" type="xs:string"/>
+        <xs:element minOccurs="0" name="FullText" type="xs:string">
+        <xs:element minOccurs="0" name="ProStatement" type="xs:string"/>
+        <xs:element minOccurs="0" name="SummaryText" type="xs:string"/>
+        <xs:element minOccurs="0" name="ballotMeasureType" type="BallotMeasureType"/>
+        <xs:element name="otherBallotMeasureType" type="xs:string"/>
+        <xs:element name="effectOfAbstain" type="xs:string"/>
+        <xs:element name="passageThreshold" type="xs:string"/>
         <!-- Info URL added from current VIP spec. -->
         <xs:element name="infoUrl" type="xs:anyURI"/>
-        <!-- SURVEY: How much are the pro/con statements and other parts of
-             VIP around referenda actually used? -->
       </xs:sequence>
     </xs:extension>
   </xs:complexContent>
@@ -185,7 +101,6 @@
 
 <!-- Generic string for a ballot measure (referendum) selection -->
 <xs:complexType name="BallotMeasureSelection">
-  <!-- Unmodified from revised P1622.2 6.3.1.1 -->
   <xs:complexContent>
     <xs:extension base="BallotSelection">
       <xs:element name="selection" type="xs:string"/>
@@ -193,12 +108,131 @@
   </xs:complexContent>
 </xs:complexType>
 
-<!-- Pairs up the contest with all the ballot selections for that contest -->
-<xs:complexType name="OrderedContest">
-  <!-- Unmodified from revised P1622.2 6.3.11 -->
+<xs:complexType name="BallotStyle">
+  <xs:element name="OrderedContest" type="OrderedContest" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="infoUrl" type="xs:anyURI" minOccurs="0"/>
+  <xs:element name="id" type="xs:ID"/>
+</xs:complexType>
+
+<xs:complexType name="Candidate">
+  <xs:element name="party_id" type="xs:IDREF" minOccurs="0"/>
+  <xs:element name="person_id" type="xs:IDREF" minOccurs="0"/>
+  <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="ballotName" type="xs:string"/>
+  <xs:element name="fileDate" type="xs:dateTime" minOccurs="0"/>
+  <xs:element name="isIncumbent" type="xs:boolean" minOccurs="0"/>
+  <xs:element name="isTopTicket" type="xs:boolean" minOccurs="0"/>
+  <xs:element name="postElectionStatus" type="CandidatePostElectionStatus" minOccurs="0"/>
+  <xs:element name="preElectionStatus" type="CandidatePreElectionStatus" minOccurs="0"/>
+  <xs:attribute name="id" type="xs:ID"/>
+</xs:complexType>
+
+<xs:complexType name="CandidateContest">
+  <xs:complexContent>
+    <xs:extension base="Contest">
+      <xs:sequence>
+        <xs:element name="office_id" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="primary_party_id" type="xs:IDREF" minOccurs="0"/>
+      </xs:sequence>
+      <xs:element name="numberElected" type="xs:integer" minOccurs="0"/>
+      <xs:element name="votesAllowed" type="xs:integer"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CandidateSelection">
+  <xs:complexContent>
+    <xs:extension base="BallotSelection">
+      <xs:sequence>
+        <xs:element name="candidate_id" type="xs:IDREF" maxOccurs="unbounded"/>
+        <xs:element name="endorsement_party_id" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:element name="isWriteIn" type="xs:boolean" minOccurs="0"/>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Contact">
+  <xs:element name="URL" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="addressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="hours" type="hours_open" minOccurs="0"/>
+  <xs:element name="name" type="xs:string" minOccurs="0"/>
+  <xs:element name="phone" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:attribute name="id" type="xs:ID"/>
+</xs:complexType>
+
+<xs:complexType name="Office">
   <xs:sequence>
-    <xs:element name="contest_id" type="xs:ID"/>
-    <xs:element name="ballot_selection_id" type="xs:ID" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="electoral_district_id" type="xs:IDREF"/>
+    <xs:element name="contact_id" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="partisan" type="xs:boolean" minOccurs="0"/>
+    <xs:element name="termEndDate" type="xs:date" minOccurs="0"/>
+    <xs:element name="termStartDate" type="xs:date" minOccurs="0"/>
+    <xs:element name="termType" type="TermType"/>
   </xs:sequence>
-  <xs:element name="id" type="xs:ID" minOccurs="1"/>
+  <xs:attribute name="id" type="xs:ID"/>
+</xs:complexType>
+
+<xs:complexType name="OrderedContest">
+  <xs:sequence>
+    <xs:element name="contest_id" type="xs:IDREF"/>
+    <xs:element name="ballot_selection_id" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Party">
+  <xs:sequence>
+    <xs:element name="abbreviation" type="xs:string" minOccurs="0"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="external_identifier" type="external_identifier" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="colorCode" type="xs:string" pattern="[0-9a-f]{6}" minOccurs="0"/>
+    <xs:element name="logoUrl" type="xs:anyURI" minOccurs="0"/>
+  </xs:sequence>
+  <xs:attribute name="id" type="xs:ID"/>
+</xs:complexType>
+
+<xs:complexType name="PartyContest">
+  <xs:complexContent>
+    <xs:extension base="Contest"/>
+  </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PartySelection">
+  <xs:complexContent>
+    <xs:extension base="BallotSelection">
+      <xs:sequence>
+        <xs:element name="PartyID" type="xs:IDREF" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Person">
+  <xs:element name="date_of_birth" type="xs:date" minOccurs="0"/>
+  <xs:element name="contact_id" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="party_id" type="xs:IDREF" minOccurs="0"/>
+  <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+  <xs:element name="lastName" type="xs:string"/>
+  <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  <xs:element name="nickname" type="xs:string" minOccurs="0"/>
+  <xs:element name="prefix" type="xs:string" minOccurs="0"/>
+  <xs:element name="profession" type="xs:string" minOccurs="0"/>
+  <xs:element name="suffix" type="xs:string" minOccurs="0"/>
+  <xs:element name="title" type="xs:string" minOccurs="0"/>
+  <xs:attribute name="id" type="xs:ID"/>
+</xs:complexType>
+
+<xs:complexType name="RetentionContest">
+  <xs:complexContent>
+    <xs:extension base="BallotMeasure">
+      <xs:sequence>
+        <xs:element name="candidate_id" type="xs:IDREF"/>
+        <xs:element minOccurs="0" name="office_id" type="xs:IDREF"/>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
 </xs:complexType>
