@@ -1,0 +1,23 @@
+# Coding Styles
+
+## XSD Styles
+### Naming Styles
++ Attributes should be camelCased - The first letter of the second and subsequent words are capitalized.
++ Elements should be TitleCased (PascalCased) - The first letter of every word is capitalized.
++ Enumerations should be spinal-case - all lower case with spaces replaced with hyphens.
+
+### File Specific Styles
++ All files should be encoded in utf-8.
++ 2 Spaces should be used instead of tabs (or vice versa).
++ All trailing white space should be removed from the end of lines.
+
+### Attribute Ordering
+The attributes in the XSD files should be ordered in the following manner:
+
+1. name
+2. type
+3. minOccurs
+4. maxOccurs
+
+## CSV Styles
+To be determined
