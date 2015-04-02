@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- working version of VIP schema based on 3.0 for comments
-	changed all id types to string
-	added ocdid to district 
-	reference elements for polling location
+    changed all id types to string
+    added ocdid to district 
+    reference elements for polling location
  -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="vip_object">
@@ -45,7 +45,9 @@
             <xs:sequence>
               <xs:element name="name" type="xs:string" />
               <xs:element minOccurs="0" name="election_administration_id" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="unbounded" name="early_vote_site_id" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="external_identifier_id" type="xs:string" />
+              
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
@@ -57,7 +59,8 @@
               <xs:element name="state_id" type="xs:string" />
               <xs:element name="type" type="xs:string" />
               <xs:element minOccurs="0" name="election_administration_id" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="unbounded" name="early_vote_site_id" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="external_identifier_id" type="xs:string" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
@@ -113,29 +116,17 @@
           </xs:complexType>
         </xs:element>
         <xs:element name="polling_location">
-          <xs:complexType>
-            <xs:all>
-              <xs:element name="address" type="simpleAddressType" />
-              <xs:element minOccurs="0" name="directions" type="xs:string" />
-              <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-              <xs:element minOccurs="0" name="photo_url" type="xs:string" />
-            </xs:all>
-            <xs:attribute name="id" type="xs:string" use="required" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="early_vote_site">
-          <xs:complexType>
-            <xs:all>
-              <xs:element minOccurs="0" name="name" type="xs:string" />
-              <xs:element name="address" type="simpleAddressType" />
-              <xs:element minOccurs="0" name="directions" type="xs:string" />
-              <xs:element minOccurs="0" name="voter_services" type="xs:string" />
-              <xs:element minOccurs="0" name="start_date" type="xs:date" />
-              <xs:element minOccurs="0" name="end_date" type="xs:date" />
-              <xs:element minOccurs="0" name="days_times_open" type="xs:string" />
-            </xs:all>
-            <xs:attribute name="id" type="xs:string" use="required" />
-          </xs:complexType>
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="address" type="simpleAddressType" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="directions" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="photo_url" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="yesNoEnum" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="yesNoEnum" />
+                    <xs:element name="hours_open_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute name="id" type="xs:string" use="required" />
+            </xs:complexType>
         </xs:element>
         <xs:element name="contest">
           <xs:complexType>
@@ -163,8 +154,7 @@
               <xs:element name="name" type="xs:string" />
               <xs:element minOccurs="0" name="type" type="xs:string" />
               <xs:element minOccurs="0" name="number" type="xs:integer" />
-              <xs:element minOccurs="0" name="common_id" type="commonIdType" />
-              <xs:element minOccurs="0" name="parent_id" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="external_identifier_id" type="xs:string" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
@@ -208,12 +198,12 @@
         <xs:element name="referendum">
           <xs:complexType>
             <xs:choice maxOccurs="unbounded">
-              <xs:element name="title" type="xs:string" />
-              <xs:element minOccurs="0" name="subtitle" type="xs:string" />
-              <xs:element minOccurs="0" name="brief" type="xs:string" />
-              <xs:element name="text" type="xs:string" />
-              <xs:element minOccurs="0" name="pro_statement" type="xs:string" />
-              <xs:element minOccurs="0" name="con_statement" type="xs:string" />
+              <xs:element name="title" type="interText" />
+              <xs:element minOccurs="0" name="subtitle" type="interText" />
+              <xs:element minOccurs="0" name="brief" type="interText" />
+              <xs:element name="text" type="interText" />
+              <xs:element minOccurs="0" name="pro_statement" type="interText" />
+              <xs:element minOccurs="0" name="con_statement" type="interText" />
               <xs:element minOccurs="0" name="passage_threshold" type="xs:string" />
               <xs:element minOccurs="0" name="effect_of_abstain" type="xs:string" />
               <xs:element name="ballot_response_id">
