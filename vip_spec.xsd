@@ -29,12 +29,12 @@ reference elements for polling location
               <xs:element name="date" type="xs:date" />
               <xs:element minOccurs="0" name="election_type" type="xs:string" />
               <xs:element name="state_id" type="xs:string" />
-              <xs:element minOccurs="0" name="statewide" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="statewide" type="xs:boolean" />
               <xs:element minOccurs="0" name="registration_info" type="xs:string" />
               <xs:element minOccurs="0" name="absentee_ballot_info" type="xs:string" />
               <xs:element minOccurs="0" name="results_url" type="xs:string" />
               <xs:element minOccurs="0" name="polling_hours" type="xs:string" />
-              <xs:element minOccurs="0" name="election_day_registration" type="yesNoEnum" />
+              <xs:element minOccurs="0" name="election_day_registration" type="xs:boolean" />
               <xs:element minOccurs="0" name="registration_deadline" type="xs:date" />
               <xs:element minOccurs="0" name="absentee_request_deadline" type="xs:date" />
             </xs:all>
@@ -75,7 +75,7 @@ reference elements for polling location
               <xs:element minOccurs="1" maxOccurs="1" name="locality_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="electoral_district_id" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="1" name="ward" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="1" name="mail_only" type="yesNoEnum" />
+              <xs:element minOccurs="0" maxOccurs="1" name="mail_only" type="xs:boolean" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="polling_location_id" type="xs:string" />
               <xs:element minOccurs="0" name="ballot_style_image_url" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="external_identifier_id" type="xs:string" />
@@ -150,8 +150,8 @@ reference elements for polling location
               <xs:element name="address" type="simpleAddressType" />
               <xs:element minOccurs="0" maxOccurs="1" name="directions" type="xs:string" />
               <xs:element minOccurs="0" maxOccurs="1" name="photo_url" type="xs:string" />
-              <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="yesNoEnum" />
-              <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="yesNoEnum" />
+              <xs:element minOccurs="0" maxOccurs="1" name="early_voting" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="1" name="drop_box" type="xs:boolean" />
               <xs:element name="hours_open_id" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
@@ -510,18 +510,6 @@ reference elements for polling location
       <xs:enumeration value="Certified"/>
     </xs:restriction>
   </xs:simpleType> 
-
-  <xs:simpleType name="yesNoEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="yes"/>
-      <xs:enumeration value="no"/>
-      <xs:enumeration value="Yes"/>
-      <xs:enumeration value="No"/>
-      <xs:enumeration value="YES"/>
-      <xs:enumeration value="NO"/>
-    </xs:restriction>
-  </xs:simpleType> 
-  
 
   <xs:simpleType name="oebEnum">
     <xs:restriction base="xs:string">
