@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- working version of VIP schema based on 3.0 for comments
 changed all id types to string
-added ocdid to district 
+added ocdid to district
 reference elements for polling location
 -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -108,7 +108,7 @@ reference elements for polling location
             </xs:sequence>
             <xs:attribute name="id" type="xs:string" use="required" />
           </xs:complexType>
-        </xs:element>       
+        </xs:element>
         <!-- end of geographic elements-->
         <!-- administration elements-->
         <xs:element name="election_administration">
@@ -343,7 +343,7 @@ reference elements for polling location
             </xs:complexContent>
           </xs:complexType>
         </xs:element>
-        
+
         <xs:element name="hours_open">
           <xs:complexType>
             <xs:sequence>
@@ -394,9 +394,9 @@ reference elements for polling location
         </xs:element>
       </xs:choice>
       <xs:attribute fixed="3.0" name="schemaVersion" type="xs:decimal" use="required" />
-    </xs:complexType>  
+    </xs:complexType>
   </xs:element>
-  
+
   <xs:complexType name="ContestType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ballot_selection_id" type="xs:IDREF"/>
@@ -416,7 +416,7 @@ reference elements for polling location
   <xs:complexType name="BallotSelectionType">
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
-  
+
   <xs:complexType name="BallotMeasureContestType">
     <xs:complexContent>
       <xs:extension base="ContestType">
@@ -443,19 +443,19 @@ reference elements for polling location
   </xs:complexType>
   <xs:complexType name="detailAddressType">
     <xs:all>
-      <xs:element minOccurs="0" name="house_number" type="xs:integer"/> 
-      <xs:element minOccurs="0" name="house_number_prefix" type="xs:string"/> 
-      <xs:element minOccurs="0" name="house_number_suffix" type="xs:string"/> 
-      <xs:element minOccurs="0" name="street_direction" type="xs:string"/> 
-      <xs:element name="street_name" type="xs:string"/> 
-      <xs:element minOccurs="0" name="street_suffix" type="xs:string"/> 
-      <xs:element minOccurs="0" name="address_direction" type="xs:string"/> 
+      <xs:element minOccurs="0" name="house_number" type="xs:integer"/>
+      <xs:element minOccurs="0" name="house_number_prefix" type="xs:string"/>
+      <xs:element minOccurs="0" name="house_number_suffix" type="xs:string"/>
+      <xs:element minOccurs="0" name="street_direction" type="xs:string"/>
+      <xs:element name="street_name" type="xs:string"/>
+      <xs:element minOccurs="0" name="street_suffix" type="xs:string"/>
+      <xs:element minOccurs="0" name="address_direction" type="xs:string"/>
       <xs:element minOccurs="0" name="apartment" type="xs:string"/>
       <xs:element name="city" type="xs:string"/>
       <xs:element name="state" type="xs:string"/>
       <xs:element name="zip" type="xs:string"/>
-    </xs:all> 
-  </xs:complexType> 
+    </xs:all>
+  </xs:complexType>
   <xs:complexType name="langString">
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -467,19 +467,19 @@ reference elements for polling location
     <xs:sequence>
       <xs:element name="text" type="langString" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="internationalized_text_id" type="xs:string"/>   
-  </xs:complexType>  
+    <xs:attribute name="internationalized_text_id" type="xs:string"/>
+  </xs:complexType>
   <xs:complexType name="simpleAddressType">
     <xs:all>
-      <xs:element minOccurs="0" name="location_name" type="xs:string"/> 
+      <xs:element minOccurs="0" name="location_name" type="xs:string"/>
       <xs:element name="line1" type="xs:string"/>
       <xs:element minOccurs="0" name="line2" type="xs:string"/>
       <xs:element minOccurs="0" name="line3" type="xs:string"/>
       <xs:element name="city" type="xs:string"/>
       <xs:element name="state" type="xs:string"/>
       <xs:element name="zip" type="xs:string"/>
-    </xs:all> 
-  </xs:complexType> 
+    </xs:all>
+  </xs:complexType>
   <xs:simpleType name="identifierType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ocd-id"/>
@@ -509,21 +509,15 @@ reference elements for polling location
       <xs:enumeration value="Unofficial_Complete"/>
       <xs:enumeration value="Certified"/>
     </xs:restriction>
-  </xs:simpleType> 
+  </xs:simpleType>
 
   <xs:simpleType name="oebEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="odd"/>
       <xs:enumeration value="even"/>
       <xs:enumeration value="both"/>
-      <xs:enumeration value="Odd"/>
-      <xs:enumeration value="Even"/>
-      <xs:enumeration value="Both"/>
-      <xs:enumeration value="ODD"/>
-      <xs:enumeration value="EVEN"/>
-      <xs:enumeration value="BOTH"/>
     </xs:restriction>
-  </xs:simpleType> 
+  </xs:simpleType>
 
   <xs:simpleType name="BallotMeasureType">
     <xs:restriction base="xs:string">
@@ -561,9 +555,9 @@ reference elements for polling location
 
   <xs:simpleType name="VoteVariation">
     <!-- NOTE: This is an absolute mess and conflates all sorts of concepts.
-	 What if there's a super-majority RCV contest? Just ... ugh. Putting
-	 this here for the sake of initial compatability but it just needs
-	 to be nuked from orbit and started all over again.
+    What if there's a super-majority RCV contest? Just ... ugh. Putting
+    this here for the sake of initial compatability but it just needs
+    to be nuked from orbit and started all over again.
     -->
     <xs:restriction base="xs:string">
       <xs:enumeration value="1-of-M"/>
@@ -581,5 +575,5 @@ reference elements for polling location
     </xs:restriction>
   </xs:simpleType>
   <!-- End of enumerated values -->
-  
+
 </xs:schema>
