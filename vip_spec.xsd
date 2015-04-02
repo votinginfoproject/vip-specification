@@ -528,12 +528,6 @@ reference elements for polling location
       <xs:enumeration value="odd"/>
       <xs:enumeration value="even"/>
       <xs:enumeration value="both"/>
-      <xs:enumeration value="Odd"/>
-      <xs:enumeration value="Even"/>
-      <xs:enumeration value="Both"/>
-      <xs:enumeration value="ODD"/>
-      <xs:enumeration value="EVEN"/>
-      <xs:enumeration value="BOTH"/>
     </xs:restriction>
   </xs:simpleType> 
 
