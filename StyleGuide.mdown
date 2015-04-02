@@ -8,7 +8,7 @@
 
 ### File Specific Styles
 + All files should be encoded in utf-8.
-+ 4 Spaces should be used instead of tabs (or vice versa).
++ 2 Spaces should be used instead of tabs (or vice versa).
 + All trailing white space should be removed from the end of lines.
 
 ### Attribute Ordering
