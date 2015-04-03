@@ -11,7 +11,7 @@ Not displaying street segments
 
 -->
 <vip_object xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://votinginfoproject.github.com/vip-specification/vip_spec.xsd" schemaVersion="5.0">
-	<source id="1">
+    <source id="1">
         <name>State Board of Elections, Commonwealth of Virginia</name>
         <vip_id>51</vip_id>
         <datetime>2013-10-24T14:25:28</datetime>
