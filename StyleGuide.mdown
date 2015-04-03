@@ -10,7 +10,7 @@
 
 ### IDs
 
-* A primary key ID should be an attribute with type "xs:IDREF" and name "id".
+* A primary key ID should be an attribute with type "xs:ID" and name "id".
   For example,
 
     ```xml
