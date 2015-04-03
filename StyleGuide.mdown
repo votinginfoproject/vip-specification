@@ -1,6 +1,28 @@
 # Coding Styles
 
+
+## Text Files
+
+This section applies to all text files in the repository (XML, HTML,
+Markdown, etc).
+
+* The file encoding should be UTF-8.
+
+* Line endings should be LF (as opposed to CRLF).  Git should handle this
+  automatically for you via the project [`.gitattributes`](.gitattributes) file.
+
+* Trailing white space should be removed from the end of lines.
+
+* Spaces should be used instead of tabs.  See the file-type specific
+  section for how many spaces should be used for indentations.
+
+
 ## XSD Styles
+
+### Indentation
+
+* Two-space indents should be used (e.g. in place of tabs).
+
 
 ### Naming Styles
 + Attributes should be camelCased - The first letter of the second and subsequent words are capitalized.
@@ -28,11 +50,6 @@
     <xs:element name="ElectoralDistrictID" type="xs:IDREF"/>
     ````
 
-
-### File Specific Styles
-+ All files should be encoded in utf-8.
-+ 2 Spaces should be used instead of tabs (or vice versa).
-+ All trailing white space should be removed from the end of lines.
 
 ### Attributes
 
