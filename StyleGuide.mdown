@@ -1,10 +1,33 @@
 # Coding Styles
 
 ## XSD Styles
+
 ### Naming Styles
 + Attributes should be camelCased - The first letter of the second and subsequent words are capitalized.
 + Elements should be TitleCased (PascalCased) - The first letter of every word is capitalized.
 + Enumerations should be spinal-case - all lower case with spaces replaced with hyphens.
+
+
+### IDs
+
+* A primary key ID should be an attribute with type "xs:IDREF" and name "id".
+  For example,
+
+    ```xml
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+    ````
+  Note that this departs from the style used by [VSSC 1622.2][vssc_1622],
+  where the name is "object_id".
+
+* A reference to a primary key should have type "xs:IDREF".  The name
+  of the element or attribute should normally end with the name of the type
+  of the object being referenced, followed by "ID" (and made TitleCased or
+  camelCased as appropriate).  For example,
+
+    ```xml
+    <xs:element name="ElectoralDistrictID" type="xs:IDREF"/>
+    ````
+
 
 ### File Specific Styles
 + All files should be encoded in utf-8.
@@ -21,3 +44,6 @@ The attributes in the XSD files should be ordered in the following manner:
 
 ## CSV Styles
 To be determined
+
+
+[vssc_1622]: http://grouper.ieee.org/groups/1622/groups/2/index.html
