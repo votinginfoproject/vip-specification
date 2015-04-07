@@ -119,8 +119,8 @@ reference elements for polling location
               <xs:element name="OvcID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhysicalAddress" type="SimpleAddressType" minOccurs="0" />
               <xs:element name="MailingAddress" type="SimpleAddressType" minOccurs="0" />
-              <xs:element name="electionsUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="registrationUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="ElectionsUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="RegistrationUrl" type="xs:string" minOccurs="0" />
               <xs:element name="AmIRegisteredUrl" type="xs:string" minOccurs="0" />
               <xs:element name="AbsenteeUrl" type="xs:string" minOccurs="0" />
               <xs:element name="WhereDoIVoteUrl" type="xs:string" minOccurs="0" />
