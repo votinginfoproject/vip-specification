@@ -36,7 +36,7 @@ Markdown, etc).
   For example,
 
     ```xml
-    <xs:attribute name="id" type="xs:ID" use="required"/>
+    <xs:attribute name="id" type="xs:ID" use="required" />
     ````
   Note that this departs from the style used by [VSSC 1622.2][vssc_1622],
   where the name is "object_id".
@@ -47,7 +47,7 @@ Markdown, etc).
   camelCased as appropriate).  For example,
 
     ```xml
-    <xs:element name="ElectoralDistrictID" type="xs:IDREF"/>
+    <xs:element name="ElectoralDistrictID" type="xs:IDREF" />
     ````
 
 
