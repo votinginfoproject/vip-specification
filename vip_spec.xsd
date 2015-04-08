@@ -16,9 +16,9 @@ reference elements for polling location
               <xs:element name="VipID" type="xs:string" />
               <xs:element name="DateTime" type="xs:dateTime" />
               <xs:element name="Description" type="xs:string" minOccurs="0" />
-              <xs:element name="OrganizationUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="FeedContactID" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="TouUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="TouUrl" type="xs:anyURI" minOccurs="0" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -32,7 +32,7 @@ reference elements for polling location
               <xs:element name="Statewide" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationInfo" type="xs:string" minOccurs="0" />
               <xs:element name="AbsenteeBallotInfo" type="xs:string" minOccurs="0" />
-              <xs:element name="ResultsUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="ResultsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="PollingHours" type="xs:string" minOccurs="0" />
               <xs:element name="ElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationDeadline" type="xs:date" minOccurs="0" />
@@ -77,7 +77,7 @@ reference elements for polling location
               <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
               <xs:element name="PollingLocationID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="MailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="BallotStyleImageUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="BallotStyleImageUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
@@ -90,7 +90,7 @@ reference elements for polling location
               <xs:element name="PrecinctID" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
               <xs:element name="ElectoralDistrictID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PollingLocationID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="BallotStyleImageUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="BallotStyleImageUrl" type="xs:anyURI" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -119,13 +119,13 @@ reference elements for polling location
               <xs:element name="OvcID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhysicalAddress" type="SimpleAddressType" minOccurs="0" />
               <xs:element name="MailingAddress" type="SimpleAddressType" minOccurs="0" />
-              <xs:element name="ElectionsUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="RegistrationUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="AmIRegisteredUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="AbsenteeUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="WhereDoIVoteUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="WhatIsOnMyBallotUrl" type="xs:string" minOccurs="0" />
-              <xs:element name="RulesUrl" type="xs:string" minOccurs="0" />
+              <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="RegistrationUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="AmIRegisteredUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="AbsenteeUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="WhereDoIVoteUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="WhatIsOnMyBallotUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="RulesUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="VoterServices" type="xs:string" minOccurs="0" />
               <xs:element name="Hours" type="xs:string" minOccurs="0" />
             </xs:all>
@@ -149,7 +149,7 @@ reference elements for polling location
             <xs:sequence>
               <xs:element name="Address" type="SimpleAddressType" />
               <xs:element name="Directions" type="xs:string" minOccurs="0" maxOccurs="1" />
-              <xs:element name="PhotoUrl" type="xs:string" minOccurs="0" maxOccurs="1" />
+              <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
               <xs:element name="EarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="DropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="HoursOpenID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
