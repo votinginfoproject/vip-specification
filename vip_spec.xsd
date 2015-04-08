@@ -457,7 +457,7 @@ reference elements for polling location
     </xs:all>
   </xs:complexType>
   <!--
-    langString: a type representing a string with a language specified.
+    LangString: a type representing a string with a language specified.
   -->
   <xs:complexType name="LangString">
     <xs:simpleContent>
@@ -467,30 +467,39 @@ reference elements for polling location
     </xs:simpleContent>
   </xs:complexType>
   <!--
-    internationalizedText: a type representing a block of text translated into
-    one or more languages.
+    InternationalizedText: a type representing a word or block of text
+    translated into one or more languages.
 
     For example, an instance of:
 
-    <xs:element name="Office" type="internationalizedText" />
+      <xs:element name="Office" type="InternationalizedText" />
 
     could be:
 
-    <Office internationalizedTextID="office_mayor">
-      <text lang="en">Mayor</text>
-      <text lang="es">Alcalde</text>
-      <text lang="zh">市長</text>
-    </Office>
+      <Office textIdentifier="office_mayor">
+        <text lang="en">Mayor</text>
+        <text lang="es">Alcalde</text>
+        <text lang="zh">市長</text>
+      </Office>
 
-    The optional "internationalizedTextID" attribute can be used to track
-    the source of the strings, for example if the translated values came from
-    localized resource files.
--->
+    The optional "textIdentifier" attribute can be used to name the text
+    being translated.  For example, if the translations come from a
+    comma-delimited flat file, the identifier for the corresponding row
+    in the flat file could be stored in this attribute for tracking purposes.
+    In the above example, the element could have come from a flat file with
+    row--
+
+      office_mayor,Mayor,Alcalde,市長
+  -->
   <xs:complexType name="InternationalizedText">
     <xs:sequence>
       <xs:element name="Text" type="LangString" minOccurs="1" maxOccurs="unbounded" />
     </xs:sequence>
-    <xs:attribute name="internationalizedTextID" type="xs:IDREF" />
+    <!--
+      This is not type "xs:ID" because the same element can potentially
+      appear multiple times in the document.
+    -->
+    <xs:attribute name="textIdentifier" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="SimpleAddressType">
     <xs:all>
