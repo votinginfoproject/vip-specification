@@ -15,7 +15,7 @@ reference elements for polling location
               <xs:element name="Name" type="xs:string" />
               <xs:element name="VipID" type="xs:string" />
               <xs:element name="DateTime" type="xs:dateTime" />
-              <xs:element name="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="FeedContactID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="TouUrl" type="xs:anyURI" minOccurs="0" />
@@ -27,13 +27,13 @@ reference elements for polling location
           <xs:complexType>
             <xs:all>
               <xs:element name="Date" type="xs:date" />
-              <xs:element name="ElectionType" type="xs:string" minOccurs="0" />
+              <xs:element name="ElectionType" type="InternationalizedText" minOccurs="0" />
               <xs:element name="StateID" type="xs:IDREF" />
               <xs:element name="Statewide" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="ResultsUrl" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="PollingHours" type="xs:string" minOccurs="0" />
+              <xs:element name="PollingHours" type="InternationalizedText" minOccurs="0" />
               <xs:element name="ElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationDeadline" type="xs:date" minOccurs="0" />
               <xs:element name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0" />
@@ -179,7 +179,7 @@ reference elements for polling location
             <xs:complexContent>
               <xs:extension base="BallotSelectionType">
                 <xs:sequence>
-                  <xs:element name="Selection" type="xs:string" />
+                  <xs:element name="Selection" type="InternationalizedText" />
                 </xs:sequence>
               </xs:extension>
             </xs:complexContent>
@@ -202,7 +202,7 @@ reference elements for polling location
               <xs:element name="PartyID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PersonID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="BallotName" type="xs:string" />
+              <xs:element name="BallotName" type="InternationalizedText" />
               <xs:element name="FileDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="IsIncumbent" type="xs:boolean" minOccurs="0" />
               <xs:element name="IsTopTicket" type="xs:boolean" minOccurs="0" />
@@ -323,7 +323,7 @@ reference elements for polling location
               <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Nickname" type="xs:string" minOccurs="0" />
               <xs:element name="Prefix" type="xs:string" minOccurs="0" />
-              <xs:element name="Profession" type="xs:string" minOccurs="0" />
+              <xs:element name="Profession" type="InternationalizedText" minOccurs="0" />
               <xs:element name="Suffix" type="xs:string" minOccurs="0" />
               <xs:element name="Title" type="xs:string" minOccurs="0" />
             </xs:sequence>
