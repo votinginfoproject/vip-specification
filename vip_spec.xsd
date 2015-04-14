@@ -8,7 +8,7 @@ reference elements for polling location
   <xs:element name="VipObject">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
-	    <!-- structural VIP elements-->
+        <!-- structural VIP elements-->
         <xs:element name="Source" minOccurs="1" maxOccurs="1">
           <xs:complexType>
             <xs:all>
@@ -23,6 +23,7 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
+
         <xs:element name="Election" minOccurs="1" maxOccurs="1">
           <xs:complexType>
             <xs:all>
@@ -42,6 +43,7 @@ reference elements for polling location
           </xs:complexType>
         </xs:element>
         <!-- end of structural VIP elements-->
+
         <!-- geographic elements -->
         <xs:element name="State">
           <xs:complexType>
@@ -54,6 +56,7 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
+
         <xs:element name="Locality">
           <xs:complexType>
             <xs:sequence>
@@ -67,11 +70,13 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
+
         <xs:element name="Precinct">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
               <xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="1" />
+              <xs:element name="PrecinctSplitName" type="xs:string" minOccurs="0" maxOccurs="1" />
               <xs:element name="LocalityID" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
               <xs:element name="ElectoralDistrictID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
@@ -83,18 +88,7 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="PrecinctSplit">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
-              <xs:element name="PrecinctID" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
-              <xs:element name="ElectoralDistrictID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="PollingLocationID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="BallotStyleImageUrl" type="xs:anyURI" minOccurs="0" />
-            </xs:sequence>
-            <xs:attribute name="id" type="xs:ID" use="required" />
-          </xs:complexType>
-        </xs:element>
+
         <xs:element name="StreetSegment">
           <xs:complexType>
             <xs:sequence>
@@ -104,12 +98,12 @@ reference elements for polling location
               <xs:element name="NonHouseAddress" type="DetailAddressType" />
               <xs:element name="UnitNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PrecinctID" type="xs:IDREF" />
-              <xs:element name="PrecinctSplitID" type="xs:IDREF" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
         <!-- end of geographic elements-->
+
         <!-- administration elements-->
         <xs:element name="ElectionAdministration">
           <xs:complexType>
@@ -132,6 +126,7 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
+
         <xs:element name="ElectionOfficial">
           <xs:complexType>
             <xs:all>
@@ -144,6 +139,7 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
+
         <xs:element name="PollingLocation">
           <xs:complexType>
             <xs:sequence>
@@ -157,6 +153,7 @@ reference elements for polling location
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
+
         <xs:element name="ElectoralDistrict">
           <xs:complexType>
             <xs:sequence>
@@ -169,10 +166,12 @@ reference elements for polling location
           </xs:complexType>
         </xs:element>
         <!--end of administration elements-->
+
         <!-- This replaces the "referendum" element in VIP -->
         <xs:element name="BallotMeasureContest" type="BallotMeasureContestType" maxOccurs="unbounded" />
         <xs:element name="Contest" type="ContestType" maxOccurs="unbounded" />
         <xs:element name="BallotSelection" type="BallotSelectionType" maxOccurs="unbounded" />
+
         <!-- Generic string for a ballot measure (referendum) selection -->
         <xs:element name="BallotMeasureSelection">
           <xs:complexType>
