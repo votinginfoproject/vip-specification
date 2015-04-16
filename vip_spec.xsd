@@ -190,7 +190,7 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OrderedContest" type="OrderedContestType" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="PartyID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="ImageUri" type="xs:anyURI" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
@@ -253,7 +253,7 @@ reference elements for polling location
               <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="Schedule" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="ScheduleID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
@@ -267,7 +267,7 @@ reference elements for polling location
               <xs:element name="ElectoralDistrictID" type="xs:IDREF" />
               <xs:element name="Name" type="InternationalizedText" />
               <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="OfficeHolder" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="OfficeHolderID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
               <xs:element name="FilingDeadline" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Term" type="Term" minOccurs="0" />
