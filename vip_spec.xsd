@@ -14,11 +14,11 @@ reference elements for polling location
           <xs:complexType>
             <xs:all>
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="VipID" type="xs:string" />
+              <xs:element name="VipId" type="xs:string" />
               <xs:element name="DateTime" type="xs:dateTime" />
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="FeedContactID" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="FeedContactId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="TouUrl" type="xs:anyURI" minOccurs="0" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
@@ -30,7 +30,7 @@ reference elements for polling location
             <xs:all>
               <xs:element name="Date" type="xs:date" />
               <xs:element name="ElectionType" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="StateID" type="xs:IDREF" />
+              <xs:element name="StateId" type="xs:IDREF" />
               <xs:element name="Statewide" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0" />
@@ -50,9 +50,9 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="ElectionAdministrationID" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="PollingLocationID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -62,11 +62,11 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="StateID" type="xs:IDREF" />
+              <xs:element name="StateId" type="xs:IDREF" />
               <xs:element name="Type" type="xs:string" />
-              <xs:element name="ElectionAdministrationID" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="PollingLocationID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -78,13 +78,13 @@ reference elements for polling location
               <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
               <xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="1" />
               <xs:element name="PrecinctSplitName" type="xs:string" minOccurs="0" maxOccurs="1" />
-              <xs:element name="LocalityID" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
-              <xs:element name="ElectoralDistrictID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="LocalityId" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
+              <xs:element name="ElectoralDistrictId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
-              <xs:element name="PollingLocationID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="MailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="BallotStyleImageUrl" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -98,7 +98,7 @@ reference elements for polling location
               <xs:element name="OddEvenBoth" type="OebEnum" />
               <xs:element name="NonHouseAddress" type="DetailAddressType" />
               <xs:element name="UnitNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="PrecinctID" type="xs:IDREF" />
+              <xs:element name="PrecinctId" type="xs:IDREF" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -110,8 +110,8 @@ reference elements for polling location
           <xs:complexType>
             <xs:all>
               <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="EoID" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="OvcID" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="EoId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="OvcId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhysicalAddress" type="SimpleAddressType" minOccurs="0" />
               <xs:element name="MailingAddress" type="SimpleAddressType" minOccurs="0" />
               <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
@@ -149,7 +149,7 @@ reference elements for polling location
               <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
               <xs:element name="EarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="DropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="HoursOpenID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -161,7 +161,7 @@ reference elements for polling location
               <xs:element name="Name" type="xs:string" />
               <xs:element name="Type" type="xs:string" minOccurs="0" />
               <xs:element name="Number" type="xs:integer" minOccurs="0" />
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -190,7 +190,7 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OrderedContest" type="OrderedContestType" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="PartyID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="ImageUri" type="xs:anyURI" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
@@ -200,10 +200,10 @@ reference elements for polling location
         <xs:element name="Candidate">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PartyID" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="PersonID" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="PersonId" type="xs:IDREF" minOccurs="0" />
               <!-- SURVEY: Should external identifiers be referenced or included inline? -->
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="BallotName" type="InternationalizedText" />
               <xs:element name="FileDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="IsIncumbent" type="xs:boolean" minOccurs="0" />
@@ -222,8 +222,8 @@ reference elements for polling location
             <xs:complexContent>
               <xs:extension base="ContestType">
                 <xs:sequence>
-                  <xs:element name="OfficeID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-                  <xs:element name="PrimaryPartyID" type="xs:IDREF" minOccurs="0" />
+                  <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+                  <xs:element name="PrimaryPartyId" type="xs:IDREF" minOccurs="0" />
                   <xs:element name="NumberElected" type="xs:integer" minOccurs="0" />
                   <xs:element name="VotesAllowed" type="xs:integer" />
                 </xs:sequence>
@@ -237,8 +237,8 @@ reference elements for polling location
             <xs:complexContent>
               <xs:extension base="BallotSelectionType">
                 <xs:sequence>
-                  <xs:element name="CandidateID" type="xs:IDREF" maxOccurs="unbounded" />
-                  <xs:element name="EndorsementPartyID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+                  <xs:element name="CandidateId" type="xs:IDREF" maxOccurs="unbounded" />
+                  <xs:element name="EndorsementPartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
                 </xs:sequence>
                 <xs:attribute name="isWriteIn" type="xs:boolean" use="optional" />
               </xs:extension>
@@ -253,7 +253,7 @@ reference elements for polling location
               <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="HoursOpenID" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
@@ -264,15 +264,15 @@ reference elements for polling location
         <xs:element name="Office">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ElectoralDistrictID" type="xs:IDREF" />
+              <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
               <xs:element name="Name" type="InternationalizedText" />
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="OfficeHolderPersonID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="OfficeHolderPersonId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
               <xs:element name="FilingDeadline" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Term" type="Term" minOccurs="0" />
               <!-- The following are not currently in 1622.2 -->
-              <xs:element name="ContactID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -283,7 +283,7 @@ reference elements for polling location
             <xs:sequence>
               <xs:element name="Abbreviation" type="InternationalizedText" minOccurs="0" />
               <xs:element name="Name" type="InternationalizedText" />
-              <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Color" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -310,7 +310,7 @@ reference elements for polling location
             <xs:complexContent>
               <xs:extension base="BallotSelectionType">
                 <xs:sequence>
-                  <xs:element name="PartyID" type="xs:IDREF" maxOccurs="unbounded" />
+                  <xs:element name="PartyId" type="xs:IDREF" maxOccurs="unbounded" />
                 </xs:sequence>
               </xs:extension>
             </xs:complexContent>
@@ -321,8 +321,8 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
-              <xs:element name="ContactID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="PartyID" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="FirstName" type="xs:string" minOccurs="0" />
               <xs:element name="LastName" type="xs:string" minOccurs="0" />
               <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
@@ -341,8 +341,8 @@ reference elements for polling location
             <xs:complexContent>
               <xs:extension base="BallotMeasureContestType">
                 <xs:sequence>
-                  <xs:element name="CandidateID" type="xs:IDREF" />
-                  <xs:element name="OfficeID" type="xs:IDREF" minOccurs="0" />
+                  <xs:element name="CandidateId" type="xs:IDREF" />
+                  <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" />
                 </xs:sequence>
               </xs:extension>
             </xs:complexContent>
@@ -407,9 +407,9 @@ reference elements for polling location
 
   <xs:complexType name="ContestType">
     <xs:sequence>
-      <xs:element name="BallotSelectionID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="ElectoralDistrictID" type="xs:IDREF" />
+      <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
       <xs:element name="Name" type="InternationalizedText" />
       <xs:element name="Abbreviation" type="InternationalizedText" minOccurs="0" />
       <xs:element name="BallotTitle" type="InternationalizedText" minOccurs="0" />
@@ -450,8 +450,8 @@ reference elements for polling location
 
   <xs:complexType name="OrderedContestType">
     <xs:sequence>
-      <xs:element name="ContestID" type="xs:IDREF" />
-      <xs:element name="BallotSelectionID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ContestId" type="xs:IDREF" />
+      <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
