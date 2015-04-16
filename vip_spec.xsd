@@ -253,7 +253,7 @@ reference elements for polling location
               <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="ScheduleID" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="HoursOpenID" type="xs:IDREF" minOccurs="0" />
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
