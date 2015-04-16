@@ -267,7 +267,7 @@ reference elements for polling location
               <xs:element name="ElectoralDistrictID" type="xs:IDREF" />
               <xs:element name="Name" type="InternationalizedText" />
               <xs:element name="ExternalIdentifierID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="OfficeHolderID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="OfficeHolderPersonID" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
               <xs:element name="FilingDeadline" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Term" type="Term" minOccurs="0" />
