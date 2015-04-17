@@ -202,7 +202,6 @@ reference elements for polling location
             <xs:sequence>
               <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PersonId" type="xs:IDREF" minOccurs="0" />
-              <!-- SURVEY: Should external identifiers be referenced or included inline? -->
               <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="BallotName" type="InternationalizedText" />
               <xs:element name="FileDate" type="xs:dateTime" minOccurs="0" />
@@ -417,7 +416,6 @@ reference elements for polling location
       <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" />
       <xs:element name="VoteVariationType" type="VoteVariation" minOccurs="0" />
       <xs:element name="OtherVoteVariationType" type="xs:string" minOccurs="0" />
-      <!-- SURVEY: I'm stupid and missed what this is. Could someone fill me in please? -->
       <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
       <!-- NOTE: Still trying to get feedback or an example of what this means and how it's used -->
       <xs:element name="SequenceOrder" type="xs:integer" />
