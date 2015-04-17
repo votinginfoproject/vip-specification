@@ -19,7 +19,7 @@ reference elements for polling location
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="FeedContactId" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="TouUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="TermsOfUseUrl" type="xs:anyURI" minOccurs="0" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -35,7 +35,11 @@ reference elements for polling location
               <xs:element name="RegistrationInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="ResultsUrl" type="xs:anyURI" minOccurs="0" />
+              <!-- Note: The "PollingHours" element is being deprecated
+                   and will be removed in future versions of VIP.
+                -->
               <xs:element name="PollingHours" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationDeadline" type="xs:date" minOccurs="0" />
               <xs:element name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0" />
@@ -50,7 +54,7 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
@@ -64,7 +68,7 @@ reference elements for polling location
               <xs:element name="Name" type="xs:string" />
               <xs:element name="StateId" type="xs:IDREF" />
               <xs:element name="Type" type="xs:string" />
-              <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
@@ -110,7 +114,8 @@ reference elements for polling location
           <xs:complexType>
             <xs:all>
               <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="EoId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
+              <!-- Q: Please remind me what OVC stands for so we can expand this. -->
               <xs:element name="OvcId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhysicalAddress" type="SimpleAddressType" minOccurs="0" />
               <xs:element name="MailingAddress" type="SimpleAddressType" minOccurs="0" />
@@ -122,20 +127,11 @@ reference elements for polling location
               <xs:element name="WhatIsOnMyBallotUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RulesUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="VoterServices" type="InternationalizedText" minOccurs="0" />
+              <!-- Note: The "Hours" element is being deprecated and will be removed
+                   in future versions of VIP.
+                -->
               <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
-            </xs:all>
-            <xs:attribute name="id" type="xs:ID" use="required" />
-          </xs:complexType>
-        </xs:element>
-
-        <xs:element name="ElectionOfficial">
-          <xs:complexType>
-            <xs:all>
-              <xs:element name="Name" type="xs:string" />
-              <xs:element name="Title" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="Phone" type="xs:string" minOccurs="0" />
-              <xs:element name="Fax" type="xs:string" minOccurs="0" />
-              <xs:element name="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -329,7 +325,7 @@ reference elements for polling location
               <xs:element name="Prefix" type="xs:string" minOccurs="0" />
               <xs:element name="Profession" type="InternationalizedText" minOccurs="0" />
               <xs:element name="Suffix" type="xs:string" minOccurs="0" />
-              <xs:element name="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" type="InternationalizedText" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
