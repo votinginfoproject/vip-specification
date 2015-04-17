@@ -31,12 +31,12 @@ reference elements for polling location
               <xs:element name="Date" type="xs:date" />
               <xs:element name="ElectionType" type="InternationalizedText" minOccurs="0" />
               <xs:element name="StateId" type="xs:IDREF" />
-              <xs:element name="Statewide" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsStatewide" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0" />
               <xs:element name="ResultsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="PollingHours" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="ElectionDayRegistration" type="xs:boolean" minOccurs="0" />
+              <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="RegistrationDeadline" type="xs:date" minOccurs="0" />
               <xs:element name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0" />
             </xs:all>
@@ -82,7 +82,7 @@ reference elements for polling location
               <xs:element name="ElectoralDistrictId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
               <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="MailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+              <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="BallotStyleImageUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="ExternalIdentifierId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
@@ -147,8 +147,8 @@ reference elements for polling location
               <xs:element name="Address" type="SimpleAddressType" />
               <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
               <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
-              <xs:element name="EarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="DropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+              <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+              <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
