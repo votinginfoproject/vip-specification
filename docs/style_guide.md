@@ -43,11 +43,11 @@ Markdown, etc).
 
 * A reference to a primary key should have type "xs:IDREF".  The name
   of the element or attribute should normally end with the name of the type
-  of the object being referenced, followed by "ID" (and made TitleCased or
+  of the object being referenced, followed by "Id" (and made TitleCased or
   camelCased as appropriate).  For example,
 
     ```xml
-    <xs:element name="ElectoralDistrictID" type="xs:IDREF" />
+    <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
     ````
 
 
