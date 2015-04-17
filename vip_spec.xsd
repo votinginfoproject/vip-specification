@@ -266,7 +266,6 @@ reference elements for polling location
               <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
               <xs:element name="FilingDeadline" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Term" type="Term" minOccurs="0" />
-              <!-- The following are not currently in 1622.2 -->
               <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
