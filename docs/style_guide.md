@@ -126,6 +126,18 @@ if any of the following are true:
    ```
 
 
+### Global Type Definition Ordering
+
+Global type definitions should be ordered as follows:
+
+1. Put global type definitions before the root element.
+
+2. Group them in the following order: enumerations, other simple types,
+   then complex types.
+
+3. Within each of the groups in (2) above, order them alphabetically by name.
+
+
 ## CSV Styles
 To be determined
 
