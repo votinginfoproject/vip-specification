@@ -24,7 +24,8 @@ Markdown, etc).
 * Two-space indents should be used (e.g. in place of tabs).
 
 
-### Naming Styles
+### Casing
+
 + Attributes should be camelCased - The first letter of the second and subsequent words are capitalized.
 + Elements should be TitleCased (PascalCased) - The first letter of every word is capitalized.
 + Enumerations should be spinal-case - all lower case with spaces replaced with hyphens.
@@ -51,7 +52,7 @@ Markdown, etc).
     ````
 
 
-### Attributes
+### Attribute Ordering
 
 Attributes should appear in the following order:
 
@@ -66,6 +67,32 @@ For example--
 
 ```xml
 <xs:attribute name="id" type="xs:ID" use="required" />
+```
+
+
+### Enumerations and "Other"
+
+To support "other" values in an enumeration, add the value "other"
+to the enumeration type definition.  For example--
+
+```xml
+<xs:simpleType name="Color">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="blue" />
+    <xs:enumeration value="green" />
+    <xs:enumeration value="other" />
+    <xs:enumeration value="red" />
+  </xs:restriction>
+</xs:simpleType>
+```
+
+Then, whenever using the type in an element named `[Name]`, add an element
+named `Other[Name]` with type `xs:string`.  The value "other" for element
+`[Name]` is a signal to look at `Other[Name]`.  For example--
+
+```xml
+<xs:element name="BallotColor" type="Color" minOccurs="0" />
+<xs:element name="OtherBallotColor" type="xs:string" minOccurs="0" />
 ```
 
 
