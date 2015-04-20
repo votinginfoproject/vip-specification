@@ -113,12 +113,6 @@ reference elements for polling location
         <xs:element name="ElectionAdministration">
           <xs:complexType>
             <xs:all>
-              <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
-              <!-- Q: Please remind me what OVC stands for so we can expand this. -->
-              <xs:element name="OvcId" type="xs:IDREF" minOccurs="0" />
-              <xs:element name="PhysicalAddress" type="SimpleAddressType" minOccurs="0" />
-              <xs:element name="MailingAddress" type="SimpleAddressType" minOccurs="0" />
               <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RegistrationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="AmIRegisteredUrl" type="xs:anyURI" minOccurs="0" />
@@ -126,12 +120,37 @@ reference elements for polling location
               <xs:element name="WhereDoIVoteUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="WhatIsOnMyBallotUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RulesUrl" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="VoterServices" type="InternationalizedText" minOccurs="0" />
-              <!-- Note: The "Hours" element is being deprecated and will be removed
-                   in future versions of VIP.
-                -->
-              <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
+              <!-- A locality may have more than one department with each handling different services. -->
+              <xs:element name="Department" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
+                    <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
+                    <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:all>
+                          <xs:element name="Type" type="VoterServiceType" minOccurs="0" />
+                          <xs:element name="OtherType" type="xs:string" minOccurs="0" />
+                          <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
+                          <!--
+                            The contact information below can be used to override or
+                            add specific fields to the base Departmental contact information if
+                            the service has different information.  For example, if the voter
+                            service has its own phone number, the Contact object below can be
+                            an object containing only a Phone element.
+                          -->
+                          <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
+                          <!--
+                            This is for use if a certain person handles the particular service,
+                            for example a contact person for overseas voting.
+                          -->
+                          <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
+                        </xs:all>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -248,6 +267,10 @@ reference elements for polling location
               <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+              <!-- Note: The "Hours" element is being deprecated and will be removed
+                   in future versions of VIP.
+              -->
+              <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
@@ -628,6 +651,16 @@ reference elements for polling location
       <xs:enumeration value="rcv" />
       <xs:enumeration value="rcv-borda" />
       <xs:enumeration value="super-majority" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VoterServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="absentee-ballots" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="overseas-voting" />
+      <xs:enumeration value="polling-places" />
+      <xs:enumeration value="voter-registration" />
     </xs:restriction>
   </xs:simpleType>
   <!-- End of enumerated values -->
