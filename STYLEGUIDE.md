@@ -88,7 +88,7 @@ to the enumeration type definition.  For example--
 
 Then, whenever using the type in an element named `[Name]`, add an element
 named `Other[Name]` with type `xs:string`.  The value "other" for element
-`[Name]` is a signal to look at `Other[Name]`.  For example--
+`[Name]` means to look at `Other[Name]` for the value.  For example--
 
 ```xml
 <xs:element name="BallotColor" type="Color" minOccurs="0" />
