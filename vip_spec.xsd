@@ -132,7 +132,7 @@ reference elements for polling location
                          in future versions of VIP.
                     -->
                     <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
-                    <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
                       <xs:complexType>
