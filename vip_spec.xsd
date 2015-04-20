@@ -113,10 +113,6 @@ reference elements for polling location
         <xs:element name="ElectionAdministration">
           <xs:complexType>
             <xs:all>
-              <!-- Q: Please remind me what OVC stands for so we can expand this,
-                      and should we move it to Department?
-              -->
-              <xs:element name="OvcId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RegistrationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="AmIRegisteredUrl" type="xs:anyURI" minOccurs="0" />
@@ -144,6 +140,11 @@ reference elements for polling location
                             an object containing only a Phone element.
                           -->
                           <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
+                          <!--
+                            This is for use if a certain person handles the particular service,
+                            for example a contact person for overseas voting.
+                          -->
+                          <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
                         </xs:all>
                       </xs:complexType>
                     </xs:element>
@@ -656,6 +657,8 @@ reference elements for polling location
   <xs:simpleType name="VoterServiceType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="absentee-ballots" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="overseas-voting" />
       <xs:enumeration value="polling-places" />
       <xs:enumeration value="voter-registration" />
     </xs:restriction>
