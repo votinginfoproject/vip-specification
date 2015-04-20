@@ -69,6 +69,75 @@ For example--
 ```
 
 
+### Type Definitions: Global vs. Local
+
+This subsection describes when a type definition should be "global"
+(i.e. named and an immediate child of "xs:schema") versus
+"local" (i.e. anonymous and nested within another component, aka in-lined).
+
+Global might look like--
+
+```xml
+<xs:schema>
+  <xs:complexType name="Person">
+    <xs:element name="Name" type="xs:string" />
+  </xs:complexType>
+  ...
+```
+
+Local might look like--
+
+```xml
+<xs:element name="Person">
+  <xs:complexType>
+    <xs:element name="Name" type="xs:string" />
+  </xs:complexType>
+</xs:element>
+```
+
+Our approach is in the spirit of "Venetian Blind."  Define a type globally
+if any of the following are true:
+
+1. elements of the type are referenced by ID via `type="xs:IDREF"`.
+   For example--
+
+   ```xml
+   <xs:element name="PrecinctId" type="xs:IDREF" />
+   ```
+
+2. elements of the type occur in more than one location within the
+   root element.  For example--
+
+   ```xml
+   <xs:element name="Title" type="InternationalizedText" />
+   <xs:element name="Subtitle" type="InternationalizedText" />
+   ```
+
+3. the type is an "enum".  For example--
+
+   ```xml
+   <xs:simpleType name="OebEnum">
+     <xs:restriction base="xs:string">
+       <xs:enumeration value="odd" />
+       <xs:enumeration value="even" />
+       <xs:enumeration value="both" />
+     </xs:restriction>
+   </xs:simpleType>
+   ```
+
+
+### Global Type Definition Ordering
+
+Global type definitions should be ordered as follows:
+
+1. Put global type definitions before the root element.
+
+2. Group them in the following order: enumerations, other simple types,
+   then complex types.
+
+3. Within each of the groups in (2) above, order them alphabetically by name.
+
+
 ## CSV Styles
 To be determined
 
