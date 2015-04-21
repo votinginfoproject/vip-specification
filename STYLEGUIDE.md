@@ -47,8 +47,8 @@ Markdown, etc).
   </xs:simpleType>
   ```
 
-* Abstract "base class" types should end in "Base" as a reminder that they
-  should not be instantiated directly.
+* The names of abstract "base class" types should end in "Base" as a
+  reminder that the types should not be instantiated directly.
 
 
 ### IDs
