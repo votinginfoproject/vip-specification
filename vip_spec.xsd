@@ -159,12 +159,18 @@ reference elements for polling location
         <xs:element name="PollingLocation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Address" type="SimpleAddress" />
+              <!-- It is intentional that an address is required. -->
+              <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
               <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
+              <!-- Note: The "Hours" element is being deprecated and will be removed
+                   in future versions of VIP.
+              -->
+              <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
+              <!-- Question: should unbounded be removed as in Contact? -->
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -263,7 +269,7 @@ reference elements for polling location
         <xs:element name="Contact">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Address" type="SimpleAddress" minOccurs="0" />
+              <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <!-- Note: The "Hours" element is being deprecated and will be removed
                    in future versions of VIP.
               -->
@@ -536,18 +542,6 @@ reference elements for polling location
       appear multiple times in the document.
     -->
     <xs:attribute name="textIdentifier" type="xs:string" />
-  </xs:complexType>
-
-  <xs:complexType name="SimpleAddress">
-    <xs:all>
-      <xs:element name="LocationName" type="xs:string" minOccurs="0" />
-      <xs:element name="Line1" type="xs:string" />
-      <xs:element name="Line2" type="xs:string" minOccurs="0" />
-      <xs:element name="Line3" type="xs:string" minOccurs="0" />
-      <xs:element name="City" type="xs:string" />
-      <xs:element name="State" type="xs:string" />
-      <xs:element name="Zip" type="xs:string" />
-    </xs:all>
   </xs:complexType>
 
   <xs:complexType name="Term">
