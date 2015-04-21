@@ -174,7 +174,8 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" type="DistrictType" />
+              <xs:element name="OtherType" type="xs:string" minOccurs="0" />
               <xs:element name="Number" type="xs:integer" minOccurs="0" />
               <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
             </xs:sequence>
@@ -576,6 +577,30 @@ reference elements for polling location
       <xs:enumeration value="unofficial-partial" />
       <xs:enumeration value="unofficial-complete" />
       <xs:enumeration value="certified" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DistrictType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="city" />
+      <xs:enumeration value="congressional" />
+      <xs:enumeration value="council" />
+      <xs:enumeration value="county" />
+      <xs:enumeration value="judicial" />
+      <xs:enumeration value="local" />
+      <xs:enumeration value="locality" />
+      <xs:enumeration value="municipality" />
+      <xs:enumeration value="national" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="school" />
+      <xs:enumeration value="special" />
+      <xs:enumeration value="state" />
+      <xs:enumeration value="statehouse" />
+      <xs:enumeration value="statesenate" />
+      <xs:enumeration value="township" />
+      <xs:enumeration value="utility" />
+      <xs:enumeration value="ward" />
+      <xs:enumeration value="water" />
     </xs:restriction>
   </xs:simpleType>
 
