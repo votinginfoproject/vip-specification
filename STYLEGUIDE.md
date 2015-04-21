@@ -24,10 +24,31 @@ Markdown, etc).
 * Two-space indents should be used (e.g. in place of tabs).
 
 
-### Naming Styles
+### Casing
+
 + Attributes should be camelCased - The first letter of the second and subsequent words are capitalized.
 + Elements should be TitleCased (PascalCased) - The first letter of every word is capitalized.
 + Enumerations should be spinal-case - all lower case with spaces replaced with hyphens.
+
+
+### Type Names
+
+* Type names should only end in "Type" if _instances_ of the type correspond
+  to types.  For example, instances of the "Candidate" type represent
+  candidates rather than types of candidates.  In contrast, "OfficeTermType"
+  instances correspond to the different types of office terms:
+
+  ```xml
+  <xs:simpleType name="OfficeTermType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="full-term" />
+      <xs:enumeration value="unexpired-term" />
+    </xs:restriction>
+  </xs:simpleType>
+  ```
+
+* Abstract "base class" types should end in "Base" as a reminder that they
+  should not be instantiated directly.
 
 
 ### IDs
