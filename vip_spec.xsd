@@ -137,7 +137,7 @@ reference elements for polling location
                             add specific fields to the base Departmental contact information if
                             the service has different information.  For example, if the voter
                             service has its own phone number, the ContactInformation object
-                            belowe can be an object containing only a Phone element.
+                            below can be an object containing only a Phone element.
                           -->
                           <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" />
                           <!--
