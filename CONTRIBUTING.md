@@ -15,8 +15,12 @@ While the following information shouldn't be considered hard-and-fast rules, the
 
 1. Create a branch to work on a fix/feature (a fix/feature should have a companion bug/enhancement issue). Start the branch with either "feature/..." or "bug/...".
     1. If you're not a member of the VIP Spec team, fork the repository and follow the same process.
-2. Once it's done and tested, create a pull request to move it into the current working branch.
-3. At that point, some discussion might happen and, when it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged into the current working branch by the developer who created the pull-request.
-4. Delete the feature/bug branch.
+2. Before sending out a pull request, please make sure the resulting XSD and sample feed XML still validate.
+    1. You can use http://www.utilities-online.info/xsdvalidation/ to do this validation online, or
+    2. If you have the `xmllint` tool on your system, please run `xmllint --postvalid --nonet --xinclude --noout --schema vip_spec.xsd sample_feed.xml`
+3. Once it's done and tested, create a pull request to move it into the current working branch.
+4. At that point, some discussion might happen. In order to get approval for the pull request, you will need (at a minimum) approval from at least one representative from Pew and one representative from Google. However it is important to note that other members have substantial technical and election background as well, so please take all feedback to heart, regardless of the source.
+5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged into the current working branch by the developer who created the pull-request.
+6. Delete the feature/bug branch.
 
 At any one point in time ("feature/" and "bug/" temporary branches aside), there should only be a dev branch (called 'vip5' in the vip-specification's case, but it may change to simply 'dev' in the future), a stable branch (called 'master' in most cases), and, if necessary, a documentation branch (called 'gh-pages' if hosted on GitHub).
