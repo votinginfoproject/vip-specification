@@ -166,8 +166,7 @@ reference elements for polling location
                    in future versions of VIP.
               -->
               <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
-              <!-- Question: should unbounded be removed as in Contact? -->
-              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
@@ -275,7 +274,7 @@ reference elements for polling location
               -->
               <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
-              <!-- Question: is this a person or place name? -->
+              <!-- This can be a person or place name. -->
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
