@@ -112,7 +112,7 @@ reference elements for polling location
         <!-- administration elements-->
         <xs:element name="ElectionAdministration">
           <xs:complexType>
-            <xs:all>
+            <xs:sequence>
               <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RegistrationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="AmIRegisteredUrl" type="xs:anyURI" minOccurs="0" />
@@ -123,7 +123,7 @@ reference elements for polling location
               <!-- A locality may have more than one department with each handling different services. -->
               <xs:element name="Department" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:all>
+                  <xs:sequence>
                     <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
@@ -148,10 +148,10 @@ reference elements for polling location
                         </xs:all>
                       </xs:complexType>
                     </xs:element>
-                  </xs:all>
+                  </xs:sequence>
                 </xs:complexType>
               </xs:element>
-            </xs:all>
+            </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
