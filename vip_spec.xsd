@@ -508,9 +508,9 @@ reference elements for polling location
     could be:
 
       <Office identifier="office_mayor">
-        <text language="en">Mayor</text>
-        <text language="es">Alcalde</text>
-        <text language="zh">市長</text>
+        <Text language="en">Mayor</text>
+        <Text language="es">Alcalde</text>
+        <Text language="zh">市長</text>
       </Office>
 
     The optional "identifier" attribute can be used to name the text
