@@ -70,18 +70,21 @@ For example--
 ```
 
 
-### Enumerations and "Other"
+### Enumeration Ordering and "Other"
 
-To support "other" values in an enumeration, add the value "other"
-to the enumeration type definition.  For example--
+Enumeration values should be arranged alphabetically, except for "other",
+which should appear last.
+
+To support "other" values in an enumeration, include "other" as a value.
+For example--
 
 ```xml
 <xs:simpleType name="Color">
   <xs:restriction base="xs:string">
     <xs:enumeration value="blue" />
     <xs:enumeration value="green" />
-    <xs:enumeration value="other" />
     <xs:enumeration value="red" />
+    <xs:enumeration value="other" />
   </xs:restriction>
 </xs:simpleType>
 ```
