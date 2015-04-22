@@ -21,7 +21,7 @@ While the following information shouldn't be considered hard-and-fast rules, the
 3. Once it's done and tested, create a pull request to move it into the current working branch.
 4. At that point, some discussion might happen. In order to get approval for the pull request, you will need (at a minimum) approval from at least one representative from Pew and one representative from Google. However it is important to note that other members have substantial technical and election background as well, so please take all feedback to heart, regardless of the source.
     1. Google approvers: @jdmgoogle @jktomer
-    2. Pew approvers: @jungshadow @jen-tolentino
+    2. Pew approvers: @jungshadow @jen-tolentino (Pew employees) @pstenbjorn (official Pew proxy)
 5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged into the current working branch by the developer who created the pull-request.
 6. Delete the feature/bug branch.
 
