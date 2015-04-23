@@ -298,10 +298,7 @@ reference elements for polling location
         <xs:element name="Party">
           <xs:complexType>
             <xs:sequence>
-              <!-- SURVEY: 1622.2 has abbreviation as a string, not InternationalizedText.
-                   Which makes more sense?
-                -->
-              <xs:element name="Abbreviation" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="Abbreviation" type="xs:string" minOccurs="0" />
               <xs:element name="Name" type="InternationalizedText" />
               <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
               <xs:element name="Color" minOccurs="0">
@@ -340,9 +337,6 @@ reference elements for polling location
         <xs:element name="Person">
           <xs:complexType>
             <xs:sequence>
-              <!-- SURVEY: Types xs:string and InternationalizedText seem
-                   to be used inconsistently here. Suggestions?
-                -->
               <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
               <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
@@ -411,8 +405,7 @@ reference elements for polling location
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
       <xs:element name="Name" type="xs:string" />
-      <!-- SURVEY: 1622.2 has Abbreviation as an xs:string. Thoughts? -->
-      <xs:element name="Abbreviation" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="Abbreviation" type="xs:string" minOccurs="0" />
       <xs:element name="BallotTitle" type="InternationalizedText" minOccurs="0" />
       <xs:element name="BallotSubTitle" type="InternationalizedText" minOccurs="0" />
       <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" />
@@ -559,31 +552,7 @@ reference elements for polling location
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- SURVEY: This appears to be unused, along with the
-       CertificationEnum. I propose we remove it.
-    -->
-  <xs:complexType name="VotesWithCertification">
-    <xs:simpleContent>
-      <xs:extension base="xs:integer">
-        <xs:attribute name="certification" type="CertificationEnum" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
   <!-- Start of enumerated values -->
-  <xs:simpleType name="CertificationEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="unofficial-partial" />
-      <xs:enumeration value="unofficial-complete" />
-      <xs:enumeration value="certified" />
-      <xs:enumeration value="unofficial-partial" />
-      <xs:enumeration value="unofficial-complete" />
-      <xs:enumeration value="unofficial-partial" />
-      <xs:enumeration value="unofficial-complete" />
-      <xs:enumeration value="certified" />
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="IdentifierType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ocd-id" />
