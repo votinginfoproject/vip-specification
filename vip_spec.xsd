@@ -112,7 +112,7 @@ reference elements for polling location
         <!-- administration elements-->
         <xs:element name="ElectionAdministration">
           <xs:complexType>
-            <xs:all>
+            <xs:sequence>
               <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RegistrationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="AmIRegisteredUrl" type="xs:anyURI" minOccurs="0" />
@@ -148,10 +148,10 @@ reference elements for polling location
                         </xs:all>
                       </xs:complexType>
                     </xs:element>
-                  </xs:all>
+                  </xs:sequence>
                 </xs:complexType>
               </xs:element>
-            </xs:all>
+            </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
@@ -159,12 +159,17 @@ reference elements for polling location
         <xs:element name="PollingLocation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Address" type="SimpleAddressType" />
+              <!-- It is intentional that an address is required. -->
+              <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
               <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
+              <!-- Note: The "Hours" element is being deprecated and will be removed
+                   in future versions of VIP.
+              -->
+              <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -263,17 +268,18 @@ reference elements for polling location
         <xs:element name="ContactInformation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <!-- Note: The "Hours" element is being deprecated and will be removed
                    in future versions of VIP.
               -->
               <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
+              <!-- This can be a person or place name. -->
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -411,7 +417,6 @@ reference elements for polling location
       <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" />
       <xs:element name="VoteVariationType" type="VoteVariation" minOccurs="0" />
       <xs:element name="OtherVoteVariationType" type="xs:string" minOccurs="0" />
-      <!-- SURVEY: What is the use case for this field? It's empty in the sample feed. -->
       <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
       <!-- NOTE: Still trying to get feedback or an example of what this means and how it's used -->
       <xs:element name="SequenceOrder" type="xs:integer" />
@@ -524,18 +529,6 @@ reference elements for polling location
       appear multiple times in the document.
     -->
     <xs:attribute name="identifier" type="xs:string" />
-  </xs:complexType>
-
-  <xs:complexType name="SimpleAddressType">
-    <xs:all>
-      <xs:element name="LocationName" type="xs:string" minOccurs="0" />
-      <xs:element name="Line1" type="xs:string" />
-      <xs:element name="Line2" type="xs:string" minOccurs="0" />
-      <xs:element name="Line3" type="xs:string" minOccurs="0" />
-      <xs:element name="City" type="xs:string" />
-      <xs:element name="State" type="xs:string" />
-      <xs:element name="Zip" type="xs:string" />
-    </xs:all>
   </xs:complexType>
 
   <xs:complexType name="Term">
