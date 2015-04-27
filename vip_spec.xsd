@@ -18,7 +18,7 @@ reference elements for polling location
               <xs:element name="DateTime" type="xs:dateTime" />
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="FeedContactId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="FeedContactInformationId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="TermsOfUseUrl" type="xs:anyURI" minOccurs="0" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
@@ -112,7 +112,7 @@ reference elements for polling location
         <!-- administration elements-->
         <xs:element name="ElectionAdministration">
           <xs:complexType>
-            <xs:all>
+            <xs:sequence>
               <xs:element name="ElectionsUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="RegistrationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="AmIRegisteredUrl" type="xs:anyURI" minOccurs="0" />
@@ -124,7 +124,7 @@ reference elements for polling location
               <xs:element name="Department" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:all>
-                    <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
+                    <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
                       <xs:complexType>
@@ -136,10 +136,10 @@ reference elements for polling location
                             The contact information below can be used to override or
                             add specific fields to the base Departmental contact information if
                             the service has different information.  For example, if the voter
-                            service has its own phone number, the Contact object below can be
-                            an object containing only a Phone element.
+                            service has its own phone number, the ContactInformation object
+                            below can be an object containing only a Phone element.
                           -->
-                          <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" />
+                          <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" />
                           <!--
                             This is for use if a certain person handles the particular service,
                             for example a contact person for overseas voting.
@@ -148,10 +148,10 @@ reference elements for polling location
                         </xs:all>
                       </xs:complexType>
                     </xs:element>
-                  </xs:all>
+                  </xs:sequence>
                 </xs:complexType>
               </xs:element>
-            </xs:all>
+            </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
@@ -159,12 +159,17 @@ reference elements for polling location
         <xs:element name="PollingLocation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Address" type="SimpleAddressType" />
+              <!-- It is intentional that an address is required. -->
+              <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
               <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
+              <!-- Note: The "Hours" element is being deprecated and will be removed
+                   in future versions of VIP.
+              -->
+              <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="PhotoUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
               <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -261,20 +266,21 @@ reference elements for polling location
           </xs:complexType>
         </xs:element>
 
-        <xs:element name="Contact">
+        <xs:element name="ContactInformation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-              <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
               <!-- Note: The "Hours" element is being deprecated and will be removed
                    in future versions of VIP.
               -->
               <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
+              <!-- This can be a person or place name. -->
               <xs:element name="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -290,7 +296,7 @@ reference elements for polling location
               <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
               <xs:element name="FilingDeadline" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Term" type="Term" minOccurs="0" />
-              <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
@@ -299,7 +305,7 @@ reference elements for polling location
         <xs:element name="Party">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Abbreviation" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="Abbreviation" type="xs:string" minOccurs="0" />
               <xs:element name="Name" type="InternationalizedText" />
               <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
               <xs:element name="Color" minOccurs="0">
@@ -339,7 +345,7 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
-              <xs:element name="ContactId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="FirstName" type="xs:string" minOccurs="0" />
               <xs:element name="LastName" type="xs:string" minOccurs="0" />
@@ -378,20 +384,8 @@ reference elements for polling location
                     <xs:element name="Hours" minOccurs="0" maxOccurs="unbounded">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="StartTime" maxOccurs="1">
-                            <xs:simpleType>
-                              <xs:restriction base="xs:time">
-                                <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
-                              </xs:restriction>
-                            </xs:simpleType>
-                          </xs:element>
-                          <xs:element name="EndTime" maxOccurs="1">
-                            <xs:simpleType>
-                              <xs:restriction base="xs:time">
-                                <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
-                              </xs:restriction>
-                            </xs:simpleType>
-                          </xs:element>
+                          <xs:element name="StartTime" type="TimeWithZone" maxOccurs="1" />
+                          <xs:element name="EndTime" type="TimeWithZone" maxOccurs="1" />
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -417,8 +411,8 @@ reference elements for polling location
       <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
-      <xs:element name="Name" type="InternationalizedText" />
-      <xs:element name="Abbreviation" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="Abbreviation" type="xs:string" minOccurs="0" />
       <xs:element name="BallotTitle" type="InternationalizedText" minOccurs="0" />
       <xs:element name="BallotSubTitle" type="InternationalizedText" minOccurs="0" />
       <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" />
@@ -512,13 +506,13 @@ reference elements for polling location
 
     could be:
 
-      <Office textIdentifier="office_mayor">
-        <text language="en">Mayor</text>
-        <text language="es">Alcalde</text>
-        <text language="zh">市長</text>
+      <Office identifier="office_mayor">
+        <Text language="en">Mayor</Text>
+        <Text language="es">Alcalde</Text>
+        <Text language="zh">市長</Text>
       </Office>
 
-    The optional "textIdentifier" attribute can be used to name the text
+    The optional "identifier" attribute can be used to name the text
     being translated.  For example, if the translations come from a
     comma-delimited flat file, the identifier for the corresponding row
     in the flat file could be stored in this attribute for tracking purposes.
@@ -535,19 +529,7 @@ reference elements for polling location
       This is not type "xs:ID" because the same element can potentially
       appear multiple times in the document.
     -->
-    <xs:attribute name="textIdentifier" type="xs:string" />
-  </xs:complexType>
-
-  <xs:complexType name="SimpleAddressType">
-    <xs:all>
-      <xs:element name="LocationName" type="xs:string" minOccurs="0" />
-      <xs:element name="Line1" type="xs:string" />
-      <xs:element name="Line2" type="xs:string" minOccurs="0" />
-      <xs:element name="Line3" type="xs:string" minOccurs="0" />
-      <xs:element name="City" type="xs:string" />
-      <xs:element name="State" type="xs:string" />
-      <xs:element name="Zip" type="xs:string" />
-    </xs:all>
+    <xs:attribute name="identifier" type="xs:string" />
   </xs:complexType>
 
   <xs:complexType name="Term">
@@ -558,28 +540,13 @@ reference elements for polling location
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="VotesWithCertification">
-    <xs:simpleContent>
-      <xs:extension base="xs:integer">
-        <xs:attribute name="certification" type="CertificationEnum" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <!-- Start of enumerated values -->
-  <xs:simpleType name="CertificationEnum">
+  <xs:simpleType name="TimeWithZone">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="unofficial-partial" />
-      <xs:enumeration value="unofficial-complete" />
-      <xs:enumeration value="certified" />
-      <xs:enumeration value="unofficial-partial" />
-      <xs:enumeration value="unofficial-complete" />
-      <xs:enumeration value="unofficial-partial" />
-      <xs:enumeration value="unofficial-complete" />
-      <xs:enumeration value="certified" />
+      <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
     </xs:restriction>
   </xs:simpleType>
 
+  <!-- Start of enumerated values -->
   <xs:simpleType name="DistrictType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="city" />
@@ -608,9 +575,9 @@ reference elements for polling location
     <xs:restriction base="xs:string">
       <xs:enumeration value="ocd-id" />
       <xs:enumeration value="fips" />
-      <xs:enumeration value="national" />
-      <xs:enumeration value="state" />
-      <xs:enumeration value="local" />
+      <xs:enumeration value="national-level" />
+      <xs:enumeration value="state-level" />
+      <xs:enumeration value="local-level" />
       <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
