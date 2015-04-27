@@ -87,7 +87,7 @@ reference elements for polling location
               <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
               <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
               <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-              <xs:element name="BallotStyleImageUrl" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="BallotStyleId" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
               <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="id" type="xs:ID" use="required" />
