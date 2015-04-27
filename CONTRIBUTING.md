@@ -19,7 +19,7 @@ While the following information shouldn't be considered hard-and-fast rules, the
     1. You can use http://www.utilities-online.info/xsdvalidation/ to do this validation online, or
     2. If you have the `xmllint` tool on your system, please run `xmllint --postvalid --nonet --xinclude --noout --schema vip_spec.xsd sample_feed.xml`
 3. Once it's done and tested, create a pull request to move it into the current working branch.
-4. At that point, some discussion might happen. In order to get approval for the pull request, you will need approval from two people, including one representative from Pew and one representative from Google (Pew and Google employees still need two approvers and cannot self-approve). However it is important to note that other members have substantial technical and election background as well, so please take all feedback to heart, regardless of the source.
+4. At that point, some discussion might happen. In order to get approval for the pull request, you will need approval from two people, including one representative from Pew and one representative from Google (Pew and Google employees still need two approvers and cannot self-approve, but it is not required that the second approver be from the organization of the PR author). However it is important to note that other members have substantial technical and election background as well, so please take all feedback to heart, regardless of the source.
     1. Google approvers: @jdmgoogle @jktomer
     2. Pew approvers: @jungshadow @jen-tolentino (Pew employees) @pstenbjorn (official Pew proxy)
 5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged into the current working branch by the developer who created the pull-request.
