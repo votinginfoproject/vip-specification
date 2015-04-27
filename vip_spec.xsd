@@ -558,7 +558,6 @@ reference elements for polling location
       <xs:enumeration value="locality" />
       <xs:enumeration value="municipality" />
       <xs:enumeration value="national" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="school" />
       <xs:enumeration value="special" />
       <xs:enumeration value="state" />
@@ -568,6 +567,7 @@ reference elements for polling location
       <xs:enumeration value="utility" />
       <xs:enumeration value="ward" />
       <xs:enumeration value="water" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -594,9 +594,9 @@ reference elements for polling location
     <xs:restriction base="xs:string">
       <xs:enumeration value="ballot-measure" />
       <xs:enumeration value="initiative" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="referendum" />
       <xs:enumeration value="retention" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -636,23 +636,23 @@ reference elements for polling location
       <xs:enumeration value="cumulative" />
       <xs:enumeration value="majority" />
       <xs:enumeration value="n-of-m" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="plurality" />
       <xs:enumeration value="proportional" />
       <xs:enumeration value="range" />
       <xs:enumeration value="rcv" />
       <xs:enumeration value="rcv-borda" />
       <xs:enumeration value="super-majority" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="VoterServiceType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="absentee-ballots" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="overseas-voting" />
       <xs:enumeration value="polling-places" />
       <xs:enumeration value="voter-registration" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
   <!-- End of enumerated values -->
