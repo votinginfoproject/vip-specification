@@ -123,7 +123,7 @@ reference elements for polling location
               <!-- A locality may have more than one department with each handling different services. -->
               <xs:element name="Department" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:all>
+                  <xs:sequence>
                     <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
                     <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
@@ -179,7 +179,8 @@ reference elements for polling location
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" type="DistrictType" />
+              <xs:element name="OtherType" type="xs:string" minOccurs="0" />
               <xs:element name="Number" type="xs:integer" minOccurs="0" />
               <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
             </xs:sequence>
@@ -546,6 +547,30 @@ reference elements for polling location
   </xs:simpleType>
 
   <!-- Start of enumerated values -->
+  <xs:simpleType name="DistrictType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="city" />
+      <xs:enumeration value="congressional" />
+      <xs:enumeration value="council" />
+      <xs:enumeration value="county" />
+      <xs:enumeration value="judicial" />
+      <xs:enumeration value="local" />
+      <xs:enumeration value="locality" />
+      <xs:enumeration value="municipality" />
+      <xs:enumeration value="national" />
+      <xs:enumeration value="school" />
+      <xs:enumeration value="special" />
+      <xs:enumeration value="state" />
+      <xs:enumeration value="statehouse" />
+      <xs:enumeration value="statesenate" />
+      <xs:enumeration value="township" />
+      <xs:enumeration value="utility" />
+      <xs:enumeration value="ward" />
+      <xs:enumeration value="water" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="IdentifierType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ocd-id" />
@@ -569,9 +594,9 @@ reference elements for polling location
     <xs:restriction base="xs:string">
       <xs:enumeration value="ballot-measure" />
       <xs:enumeration value="initiative" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="referendum" />
       <xs:enumeration value="retention" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -611,23 +636,23 @@ reference elements for polling location
       <xs:enumeration value="cumulative" />
       <xs:enumeration value="majority" />
       <xs:enumeration value="n-of-m" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="plurality" />
       <xs:enumeration value="proportional" />
       <xs:enumeration value="range" />
       <xs:enumeration value="rcv" />
       <xs:enumeration value="rcv-borda" />
       <xs:enumeration value="super-majority" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="VoterServiceType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="absentee-ballots" />
-      <xs:enumeration value="other" />
       <xs:enumeration value="overseas-voting" />
       <xs:enumeration value="polling-places" />
       <xs:enumeration value="voter-registration" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
   <!-- End of enumerated values -->
