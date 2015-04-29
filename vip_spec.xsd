@@ -389,8 +389,8 @@ reference elements for polling location
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="IsOrByAppointment" type="xs:boolean" maxOccurs="1" />
-                    <xs:element name="IsOnlyByAppointment" type="xs:boolean" maxOccurs="1" />
+                    <xs:element name="IsOrByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
                     <xs:element name="IsSubjectToChange" type="xs:boolean" minOccurs="0" maxOccurs="1" />
                   </xs:sequence>
                 </xs:complexType>
