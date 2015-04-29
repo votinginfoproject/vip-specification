@@ -421,7 +421,7 @@ reference elements for polling location
       <xs:element name="OtherVoteVariationType" type="xs:string" minOccurs="0" />
       <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
       <!-- NOTE: Still trying to get feedback or an example of what this means and how it's used -->
-      <xs:element name="SequenceOrder" type="xs:integer" />
+      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>

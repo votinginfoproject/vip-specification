@@ -40,7 +40,12 @@ Not displaying street segments
     <State id="st51">
         <Name>Virginia</Name>
         <ElectionAdministrationId>ea40133</ElectionAdministrationId>
-        <!-- TODO: External identifiers? -->
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </State>
 
     <Locality id="loc70001">
@@ -49,7 +54,12 @@ Not displaying street segments
         <!-- District type? -->
         <Type>COUNTY</Type>
         <ElectionAdministrationId>ea40001</ElectionAdministrationId>
-        <!-- TODO: External identifiers? -->
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/county:albemarle</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </Locality>
 
     <ElectionAdministration id="ea40133">
@@ -78,6 +88,14 @@ Not displaying street segments
         </Department>
     </ElectionAdministration>
 
+    <HoursOpen id="sched0000">
+        <Schedule>
+            <Hours>
+                <StartTime>08:30:00-05:00</StartTime>
+                <EndTime>17:00:00-05:00</EndTime>
+            </Hours>
+        </Schedule>
+    </HoursOpen>
     <HoursOpen id="sched0001">
         <Schedule>
             <StartDate>2013-11-05</StartDate>
@@ -644,73 +662,139 @@ Not displaying street segments
         </ExternalIdentifiers>
     </ElectoralDistrict>
 
-    <contest id="20003">
-        <election_id>30000</election_id>
+    <Party id="par0001">
+        <Abbreviation>REP</Abbreviation>
+        <Name>
+            <Text language="en">Republican</Text>
+        </Name>
+        <Color>e91d0e</Color>
+    </Party>
+    <Party id="par0002">
+        <Abbreviation>LIB</Abbreviation>
+        <Name>
+            <Text language="en">Libertarian</Text>
+        </Name>
+        <Color>f5f500</Color>
+    </Party>
+    <Party id="par0003">
+        <Abbreviation>DEM</Abbreviation>
+        <Name>
+            <Text language="en">Democratic</Text>
+        </Name>
+        <Color>232066</Color>
+    </Party>
+
+    <Office id="off0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <type>general</type>
-        <partisan>NO</partisan>
-        <primary_party_id>0</primary_party_id>
-        <electorate_specifications/>
-        <special>no</special>
-        <office>Governor</office>
-        <filing_closed_date>1900-01-01</filing_closed_date>
-        <term/>
-        <number_elected>1</number_elected>
-        <number_voting_for>1</number_voting_for>
-        <ballot_id>200314</ballot_id>
+        <Name>
+            <Text language="en">Governor</Text>
+        </Name>
+        <IsPartisan>false</IsPartisan>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+
+    <CandidateContest id="cc20003">
+        <BallotSelectionId>cs10961</BallotSelectionId>
+        <BallotSelectionId>cs10962</BallotSelectionId>
+        <BallotSelectionId>cs10963</BallotSelectionId>
+<!--        <ElectionId>el30000</ElectionId> -->
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <Name>Governor</Name>
+        <BallotTitle>
+            <Text language="en">Governor of Virginia</Text>
+        </BallotTitle>
+        <OfficeId>off0000</OfficeId>
+        <NumberElected>1</NumberElected>
+        <VotesAllowed>1</VotesAllowed>
+<!--
         <ballot_placement>4</ballot_placement>
         <write_in>yes</write_in>
-        <candidate id="10961">
-            <Name>Ken T. Cuccinelli II</Name>
-            <last_name/>
-            <party_id>Republican</party_id>
-            <candidate_url>http://www.cuccinelli.com</candidate_url>
-            <biography/>
-            <phone>8047863808</phone>
+  -->
+    </CandidateContest>
 
-            <filed_mailing_address>
-                <Name/>
-                <AddressLine>10560 Main St, Ste 218</AddressLine>
-                <AddressLine>Fairfax, VA 22030</AddressLine>
-            </filed_mailing_address>
-            <email>ken@cuccinelli.com</email>
-            <candidate_status/>
-        </candidate>
-        <candidate id="10962">
-            <Name>Robert C. Sarvis</Name>
-            <last_name/>
-            <party_id>Libertarian</party_id>
-            <candidate_url>http://www.robertsarvis.com</candidate_url>
-            <biography/>
-            <phone/>
+    <CandidateSelection id="cs10961">
+        <CandidateId>can10961</CandidateId>
+        <EndorsementPartyId>par0001</EndorsementPartyId>
+    </CandidateSelection>
+    <Candidate id="can10961">
+        <PartyId>par0001</PartyId>
+        <PersonId>per10961</PersonId>
+        <BallotName>
+            <Text language="en">Ken T. Cuccinelli II</Text>
+        </BallotName>
+    </Candidate>
+    <Person id="per10961">
+        <ContactInformationId>ci10961</ContactInformationId>
+        <PartyId>par0001</PartyId>
+        <FirstName>Ken</FirstName>
+        <LastName>Cuccinelli</LastName>
+        <MiddleName>T.</MiddleName>
+        <Suffix>II</Suffix>
+    </Person>
+    <ContactInformation id="ci10961">
+        <AddressLine>10560 Main St, Ste 218</AddressLine>
+        <AddressLine>Fairfax, VA 22030</AddressLine>
+        <Phone>8047863808</Phone>
+        <Uri>http://www.cuccinelli.com</Uri>
+        <Email>ken@cuccinelli.com</Email>
+    </ContactInformation>
 
-            <filed_mailing_address>
-                <Name/>
-                <AddressLine>PO Box 224</AddressLine>
-                <AddressLine>Annandale, VA 22003</AddressLine>
-            </filed_mailing_address>
-            <email>info@robertsarvis.com</email>
-            <candidate_status/>
-        </candidate>
-        <candidate id="10963">
-            <Name>Terry R. McAuliffe</Name>
-            <last_name/>
-            <party_id>Democrat</party_id>
-            <candidate_url>http://www.terrymcauliffe.com</candidate_url>
-            <biography/>
-            <phone>7038227604</phone>
+    <CandidateSelection id="cs10962">
+        <CandidateId>can10962</CandidateId>
+        <EndorsementPartyId>par0002</EndorsementPartyId>
+    </CandidateSelection>
+    <Candidate id="can10962">
+        <PartyId>par0002</PartyId>
+        <PersonId>per10962</PersonId>
+        <BallotName>
+            <Text language="en">Robert C. Sarvis</Text>
+        </BallotName>
+    </Candidate>
+    <Person id="per10962">
+        <ContactInformationId>ci10962</ContactInformationId>
+        <PartyId>par0002</PartyId>
+        <FirstName>Robert</FirstName>
+        <LastName>Sarvis</LastName>
+        <MiddleName>C.</MiddleName>
+    </Person>
+    <ContactInformation id="ci10962">
+        <AddressLine>PO Box 224</AddressLine>
+        <AddressLine>Annandale, VA 22003</AddressLine>
+        <Uri>http://www.robertsarvis.com</Uri>
+        <Email>info@robertsarvis.com</Email>
+    </ContactInformation>
 
-            <filed_mailing_address>
-                <Name/>
-                <AddressLine>1601 N. Kent St., Suite 900</AddressLine>
-                <AddressLine>Arlington, VA 22209</AddressLine>
-            </filed_mailing_address>
-            <email>info@terrymcauliffe.com</email>
-            <candidate_status/>
-        </candidate>
-    </contest>
+    <CandidateSelection id="cs10963">
+        <CandidateId>can10963</CandidateId>
+        <EndorsementPartyId>par0003</EndorsementPartyId>
+    </CandidateSelection>
+    <Candidate id="can10963">
+        <PartyId>par0003</PartyId>
+        <PersonId>per10963</PersonId>
+        <BallotName>
+            <Text language="en">Terry R. McAuliffe</Text>
+        </BallotName>
+    </Candidate>
+    <Person id="per10963">
+        <ContactInformationId>ci10963</ContactInformationId>
+        <PartyId>par0003</PartyId>
+        <FirstName>Terry</FirstName>
+        <LastName>McAuliffe</LastName>
+        <MiddleName>R.</MiddleName>
+    </Person>
+    <ContactInformation id="ci10963">
+        <AddressLine>1601 N. Kent St., Suite 900</AddressLine>
+        <AddressLine>Arlington, VA 22209</AddressLine>
+        <Phone>7038227604</Phone>
+        <Uri>http://www.terrymcauliffe.com</Uri>
+        <Email>info@terrymcauliffe.com</Email>
+    </ContactInformation>
+
     <contest id="20004">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -760,7 +844,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20005">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -809,7 +893,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20024">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -842,7 +926,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20025">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -875,7 +959,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20033">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60107</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -908,7 +992,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20100">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -941,7 +1025,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20262">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -990,7 +1074,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20305">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -1039,7 +1123,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20350">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -1088,7 +1172,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20355">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -1137,7 +1221,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20449">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -1170,7 +1254,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20473">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -1203,7 +1287,7 @@ Not displaying street segments
         </candidate>
     </contest>
     <contest id="20476">
-        <election_id>30000</election_id>
+        <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
@@ -1255,10 +1339,7 @@ Not displaying street segments
     <ContactInformation id="ci60001">
         <AddressLine>1600 5TH STREET</AddressLine>
         <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
-        <!-- TODO: Structured hours -->
-        <Hours>
-            <Text language="en">8:30 a.m. - 5:00 p.m.</Text>
-        </Hours>
+        <HoursOpenId>sched0000</HoursOpenId>
         <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
     </ContactInformation>
     <ContactInformation id="ci60002">
