@@ -47,8 +47,17 @@ Markdown, etc).
   </xs:simpleType>
   ```
 
-* The names of abstract "base class" types should end in "Base" as a
-  reminder that the types should not be instantiated directly.
+* The names of abstract "base class" types (e.g. those with `abstract="true"`)
+  should end in "Base" as a reminder that such types should not be
+  instantiated directly.  For example--
+
+  ```xml
+  <xs:complexType name="ContestBase" abstract="true">
+    <xs:sequence>
+      <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
+      ...
+  ```
 
 
 ### IDs
