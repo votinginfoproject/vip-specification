@@ -16,10 +16,10 @@ Not displaying street segments
         <!-- Is this a FIPS id? What is this used for? -->
         <VipId>51</VipId>
         <DateTime>2013-10-24T14:25:28</DateTime>
-        <Description>SBE is the official source for Virginia data</Description>
+        <Description>
+            <Text language="en">SBE is the official source for Virginia data</Text>
+        </Description>
         <OrganizationUrl>http://www.sbe.virginia.gov/</OrganizationUrl>
-        <FeedContactInformationId/>
-        <TouUrl/>
     </Source>
 
     <Election id="ele30000">
@@ -30,11 +30,11 @@ Not displaying street segments
         </ElectionType>
         <StateId>st51</StateId>
         <IsStatewide>true</IsStatewide>
-        <RegistrationInfo/>
-        <AbsenteeBallotInfo/>
         <ResultsUrl>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUrl>
         <!-- TODO: Replace this with structured hours -->
-        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <PollingHours>
+            <Text language="en">6:00 AM - 7:00 PM</Text>
+        </PollingHours>
         <HasElectionDayRegistration>false</HasElectionDayRegistration>
         <RegistrationDeadline>2013-10-15</RegistrationDeadline>
         <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
@@ -50,13 +50,12 @@ Not displaying street segments
         <Name>ALBEMARLE COUNTY</Name>
         <StateId>st51</StateId>
         <!-- District type? -->
-        <type>COUNTY</type>
+        <Type>COUNTY</Type>
         <ElectionAdministrationId>ea40001</ElectionAdministrationId>
         <!-- TODO: External identifiers? -->
     </Locality>
 
     <ElectionAdministration id="ea40133">
-        <Name>State Board of Elections</Name>
         <ElectionsUrl>http://www.sbe.virginia.gov/</ElectionsUrl>
         <RegistrationUrl>https://www.vote.virginia.gov/</RegistrationUrl>
         <AmIRegisteredUrl>https://www.vote.virginia.gov/</AmIRegisteredUrl>
@@ -69,7 +68,6 @@ Not displaying street segments
         </Department>
     </ElectionAdministration>
     <ElectionAdministration id="ea40001">
-        <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
         <ElectionsUrl>http://www.albemarle.org/registrar</ElectionsUrl>
         <RegistrationUrl>http://www.vote.virginia.gov</RegistrationUrl>
         <AmIRegisteredUrl>http://www.vote.virginia.gov</AmIRegisteredUrl>
@@ -83,7 +81,7 @@ Not displaying street segments
         </Department>
     </ElectionAdministration>
 
-    <Person id="50001">
+    <Person id="per50001">
         <ContactInformationId>ci60002</ContactInformationId>
         <FirstName>RICHARD</FirstName>
         <LastName>WASHBURNE</LastName>
@@ -104,7 +102,9 @@ Not displaying street segments
         <AddressLine>1600 5TH STREET</AddressLine>
         <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
         <!-- TODO: Structured hours -->
-        <hours>8:30 a.m. - 5:00 p.m.</hours>
+        <Hours>
+            <Text language="en">8:30 a.m. - 5:00 p.m.</Text>
+        </Hours>
         <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
     </ContactInformation>
     <ContactInformation id="ci60002">
