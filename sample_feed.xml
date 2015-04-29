@@ -81,16 +81,16 @@ Not displaying street segments
         </Department>
     </ElectionAdministration>
 
-    <precinct id="90111">
+    <Precinct id="pre90111">
         <Name>203 - GEORGETOWN</Name>
         <Number>0203</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81274</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81274</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81274">
         <address>
             <Name>ALBEMARLE HIGH SCHOOL</Name>
@@ -102,16 +102,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90139">
+    <Precinct id="pre90139">
         <Name>103 - BRANCHLANDS</Name>
         <Number>0103</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80232</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80232</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80232">
         <address>
             <Name>SENIOR CENTER</Name>
@@ -123,15 +123,15 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90183">
+    <Precinct id="pre90183">
         <Name>602 - FREE UNION</Name>
         <Number>0602</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81853</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81853</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81853">
         <address>
             <Name>FREE UNION BAPTIST CHURCH</Name>
@@ -143,28 +143,28 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90348">
+    <Precinct id="pre90348sp0000">
         <Name>201 - JACK JOUETT</Name>
         <Number>0201</Number>
+        <PrecinctSplitName>0000</PrecinctSplitName>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <PollingLocationId>pl81662</PollingLocationId>
-
-        <precinct_split id="101467">
-            <Name>0000</Name>
-            <precinct_id>90348</precinct_id>
-            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-        </precinct_split>
-        <precinct_split id="103079">
-            <Name>0001</Name>
-            <precinct_id>90348</precinct_id>
-            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-        </precinct_split>
-    </precinct>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
+    <Precinct id="pre90348sp0001">
+        <Name>201 - JACK JOUETT</Name>
+        <Number>0201</Number>
+        <PrecinctSplitName>0001</PrecinctSplitName>
+        <LocalityId>loc70001</LocalityId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+        <PollingLocationId>pl81662</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81662">
         <address>
             <Name>JACK JOUETT MIDDLE SCHOOL</Name>
@@ -176,15 +176,15 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90614">
+    <Precinct id="pre90614">
         <Name>503 - HOLLYMEAD</Name>
         <Number>0503</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80142</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80142</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80142">
         <address>
             <Name>HOLLYMEAD ELEMENTARY SCHOOL</Name>
@@ -196,16 +196,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90666">
+    <Precinct id="pre90666">
         <Name>105 - DUNLORA</Name>
         <Number>0105</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80522</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80522</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80522">
         <address>
             <Name>CATEC</Name>
@@ -217,16 +217,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90929">
+    <Precinct id="pre90929">
         <Name>406 - STONE ROBINSON</Name>
         <Number>0406</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81500</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81500</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81500">
         <address>
             <Name>STONE-ROBINSON ELEM SCHOOL</Name>
@@ -238,25 +238,26 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="90994">
+    <Precinct id="pre90994sp0000">
         <Name>504 - FREE BRIDGE</Name>
         <Number>0504</Number>
+        <PrecinctSplitName>0000</PrecinctSplitName>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <PollingLocationId>pl80469</PollingLocationId>
-        <precinct_split id="101234">
-            <Name>0001</Name>
-            <precinct_id>90994</precinct_id>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
+    <Precinct id="pre90994sp0001">
+        <Name>504 - FREE BRIDGE</Name>
+        <Number>0504</Number>
+        <PrecinctSplitName>0001</PrecinctSplitName>
+        <LocalityId>loc70001</LocalityId>
             <ElectoralDistrictId>ed60129</ElectoralDistrictId>
             <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-        </precinct_split>
-        <precinct_split id="101532">
-            <Name>0000</Name>
-            <precinct_id>90994</precinct_id>
-            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-        </precinct_split>
-    </precinct>
+        <PollingLocationId>pl80469</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80469">
         <address>
             <Name>ELKS LODGE HALL</Name>
@@ -268,29 +269,26 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="91089">
+    <Precinct id="pre91089sp0000">
         <Name>502 - STONY POINT</Name>
         <Number>0502</Number>
+        <PrecinctSplitName>0000</PrecinctSplitName>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <PollingLocationId>pl81516</PollingLocationId>
-
-        <precinct_split id="100584">
-            <Name>0001</Name>
-            <precinct_id>91089</precinct_id>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
+    <Precinct id="pre91089sp0001">
+        <Name>502 - STONY POINT</Name>
+        <Number>0502</Number>
+        <PrecinctSplitName>0001</PrecinctSplitName>
+        <LocalityId>loc70001</LocalityId>
             <ElectoralDistrictId>ed60129</ElectoralDistrictId>
             <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-
-        </precinct_split>
-        <precinct_split id="101278">
-            <Name>0000</Name>
-            <precinct_id>91089</precinct_id>
-            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-
-        </precinct_split>
-    </precinct>
+        <PollingLocationId>pl81516</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81516">
         <address>
             <Name>STONY POINT ELEM SCHOOL</Name>
@@ -302,16 +300,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="91298">
+    <Precinct id="pre91298">
         <Name>106 - NORTHSIDE</Name>
         <Number>0106</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl82419</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl82419</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl82419">
         <address>
             <Name>EARLYSVILLE FIRE DEPARTMENT</Name>
@@ -323,18 +321,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="91602">
+    <Precinct id="pre91602">
         <Name>202 - UNIVERSITY HALL</Name>
         <Number>0202</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81466</PollingLocationId>
-
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81466</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81466">
         <address>
             <Name>UNIVERSITY HALL</Name>
@@ -346,32 +342,29 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="91781">
+    <Precinct id="pre91781sp0000">
         <Name>101 - WOODBROOK</Name>
         <Number>0101</Number>
+        <PrecinctSplitName>0000</PrecinctSplitName>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81857</PollingLocationId>
-
-        <precinct_split id="100016">
-            <Name>0000</Name>
-            <precinct_id>91781</precinct_id>
             <ElectoralDistrictId>ed60129</ElectoralDistrictId>
             <ElectoralDistrictId>ed60311</ElectoralDistrictId>
             <ElectoralDistrictId>ed60076</ElectoralDistrictId>
             <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-
-        </precinct_split>
-        <precinct_split id="100306">
-            <Name>0001</Name>
-            <precinct_id>91781</precinct_id>
+        <PollingLocationId>pl81857</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
+    <Precinct id="pre91781sp0001">
+        <Name>101 - WOODBROOK</Name>
+        <Number>0101</Number>
+        <PrecinctSplitName>0001</PrecinctSplitName>
+        <LocalityId>loc70001</LocalityId>
             <ElectoralDistrictId>ed60129</ElectoralDistrictId>
             <ElectoralDistrictId>ed60081</ElectoralDistrictId>
             <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-
-        </precinct_split>
-    </precinct>
+        <PollingLocationId>pl81857</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81857">
         <address>
             <Name>WOODBROOK ELEMENTARY SCHOOL</Name>
@@ -383,18 +376,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="91918">
+    <Precinct id="pre91918">
         <Name>302 - RED HILL</Name>
         <Number>0302</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81990</PollingLocationId>
-
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60107</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81990</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81990">
         <address>
             <Name>RED HILL ELEMENTARY SCHOOL</Name>
@@ -406,17 +397,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="91999">
+    <Precinct id="pre91999">
         <Name>405 - CALE</Name>
         <Number>0405</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl82177</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl82177</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl82177">
         <address>
             <Name>PAUL H CALE ELEMENTARY SCHOOL</Name>
@@ -428,17 +418,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92065">
+    <Precinct id="pre92065">
         <Name>305 - COUNTRY GREEN</Name>
         <Number>0305</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80548</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <ElectoralDistrictId>ed60107</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80548</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80548">
         <address>
             <Name>BEREAN BAPTIST CHURCH</Name>
@@ -450,16 +439,15 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92087">
+    <Precinct id="pre92087">
         <Name>604 - BROWNSVILLE</Name>
         <Number>0604</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81939</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81939</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81939">
         <address>
             <Name>BROWNSVILLE ELEMENTARY SCHOOL</Name>
@@ -471,17 +459,15 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92140">
+    <Precinct id="pre92140">
         <Name>501 - KESWICK</Name>
         <Number>0501</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80354</PollingLocationId>
-
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80354</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80354">
         <address>
             <Name>ZION HILL BAPTIST CHURCH</Name>
@@ -493,16 +479,15 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92145">
+    <Precinct id="pre92145">
         <Name>601 - CROZET</Name>
         <Number>0601</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl82204</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl82204</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl82204">
         <address>
             <Name>CROZET ELEMENTARY SCHOOL</Name>
@@ -514,31 +499,28 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92171">
+    <Precinct id="pre92171sp0000">
         <Name>401 - SCOTTSVILLE</Name>
         <Number>0401</Number>
+        <PrecinctSplitName>0000</PrecinctSplitName>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <PollingLocationId>pl80541</PollingLocationId>
-
-        <precinct_split id="100414">
-            <Name>0001</Name>
-            <precinct_id>92171</precinct_id>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
+    <Precinct id="pre92171sp0001">
+        <Name>401 - SCOTTSVILLE</Name>
+        <Number>0401</Number>
+        <PrecinctSplitName>0001</PrecinctSplitName>
+        <LocalityId>loc70001</LocalityId>
             <ElectoralDistrictId>ed60129</ElectoralDistrictId>
             <ElectoralDistrictId>ed60076</ElectoralDistrictId>
             <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-
-        </precinct_split>
-        <precinct_split id="102907">
-            <Name>0000</Name>
-            <precinct_id>92171</precinct_id>
-            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-
-        </precinct_split>
-    </precinct>
+        <PollingLocationId>pl80541</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80541">
         <address>
             <Name>SCOTTSVILLE ELEMENTARY SCHOOL</Name>
@@ -550,17 +532,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92175">
+    <Precinct id="pre92175">
         <Name>104 - AGNOR-HURT</Name>
         <Number>0104</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80432</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80432</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80432">
         <address>
             <Name>AGNOR-HURT ELEMENTARY SCHOOL</Name>
@@ -572,17 +553,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92306">
+    <Precinct id="pre92306">
         <Name>204 - BELFIELD</Name>
         <Number>0204</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81191</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81191</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81191">
         <address>
             <Name>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</Name>
@@ -594,17 +574,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92320">
+    <Precinct id="pre92320">
         <Name>402 - MONTICELLO</Name>
         <Number>0402</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl82220</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl82220</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl82220">
         <address>
             <Name>MONTICELLO HIGH SCHOOL</Name>
@@ -616,16 +595,15 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92353">
+    <Precinct id="pre92353">
         <Name>603 - EARLYSVILLE</Name>
         <Number>0603</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl80131</PollingLocationId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl80131</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl80131">
         <address>
             <Name>BROADUS WOOD ELEM SCHOOL</Name>
@@ -637,18 +615,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92360">
+    <Precinct id="pre92360">
         <Name>301 - IVY</Name>
         <Number>0301</Number>
         <LocalityId>loc70001</LocalityId>
-
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81118</PollingLocationId>
-
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81118</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81118">
         <address>
             <Name>MERIWETHER LEWIS ELEM SCHOOL</Name>
@@ -660,17 +636,16 @@ Not displaying street segments
         <photo_url/>
     </PollingLocation>
 
-    <precinct id="92426">
+    <Precinct id="pre92426">
         <Name>304 - EAST IVY</Name>
         <Number>0304</Number>
         <LocalityId>loc70001</LocalityId>
-        <IsMailOnly>false</IsMailOnly>
-        <PollingLocationId>pl81213</PollingLocationId>
-
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-    </precinct>
+        <PollingLocationId>pl81213</PollingLocationId>
+        <IsMailOnly>false</IsMailOnly>
+    </Precinct>
     <PollingLocation id="pl81213">
         <address>
             <Name>MILLER CENTER</Name>
