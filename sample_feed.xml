@@ -583,6 +583,12 @@ Not displaying street segments
         <Name>House of Delegates District - 058</Name>
         <Type>statehouse</Type>
         <Number>58</Number>
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:58</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </ElectoralDistrict>
     <ElectoralDistrict id="ed60081">
         <Name>RIO DISTRICT</Name>
@@ -598,20 +604,44 @@ Not displaying street segments
         <Name>House of Delegates District - 059</Name>
         <Type>statehouse</Type>
         <Number>59</Number>
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:59</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </ElectoralDistrict>
     <ElectoralDistrict id="ed60129">
         <Name>Commonwealth of Virginia</Name>
         <Type>state</Type>
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </ElectoralDistrict>
     <ElectoralDistrict id="ed60150">
         <Name>House of Delegates District - 025</Name>
         <Type>statehouse</Type>
         <Number>25</Number>
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:25</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </ElectoralDistrict>
     <ElectoralDistrict id="ed60311">
         <Name>House of Delegates District - 057</Name>
         <Type>statehouse</Type>
         <Number>57</Number>
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:57</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
     </ElectoralDistrict>
 
     <contest id="20003">
