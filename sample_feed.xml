@@ -81,42 +81,11 @@ Not displaying street segments
         </Department>
     </ElectionAdministration>
 
-    <Person id="per50001">
-        <ContactInformationId>ci60002</ContactInformationId>
-        <FirstName>RICHARD</FirstName>
-        <LastName>WASHBURNE</LastName>
-        <MiddleName>J.</MiddleName>
-        <Nickname>JAKE</Nickname>
-        <Title>
-            <Text language="en">General Registrar Physical</Text>
-        </Title>
-    </Person>
-
-    <ContactInformation id="ci60000">
-        <AddressLine>Washington Building First Floor</AddressLine>
-        <AddressLine>1100 Bank Street</AddressLine>
-        <AddressLine>Richmond, VA 23219</AddressLine>
-        <Name>State Board of Elections</Name>
-    </ContactInformation>
-    <ContactInformation id="ci60001">
-        <AddressLine>1600 5TH STREET</AddressLine>
-        <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
-        <!-- TODO: Structured hours -->
-        <Hours>
-            <Text language="en">8:30 a.m. - 5:00 p.m.</Text>
-        </Hours>
-        <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
-    </ContactInformation>
-    <ContactInformation id="ci60002">
-        <Phone>4349724173</Phone>
-        <Email>rwashburne@albemarle.org</Email>
-    </ContactInformation>
-
     <precinct id="90111">
         <Name>203 - GEORGETOWN</Name>
-        <number>0203</number>
+        <Number>0203</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81274</polling_location_id>
         <ballot_style_image_url/>
@@ -128,22 +97,22 @@ Not displaying street segments
             <electoral_district_id>60054</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81274">
-            <address>
-                <Name>ALBEMARLE HIGH SCHOOL</Name>
-                <AddressLine>2775 Hydraulic Rd</AddressLine>
-                <AddressLine>Charlottesville, VA 229018917</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </polling_location>
     </precinct>
+    <PollingLocation id="pl81274">
+        <address>
+            <Name>ALBEMARLE HIGH SCHOOL</Name>
+            <AddressLine>2775 Hydraulic Rd</AddressLine>
+            <AddressLine>Charlottesville, VA 229018917</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
     <precinct id="90139">
         <Name>103 - BRANCHLANDS</Name>
-        <number>0103</number>
+        <Number>0103</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80232</polling_location_id>
         <ballot_style_image_url/>
@@ -155,7 +124,7 @@ Not displaying street segments
             <electoral_district_id>60081</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80232">
+        <PollingLocation id="pl80232">
             <address>
                 <Name>SENIOR CENTER</Name>
                 <AddressLine>1180 Pepsi Pl</AddressLine>
@@ -164,13 +133,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="90183">
         <Name>602 - FREE UNION</Name>
-        <number>0602</number>
+        <Number>0602</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81853</polling_location_id>
         <ballot_style_image_url/>
@@ -181,7 +150,7 @@ Not displaying street segments
             <electoral_district_id>60076</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81853">
+        <PollingLocation id="pl81853">
             <address>
                 <Name>FREE UNION BAPTIST CHURCH</Name>
                 <AddressLine>4282 Millington Rd</AddressLine>
@@ -190,13 +159,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="90348">
         <Name>201 - JACK JOUETT</Name>
-        <number>0201</number>
+        <Number>0201</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81662</polling_location_id>
         <ballot_style_image_url/>
@@ -216,7 +185,7 @@ Not displaying street segments
             <electoral_district_id>60150</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81662">
+        <PollingLocation id="pl81662">
             <address>
                 <Name>JACK JOUETT MIDDLE SCHOOL</Name>
                 <AddressLine>210 Lambs Ln</AddressLine>
@@ -225,13 +194,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="90614">
         <Name>503 - HOLLYMEAD</Name>
-        <number>0503</number>
+        <Number>0503</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80142</polling_location_id>
         <ballot_style_image_url/>
@@ -242,7 +211,7 @@ Not displaying street segments
             <electoral_district_id>60076</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80142">
+        <PollingLocation id="pl80142">
             <address>
                 <Name>HOLLYMEAD ELEMENTARY SCHOOL</Name>
                 <AddressLine>2775 Powell Creek Dr</AddressLine>
@@ -251,13 +220,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="90666">
         <Name>105 - DUNLORA</Name>
-        <number>0105</number>
+        <Number>0105</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80522</polling_location_id>
         <ballot_style_image_url/>
@@ -269,7 +238,7 @@ Not displaying street segments
             <electoral_district_id>60311</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80522">
+        <PollingLocation id="pl80522">
             <address>
                 <Name>CATEC</Name>
                 <AddressLine>1000 Rio Rd E</AddressLine>
@@ -278,13 +247,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="90929">
         <Name>406 - STONE ROBINSON</Name>
-        <number>0406</number>
+        <Number>0406</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81500</polling_location_id>
         <ballot_style_image_url/>
@@ -296,7 +265,7 @@ Not displaying street segments
             <electoral_district_id>60103</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81500">
+        <PollingLocation id="pl81500">
             <address>
                 <Name>STONE-ROBINSON ELEM SCHOOL</Name>
                 <AddressLine>958 N Milton Rd</AddressLine>
@@ -305,13 +274,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="90994">
         <Name>504 - FREE BRIDGE</Name>
-        <number>0504</number>
+        <Number>0504</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80469</polling_location_id>
         <ballot_style_image_url/>
@@ -329,7 +298,7 @@ Not displaying street segments
             <electoral_district_id>60311</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80469">
+        <PollingLocation id="pl80469">
             <address>
                 <Name>ELKS LODGE HALL</Name>
                 <AddressLine>389 Elk Dr</AddressLine>
@@ -338,13 +307,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="91089">
         <Name>502 - STONY POINT</Name>
-        <number>0502</number>
+        <Number>0502</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81516</polling_location_id>
         <ballot_style_image_url/>
@@ -362,7 +331,7 @@ Not displaying street segments
             <electoral_district_id>60076</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81516">
+        <PollingLocation id="pl81516">
             <address>
                 <Name>STONY POINT ELEM SCHOOL</Name>
                 <AddressLine>3893 Stony Point Rd</AddressLine>
@@ -371,13 +340,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="91298">
         <Name>106 - NORTHSIDE</Name>
-        <number>0106</number>
+        <Number>0106</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>82419</polling_location_id>
         <ballot_style_image_url/>
@@ -389,7 +358,7 @@ Not displaying street segments
             <electoral_district_id>60081</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="82419">
+        <PollingLocation id="pl82419">
             <address>
                 <Name>EARLYSVILLE FIRE DEPARTMENT</Name>
                 <AddressLine>283 Reas Ford Rd</AddressLine>
@@ -398,13 +367,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="91602">
         <Name>202 - UNIVERSITY HALL</Name>
-        <number>0202</number>
+        <Number>0202</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81466</polling_location_id>
         <ballot_style_image_url/>
@@ -416,7 +385,7 @@ Not displaying street segments
             <electoral_district_id>60054</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81466">
+        <PollingLocation id="pl81466">
             <address>
                 <Name>UNIVERSITY HALL</Name>
                 <AddressLine>300 Massie Rd</AddressLine>
@@ -425,13 +394,13 @@ Not displaying street segments
             <directions>North Lobby</directions>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="91781">
         <Name>101 - WOODBROOK</Name>
-        <number>0101</number>
+        <Number>0101</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81857</polling_location_id>
         <ballot_style_image_url/>
@@ -452,7 +421,7 @@ Not displaying street segments
             <electoral_district_id>60311</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81857">
+        <PollingLocation id="pl81857">
             <address>
                 <Name>WOODBROOK ELEMENTARY SCHOOL</Name>
                 <AddressLine>100 Woodbrook Dr</AddressLine>
@@ -461,13 +430,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="91918">
         <Name>302 - RED HILL</Name>
-        <number>0302</number>
+        <Number>0302</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81990</polling_location_id>
         <ballot_style_image_url/>
@@ -479,7 +448,7 @@ Not displaying street segments
             <electoral_district_id>60030</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81990">
+        <PollingLocation id="pl81990">
             <address>
                 <Name>RED HILL ELEMENTARY SCHOOL</Name>
                 <AddressLine>3901 Red Hill School Rd</AddressLine>
@@ -488,13 +457,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="91999">
         <Name>405 - CALE</Name>
-        <number>0405</number>
+        <Number>0405</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>82177</polling_location_id>
         <ballot_style_image_url/>
@@ -506,7 +475,7 @@ Not displaying street segments
             <electoral_district_id>60311</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="82177">
+        <PollingLocation id="pl82177">
             <address>
                 <Name>PAUL H CALE ELEMENTARY SCHOOL</Name>
                 <AddressLine>1757 Avon Street Ext</AddressLine>
@@ -515,13 +484,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92065">
         <Name>305 - COUNTRY GREEN</Name>
-        <number>0305</number>
+        <Number>0305</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80548</polling_location_id>
         <ballot_style_image_url/>
@@ -533,7 +502,7 @@ Not displaying street segments
             <electoral_district_id>60107</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80548">
+        <PollingLocation id="pl80548">
             <address>
                 <Name>BEREAN BAPTIST CHURCH</Name>
                 <AddressLine>1284 Sunset Avenue Ext</AddressLine>
@@ -542,13 +511,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92087">
         <Name>604 - BROWNSVILLE</Name>
-        <number>0604</number>
+        <Number>0604</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81939</polling_location_id>
         <ballot_style_image_url/>
@@ -559,7 +528,7 @@ Not displaying street segments
             <electoral_district_id>60150</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81939">
+        <PollingLocation id="pl81939">
             <address>
                 <Name>BROWNSVILLE ELEMENTARY SCHOOL</Name>
                 <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
@@ -568,13 +537,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92140">
         <Name>501 - KESWICK</Name>
-        <number>0501</number>
+        <Number>0501</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80354</polling_location_id>
         <ballot_style_image_url/>
@@ -585,7 +554,7 @@ Not displaying street segments
             <electoral_district_id>60076</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80354">
+        <PollingLocation id="pl80354">
             <address>
                 <Name>ZION HILL BAPTIST CHURCH</Name>
                 <AddressLine>802 Zion Hill Rd</AddressLine>
@@ -594,13 +563,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92145">
         <Name>601 - CROZET</Name>
-        <number>0601</number>
+        <Number>0601</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>82204</polling_location_id>
         <ballot_style_image_url/>
@@ -611,7 +580,7 @@ Not displaying street segments
             <electoral_district_id>60150</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="82204">
+        <PollingLocation id="pl82204">
             <address>
                 <Name>CROZET ELEMENTARY SCHOOL</Name>
                 <AddressLine>1407 Crozet Ave</AddressLine>
@@ -620,13 +589,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92171">
         <Name>401 - SCOTTSVILLE</Name>
-        <number>0401</number>
+        <Number>0401</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80541</polling_location_id>
         <ballot_style_image_url/>
@@ -646,7 +615,7 @@ Not displaying street segments
             <electoral_district_id>60103</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80541">
+        <PollingLocation id="pl80541">
             <address>
                 <Name>SCOTTSVILLE ELEMENTARY SCHOOL</Name>
                 <AddressLine>7868 Scottsville Rd</AddressLine>
@@ -655,13 +624,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92175">
         <Name>104 - AGNOR-HURT</Name>
-        <number>0104</number>
+        <Number>0104</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80432</polling_location_id>
         <ballot_style_image_url/>
@@ -673,7 +642,7 @@ Not displaying street segments
             <electoral_district_id>60311</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80432">
+        <PollingLocation id="pl80432">
             <address>
                 <Name>AGNOR-HURT ELEMENTARY SCHOOL</Name>
                 <AddressLine>3201 Berkmar Dr</AddressLine>
@@ -682,13 +651,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92306">
         <Name>204 - BELFIELD</Name>
-        <number>0204</number>
+        <Number>0204</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81191</polling_location_id>
         <ballot_style_image_url/>
@@ -700,7 +669,7 @@ Not displaying street segments
             <electoral_district_id>60054</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81191">
+        <PollingLocation id="pl81191">
             <address>
                 <Name>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</Name>
                 <AddressLine>799 Faulconer Drive</AddressLine>
@@ -709,13 +678,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92320">
         <Name>402 - MONTICELLO</Name>
-        <number>0402</number>
+        <Number>0402</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>82220</polling_location_id>
         <ballot_style_image_url/>
@@ -727,7 +696,7 @@ Not displaying street segments
             <electoral_district_id>60103</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="82220">
+        <PollingLocation id="pl82220">
             <address>
                 <Name>MONTICELLO HIGH SCHOOL</Name>
                 <AddressLine>1400 Independence Way</AddressLine>
@@ -736,13 +705,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92353">
         <Name>603 - EARLYSVILLE</Name>
-        <number>0603</number>
+        <Number>0603</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>80131</polling_location_id>
         <ballot_style_image_url/>
@@ -753,7 +722,7 @@ Not displaying street segments
             <electoral_district_id>60076</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="80131">
+        <PollingLocation id="pl80131">
             <address>
                 <Name>BROADUS WOOD ELEM SCHOOL</Name>
                 <AddressLine>185 Buck Mountain Rd</AddressLine>
@@ -762,13 +731,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92360">
         <Name>301 - IVY</Name>
-        <number>0301</number>
+        <Number>0301</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81118</polling_location_id>
         <ballot_style_image_url/>
@@ -780,7 +749,7 @@ Not displaying street segments
             <electoral_district_id>60030</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81118">
+        <PollingLocation id="pl81118">
             <address>
                 <Name>MERIWETHER LEWIS ELEM SCHOOL</Name>
                 <AddressLine>1610 Owensville Rd</AddressLine>
@@ -789,13 +758,13 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <precinct id="92426">
         <Name>304 - EAST IVY</Name>
-        <number>0304</number>
+        <Number>0304</Number>
         <LocalityId>70001</LocalityId>
-        <ward/>
+
         <mail_only>no</mail_only>
         <polling_location_id>81213</polling_location_id>
         <ballot_style_image_url/>
@@ -807,7 +776,7 @@ Not displaying street segments
             <electoral_district_id>60030</electoral_district_id>
             <ballot_style_image_url/>
         </precinct_split>
-        <polling_location id="81213">
+        <PollingLocation id="pl81213">
             <address>
                 <Name>MILLER CENTER</Name>
                 <AddressLine>2201 Old Ivy Rd</AddressLine>
@@ -816,42 +785,42 @@ Not displaying street segments
             <directions/>
             <PollingHours>6:00 AM - 7:00 PM</PollingHours>
             <photo_url/>
-        </polling_location>
+        </PollingLocation>
     </precinct>
     <electoral_district id="60030">
         <Name>SAMUEL MILLER DISTRICT</Name>
         <type>Local</type>
-        <number>3</number>
+        <Number>3</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60054">
         <Name>JACK JOUETT DISTRICT</Name>
         <type>Local</type>
-        <number>2</number>
+        <Number>2</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60076">
         <Name>House of Delegates District - 058</Name>
         <type>State</type>
-        <number>58</number>
+        <Number>58</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60081">
         <Name>RIO DISTRICT</Name>
         <type>Local</type>
-        <number>1</number>
+        <Number>1</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60103">
         <Name>SCOTTSVILLE DISTRICT</Name>
         <type>Local</type>
-        <number>4</number>
+        <Number>4</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60107">
         <Name>House of Delegates District - 059</Name>
         <type>State</type>
-        <number>59</number>
+        <Number>59</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60129">
@@ -862,13 +831,13 @@ Not displaying street segments
     <electoral_district id="60150">
         <Name>House of Delegates District - 025</Name>
         <type>State</type>
-        <number>25</number>
+        <Number>25</Number>
         <Description/>
     </electoral_district>
     <electoral_district id="60311">
         <Name>House of Delegates District - 057</Name>
         <type>State</type>
-        <number>57</number>
+        <Number>57</Number>
         <Description/>
     </electoral_district>
     <precinct_split_electoral_district>
@@ -12290,4 +12259,35 @@ Not displaying street segments
             </ballot_line_result>
         </contest_result>
     </contest>
+    <Person id="per50001">
+        <ContactInformationId>ci60002</ContactInformationId>
+        <FirstName>RICHARD</FirstName>
+        <LastName>WASHBURNE</LastName>
+        <MiddleName>J.</MiddleName>
+        <Nickname>JAKE</Nickname>
+        <Title>
+            <Text language="en">General Registrar Physical</Text>
+        </Title>
+    </Person>
+
+    <ContactInformation id="ci60000">
+        <AddressLine>Washington Building First Floor</AddressLine>
+        <AddressLine>1100 Bank Street</AddressLine>
+        <AddressLine>Richmond, VA 23219</AddressLine>
+        <Name>State Board of Elections</Name>
+    </ContactInformation>
+    <ContactInformation id="ci60001">
+        <AddressLine>1600 5TH STREET</AddressLine>
+        <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
+        <!-- TODO: Structured hours -->
+        <Hours>
+            <Text language="en">8:30 a.m. - 5:00 p.m.</Text>
+        </Hours>
+        <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
+    </ContactInformation>
+    <ContactInformation id="ci60002">
+        <Phone>4349724173</Phone>
+        <Email>rwashburne@albemarle.org</Email>
+    </ContactInformation>
+
 </VipObject>
