@@ -61,9 +61,9 @@
           <h1 class="title"><abbr title="Voting Information Project">VIP</abbr> Format Specification <span class="version">Version 3.0</span></h1>
 
           <h2>General Introduction</h2>
-          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
+          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s (VIP) open XML and <a href="#csvdescription">flat file (CSV)</a> format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>.</p>
 
-          <h3>General Specification</h3>
+          <h3>General XML Specification</h3>
 
           <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="//github.com/votinginfoproject/vip-specification/">sample xml file and xsd file</a> for more details.
 
@@ -74,8 +74,8 @@
           <h3>Naming convention</h3>
           <p>The file containing the VIP feed should be named vipFeed-[<a href="//www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <p/><p/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
 
-          <h3>Comma-delimited flat files</h3>
-          <p>If your office is producing flat files instead of an XML file, the files must be comma-delimited .txt files. While the format of the files differs slightly from the XML, the attributes included must conform to the field specifications below.<p/><p/> Examples of the flat files are below each XML example, along with the files included to link those elements when the files are compiled into an XML feed. To read more about the flat files, see complete file header templates and look at example files, you can do so in this <a href="https://github.com/votinginfoproject/csv-templates">GitHub repository.</a> </p>
+          <h3>Comma-delimited flat files (CSV)</h3>
+          <p>If your office is producing flat files, they must be comma-delimited .txt files. The CSV column names differ slightly from XML tag names.<p/><p/> Examples of the flat files are below each XML example and include the necessary files to link those elements together as needed. To read more about the flat files, view complete file header templates, and review example files, you can do so in this <a href="https://github.com/votinginfoproject/csv-templates">GitHub repository.</a> </p>
 
           <div id="sourceitems" class="datatable">
             <h2>Source items</h2>
@@ -2085,6 +2085,7 @@
             <li><a href="#streetsegment">Street Segment</a></li>
             <li><a href="#contestresult">Contest Result</a></li>
             <li><a href="#ballotlineresult">Ballot Line Result</a></li>
+            <li><a href="#csvdescription">Comma-delimited flat files (CSV)</a></li>
           </ol>
           <h3>Custom Types</h3>
           <ol class="links">
