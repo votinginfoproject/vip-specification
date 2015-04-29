@@ -31,6 +31,35 @@ Markdown, etc).
 + Enumerations should be spinal-case - all lower case with spaces replaced with hyphens.
 
 
+### Type Names
+
+* Type names should only end in "Type" if _instances_ of the type correspond
+  to types.  For example, instances of the "Candidate" type represent
+  candidates rather than types of candidates.  In contrast, "OfficeTermType"
+  instances correspond to the different types of office terms:
+
+  ```xml
+  <xs:simpleType name="OfficeTermType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="full-term" />
+      <xs:enumeration value="unexpired-term" />
+    </xs:restriction>
+  </xs:simpleType>
+  ```
+
+* The names of abstract "base class" types (e.g. those with `abstract="true"`)
+  should end in "Base" as a reminder that such types should not be
+  instantiated directly.  For example--
+
+  ```xml
+  <xs:complexType name="ContestBase" abstract="true">
+    <xs:sequence>
+      <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
+      ...
+  ```
+
+
 ### IDs
 
 * A primary key ID should be an attribute with type "xs:ID" and name "id".
