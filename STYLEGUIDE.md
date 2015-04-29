@@ -16,6 +16,10 @@ Markdown, etc).
 * Spaces should be used instead of tabs.  See the file-type specific
   section for how many spaces should be used for indentations.
 
+* Lines should adhere to a non-strict 100 character length limit.  Exceptions
+  can be made for things like readability.  This guideline does not apply
+  to the sample feed files (e.g. the XML and CSV sample files).
+
 
 ## XSD Styles
 
