@@ -84,19 +84,12 @@ Not displaying street segments
     <precinct id="90111">
         <Name>203 - GEORGETOWN</Name>
         <Number>0203</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>81274</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101718">
-            <Name>0000</Name>
-            <precinct_id>90111</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <electoral_district_id>60054</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81274</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
     </precinct>
     <PollingLocation id="pl81274">
         <address>
@@ -108,685 +101,587 @@ Not displaying street segments
         <PollingHours>6:00 AM - 7:00 PM</PollingHours>
         <photo_url/>
     </PollingLocation>
+
     <precinct id="90139">
         <Name>103 - BRANCHLANDS</Name>
         <Number>0103</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>80232</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101341">
-            <Name>0000</Name>
-            <precinct_id>90139</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <electoral_district_id>60081</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80232">
-            <address>
-                <Name>SENIOR CENTER</Name>
-                <AddressLine>1180 Pepsi Pl</AddressLine>
-                <AddressLine>Charlottesville, VA 229012865</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80232</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80232">
+        <address>
+            <Name>SENIOR CENTER</Name>
+            <AddressLine>1180 Pepsi Pl</AddressLine>
+            <AddressLine>Charlottesville, VA 229012865</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="90183">
         <Name>602 - FREE UNION</Name>
         <Number>0602</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>81853</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101997">
-            <Name>0000</Name>
-            <precinct_id>90183</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81853">
-            <address>
-                <Name>FREE UNION BAPTIST CHURCH</Name>
-                <AddressLine>4282 Millington Rd</AddressLine>
-                <AddressLine>Free Union, VA 229402131</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81853</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81853">
+        <address>
+            <Name>FREE UNION BAPTIST CHURCH</Name>
+            <AddressLine>4282 Millington Rd</AddressLine>
+            <AddressLine>Free Union, VA 229402131</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="90348">
         <Name>201 - JACK JOUETT</Name>
         <Number>0201</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81662</PollingLocationId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81662</polling_location_id>
-        <ballot_style_image_url/>
         <precinct_split id="101467">
             <Name>0000</Name>
             <precinct_id>90348</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60054</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         </precinct_split>
         <precinct_split id="103079">
             <Name>0001</Name>
             <precinct_id>90348</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60054</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         </precinct_split>
-        <PollingLocation id="pl81662">
-            <address>
-                <Name>JACK JOUETT MIDDLE SCHOOL</Name>
-                <AddressLine>210 Lambs Ln</AddressLine>
-                <AddressLine>Charlottesville, VA 229018951</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
     </precinct>
+    <PollingLocation id="pl81662">
+        <address>
+            <Name>JACK JOUETT MIDDLE SCHOOL</Name>
+            <AddressLine>210 Lambs Ln</AddressLine>
+            <AddressLine>Charlottesville, VA 229018951</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="90614">
         <Name>503 - HOLLYMEAD</Name>
         <Number>0503</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>80142</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101880">
-            <Name>0000</Name>
-            <precinct_id>90614</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80142">
-            <address>
-                <Name>HOLLYMEAD ELEMENTARY SCHOOL</Name>
-                <AddressLine>2775 Powell Creek Dr</AddressLine>
-                <AddressLine>Charlottesville, VA 229117539</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80142</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80142">
+        <address>
+            <Name>HOLLYMEAD ELEMENTARY SCHOOL</Name>
+            <AddressLine>2775 Powell Creek Dr</AddressLine>
+            <AddressLine>Charlottesville, VA 229117539</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="90666">
         <Name>105 - DUNLORA</Name>
         <Number>0105</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>80522</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="102619">
-            <Name>0000</Name>
-            <precinct_id>90666</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60081</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80522">
-            <address>
-                <Name>CATEC</Name>
-                <AddressLine>1000 Rio Rd E</AddressLine>
-                <AddressLine>Charlottesville, VA 229011803</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80522</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80522">
+        <address>
+            <Name>CATEC</Name>
+            <AddressLine>1000 Rio Rd E</AddressLine>
+            <AddressLine>Charlottesville, VA 229011803</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="90929">
         <Name>406 - STONE ROBINSON</Name>
         <Number>0406</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>81500</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101450">
-            <Name>0000</Name>
-            <precinct_id>90929</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <electoral_district_id>60103</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81500">
-            <address>
-                <Name>STONE-ROBINSON ELEM SCHOOL</Name>
-                <AddressLine>958 N Milton Rd</AddressLine>
-                <AddressLine>Charlottesville, VA 229113612</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81500</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81500">
+        <address>
+            <Name>STONE-ROBINSON ELEM SCHOOL</Name>
+            <AddressLine>958 N Milton Rd</AddressLine>
+            <AddressLine>Charlottesville, VA 229113612</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="90994">
         <Name>504 - FREE BRIDGE</Name>
         <Number>0504</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>80469</polling_location_id>
-        <ballot_style_image_url/>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80469</PollingLocationId>
         <precinct_split id="101234">
             <Name>0001</Name>
             <precinct_id>90994</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         </precinct_split>
         <precinct_split id="101532">
             <Name>0000</Name>
             <precinct_id>90994</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         </precinct_split>
-        <PollingLocation id="pl80469">
-            <address>
-                <Name>ELKS LODGE HALL</Name>
-                <AddressLine>389 Elk Dr</AddressLine>
-                <AddressLine>Charlottesville, VA 229118434</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
     </precinct>
+    <PollingLocation id="pl80469">
+        <address>
+            <Name>ELKS LODGE HALL</Name>
+            <AddressLine>389 Elk Dr</AddressLine>
+            <AddressLine>Charlottesville, VA 229118434</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="91089">
         <Name>502 - STONY POINT</Name>
         <Number>0502</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81516</polling_location_id>
-        <ballot_style_image_url/>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81516</PollingLocationId>
+
         <precinct_split id="100584">
             <Name>0001</Name>
             <precinct_id>91089</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+
         </precinct_split>
         <precinct_split id="101278">
             <Name>0000</Name>
             <precinct_id>91089</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+
         </precinct_split>
-        <PollingLocation id="pl81516">
-            <address>
-                <Name>STONY POINT ELEM SCHOOL</Name>
-                <AddressLine>3893 Stony Point Rd</AddressLine>
-                <AddressLine>Keswick, VA 229471503</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
     </precinct>
+    <PollingLocation id="pl81516">
+        <address>
+            <Name>STONY POINT ELEM SCHOOL</Name>
+            <AddressLine>3893 Stony Point Rd</AddressLine>
+            <AddressLine>Keswick, VA 229471503</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="91298">
         <Name>106 - NORTHSIDE</Name>
         <Number>0106</Number>
-        <LocalityId>70001</LocalityId>
-
-        <mail_only>no</mail_only>
-        <polling_location_id>82419</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="100289">
-            <Name>0000</Name>
-            <precinct_id>91298</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <electoral_district_id>60081</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl82419">
-            <address>
-                <Name>EARLYSVILLE FIRE DEPARTMENT</Name>
-                <AddressLine>283 Reas Ford Rd</AddressLine>
-                <AddressLine>Earlysville, VA 229362410</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl82419</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl82419">
+        <address>
+            <Name>EARLYSVILLE FIRE DEPARTMENT</Name>
+            <AddressLine>283 Reas Ford Rd</AddressLine>
+            <AddressLine>Earlysville, VA 229362410</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="91602">
         <Name>202 - UNIVERSITY HALL</Name>
         <Number>0202</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81466</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="102314">
-            <Name>0000</Name>
-            <precinct_id>91602</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <electoral_district_id>60054</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81466">
-            <address>
-                <Name>UNIVERSITY HALL</Name>
-                <AddressLine>300 Massie Rd</AddressLine>
-                <AddressLine>Charlottesville, VA 229031749</AddressLine>
-            </address>
-            <directions>North Lobby</directions>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81466</PollingLocationId>
+
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81466">
+        <address>
+            <Name>UNIVERSITY HALL</Name>
+            <AddressLine>300 Massie Rd</AddressLine>
+            <AddressLine>Charlottesville, VA 229031749</AddressLine>
+        </address>
+        <directions>North Lobby</directions>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="91781">
         <Name>101 - WOODBROOK</Name>
         <Number>0101</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81857</polling_location_id>
-        <ballot_style_image_url/>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81857</PollingLocationId>
+
         <precinct_split id="100016">
             <Name>0000</Name>
             <precinct_id>91781</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <electoral_district_id>60081</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+
         </precinct_split>
         <precinct_split id="100306">
             <Name>0001</Name>
             <precinct_id>91781</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60081</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+
         </precinct_split>
-        <PollingLocation id="pl81857">
-            <address>
-                <Name>WOODBROOK ELEMENTARY SCHOOL</Name>
-                <AddressLine>100 Woodbrook Dr</AddressLine>
-                <AddressLine>Charlottesville, VA 229011133</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
     </precinct>
+    <PollingLocation id="pl81857">
+        <address>
+            <Name>WOODBROOK ELEMENTARY SCHOOL</Name>
+            <AddressLine>100 Woodbrook Dr</AddressLine>
+            <AddressLine>Charlottesville, VA 229011133</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="91918">
         <Name>302 - RED HILL</Name>
         <Number>0302</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81990</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="103034">
-            <Name>0000</Name>
-            <precinct_id>91918</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60107</electoral_district_id>
-            <electoral_district_id>60030</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81990">
-            <address>
-                <Name>RED HILL ELEMENTARY SCHOOL</Name>
-                <AddressLine>3901 Red Hill School Rd</AddressLine>
-                <AddressLine>North Garden, VA 229591704</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81990</PollingLocationId>
+
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81990">
+        <address>
+            <Name>RED HILL ELEMENTARY SCHOOL</Name>
+            <AddressLine>3901 Red Hill School Rd</AddressLine>
+            <AddressLine>North Garden, VA 229591704</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="91999">
         <Name>405 - CALE</Name>
         <Number>0405</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>82177</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="103006">
-            <Name>0000</Name>
-            <precinct_id>91999</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60103</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl82177">
-            <address>
-                <Name>PAUL H CALE ELEMENTARY SCHOOL</Name>
-                <AddressLine>1757 Avon Street Ext</AddressLine>
-                <AddressLine>Charlottesville, VA 229028708</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl82177</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl82177">
+        <address>
+            <Name>PAUL H CALE ELEMENTARY SCHOOL</Name>
+            <AddressLine>1757 Avon Street Ext</AddressLine>
+            <AddressLine>Charlottesville, VA 229028708</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92065">
         <Name>305 - COUNTRY GREEN</Name>
         <Number>0305</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>80548</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="100961">
-            <Name>0000</Name>
-            <precinct_id>92065</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60030</electoral_district_id>
-            <electoral_district_id>60107</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80548">
-            <address>
-                <Name>BEREAN BAPTIST CHURCH</Name>
-                <AddressLine>1284 Sunset Avenue Ext</AddressLine>
-                <AddressLine>Charlottesville, VA 229037862</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80548</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80548">
+        <address>
+            <Name>BEREAN BAPTIST CHURCH</Name>
+            <AddressLine>1284 Sunset Avenue Ext</AddressLine>
+            <AddressLine>Charlottesville, VA 229037862</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92087">
         <Name>604 - BROWNSVILLE</Name>
         <Number>0604</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81939</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="102977">
-            <Name>0000</Name>
-            <precinct_id>92087</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81939">
-            <address>
-                <Name>BROWNSVILLE ELEMENTARY SCHOOL</Name>
-                <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
-                <AddressLine>Crozet, VA 229323401</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81939</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81939">
+        <address>
+            <Name>BROWNSVILLE ELEMENTARY SCHOOL</Name>
+            <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
+            <AddressLine>Crozet, VA 229323401</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92140">
         <Name>501 - KESWICK</Name>
         <Number>0501</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>80354</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="102399">
-            <Name>0000</Name>
-            <precinct_id>92140</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80354">
-            <address>
-                <Name>ZION HILL BAPTIST CHURCH</Name>
-                <AddressLine>802 Zion Hill Rd</AddressLine>
-                <AddressLine>Keswick, VA 229472409</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80354</PollingLocationId>
+
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80354">
+        <address>
+            <Name>ZION HILL BAPTIST CHURCH</Name>
+            <AddressLine>802 Zion Hill Rd</AddressLine>
+            <AddressLine>Keswick, VA 229472409</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92145">
         <Name>601 - CROZET</Name>
         <Number>0601</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>82204</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="100124">
-            <Name>0000</Name>
-            <precinct_id>92145</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl82204">
-            <address>
-                <Name>CROZET ELEMENTARY SCHOOL</Name>
-                <AddressLine>1407 Crozet Ave</AddressLine>
-                <AddressLine>Crozet, VA 229322722</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl82204</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl82204">
+        <address>
+            <Name>CROZET ELEMENTARY SCHOOL</Name>
+            <AddressLine>1407 Crozet Ave</AddressLine>
+            <AddressLine>Crozet, VA 229322722</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92171">
         <Name>401 - SCOTTSVILLE</Name>
         <Number>0401</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>80541</polling_location_id>
-        <ballot_style_image_url/>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80541</PollingLocationId>
+
         <precinct_split id="100414">
             <Name>0001</Name>
             <precinct_id>92171</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <electoral_district_id>60103</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+
         </precinct_split>
         <precinct_split id="102907">
             <Name>0000</Name>
             <precinct_id>92171</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <electoral_district_id>60103</electoral_district_id>
-            <ballot_style_image_url/>
+            <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+            <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+
         </precinct_split>
-        <PollingLocation id="pl80541">
-            <address>
-                <Name>SCOTTSVILLE ELEMENTARY SCHOOL</Name>
-                <AddressLine>7868 Scottsville Rd</AddressLine>
-                <AddressLine>Scottsville, VA 245903963</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
     </precinct>
+    <PollingLocation id="pl80541">
+        <address>
+            <Name>SCOTTSVILLE ELEMENTARY SCHOOL</Name>
+            <AddressLine>7868 Scottsville Rd</AddressLine>
+            <AddressLine>Scottsville, VA 245903963</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92175">
         <Name>104 - AGNOR-HURT</Name>
         <Number>0104</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>80432</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="102987">
-            <Name>0000</Name>
-            <precinct_id>92175</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60081</electoral_district_id>
-            <electoral_district_id>60311</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80432">
-            <address>
-                <Name>AGNOR-HURT ELEMENTARY SCHOOL</Name>
-                <AddressLine>3201 Berkmar Dr</AddressLine>
-                <AddressLine>Charlottesville, VA 229011475</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80432</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80432">
+        <address>
+            <Name>AGNOR-HURT ELEMENTARY SCHOOL</Name>
+            <AddressLine>3201 Berkmar Dr</AddressLine>
+            <AddressLine>Charlottesville, VA 229011475</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92306">
         <Name>204 - BELFIELD</Name>
         <Number>0204</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81191</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101634">
-            <Name>0000</Name>
-            <precinct_id>92306</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <electoral_district_id>60054</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81191">
-            <address>
-                <Name>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</Name>
-                <AddressLine>799 Faulconer Drive</AddressLine>
-                <AddressLine>Charlottesville, VA 22903</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81191</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81191">
+        <address>
+            <Name>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</Name>
+            <AddressLine>799 Faulconer Drive</AddressLine>
+            <AddressLine>Charlottesville, VA 22903</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92320">
         <Name>402 - MONTICELLO</Name>
         <Number>0402</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>82220</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="101345">
-            <Name>0000</Name>
-            <precinct_id>92320</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <electoral_district_id>60103</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl82220">
-            <address>
-                <Name>MONTICELLO HIGH SCHOOL</Name>
-                <AddressLine>1400 Independence Way</AddressLine>
-                <AddressLine>Charlottesville, VA 229028745</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl82220</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl82220">
+        <address>
+            <Name>MONTICELLO HIGH SCHOOL</Name>
+            <AddressLine>1400 Independence Way</AddressLine>
+            <AddressLine>Charlottesville, VA 229028745</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92353">
         <Name>603 - EARLYSVILLE</Name>
         <Number>0603</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>80131</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="100772">
-            <Name>0000</Name>
-            <precinct_id>92353</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60076</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl80131">
-            <address>
-                <Name>BROADUS WOOD ELEM SCHOOL</Name>
-                <AddressLine>185 Buck Mountain Rd</AddressLine>
-                <AddressLine>Earlysville, VA 229362009</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl80131</PollingLocationId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl80131">
+        <address>
+            <Name>BROADUS WOOD ELEM SCHOOL</Name>
+            <AddressLine>185 Buck Mountain Rd</AddressLine>
+            <AddressLine>Earlysville, VA 229362009</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92360">
         <Name>301 - IVY</Name>
         <Number>0301</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81118</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="102439">
-            <Name>0000</Name>
-            <precinct_id>92360</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <electoral_district_id>60030</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81118">
-            <address>
-                <Name>MERIWETHER LEWIS ELEM SCHOOL</Name>
-                <AddressLine>1610 Owensville Rd</AddressLine>
-                <AddressLine>Charlottesville, VA 229019407</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81118</PollingLocationId>
+
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81118">
+        <address>
+            <Name>MERIWETHER LEWIS ELEM SCHOOL</Name>
+            <AddressLine>1610 Owensville Rd</AddressLine>
+            <AddressLine>Charlottesville, VA 229019407</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <precinct id="92426">
         <Name>304 - EAST IVY</Name>
         <Number>0304</Number>
-        <LocalityId>70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationId>pl81213</PollingLocationId>
 
-        <mail_only>no</mail_only>
-        <polling_location_id>81213</polling_location_id>
-        <ballot_style_image_url/>
-        <precinct_split id="100472">
-            <Name>0000</Name>
-            <precinct_id>92426</precinct_id>
-            <electoral_district_id>60129</electoral_district_id>
-            <electoral_district_id>60150</electoral_district_id>
-            <electoral_district_id>60030</electoral_district_id>
-            <ballot_style_image_url/>
-        </precinct_split>
-        <PollingLocation id="pl81213">
-            <address>
-                <Name>MILLER CENTER</Name>
-                <AddressLine>2201 Old Ivy Rd</AddressLine>
-                <AddressLine>Charlottesville, VA 229034822</AddressLine>
-            </address>
-            <directions/>
-            <PollingHours>6:00 AM - 7:00 PM</PollingHours>
-            <photo_url/>
-        </PollingLocation>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
     </precinct>
+    <PollingLocation id="pl81213">
+        <address>
+            <Name>MILLER CENTER</Name>
+            <AddressLine>2201 Old Ivy Rd</AddressLine>
+            <AddressLine>Charlottesville, VA 229034822</AddressLine>
+        </address>
+        <directions/>
+        <PollingHours>6:00 AM - 7:00 PM</PollingHours>
+        <photo_url/>
+    </PollingLocation>
+
     <electoral_district id="60030">
         <Name>SAMUEL MILLER DISTRICT</Name>
         <type>Local</type>
@@ -840,365 +735,9 @@ Not displaying street segments
         <Number>57</Number>
         <Description/>
     </electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100772</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100124</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101634</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102987</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102522</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102619</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101997</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103056</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101532</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103006</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100306</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100472</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100584</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103079</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101880</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101341</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103034</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101467</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102977</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102906</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100289</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101234</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100016</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100961</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102314</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101718</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101450</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101345</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102907</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102439</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102399</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101278</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100414</precinct_split_id>
-        <electoral_district_id>60129</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101467</precinct_split_id>
-        <electoral_district_id>60054</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101341</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100016</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103006</precinct_split_id>
-        <electoral_district_id>60103</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100016</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103079</precinct_split_id>
-        <electoral_district_id>60054</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102314</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101450</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101234</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100289</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102314</precinct_split_id>
-        <electoral_district_id>60054</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100414</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100124</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102439</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102522</precinct_split_id>
-        <electoral_district_id>60107</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102619</precinct_split_id>
-        <electoral_district_id>60081</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102399</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102907</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101450</precinct_split_id>
-        <electoral_district_id>60103</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101718</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101278</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101718</precinct_split_id>
-        <electoral_district_id>60054</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103056</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101634</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102987</precinct_split_id>
-        <electoral_district_id>60081</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102439</precinct_split_id>
-        <electoral_district_id>60030</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102522</precinct_split_id>
-        <electoral_district_id>60030</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101345</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101997</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100306</precinct_split_id>
-        <electoral_district_id>60081</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100772</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101467</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103034</precinct_split_id>
-        <electoral_district_id>60107</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101532</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101341</precinct_split_id>
-        <electoral_district_id>60081</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103056</precinct_split_id>
-        <electoral_district_id>60030</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102977</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101345</precinct_split_id>
-        <electoral_district_id>60103</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101880</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103006</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100584</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103034</precinct_split_id>
-        <electoral_district_id>60030</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>103079</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102987</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100414</precinct_split_id>
-        <electoral_district_id>60103</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102907</precinct_split_id>
-        <electoral_district_id>60103</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>101634</precinct_split_id>
-        <electoral_district_id>60054</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100306</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100472</precinct_split_id>
-        <electoral_district_id>60150</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100961</precinct_split_id>
-        <electoral_district_id>60030</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100289</precinct_split_id>
-        <electoral_district_id>60081</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100961</precinct_split_id>
-        <electoral_district_id>60107</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102906</precinct_split_id>
-        <electoral_district_id>60076</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100472</precinct_split_id>
-        <electoral_district_id>60030</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>102619</precinct_split_id>
-        <electoral_district_id>60311</electoral_district_id>
-    </precinct_split_electoral_district>
-    <precinct_split_electoral_district>
-        <precinct_split_id>100016</precinct_split_id>
-        <electoral_district_id>60081</electoral_district_id>
-    </precinct_split_electoral_district>
     <contest id="20003">
         <election_id>30000</election_id>
-        <electoral_district_id>60129</electoral_district_id>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1263,7 +802,7 @@ Not displaying street segments
     </contest>
     <contest id="20004">
         <election_id>30000</election_id>
-        <electoral_district_id>60129</electoral_district_id>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1313,7 +852,7 @@ Not displaying street segments
     </contest>
     <contest id="20005">
         <election_id>30000</election_id>
-        <electoral_district_id>60129</electoral_district_id>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1362,7 +901,7 @@ Not displaying street segments
     </contest>
     <contest id="20024">
         <election_id>30000</election_id>
-        <electoral_district_id>60150</electoral_district_id>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1395,7 +934,7 @@ Not displaying street segments
     </contest>
     <contest id="20025">
         <election_id>30000</election_id>
-        <electoral_district_id>60311</electoral_district_id>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1428,7 +967,7 @@ Not displaying street segments
     </contest>
     <contest id="20033">
         <election_id>30000</election_id>
-        <electoral_district_id>60107</electoral_district_id>
+        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1461,7 +1000,7 @@ Not displaying street segments
     </contest>
     <contest id="20100">
         <election_id>30000</election_id>
-        <electoral_district_id>60076</electoral_district_id>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1494,7 +1033,7 @@ Not displaying street segments
     </contest>
     <contest id="20262">
         <election_id>30000</election_id>
-        <electoral_district_id>60103</electoral_district_id>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1543,7 +1082,7 @@ Not displaying street segments
     </contest>
     <contest id="20305">
         <election_id>30000</election_id>
-        <electoral_district_id>60054</electoral_district_id>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1592,7 +1131,7 @@ Not displaying street segments
     </contest>
     <contest id="20350">
         <election_id>30000</election_id>
-        <electoral_district_id>60030</electoral_district_id>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1641,7 +1180,7 @@ Not displaying street segments
     </contest>
     <contest id="20355">
         <election_id>30000</election_id>
-        <electoral_district_id>60081</electoral_district_id>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1690,7 +1229,7 @@ Not displaying street segments
     </contest>
     <contest id="20449">
         <election_id>30000</election_id>
-        <electoral_district_id>60081</electoral_district_id>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1723,7 +1262,7 @@ Not displaying street segments
     </contest>
     <contest id="20473">
         <election_id>30000</election_id>
-        <electoral_district_id>60030</electoral_district_id>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
@@ -1756,7 +1295,7 @@ Not displaying street segments
     </contest>
     <contest id="20476">
         <election_id>30000</election_id>
-        <electoral_district_id>60054</electoral_district_id>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <type>general</type>
         <partisan>NO</partisan>
         <primary_party_id>0</primary_party_id>
