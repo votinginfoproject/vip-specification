@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- working version of VIP schema based on 3.0 for comments
+<!-- working version of VIP schema based on 5.0 for comments
 changed all id types to string
 added ocdid to district
 reference elements for polling location
@@ -111,7 +111,7 @@ reference elements for polling location
 
       </xs:choice>
 
-      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="3.0" />
+      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.0" />
     </xs:complexType>
   </xs:element>
 
