@@ -21,18 +21,13 @@ Not displaying street segments
         <FeedContactInformationId/>
         <TouUrl/>
     </Source>
-    <State id="st51">
-        <Name>Virginia</Name>
-        <Abbreviation>VA</Abbreviation>
-        <ElectionAdministrationId>ea40133</ElectionAdministrationId>
-    </State>
+
     <Election id="el30000">
         <Date>2013-11-05</Date>
         <ElectionType>
           <Text language="en">General</Text>
           <Text language="es">Generales</Text>
         </ElectionType>
-        <Name/>
         <StateId>st51</StateId>
         <IsStatewide>true</IsStatewide>
         <RegistrationInfo/>
@@ -44,88 +39,68 @@ Not displaying street segments
         <RegistrationDeadline>2013-10-15</RegistrationDeadline>
         <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
     </Election>
+
+    <State id="st51">
+        <Name>Virginia</Name>
+        <ElectionAdministrationId>ea40133</ElectionAdministrationId>
+        <!-- TODO: External identifiers -->
+    </State>
+
+    <ContactInformation id="ci50000">
+        <Name>State Board of Elections</Name>
+        <AddressLine>Washington Building First Floor</AddressLine>
+        <AddressLine>1100 Bank Street</AddressLine>
+        <AddressLine>Richmond, VA 23219</AddressLine>
+    </ContactInformation>
     <ElectionAdministration id="ea40133">
         <Name>State Board of Elections</Name>
+        <ElectionsUrl>http://www.sbe.virginia.gov/</ElectionsUrl>
+        <RegistrationUrl>https://www.vote.virginia.gov/</RegistrationUrl>
+        <AmIRegisteredUrl>https://www.vote.virginia.gov/</AmIRegisteredUrl>
+        <AbsenteeUrl>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUrl>
+        <WhereDoIVoteUrl>https://www.vote.virginia.gov/</WhereDoIVoteUrl>
+        <WhatIsOnMyBallotUrl>https://www.vote.virginia.gov/</WhatIsOnMyBallotUrl>
+        <RulesUrl>http://www.sbe.virginia.gov/</RulesUrl>
+        <Department>
+        </Department>
         <eo_id/>
         <ovc_id/>
-        <physical_address>
-            <location_name>State Board of Elections</location_name>
-            <line1>Washington Building First Floor</line1>
-            <line2>1100 Bank Street</line2>
-            <line3/>
-            <city>Richmond</city>
-            <state>VA</state>
-            <zip>23219</zip>
-            <gis_xy/>
-        </physical_address>
-        <mailing_address>
-            <location_name/>
-            <line1/>
-            <line2/>
-            <line3/>
-            <city/>
-            <state/>
-            <zip/>
-            <gis_xy/>
-        </mailing_address>
         <phone/>
         <email/>
-        <elections_url>http://www.sbe.virginia.gov/</elections_url>
-        <registration_url>https://www.vote.virginia.gov/</registration_url>
-        <am_i_registered_url>https://www.vote.virginia.gov/</am_i_registered_url>
-        <absentee_url>http://www.sbe.virginia.gov/absenteevoting.html</absentee_url>
-        <where_do_i_vote_url>https://www.vote.virginia.gov/</where_do_i_vote_url>
-        <what_is_on_my_ballot_url>https://www.vote.virginia.gov/</what_is_on_my_ballot_url>
-        <rules_url>http://www.sbe.virginia.gov/</rules_url>
         <voter_services/>
         <hours/>
     </ElectionAdministration>
     <ElectionAdministration id="ea40001">
         <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
+        <ElectionsUrl>http://www.albemarle.org/registrar</ElectionsUrl>
+        <RegistrationUrl>http://www.vote.virginia.gov</RegistrationUrl>
+        <AmIRegisteredUrl>http://www.vote.virginia.gov</AmIRegisteredUrl>
+        <AbsenteeUrl>http://www.vote.virginia.gov</AbsenteeUrl>
+        <WhereDoIVoteUrl>http://www.vote.virginia.gov</WhereDoIVoteUrl>
+        <WhatIsOnMyBallotUrl>http://www.vote.virginia.gov</WhatIsOnMyBallotUrl>
+        <RulesUrl>http://www.vote.virginia.gov</RulesUrl>
         <eo_id>50001</eo_id>
         <ovc_id/>
         <physical_address>
-            <location_name>ALBEMARLE COUNTY VOTER REGISTRATION</location_name>
-            <line1/>
-            <line2>1600 5TH STREET</line2>
-            <line3/>
-            <city>CHARLOTTESVILLE</city>
-            <state>VA</state>
-            <zip>22902</zip>
-            <gis_xy/>
+            <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
+            <AddressLine>1600 5TH STREET</AddressLine>
+            <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
         </physical_address>
-        <mailing_address>
-            <location_name/>
-            <line1/>
-            <line2/>
-            <line3/>
-            <city/>
-            <state/>
-            <zip/>
-            <gis_xy/>
-        </mailing_address>
         <phone/>
         <email/>
-        <elections_url>http://www.albemarle.org/registrar</elections_url>
-        <registration_url>http://www.vote.virginia.gov</registration_url>
-        <am_i_registered_url>http://www.vote.virginia.gov</am_i_registered_url>
-        <absentee_url>http://www.vote.virginia.gov</absentee_url>
-        <where_do_i_vote_url>http://www.vote.virginia.gov</where_do_i_vote_url>
-        <what_is_on_my_ballot_url>http://www.vote.virginia.gov</what_is_on_my_ballot_url>
-        <rules_url>http://www.vote.virginia.gov</rules_url>
         <voter_services/>
         <hours>8:30 a.m. - 5:00 p.m.</hours>
     </ElectionAdministration>
-
-    <locality id="70001">
+    <Locality id="70001">
         <Name>ALBEMARLE COUNTY</Name>
         <StateId>51</StateId>
         <type>COUNTY</type>
         <ElectionAdministrationId>40001</ElectionAdministrationId>
+    </Locality>
         <precinct id="90111">
             <Name>203 - GEORGETOWN</Name>
             <number>0203</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81274</polling_location_id>
@@ -140,14 +115,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81274">
                 <address>
-                    <location_name>ALBEMARLE HIGH SCHOOL</location_name>
-                    <line1>2775 Hydraulic Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229018917</zip>
-                    <gis_xy/>
+                    <Name>ALBEMARLE HIGH SCHOOL</Name>
+                    <AddressLine>2775 Hydraulic Rd</AddressLine>
+                    <AddressLine>Charlottesville, VA 229018917</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -157,7 +127,7 @@ Not displaying street segments
         <precinct id="90139">
             <Name>103 - BRANCHLANDS</Name>
             <number>0103</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80232</polling_location_id>
@@ -172,14 +142,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80232">
                 <address>
-                    <location_name>SENIOR CENTER</location_name>
-                    <line1>1180 Pepsi Pl</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229012865</zip>
-                    <gis_xy/>
+                    <Name>SENIOR CENTER</Name>
+                    <AddressLine>1180 Pepsi Pl</AddressLine>
+                    <AddressLine>Charlottesville, VA 229012865</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -189,7 +154,7 @@ Not displaying street segments
         <precinct id="90183">
             <Name>602 - FREE UNION</Name>
             <number>0602</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81853</polling_location_id>
@@ -203,14 +168,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81853">
                 <address>
-                    <location_name>FREE UNION BAPTIST CHURCH</location_name>
-                    <line1>4282 Millington Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Free Union</city>
-                    <state>VA</state>
-                    <zip>229402131</zip>
-                    <gis_xy/>
+                    <Name>FREE UNION BAPTIST CHURCH</Name>
+                    <AddressLine>4282 Millington Rd</AddressLine>
+                    <AddressLine>Free Union, VA 229402131</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -220,7 +180,7 @@ Not displaying street segments
         <precinct id="90348">
             <Name>201 - JACK JOUETT</Name>
             <number>0201</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81662</polling_location_id>
@@ -243,14 +203,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81662">
                 <address>
-                    <location_name>JACK JOUETT MIDDLE SCHOOL</location_name>
-                    <line1>210 Lambs Ln</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229018951</zip>
-                    <gis_xy/>
+                    <Name>JACK JOUETT MIDDLE SCHOOL</Name>
+                    <AddressLine>210 Lambs Ln</AddressLine>
+                    <AddressLine>Charlottesville, VA 229018951</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -260,7 +215,7 @@ Not displaying street segments
         <precinct id="90614">
             <Name>503 - HOLLYMEAD</Name>
             <number>0503</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80142</polling_location_id>
@@ -274,14 +229,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80142">
                 <address>
-                    <location_name>HOLLYMEAD ELEMENTARY SCHOOL</location_name>
-                    <line1>2775 Powell Creek Dr</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229117539</zip>
-                    <gis_xy/>
+                    <Name>HOLLYMEAD ELEMENTARY SCHOOL</Name>
+                    <AddressLine>2775 Powell Creek Dr</AddressLine>
+                    <AddressLine>Charlottesville, VA 229117539</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -291,7 +241,7 @@ Not displaying street segments
         <precinct id="90666">
             <Name>105 - DUNLORA</Name>
             <number>0105</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80522</polling_location_id>
@@ -306,14 +256,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80522">
                 <address>
-                    <location_name>CATEC</location_name>
-                    <line1>1000 Rio Rd E</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229011803</zip>
-                    <gis_xy/>
+                    <Name>CATEC</Name>
+                    <AddressLine>1000 Rio Rd E</AddressLine>
+                    <AddressLine>Charlottesville, VA 229011803</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -323,7 +268,7 @@ Not displaying street segments
         <precinct id="90929">
             <Name>406 - STONE ROBINSON</Name>
             <number>0406</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81500</polling_location_id>
@@ -338,14 +283,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81500">
                 <address>
-                    <location_name>STONE-ROBINSON ELEM SCHOOL</location_name>
-                    <line1>958 N Milton Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229113612</zip>
-                    <gis_xy/>
+                    <Name>STONE-ROBINSON ELEM SCHOOL</Name>
+                    <AddressLine>958 N Milton Rd</AddressLine>
+                    <AddressLine>Charlottesville, VA 229113612</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -355,7 +295,7 @@ Not displaying street segments
         <precinct id="90994">
             <Name>504 - FREE BRIDGE</Name>
             <number>0504</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80469</polling_location_id>
@@ -376,14 +316,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80469">
                 <address>
-                    <location_name>ELKS LODGE HALL</location_name>
-                    <line1>389 Elk Dr</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229118434</zip>
-                    <gis_xy/>
+                    <Name>ELKS LODGE HALL</Name>
+                    <AddressLine>389 Elk Dr</AddressLine>
+                    <AddressLine>Charlottesville, VA 229118434</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -393,7 +328,7 @@ Not displaying street segments
         <precinct id="91089">
             <Name>502 - STONY POINT</Name>
             <number>0502</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81516</polling_location_id>
@@ -414,14 +349,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81516">
                 <address>
-                    <location_name>STONY POINT ELEM SCHOOL</location_name>
-                    <line1>3893 Stony Point Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Keswick</city>
-                    <state>VA</state>
-                    <zip>229471503</zip>
-                    <gis_xy/>
+                    <Name>STONY POINT ELEM SCHOOL</Name>
+                    <AddressLine>3893 Stony Point Rd</AddressLine>
+                    <AddressLine>Keswick, VA 229471503</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -431,7 +361,7 @@ Not displaying street segments
         <precinct id="91298">
             <Name>106 - NORTHSIDE</Name>
             <number>0106</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>82419</polling_location_id>
@@ -446,14 +376,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="82419">
                 <address>
-                    <location_name>EARLYSVILLE FIRE DEPARTMENT</location_name>
-                    <line1>283 Reas Ford Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Earlysville</city>
-                    <state>VA</state>
-                    <zip>229362410</zip>
-                    <gis_xy/>
+                    <Name>EARLYSVILLE FIRE DEPARTMENT</Name>
+                    <AddressLine>283 Reas Ford Rd</AddressLine>
+                    <AddressLine>Earlysville, VA 229362410</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -463,7 +388,7 @@ Not displaying street segments
         <precinct id="91602">
             <Name>202 - UNIVERSITY HALL</Name>
             <number>0202</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81466</polling_location_id>
@@ -478,14 +403,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81466">
                 <address>
-                    <location_name>UNIVERSITY HALL</location_name>
-                    <line1>300 Massie Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229031749</zip>
-                    <gis_xy/>
+                    <Name>UNIVERSITY HALL</Name>
+                    <AddressLine>300 Massie Rd</AddressLine>
+                    <AddressLine>Charlottesville, VA 229031749</AddressLine>
                 </address>
                 <directions>North Lobby</directions>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -495,7 +415,7 @@ Not displaying street segments
         <precinct id="91781">
             <Name>101 - WOODBROOK</Name>
             <number>0101</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81857</polling_location_id>
@@ -519,14 +439,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81857">
                 <address>
-                    <location_name>WOODBROOK ELEMENTARY SCHOOL</location_name>
-                    <line1>100 Woodbrook Dr</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229011133</zip>
-                    <gis_xy/>
+                    <Name>WOODBROOK ELEMENTARY SCHOOL</Name>
+                    <AddressLine>100 Woodbrook Dr</AddressLine>
+                    <AddressLine>Charlottesville, VA 229011133</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -536,7 +451,7 @@ Not displaying street segments
         <precinct id="91918">
             <Name>302 - RED HILL</Name>
             <number>0302</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81990</polling_location_id>
@@ -551,14 +466,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81990">
                 <address>
-                    <location_name>RED HILL ELEMENTARY SCHOOL</location_name>
-                    <line1>3901 Red Hill School Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>North Garden</city>
-                    <state>VA</state>
-                    <zip>229591704</zip>
-                    <gis_xy/>
+                    <Name>RED HILL ELEMENTARY SCHOOL</Name>
+                    <AddressLine>3901 Red Hill School Rd</AddressLine>
+                    <AddressLine>North Garden, VA 229591704</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -568,7 +478,7 @@ Not displaying street segments
         <precinct id="91999">
             <Name>405 - CALE</Name>
             <number>0405</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>82177</polling_location_id>
@@ -583,14 +493,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="82177">
                 <address>
-                    <location_name>PAUL H CALE ELEMENTARY SCHOOL</location_name>
-                    <line1>1757 Avon Street Ext</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229028708</zip>
-                    <gis_xy/>
+                    <Name>PAUL H CALE ELEMENTARY SCHOOL</Name>
+                    <AddressLine>1757 Avon Street Ext</AddressLine>
+                    <AddressLine>Charlottesville, VA 229028708</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -600,7 +505,7 @@ Not displaying street segments
         <precinct id="92065">
             <Name>305 - COUNTRY GREEN</Name>
             <number>0305</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80548</polling_location_id>
@@ -615,14 +520,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80548">
                 <address>
-                    <location_name>BEREAN BAPTIST CHURCH</location_name>
-                    <line1>1284 Sunset Avenue Ext</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229037862</zip>
-                    <gis_xy/>
+                    <Name>BEREAN BAPTIST CHURCH</Name>
+                    <AddressLine>1284 Sunset Avenue Ext</AddressLine>
+                    <AddressLine>Charlottesville, VA 229037862</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -632,7 +532,7 @@ Not displaying street segments
         <precinct id="92087">
             <Name>604 - BROWNSVILLE</Name>
             <number>0604</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81939</polling_location_id>
@@ -646,14 +546,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81939">
                 <address>
-                    <location_name>BROWNSVILLE ELEMENTARY SCHOOL</location_name>
-                    <line1>5870 Rockfish Gap Tpke</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Crozet</city>
-                    <state>VA</state>
-                    <zip>229323401</zip>
-                    <gis_xy/>
+                    <Name>BROWNSVILLE ELEMENTARY SCHOOL</Name>
+                    <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
+                    <AddressLine>Crozet, VA 229323401</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -663,7 +558,7 @@ Not displaying street segments
         <precinct id="92140">
             <Name>501 - KESWICK</Name>
             <number>0501</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80354</polling_location_id>
@@ -677,14 +572,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80354">
                 <address>
-                    <location_name>ZION HILL BAPTIST CHURCH</location_name>
-                    <line1>802 Zion Hill Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Keswick</city>
-                    <state>VA</state>
-                    <zip>229472409</zip>
-                    <gis_xy/>
+                    <Name>ZION HILL BAPTIST CHURCH</Name>
+                    <AddressLine>802 Zion Hill Rd</AddressLine>
+                    <AddressLine>Keswick, VA 229472409</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -694,7 +584,7 @@ Not displaying street segments
         <precinct id="92145">
             <Name>601 - CROZET</Name>
             <number>0601</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>82204</polling_location_id>
@@ -708,14 +598,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="82204">
                 <address>
-                    <location_name>CROZET ELEMENTARY SCHOOL</location_name>
-                    <line1>1407 Crozet Ave</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Crozet</city>
-                    <state>VA</state>
-                    <zip>229322722</zip>
-                    <gis_xy/>
+                    <Name>CROZET ELEMENTARY SCHOOL</Name>
+                    <AddressLine>1407 Crozet Ave</AddressLine>
+                    <AddressLine>Crozet, VA 229322722</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -725,7 +610,7 @@ Not displaying street segments
         <precinct id="92171">
             <Name>401 - SCOTTSVILLE</Name>
             <number>0401</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80541</polling_location_id>
@@ -748,14 +633,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80541">
                 <address>
-                    <location_name>SCOTTSVILLE ELEMENTARY SCHOOL</location_name>
-                    <line1>7868 Scottsville Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Scottsville</city>
-                    <state>VA</state>
-                    <zip>245903963</zip>
-                    <gis_xy/>
+                    <Name>SCOTTSVILLE ELEMENTARY SCHOOL</Name>
+                    <AddressLine>7868 Scottsville Rd</AddressLine>
+                    <AddressLine>Scottsville, VA 245903963</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -765,7 +645,7 @@ Not displaying street segments
         <precinct id="92175">
             <Name>104 - AGNOR-HURT</Name>
             <number>0104</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80432</polling_location_id>
@@ -780,14 +660,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80432">
                 <address>
-                    <location_name>AGNOR-HURT ELEMENTARY SCHOOL</location_name>
-                    <line1>3201 Berkmar Dr</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229011475</zip>
-                    <gis_xy/>
+                    <Name>AGNOR-HURT ELEMENTARY SCHOOL</Name>
+                    <AddressLine>3201 Berkmar Dr</AddressLine>
+                    <AddressLine>Charlottesville, VA 229011475</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -797,7 +672,7 @@ Not displaying street segments
         <precinct id="92306">
             <Name>204 - BELFIELD</Name>
             <number>0204</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81191</polling_location_id>
@@ -812,14 +687,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81191">
                 <address>
-                    <location_name>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</location_name>
-                    <line1>799 Faulconer Drive</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>22903</zip>
-                    <gis_xy/>
+                    <Name>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</Name>
+                    <AddressLine>799 Faulconer Drive</AddressLine>
+                    <AddressLine>Charlottesville, VA 22903</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -829,7 +699,7 @@ Not displaying street segments
         <precinct id="92320">
             <Name>402 - MONTICELLO</Name>
             <number>0402</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>82220</polling_location_id>
@@ -844,14 +714,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="82220">
                 <address>
-                    <location_name>MONTICELLO HIGH SCHOOL</location_name>
-                    <line1>1400 Independence Way</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229028745</zip>
-                    <gis_xy/>
+                    <Name>MONTICELLO HIGH SCHOOL</Name>
+                    <AddressLine>1400 Independence Way</AddressLine>
+                    <AddressLine>Charlottesville, VA 229028745</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -861,7 +726,7 @@ Not displaying street segments
         <precinct id="92353">
             <Name>603 - EARLYSVILLE</Name>
             <number>0603</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>80131</polling_location_id>
@@ -875,14 +740,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="80131">
                 <address>
-                    <location_name>BROADUS WOOD ELEM SCHOOL</location_name>
-                    <line1>185 Buck Mountain Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Earlysville</city>
-                    <state>VA</state>
-                    <zip>229362009</zip>
-                    <gis_xy/>
+                    <Name>BROADUS WOOD ELEM SCHOOL</Name>
+                    <AddressLine>185 Buck Mountain Rd</AddressLine>
+                    <AddressLine>Earlysville, VA 229362009</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -892,7 +752,7 @@ Not displaying street segments
         <precinct id="92360">
             <Name>301 - IVY</Name>
             <number>0301</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81118</polling_location_id>
@@ -907,14 +767,9 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81118">
                 <address>
-                    <location_name>MERIWETHER LEWIS ELEM SCHOOL</location_name>
-                    <line1>1610 Owensville Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229019407</zip>
-                    <gis_xy/>
+                    <Name>MERIWETHER LEWIS ELEM SCHOOL</Name>
+                    <AddressLine>1610 Owensville Rd</AddressLine>
+                    <AddressLine>Charlottesville, VA 229019407</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
@@ -924,7 +779,7 @@ Not displaying street segments
         <precinct id="92426">
             <Name>304 - EAST IVY</Name>
             <number>0304</number>
-            <locality_id>70001</locality_id>
+            <LocalityId>70001</LocalityId>
             <ward/>
             <mail_only>no</mail_only>
             <polling_location_id>81213</polling_location_id>
@@ -939,21 +794,15 @@ Not displaying street segments
             </precinct_split>
             <polling_location id="81213">
                 <address>
-                    <location_name>MILLER CENTER</location_name>
-                    <line1>2201 Old Ivy Rd</line1>
-                    <line2/>
-                    <line3/>
-                    <city>Charlottesville</city>
-                    <state>VA</state>
-                    <zip>229034822</zip>
-                    <gis_xy/>
+                    <Name>MILLER CENTER</Name>
+                    <AddressLine>2201 Old Ivy Rd</AddressLine>
+                    <AddressLine>Charlottesville, VA 229034822</AddressLine>
                 </address>
                 <directions/>
                 <PollingHours>6:00 AM - 7:00 PM</PollingHours>
                 <photo_url/>
             </polling_location>
         </precinct>
-    </locality>
     <electoral_district id="60030">
         <Name>SAMUEL MILLER DISTRICT</Name>
         <type>Local</type>
@@ -1395,14 +1244,9 @@ Not displaying street segments
             <phone>8047863808</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>10560 Main St, Ste 218</line1>
-                <line2/>
-                <line3/>
-                <city>Fairfax</city>
-                <state>VA</state>
-                <zip>22030</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>10560 Main St, Ste 218</AddressLine>
+                <AddressLine>Fairfax, VA 22030</AddressLine>
             </filed_mailing_address>
             <email>ken@cuccinelli.com</email>
             <candidate_status/>
@@ -1416,14 +1260,9 @@ Not displaying street segments
             <phone/>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 224</line1>
-                <line2/>
-                <line3/>
-                <city>Annandale</city>
-                <state>VA</state>
-                <zip>22003</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 224</AddressLine>
+                <AddressLine>Annandale, VA 22003</AddressLine>
             </filed_mailing_address>
             <email>info@robertsarvis.com</email>
             <candidate_status/>
@@ -1437,14 +1276,9 @@ Not displaying street segments
             <phone>7038227604</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>1601 N. Kent St., Suite 900</line1>
-                <line2/>
-                <line3/>
-                <city>Arlington</city>
-                <state>VA</state>
-                <zip>22209</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>1601 N. Kent St., Suite 900</AddressLine>
+                <AddressLine>Arlington, VA 22209</AddressLine>
             </filed_mailing_address>
             <email>info@terrymcauliffe.com</email>
             <candidate_status/>
@@ -4244,14 +4078,9 @@ Not displaying street segments
             <phone>7576954188</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 597</line1>
-                <line2/>
-                <line3/>
-                <city>Richmond</city>
-                <state>VA</state>
-                <zip>23218</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 597</AddressLine>
+                <AddressLine>Richmond, VA 23218</AddressLine>
             </filed_mailing_address>
             <email>ralph@ralphnortham.com</email>
             <candidate_status/>
@@ -4265,14 +4094,10 @@ Not displaying street segments
             <phone>7578024246</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>Jackson for Lt. Governor</line1>
-                <line2/>
-                <line3>PO Box 15003</line3>
-                <city>Chesapeake</city>
-                <state>VA</state>
-                <zip>23328</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>Jackson for Lt. Governor</AddressLine>
+                <AddressLine>PO Box 15003</AddressLine>
+                <AddressLine>Chesapeake, VA 23328</AddressLine>
             </filed_mailing_address>
             <email>jackson@jacksonforlg.com</email>
             <candidate_status/>
@@ -6533,14 +6358,9 @@ Not displaying street segments
             <phone>5404371451</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 555</line1>
-                <line2/>
-                <line3/>
-                <city>Harrisonburg</city>
-                <state>VA</state>
-                <zip>228030555</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 555</AddressLine>
+                <AddressLine>Harrisonburg, VA 228030555</AddressLine>
             </filed_mailing_address>
             <email>campaign@markobenshain.com</email>
             <candidate_status/>
@@ -6554,14 +6374,9 @@ Not displaying street segments
             <phone>7036699090</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 6201</line1>
-                <line2/>
-                <line3/>
-                <city>Leesburg</city>
-                <state>VA</state>
-                <zip>201787428</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 6201</AddressLine>
+                <AddressLine>Leesburg, VA 201787428</AddressLine>
             </filed_mailing_address>
             <email>kevin@herringforag.com</email>
             <candidate_status/>
@@ -8822,14 +8637,9 @@ Not displaying street segments
             <phone>5402555335</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 12</line1>
-                <line2/>
-                <line3/>
-                <city>Verona</city>
-                <state>VA</state>
-                <zip>24482</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 12</AddressLine>
+                <AddressLine>Verona, VA 24482</AddressLine>
             </filed_mailing_address>
             <email>steve@stevelandes.com</email>
             <candidate_status/>
@@ -9172,14 +8982,9 @@ Not displaying street segments
             <phone>4342201660</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 283</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>22902</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 283</AddressLine>
+                <AddressLine>Charlottesville, VA 22902</AddressLine>
             </filed_mailing_address>
             <email>david@davidtoscano.com</email>
             <candidate_status/>
@@ -9558,14 +9363,9 @@ Not displaying street segments
             <phone>4348615929</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>243-B Livestock Rd</line1>
-                <line2/>
-                <line3/>
-                <city>Rustburg</city>
-                <state>VA</state>
-                <zip>24588</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>243-B Livestock Rd</AddressLine>
+                <AddressLine>Rustburg, VA 24588</AddressLine>
             </filed_mailing_address>
             <email>friendsofmattfariss@gmail.com</email>
             <candidate_status/>
@@ -9768,14 +9568,9 @@ Not displaying street segments
             <phone/>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>2309 Finch Court</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>22911</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>2309 Finch Court</AddressLine>
+                <AddressLine>Charlottesville, VA 22911</AddressLine>
             </filed_mailing_address>
             <email>robbellgop@aol.com</email>
             <candidate_status/>
@@ -10258,14 +10053,9 @@ Not displaying street segments
             <phone>4349842100</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>1365 Tattersall Ct</line1>
-                <line2/>
-                <line3/>
-                <city>Keswick</city>
-                <state>VA</state>
-                <zip>229479169</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>1365 Tattersall Ct</AddressLine>
+                <AddressLine>Keswick, VA 229479169</AddressLine>
             </filed_mailing_address>
             <email>Jane4supervisor@gmail.com</email>
             <candidate_status/>
@@ -10279,14 +10069,9 @@ Not displaying street segments
             <phone>4342494564</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 318</line1>
-                <line2/>
-                <line3/>
-                <city>Free Union</city>
-                <state>VA</state>
-                <zip>229400318</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 318</AddressLine>
+                <AddressLine>Free Union, VA 229400318</AddressLine>
             </filed_mailing_address>
             <email>cincha@aol.com</email>
             <candidate_status/>
@@ -10591,14 +10376,9 @@ Not displaying street segments
             <phone>4342439071</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>103 Smithfield Ct</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229012252</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>103 Smithfield Ct</AddressLine>
+                <AddressLine>Charlottesville, VA 229012252</AddressLine>
             </filed_mailing_address>
             <email>diantha.mckeel@embarqmail.com</email>
             <candidate_status/>
@@ -10612,14 +10392,9 @@ Not displaying street segments
             <phone>4349898368</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>2305 Fairway Ln</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229015022</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>2305 Fairway Ln</AddressLine>
+                <AddressLine>Charlottesville, VA 229015022</AddressLine>
             </filed_mailing_address>
             <email>bps43@comcast.net</email>
             <candidate_status/>
@@ -10924,14 +10699,9 @@ Not displaying street segments
             <phone>4349891595</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>PO Box 315</line1>
-                <line2/>
-                <line3/>
-                <city>Ivy</city>
-                <state>VA</state>
-                <zip>229450315</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>PO Box 315</AddressLine>
+                <AddressLine>Ivy, VA 229450315</AddressLine>
             </filed_mailing_address>
             <email>Liz@LizPalmerforSupervisor.com</email>
             <candidate_status/>
@@ -10945,14 +10715,9 @@ Not displaying street segments
             <phone>4342953682</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>905 Leigh Way</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229017749</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>905 Leigh Way</AddressLine>
+                <AddressLine>Charlottesville, VA 229017749</AddressLine>
             </filed_mailing_address>
             <email>duanesnow@gmail.com</email>
             <candidate_status/>
@@ -11347,14 +11112,9 @@ Not displaying street segments
             <phone>4349781290</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>104 Dover Ct</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229011012</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>104 Dover Ct</AddressLine>
+                <AddressLine>Charlottesville, VA 229011012</AddressLine>
             </filed_mailing_address>
             <email>rodney@charlottesvillepress.com</email>
             <candidate_status/>
@@ -11368,14 +11128,9 @@ Not displaying street segments
             <phone>4349895562</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>844 Belvedere Blvd</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229013201</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>844 Belvedere Blvd</AddressLine>
+                <AddressLine>Charlottesville, VA 229013201</AddressLine>
             </filed_mailing_address>
             <email>bsheffield@andaregroup.com</email>
             <candidate_status/>
@@ -11726,14 +11481,9 @@ Not displaying street segments
             <phone>4349734464</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>3974 Deepwoods Rd</line1>
-                <line2/>
-                <line3/>
-                <city>Earlysville</city>
-                <state>VA</state>
-                <zip>229369776</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>3974 Deepwoods Rd</AddressLine>
+                <AddressLine>Earlysville, VA 229369776</AddressLine>
             </filed_mailing_address>
             <email>prpmoynihan@comcast.net</email>
             <candidate_status/>
@@ -12007,14 +11757,9 @@ Not displaying street segments
             <phone>4349806199</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>1029 Tilman Rd</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229016336</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>1029 Tilman Rd</AddressLine>
+                <AddressLine>Charlottesville, VA 229016336</AddressLine>
             </filed_mailing_address>
             <email>ejs6j@virginia.edu</email>
             <candidate_status/>
@@ -12321,14 +12066,9 @@ Not displaying street segments
             <phone>4349796333</phone>
             <photo_url/>
             <filed_mailing_address>
-                <location_name/>
-                <line1>2210 Camargo Dr</line1>
-                <line2/>
-                <line3/>
-                <city>Charlottesville</city>
-                <state>VA</state>
-                <zip>229018827</zip>
-                <gis_xy/>
+                <Name/>
+                <AddressLine>2210 Camargo Dr</AddressLine>
+                <AddressLine>Charlottesville, VA 229018827</AddressLine>
             </filed_mailing_address>
             <email>klacuff@earthlink.net</email>
             <candidate_status/>
