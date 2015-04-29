@@ -695,6 +695,17 @@ Not displaying street segments
             <Type>full-term</Type>
         </Term>
     </Office>
+    <Office id="off0001">
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <Name>
+            <Text language="en">Lieutenant Governor</Text>
+        </Name>
+        <IsPartisan>false</IsPartisan>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
 
     <CandidateContest id="cc20003">
         <BallotSelectionId>cs10961</BallotSelectionId>
@@ -713,6 +724,19 @@ Not displaying street segments
         <ballot_placement>4</ballot_placement>
         <write_in>yes</write_in>
   -->
+    </CandidateContest>
+    <CandidateContest id="cc20004">
+        <BallotSelectionId>cs10961</BallotSelectionId>
+        <BallotSelectionId>cs10962</BallotSelectionId>
+        <BallotSelectionId>cs10963</BallotSelectionId>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <Name>Lieutenant Governor</Name>
+        <BallotTitle>
+            <Text language="en">Lieutenant Governor of Virginia</Text>
+        </BallotTitle>
+        <OfficeId>off0001</OfficeId>
+        <NumberElected>1</NumberElected>
+        <VotesAllowed>1</VotesAllowed>
     </CandidateContest>
 
     <CandidateSelection id="cs10961">
@@ -793,56 +817,59 @@ Not displaying street segments
         <Email>info@terrymcauliffe.com</Email>
     </ContactInformation>
 
-    <contest id="20004">
-        <ElectionId>el30000</ElectionId>
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <type>general</type>
-        <partisan>NO</partisan>
-        <primary_party_id>0</primary_party_id>
-        <electorate_specifications/>
-        <special>no</special>
-        <office>Lieutenant Governor</office>
-        <filing_closed_date>1900-01-01</filing_closed_date>
-        <term/>
-        <number_elected>1</number_elected>
-        <number_voting_for>1</number_voting_for>
-        <ballot_id>200475</ballot_id>
-        <ballot_placement>5</ballot_placement>
-        <write_in>yes</write_in>
-        <candidate id="10966">
-            <Name>Ralph S. Northam</Name>
-            <last_name/>
-            <party_id>Democrat</party_id>
-            <candidate_url>http://www.northamforlg.com</candidate_url>
-            <biography/>
-            <phone>7576954188</phone>
+    <CandidateSelection id="cs10966">
+        <CandidateId>can10966</CandidateId>
+        <EndorsementPartyId>par0003</EndorsementPartyId>
+    </CandidateSelection>
+    <Candidate id="can10966">
+        <PartyId>par0003</PartyId>
+        <PersonId>per10966</PersonId>
+        <BallotName>
+            <Text language="en">Ralph S. Northam</Text>
+        </BallotName>
+    </Candidate>
+    <Person id="per10966">
+        <ContactInformationId>ci10966</ContactInformationId>
+        <PartyId>par0003</PartyId>
+        <FirstName>Ralph</FirstName>
+        <LastName>Northam</LastName>
+        <MiddleName>S.</MiddleName>
+    </Person>
+    <ContactInformation id="ci10966">
+        <AddressLine>PO Box 597</AddressLine>
+        <AddressLine>Richmond, VA 23218</AddressLine>
+        <Phone>7576954188</Phone>
+        <Uri>http://www.northamforlg.com</Uri>
+        <Email>ralph@ralphnortham.com</Email>
+    </ContactInformation>
 
-            <filed_mailing_address>
-                <Name/>
-                <AddressLine>PO Box 597</AddressLine>
-                <AddressLine>Richmond, VA 23218</AddressLine>
-            </filed_mailing_address>
-            <email>ralph@ralphnortham.com</email>
-            <candidate_status/>
-        </candidate>
-        <candidate id="10967">
-            <Name>E. W. Jackson</Name>
-            <last_name/>
-            <party_id>Republican</party_id>
-            <candidate_url>http://www.jacksonforlg.com</candidate_url>
-            <biography/>
-            <phone>7578024246</phone>
+    <CandidateSelection id="cs10967">
+        <CandidateId>can10967</CandidateId>
+        <EndorsementPartyId>par0001</EndorsementPartyId>
+    </CandidateSelection>
+    <Candidate id="can10967">
+        <PartyId>par0001</PartyId>
+        <PersonId>per10967</PersonId>
+        <BallotName>
+            <Text language="en">E. W. Jackson</Text>
+        </BallotName>
+    </Candidate>
+    <Person id="per10967">
+        <ContactInformationId>ci10967</ContactInformationId>
+        <PartyId>par0001</PartyId>
+        <FirstName>E.</FirstName>
+        <LastName>Jackson</LastName>
+        <MiddleName>W.</MiddleName>
+    </Person>
+    <ContactInformation id="ci10967">
+        <AddressLine>Jackson for Lt. Governor</AddressLine>
+        <AddressLine>PO Box 15003</AddressLine>
+        <AddressLine>Chesapeake, VA 23328</AddressLine>
+        <Phone>7578024246</Phone>
+        <Uri>http://www.jacksonforlg.com</Uri>
+        <Email>jackson@jacksonforlg.com</Email>
+    </ContactInformation>
 
-            <filed_mailing_address>
-                <Name/>
-                <AddressLine>Jackson for Lt. Governor</AddressLine>
-                <AddressLine>PO Box 15003</AddressLine>
-                <AddressLine>Chesapeake, VA 23328</AddressLine>
-            </filed_mailing_address>
-            <email>jackson@jacksonforlg.com</email>
-            <candidate_status/>
-        </candidate>
-    </contest>
     <contest id="20005">
         <ElectionId>el30000</ElectionId>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
