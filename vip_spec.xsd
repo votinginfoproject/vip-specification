@@ -15,7 +15,7 @@ reference elements for polling location
             <xs:all>
               <xs:element name="DateTime" type="xs:dateTime" />
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="FeedContactInformationId" type="ContactInformationType" minOccurs="0" />
+              <xs:element name="FeedContactInformation" type="ContactInformationType" minOccurs="0" />
               <xs:element name="Name" type="xs:string" />
               <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
               <xs:element name="TermsOfUseUrl" type="xs:anyURI" minOccurs="0" />
@@ -76,7 +76,7 @@ reference elements for polling location
         <xs:element name="Locality" type="LocalityBase" />
         <xs:element name="PollingLocation" type="PollingLocationBase" />
         <xs:element name="Precinct" type="PrecinctBase" />
-        <xs:element name="Office" type="OfficeBase" />
+        <xs:element name="Office" type="Office" />
         <xs:element name="Party" type="PartyBase" />
         <xs:element name="PartyContest" type="PartyContestType" />
         <xs:element name="PartySelection" type="PartySelectionType" />
@@ -281,7 +281,7 @@ reference elements for polling location
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="OfficeBase">
+  <xs:complexType name="Office">
     <xs:sequence>
       <xs:element name="ContactInformation" type="ContactInformationType" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
