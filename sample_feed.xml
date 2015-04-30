@@ -683,6 +683,12 @@ Not displaying street segments
         </Name>
         <Color>232066</Color>
     </Party>
+    <Party id="par0004">
+        <Abbreviation>IND</Abbreviation>
+        <Name>
+            <Text language="en">Independent</Text>
+        </Name>
+    </Party>
 
     <Office id="off0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
