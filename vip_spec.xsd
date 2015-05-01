@@ -137,7 +137,7 @@ reference elements for polling location
       <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-      <xs:element name="BallotStyleId" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
+      <xs:element name="BallotStyleId" type="xs:IDREF" minOccurs="0" maxOccurs="1" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
@@ -259,7 +259,7 @@ reference elements for polling location
       <xs:element name="PostElectionStatus" type="CandidatePostElectionStatus" minOccurs="0" />
       <xs:element name="PreElectionStatus" type="CandidatePreElectionStatus" minOccurs="0" />
       <!-- NOTE: Still trying to get feedback or an example of what this means and how it's used -->
-      <xs:element name="SequenceOrder" type="xs:integer" />
+      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -314,7 +314,7 @@ reference elements for polling location
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="OfficeHolderPersonId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
-      <xs:element name="FilingDeadline" type="xs:dateTime" minOccurs="0" />
+      <xs:element name="FilingDeadline" type="xs:date" minOccurs="0" />
       <xs:element name="Term" type="Term" minOccurs="0" />
       <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
@@ -397,8 +397,8 @@ reference elements for polling location
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="IsOrByAppointment" type="xs:boolean" maxOccurs="1" />
-            <xs:element name="IsOnlyByAppointment" type="xs:boolean" maxOccurs="1" />
+            <xs:element name="IsOrByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+            <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
             <xs:element name="IsSubjectToChange" type="xs:boolean" minOccurs="0" maxOccurs="1" />
           </xs:sequence>
         </xs:complexType>
@@ -421,7 +421,7 @@ reference elements for polling location
       <xs:element name="OtherVoteVariationType" type="xs:string" minOccurs="0" />
       <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
       <!-- NOTE: Still trying to get feedback or an example of what this means and how it's used -->
-      <xs:element name="SequenceOrder" type="xs:integer" />
+      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
