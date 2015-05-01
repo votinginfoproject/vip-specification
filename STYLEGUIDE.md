@@ -85,9 +85,9 @@ Markdown, etc).
     ````
 
 
-### Attribute Ordering
+### Element/Attribute Property Ordering
 
-Attributes should appear in the following order:
+Element and attribute properties should appear in the following order:
 
 1. name
 2. type
@@ -102,6 +102,23 @@ For example--
 <xs:attribute name="id" type="xs:ID" use="required" />
 ```
 
+### Element/Attribute Ordering
+
+Within a type, elements should be listed first, followed by attributes. Each
+should be in alphabetical order:
+
+```xml
+<xs:element name="Foo">
+  <xs:complexType>
+    <xs:all>
+      <xs:element name="Alpha" type="xs:string" />
+      <xs:element name="Gamma" type="xs:string" />
+    </xs:all>
+    <xs:attribute name="beta" type="xs:string" />
+    <xs:attribute name="id" type="xs:ID" />
+  </xs:complexType>
+</xs:element>
+```
 
 ### Enumeration Ordering and "Other"
 
