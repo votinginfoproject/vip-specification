@@ -539,6 +539,7 @@ reference elements for polling location
       <xs:element name="EndHouseNumber" type="xs:integer" />
       <xs:element name="OddEvenBoth" type="OebEnum" />
       <xs:element name="NonHouseAddress">
+        <!-- DetailAddress -->
         <xs:complexType>
           <xs:all>
             <xs:element name="HouseNumber" type="xs:integer" minOccurs="0" />
