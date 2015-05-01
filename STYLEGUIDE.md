@@ -216,6 +216,10 @@ Global type definitions should be ordered as follows:
    then complex types.
 
 3. Within each of the groups in (2) above, order them alphabetically by name.
+   When alphabetizing, view the names as words separated by spaces.
+   For example, "VoteVariation" should come before "VoterServiceType"
+   since "vote variation" comes before "voter service type" when the
+   names are viewed as words.
 
 
 ## CSV Styles

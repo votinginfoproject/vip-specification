@@ -5,6 +5,120 @@ added ocdid to district
 reference elements for polling location
 -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="5.0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Start enumeration types. -->
+  <xs:simpleType name="BallotMeasureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ballot-measure" />
+      <xs:enumeration value="initiative" />
+      <xs:enumeration value="referendum" />
+      <xs:enumeration value="retention" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CandidatePostElectionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="advanced-to-runoff" />
+      <xs:enumeration value="projected-winner" />
+      <xs:enumeration value="winner" />
+      <xs:enumeration value="withdrawn" />
+      <xs:enumeration value="write-in" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CandidatePreElectionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="filed" />
+      <xs:enumeration value="qualified" />
+      <xs:enumeration value="withdrawn" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DistrictType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="city" />
+      <xs:enumeration value="congressional" />
+      <xs:enumeration value="council" />
+      <xs:enumeration value="county" />
+      <xs:enumeration value="judicial" />
+      <xs:enumeration value="local" />
+      <xs:enumeration value="locality" />
+      <xs:enumeration value="municipality" />
+      <xs:enumeration value="national" />
+      <xs:enumeration value="school" />
+      <xs:enumeration value="special" />
+      <xs:enumeration value="state" />
+      <xs:enumeration value="statehouse" />
+      <xs:enumeration value="statesenate" />
+      <xs:enumeration value="township" />
+      <xs:enumeration value="utility" />
+      <xs:enumeration value="ward" />
+      <xs:enumeration value="water" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IdentifierType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ocd-id" />
+      <xs:enumeration value="fips" />
+      <xs:enumeration value="national-level" />
+      <xs:enumeration value="state-level" />
+      <xs:enumeration value="local-level" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="OebEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="odd" />
+      <xs:enumeration value="even" />
+      <xs:enumeration value="both" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="OfficeTermType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="full-term" />
+      <xs:enumeration value="unexpired-term" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VoteVariation">
+    <!-- While this will part of v5.0 of VIP, long-term this will likely get
+     replaced by whatever comes out of the 1622.6 "Voting Methods
+     Mathematical Models" Working Group
+    -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1-of-m" />
+      <xs:enumeration value="approval" />
+      <xs:enumeration value="cumulative" />
+      <xs:enumeration value="majority" />
+      <xs:enumeration value="n-of-m" />
+      <xs:enumeration value="plurality" />
+      <xs:enumeration value="proportional" />
+      <xs:enumeration value="range" />
+      <xs:enumeration value="rcv" />
+      <xs:enumeration value="rcv-borda" />
+      <xs:enumeration value="super-majority" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VoterServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="absentee-ballots" />
+      <xs:enumeration value="overseas-voting" />
+      <xs:enumeration value="polling-places" />
+      <xs:enumeration value="voter-registration" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Start non-enumeration simple types. -->
+
+
   <xs:element name="VipObject">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
@@ -547,116 +661,5 @@ reference elements for polling location
       <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
     </xs:restriction>
   </xs:simpleType>
-
-  <!-- Start of enumerated values -->
-  <xs:simpleType name="DistrictType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="city" />
-      <xs:enumeration value="congressional" />
-      <xs:enumeration value="council" />
-      <xs:enumeration value="county" />
-      <xs:enumeration value="judicial" />
-      <xs:enumeration value="local" />
-      <xs:enumeration value="locality" />
-      <xs:enumeration value="municipality" />
-      <xs:enumeration value="national" />
-      <xs:enumeration value="school" />
-      <xs:enumeration value="special" />
-      <xs:enumeration value="state" />
-      <xs:enumeration value="statehouse" />
-      <xs:enumeration value="statesenate" />
-      <xs:enumeration value="township" />
-      <xs:enumeration value="utility" />
-      <xs:enumeration value="ward" />
-      <xs:enumeration value="water" />
-      <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="IdentifierType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ocd-id" />
-      <xs:enumeration value="fips" />
-      <xs:enumeration value="national-level" />
-      <xs:enumeration value="state-level" />
-      <xs:enumeration value="local-level" />
-      <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="OebEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="odd" />
-      <xs:enumeration value="even" />
-      <xs:enumeration value="both" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="BallotMeasureType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ballot-measure" />
-      <xs:enumeration value="initiative" />
-      <xs:enumeration value="referendum" />
-      <xs:enumeration value="retention" />
-      <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="CandidatePostElectionStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="advanced-to-runoff" />
-      <xs:enumeration value="projected-winner" />
-      <xs:enumeration value="winner" />
-      <xs:enumeration value="withdrawn" />
-      <xs:enumeration value="write-in" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="CandidatePreElectionStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="filed" />
-      <xs:enumeration value="qualified" />
-      <xs:enumeration value="withdrawn" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="OfficeTermType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="full-term" />
-      <xs:enumeration value="unexpired-term" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="VoteVariation">
-    <!-- While this will part of v5.0 of VIP, long-term this will likely get
-     replaced by whatever comes out of the 1622.6 "Voting Methods
-     Mathematical Models" Working Group
-    -->
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="1-of-m" />
-      <xs:enumeration value="approval" />
-      <xs:enumeration value="cumulative" />
-      <xs:enumeration value="majority" />
-      <xs:enumeration value="n-of-m" />
-      <xs:enumeration value="plurality" />
-      <xs:enumeration value="proportional" />
-      <xs:enumeration value="range" />
-      <xs:enumeration value="rcv" />
-      <xs:enumeration value="rcv-borda" />
-      <xs:enumeration value="super-majority" />
-      <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="VoterServiceType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="absentee-ballots" />
-      <xs:enumeration value="overseas-voting" />
-      <xs:enumeration value="polling-places" />
-      <xs:enumeration value="voter-registration" />
-      <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-  <!-- End of enumerated values -->
 
 </xs:schema>
