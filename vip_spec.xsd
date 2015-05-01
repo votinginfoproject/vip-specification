@@ -119,7 +119,8 @@ reference elements for polling location
     <xs:sequence>
       <xs:element name="Name" type="xs:string" />
       <xs:element name="StateId" type="xs:IDREF" />
-      <xs:element name="Type" type="xs:string" />
+      <xs:element name="Type" type="DistrictType" />
+      <xs:element name="OtherType" type="xs:string" minOccurs="0" />
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="PollingLocationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
