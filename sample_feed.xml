@@ -31,7 +31,7 @@ Not displaying street segments
         <StateId>st51</StateId>
         <IsStatewide>true</IsStatewide>
         <ResultsUrl>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUrl>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
         <HasElectionDayRegistration>false</HasElectionDayRegistration>
         <RegistrationDeadline>2013-10-15</RegistrationDeadline>
         <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
@@ -87,7 +87,7 @@ Not displaying street segments
         </Department>
     </ElectionAdministration>
 
-    <HoursOpen id="sched0000">
+    <HoursOpen id="hours0000">
         <Schedule>
             <Hours>
                 <StartTime>08:30:00-05:00</StartTime>
@@ -95,7 +95,7 @@ Not displaying street segments
             </Hours>
         </Schedule>
     </HoursOpen>
-    <HoursOpen id="sched0001">
+    <HoursOpen id="hours0001">
         <Schedule>
             <StartDate>2013-11-05</StartDate>
             <EndDate>2013-11-05</EndDate>
@@ -120,7 +120,7 @@ Not displaying street segments
         <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
         <AddressLine>2775 Hydraulic Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229018917</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90139">
@@ -137,7 +137,7 @@ Not displaying street segments
         <AddressLine>SENIOR CENTER</AddressLine>
         <AddressLine>1180 Pepsi Pl</AddressLine>
         <AddressLine>Charlottesville, VA 229012865</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90183">
@@ -153,7 +153,7 @@ Not displaying street segments
         <AddressLine>FREE UNION BAPTIST CHURCH</AddressLine>
         <AddressLine>4282 Millington Rd</AddressLine>
         <AddressLine>Free Union, VA 229402131</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90348sp0000">
@@ -182,7 +182,7 @@ Not displaying street segments
         <AddressLine>JACK JOUETT MIDDLE SCHOOL</AddressLine>
         <AddressLine>210 Lambs Ln</AddressLine>
         <AddressLine>Charlottesville, VA 229018951</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90614">
@@ -198,7 +198,7 @@ Not displaying street segments
         <AddressLine>HOLLYMEAD ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>2775 Powell Creek Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229117539</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90666">
@@ -215,7 +215,7 @@ Not displaying street segments
         <AddressLine>CATEC</AddressLine>
         <AddressLine>1000 Rio Rd E</AddressLine>
         <AddressLine>Charlottesville, VA 229011803</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90929">
@@ -232,7 +232,7 @@ Not displaying street segments
         <AddressLine>STONE-ROBINSON ELEM SCHOOL</AddressLine>
         <AddressLine>958 N Milton Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229113612</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre90994sp0000">
@@ -259,7 +259,7 @@ Not displaying street segments
         <AddressLine>ELKS LODGE HALL</AddressLine>
         <AddressLine>389 Elk Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229118434</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre91089sp0000">
@@ -286,7 +286,7 @@ Not displaying street segments
         <AddressLine>STONY POINT ELEM SCHOOL</AddressLine>
         <AddressLine>3893 Stony Point Rd</AddressLine>
         <AddressLine>Keswick, VA 229471503</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre91298">
@@ -303,7 +303,7 @@ Not displaying street segments
         <AddressLine>EARLYSVILLE FIRE DEPARTMENT</AddressLine>
         <AddressLine>283 Reas Ford Rd</AddressLine>
         <AddressLine>Earlysville, VA 229362410</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre91602">
@@ -323,7 +323,7 @@ Not displaying street segments
         <Directions>
             <Text language="en">North Lobby</Text>
         </Directions>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre91781sp0000">
@@ -353,7 +353,7 @@ Not displaying street segments
         <AddressLine>WOODBROOK ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>100 Woodbrook Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229011133</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre91918">
@@ -370,7 +370,7 @@ Not displaying street segments
         <AddressLine>RED HILL ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>3901 Red Hill School Rd</AddressLine>
         <AddressLine>North Garden, VA 229591704</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre91999">
@@ -387,7 +387,7 @@ Not displaying street segments
         <AddressLine>PAUL H CALE ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>1757 Avon Street Ext</AddressLine>
         <AddressLine>Charlottesville, VA 229028708</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92065">
@@ -404,7 +404,7 @@ Not displaying street segments
         <AddressLine>BEREAN BAPTIST CHURCH</AddressLine>
         <AddressLine>1284 Sunset Avenue Ext</AddressLine>
         <AddressLine>Charlottesville, VA 229037862</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92087">
@@ -420,7 +420,7 @@ Not displaying street segments
         <AddressLine>BROWNSVILLE ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
         <AddressLine>Crozet, VA 229323401</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92140">
@@ -436,7 +436,7 @@ Not displaying street segments
         <AddressLine>ZION HILL BAPTIST CHURCH</AddressLine>
         <AddressLine>802 Zion Hill Rd</AddressLine>
         <AddressLine>Keswick, VA 229472409</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92145">
@@ -452,7 +452,7 @@ Not displaying street segments
         <AddressLine>CROZET ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>1407 Crozet Ave</AddressLine>
         <AddressLine>Crozet, VA 229322722</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92171sp0000">
@@ -481,7 +481,7 @@ Not displaying street segments
         <AddressLine>SCOTTSVILLE ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>7868 Scottsville Rd</AddressLine>
         <AddressLine>Scottsville, VA 245903963</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92175">
@@ -498,7 +498,7 @@ Not displaying street segments
         <AddressLine>AGNOR-HURT ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>3201 Berkmar Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229011475</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92306">
@@ -515,7 +515,7 @@ Not displaying street segments
         <AddressLine>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</AddressLine>
         <AddressLine>799 Faulconer Drive</AddressLine>
         <AddressLine>Charlottesville, VA 22903</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
 
     </PollingLocation>
 
@@ -533,7 +533,7 @@ Not displaying street segments
         <AddressLine>MONTICELLO HIGH SCHOOL</AddressLine>
         <AddressLine>1400 Independence Way</AddressLine>
         <AddressLine>Charlottesville, VA 229028745</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92353">
@@ -549,7 +549,7 @@ Not displaying street segments
         <AddressLine>BROADUS WOOD ELEM SCHOOL</AddressLine>
         <AddressLine>185 Buck Mountain Rd</AddressLine>
         <AddressLine>Earlysville, VA 229362009</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92360">
@@ -566,7 +566,7 @@ Not displaying street segments
         <AddressLine>MERIWETHER LEWIS ELEM SCHOOL</AddressLine>
         <AddressLine>1610 Owensville Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229019407</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <Precinct id="pre92426">
@@ -583,7 +583,7 @@ Not displaying street segments
         <AddressLine>MILLER CENTER</AddressLine>
         <AddressLine>2201 Old Ivy Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229034822</AddressLine>
-        <HoursOpenId>sched0001</HoursOpenId>
+        <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
 
     <ElectoralDistrict id="ed60030">
@@ -1584,7 +1584,7 @@ Not displaying street segments
     <ContactInformation id="ci60001">
         <AddressLine>1600 5TH STREET</AddressLine>
         <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
-        <HoursOpenId>sched0000</HoursOpenId>
+        <HoursOpenId>hours0000</HoursOpenId>
         <Name>ALBEMARLE COUNTY VOTER REGISTRATION</Name>
     </ContactInformation>
     <ContactInformation id="ci60002">
