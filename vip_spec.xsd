@@ -126,7 +126,7 @@ reference elements for polling location
   <!-- Complex types. -->
   <xs:complexType name="BallotMeasureContestType">
     <xs:complexContent>
-      <xs:extension base="ContestType">
+      <xs:extension base="ContestBase">
         <xs:sequence>
           <xs:element name="ConStatement" type="InternationalizedText" minOccurs="0" />
           <xs:element name="FullText" type="InternationalizedText" minOccurs="0" />
@@ -146,7 +146,7 @@ reference elements for polling location
   <!-- Generic string for a ballot measure (referendum) selection -->
   <xs:complexType name="BallotMeasureSelection">
     <xs:complexContent>
-      <xs:extension base="BallotSelectionType">
+      <xs:extension base="BallotSelectionBase">
         <xs:sequence>
           <xs:element name="Selection" type="InternationalizedText" />
         </xs:sequence>
@@ -154,7 +154,7 @@ reference elements for polling location
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="BallotSelectionType">
+  <xs:complexType name="BallotSelectionBase" abstract="true">
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
@@ -186,7 +186,7 @@ reference elements for polling location
 
   <xs:complexType name="CandidateContest">
     <xs:complexContent>
-      <xs:extension base="ContestType">
+      <xs:extension base="ContestBase">
         <xs:sequence>
           <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
           <xs:element name="PrimaryPartyId" type="xs:IDREF" minOccurs="0" />
@@ -199,7 +199,7 @@ reference elements for polling location
 
   <xs:complexType name="CandidateSelection">
     <xs:complexContent>
-      <xs:extension base="BallotSelectionType">
+      <xs:extension base="BallotSelectionBase">
         <xs:sequence>
           <xs:element name="CandidateId" type="xs:IDREF" maxOccurs="unbounded" />
           <xs:element name="EndorsementPartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
@@ -227,7 +227,7 @@ reference elements for polling location
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
-  <xs:complexType name="ContestType">
+  <xs:complexType name="ContestBase" abstract="true">
     <xs:sequence>
       <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
@@ -456,13 +456,13 @@ reference elements for polling location
 
   <xs:complexType name="PartyContest">
     <xs:complexContent>
-      <xs:extension base="ContestType" />
+      <xs:extension base="ContestBase" />
     </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="PartySelection">
     <xs:complexContent>
-      <xs:extension base="BallotSelectionType">
+      <xs:extension base="BallotSelectionBase">
         <xs:sequence>
           <xs:element name="PartyId" type="xs:IDREF" maxOccurs="unbounded" />
         </xs:sequence>
@@ -626,8 +626,8 @@ reference elements for polling location
 
         <!-- This replaces the "referendum" element in VIP -->
         <xs:element name="BallotMeasureContest" type="BallotMeasureContestType" />
-        <xs:element name="Contest" type="ContestType" />
-        <xs:element name="BallotSelection" type="BallotSelectionType" />
+        <xs:element name="Contest" type="ContestBase" />
+        <xs:element name="BallotSelection" type="BallotSelectionBase" />
 
         <!-- Generic string for a ballot measure (referendum) selection -->
         <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" />
