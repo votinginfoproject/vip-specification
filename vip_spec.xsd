@@ -662,7 +662,7 @@ reference elements for polling location
 
       </xs:choice>
 
-      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="3.0" />
+      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.0" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

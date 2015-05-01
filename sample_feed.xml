@@ -51,7 +51,6 @@ Not displaying street segments
     <Locality id="loc70001">
         <Name>ALBEMARLE COUNTY</Name>
         <StateId>st51</StateId>
-        <!-- District type? -->
         <Type>county</Type>
         <ElectionAdministrationId>ea40001</ElectionAdministrationId>
         <ExternalIdentifiers>
@@ -717,7 +716,6 @@ Not displaying street segments
         <BallotSelectionId>cs10961</BallotSelectionId>
         <BallotSelectionId>cs10962</BallotSelectionId>
         <BallotSelectionId>cs10963</BallotSelectionId>
-<!--        <ElectionId>el30000</ElectionId> -->
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <Name>Governor</Name>
         <BallotTitle>
@@ -726,10 +724,6 @@ Not displaying street segments
         <OfficeId>off0000</OfficeId>
         <NumberElected>1</NumberElected>
         <VotesAllowed>1</VotesAllowed>
-<!--
-        <ballot_placement>4</ballot_placement>
-        <write_in>yes</write_in>
-  -->
     </CandidateContest>
     <CandidateContest id="cc20004">
         <BallotSelectionId>cs10961</BallotSelectionId>
