@@ -124,7 +124,7 @@ reference elements for polling location
   </xs:simpleType>
 
   <!-- Complex types. -->
-  <xs:complexType name="BallotMeasureContestType">
+  <xs:complexType name="BallotMeasureContest">
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
@@ -160,7 +160,7 @@ reference elements for polling location
 
   <xs:complexType name="BallotStyle">
     <xs:sequence>
-      <xs:element name="OrderedContest" type="OrderedContestType" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="OrderedContest" type="OrderedContest" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ImageUri" type="xs:anyURI" minOccurs="0" />
     </xs:sequence>
@@ -246,7 +246,7 @@ reference elements for polling location
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
-  <xs:complexType name="DetailAddressType">
+  <xs:complexType name="DetailAddress">
     <xs:all>
       <xs:element name="HouseNumber" type="xs:integer" minOccurs="0" />
       <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
@@ -430,7 +430,7 @@ reference elements for polling location
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
-  <xs:complexType name="OrderedContestType">
+  <xs:complexType name="OrderedContest">
     <xs:sequence>
       <xs:element name="ContestId" type="xs:IDREF" />
       <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
@@ -522,7 +522,7 @@ reference elements for polling location
 
   <xs:complexType name="RetentionContest">
     <xs:complexContent>
-      <xs:extension base="BallotMeasureContestType">
+      <xs:extension base="BallotMeasureContest">
         <xs:sequence>
           <xs:element name="CandidateId" type="xs:IDREF" />
           <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" />
@@ -536,7 +536,7 @@ reference elements for polling location
       <xs:element name="StartHouseNumber" type="xs:integer" />
       <xs:element name="EndHouseNumber" type="xs:integer" />
       <xs:element name="OddEvenBoth" type="OebEnum" />
-      <xs:element name="NonHouseAddress" type="DetailAddressType" />
+      <xs:element name="NonHouseAddress" type="DetailAddress" />
       <xs:element name="UnitNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="PrecinctId" type="xs:IDREF" />
     </xs:sequence>
@@ -625,7 +625,7 @@ reference elements for polling location
         <!--end of administration elements-->
 
         <!-- This replaces the "referendum" element in VIP -->
-        <xs:element name="BallotMeasureContest" type="BallotMeasureContestType" />
+        <xs:element name="BallotMeasureContest" type="BallotMeasureContest" />
         <xs:element name="Contest" type="ContestBase" />
         <xs:element name="BallotSelection" type="BallotSelectionBase" />
 
