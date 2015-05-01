@@ -52,7 +52,7 @@ Not displaying street segments
         <Name>ALBEMARLE COUNTY</Name>
         <StateId>st51</StateId>
         <!-- District type? -->
-        <Type>COUNTY</Type>
+        <Type>county</Type>
         <ElectionAdministrationId>ea40001</ElectionAdministrationId>
         <ExternalIdentifiers>
             <ExternalIdentifier>
