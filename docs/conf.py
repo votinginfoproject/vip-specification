@@ -49,7 +49,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Voting Information Project Specification'
+project = u'VIP Specification'
 copyright = u'2015, Aaron Strauss, Jared Marcotte, Justin Moore, Paul Stenbjorn, Chris Jerdonek, Dave McGivney, Noma Thayer, Mike Jensen, and others'
 author = u'Aaron Strauss, Jared Marcotte, Justin Moore, Paul Stenbjorn, Chris Jerdonek, Dave McGivney, Noma Thayer, Mike Jensen, and others'
 
