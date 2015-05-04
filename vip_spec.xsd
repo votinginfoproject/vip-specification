@@ -160,7 +160,7 @@ reference elements for polling location
 
   <xs:complexType name="BallotStyle">
     <xs:sequence>
-      <xs:element name="OrderedContest" type="OrderedContest" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="OrderedContestId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ImageUri" type="xs:anyURI" minOccurs="0" />
     </xs:sequence>
@@ -645,6 +645,8 @@ reference elements for polling location
         <xs:element name="ContactInformation" type="ContactInformation" />
 
         <xs:element name="Office" type="Office" />
+
+        <xs:element name="OrderedContest" type="OrderedContest" />
 
         <xs:element name="Party" type="Party" />
 
