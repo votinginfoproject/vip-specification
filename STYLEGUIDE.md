@@ -71,7 +71,7 @@ Markdown, etc).
 
     ```xml
     <xs:attribute name="id" type="xs:ID" use="required" />
-    ````
+    ```
   Note that this departs from the style used by [VSSC 1622.2][vssc_1622],
   where the name is "object_id".
 
@@ -82,7 +82,13 @@ Markdown, etc).
 
     ```xml
     <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
-    ````
+    ```
+  If the type is abstract, the trailing "Base" should be removed prior
+  to adding "Id".  For example,
+    ```xml
+    <!-- Instead of ContestBaseId. -->
+    <xs:element name="ContestId" type="xs:IDREF" />
+    ```
 
 
 ### Element/Attribute Property Ordering
