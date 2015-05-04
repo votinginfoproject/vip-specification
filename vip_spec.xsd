@@ -224,7 +224,7 @@ reference elements for polling location
       <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
-    <xs:attribute name="id" type="xs:ID" use="required" />
+    <xs:attribute name="identifier" type="xs:string" use="required" />
   </xs:complexType>
 
   <xs:complexType name="ContestBase" abstract="true">
@@ -259,7 +259,7 @@ reference elements for polling location
       <xs:element name="Department" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" />
+            <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
             <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
             <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
@@ -274,7 +274,7 @@ reference elements for polling location
               service has its own phone number, the ContactInformation object
               below can be an object containing only a Phone element.
               -->
-                  <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" />
+                  <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
                   <!--
               This is for use if a certain person handles the particular service,
               for example a contact person for overseas voting.
@@ -417,7 +417,7 @@ reference elements for polling location
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -466,7 +466,7 @@ reference elements for polling location
   <xs:complexType name="Person">
     <xs:sequence>
       <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
-      <xs:element name="ContactInformationId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="FirstName" type="xs:string" minOccurs="0" />
       <xs:element name="LastName" type="xs:string" minOccurs="0" />
@@ -577,7 +577,7 @@ reference elements for polling location
               <xs:element name="DateTime" type="xs:dateTime" />
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="OrganizationUrl" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="FeedContactInformationId" type="xs:IDREF" minOccurs="0" />
+              <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
               <xs:element name="TermsOfUseUrl" type="xs:anyURI" minOccurs="0" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />
@@ -641,8 +641,6 @@ reference elements for polling location
         <xs:element name="CandidateContest" type="CandidateContest" />
 
         <xs:element name="CandidateSelection" type="CandidateSelection" />
-
-        <xs:element name="ContactInformation" type="ContactInformation" />
 
         <xs:element name="Office" type="Office" />
 
