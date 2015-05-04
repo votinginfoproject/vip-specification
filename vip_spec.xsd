@@ -224,7 +224,7 @@ reference elements for polling location
       <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
-    <xs:attribute name="identifier" type="xs:ID" use="required" />
+    <xs:attribute name="identifier" type="xs:string" use="required" />
   </xs:complexType>
 
   <xs:complexType name="ContestBase" abstract="true">
