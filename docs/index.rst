@@ -28,7 +28,7 @@ XML Documentation
 .. toctree::
    :maxdepth: 2
 
-   xml/source
+   xml/index
 
 .. _csv-docs:
 
