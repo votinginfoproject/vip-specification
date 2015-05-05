@@ -19,7 +19,7 @@
       <Text language="en">SBE is the official source for Virginia data</Text>
     </Description>
     <Name>State Board of Elections, Commonwealth of Virginia</Name>
-    <OrganizationUrl>http://www.sbe.virginia.gov/</OrganizationUrl>
+    <OrganizationUri>http://www.sbe.virginia.gov/</OrganizationUri>
     <VipId>51</VipId>
   </Source>
 
@@ -35,7 +35,7 @@
     <HoursOpenId>hours0001</HoursOpenId>
     <IsStatewide>true</IsStatewide>
     <RegistrationDeadline>2013-10-15</RegistrationDeadline>
-    <ResultsUrl>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUrl>
+    <ResultsUri>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUri>
     <StateId>st51</StateId>
   </Election>
 
@@ -67,8 +67,8 @@
 
   <!-- Information about the election administration organizations for various jurisdictions. -->
   <ElectionAdministration id="ea40133">
-    <AbsenteeUrl>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUrl>
-    <AmIRegisteredUrl>https://www.vote.virginia.gov/</AmIRegisteredUrl>
+    <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
+    <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
     <Department>
       <ContactInformation identifier="ci60000">
         <AddressLine>Washington Building First Floor</AddressLine>
@@ -77,15 +77,15 @@
         <Name>State Board of Elections</Name>
       </ContactInformation>
     </Department>
-    <ElectionsUrl>http://www.sbe.virginia.gov/</ElectionsUrl>
-    <RegistrationUrl>https://www.vote.virginia.gov/</RegistrationUrl>
-    <RulesUrl>http://www.sbe.virginia.gov/</RulesUrl>
-    <WhatIsOnMyBallotUrl>https://www.vote.virginia.gov/</WhatIsOnMyBallotUrl>
-    <WhereDoIVoteUrl>https://www.vote.virginia.gov/</WhereDoIVoteUrl>
+    <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
+    <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+    <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
+    <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
+    <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
   </ElectionAdministration>
   <ElectionAdministration id="ea40001">
-    <AbsenteeUrl>http://www.vote.virginia.gov</AbsenteeUrl>
-    <AmIRegisteredUrl>http://www.vote.virginia.gov</AmIRegisteredUrl>
+    <AbsenteeUri>http://www.vote.virginia.gov</AbsenteeUri>
+    <AmIRegisteredUri>http://www.vote.virginia.gov</AmIRegisteredUri>
     <Department>
       <ContactInformation identifier="ci60001">
         <AddressLine>1600 5TH STREET</AddressLine>
@@ -95,11 +95,11 @@
       </ContactInformation>
       <ElectionOfficialPersonId>per50001</ElectionOfficialPersonId>
     </Department>
-    <ElectionsUrl>http://www.albemarle.org/registrar</ElectionsUrl>
-    <RegistrationUrl>http://www.vote.virginia.gov</RegistrationUrl>
-    <RulesUrl>http://www.vote.virginia.gov</RulesUrl>
-    <WhatIsOnMyBallotUrl>http://www.vote.virginia.gov</WhatIsOnMyBallotUrl>
-    <WhereDoIVoteUrl>http://www.vote.virginia.gov</WhereDoIVoteUrl>
+    <ElectionsUri>http://www.albemarle.org/registrar</ElectionsUri>
+    <RegistrationUri>http://www.vote.virginia.gov</RegistrationUri>
+    <RulesUri>http://www.vote.virginia.gov</RulesUri>
+    <WhatIsOnMyBallotUri>http://www.vote.virginia.gov</WhatIsOnMyBallotUri>
+    <WhereDoIVoteUri>http://www.vote.virginia.gov</WhereDoIVoteUri>
   </ElectionAdministration>
   <!-- A person referenced by an election administration object. -->
   <Person id="per50001">
