@@ -114,7 +114,7 @@ Within a type, elements should be listed first, followed by attributes. Each
 should be in alphabetical order, with only two exceptions:
 
 1. If an element named `Foo` is an enumeration which contains a value
-   `other`, then `OtherFoo` should be placed after `Type`.
+   `other`, then `OtherFoo` should be placed immediately after `Foo`.
 2. If a pair of values represent a range and are named `StartFoo` and `EndFoo`,
    `EndFoo` should be placed after `StartFoo`.
 
