@@ -237,8 +237,8 @@ reference elements for polling location
       <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" />
       <xs:element name="Name" type="xs:string" />
       <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
-      <xs:element name="VoteVariationType" type="VoteVariation" minOccurs="0" />
-      <xs:element name="OtherVoteVariationType" type="xs:string" minOccurs="0" />
+      <xs:element name="VoteVariation" type="VoteVariation" minOccurs="0" />
+      <xs:element name="OtherVoteVariation" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
