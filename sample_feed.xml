@@ -1,3 +1,14 @@
+<!--
+
+Sample XML file for Voting Information Project (VIP) Spec Version 5.0
+Date: 2014-03-21
+File would be named: vipFeed-51-2013-11-05.xml
+
+A sample file for one state's (Virginia's) election which is based on the 2013 general election. Including only Albemarle County
+
+Not displaying street segments
+
+-->
 <VipObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="5.0" xsi:noNamespaceSchemaLocation="http://votinginfoproject.github.com/vip-specification/vip_spec.xsd">
     <Source id="src1">
         <DateTime>2013-10-24T14:25:28</DateTime>
