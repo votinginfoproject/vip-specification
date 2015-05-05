@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
 
 Sample XML file for Voting Information Project (VIP) Spec Version 5.0
@@ -17,16 +18,14 @@ Not displaying street segments
         </Description>
         <Name>State Board of Elections, Commonwealth of Virginia</Name>
         <OrganizationUrl>http://www.sbe.virginia.gov/</OrganizationUrl>
-        
         <VipId>51</VipId>
     </Source>
-
     <Election id="ele30000">
         <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
         <Date>2013-11-05</Date>
         <ElectionType>
-          <Text language="en">General</Text>
-          <Text language="es">Generales</Text>
+            <Text language="en">General</Text>
+            <Text language="es">Generales</Text>
         </ElectionType>
         <HasElectionDayRegistration>false</HasElectionDayRegistration>
         <HoursOpenId>hours0001</HoursOpenId>
@@ -35,7 +34,6 @@ Not displaying street segments
         <ResultsUrl>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUrl>
         <StateId>st51</StateId>
     </Election>
-
     <State id="st51">
         <ElectionAdministrationId>ea40133</ElectionAdministrationId>
         <ExternalIdentifiers>
@@ -46,7 +44,6 @@ Not displaying street segments
         </ExternalIdentifiers>
         <Name>Virginia</Name>
     </State>
-
     <Locality id="loc70001">
         <ElectionAdministrationId>ea40001</ElectionAdministrationId>
         <ExternalIdentifiers>
@@ -59,7 +56,6 @@ Not displaying street segments
         <StateId>st51</StateId>
         <Type>county</Type>
     </Locality>
-
     <ElectionAdministration id="ea40133">
         <AbsenteeUrl>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUrl>
         <AmIRegisteredUrl>https://www.vote.virginia.gov/</AmIRegisteredUrl>
@@ -95,7 +91,6 @@ Not displaying street segments
         <WhatIsOnMyBallotUrl>http://www.vote.virginia.gov</WhatIsOnMyBallotUrl>
         <WhereDoIVoteUrl>http://www.vote.virginia.gov</WhereDoIVoteUrl>
     </ElectionAdministration>
-
     <HoursOpen id="hours0000">
         <Schedule>
             <Hours>
@@ -114,7 +109,6 @@ Not displaying street segments
             <EndDate>2013-11-05</EndDate>
         </Schedule>
     </HoursOpen>
-
     <Precinct id="pre90111">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
@@ -131,7 +125,6 @@ Not displaying street segments
         <AddressLine>Charlottesville, VA 229018917</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90139">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
@@ -148,183 +141,174 @@ Not displaying street segments
         <AddressLine>Charlottesville, VA 229012865</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90183">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>602 - FREE UNION</Name>
         <Number>0602</Number>
         <PollingLocationId>pl81853</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81853">
         <AddressLine>FREE UNION BAPTIST CHURCH</AddressLine>
         <AddressLine>4282 Millington Rd</AddressLine>
         <AddressLine>Free Union, VA 229402131</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90348sp0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>201 - JACK JOUETT</Name>
         <Number>0201</Number>
         <PollingLocationId>pl81662</PollingLocationId>
         <PrecinctSplitName>0000</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <Precinct id="pre90348sp0001">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>201 - JACK JOUETT</Name>
         <Number>0201</Number>
         <PollingLocationId>pl81662</PollingLocationId>
         <PrecinctSplitName>0001</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81662">
         <AddressLine>JACK JOUETT MIDDLE SCHOOL</AddressLine>
         <AddressLine>210 Lambs Ln</AddressLine>
         <AddressLine>Charlottesville, VA 229018951</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90614">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>503 - HOLLYMEAD</Name>
         <Number>0503</Number>
         <PollingLocationId>pl80142</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80142">
         <AddressLine>HOLLYMEAD ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>2775 Powell Creek Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229117539</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90666">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>105 - DUNLORA</Name>
         <Number>0105</Number>
         <PollingLocationId>pl80522</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80522">
         <AddressLine>CATEC</AddressLine>
         <AddressLine>1000 Rio Rd E</AddressLine>
         <AddressLine>Charlottesville, VA 229011803</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90929">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>406 - STONE ROBINSON</Name>
         <Number>0406</Number>
         <PollingLocationId>pl81500</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81500">
         <AddressLine>STONE-ROBINSON ELEM SCHOOL</AddressLine>
         <AddressLine>958 N Milton Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229113612</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre90994sp0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>504 - FREE BRIDGE</Name>
         <Number>0504</Number>
         <PollingLocationId>pl80469</PollingLocationId>
         <PrecinctSplitName>0000</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <Precinct id="pre90994sp0001">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>504 - FREE BRIDGE</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>504 - FREE BRIDGE</Name>
         <Number>0504</Number>
         <PollingLocationId>pl80469</PollingLocationId>
         <PrecinctSplitName>0001</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80469">
         <AddressLine>ELKS LODGE HALL</AddressLine>
         <AddressLine>389 Elk Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229118434</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre91089sp0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>502 - STONY POINT</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>502 - STONY POINT</Name>
         <Number>0502</Number>
         <PollingLocationId>pl81516</PollingLocationId>
         <PrecinctSplitName>0000</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <Precinct id="pre91089sp0001">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>502 - STONY POINT</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>502 - STONY POINT</Name>
         <Number>0502</Number>
         <PollingLocationId>pl81516</PollingLocationId>
         <PrecinctSplitName>0001</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81516">
         <AddressLine>STONY POINT ELEM SCHOOL</AddressLine>
         <AddressLine>3893 Stony Point Rd</AddressLine>
         <AddressLine>Keswick, VA 229471503</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre91298">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>106 - NORTHSIDE</Name>
         <Number>0106</Number>
         <PollingLocationId>pl82419</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl82419">
         <AddressLine>EARLYSVILLE FIRE DEPARTMENT</AddressLine>
         <AddressLine>283 Reas Ford Rd</AddressLine>
         <AddressLine>Earlysville, VA 229362410</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre91602">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>202 - UNIVERSITY HALL</Name>
         <Number>0202</Number>
         <PollingLocationId>pl81466</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81466">
         <AddressLine>UNIVERSITY HALL</AddressLine>
         <AddressLine>300 Massie Rd</AddressLine>
@@ -334,277 +318,261 @@ Not displaying street segments
         </Directions>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre91781sp0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>101 - WOODBROOK</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>101 - WOODBROOK</Name>
         <Number>0101</Number>
         <PollingLocationId>pl81857</PollingLocationId>
         <PrecinctSplitName>0000</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <Precinct id="pre91781sp0001">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>101 - WOODBROOK</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>101 - WOODBROOK</Name>
         <Number>0101</Number>
         <PollingLocationId>pl81857</PollingLocationId>
         <PrecinctSplitName>0001</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81857">
         <AddressLine>WOODBROOK ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>100 Woodbrook Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229011133</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre91918">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60107</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>302 - RED HILL</Name>
         <Number>0302</Number>
         <PollingLocationId>pl81990</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81990">
         <AddressLine>RED HILL ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>3901 Red Hill School Rd</AddressLine>
         <AddressLine>North Garden, VA 229591704</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre91999">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>405 - CALE</Name>
         <Number>0405</Number>
         <PollingLocationId>pl82177</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl82177">
         <AddressLine>PAUL H CALE ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>1757 Avon Street Ext</AddressLine>
         <AddressLine>Charlottesville, VA 229028708</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92065">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <ElectoralDistrictId>ed60107</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>305 - COUNTRY GREEN</Name>
         <Number>0305</Number>
         <PollingLocationId>pl80548</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80548">
         <AddressLine>BEREAN BAPTIST CHURCH</AddressLine>
         <AddressLine>1284 Sunset Avenue Ext</AddressLine>
         <AddressLine>Charlottesville, VA 229037862</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92087">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>604 - BROWNSVILLE</Name>
         <Number>0604</Number>
         <PollingLocationId>pl81939</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81939">
         <AddressLine>BROWNSVILLE ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
         <AddressLine>Crozet, VA 229323401</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92140">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>501 - KESWICK</Name>
         <Number>0501</Number>
         <PollingLocationId>pl80354</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80354">
         <AddressLine>ZION HILL BAPTIST CHURCH</AddressLine>
         <AddressLine>802 Zion Hill Rd</AddressLine>
         <AddressLine>Keswick, VA 229472409</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92145">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>601 - CROZET</Name>
         <Number>0601</Number>
         <PollingLocationId>pl82204</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl82204">
         <AddressLine>CROZET ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>1407 Crozet Ave</AddressLine>
         <AddressLine>Crozet, VA 229322722</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92171sp0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>401 - SCOTTSVILLE</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>401 - SCOTTSVILLE</Name>
         <Number>0401</Number>
         <PollingLocationId>pl80541</PollingLocationId>
         <PrecinctSplitName>0000</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <Precinct id="pre92171sp0001">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-            <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
-            <Name>401 - SCOTTSVILLE</Name>
+        <LocalityId>loc70001</LocalityId>
+        <Name>401 - SCOTTSVILLE</Name>
         <Number>0401</Number>
         <PollingLocationId>pl80541</PollingLocationId>
         <PrecinctSplitName>0001</PrecinctSplitName>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80541">
         <AddressLine>SCOTTSVILLE ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>7868 Scottsville Rd</AddressLine>
         <AddressLine>Scottsville, VA 245903963</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92175">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60081</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>104 - AGNOR-HURT</Name>
         <Number>0104</Number>
         <PollingLocationId>pl80432</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80432">
         <AddressLine>AGNOR-HURT ELEMENTARY SCHOOL</AddressLine>
         <AddressLine>3201 Berkmar Dr</AddressLine>
         <AddressLine>Charlottesville, VA 229011475</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92306">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <ElectoralDistrictId>ed60054</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>204 - BELFIELD</Name>
         <Number>0204</Number>
         <PollingLocationId>pl81191</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81191">
         <AddressLine>ST ANNE'S-BELFIELD LWR SCHOOL - Convocation Ctr.</AddressLine>
         <AddressLine>799 Faulconer Drive</AddressLine>
         <AddressLine>Charlottesville, VA 22903</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
-
     </PollingLocation>
-
     <Precinct id="pre92320">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <ElectoralDistrictId>ed60103</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>402 - MONTICELLO</Name>
         <Number>0402</Number>
         <PollingLocationId>pl82220</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl82220">
         <AddressLine>MONTICELLO HIGH SCHOOL</AddressLine>
         <AddressLine>1400 Independence Way</AddressLine>
         <AddressLine>Charlottesville, VA 229028745</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92353">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60076</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>603 - EARLYSVILLE</Name>
         <Number>0603</Number>
         <PollingLocationId>pl80131</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl80131">
         <AddressLine>BROADUS WOOD ELEM SCHOOL</AddressLine>
         <AddressLine>185 Buck Mountain Rd</AddressLine>
         <AddressLine>Earlysville, VA 229362009</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92360">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>301 - IVY</Name>
         <Number>0301</Number>
         <PollingLocationId>pl81118</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81118">
         <AddressLine>MERIWETHER LEWIS ELEM SCHOOL</AddressLine>
         <AddressLine>1610 Owensville Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229019407</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <Precinct id="pre92426">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60150</ElectoralDistrictId>
         <ElectoralDistrictId>ed60030</ElectoralDistrictId>
         <IsMailOnly>false</IsMailOnly>
-    <LocalityId>loc70001</LocalityId>
+        <LocalityId>loc70001</LocalityId>
         <Name>304 - EAST IVY</Name>
         <Number>0304</Number>
         <PollingLocationId>pl81213</PollingLocationId>
-        </Precinct>
+    </Precinct>
     <PollingLocation id="pl81213">
         <AddressLine>MILLER CENTER</AddressLine>
         <AddressLine>2201 Old Ivy Rd</AddressLine>
         <AddressLine>Charlottesville, VA 229034822</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-
     <ElectoralDistrict id="ed60030">
         <Name>SAMUEL MILLER DISTRICT</Name>
         <Number>3</Number>
-    <Type>local</Type>
-        </ElectoralDistrict>
+        <Type>local</Type>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60054">
         <Name>JACK JOUETT DISTRICT</Name>
         <Number>2</Number>
-    <Type>local</Type>
-        </ElectoralDistrict>
+        <Type>local</Type>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60076">
         <ExternalIdentifiers>
             <ExternalIdentifier>
@@ -612,20 +580,20 @@ Not displaying street segments
                 <Value>ocd-division/country:us/state:va/sldl:58</Value>
             </ExternalIdentifier>
         </ExternalIdentifiers>
-    <Name>House of Delegates District - 058</Name>
+        <Name>House of Delegates District - 058</Name>
         <Number>58</Number>
         <Type>statehouse</Type>
-        </ElectoralDistrict>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60081">
         <Name>RIO DISTRICT</Name>
         <Number>1</Number>
-    <Type>local</Type>
-        </ElectoralDistrict>
+        <Type>local</Type>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60103">
         <Name>SCOTTSVILLE DISTRICT</Name>
         <Number>4</Number>
-    <Type>local</Type>
-        </ElectoralDistrict>
+        <Type>local</Type>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60107">
         <ExternalIdentifiers>
             <ExternalIdentifier>
@@ -633,10 +601,10 @@ Not displaying street segments
                 <Value>ocd-division/country:us/state:va/sldl:59</Value>
             </ExternalIdentifier>
         </ExternalIdentifiers>
-    <Name>House of Delegates District - 059</Name>
+        <Name>House of Delegates District - 059</Name>
         <Number>59</Number>
         <Type>statehouse</Type>
-        </ElectoralDistrict>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60129">
         <ExternalIdentifiers>
             <ExternalIdentifier>
@@ -644,9 +612,9 @@ Not displaying street segments
                 <Value>ocd-division/country:us/state:va</Value>
             </ExternalIdentifier>
         </ExternalIdentifiers>
-    <Name>Commonwealth of Virginia</Name>
+        <Name>Commonwealth of Virginia</Name>
         <Type>state</Type>
-        </ElectoralDistrict>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60150">
         <ExternalIdentifiers>
             <ExternalIdentifier>
@@ -654,10 +622,10 @@ Not displaying street segments
                 <Value>ocd-division/country:us/state:va/sldl:25</Value>
             </ExternalIdentifier>
         </ExternalIdentifiers>
-    <Name>House of Delegates District - 025</Name>
+        <Name>House of Delegates District - 025</Name>
         <Number>25</Number>
         <Type>statehouse</Type>
-        </ElectoralDistrict>
+    </ElectoralDistrict>
     <ElectoralDistrict id="ed60311">
         <ExternalIdentifiers>
             <ExternalIdentifier>
@@ -665,39 +633,37 @@ Not displaying street segments
                 <Value>ocd-division/country:us/state:va/sldl:57</Value>
             </ExternalIdentifier>
         </ExternalIdentifiers>
-    <Name>House of Delegates District - 057</Name>
+        <Name>House of Delegates District - 057</Name>
         <Number>57</Number>
         <Type>statehouse</Type>
-        </ElectoralDistrict>
-
+    </ElectoralDistrict>
     <Party id="par0001">
         <Abbreviation>REP</Abbreviation>
         <Color>e91d0e</Color>
-    <Name>
+        <Name>
             <Text language="en">Republican</Text>
         </Name>
-        </Party>
+    </Party>
     <Party id="par0002">
         <Abbreviation>LIB</Abbreviation>
         <Color>f5f500</Color>
-    <Name>
+        <Name>
             <Text language="en">Libertarian</Text>
         </Name>
-        </Party>
+    </Party>
     <Party id="par0003">
         <Abbreviation>DEM</Abbreviation>
         <Color>232066</Color>
-    <Name>
+        <Name>
             <Text language="en">Democratic</Text>
         </Name>
-        </Party>
+    </Party>
     <Party id="par0004">
         <Abbreviation>IND</Abbreviation>
         <Name>
             <Text language="en">Independent</Text>
         </Name>
     </Party>
-
     <Office id="off0000">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <FilingDeadline>1900-01-01</FilingDeadline>
@@ -720,7 +686,6 @@ Not displaying street segments
             <Type>full-term</Type>
         </Term>
     </Office>
-
     <CandidateContest id="cc20003">
         <BallotSelectionId>cs10961</BallotSelectionId>
         <BallotSelectionId>cs10962</BallotSelectionId>
@@ -747,7 +712,6 @@ Not displaying street segments
         <OfficeId>off0001</OfficeId>
         <VotesAllowed>1</VotesAllowed>
     </CandidateContest>
-
     <CandidateSelection id="cs10961">
         <CandidateId>can10961</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -756,9 +720,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Ken T. Cuccinelli II</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10961</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10961">
         <ContactInformation identifier="ci10961">
             <AddressLine>10560 Main St, Ste 218</AddressLine>
@@ -773,8 +737,6 @@ Not displaying street segments
         <PartyId>par0001</PartyId>
         <Suffix>II</Suffix>
     </Person>
-
-
     <CandidateSelection id="cs10962">
         <CandidateId>can10962</CandidateId>
         <EndorsementPartyId>par0002</EndorsementPartyId>
@@ -783,9 +745,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Robert C. Sarvis</Text>
         </BallotName>
-    <PartyId>par0002</PartyId>
+        <PartyId>par0002</PartyId>
         <PersonId>per10962</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10962">
         <ContactInformation identifier="ci10962">
             <AddressLine>PO Box 224</AddressLine>
@@ -796,9 +758,8 @@ Not displaying street segments
         <FirstName>Robert</FirstName>
         <LastName>Sarvis</LastName>
         <MiddleName>C.</MiddleName>
-    <PartyId>par0002</PartyId>
-        </Person>
-
+        <PartyId>par0002</PartyId>
+    </Person>
     <CandidateSelection id="cs10963">
         <CandidateId>can10963</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -807,9 +768,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Terry R. McAuliffe</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10963</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10963">
         <ContactInformation identifier="ci10963">
             <AddressLine>1601 N. Kent St., Suite 900</AddressLine>
@@ -821,10 +782,8 @@ Not displaying street segments
         <FirstName>Terry</FirstName>
         <LastName>McAuliffe</LastName>
         <MiddleName>R.</MiddleName>
-    <PartyId>par0003</PartyId>
-        </Person>
-
-
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateSelection id="cs10966">
         <CandidateId>can10966</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -833,9 +792,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Ralph S. Northam</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10966</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10966">
         <ContactInformation identifier="ci10966">
             <AddressLine>PO Box 597</AddressLine>
@@ -847,9 +806,8 @@ Not displaying street segments
         <FirstName>Ralph</FirstName>
         <LastName>Northam</LastName>
         <MiddleName>S.</MiddleName>
-    <PartyId>par0003</PartyId>
-        </Person>
-
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateSelection id="cs10967">
         <CandidateId>can10967</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -858,9 +816,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">E. W. Jackson</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10967</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10967">
         <ContactInformation identifier="ci10967">
             <AddressLine>Jackson for Lt. Governor</AddressLine>
@@ -873,9 +831,8 @@ Not displaying street segments
         <FirstName>E.</FirstName>
         <LastName>Jackson</LastName>
         <MiddleName>W.</MiddleName>
-    <PartyId>par0001</PartyId>
-        </Person>
-
+        <PartyId>par0001</PartyId>
+    </Person>
     <Office id="off20005">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <FilingDeadline>1900-01-01</FilingDeadline>
@@ -895,9 +852,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Mark D. Obenshain</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10964</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10964">
         <ContactInformation identifier="ci10964">
             <AddressLine>PO Box 555</AddressLine>
@@ -909,9 +866,8 @@ Not displaying street segments
         <FirstName>Mark</FirstName>
         <LastName>Obenshain</LastName>
         <MiddleName>D.</MiddleName>
-    <PartyId>par0001</PartyId>
-        </Person>
-
+        <PartyId>par0001</PartyId>
+    </Person>
     <CandidateSelection id="cs10965">
         <CandidateId>can10965</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -920,9 +876,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Mark R. Herring</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10965</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10965">
         <ContactInformation identifier="ci10965">
             <AddressLine>PO Box 6201</AddressLine>
@@ -934,8 +890,8 @@ Not displaying street segments
         <FirstName>Mark</FirstName>
         <LastName>Herring</LastName>
         <MiddleName>R.</MiddleName>
-    <PartyId>par0003</PartyId>
-        </Person>
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateContest id="cc20005">
         <BallotSelectionId>cs10964</BallotSelectionId>
         <BallotSelectionId>cs10965</BallotSelectionId>
@@ -967,9 +923,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">R. Steven /Steve/ Landes</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10422</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10422">
         <ContactInformation identifier="ci10422">
             <AddressLine>PO Box 12</AddressLine>
@@ -982,8 +938,8 @@ Not displaying street segments
         <LastName>Landes</LastName>
         <MiddleName>Steven</MiddleName>
         <Nickname>Steve</Nickname>
-    <PartyId>par0001</PartyId>
-        </Person>
+        <PartyId>par0001</PartyId>
+    </Person>
     <CandidateContest id="cc20024">
         <BallotSelectionId>cs10422</BallotSelectionId>
         <BallotTitle>
@@ -1014,9 +970,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">David J. Toscano</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10388</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10388">
         <ContactInformation identifier="ci10388">
             <AddressLine>PO Box 283</AddressLine>
@@ -1028,8 +984,8 @@ Not displaying street segments
         <FirstName>David</FirstName>
         <LastName>Toscano</LastName>
         <MiddleName>J.</MiddleName>
-    <PartyId>par0003</PartyId>
-        </Person>
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateContest id="cc20025">
         <BallotSelectionId>cs10388</BallotSelectionId>
         <BallotTitle>
@@ -1060,9 +1016,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">C. Matt Fariss</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10466</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10466">
         <ContactInformation identifier="ci10466">
             <AddressLine>243-B Livestock Rd</AddressLine>
@@ -1074,8 +1030,8 @@ Not displaying street segments
         <FirstName>C.</FirstName>
         <LastName>Fariss</LastName>
         <MiddleName>Matt</MiddleName>
-    <PartyId>par0001</PartyId>
-        </Person>
+        <PartyId>par0001</PartyId>
+    </Person>
     <CandidateContest id="cc20033">
         <BallotSelectionId>cs10466</BallotSelectionId>
         <BallotTitle>
@@ -1106,9 +1062,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Robert B. Bell III</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10438</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10438">
         <ContactInformation identifier="ci10438">
             <AddressLine>2309 Finch Court</AddressLine>
@@ -1152,9 +1108,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Jane D. Dittmar</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10079</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10079">
         <ContactInformation identifier="ci10079">
             <AddressLine>1365 Tattersall Ct</AddressLine>
@@ -1166,8 +1122,8 @@ Not displaying street segments
         <FirstName>Jane</FirstName>
         <LastName>Dittmar</LastName>
         <MiddleName>D.</MiddleName>
-    <PartyId>par0003</PartyId>
-        </Person>
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateSelection id="cs10080">
         <CandidateId>can10080</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1176,9 +1132,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">C. L. /Cindi/ Burket</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10080</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10080">
         <ContactInformation identifier="ci10080">
             <AddressLine>PO Box 318</AddressLine>
@@ -1191,8 +1147,8 @@ Not displaying street segments
         <LastName>Burket</LastName>
         <MiddleName>L.</MiddleName>
         <Nickname>Cindi</Nickname>
-    <PartyId>par0001</PartyId>
-        </Person>
+        <PartyId>par0001</PartyId>
+    </Person>
     <CandidateContest id="cc20262">
         <BallotSelectionId>cs10079</BallotSelectionId>
         <BallotSelectionId>cs10080</BallotSelectionId>
@@ -1224,9 +1180,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Diantha H. McKeel</Text>
         </BallotName>
-    <PartyId>par0004</PartyId>
+        <PartyId>par0004</PartyId>
         <PersonId>per10075</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10075">
         <ContactInformation identifier="ci10075">
             <AddressLine>103 Smithfield Ct</AddressLine>
@@ -1237,8 +1193,8 @@ Not displaying street segments
         <FirstName>Diantha</FirstName>
         <LastName>McKeel</LastName>
         <MiddleName>H.</MiddleName>
-    <PartyId>par0004</PartyId>
-        </Person>
+        <PartyId>par0004</PartyId>
+    </Person>
     <CandidateSelection id="cs10076">
         <CandidateId>can10076</CandidateId>
         <EndorsementPartyId>par0004</EndorsementPartyId>
@@ -1247,9 +1203,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">B. Phillip Seay</Text>
         </BallotName>
-    <PartyId>par0004</PartyId>
+        <PartyId>par0004</PartyId>
         <PersonId>per10076</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10076">
         <ContactInformation identifier="ci10076">
             <AddressLine>2305 Fairway Ln</AddressLine>
@@ -1260,8 +1216,8 @@ Not displaying street segments
         <FirstName>B.</FirstName>
         <LastName>Seay</LastName>
         <MiddleName>Phillip</MiddleName>
-    <PartyId>par0004</PartyId>
-        </Person>
+        <PartyId>par0004</PartyId>
+    </Person>
     <CandidateContest id="cc20305">
         <BallotSelectionId>cs10075</BallotSelectionId>
         <BallotSelectionId>cs10076</BallotSelectionId>
@@ -1293,9 +1249,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Liz A. Palmer</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10073</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10073">
         <ContactInformation identifier="ci10073">
             <AddressLine>PO Box 315</AddressLine>
@@ -1307,8 +1263,8 @@ Not displaying street segments
         <FirstName>Liz</FirstName>
         <LastName>Palmer</LastName>
         <MiddleName>A.</MiddleName>
-    <PartyId>par0003</PartyId>
-        </Person>
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateSelection id="cs10074">
         <CandidateId>can10074</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1317,9 +1273,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Duane E. Snow</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10074</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10074">
         <ContactInformation identifier="ci10074">
             <AddressLine>905 Leigh Way</AddressLine>
@@ -1331,9 +1287,8 @@ Not displaying street segments
         <FirstName>Duane</FirstName>
         <LastName>Snow</LastName>
         <MiddleName>E.</MiddleName>
-    <PartyId>par0001</PartyId>
-        </Person>
-
+        <PartyId>par0001</PartyId>
+    </Person>
     <CandidateContest id="cc20350">
         <BallotSelectionId>cs10073</BallotSelectionId>
         <BallotSelectionId>cs10074</BallotSelectionId>
@@ -1365,9 +1320,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Rodney S. Thomas</Text>
         </BallotName>
-    <PartyId>par0001</PartyId>
+        <PartyId>par0001</PartyId>
         <PersonId>per10077</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10077">
         <ContactInformation identifier="ci10077">
             <AddressLine>104 Dover Ct</AddressLine>
@@ -1379,9 +1334,8 @@ Not displaying street segments
         <FirstName>Rodney</FirstName>
         <LastName>Thomas</LastName>
         <MiddleName>S.</MiddleName>
-    <PartyId>par0001</PartyId>
-        </Person>
-
+        <PartyId>par0001</PartyId>
+    </Person>
     <CandidateSelection id="cs10078">
         <CandidateId>can10078</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -1390,9 +1344,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">J. L. /Brad/ Sheffield</Text>
         </BallotName>
-    <PartyId>par0003</PartyId>
+        <PartyId>par0003</PartyId>
         <PersonId>per10078</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10078">
         <ContactInformation identifier="ci10078">
             <AddressLine>844 Belvedere Blvd</AddressLine>
@@ -1405,8 +1359,8 @@ Not displaying street segments
         <LastName>Sheffield</LastName>
         <MiddleName>L.</MiddleName>
         <Nickname>Brad</Nickname>
-    <PartyId>par0003</PartyId>
-        </Person>
+        <PartyId>par0003</PartyId>
+    </Person>
     <CandidateContest id="cc20355">
         <BallotSelectionId>cs10077</BallotSelectionId>
         <BallotSelectionId>cs10078</BallotSelectionId>
@@ -1438,9 +1392,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Pamela R. Moynihan</Text>
         </BallotName>
-    <PartyId>par0004</PartyId>
+        <PartyId>par0004</PartyId>
         <PersonId>per10214</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10214">
         <ContactInformation identifier="ci10214">
             <AddressLine>3974 Deepwoods Rd</AddressLine>
@@ -1451,9 +1405,8 @@ Not displaying street segments
         <FirstName>Pamela</FirstName>
         <LastName>Moynihan</LastName>
         <MiddleName>R.</MiddleName>
-    <PartyId>par0004</PartyId>
-        </Person>
-
+        <PartyId>par0004</PartyId>
+    </Person>
     <CandidateContest id="cc20449">
         <BallotSelectionId>cs10214</BallotSelectionId>
         <BallotTitle>
@@ -1484,9 +1437,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">Eric J. Strucko</Text>
         </BallotName>
-    <PartyId>par0004</PartyId>
+        <PartyId>par0004</PartyId>
         <PersonId>per10215</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10215">
         <ContactInformation identifier="ci10215">
             <AddressLine>1029 Tilman Rd</AddressLine>
@@ -1497,9 +1450,8 @@ Not displaying street segments
         <FirstName>Eric</FirstName>
         <LastName>Strucko</LastName>
         <MiddleName>J.</MiddleName>
-    <PartyId>par0004</PartyId>
-        </Person>
-
+        <PartyId>par0004</PartyId>
+    </Person>
     <CandidateContest id="cc20473">
         <BallotSelectionId>cs10215</BallotSelectionId>
         <BallotTitle>
@@ -1530,9 +1482,9 @@ Not displaying street segments
         <BallotName>
             <Text language="en">K. L.  /Kate/ Acuff</Text>
         </BallotName>
-    <PartyId>par0004</PartyId>
+        <PartyId>par0004</PartyId>
         <PersonId>per10213</PersonId>
-        </Candidate>
+    </Candidate>
     <Person id="per10213">
         <ContactInformation identifier="ci10213">
             <AddressLine>2210 Camargo Dr</AddressLine>
@@ -1544,9 +1496,8 @@ Not displaying street segments
         <LastName>Acuff</LastName>
         <MiddleName>L.</MiddleName>
         <Nickname>Kate</Nickname>
-    <PartyId>par0004</PartyId>
-        </Person>
-
+        <PartyId>par0004</PartyId>
+    </Person>
     <CandidateContest id="cc20476">
         <BallotSelectionId>cs10213</BallotSelectionId>
         <BallotTitle>
@@ -1558,7 +1509,6 @@ Not displaying street segments
         <OfficeId>off20476</OfficeId>
         <VotesAllowed>1</VotesAllowed>
     </CandidateContest>
-
     <Person id="per50001">
         <ContactInformation identifier="ci60002">
             <Email>rwashburne@albemarle.org</Email>
