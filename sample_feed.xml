@@ -11,6 +11,7 @@ Not displaying street segments
 
 -->
 <VipObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="5.0" xsi:noNamespaceSchemaLocation="http://votinginfoproject.github.com/vip-specification/vip_spec.xsd">
+    <!-- Source of this feed. -->
     <Source id="src1">
         <DateTime>2013-10-24T14:25:28</DateTime>
         <Description>
@@ -20,6 +21,8 @@ Not displaying street segments
         <OrganizationUrl>http://www.sbe.virginia.gov/</OrganizationUrl>
         <VipId>51</VipId>
     </Source>
+
+    <!-- The election with which this information is associated. -->
     <Election id="ele30000">
         <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
         <Date>2013-11-05</Date>
@@ -34,6 +37,8 @@ Not displaying street segments
         <ResultsUrl>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUrl>
         <StateId>st51</StateId>
     </Election>
+
+    <!-- The state (jurisdiction) of this election. -->
     <State id="st51">
         <ElectionAdministrationId>ea40133</ElectionAdministrationId>
         <ExternalIdentifiers>
@@ -44,6 +49,8 @@ Not displaying street segments
         </ExternalIdentifiers>
         <Name>Virginia</Name>
     </State>
+
+    <!-- A locality (e.g., a county) in which part of this election occurs. -->
     <Locality id="loc70001">
         <ElectionAdministrationId>ea40001</ElectionAdministrationId>
         <ExternalIdentifiers>
@@ -56,6 +63,8 @@ Not displaying street segments
         <StateId>st51</StateId>
         <Type>county</Type>
     </Locality>
+
+    <!-- Information about the election administration organizations for various jurisdictions. -->
     <ElectionAdministration id="ea40133">
         <AbsenteeUrl>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUrl>
         <AmIRegisteredUrl>https://www.vote.virginia.gov/</AmIRegisteredUrl>
@@ -91,6 +100,26 @@ Not displaying street segments
         <WhatIsOnMyBallotUrl>http://www.vote.virginia.gov</WhatIsOnMyBallotUrl>
         <WhereDoIVoteUrl>http://www.vote.virginia.gov</WhereDoIVoteUrl>
     </ElectionAdministration>
+    <!-- A person referenced by an election administration object. -->
+    <Person id="per50001">
+        <ContactInformation identifier="ci60002">
+            <Email>rwashburne@albemarle.org</Email>
+            <Phone>4349724173</Phone>
+        </ContactInformation>
+        <FirstName>RICHARD</FirstName>
+        <LastName>WASHBURNE</LastName>
+        <MiddleName>J.</MiddleName>
+        <Nickname>JAKE</Nickname>
+        <Title>
+            <Text language="en">General Registrar Physical</Text>
+        </Title>
+    </Person>
+
+    <!--
+         Structured hours to be used by the various offices, locations, and
+         administrative organizations in this feed.
+         NOTE: StartTime and EndTime *MUST* specify the time zone.
+      -->
     <HoursOpen id="hours0000">
         <Schedule>
             <Hours>
@@ -109,6 +138,444 @@ Not displaying street segments
             <EndDate>2013-11-05</EndDate>
         </Schedule>
     </HoursOpen>
+
+    <!--
+         The various political parties. These are defined separately to allow
+         for internationalization of the party names, definition of party colors,
+         and links to party logos.
+      -->
+    <Party id="par0001">
+        <Abbreviation>REP</Abbreviation>
+        <Color>e91d0e</Color>
+        <Name>
+            <Text language="en">Republican</Text>
+        </Name>
+    </Party>
+    <Party id="par0002">
+        <Abbreviation>LIB</Abbreviation>
+        <Color>f5f500</Color>
+        <Name>
+            <Text language="en">Libertarian</Text>
+        </Name>
+    </Party>
+    <Party id="par0003">
+        <Abbreviation>DEM</Abbreviation>
+        <Color>232066</Color>
+        <Name>
+            <Text language="en">Democratic</Text>
+        </Name>
+    </Party>
+    <Party id="par0004">
+        <Abbreviation>IND</Abbreviation>
+        <Name>
+            <Text language="en">Independent</Text>
+        </Name>
+    </Party>
+
+    <!-- The various electoral districts for which there are offices/contests in this election. -->
+    <ElectoralDistrict id="ed60129">
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
+        <Name>Commonwealth of Virginia</Name>
+        <Type>state</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60150">
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:25</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
+        <Name>House of Delegates District - 025</Name>
+        <Number>25</Number>
+        <Type>statehouse</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60311">
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:57</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
+        <Name>House of Delegates District - 057</Name>
+        <Number>57</Number>
+        <Type>statehouse</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60076">
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:58</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
+        <Name>House of Delegates District - 058</Name>
+        <Number>58</Number>
+        <Type>statehouse</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60107">
+        <ExternalIdentifiers>
+            <ExternalIdentifier>
+                <Type>ocd-id</Type>
+                <Value>ocd-division/country:us/state:va/sldl:59</Value>
+            </ExternalIdentifier>
+        </ExternalIdentifiers>
+        <Name>House of Delegates District - 059</Name>
+        <Number>59</Number>
+        <Type>statehouse</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60030">
+        <Name>SAMUEL MILLER DISTRICT</Name>
+        <Number>3</Number>
+        <Type>local</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60054">
+        <Name>JACK JOUETT DISTRICT</Name>
+        <Number>2</Number>
+        <Type>local</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60081">
+        <Name>RIO DISTRICT</Name>
+        <Number>1</Number>
+        <Type>local</Type>
+    </ElectoralDistrict>
+    <ElectoralDistrict id="ed60103">
+        <Name>SCOTTSVILLE DISTRICT</Name>
+        <Number>4</Number>
+        <Type>local</Type>
+    </ElectoralDistrict>
+
+    <!-- The various offices for which there is an election. -->
+    <Office id="off0000">
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Governor</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off0001">
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Lieutenant Governor</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20005">
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Attorney General</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <!--
+         There are several House of Delegates offices up for election in this
+         county. Multiple offices may share the same name, but need distinct
+         office IDs for each seat.
+      -->
+    <Office id="off20024">
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member House of Delegates</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20025">
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member House of Delegates</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20033">
+        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member House of Delegates</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20100">
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member House of Delegates</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <!-- Board of Supervisors -->
+    <Office id="off20262">
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member Board of Supervisors</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20305">
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member Board of Supervisors</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20350">
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member Board of Supervisors</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20355">
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member Board of Supervisors</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <!-- School board -->
+    <Office id="off20449">
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member School Board</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20473">
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member School Board</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+    <Office id="off20476">
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+        <FilingDeadline>1900-01-01</FilingDeadline>
+        <IsPartisan>false</IsPartisan>
+        <Name>
+            <Text language="en">Member School Board</Text>
+        </Name>
+        <Term>
+            <Type>full-term</Type>
+        </Term>
+    </Office>
+
+    <!-- The different contests that may appear on the different ballot styles. -->
+    <CandidateContest id="cc20003">
+        <BallotSelectionId>cs10961</BallotSelectionId>
+        <BallotSelectionId>cs10962</BallotSelectionId>
+        <BallotSelectionId>cs10963</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Governor of Virginia</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <Name>Governor</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off0000</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20004">
+        <BallotSelectionId>cs10961</BallotSelectionId>
+        <BallotSelectionId>cs10962</BallotSelectionId>
+        <BallotSelectionId>cs10963</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Lieutenant Governor of Virginia</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <Name>Lieutenant Governor</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off0001</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20005">
+        <BallotSelectionId>cs10964</BallotSelectionId>
+        <BallotSelectionId>cs10965</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Attorney General</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+        <Name>Attorney General</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20005</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20024">
+        <BallotSelectionId>cs10422</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member House of Delegates</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+        <Name>Member House of Delegates</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20024</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20025">
+        <BallotSelectionId>cs10388</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member House of Delegates</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+        <Name>Member House of Delegates</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20025</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20033">
+        <BallotSelectionId>cs10466</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member House of Delegates</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
+        <Name>Member House of Delegates</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20033</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20100">
+        <BallotSelectionId>cs10438</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member House of Delegates</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+        <Name>Member House of Delegates</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20100</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20262">
+        <BallotSelectionId>cs10079</BallotSelectionId>
+        <BallotSelectionId>cs10080</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member Board of Supervisors</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+        <Name>Member Board of Supervisors</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20262</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20305">
+        <BallotSelectionId>cs10075</BallotSelectionId>
+        <BallotSelectionId>cs10076</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member Board of Supervisors</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+        <Name>Member Board of Supervisors</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20305</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20350">
+        <BallotSelectionId>cs10073</BallotSelectionId>
+        <BallotSelectionId>cs10074</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member Board of Supervisors</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+        <Name>Member Board of Supervisors</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20350</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20355">
+        <BallotSelectionId>cs10077</BallotSelectionId>
+        <BallotSelectionId>cs10078</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member Board of Supervisors</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <Name>Member Board of Supervisors</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20355</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20449">
+        <BallotSelectionId>cs10214</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member School Board</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+        <Name>Member School Board</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20449</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20473">
+        <BallotSelectionId>cs10215</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member School Board</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+        <Name>Member School Board</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20473</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+    <CandidateContest id="cc20476">
+        <BallotSelectionId>cs10213</BallotSelectionId>
+        <BallotTitle>
+            <Text language="en">Member School Board</Text>
+        </BallotTitle>
+        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+        <Name>Member School Board</Name>
+        <NumberElected>1</NumberElected>
+        <OfficeId>off20476</OfficeId>
+        <VotesAllowed>1</VotesAllowed>
+    </CandidateContest>
+
     <Precinct id="pre90111">
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <ElectoralDistrictId>ed60311</ElectoralDistrictId>
@@ -563,155 +1030,11 @@ Not displaying street segments
         <AddressLine>Charlottesville, VA 229034822</AddressLine>
         <HoursOpenId>hours0001</HoursOpenId>
     </PollingLocation>
-    <ElectoralDistrict id="ed60030">
-        <Name>SAMUEL MILLER DISTRICT</Name>
-        <Number>3</Number>
-        <Type>local</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60054">
-        <Name>JACK JOUETT DISTRICT</Name>
-        <Number>2</Number>
-        <Type>local</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60076">
-        <ExternalIdentifiers>
-            <ExternalIdentifier>
-                <Type>ocd-id</Type>
-                <Value>ocd-division/country:us/state:va/sldl:58</Value>
-            </ExternalIdentifier>
-        </ExternalIdentifiers>
-        <Name>House of Delegates District - 058</Name>
-        <Number>58</Number>
-        <Type>statehouse</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60081">
-        <Name>RIO DISTRICT</Name>
-        <Number>1</Number>
-        <Type>local</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60103">
-        <Name>SCOTTSVILLE DISTRICT</Name>
-        <Number>4</Number>
-        <Type>local</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60107">
-        <ExternalIdentifiers>
-            <ExternalIdentifier>
-                <Type>ocd-id</Type>
-                <Value>ocd-division/country:us/state:va/sldl:59</Value>
-            </ExternalIdentifier>
-        </ExternalIdentifiers>
-        <Name>House of Delegates District - 059</Name>
-        <Number>59</Number>
-        <Type>statehouse</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60129">
-        <ExternalIdentifiers>
-            <ExternalIdentifier>
-                <Type>ocd-id</Type>
-                <Value>ocd-division/country:us/state:va</Value>
-            </ExternalIdentifier>
-        </ExternalIdentifiers>
-        <Name>Commonwealth of Virginia</Name>
-        <Type>state</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60150">
-        <ExternalIdentifiers>
-            <ExternalIdentifier>
-                <Type>ocd-id</Type>
-                <Value>ocd-division/country:us/state:va/sldl:25</Value>
-            </ExternalIdentifier>
-        </ExternalIdentifiers>
-        <Name>House of Delegates District - 025</Name>
-        <Number>25</Number>
-        <Type>statehouse</Type>
-    </ElectoralDistrict>
-    <ElectoralDistrict id="ed60311">
-        <ExternalIdentifiers>
-            <ExternalIdentifier>
-                <Type>ocd-id</Type>
-                <Value>ocd-division/country:us/state:va/sldl:57</Value>
-            </ExternalIdentifier>
-        </ExternalIdentifiers>
-        <Name>House of Delegates District - 057</Name>
-        <Number>57</Number>
-        <Type>statehouse</Type>
-    </ElectoralDistrict>
-    <Party id="par0001">
-        <Abbreviation>REP</Abbreviation>
-        <Color>e91d0e</Color>
-        <Name>
-            <Text language="en">Republican</Text>
-        </Name>
-    </Party>
-    <Party id="par0002">
-        <Abbreviation>LIB</Abbreviation>
-        <Color>f5f500</Color>
-        <Name>
-            <Text language="en">Libertarian</Text>
-        </Name>
-    </Party>
-    <Party id="par0003">
-        <Abbreviation>DEM</Abbreviation>
-        <Color>232066</Color>
-        <Name>
-            <Text language="en">Democratic</Text>
-        </Name>
-    </Party>
-    <Party id="par0004">
-        <Abbreviation>IND</Abbreviation>
-        <Name>
-            <Text language="en">Independent</Text>
-        </Name>
-    </Party>
-    <Office id="off0000">
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Governor</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
-    <Office id="off0001">
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Lieutenant Governor</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
-    <CandidateContest id="cc20003">
-        <BallotSelectionId>cs10961</BallotSelectionId>
-        <BallotSelectionId>cs10962</BallotSelectionId>
-        <BallotSelectionId>cs10963</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Governor of Virginia</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <Name>Governor</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off0000</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <CandidateContest id="cc20004">
-        <BallotSelectionId>cs10961</BallotSelectionId>
-        <BallotSelectionId>cs10962</BallotSelectionId>
-        <BallotSelectionId>cs10963</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Lieutenant Governor of Virginia</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <Name>Lieutenant Governor</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off0001</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
+
+    <!--
+         CandidateSelections (i.e., an item on a ballot you can select) and the
+         actual candidates and people underlying those selections.
+      -->
     <CandidateSelection id="cs10961">
         <CandidateId>can10961</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -833,17 +1156,6 @@ Not displaying street segments
         <MiddleName>W.</MiddleName>
         <PartyId>par0001</PartyId>
     </Person>
-    <Office id="off20005">
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Attorney General</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10964">
         <CandidateId>can10964</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -892,29 +1204,6 @@ Not displaying street segments
         <MiddleName>R.</MiddleName>
         <PartyId>par0003</PartyId>
     </Person>
-    <CandidateContest id="cc20005">
-        <BallotSelectionId>cs10964</BallotSelectionId>
-        <BallotSelectionId>cs10965</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Attorney General</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-        <Name>Attorney General</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20005</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20024">
-        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member House of Delegates</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10422">
         <CandidateId>can10422</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -940,28 +1229,6 @@ Not displaying street segments
         <Nickname>Steve</Nickname>
         <PartyId>par0001</PartyId>
     </Person>
-    <CandidateContest id="cc20024">
-        <BallotSelectionId>cs10422</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member House of Delegates</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-        <Name>Member House of Delegates</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20024</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20025">
-        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member House of Delegates</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10388">
         <CandidateId>can10388</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -986,28 +1253,6 @@ Not displaying street segments
         <MiddleName>J.</MiddleName>
         <PartyId>par0003</PartyId>
     </Person>
-    <CandidateContest id="cc20025">
-        <BallotSelectionId>cs10388</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member House of Delegates</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-        <Name>Member House of Delegates</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20025</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20033">
-        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member House of Delegates</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10466">
         <CandidateId>can10466</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1032,28 +1277,6 @@ Not displaying street segments
         <MiddleName>Matt</MiddleName>
         <PartyId>par0001</PartyId>
     </Person>
-    <CandidateContest id="cc20033">
-        <BallotSelectionId>cs10466</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member House of Delegates</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60107</ElectoralDistrictId>
-        <Name>Member House of Delegates</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20033</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20100">
-        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member House of Delegates</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10438">
         <CandidateId>can10438</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1078,28 +1301,6 @@ Not displaying street segments
         <PartyId>par0001</PartyId>
         <Suffix>III</Suffix>
     </Person>
-    <CandidateContest id="cc20100">
-        <BallotSelectionId>cs10438</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member House of Delegates</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-        <Name>Member House of Delegates</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20100</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20262">
-        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member Board of Supervisors</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10079">
         <CandidateId>can10079</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -1149,29 +1350,6 @@ Not displaying street segments
         <Nickname>Cindi</Nickname>
         <PartyId>par0001</PartyId>
     </Person>
-    <CandidateContest id="cc20262">
-        <BallotSelectionId>cs10079</BallotSelectionId>
-        <BallotSelectionId>cs10080</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member Board of Supervisors</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-        <Name>Member Board of Supervisors</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20262</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20305">
-        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member Board of Supervisors</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10075">
         <CandidateId>can10075</CandidateId>
         <EndorsementPartyId>par0004</EndorsementPartyId>
@@ -1218,29 +1396,6 @@ Not displaying street segments
         <MiddleName>Phillip</MiddleName>
         <PartyId>par0004</PartyId>
     </Person>
-    <CandidateContest id="cc20305">
-        <BallotSelectionId>cs10075</BallotSelectionId>
-        <BallotSelectionId>cs10076</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member Board of Supervisors</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-        <Name>Member Board of Supervisors</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20305</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20350">
-        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member Board of Supervisors</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10073">
         <CandidateId>can10073</CandidateId>
         <EndorsementPartyId>par0003</EndorsementPartyId>
@@ -1289,29 +1444,6 @@ Not displaying street segments
         <MiddleName>E.</MiddleName>
         <PartyId>par0001</PartyId>
     </Person>
-    <CandidateContest id="cc20350">
-        <BallotSelectionId>cs10073</BallotSelectionId>
-        <BallotSelectionId>cs10074</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member Board of Supervisors</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-        <Name>Member Board of Supervisors</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20350</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20355">
-        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member Board of Supervisors</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10077">
         <CandidateId>can10077</CandidateId>
         <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1361,29 +1493,6 @@ Not displaying street segments
         <Nickname>Brad</Nickname>
         <PartyId>par0003</PartyId>
     </Person>
-    <CandidateContest id="cc20355">
-        <BallotSelectionId>cs10077</BallotSelectionId>
-        <BallotSelectionId>cs10078</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member Board of Supervisors</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-        <Name>Member Board of Supervisors</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20355</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20449">
-        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member School Board</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10214">
         <CandidateId>can10214</CandidateId>
         <EndorsementPartyId>par0004</EndorsementPartyId>
@@ -1407,28 +1516,6 @@ Not displaying street segments
         <MiddleName>R.</MiddleName>
         <PartyId>par0004</PartyId>
     </Person>
-    <CandidateContest id="cc20449">
-        <BallotSelectionId>cs10214</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member School Board</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-        <Name>Member School Board</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20449</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20473">
-        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member School Board</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10215">
         <CandidateId>can10215</CandidateId>
         <EndorsementPartyId>par0004</EndorsementPartyId>
@@ -1452,28 +1539,6 @@ Not displaying street segments
         <MiddleName>J.</MiddleName>
         <PartyId>par0004</PartyId>
     </Person>
-    <CandidateContest id="cc20473">
-        <BallotSelectionId>cs10215</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member School Board</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-        <Name>Member School Board</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20473</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Office id="off20476">
-        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-        <FilingDeadline>1900-01-01</FilingDeadline>
-        <IsPartisan>false</IsPartisan>
-        <Name>
-            <Text language="en">Member School Board</Text>
-        </Name>
-        <Term>
-            <Type>full-term</Type>
-        </Term>
-    </Office>
     <CandidateSelection id="cs10213">
         <CandidateId>can10213</CandidateId>
         <EndorsementPartyId>par0004</EndorsementPartyId>
@@ -1497,29 +1562,5 @@ Not displaying street segments
         <MiddleName>L.</MiddleName>
         <Nickname>Kate</Nickname>
         <PartyId>par0004</PartyId>
-    </Person>
-    <CandidateContest id="cc20476">
-        <BallotSelectionId>cs10213</BallotSelectionId>
-        <BallotTitle>
-            <Text language="en">Member School Board</Text>
-        </BallotTitle>
-        <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-        <Name>Member School Board</Name>
-        <NumberElected>1</NumberElected>
-        <OfficeId>off20476</OfficeId>
-        <VotesAllowed>1</VotesAllowed>
-    </CandidateContest>
-    <Person id="per50001">
-        <ContactInformation identifier="ci60002">
-            <Email>rwashburne@albemarle.org</Email>
-            <Phone>4349724173</Phone>
-        </ContactInformation>
-        <FirstName>RICHARD</FirstName>
-        <LastName>WASHBURNE</LastName>
-        <MiddleName>J.</MiddleName>
-        <Nickname>JAKE</Nickname>
-        <Title>
-            <Text language="en">General Registrar Physical</Text>
-        </Title>
     </Person>
 </VipObject>
