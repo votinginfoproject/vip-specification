@@ -2,7 +2,9 @@ XML Specification
 =================
 
 * :ref:`getting-started`
-    * :ref:`naming-convention`
+
+  * :ref:`naming-convention`
+
 * :ref:`elements`
 
 .. _getting-started:
