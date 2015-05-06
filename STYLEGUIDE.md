@@ -214,7 +214,7 @@ if any of the following are true:
    <xs:element name="Subtitle" type="InternationalizedText" />
    ```
 
-3. the type is an "enum".  For example--
+3. the type is an "enum" or other pattern-restricted string.  For example--
 
    ```xml
    <xs:simpleType name="OebEnum">
@@ -222,6 +222,12 @@ if any of the following are true:
        <xs:enumeration value="odd" />
        <xs:enumeration value="even" />
        <xs:enumeration value="both" />
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="HtmlColorString">
+     <xs:restriction base="xs:string">
+       <xs:pattern value="[0-9a-f]{6}" />
      </xs:restriction>
    </xs:simpleType>
    ```
