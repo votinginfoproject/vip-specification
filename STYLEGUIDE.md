@@ -71,7 +71,7 @@ Markdown, etc).
 
     ```xml
     <xs:attribute name="id" type="xs:ID" use="required" />
-    ````
+    ```
   Note that this departs from the style used by [VSSC 1622.2][vssc_1622],
   where the name is "object_id".
 
@@ -82,7 +82,13 @@ Markdown, etc).
 
     ```xml
     <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
-    ````
+    ```
+  If the type is abstract, the trailing "Base" should be removed prior
+  to adding "Id".  For example,
+    ```xml
+    <!-- Instead of ContestBaseId. -->
+    <xs:element name="ContestId" type="xs:IDREF" />
+    ```
 
 
 ### Element/Attribute Property Ordering
@@ -105,20 +111,35 @@ For example--
 ### Element/Attribute Ordering
 
 Within a type, elements should be listed first, followed by attributes. Each
-should be in alphabetical order:
+should be in alphabetical order, with only two exceptions:
+
+1. If an element named `Foo` is an enumeration which contains a value
+   `other`, then `OtherFoo` should be placed immediately after `Foo`.
+2. If a pair of values represent a range and are named `StartFoo` and `EndFoo`,
+   `EndFoo` should be placed after `StartFoo`.
+
+E.g.,
 
 ```xml
 <xs:element name="Foo">
   <xs:complexType>
     <xs:all>
       <xs:element name="Alpha" type="xs:string" />
-      <xs:element name="Gamma" type="xs:string" />
+      <xs:element name="Delta" type="xs:string" />
+      <xs:element name="StartDate" type="xs:date" />
+      <xs:element name="EndDate" type="xs:date" />
+      <xs:element name="Type" type="SomeEnumValue" />
+      <xs:element name="OtherType" type="xs:string" />
     </xs:all>
     <xs:attribute name="beta" type="xs:string" />
     <xs:attribute name="id" type="xs:ID" />
   </xs:complexType>
 </xs:element>
 ```
+
+With `EndDate` and `OtherType` removed, we see an ordering of `Alpha`, `Delta`,
+`StartDate`, and `Type`. Once we place `EndDate` and `OtherType` back in we get
+the proper ordering.
 
 ### Enumeration Ordering and "Other"
 
@@ -216,6 +237,10 @@ Global type definitions should be ordered as follows:
    then complex types.
 
 3. Within each of the groups in (2) above, order them alphabetically by name.
+   When alphabetizing, view the names as words separated by spaces.
+   For example, "VoteVariation" should come before "VoterServiceType"
+   since "vote variation" comes before "voter service type" when the
+   names are viewed as words.
 
 
 ## CSV Styles
