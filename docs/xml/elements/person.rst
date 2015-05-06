@@ -1,94 +1,60 @@
 Person
 ======
 
-.. todo::
 
+
+.. todo::
+   
    Add preamble. Add description for PartyId, Prefix, Suffix, and Title.
 
-+------------------+---------------------+-----------------+-----------------+---------------+
-|Tag               |Data                 |Optional/Required|Description      |Error          |
-|                  |Type                 |                 |                 |Handling       |
-+==================+=====================+=================+=================+===============+
-|ContactInformation|ContactInformation   |Optional         |                 |               |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|DateOfBirth       |Date                 |Optional         |**DateOfBirth**  |If the         |
-|                  |                     |                 |represents the   |**DateOfBirth**|
-|                  |                     |                 |individual's     |is invalid or  |
-|                  |                     |                 |date of birth.   |not present,   |
-|                  |                     |                 |                 |the            |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|FirstName         |String               |Optional         |**FirstName**    |If the         |
-|                  |                     |                 |represents an    |**FirstName**  |
-|                  |                     |                 |individual's     |is invalid or  |
-|                  |                     |                 |first name.      |not present,   |
-|                  |                     |                 |                 |the            |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|LastName          |String               |Optional         |**LastName**     |If the         |
-|                  |                     |                 |represents an    |**LastName** is|
-|                  |                     |                 |individual's     |invalid or not |
-|                  |                     |                 |last name.       |present, the   |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|MiddleName        |String               |Optional;        |**MiddleName**   |If the         |
-|                  |                     |multiple allowed |represents any   |**LastName** is|
-|                  |                     |                 |number of names  |invalid or not |
-|                  |                     |                 |between an       |present, the   |
-|                  |                     |                 |individual's     |implementation |
-|                  |                     |                 |first and last   |is required to |
-|                  |                     |                 |names.           |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|Nickname          |String               |Optional         |**Nickname**     |If the         |
-|                  |                     |                 |represents an    |**Nickname** is|
-|                  |                     |                 |individual's     |invalid or not |
-|                  |                     |                 |nickname.        |present, the   |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|PartyId           |IDREF                |Optional         |**PartyId**      |If the         |
-|                  |                     |                 |refers to the    |**PartyId** is |
-|                  |                     |                 |associated       |invalid or not |
-|                  |                     |                 |**Party**.       |present, the   |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|Prefix            |String               |Optional         |                 |               |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|Profession        |InternationalizedText|Optional         |**Profession**   |If the         |
-|                  |                     |                 |describes an     |**Profession** |
-|                  |                     |                 |individuals      |is invalid or  |
-|                  |                     |                 |profession.      |not present,   |
-|                  |                     |                 |                 |the            |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|Suffix            |String               |Optional         |                 |If the         |
-|                  |                     |                 |                 |**Suffix** is  |
-|                  |                     |                 |                 |invalid or not |
-|                  |                     |                 |                 |present, the   |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-|Title             |InternationalizedText|Optional         |**Title**        |If the         |
-|                  |                     |                 |                 |**Title** is   |
-|                  |                     |                 |                 |invalid or not |
-|                  |                     |                 |                 |present, the   |
-|                  |                     |                 |                 |implementation |
-|                  |                     |                 |                 |is required to |
-|                  |                     |                 |                 |ignore it.     |
-+------------------+---------------------+-----------------+-----------------+---------------+
-
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| Tag                | Data Type              | Required?    | Repeats?   | Description          | Error Handling                 |
+|                    |                        |              |            |                      |                                |
++====================+========================+==============+============+======================+================================+
+| id                 | xs:ID                  | **Required** | Attribute  |                      |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| ContactInformation | ContactInformation     | Optional     | Repeats    |                      |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| DateOfBirth        | xs:date                | Optional     | Single     |**DateOfBirth**       |If the **DateOfBirth** is       |
+|                    |                        |              |            |represents the        |invalid or not present, the     |
+|                    |                        |              |            |individual's date of  |implementation is required to   |
+|                    |                        |              |            |birth.                |ignore it.                      |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| FirstName          | xs:string              | Optional     | Single     |**FirstName**         |If the **FirstName** is invalid |
+|                    |                        |              |            |represents an         |or not present, the             |
+|                    |                        |              |            |individual's first    |implementation is required to   |
+|                    |                        |              |            |name.                 |ignore it.                      |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| LastName           | xs:string              | Optional     | Single     |**LastName**          |If the **LastName** is invalid  |
+|                    |                        |              |            |represents an         |or not present, the             |
+|                    |                        |              |            |individual's last     |implementation is required to   |
+|                    |                        |              |            |name.                 |ignore it.                      |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| MiddleName         | xs:string              | Optional     | Repeats    |**MiddleName**        |If the **MiddleName** is invalid|
+|                    |                        |              |            |represents any number |or not present, the             |
+|                    |                        |              |            |of names between an   |implementation is required to   |
+|                    |                        |              |            |individual's first and|ignore it.                      |
+|                    |                        |              |            |last names (e.g. John |                                |
+|                    |                        |              |            |**Ronald Reuel**      |                                |
+|                    |                        |              |            |Tolkien).             |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| Nickname           | xs:string              | Optional     | Single     |**Nickname**          |If the **Nickname** is invalid  |
+|                    |                        |              |            |represents an         |or not present, the             |
+|                    |                        |              |            |individual's nickname.|implementation is required to   |
+|                    |                        |              |            |                      |ignore it.                      |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| PartyId            | xs:IDREF               | Optional     | Single     |**PartyId** refers to |If the **PartyId** is invalid or|
+|                    |                        |              |            |the associated        |not present, the implementation |
+|                    |                        |              |            |:doc:`Party <party>`. |is required to ignore it.       |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| Prefix             | xs:string              | Optional     | Single     |                      |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| Profession         | InternationalizedText  | Optional     | Single     |                      |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| Suffix             | xs:string              | Optional     | Single     |                      |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
+| Title              | InternationalizedText  | Optional     | Single     |                      |                                |
++--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
 
 .. code-block:: xml
    :linenos:

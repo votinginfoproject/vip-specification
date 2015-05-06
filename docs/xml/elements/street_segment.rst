@@ -8,10 +8,6 @@ are equal.
 
 .. todo::
 
-   Create file for NonHouseAddress complex type.
-
-.. todo::
-
    This documentation needs to be thoroughly checked for accuracy.
 
 +-------------------------+------------------+------------------+-----------------------------+----------------------------+
@@ -81,9 +77,9 @@ are equal.
 |                         |                  |                  |                             |                            |
 +-------------------------+------------------+------------------+-----------------------------+----------------------------+
 | PrecinctId              | IDREF            | **Required**     |The **PrecinctId** references|If the **PrecinctId** field |
-|                         |                  |                  |the precinct that contains   |is not present or invalid,  |
-|                         |                  |                  |the entire street segment    |the implementation is       |
-|                         |                  |                  |                             |required to ignore the      |
+|                         |                  |                  |the :doc:`precinct           |is not present or invalid,  |
+|                         |                  |                  |<precinct>` that contains the|the implementation is       |
+|                         |                  |                  |entire street segment.       |required to ignore the      |
 |                         |                  |                  |                             |street segment element      |
 |                         |                  |                  |                             |containing it.              |
 +-------------------------+------------------+------------------+-----------------------------+----------------------------+
