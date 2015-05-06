@@ -20,6 +20,10 @@ The documentation is split into two distinct parts.
 * :ref:`xml-docs`
 * :ref:`csv-docs`
 
+.. todo::
+
+   Add CSV documentation
+   
 .. _xml-docs:
 
 XML Documentation
@@ -30,8 +34,10 @@ XML Documentation
 
    xml/index
 
+.. todolist::
+   
 .. _csv-docs:
-
+   
 CSV Documentation
 ------------------
 
@@ -58,5 +64,3 @@ CSV Documentation
    street_segment
    contest_result
    ballot_line_result
-
-.. todolist::
