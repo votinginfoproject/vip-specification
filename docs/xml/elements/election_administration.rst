@@ -83,9 +83,9 @@ ElectionAdministration.Department
 |                          |                                                 |            |           |office. The specified   |to ignore it.              |
 |                          |                                                 |            |           |person should be the    |                           |
 |                          |                                                 |            |           |:doc:`election official |                           |
-|                          |                                                 |            |           |<election_official>`.   |                           |
+|                          |                                                 |            |           |<person>`.              |                           |
 +--------------------------+-------------------------------------------------+------------+-----------+------------------------+---------------------------+
-| VoterService             |   :ref:`VoterService <ea-dep-voter-service>`    | Optional   | Repeats   |The types of services   |If the element is invalid  |
+| VoterService             | :ref:`VoterService <ea-dep-voter-service>`      | Optional   | Repeats   |The types of services   |If the element is invalid  |
 |                          |                                                 |            |           |and appropriate contact |or not present, the        |
 |                          |                                                 |            |           |individual available to |implementation is required |
 |                          |                                                 |            |           |voters.                 |to ignore it.              |
@@ -110,10 +110,10 @@ ElectionAdministration.Department.VoterService
 |                           |                         |           |          |available.            |implementation is       |
 |                           |                         |           |          |                      |required to ignore it.  |
 +---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
-| ElectionOfficialPersonId  | xs:IDREF                | Optional  | Single   |The authority for a   |If the field is invalid |
-|                           |                         |           |          |particular voter      |or not present, the     |
-|                           |                         |           |          |service.              |implementation is       |
-|                           |                         |           |          |                      |required to ignore it.  |
+| ElectionOfficialPersonId  | xs:IDREF                | Optional  | Single   |The :doc:`authority   |If the field is invalid |
+|                           |                         |           |          |<person>` for a       |or not present, the     |
+|                           |                         |           |          |particular voter      |implementation is       |
+|                           |                         |           |          |service.              |required to ignore it.  |
 +---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
 | Type                      |:doc:`VoterServiceType   | Optional  | Single   |The type of           |If the element is       |
 |                           |<voter_service_type>`    |           |          |:doc:`voter service   |invalid or not present, |
