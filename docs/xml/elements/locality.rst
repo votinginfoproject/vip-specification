@@ -46,13 +46,13 @@ The Locality object represents the jurisdiction below the :doc:`state <state>` (
 |                          |                     |             |          |locality (e.g. county, town, et  |not present, the            |
 |                          |                     |             |          |al.), which is one of the various|implementation is required  |
 |                          |                     |             |          |:doc:`DistrictType enumerations  |to ignore it.               |
-|                          |                     |             |          |<district_type>`.                |                            |
+|                          |                     |             |          |<../enumerations/district_type>`.|                            |
 +--------------------------+---------------------+-------------+----------+---------------------------------+----------------------------+
 | OtherType                | xs:string           | Optional    | Single   |The **OtherType** element allows |If **OtherType** is invalid |
 |                          |                     |             |          |for defining a type of locality  |or not present, the         |
 |                          |                     |             |          |that falls outside the options   |implementation is required  |
 |                          |                     |             |          |listed in :doc:`DistrictType     |to ignore it.               |
-|                          |                     |             |          |<district_type>`.                |                            |
+|                          |                     |             |          |<../enumerations/district_type>`.|                            |
 +--------------------------+---------------------+-------------+----------+---------------------------------+----------------------------+
 
 .. code-block:: xml

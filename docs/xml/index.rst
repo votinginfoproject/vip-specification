@@ -7,6 +7,8 @@ XML Specification
 
 * :ref:`elements`
 
+* :ref:`enumerations`
+
 .. _getting-started:
 
 Getting Started
@@ -56,6 +58,16 @@ Elements
 .. toctree::
    :maxdepth: 2
    :glob:
-      
-   elements/source
+
    elements/*
+
+.. _enumerations:
+
+Enumerations
+------------
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   enumerations/*

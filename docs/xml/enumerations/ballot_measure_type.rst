@@ -1,5 +1,12 @@
 BallotMeasureType
 =================
+
+A list of the various types of ballot measures.
+
+.. todo::
+
+   Do we need a retention value if we have a specific element for it?
+
 +----------------------+----------------------------------------------------------------------------------+
 | Name                 | Description                                                                      |
 |                      |                                                                                  |

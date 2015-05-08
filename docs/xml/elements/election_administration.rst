@@ -96,35 +96,35 @@ ElectionAdministration.Department
 ElectionAdministration.Department.VoterService
 ----------------------------------------------
 
-+---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
-| Tag                       | Data Type               | Required? | Repeats? | Description          | Error Handling         |
-|                           |                         |           |          |                      |                        |
-+===========================+=========================+===========+==========+======================+========================+
-| ContactInformation        |:doc:`ContactInformation | Optional  | Single   |The contact for a     |If the element is       |
-|                           |<contact_information>`   |           |          |particular voter      |invalid or not present, |
-|                           |                         |           |          |service.              |the implementation is   |
-|                           |                         |           |          |                      |required to ignore it.  |
-+---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
-| Description               | InternationalizedText   | Optional  | Single   |Long description of   |If the field is invalid |
-|                           |                         |           |          |the services          |or not present, the     |
-|                           |                         |           |          |available.            |implementation is       |
-|                           |                         |           |          |                      |required to ignore it.  |
-+---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
-| ElectionOfficialPersonId  | xs:IDREF                | Optional  | Single   |The :doc:`authority   |If the field is invalid |
-|                           |                         |           |          |<person>` for a       |or not present, the     |
-|                           |                         |           |          |particular voter      |implementation is       |
-|                           |                         |           |          |service.              |required to ignore it.  |
-+---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
-| Type                      |:doc:`VoterServiceType   | Optional  | Single   |The type of           |If the element is       |
-|                           |<voter_service_type>`    |           |          |:doc:`voter service   |invalid or not present, |
-|                           |                         |           |          |<voter_service_type>`.|the implementation is   |
-|                           |                         |           |          |                      |required to ignore it.  |
-+---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
-| OtherType                 | xs:string               | Optional  | Single   |If Type is "other",   |If the field is invalid |
-|                           |                         |           |          |OtherType allows for  |or not present, the     |
-|                           |                         |           |          |cataloging another    |implementation is       |
-|                           |                         |           |          |type of voter service.|required to ignore it.  |
-+---------------------------+-------------------------+-----------+----------+----------------------+------------------------+
++---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
+| Tag                       | Data Type                           | Required? | Repeats? | Description                          | Error Handling         |
+|                           |                                     |           |          |                                      |                        |
++===========================+=====================================+===========+==========+======================================+========================+
+| ContactInformation        |:doc:`ContactInformation             | Optional  | Single   |The contact for a                     |If the element is       |
+|                           |<contact_information>`               |           |          |particular voter                      |invalid or not present, |
+|                           |                                     |           |          |service.                              |the implementation is   |
+|                           |                                     |           |          |                                      |required to ignore it.  |
++---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
+| Description               | InternationalizedText               | Optional  | Single   |Long description of                   |If the field is invalid |
+|                           |                                     |           |          |the services                          |or not present, the     |
+|                           |                                     |           |          |available.                            |implementation is       |
+|                           |                                     |           |          |                                      |required to ignore it.  |
++---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
+| ElectionOfficialPersonId  | xs:IDREF                            | Optional  | Single   |The :doc:`authority                   |If the field is invalid |
+|                           |                                     |           |          |<person>` for a                       |or not present, the     |
+|                           |                                     |           |          |particular voter                      |implementation is       |
+|                           |                                     |           |          |service.                              |required to ignore it.  |
++---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
+| Type                      |:doc:`VoterServiceType               | Optional  | Single   |The type of :doc:`voter service       |If the element is       |
+|                           |<../enumerations/voter_service_type>`|           |          |<../enumerations/voter_service_type>`.|invalid or not present, |
+|                           |                                     |           |          |                                      |the implementation is   |
+|                           |                                     |           |          |                                      |required to ignore it.  |
++---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
+| OtherType                 | xs:string                           | Optional  | Single   |If Type is "other",                   |If the field is invalid |
+|                           |                                     |           |          |OtherType allows for                  |or not present, the     |
+|                           |                                     |           |          |cataloging another                    |implementation is       |
+|                           |                                     |           |          |type of voter service.                |required to ignore it.  |
++---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
 
 .. code-block:: xml
    :linenos:
