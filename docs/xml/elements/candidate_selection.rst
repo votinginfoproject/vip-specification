@@ -11,10 +11,11 @@ CandidateSelection (extends BallotSelectionBase)
 +--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
 | EndorsementPartyId             | xs:IDREF                                           | Optional     | Repeats    |                                                              |                                                    |
 +--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
-```xml
-  <CandidateSelection id="cs10961">
-    <CandidateId>can10961</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
-  </CandidateSelection>
-  
-```
+
+.. code-block:: xml
+   :linenos:
+      
+   <CandidateSelection id="cs10961">
+      <CandidateId>can10961</CandidateId>
+      <EndorsementPartyId>par0001</EndorsementPartyId>
+   </CandidateSelection>

@@ -19,15 +19,11 @@ The documentation is split into two distinct parts.
 
 * :ref:`xml-docs`
 * :ref:`csv-docs`
-
-.. todo::
-
-   Add CSV documentation
    
 .. _xml-docs:
 
 XML Documentation
-------------------
+-----------------
 
 .. toctree::
    :maxdepth: 2
@@ -37,30 +33,10 @@ XML Documentation
 .. todolist::
    
 .. _csv-docs:
-   
+
 CSV Documentation
-------------------
+-----------------
 
-.. toctree::
-   :maxdepth: 2
+.. todo::
 
-   source
-   election
-   state
-   locality
-   precinct
-   precinct_split
-   election_administration
-   election_official
-   polling_location
-   early_vote_site
-   contest
-   electoral_district
-   ballot
-   candidate
-   referendum
-   custom_ballot
-   ballot_response
-   street_segment
-   contest_result
-   ballot_line_result
+   Add CSV documentation

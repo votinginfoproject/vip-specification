@@ -5,22 +5,22 @@ BallotStyle
 | Tag                            | Data Type                                          | Required?    | Repeats?   |                                                  Description |                                     Error Handling |
 |                                |                                                    |              |            |                                                              |                                                    |
 +================================+====================================================+==============+============+==============================================================+====================================================+
-| id                             | xs:ID                                              | **Required** | Attribute  |                                                              |                                                    |
-+--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
 | ImageUri                       | xs:anyURI                                          | Optional     | Single     |                                                              |                                                    |
 +--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
 | OrderedContestId               | xs:IDREF                                           | Optional     | Repeats    |                                                              |                                                    |
 +--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
 | PartyId                        | xs:IDREF                                           | Optional     | Repeats    |                                                              |                                                    |
 +--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
-```xml
-  <BallotStyle id="bs00000">
-    <OrderedContestId>oc20003</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20025</OrderedContestId>
-    <OrderedContestId>oc20355</OrderedContestId>
-    <OrderedContestId>oc20449</OrderedContestId>
-  </BallotStyle>
-  
-```
+
+.. code-block:: xml
+   :linenos:
+
+   <BallotStyle id="bs00000">
+      <OrderedContestId>oc20003</OrderedContestId>
+      <OrderedContestId>oc20004</OrderedContestId>
+      <OrderedContestId>oc20005</OrderedContestId>
+      <OrderedContestId>oc20025</OrderedContestId>
+      <OrderedContestId>oc20355</OrderedContestId>
+      <OrderedContestId>oc20449</OrderedContestId>
+   </BallotStyle>
+
