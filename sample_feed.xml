@@ -1739,7 +1739,7 @@
     <Number>0304</Number>
     <PollingLocationId>pl81213</PollingLocationId>
   </Precinct>
-    <StreetSegment id="ss300071">
+  <StreetSegment id="ss300071">
     <NonHouseAddress>
     <City>Charlottesville</City>
     <State>VA</State>
