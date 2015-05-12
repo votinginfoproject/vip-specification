@@ -49,9 +49,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Voting Information Project Specification'
-copyright = u'2015, Aaron Strauss, Jared Marcotte, Justin Moore, Paul Stenbjorn, Chris Jerdonek, Dave McGivney, Noma Thayer, Mike Jensen, and others'
-author = u'Aaron Strauss, Jared Marcotte, Justin Moore, Paul Stenbjorn, Chris Jerdonek, Dave McGivney, Noma Thayer, Mike Jensen, and others'
+project = u'VIP Specification'
+copyright = u'2015 Voting Information Project'
+author = u'Voting Information Project'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -67,7 +67,7 @@ release = '5.0'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
