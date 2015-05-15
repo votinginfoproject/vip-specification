@@ -254,6 +254,17 @@
   </ElectoralDistrict>
 
   <!-- The various offices for which there is an election. -->
+  <Office id="off9999">
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <FilingDeadline>1900-01-01</FilingDeadline>
+    <IsPartisan>false</IsPartisan>
+    <Name>
+      <Text language="en">President and Vice-President</Text>
+    </Name>
+    <Term>
+      <Type>full-term</Type>
+    </Term>
+  </Office>
   <Office id="off0000">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <FilingDeadline>1900-01-01</FilingDeadline>
@@ -417,6 +428,18 @@
   </Office>
 
   <!-- The different contests that may appear on the different ballot styles. -->
+  <CandidateContest id="cc20002">
+    <BallotSelectionId>cs10861</BallotSelectionId>
+    <BallotSelectionId>cs10862</BallotSelectionId>
+    <BallotTitle>
+      <Text language="en">President and Vice-President of the United States</Text>
+    </BallotTitle>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <Name>President and Vice-President</Name>
+    <NumberElected>1</NumberElected>
+    <OfficeId>off9999</OfficeId>
+    <VotesAllowed>1</VotesAllowed>
+  </CandidateContest>
   <CandidateContest id="cc20003">
     <BallotSelectionId>cs10961</BallotSelectionId>
     <BallotSelectionId>cs10962</BallotSelectionId>
@@ -583,6 +606,7 @@
 
   <!-- The various ballot styles in use by the different precincts. -->
   <BallotStyle id="bs00000">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003abc</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -591,6 +615,7 @@
     <OrderedContestId>oc20449</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00001">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003bca</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -599,6 +624,7 @@
     <OrderedContestId>oc20473</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00002">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003cab</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -607,6 +633,7 @@
     <OrderedContestId>oc20476</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00003">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003abc</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -619,12 +646,14 @@
     <OrderedContestId>oc20024</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00005">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003cab</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00006">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003abc</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -633,6 +662,7 @@
     <OrderedContestId>oc20473</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00007">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003bca</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -641,6 +671,7 @@
     <OrderedContestId>oc20449</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00008">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003cab</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -650,6 +681,7 @@
     <OrderedContestId>oc20449</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00009">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003abc</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -657,6 +689,7 @@
     <OrderedContestId>oc20262</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00010">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003bca</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -665,6 +698,7 @@
     <OrderedContestId>oc20476</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00011">
+    <OrderedContestId>oc20002</OrderedContestId>
     <OrderedContestId>oc20003cab</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
@@ -685,6 +719,9 @@
   </OrderedContest>
   <OrderedContest id="oc20033">
     <ContestId>cc20033</ContestId>
+  </OrderedContest>
+  <OrderedContest id="oc20002">
+    <ContestId>cc20002</ContestId>
   </OrderedContest>
   <!-- Start of ballot rotation examples for the gubenatorial race. -->
   <OrderedContest id="oc20003abc">
@@ -741,6 +778,81 @@
        CandidateSelections (i.e., an item on a ballot you can select) and the
        actual candidates and people underlying those selections.
     -->
+  <CandidateSelection id="cs10861">
+    <CandidateId>can10861a</CandidateId>
+    <CandidateId>can10861b</CandidateId>
+    <EndorsementPartyId>par0003</EndorsementPartyId>
+  </CandidateSelection>
+  <Candidate id="can10861a">
+    <BallotName>
+      <Text language="en">Barack H. Obama</Text>
+    </BallotName>
+    <PartyId>par0003</PartyId>
+    <PersonId>per10861a</PersonId>
+  </Candidate>
+  <Person id="per10861a">
+    <ContactInformation identifier="ci10861a">
+      <AddressLine>1600 Pennsylvania Ave</AddressLine>
+      <AddressLine>Washington, DC 20006</AddressLine>
+      <Email>president@whitehouse.gov</Email>
+      <Phone>202-456-1111</Phone>
+      <Uri>http://www.whitehouse.gov</Uri>
+    </ContactInformation>
+    <FirstName>Barack</FirstName>
+    <LastName>Obama</LastName>
+    <MiddleName>H.</MiddleName>
+    <PartyId>par0003</PartyId>
+  </Person>
+  <Candidate id="can10861b">
+    <BallotName>
+      <Text language="en">Joseph R. Biden</Text>
+    </BallotName>
+    <PartyId>par0003</PartyId>
+    <PersonId>per10861b</PersonId>
+  </Candidate>
+  <Person id="per10861b">
+    <FirstName>Joseph</FirstName>
+    <LastName>Biden</LastName>
+    <MiddleName>R.</MiddleName>
+    <PartyId>par0003</PartyId>
+  </Person>
+  <CandidateSelection id="cs10862">
+    <CandidateId>can10862a</CandidateId>
+    <CandidateId>can10862b</CandidateId>
+    <EndorsementPartyId>par0001</EndorsementPartyId>
+  </CandidateSelection>
+  <Candidate id="can10862a">
+    <BallotName>
+      <Text language="en">Mitt Romney</Text>
+    </BallotName>
+    <PartyId>par0001</PartyId>
+    <PersonId>per10862a</PersonId>
+  </Candidate>
+  <Person id="per10862a">
+    <ContactInformation identifier="ci10862a">
+      <AddressLine>Post Office Box 149756</AddressLine>
+      <AddressLine>Boston, MA 02114-9756</AddressLine>
+      <Email>info@mittromney.com</Email>
+      <Uri>http://www.mittromney.com</Uri>
+    </ContactInformation>
+    <FirstName>Willard</FirstName>
+    <LastName>Romney</LastName>
+    <MiddleName>Mitt</MiddleName>
+    <PartyId>par0001</PartyId>
+  </Person>
+  <Candidate id="can10862b">
+    <BallotName>
+      <Text language="en">Paul Ryan</Text>
+    </BallotName>
+    <PartyId>par0001</PartyId>
+    <PersonId>per10862b</PersonId>
+  </Candidate>
+  <Person id="per10862b">
+    <FirstName>Paul</FirstName>
+    <LastName>Ryan</LastName>
+    <MiddleName>D.</MiddleName>
+    <PartyId>par0001</PartyId>
+  </Person>
   <CandidateSelection id="cs10961">
     <CandidateId>can10961</CandidateId>
     <EndorsementPartyId>par0001</EndorsementPartyId>
