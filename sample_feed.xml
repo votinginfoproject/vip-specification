@@ -47,6 +47,10 @@
         <Type>ocd-id</Type>
         <Value>ocd-division/country:us/state:va</Value>
       </ExternalIdentifier>
+      <ExternalIdentifier>
+        <Type>fips</Type>
+        <Value>51</Value>
+      </ExternalIdentifier>
     </ExternalIdentifiers>
     <Name>Virginia</Name>
   </State>

@@ -13,7 +13,6 @@
       <xs:enumeration value="ballot-measure" />
       <xs:enumeration value="initiative" />
       <xs:enumeration value="referendum" />
-      <xs:enumeration value="retention" />
       <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
@@ -196,7 +195,7 @@
           <xs:element name="NumberElected" type="xs:integer" minOccurs="0" />
           <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
           <xs:element name="PrimaryPartyId" type="xs:IDREF" minOccurs="0" />
-          <xs:element name="VotesAllowed" type="xs:integer" />
+          <xs:element name="VotesAllowed" type="xs:integer" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -209,6 +208,7 @@
           <xs:element name="CandidateId" type="xs:IDREF" maxOccurs="unbounded" />
           <xs:element name="EndorsementPartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
+        <!-- SURVEY: Is there any particular reason this is an attribute instead of an element? -->
         <xs:attribute name="isWriteIn" type="xs:boolean" use="optional" />
       </xs:extension>
     </xs:complexContent>
@@ -307,12 +307,12 @@
 
   <xs:complexType name="ExternalIdentifiers">
     <xs:sequence>
-      <xs:element name="ExternalIdentifier">
+      <xs:element name="ExternalIdentifier" maxOccurs="unbounded">
         <xs:complexType>
           <xs:all>
             <xs:element name="Type" type="IdentifierType" />
             <xs:element name="OtherType" type="xs:string" minOccurs="0" />
-            <xs:element name="Value" type="xs:string" minOccurs="0" />
+            <xs:element name="Value" type="xs:string" />
           </xs:all>
         </xs:complexType>
       </xs:element>
@@ -542,6 +542,10 @@
             <xs:element name="AddressDirection" type="xs:string" minOccurs="0" />
             <xs:element name="Apartment" type="xs:string" minOccurs="0" />
             <xs:element name="City" type="xs:string" />
+            <!--
+                 SURVEY: Do we need to keep the HouseNumber* elements and
+                 Apartment, given the other elements here?
+              -->
             <xs:element name="HouseNumber" type="xs:integer" minOccurs="0" />
             <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
             <xs:element name="HouseNumberSuffix" type="xs:string" minOccurs="0" />
