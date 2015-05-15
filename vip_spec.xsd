@@ -138,7 +138,7 @@
           <xs:element name="ConStatement" type="InternationalizedText" minOccurs="0" />
           <xs:element name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" />
           <xs:element name="FullText" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="InfoUri" type="xs:anyURI" />
+          <xs:element name="InfoUri" type="xs:anyURI" minOccurs="0" />
           <xs:element name="PassageThreshold" type="InternationalizedText" minOccurs="0" />
           <xs:element name="ProStatement" type="InternationalizedText" minOccurs="0" />
           <xs:element name="SummaryText" type="InternationalizedText" minOccurs="0" />
