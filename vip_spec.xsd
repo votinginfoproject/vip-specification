@@ -207,9 +207,8 @@
         <xs:sequence>
           <xs:element name="CandidateId" type="xs:IDREF" maxOccurs="unbounded" />
           <xs:element name="EndorsementPartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="IsWriteIn" type="xs:boolean" minOccurs="0" />
         </xs:sequence>
-        <!-- SURVEY: Is there any particular reason this is an attribute instead of an element? -->
-        <xs:attribute name="isWriteIn" type="xs:boolean" use="optional" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -540,15 +539,7 @@
         <xs:complexType>
           <xs:all>
             <xs:element name="AddressDirection" type="xs:string" minOccurs="0" />
-            <xs:element name="Apartment" type="xs:string" minOccurs="0" />
             <xs:element name="City" type="xs:string" />
-            <!--
-                 SURVEY: Do we need to keep the HouseNumber* elements and
-                 Apartment, given the other elements here?
-              -->
-            <xs:element name="HouseNumber" type="xs:integer" minOccurs="0" />
-            <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
-            <xs:element name="HouseNumberSuffix" type="xs:string" minOccurs="0" />
             <xs:element name="State" type="xs:string" />
             <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
             <xs:element name="StreetName" type="xs:string" />
