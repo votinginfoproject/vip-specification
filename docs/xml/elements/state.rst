@@ -6,7 +6,7 @@ state's FIPS code.
 
 .. todo::
 
-   Add description for external identifiers
+   Add description for ExternalIdentifiers
    
 +-------------------------+-----------------------+--------------+------------+---------------------------------+------------------------------------+
 | Tag                     | Data Type             | Required?    | Repeats?   |Description                      |Error Handling                      |

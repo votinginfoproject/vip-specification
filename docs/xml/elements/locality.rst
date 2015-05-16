@@ -5,7 +5,7 @@ The Locality object represents the jurisdiction below the :doc:`state <state>` (
 
 .. todo::
 
-   Fill out description for ExternalIdentifiers, Type, and OtherType
+   Fill out description for ExternalIdentifiers
 
 +--------------------------+---------------------+-------------+----------+---------------------------------+----------------------------+
 | Tag                      | Data Type           | Required?   | Repeats? | Description                     | Error Handling             |

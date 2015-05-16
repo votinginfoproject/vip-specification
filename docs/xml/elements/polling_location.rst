@@ -3,9 +3,8 @@ PollingLocation
 The Polling Location object represents a site where voters cast or drop off ballots.
 
 .. todo::
-   Work on preamble.
-.. todo::
-   Figure out Description and Error Handling for AddressLine.
+
+   Add references to other elements
 
 +-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
 | Tag                   | Data Type             | Required?    | Repeats?   | Description        | Error Handling        |

@@ -10,7 +10,7 @@ non-required fields is fine).
 
 .. todo::
 
-   Verify documentation is correct.
+   Complete description for ExternalIdentifiers
    
 +---------------------+--------------------+--------------+------------+---------------------------+-----------------------------+
 | Tag                 | Data Type          | Required?    | Repeats?   | Description               | Error Handling              |

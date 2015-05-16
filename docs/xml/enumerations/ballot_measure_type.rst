@@ -5,7 +5,7 @@ A list of the various types of ballot measures.
 
 .. todo::
 
-   Do we need a retention value if we have a specific element for it?
+   Remove retention value after PR #161 is merged.
 
 +----------------------+----------------------------------------------------------------------------------+
 | Name                 | Description                                                                      |
