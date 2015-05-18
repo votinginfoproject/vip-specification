@@ -1,5 +1,10 @@
 CandidatePostElectionStatus
 ===========================
+
+.. todo::
+
+   Document CandidatePostElectionStatus
+   
 +----------------------+----------------------------------------------------------------------------------+
 | Name                 | Description                                                                      |
 |                      |                                                                                  |

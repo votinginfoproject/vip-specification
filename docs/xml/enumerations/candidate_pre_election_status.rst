@@ -1,5 +1,10 @@
 CandidatePreElectionStatus
 ==========================
+
+.. todo::
+
+   Document CandidatePreElectionStatus
+   
 +----------------------+----------------------------------------------------------------------------------+
 | Name                 | Description                                                                      |
 |                      |                                                                                  |

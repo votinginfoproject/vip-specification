@@ -3,14 +3,6 @@ BallotStyle
 
 A container for the contests/measures on the ballot.
 
-.. todo::
-
-   Verify that no fields are required.
-
-.. todo::
-
-   Need description and error handling for PartyId.
-
 +------------------+------------+-----------+----------+----------------------+------------------------+
 | Tag              | Data Type  | Required? | Repeats? | Description          | Error Handling         |
 |                  |            |           |          |                      |                        |

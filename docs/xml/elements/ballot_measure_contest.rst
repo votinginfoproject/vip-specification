@@ -6,11 +6,7 @@ summary statements on each side. Extends extends :doc:`ContestBase <contest_base
 
 .. todo::
 
-   Check specification to make sure FullText is a required field.
-
-.. todo::
-
-   Should Type be required?
+   FullText is not a required field
 
 +------------------+---------------------------------------------------+-------------+----------+------------------------------------------+------------------------+
 | Tag              | Data Type                                         | Required?   | Repeats? | Description                              | Error Handling         |
