@@ -5,7 +5,7 @@ ExternalIdentifiers
 | Tag                            | Data Type                                          | Required?    | Repeats?   |                                                  Description |                                     Error Handling |
 |                                |                                                    |              |            |                                                              |                                                    |
 +================================+====================================================+==============+============+==============================================================+====================================================+
-| ExternalIdentifier             | ExternalIdentifiers.ExternalIdentifier             | Optional     | Single     |                                                              |                                                    |
+| ExternalIdentifier             | ExternalIdentifiers.ExternalIdentifier             | Optional     | Repeats    |                                                              |                                                    |
 +--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
 
 ExternalIdentifiers.ExternalIdentifier
