@@ -13,7 +13,6 @@
       <xs:enumeration value="ballot-measure" />
       <xs:enumeration value="initiative" />
       <xs:enumeration value="referendum" />
-      <xs:enumeration value="retention" />
       <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
@@ -138,7 +137,7 @@
           <xs:element name="ConStatement" type="InternationalizedText" minOccurs="0" />
           <xs:element name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" />
           <xs:element name="FullText" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="InfoUri" type="xs:anyURI" />
+          <xs:element name="InfoUri" type="xs:anyURI" minOccurs="0" />
           <xs:element name="PassageThreshold" type="InternationalizedText" minOccurs="0" />
           <xs:element name="ProStatement" type="InternationalizedText" minOccurs="0" />
           <xs:element name="SummaryText" type="InternationalizedText" minOccurs="0" />
@@ -196,7 +195,7 @@
           <xs:element name="NumberElected" type="xs:integer" minOccurs="0" />
           <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
           <xs:element name="PrimaryPartyId" type="xs:IDREF" minOccurs="0" />
-          <xs:element name="VotesAllowed" type="xs:integer" />
+          <xs:element name="VotesAllowed" type="xs:integer" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -208,8 +207,8 @@
         <xs:sequence>
           <xs:element name="CandidateId" type="xs:IDREF" maxOccurs="unbounded" />
           <xs:element name="EndorsementPartyId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="IsWriteIn" type="xs:boolean" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="isWriteIn" type="xs:boolean" use="optional" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -307,12 +306,12 @@
 
   <xs:complexType name="ExternalIdentifiers">
     <xs:sequence>
-      <xs:element name="ExternalIdentifier">
+      <xs:element name="ExternalIdentifier" maxOccurs="unbounded">
         <xs:complexType>
           <xs:all>
             <xs:element name="Type" type="IdentifierType" />
             <xs:element name="OtherType" type="xs:string" minOccurs="0" />
-            <xs:element name="Value" type="xs:string" minOccurs="0" />
+            <xs:element name="Value" type="xs:string" />
           </xs:all>
         </xs:complexType>
       </xs:element>
@@ -540,11 +539,7 @@
         <xs:complexType>
           <xs:all>
             <xs:element name="AddressDirection" type="xs:string" minOccurs="0" />
-            <xs:element name="Apartment" type="xs:string" minOccurs="0" />
             <xs:element name="City" type="xs:string" />
-            <xs:element name="HouseNumber" type="xs:integer" minOccurs="0" />
-            <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
-            <xs:element name="HouseNumberSuffix" type="xs:string" minOccurs="0" />
             <xs:element name="State" type="xs:string" />
             <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
             <xs:element name="StreetName" type="xs:string" />

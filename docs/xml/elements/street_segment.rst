@@ -129,61 +129,11 @@ StreetSegment.NonHouseAddress
 |                   |            |             |             |Capitol St NE."       |                         |
 |                   |            |             |             |                      |                         |
 +-------------------+------------+-------------+-------------+----------------------+-------------------------+
-| Apartment         | xs:string  | Optional    | Single      |Specifies the         |If the field is not      |
-|                   |            |             |             |intra-building        |present or invalid, the  |
-|                   |            |             |             |address. A prefix     |implementation is        |
-|                   |            |             |             |(e.g. "Apt", "Suite") |required to ignore it.   |
-|                   |            |             |             |is optional. Examples |                         |
-|                   |            |             |             |are "Apt 303", "303", |                         |
-|                   |            |             |             |"4G", "4th Floor."    |                         |
-+-------------------+------------+-------------+-------------+----------------------+-------------------------+
 | City              | xs:string  | **Required**| Single      |The city specifies the|If the field is not      |
 |                   |            |             |             |city or town of the   |present or invalid, the  |
 |                   |            |             |             |address.              |implementation is        |
 |                   |            |             |             |                      |required to ignore the   |
 |                   |            |             |             |                      |element containing it.   |
-+-------------------+------------+-------------+-------------+----------------------+-------------------------+
-| HouseNumber       | xs:integer | Optional    | Single      |Specifies the house   |If the field is not      |
-|                   |            |             |             |number part of a      |present or invalid, the  |
-|                   |            |             |             |street address. It may|implementation is        |
-|                   |            |             |             |only be numeric. It is|required to ignore it. If|
-|                   |            |             |             |optional because: (1) |each of HouseNumber,     |
-|                   |            |             |             |some addresses do not |HouseNumberSuffix, and   |
-|                   |            |             |             |have numbers ("A      |HouseNumberPrefix is     |
-|                   |            |             |             |Second St."), (2) some|blank, the address       |
-|                   |            |             |             |addresses only have   |represents the entire    |
-|                   |            |             |             |house number suffixes |street.                  |
-|                   |            |             |             |("1/2 Second St."),   |                         |
-|                   |            |             |             |and (3) a             |                         |
-|                   |            |             |             |NonHouseAddress within|                         |
-|                   |            |             |             |a StreetSegment should|                         |
-|                   |            |             |             |not have a house      |                         |
-|                   |            |             |             |number as it          |                         |
-|                   |            |             |             |represents only the   |                         |
-|                   |            |             |             |common aspects of the |                         |
-|                   |            |             |             |address.              |                         |
-+-------------------+------------+-------------+-------------+----------------------+-------------------------+
-| HouseNumberPrefix | xs:string  | Optional    | Single      |Represents the house  |If the field is not      |
-|                   |            |             |             |number part of a      |present or invalid, the  |
-|                   |            |             |             |street address. It may|implementation is        |
-|                   |            |             |             |contain letters or    |required to ignore it. If|
-|                   |            |             |             |slashes (e.g., 'B' in |each of HouseNumber,     |
-|                   |            |             |             |'B22 Main St').       |HouseNumberSuffix, and   |
-|                   |            |             |             |                      |HouseNumberPrefix is     |
-|                   |            |             |             |                      |blank, the address       |
-|                   |            |             |             |                      |represents the entire    |
-|                   |            |             |             |                      |street.                  |
-+-------------------+------------+-------------+-------------+----------------------+-------------------------+
-| HouseNumberSuffix | xs:string  | Optional    | Single      |Represents the house  |If the field is not      |
-|                   |            |             |             |number part of a      |present or invalid, the  |
-|                   |            |             |             |street address. It may|implementation is        |
-|                   |            |             |             |contain letters or    |required to ignore it. If|
-|                   |            |             |             |slashes (e.g., B or   |each of HouseNumber,     |
-|                   |            |             |             |1/2).                 |HouseNumberSuffix, and   |
-|                   |            |             |             |                      |HouseNumberPrefix is     |
-|                   |            |             |             |                      |blank, the address       |
-|                   |            |             |             |                      |represents the entire    |
-|                   |            |             |             |                      |street.                  |
 +-------------------+------------+-------------+-------------+----------------------+-------------------------+
 | State             | xs:string  | **Required**| Single      |Specifies the         |If the field is not      |
 |                   |            |             |             |two-letter state      |present or invalid, the  |
