@@ -24,14 +24,14 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * `Party`
   * `Person`
 * Object identifiers use the `xs:ID` and `xs:IDREF` types instead of `xs:string`
-  or `xs:integer`. The `xs:ID` type [[has certain restrictions and
-  requirements](http://books.xmlschemata.org/relaxng/ch19-77151.html)] beyond
+  or `xs:integer`. The `xs:ID` type [has certain restrictions and
+  requirements](http://books.xmlschemata.org/relaxng/ch19-77151.html) beyond
   normal strings or integers.
-  [issue #45](https://github.com/votinginfoproject/vip-specification/issues/45)]
+  [[issue #45](https://github.com/votinginfoproject/vip-specification/issues/45)]
 * Add support for internationalization (i.e. multiple languages) via the
   `InternationalizedText` type.
-  [[issue #39](https://github.com/votinginfoproject/vip-specification/issues/39) and
-  [issue #77](https://github.com/votinginfoproject/vip-specification/issues/77)]
+  [issues #39](https://github.com/votinginfoproject/vip-specification/issues/39) and
+  [#77](https://github.com/votinginfoproject/vip-specification/issues/77)]
 * Per-`Precinct` links to `BallotStyle` elements.
   [[issue #94](https://github.com/votinginfoproject/vip-specification/issues/94)]
 * Structured hours for open and close times.
@@ -46,8 +46,8 @@ This document includes release notes for the [VIP Spec][vip] for versions
   [[issue #87](https://github.com/votinginfoproject/vip-specification/issues/87)]
 * Structured handling of types for `ElectoralDistrict` and `Locality`, replacing
   the free-form string with an enumeration.
-  [[issue #30](https://github.com/votinginfoproject/vip-specification/issues/30) and
-  [issue #129](https://github.com/votinginfoproject/vip-specification/issues/129)]
+  [[issues #30](https://github.com/votinginfoproject/vip-specification/issues/30) and
+  [#129](https://github.com/votinginfoproject/vip-specification/issues/129)]
 * The odd/even/both type (`OebType`) is now lower-case only.
   [[issue #46](https://github.com/votinginfoproject/vip-specification/issues/46)]
 * The `yesNoEnum` has been replaced by `xs:boolean`, meaning those field can
@@ -55,24 +55,24 @@ This document includes release notes for the [VIP Spec][vip] for versions
   [[issue #66](https://github.com/votinginfoproject/vip-specification/issues/66)]
 
 ### Other Changes
-* The spec generally uses a [[Venetian
-  Blind](http://www.oracle.com/technetwork/java/design-patterns-142138.html)] design philosophy.
+* The spec generally uses a [Venetian
+  Blind](http://www.oracle.com/technetwork/java/design-patterns-142138.html) design philosophy.
   [[issue #113](https://github.com/votinginfoproject/vip-specification/issues/113)]
 * Created a
-  [[spec style
-  guide](https://github.com/votinginfoproject/vip-specification/blob/vip5/STYLEGUIDE.md)]
-  [[issue #41](https://github.com/votinginfoproject/vip-specification/issues/41),
-  [issue #74](https://github.com/votinginfoproject/vip-specification/issues/74),
-  [issue #75](https://github.com/votinginfoproject/vip-specification/issues/75),
-  [issue #83](https://github.com/votinginfoproject/vip-specification/issues/83),
-  [issue #85](https://github.com/votinginfoproject/vip-specification/issues/85),
-  [issue #106](https://github.com/votinginfoproject/vip-specification/issues/106),
-  [issue #126](https://github.com/votinginfoproject/vip-specification/issues/126),
-  [issue #136](https://github.com/votinginfoproject/vip-specification/issues/136), and
-  [issue #138](https://github.com/votinginfoproject/vip-specification/issues/138)]
+  [spec style
+  guide](https://github.com/votinginfoproject/vip-specification/blob/vip5/STYLEGUIDE.md).
+  [[issues #41](https://github.com/votinginfoproject/vip-specification/issues/41),
+  [#74](https://github.com/votinginfoproject/vip-specification/issues/74),
+  [#75](https://github.com/votinginfoproject/vip-specification/issues/75),
+  [#83](https://github.com/votinginfoproject/vip-specification/issues/83),
+  [#85](https://github.com/votinginfoproject/vip-specification/issues/85),
+  [#106](https://github.com/votinginfoproject/vip-specification/issues/106),
+  [#126](https://github.com/votinginfoproject/vip-specification/issues/126),
+  [#136](https://github.com/votinginfoproject/vip-specification/issues/136), and
+  [#138](https://github.com/votinginfoproject/vip-specification/issues/138)]
 * Created a
-  [[CONTRIBUTING
-  guide](https://github.com/votinginfoproject/vip-specification/blob/vip5/CONTRIBUTING.md)]
+  [CONTRIBUTING
+  guide](https://github.com/votinginfoproject/vip-specification/blob/vip5/CONTRIBUTING.md).
   [[issue #93](https://github.com/votinginfoproject/vip-specification/issues/93)]
 * Created an approval process for pull requests.
   [[issue #117](https://github.com/votinginfoproject/vip-specification/issues/117)]
