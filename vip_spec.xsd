@@ -38,9 +38,10 @@
   <xs:simpleType name="DistrictType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="city" />
+      <xs:enumeration value="city-council" />
       <xs:enumeration value="congressional" />
-      <xs:enumeration value="council" />
       <xs:enumeration value="county" />
+      <xs:enumeration value="county-council" />
       <xs:enumeration value="judicial" />
       <xs:enumeration value="municipality" />
       <xs:enumeration value="national" />
