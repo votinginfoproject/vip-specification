@@ -23,7 +23,6 @@
       <xs:enumeration value="projected-winner" />
       <xs:enumeration value="winner" />
       <xs:enumeration value="withdrawn" />
-      <xs:enumeration value="write-in" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -32,6 +31,7 @@
       <xs:enumeration value="filed" />
       <xs:enumeration value="qualified" />
       <xs:enumeration value="withdrawn" />
+      <xs:enumeration value="write-in" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -42,17 +42,16 @@
       <xs:enumeration value="council" />
       <xs:enumeration value="county" />
       <xs:enumeration value="judicial" />
-      <xs:enumeration value="local" />
-      <xs:enumeration value="locality" />
       <xs:enumeration value="municipality" />
       <xs:enumeration value="national" />
       <xs:enumeration value="school" />
       <xs:enumeration value="special" />
       <xs:enumeration value="state" />
-      <xs:enumeration value="statehouse" />
-      <xs:enumeration value="statesenate" />
+      <xs:enumeration value="state-house" />
+      <xs:enumeration value="state-senate" />
       <xs:enumeration value="township" />
       <xs:enumeration value="utility" />
+      <xs:enumeration value="village" />
       <xs:enumeration value="ward" />
       <xs:enumeration value="water" />
       <xs:enumeration value="other" />
