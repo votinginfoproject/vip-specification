@@ -4,10 +4,6 @@ BallotMeasureContest
 The BallotMeasureContest provides information about a ballot measure before the voters, including
 summary statements on each side. Extends extends :doc:`ContestBase <contest_base>`.
 
-.. todo::
-
-   FullText is not a required field
-
 +------------------+---------------------------------------------------+-------------+----------+------------------------------------------+------------------------+
 | Tag              | Data Type                                         | Required?   | Repeats? | Description                              | Error Handling         |
 |                  |                                                   |             |          |                                          |                        |
@@ -27,7 +23,7 @@ summary statements on each side. Extends extends :doc:`ContestBase <contest_base
 |                  |                                                   |             |          |                                          |                        |
 |                  |                                                   |             |          |                                          |                        |
 +------------------+---------------------------------------------------+-------------+----------+------------------------------------------+------------------------+
-| FullText         |:doc:`InternationalizedText                        | **Required**| Single   |Specifies the full text of the referendum |If the field is not     |
+| FullText         |:doc:`InternationalizedText                        | Optional    | Single   |Specifies the full text of the referendum |If the field is not     |
 |                  |<internationalized_text>`                          |             |          |as it appears on the ballot.              |present or invalid, the |
 |                  |                                                   |             |          |                                          |implementation is       |
 |                  |                                                   |             |          |                                          |required to ignore the  |
