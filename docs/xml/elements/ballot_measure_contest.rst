@@ -26,8 +26,8 @@ summary statements on each side. Extends extends :doc:`ContestBase <contest_base
 | FullText         |:doc:`InternationalizedText                        | Optional    | Single   |Specifies the full text of the referendum |If the field is not     |
 |                  |<internationalized_text>`                          |             |          |as it appears on the ballot.              |present or invalid, the |
 |                  |                                                   |             |          |                                          |implementation is       |
-|                  |                                                   |             |          |                                          |required to ignore the  |
-|                  |                                                   |             |          |                                          |element containing it.  |
+|                  |                                                   |             |          |                                          |required to ignore it.  |
+|                  |                                                   |             |          |                                          |                        |
 +------------------+---------------------------------------------------+-------------+----------+------------------------------------------+------------------------+
 | InfoUri          |xs:anyURI                                          | Optional    | Single   |Specifies a URI that links to additional  |If the field is invalid |
 |                  |                                                   |             |          |information about the referendum.         |or not present, the     |
