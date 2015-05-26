@@ -1,22 +1,37 @@
-CandidateContest (extends ContestBase)
-======================================
+CandidateContest
+================
 
-.. todo::
+CandidateContest extends :doc:`ContestBase <contest_base>` and represents a contest among
+candidates.
 
-   Document CandidateContest
-   
-+--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
-| Tag                            | Data Type                                          | Required?    | Repeats?   |                                                  Description |                                     Error Handling |
-|                                |                                                    |              |            |                                                              |                                                    |
-+================================+====================================================+==============+============+==============================================================+====================================================+
-| NumberElected                  | xs:integer                                         | Optional     | Single     |                                                              |                                                    |
-+--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
-| OfficeId                       | xs:IDREF                                           | Optional     | Repeats    |                                                              |                                                    |
-+--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
-| PrimaryPartyId                 | xs:IDREF                                           | Optional     | Single     |                                                              |                                                    |
-+--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
-| VotesAllowed                   | xs:integer                                         | Optional     | Single     |                                                              |                                                    |
-+--------------------------------+----------------------------------------------------+--------------+------------+--------------------------------------------------------------+----------------------------------------------------+
++----------------+------------+-----------+----------+----------------------+-------------------------+
+| Tag            | Data Type  | Required? | Repeats? | Description          | Error Handling          |
+|                |            |           |          |                      |                         |
++================+============+===========+==========+======================+=========================+
+| NumberElected  | xs:integer | Optional  | Single   |Number of candidates  |If the field is invalid  |
+|                |            |           |          |that are elected in   |or not present, then the |
+|                |            |           |          |the contest (i.e. "N" |implementation is        |
+|                |            |           |          |of N-of-M).           |required to ignore it.   |
+|                |            |           |          |                      |                         |
++----------------+------------+-----------+----------+----------------------+-------------------------+
+| OfficeId       | xs:IDREF   | Optional  | Repeats  |References an         |If the field is invalid  |
+|                |            |           |          |:doc:`Office <office>`|or not present, then the |
+|                |            |           |          |element, if available,|implementation is        |
+|                |            |           |          |which gives additional|required to ignore it.   |
+|                |            |           |          |information about the |                         |
+|                |            |           |          |office.               |                         |
++----------------+------------+-----------+----------+----------------------+-------------------------+
+| PrimaryPartyId | xs:IDREF   | Optional  | Single   |References a          |If the field is invalid  |
+|                |            |           |          |:doc:`Party <party>`  |or not present, then the |
+|                |            |           |          |element, if the       |implementation is        |
+|                |            |           |          |contest is related to |required to ignore it.   |
+|                |            |           |          |a particular party.   |                         |
++----------------+------------+-----------+----------+----------------------+-------------------------+
+| VotesAllowed   | xs:integer | Optional  | Single   |Maximum number of     |If the field is invalid  |
+|                |            |           |          |votes/write-ins per   |or not present, then the |
+|                |            |           |          |voter in this contest.|implementation is        |
+|                |            |           |          |                      |required to ignore it.   |
++----------------+------------+-----------+----------+----------------------+-------------------------+
 
 .. code-block:: xml
    :linenos:
