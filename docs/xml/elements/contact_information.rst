@@ -13,9 +13,9 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | identifier     |xs:string                     | **Required**     | Attribute |                      |                      |
 +----------------+------------------------------+------------------+-----------+----------------------+----------------------+
 | AddressLine    |xs:string                     | Optional         | Repeats   |Represents the various|If the field is       |
-|                |                              |                  |           |parts of an address to|invalid or not        |
-|                |                              |                  |           |a physical location.  |present, the          |
-|                |                              |                  |           |                      |implementation is     |
+|                |                              |                  |           |parts of an address of|invalid or not        |
+|                |                              |                  |           |a physical or mailing |present, the          |
+|                |                              |                  |           |location.             |implementation is     |
 |                |                              |                  |           |                      |required to ignore it.|
 +----------------+------------------------------+------------------+-----------+----------------------+----------------------+
 | Email          |xs:string                     | Optional         | Repeats   |An email address for  |If the field is       |
@@ -41,7 +41,7 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                |                              |                  |           |It is strongly        |                      |
 |                |                              |                  |           |encouraged that data  |                      |
 |                |                              |                  |           |providers move toward |                      |
-|                |                              |                  |           |collecting hours in   |                      |
+|                |                              |                  |           |contributing hours in |                      |
 |                |                              |                  |           |this format)*.        |                      |
 +----------------+------------------------------+------------------+-----------+----------------------+----------------------+
 | HoursOpenId    |xs:IDREF                      | Optional         | Single    |References an         |If the field is       |
