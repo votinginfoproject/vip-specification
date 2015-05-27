@@ -89,6 +89,8 @@ latitude and longitude values are measured in decimal degrees.
 |                       |                       |              |            |geocoding service.  |                       |
 +-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
 
+.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
+
 .. code-block:: xml
    :linenos:
 
@@ -103,3 +105,4 @@ latitude and longitude values are measured in decimal degrees.
         <Source>Google Maps</Source>
       </LatLng>
    </PollingLocation>
+
