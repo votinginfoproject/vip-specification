@@ -6,11 +6,12 @@ VoteVariation
 | Name                 | Description                                                                      |
 |                      |                                                                                  |
 +======================+==================================================================================+
-| 1-of-m               | A voter can select one of the candidates.                                        |
+| 1-of-m               | When a voter can select only one candidate in a contest.                         |
 +----------------------+----------------------------------------------------------------------------------+
-| approval             | A voter can cast votes for any number of candidates.                             |
+| approval             | When a voter can select as many candidates as desired in a contest up to a max   |
+|                      | number.                                                                          |
 +----------------------+----------------------------------------------------------------------------------+
-| cumulative           | A voter can cast multiple votes for multiple candidates.                         |
+| cumulative           | When a voter can allocate more than one vote to a given candidate.               |
 +----------------------+----------------------------------------------------------------------------------+
 | majority             | A candidate must get at least 50% of the votes in order to win.                  |
 +----------------------+----------------------------------------------------------------------------------+
@@ -18,15 +19,15 @@ VoteVariation
 +----------------------+----------------------------------------------------------------------------------+
 | plurality            | The candidate with the most number of votes, even if not a majority, wins.       |
 +----------------------+----------------------------------------------------------------------------------+
-| proportional         |                                                                                  |
-+----------------------+----------------------------------------------------------------------------------+
 | range                |                                                                                  |
 +----------------------+----------------------------------------------------------------------------------+
-| rcv                  |                                                                                  |
+| rcv                  | For ranked choice voting for ranking candidates in order of preference rather    |
+|                      | than voting for a single candidate.                                              |
 +----------------------+----------------------------------------------------------------------------------+
-| rcv-borda            |                                                                                  |
+| rcv-borda            | For the Borda variation of ranked choice voting.                                 |
 +----------------------+----------------------------------------------------------------------------------+
-| super-majority       |                                                                                  |
+| super-majority       | A candidate must get greater than 50% of the vote (e.g., three-fifths or         |
+|                      | two-thirds) in order to win.                                                     |
 +----------------------+----------------------------------------------------------------------------------+
-| other                |                                                                                  |
+| other                | Used when the vote variation type is not included in this enumeration.           |
 +----------------------+----------------------------------------------------------------------------------+
