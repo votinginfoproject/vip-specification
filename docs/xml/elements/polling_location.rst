@@ -52,8 +52,8 @@ The Polling Location object represents a site where voters cast or drop off ball
 +-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
 | LatLng                | :ref:`LatLng          | Optional     | Single     |**LatLng** specifies|If **LatLng** is       |
 |                       | <pl-latlng>`          |              |            |the latitude and    |invalid or not present,|
-|                       |                       |              |            |of this polling     |the implementation is  |
-|                       |                       |              |            |location.           |required to ignore it. |
+|                       |                       |              |            |longitude of this   |the implementation is  |
+|                       |                       |              |            |polling location.   |required to ignore it. |
 +-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
 | PhotoUri              | xs:anyURI             | Optional     | Single     |**PhotoUri** links  |If **PhotoUri** is     |
 |                       |                       |              |            |to an image of the  |invalid or not present,|
