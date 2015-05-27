@@ -4,14 +4,14 @@ ContactInformation
 For defining contact information about objects such as persons, boards of authorities,
 organizations, etc. ContactInformation is always a sub-element of another object (e.g.
 :doc:`ElectionAdministration <election_administration>`, :doc:`Office <office>`,
-:doc:`Person <person>`, :doc:`Source <source>`).
+:doc:`Person <person>`, :doc:`Source <source>`). ContactInformation has a required attribute
+``identifier``, similar to an XML ``id``, which allows for ease of reference and must be unique
+within the XML document.
 
 +----------------+------------------------------+------------------+-----------+----------------------+----------------------+
 | Tag            | Data Type                    | Required?        | Repeats?  | Description          | Error Handling       |
 |                |                              |                  |           |                      |                      |
 +================+==============================+==================+===========+======================+======================+
-| identifier     |xs:string                     | **Required**     | Attribute |                      |                      |
-+----------------+------------------------------+------------------+-----------+----------------------+----------------------+
 | AddressLine    |xs:string                     | Optional         | Repeats   |Represents the various|If the field is       |
 |                |                              |                  |           |parts of an address of|invalid or not        |
 |                |                              |                  |           |a physical or mailing |present, the          |
