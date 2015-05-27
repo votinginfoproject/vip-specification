@@ -8,8 +8,7 @@ VoteVariation
 +======================+==================================================================================+
 | 1-of-m               | When a voter can select only one candidate in a contest.                         |
 +----------------------+----------------------------------------------------------------------------------+
-| approval             | When a voter can select as many candidates as desired in a contest up to a max   |
-|                      | number.                                                                          |
+| approval             | When a voter can select as many candidates as desired.                           |
 +----------------------+----------------------------------------------------------------------------------+
 | cumulative           | When a voter can allocate more than one vote to a given candidate.               |
 +----------------------+----------------------------------------------------------------------------------+
