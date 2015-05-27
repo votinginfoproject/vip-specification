@@ -493,7 +493,7 @@
       <xs:element name="LatLng" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Latitutde" type="xs:float" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Latitude" type="xs:float" minOccurs="1" maxOccurs="1" />
             <xs:element name="Longitude" type="xs:float" minOccurs="1" maxOccurs="1" />
             <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1" />
           </xs:sequence>
