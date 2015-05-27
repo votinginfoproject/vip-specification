@@ -490,6 +490,15 @@
       <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LatLng" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Latitutde" type="xs:float" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Longitude" type="xs:float" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="PhotoUri" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
