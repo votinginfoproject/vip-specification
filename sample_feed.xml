@@ -197,7 +197,7 @@
     </ExternalIdentifiers>
     <Name>House of Delegates District - 025</Name>
     <Number>25</Number>
-    <Type>statehouse</Type>
+    <Type>state-house</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60311">
     <ExternalIdentifiers>
@@ -208,7 +208,7 @@
     </ExternalIdentifiers>
     <Name>House of Delegates District - 057</Name>
     <Number>57</Number>
-    <Type>statehouse</Type>
+    <Type>state-house</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60076">
     <ExternalIdentifiers>
@@ -219,7 +219,7 @@
     </ExternalIdentifiers>
     <Name>House of Delegates District - 058</Name>
     <Number>58</Number>
-    <Type>statehouse</Type>
+    <Type>state-house</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60107">
     <ExternalIdentifiers>
@@ -230,27 +230,27 @@
     </ExternalIdentifiers>
     <Name>House of Delegates District - 059</Name>
     <Number>59</Number>
-    <Type>statehouse</Type>
+    <Type>state-house</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60030">
     <Name>SAMUEL MILLER DISTRICT</Name>
     <Number>3</Number>
-    <Type>local</Type>
+    <Type>school</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60054">
     <Name>JACK JOUETT DISTRICT</Name>
     <Number>2</Number>
-    <Type>local</Type>
+    <Type>school</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60081">
     <Name>RIO DISTRICT</Name>
     <Number>1</Number>
-    <Type>local</Type>
+    <Type>school</Type>
   </ElectoralDistrict>
   <ElectoralDistrict id="ed60103">
     <Name>SCOTTSVILLE DISTRICT</Name>
     <Number>4</Number>
-    <Type>local</Type>
+    <Type>school</Type>
   </ElectoralDistrict>
 
   <!-- The various offices for which there is an election. -->
