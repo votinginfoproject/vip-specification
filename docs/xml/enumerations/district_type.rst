@@ -11,7 +11,7 @@ DistrictType
 +======================+==================================================================================+
 | city                 | A city.                                                                          |
 +----------------------+----------------------------------------------------------------------------------+
-| city-council         | A city, town, or village council, either in its entirety or for a specific seat. |
+| city-council         | A specific seat/jurisdiction for a city, town, or village council.               |
 +----------------------+----------------------------------------------------------------------------------+
 | congressional        | A United States congressional district.                                          |
 +----------------------+----------------------------------------------------------------------------------+
