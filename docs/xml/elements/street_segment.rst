@@ -6,15 +6,6 @@ geography (i.e., segment) is contained within. The start address house number mu
 end address house number unless the segment consists of only one address in which case these values
 are equal.
 
-.. todo::
-
-   This documentation needs to be thoroughly checked for accuracy.
-
-.. todo::
-
-   The generator made some required fields optional (e.g. city, state, zip). Validate that the spec
-   ensures the field is required.
-
 +-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
 | Tag             | Data Type                               | Required?    | Repeats?   | Description            | Error Handling         |
 |                 |                                         |              |            |                        |                        |

@@ -11,54 +11,55 @@ Person
 
    Remove id
 
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| Tag                | Data Type              | Required?    | Repeats?   | Description          | Error Handling                 |
-|                    |                        |              |            |                      |                                |
-+====================+========================+==============+============+======================+================================+
-| id                 | xs:ID                  | **Required** | Attribute  |                      |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| ContactInformation | ContactInformation     | Optional     | Repeats    |                      |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| DateOfBirth        | xs:date                | Optional     | Single     |**DateOfBirth**       |If the **DateOfBirth** is       |
-|                    |                        |              |            |represents the        |invalid or not present, the     |
-|                    |                        |              |            |individual's date of  |implementation is required to   |
-|                    |                        |              |            |birth.                |ignore it.                      |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| FirstName          | xs:string              | Optional     | Single     |**FirstName**         |If the **FirstName** is invalid |
-|                    |                        |              |            |represents an         |or not present, the             |
-|                    |                        |              |            |individual's first    |implementation is required to   |
-|                    |                        |              |            |name.                 |ignore it.                      |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| LastName           | xs:string              | Optional     | Single     |**LastName**          |If the **LastName** is invalid  |
-|                    |                        |              |            |represents an         |or not present, the             |
-|                    |                        |              |            |individual's last     |implementation is required to   |
-|                    |                        |              |            |name.                 |ignore it.                      |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| MiddleName         | xs:string              | Optional     | Repeats    |**MiddleName**        |If the **MiddleName** is invalid|
-|                    |                        |              |            |represents any number |or not present, the             |
-|                    |                        |              |            |of names between an   |implementation is required to   |
-|                    |                        |              |            |individual's first and|ignore it.                      |
-|                    |                        |              |            |last names (e.g. John |                                |
-|                    |                        |              |            |**Ronald Reuel**      |                                |
-|                    |                        |              |            |Tolkien).             |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| Nickname           | xs:string              | Optional     | Single     |**Nickname**          |If the **Nickname** is invalid  |
-|                    |                        |              |            |represents an         |or not present, the             |
-|                    |                        |              |            |individual's nickname.|implementation is required to   |
-|                    |                        |              |            |                      |ignore it.                      |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| PartyId            | xs:IDREF               | Optional     | Single     |**PartyId** refers to |If the **PartyId** is invalid or|
-|                    |                        |              |            |the associated        |not present, the implementation |
-|                    |                        |              |            |:doc:`Party <party>`. |is required to ignore it.       |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| Prefix             | xs:string              | Optional     | Single     |                      |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| Profession         | InternationalizedText  | Optional     | Single     |                      |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| Suffix             | xs:string              | Optional     | Single     |                      |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
-| Title              | InternationalizedText  | Optional     | Single     |                      |                                |
-+--------------------+------------------------+--------------+------------+----------------------+--------------------------------+
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| Tag                | Data Type                 | Required?    | Repeats?   | Description            | Error Handling                 |
+|                    |                           |              |            |                        |                                |
++====================+===========================+==============+============+========================+================================+
+| ContactInformation |:doc:`ContactInformation   | Optional     | Repeats    |                        |                                |
+|                    |<contact_information>`     |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| DateOfBirth        | xs:date                   | Optional     | Single     |Represents the          |If the field is invalid or not  |
+|                    |                           |              |            |individual's date of    |present, the implementation is  |
+|                    |                           |              |            |birth.                  |required to ignore it.          |
+|                    |                           |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| FirstName          | xs:string                 | Optional     | Single     |Represents an           |If the field is invalid or not  |
+|                    |                           |              |            |individual's first name.|present, the implementation is  |
+|                    |                           |              |            |                        |required to ignore it.          |
+|                    |                           |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| LastName           | xs:string                 | Optional     | Single     |Represents an           |If the field is invalid or not  |
+|                    |                           |              |            |individual's last name. |present, the implementation is  |
+|                    |                           |              |            |                        |required to ignore it.          |
+|                    |                           |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| MiddleName         | xs:string                 | Optional     | Repeats    |Represents any number of|If the field is invalid or not  |
+|                    |                           |              |            |names between an        |present, the implementation is  |
+|                    |                           |              |            |individual's first and  |required to ignore it.          |
+|                    |                           |              |            |last names (e.g. John   |                                |
+|                    |                           |              |            |**Ronald Reuel**        |                                |
+|                    |                           |              |            |Tolkien).               |                                |
+|                    |                           |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| Nickname           | xs:string                 | Optional     | Single     |Represents an           |If the field is invalid or not  |
+|                    |                           |              |            |individual's nickname.  |present, the implementation is  |
+|                    |                           |              |            |                        |required to ignore it.          |
+|                    |                           |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| PartyId            | xs:IDREF                  | Optional     | Single     |Refers to the associated|If the field is invalid or not  |
+|                    |                           |              |            |:doc:`Party <party>`.   |present, the implementation is  |
+|                    |                           |              |            |                        |required to ignore it.          |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| Prefix             | xs:string                 | Optional     | Single     |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| Profession         |:doc:`InternationalizedText| Optional     | Single     |                        |                                |
+|                    |<internationalized_text>`  |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| Suffix             | xs:string                 | Optional     | Single     |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
+| Title              |:doc:`InternationalizedText| Optional     | Single     |                        |                                |
+|                    |<internationalized_text>`  |              |            |                        |                                |
++--------------------+---------------------------+--------------+------------+------------------------+--------------------------------+
 
 .. code-block:: xml
    :linenos:

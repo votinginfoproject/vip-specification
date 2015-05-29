@@ -105,8 +105,8 @@ ElectionAdministration.Department.VoterService
 |                           |                                     |           |          |service.                              |the implementation is   |
 |                           |                                     |           |          |                                      |required to ignore it.  |
 +---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
-| Description               | InternationalizedText               | Optional  | Single   |Long description of                   |If the field is invalid |
-|                           |                                     |           |          |the services                          |or not present, the     |
+| Description               |:doc:`InternationalizedText          | Optional  | Single   |Long description of                   |If the field is invalid |
+|                           |<internationalized_text>`            |           |          |the services                          |or not present, the     |
 |                           |                                     |           |          |available.                            |implementation is       |
 |                           |                                     |           |          |                                      |required to ignore it.  |
 +---------------------------+-------------------------------------+-----------+----------+--------------------------------------+------------------------+
