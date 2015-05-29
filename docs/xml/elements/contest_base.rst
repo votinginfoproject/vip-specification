@@ -63,7 +63,7 @@ and :doc:`RetentionContest <retention_contest>` (NB: the latter because it exten
 |                         |                                 |           |          |                          |                      |
 |                         |                                 |           |          |                          |                      |
 +-------------------------+---------------------------------+-----------+----------+--------------------------+----------------------+
-| ExternalIdentifiers     |:doc:`ExternalIdentifiers        | Optional  | Single   |Another identifier for a  |If the element is     |
+| ExternalIdentifiers     |:doc:`ExternalIdentifiers        | Optional  | Single   |Other identifiers for a   |If the element is     |
 |                         |<external_identifiers>`          |           |          |contest that links to     |invalid or not        |
 |                         |                                 |           |          |another source of         |present, the          |
 |                         |                                 |           |          |information.              |implementation should |
@@ -91,7 +91,7 @@ and :doc:`RetentionContest <retention_contest>` (NB: the latter because it exten
 +-------------------------+---------------------------------+-----------+----------+--------------------------+----------------------+
 | VoteVariation           |:doc:`VoteVariation              | Optional  | Single   |Vote variation associated |If the element is     |
 |                         |<../enumerations/vote_variation>`|           |          |with the contest          |invalid or not        |
-|                         |                                 |           |          |(e.g. N-of-M, majority, et|present, the          |
+|                         |                                 |           |          |(e.g. n-of-m, majority, et|present, the          |
 |                         |                                 |           |          |al).                      |implementation should |
 |                         |                                 |           |          |                          |ignore it.            |
 +-------------------------+---------------------------------+-----------+----------+--------------------------+----------------------+
