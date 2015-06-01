@@ -28,7 +28,7 @@ describing whether or not appointments are necessary or possible.
 | Tag                 | Data Type        | Required? | Repeats? |Description           |Error Handling              |
 |                     |                  |           |          |                      |                            |
 +=====================+==================+===========+==========+======================+============================+
-| Hours               | Hours            | Optional  | Repeats  |Blocks of hours in the|If the field is invalid or  |
+| Hours               | `Hours`_         | Optional  | Repeats  |Blocks of hours in the|If the field is invalid or  |
 |                     |                  |           |          |date range in which   |not present, the            |
 |                     |                  |           |          |the place is open.    |implementation is required  |
 |                     |                  |           |          |                      |to ignore it.               |
@@ -47,7 +47,7 @@ describing whether or not appointments are necessary or possible.
 | IsSubjectToChange   | xs:boolean       | Optional  | Single   |If true, the place    |If the field is invalid or  |
 |                     |                  |           |          |should be open during |not present, the            |
 |                     |                  |           |          |the specified time    |implementation is required  |
-|                     |                  |           |          |window, but may be    | to ignore it.              |
+|                     |                  |           |          |window, but may be    |to ignore it.               |
 |                     |                  |           |          |subject to change.    |                            |
 |                     |                  |           |          |People should contact |                            |
 |                     |                  |           |          |prior to arrival to   |                            |
