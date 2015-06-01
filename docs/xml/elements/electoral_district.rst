@@ -1,10 +1,10 @@
 ElectoralDistrict
 =================
 
-The ``ElectoralDistrict`` object represents the geographic area in which a single contest is held.
-Examples of ``ElectoralDistrict`` include: statewide, congressional district, a state senate
-district, and a fire district. The geographic area that comprises a ``ElectoralDistrict`` is defined
-by which precinct or precinct splits link to the ``ElectoralDistrict``.
+The ``ElectoralDistrict`` object represents the geographic area in which contests are held. Examples
+of ``ElectoralDistrict`` include: "the state of Maryland", "Virginia's 5th Congressional District",
+or "Union School District". The geographic area that comprises a ``ElectoralDistrict`` is defined by
+which precincts link to the ``ElectoralDistrict``.
 
 +---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
 | Tag                 | Data Type                      | Required?  | Repeats? |Description                     |Error Handling              |
