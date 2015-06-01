@@ -319,7 +319,7 @@
 
   <xs:complexType name="HoursOpen">
     <xs:sequence>
-      <xs:element name="Schedule" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Schedule" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="Hours" minOccurs="0" maxOccurs="unbounded">
