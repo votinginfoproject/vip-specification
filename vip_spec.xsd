@@ -97,7 +97,6 @@
       <xs:enumeration value="majority" />
       <xs:enumeration value="n-of-m" />
       <xs:enumeration value="plurality" />
-      <xs:enumeration value="proportional" />
       <xs:enumeration value="range" />
       <xs:enumeration value="rcv" />
       <xs:enumeration value="rcv-borda" />

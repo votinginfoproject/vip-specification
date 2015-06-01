@@ -1,15 +1,12 @@
 OfficeTermType
 ==============
 
-.. todo::
-
-   Document OfficeTermType
    
 +----------------------+----------------------------------------------------------------------------------+
 | Name                 | Description                                                                      |
 |                      |                                                                                  |
 +======================+==================================================================================+
-| full-term            |                                                                                  |
+| full-term            | This election is for an office for which the existing term has been completed.   |
 +----------------------+----------------------------------------------------------------------------------+
-| unexpired-term       |                                                                                  |
+| unexpired-term       | This election is for an office for which the original term is not yet complete.  |
 +----------------------+----------------------------------------------------------------------------------+
