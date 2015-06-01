@@ -14,27 +14,27 @@ to be assigned to a contest.
 | Name                 | Description                                                                      |
 |                      |                                                                                  |
 +======================+==================================================================================+
-| 1-of-m               | A method where each voter can select up to one candidate.                        |
+| 1-of-m               | A method where each voter can select up to one option.                           |
 +----------------------+----------------------------------------------------------------------------------+
-| approval             | `Approval voting`_, where each voter can select as many candidates as desired.   |
+| approval             | `Approval voting`_, where each voter can select as many options as desired.      |
 +----------------------+----------------------------------------------------------------------------------+
 | cumulative           | `Cumulative voting`_, where each voter can distribute their vote to up to        |
-|                      | *N* candidates.                                                                  |
+|                      | *N* options.                                                                     |
 +----------------------+----------------------------------------------------------------------------------+
 | majority             | A 1-of-m method where the winner needs more than 50% of the vote to be elected.  |
 +----------------------+----------------------------------------------------------------------------------+
-| n-of-m               | A method where each voter can select up to *N* candidates.                       |
+| n-of-m               | A method where each voter can select up to *N* options.                          |
 +----------------------+----------------------------------------------------------------------------------+
-| plurality            | A 1-of-m method where the candidate with the most votes is elected, regardless   |
-|                      | of whether the candidate has more than 50% of the vote.                          |
+| plurality            | A 1-of-m method where the option with the most votes is elected, regardless      |
+|                      | of whether the option has more than 50% of the vote.                             |
 +----------------------+----------------------------------------------------------------------------------+
-| range                | `Range voting`_, where each voter can select a score for each candidate.         |
+| range                | `Range voting`_, where each voter can select a score for each option.            |
 +----------------------+----------------------------------------------------------------------------------+
-| rcv                  | `Ranked choice voting`_ (RCV), where each voter can rank the candidates, and     |
+| rcv                  | `Ranked choice voting`_ (RCV), where each voter can rank the options, and        |
 |                      | the ballots are counted in rounds.  Also known as instant-runoff voting (IRV)    |
 |                      | and the single transferable vote (STV).                                          |
 +----------------------+----------------------------------------------------------------------------------+
-| rcv-borda            | `Borda count`_, where each voter can rank the candidates, and the rankings are   |
+| rcv-borda            | `Borda count`_, where each voter can rank the options, and the rankings are      |
 |                      | assigned point values.                                                           |
 +----------------------+----------------------------------------------------------------------------------+
 | super-majority       | A 1-of-m method where the winner needs more than some predetermined fraction     |
