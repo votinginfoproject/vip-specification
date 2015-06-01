@@ -9,7 +9,7 @@ that an event such as an :doc:`Election <election>` is happening.
 | Tag      | Data Type          | Required?  | Repeats? |Description            |Error Handling                    |
 |          |                    |            |          |                       |                                  |
 +==========+====================+============+==========+=======================+==================================+
-| Schedule | Schedule           |**Required**| Repeats  |Defines a block of days|At least one valid `Schedule`_    |
+| Schedule | `Schedule`_        |**Required**| Repeats  |Defines a block of days|At least one valid `Schedule`_    |
 |          |                    |            |          |and hours that a place |must be present for ``HoursOpen`` |
 |          |                    |            |          |will be open.          |to be valid. If no valid          |
 |          |                    |            |          |                       |`Schedule`_ is present, the       |
