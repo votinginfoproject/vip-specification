@@ -1,38 +1,51 @@
 VoteVariation
 =============
 
-    
+Note that the descriptions below describe what the enumeration names
+stand for in the context of the VIP spec, rather than provide general
+definitions of the election terms that the names correspond to.  For example,
+even though there are majority voting methods that are not "1-of-m" (e.g.
+ranked choice voting), we constrain "majority" to 1-of-m.  We do this to
+eliminate any source of ambiguity when a single enumeration value needs
+to be assigned to a contest.
+
+
 +----------------------+----------------------------------------------------------------------------------+
 | Name                 | Description                                                                      |
 |                      |                                                                                  |
 +======================+==================================================================================+
-| 1-of-m               | When a voter can select only one candidate in a contest.                         |
+| 1-of-m               | A method where each voter can select up to one option.                           |
 +----------------------+----------------------------------------------------------------------------------+
-| approval_            | When a voter can select as many candidates as desired.                           |
+| approval             | `Approval voting`_, where each voter can select as many options as desired.      |
 +----------------------+----------------------------------------------------------------------------------+
-| cumulative_          | When a voter can allocate more than one vote to a given candidate.               |
+| cumulative           | `Cumulative voting`_, where each voter can distribute their vote to up to        |
+|                      | *N* options.                                                                     |
 +----------------------+----------------------------------------------------------------------------------+
-| majority             | A candidate must get at least 50% of the votes in order to win.                  |
+| majority             | A 1-of-m method where the winner needs more than 50% of the vote to be elected.  |
 +----------------------+----------------------------------------------------------------------------------+
-| n-of-m               | A voter can select between zero and *N* of the candidates.                       |
+| n-of-m               | A method where each voter can select up to *N* options.                          |
 +----------------------+----------------------------------------------------------------------------------+
-| plurality            | The candidate with the most number of votes, even if not a majority, wins.       |
+| plurality            | A 1-of-m method where the option with the most votes is elected, regardless      |
+|                      | of whether the option has more than 50% of the vote.                             |
 +----------------------+----------------------------------------------------------------------------------+
-| range_               |                                                                                  |
+| range                | `Range voting`_, where each voter can select a score for each option.            |
 +----------------------+----------------------------------------------------------------------------------+
-| rcv_                 | For ranked choice voting for ranking candidates in order of preference rather    |
-|                      | than voting for a single candidate.                                              |
+| rcv                  | `Ranked choice voting`_ (RCV), where each voter can rank the options, and        |
+|                      | the ballots are counted in rounds.  Also known as instant-runoff voting (IRV)    |
+|                      | and the single transferable vote (STV).                                          |
 +----------------------+----------------------------------------------------------------------------------+
-| rcv-borda_           | For the Borda variation of ranked choice voting.                                 |
+| rcv-borda            | `Borda count`_, where each voter can rank the options, and the rankings are      |
+|                      | assigned point values.                                                           |
 +----------------------+----------------------------------------------------------------------------------+
-| super-majority       | A candidate must get greater than 50% of the vote (e.g., three-fifths or         |
-|                      | two-thirds) in order to win.                                                     |
+| super-majority       | A 1-of-m method where the winner needs more than some predetermined fraction     |
+|                      | of the vote to be elected, where the fraction is more than 50% (e.g.             |
+|                      | three-fifths or two-thirds).                                                     |
 +----------------------+----------------------------------------------------------------------------------+
 | other                | Used when the vote variation type is not included in this enumeration.           |
 +----------------------+----------------------------------------------------------------------------------+
 
-.. _approval: http://en.wikipedia.org/wiki/Approval_voting
-.. _cumulative: http://en.wikipedia.org/wiki/Cumulative_voting
-.. _range: http://en.wikipedia.org/wiki/Range_voting
-.. _rcv: http://en.wikipedia.org/wiki/Instant-runoff_voting
-.. _rcv-borda: http://en.wikipedia.org/wiki/Borda_count
+.. _`Approval voting`: http://en.wikipedia.org/wiki/Approval_voting
+.. _`Borda count`: http://en.wikipedia.org/wiki/Borda_count
+.. _`Cumulative voting`: http://en.wikipedia.org/wiki/Cumulative_voting
+.. _`Range voting`: http://en.wikipedia.org/wiki/Range_voting
+.. _`Ranked choice voting`: http://http://en.wikipedia.org/wiki/Ranked_Choice_Voting
