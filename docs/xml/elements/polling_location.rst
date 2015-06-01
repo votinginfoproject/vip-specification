@@ -1,65 +1,73 @@
 PollingLocation
 ===============
-The Polling Location object represents a site where voters cast or drop off ballots.
 
-.. todo::
+The PollingLocation object represents a site where voters cast or drop off ballots.
 
-   Add references to other elements
-
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| Tag                   | Data Type             | Required?    | Repeats?   | Description        | Error Handling        |
-|                       |                       |              |            |                    |                       |
-+=======================+=======================+==============+============+====================+=======================+
-| AddressLine           | xs:string             | Optional     | Repeats    |**AddressLine**     |If **AddressLine** is  |
-|                       |                       |              |            |represents the      |invalid or not present,|
-|                       |                       |              |            |various parts of an |the implementation is  |
-|                       |                       |              |            |address to a polling|required to ignore the |
-|                       |                       |              |            |location.           |PollingLocation element|
-|                       |                       |              |            |                    |that contains it.      |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| Directions            | InternationalizedText | Optional     | Single     |The **Directions**  |If **Directions** field|
-|                       |                       |              |            |specify further     |is invalid or not      |
-|                       |                       |              |            |instructions for    |present, the           |
-|                       |                       |              |            |locating the polling|implementation is      |
-|                       |                       |              |            |location.           |required to ignore it. |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| Hours                 | InternationalizedText | Optional     | Single     |The **Hours** field |If **Hours** is invalid|
-|                       |                       |              |            |contains the hours  |or not present, the    |
-|                       |                       |              |            |(in local time) that|implementation is      |
-|                       |                       |              |            |the polling location|required to ignore it. |
-|                       |                       |              |            |is open.            |                       |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| HoursOpenId           | xs:IDREF              | Optional     | Single     |The **HoursOpenId** |If **HoursOpenId** is  |
-|                       |                       |              |            |links to an         |invalid or not present,|
-|                       |                       |              |            |:doc:`HoursOpen     |the implementation is  |
-|                       |                       |              |            |<hours_open>`       |required to ignore it. |
-|                       |                       |              |            |element, which is a |                       |
-|                       |                       |              |            |schedule of dates   |                       |
-|                       |                       |              |            |and hours during    |                       |
-|                       |                       |              |            |which the polling   |                       |
-|                       |                       |              |            |location is         |                       |
-|                       |                       |              |            |available.          |                       |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| IsDropBox             | xs:boolean            | Optional     | Single     |**IsDropBox**       |If **IsDropBox** is    |
-|                       |                       |              |            |signifies if this   |invalid or not present,|
-|                       |                       |              |            |polling location is |the implementation is  |
-|                       |                       |              |            |a drop box.         |required to ignore it. |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| IsEarlyVoting         | xs:boolean            | Optional     | Single     |**IsEarlyVoting**   |If **IsEarlyVoting** is|
-|                       |                       |              |            |signifies if this   |invalid or not present,|
-|                       |                       |              |            |polling location is |the implementation is  |
-|                       |                       |              |            |an early vote site. |required to ignore it. |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| LatLng                | :ref:`LatLng          | Optional     | Single     |**LatLng** specifies|If **LatLng** is       |
-|                       | <pl-latlng>`          |              |            |the latitude and    |invalid or not present,|
-|                       |                       |              |            |longitude of this   |the implementation is  |
-|                       |                       |              |            |polling location.   |required to ignore it. |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| PhotoUri              | xs:anyURI             | Optional     | Single     |**PhotoUri** links  |If **PhotoUri** is     |
-|                       |                       |              |            |to an image of the  |invalid or not present,|
-|                       |                       |              |            |polling location.   |the implementation is  |
-|                       |                       |              |            |                    |required to ignore it. |
-+-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| Tag                   | Data Type                 | Required?    | Repeats?   | Description                 | Error Handling        |
+|                       |                           |              |            |                             |                       |
++=======================+===========================+==============+============+=============================+=======================+
+| AddressLine           | xs:string                 | Optional     | Repeats    |Represents the various parts |If the field is invalid|
+|                       |                           |              |            |of an address to a polling   |or not present, the    |
+|                       |                           |              |            |location.                    |implementation is      |
+|                       |                           |              |            |                             |required to ignore the |
+|                       |                           |              |            |                             |PollingLocation element|
+|                       |                           |              |            |                             |that contains it.      |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| Directions            |:doc:`InternationalizedText| Optional     | Single     |Specifies further            |If the field is invalid|
+|                       |<internationalized_text>`  |              |            |instructions for locating the|or not present, the    |
+|                       |                           |              |            |polling location.            |implementation is      |
+|                       |                           |              |            |                             |required to ignore it. |
+|                       |                           |              |            |                             |                       |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| Hours **[deprecated]**|:doc:`InternationalizedText| Optional     | Single     |Contains the hours (in local |If the field is invalid|
+|                       |<internationalized_text>`  |              |            |time) that the polling       |or not present, the    |
+|                       |                           |              |            |location is open (*NB: this  |implementation is      |
+|                       |                           |              |            |element is deprecated in     |required to ignore it. |
+|                       |                           |              |            |favor of the more structured |                       |
+|                       |                           |              |            |HoursOpen element. It is     |                       |
+|                       |                           |              |            |strongly encouraged that data|                       |
+|                       |                           |              |            |providers move toward        |                       |
+|                       |                           |              |            |contributing hours in this   |                       |
+|                       |                           |              |            |format)*.                    |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| HoursOpenId           | xs:IDREF                  | Optional     | Single     |Links to an :doc:`HoursOpen  |If the field is invalid|
+|                       |                           |              |            |<hours_open>` element, which |or not present, the    |
+|                       |                           |              |            |is a schedule of dates and   |implementation is      |
+|                       |                           |              |            |hours during which the       |required to ignore it. |
+|                       |                           |              |            |polling location is          |                       |
+|                       |                           |              |            |available.                   |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |                             |                       |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| IsDropBox             | xs:boolean                | Optional     | Single     |Indicates if this polling    |If the field is invalid|
+|                       |                           |              |            |location is a drop box.      |or not present, the    |
+|                       |                           |              |            |                             |implementation is      |
+|                       |                           |              |            |                             |required to ignore it. |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| IsEarlyVoting         | xs:boolean                | Optional     | Single     |Indicates if this polling    |If the field is invalid|
+|                       |                           |              |            |location is an early vote    |or not present, the    |
+|                       |                           |              |            |site.                        |implementation is      |
+|                       |                           |              |            |                             |required to ignore it. |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| LatLng                | :ref:`LatLng              | Optional     | Single     |Specifies the latitude and   |If the element is      |
+|                       | <pl-latlng>`              |              |            |longitude of this polling    |invalid or not present,|
+|                       |                           |              |            |location.                    |the implementation is  |
+|                       |                           |              |            |                             |required to ignore it. |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
+| PhotoUri              | xs:anyURI                 | Optional     | Single     |Contains a link to an image  |If the field is invalid|
+|                       |                           |              |            |of the polling location.     |or not present, the    |
+|                       |                           |              |            |                             |implementation is      |
+|                       |                           |              |            |                             |required to ignore it. |
++-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
 
 .. _pl-latlng:
 
@@ -70,19 +78,21 @@ latitude and longitude values are measured in decimal degrees.
 | Tag                   | Data Type             | Required?    | Repeats?   | Description        | Error Handling        |
 |                       |                       |              |            |                    |                       |
 +=======================+=======================+==============+============+====================+=======================+
-| Latitude              | xs:float              | **Required** | Single     |The latitude of the |If **Latitude** is     |
-|                       |                       |              |            |polling location.   |invalid or not present,|
-|                       |                       |              |            |                    |the implementation is  |
-|                       |                       |              |            |                    |required to ignore it. |
+| Latitude              | xs:float              | **Required** | Single     |The latitude of the |If field is invalid or |
+|                       |                       |              |            |polling location.   |not present, the       |
+|                       |                       |              |            |                    |implementation is      |
+|                       |                       |              |            |                    |required to ignore the |
+|                       |                       |              |            |                    |element containing it. |
 +-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| Longitude             | xs:float              | **Required** | Single     |The longitude of the|If **Longitude** is    |
-|                       |                       |              |            |polling location.   |invalid or not present,|
-|                       |                       |              |            |                    |the implementation is  |
-|                       |                       |              |            |                    |required to ignore it. |
+| Longitude             | xs:float              | **Required** | Single     |The longitude of the|If the field is invalid|
+|                       |                       |              |            |polling location.   |or not present, the    |
+|                       |                       |              |            |                    |implementation is      |
+|                       |                       |              |            |                    |required to ignore the |
+|                       |                       |              |            |                    |element containing it. |
 +-----------------------+-----------------------+--------------+------------+--------------------+-----------------------+
-| Source                | xs:string             | Optional     | Single     |The system used to  |If **Source** is       |
-|                       |                       |              |            |perform the lookup  |invalid or not present,|
-|                       |                       |              |            |from location name  |the implementation is  |
+| Source                | xs:string             | Optional     | Single     |The system used to  |If the field is invalid|
+|                       |                       |              |            |perform the lookup  |or not present, the    |
+|                       |                       |              |            |from location name  |implementation is      |
 |                       |                       |              |            |to lat/lng. For     |required to ignore it. |
 |                       |                       |              |            |example, this could |                       |
 |                       |                       |              |            |be the name of a    |                       |
