@@ -1,24 +1,56 @@
 ElectoralDistrict
 =================
 
-.. todo::
+The ``ElectoralDistrict`` object represents the geographic area in which a single contest is held.
+Examples of ``ElectoralDistrict`` include: statewide, congressional district, a state senate
+district, and a fire district. The geographic area that comprises a ``ElectoralDistrict`` is defined
+by which precinct or precinct splits link to the ``ElectoralDistrict``.
 
-   Document ElectoralDistrict
++---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
+| Tag                 | Data Type                      | Required?  | Repeats? |Description                     |Error Handling              |
+|                     |                                |            |          |                                |                            |
++=====================+================================+============+==========+================================+============================+
+| ExternalIdentifiers |:doc:`ExternalIdentifiers       | Optional   | Single   |Other identifiers that          |If the element is invalid or|
+|                     |<external_identifiers>`         |            |          |link to external                |not present, then the       |
+|                     |                                |            |          |datasets                        |implementation is required  |
+|                     |                                |            |          |(e.g. `OCD-IDs`_)               |to ignore it.               |
++---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
+| Name                | xs:string                      |**Required**| Single   |Specifies the                   |If the field is invalid or  |
+|                     |                                |            |          |electoral area's name.          |not present, then the       |
+|                     |                                |            |          |                                |implementation is required  |
+|                     |                                |            |          |                                |to ignore the               |
+|                     |                                |            |          |                                |``ElectoralDistrict`` object|
+|                     |                                |            |          |                                |containing it.              |
++---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
+| Number              | xs:integer                     | Optional   | Single   |Specifies the district          |If the field is invalid or  |
+|                     |                                |            |          |number of the district          |not present, then the       |
+|                     |                                |            |          |(e.g. 34, in the case           |implementation is required  |
+|                     |                                |            |          |of the 34th State               |to ignore it.               |
+|                     |                                |            |          |Senate District). If a          |                            |
+|                     |                                |            |          |number is not                   |                            |
+|                     |                                |            |          |applicable, instead of          |                            |
+|                     |                                |            |          |leaving the field               |                            |
+|                     |                                |            |          |blank, leave this               |                            |
+|                     |                                |            |          |field out of the                |                            |
+|                     |                                |            |          |object; empty strings           |                            |
+|                     |                                |            |          |are not valid for               |                            |
+|                     |                                |            |          |xs:integer fields.              |                            |
++---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
+| Type                |:doc:`DistrictType              |**Required**| Single   |Specifies the type of           |If the field is invalid or  |
+|                     |<../enumerations/district_type>`|            |          |electoral area.                 |not present, then the       |
+|                     |                                |            |          |                                |implementation is required  |
+|                     |                                |            |          |                                |to ignore the               |
+|                     |                                |            |          |                                |``ElectoralDistrict`` object|
+|                     |                                |            |          |                                |containing it.              |
++---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
+| OtherType           | xs:string                      | Optional   | Single   |Allows for cataloging a new     |If the element is invalid or|
+|                     |                                |            |          |:doc:`DistrictType              |not present, the            |
+|                     |                                |            |          |<../enumerations/district_type>`|implementation is required  |
+|                     |                                |            |          |option when ``Type`` is         |to ignore it.               |
+|                     |                                |            |          |specified as "other".           |                            |
++---------------------+--------------------------------+------------+----------+--------------------------------+----------------------------+
 
-+---------------------+---------------------+-----------+----------+----------------------+----------------------------+
-| Tag                 | Data Type           | Required? | Repeats? |Description           |Error Handling              |
-|                     |                     |           |          |                      |                            |
-+=====================+=====================+===========+==========+======================+============================+
-| ExternalIdentifiers | ExternalIdentifiers | Optional  | Single   |                      |                            |
-+---------------------+---------------------+-----------+----------+----------------------+----------------------------+
-| Name                | xs:string           | Optional  | Single   |                      |                            |
-+---------------------+---------------------+-----------+----------+----------------------+----------------------------+
-| Number              | xs:integer          | Optional  | Single   |                      |                            |
-+---------------------+---------------------+-----------+----------+----------------------+----------------------------+
-| Type                | DistrictType        | Optional  | Single   |                      |                            |
-+---------------------+---------------------+-----------+----------+----------------------+----------------------------+
-| OtherType           | xs:string           | Optional  | Single   |                      |                            |
-+---------------------+---------------------+-----------+----------+----------------------+----------------------------+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
 .. code-block:: xml
    :linenos:
