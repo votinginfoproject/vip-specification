@@ -11,7 +11,7 @@ This element describes a political party and the metadata associated with them.
 |                     |                           |           |          |the party name.       |present, the implementation is |
 |                     |                           |           |          |                      |required to ignore it.         |
 +---------------------+---------------------------+-----------+----------+----------------------+-------------------------------+
-| Color               | HtmlColorString           | Optional  | Single   |The preferred display |If the field is invalid or not |
+| Color               | `HtmlColorString`_        | Optional  | Single   |The preferred display |If the field is invalid or not |
 |                     |                           |           |          |color for the party,  |present, the implementation is |
 |                     |                           |           |          |for use in maps and   |required to ignore it.         |
 |                     |                           |           |          |other displays.       |                               |
@@ -30,6 +30,14 @@ This element describes a political party and the metadata associated with them.
 |                     |<internationalized_text>`  |           |          |                      |present, the implementation is |
 |                     |                           |           |          |                      |required to ignore it.         |
 +---------------------+---------------------------+-----------+----------+----------------------+-------------------------------+
+
+HtmlColorString
+---------------
+
+A restricted string pattern for a six-character hex code representing an HTML
+color string. The pattern is:
+
+``[0-9a-f]{6}``
 
 .. code-block:: xml
    :linenos:
