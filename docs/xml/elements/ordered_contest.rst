@@ -38,6 +38,9 @@ ballot in the proper order.
 .. code-block:: xml
    :linenos:
 
-   <OrderedContest id="oc20262">
-     <ContestId>cc20262</ContestId>
+   <OrderedContest id="oc20003abc">
+      <BallotSelectionId>cs10961</BallotSelectionId>
+      <BallotSelectionId>cs10962</BallotSelectionId>
+      <BallotSelectionId>cs10963</BallotSelectionId>
+      <ContestId>cc20003</ContestId>
    </OrderedContest>
