@@ -71,18 +71,26 @@ Hours
 The open and close time for this place. All times must be fully specified,
 including a timezone offset from UTC.
 
-+-----------+---------------+-----------+----------+----------------------+--------------------------------+
-| Tag       | Data Type     | Required? | Repeats? |Description           |Error Handling                  |
-|           |               |           |          |                      |                                |
-+===========+===============+===========+==========+======================+================================+
-| StartTime | TimeWithZone  | Optional  | Single   |The time at which this|If the field is invalid or      |
-|           |               |           |          |place opens.          |not present, the implementation |
-|           |               |           |          |                      |is required to ignore it.       |
-+-----------+---------------+-----------+----------+----------------------+--------------------------------+
-| EndTime   | TimeWithZone  | Optional  | Single   |The time at which this|If the field is invalid or not  |
-|           |               |           |          |place closes.         |present, the implementation is  |
-|           |               |           |          |                      |required to ignore it.          |
-+-----------+---------------+-----------+----------+----------------------+--------------------------------+
++-----------+-----------------+-----------+----------+----------------------+--------------------------------+
+| Tag       | Data Type       | Required? | Repeats? |Description           |Error Handling                  |
+|           |                 |           |          |                      |                                |
++===========+=================+===========+==========+======================+================================+
+| StartTime | `TimeWithZone`_ | Optional  | Single   |The time at which this|If the field is invalid or      |
+|           |                 |           |          |place opens.          |not present, the implementation |
+|           |                 |           |          |                      |is required to ignore it.       |
++-----------+-----------------+-----------+----------+----------------------+--------------------------------+
+| EndTime   | `TimeWithZone`_ | Optional  | Single   |The time at which this|If the field is invalid or not  |
+|           |                 |           |          |place closes.         |present, the implementation is  |
+|           |                 |           |          |                      |required to ignore it.          |
++-----------+-----------------+-----------+----------+----------------------+--------------------------------+
+
+TimeWithZone
+------------
+
+A string pattern restricting the value to a time with an included offset from
+UTC. The pattern is
+
+``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))``
 
 .. code-block:: xml
    :linenos:
