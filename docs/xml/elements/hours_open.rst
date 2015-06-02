@@ -87,17 +87,17 @@ including a timezone offset from UTC.
 .. code-block:: xml
    :linenos:
 
-  <HoursOpen id="hours0001">
-    <Schedule>
-      <Hours>
-        <StartTime>06:00:00-05:00</StartTime>
-        <EndTime>12:00:00-05:00</EndTime>
-      </Hours>
-      <Hours>
-        <StartTime>13:00:00-05:00</StartTime>
-        <EndTime>19:00:00-05:00</EndTime>
-      </Hours>
-      <StartDate>2013-11-05</StartDate>
-      <EndDate>2013-11-05</EndDate>
-    </Schedule>
-  </HoursOpen>
+   <HoursOpen id="hours0001">
+     <Schedule>
+       <Hours>
+         <StartTime>06:00:00-05:00</StartTime>
+         <EndTime>12:00:00-05:00</EndTime>
+       </Hours>
+       <Hours>
+         <StartTime>13:00:00-05:00</StartTime>
+         <EndTime>19:00:00-05:00</EndTime>
+       </Hours>
+       <StartDate>2013-11-05</StartDate>
+       <EndDate>2013-11-05</EndDate>
+     </Schedule>
+   </HoursOpen>
