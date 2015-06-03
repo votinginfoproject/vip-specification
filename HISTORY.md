@@ -34,6 +34,8 @@ This document includes release notes for the [VIP Spec][vip] for versions
   [#77](https://github.com/votinginfoproject/vip-specification/issues/77)
 * Per-`Precinct` links to `BallotStyle` elements.
   * Issue [#94](https://github.com/votinginfoproject/vip-specification/issues/94)
+* Per-`PollingLocation` lat/lng support.
+  * Issue [#165](https://github.com/votinginfoproject/vip-specification/issues/165)
 * Structured hours for open and close times.
   * Issue [#21](https://github.com/votinginfoproject/vip-specification/issues/21)
 * Support for various voter services being handled by different departments or
