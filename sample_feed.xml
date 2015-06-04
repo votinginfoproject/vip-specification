@@ -146,6 +146,34 @@
       <EndDate>2013-11-05</EndDate>
     </Schedule>
   </HoursOpen>
+  <!-- Early voting hours. Note the different time zones. -->
+  <HoursOpen id="hours0002">
+    <Schedule>
+      <Hours>
+        <StartTime>07:00:00-04:00</StartTime>
+        <EndTime>19:00:00-04:00</EndTime>
+      </Hours>
+      <StartDate>2013-10-21</StartDate>
+      <EndDate>2013-10-26</EndDate>
+    </Schedule>
+    <Schedule>
+      <Hours>
+        <StartTime>07:00:00-04:00</StartTime>
+        <EndTime>19:00:00-04:00</EndTime>
+      </Hours>
+      <StartDate>2013-10-28</StartDate>
+      <EndDate>2013-11-02</EndDate>
+    </Schedule>
+    <!-- Clocks fall back. -->
+    <Schedule>
+      <Hours>
+        <StartTime>07:00:00-05:00</StartTime>
+        <EndTime>19:00:00-05:00</EndTime>
+      </Hours>
+      <StartDate>2013-11-04</StartDate>
+      <EndDate>2013-11-04</EndDate>
+    </Schedule>
+  </HoursOpen>
 
   <!--
        The various political parties. These are defined separately to allow
@@ -606,6 +634,29 @@
     <OfficeId>off20476</OfficeId>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
+  <BallotMeasureContest id="bmc30001">
+    <BallotSelectionId>bms30001a</BallotSelectionId>
+    <BallotSelectionId>bms30001b</BallotSelectionId>
+    <BallotTitle>
+      <Text language="en">State of the State</Text>
+      <Text language="es">Estado del Estado.</Text>
+    </BallotTitle>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <Name>Referendum on Virginia</Name>
+    <ConStatement identifier="bmc30001con">
+      <Text language="en">This is no good.</Text>
+      <Text language="es">Esto no es bueno.</Text>
+    </ConStatement>
+    <EffectOfAbstain identifier="bmc30001abs">
+      <Text language="en">Nothing will happen.</Text>
+      <Text language="es">Nada pasará.</Text>
+    </EffectOfAbstain>
+    <ProStatement identifier="bmc30001pro">
+      <Text language="en">Everything will be great.</Text>
+      <Text language="es">Todo va a estar bien.</Text>
+    </ProStatement>
+    <Type>referendum</Type>
+  </BallotMeasureContest>
 
   <!-- The various ballot styles in use by the different precincts. -->
   <BallotStyle id="bs00000">
@@ -616,6 +667,7 @@
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00001">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -625,6 +677,7 @@
     <OrderedContestId>oc20033</OrderedContestId>
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00002">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -634,6 +687,7 @@
     <OrderedContestId>oc20024</OrderedContestId>
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00003">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -641,12 +695,14 @@
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20100</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00004">
     <OrderedContestId>oc20003bca</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20024</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00005">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -654,6 +710,7 @@
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00006">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -663,6 +720,7 @@
     <OrderedContestId>oc20024</OrderedContestId>
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00007">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -672,6 +730,7 @@
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00008">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -682,6 +741,7 @@
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00009">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -690,6 +750,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00010">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -699,6 +760,7 @@
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00011">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -707,6 +769,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
 
   <!--
@@ -775,6 +838,9 @@
   </OrderedContest>
   <OrderedContest id="oc20350">
     <ContestId>cc20350</ContestId>
+  </OrderedContest>
+  <OrderedContest id="oc30001">
+    <ContestId>bmc30001</ContestId>
   </OrderedContest>
 
   <!--
@@ -1384,13 +1450,41 @@
     <Nickname>Kate</Nickname>
     <PartyId>par0004</PartyId>
   </Person>
+  <!-- Ballot measure selections -->
+  <BallotMeasureSelection id="bms30001a">
+    <Selection identifier="bms30001at">
+      <Text language="en">Yes</Text>
+      <Text language="es">Sí</Text>
+    </Selection>
+  </BallotMeasureSelection>
+  <BallotMeasureSelection id="bms30001b">
+    <Selection identifier="bms30001bt">
+      <Text language="en">No</Text>
+      <Text language="es">No</Text>
+    </Selection>
+  </BallotMeasureSelection>
 
   <!-- The polling locations in this jurisdiction. -->
+  <PollingLocation id="pl81273">
+    <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
+    <AddressLine>2775 Hydraulic Rd</AddressLine>
+    <AddressLine>Charlottesville, VA 229018917</AddressLine>
+    <HoursOpenId>hours0002</HoursOpenId>
+    <IsEarlyVoting>true</IsEarlyVoting>
+    <LatLng>
+      <Latitude>38.075578</Latitude>
+      <Longitude>-78.501695</Longitude>
+    </LatLng>
+  </PollingLocation>
   <PollingLocation id="pl81274">
     <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
     <AddressLine>2775 Hydraulic Rd</AddressLine>
     <AddressLine>Charlottesville, VA 229018917</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.075578</Latitude>
+      <Longitude>-78.501695</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80232">
     <AddressLine>SENIOR CENTER</AddressLine>
@@ -1409,12 +1503,20 @@
     <AddressLine>210 Lambs Ln</AddressLine>
     <AddressLine>Charlottesville, VA 229018951</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.077069</Latitude>
+      <Longitude>-78.506559</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80142">
     <AddressLine>HOLLYMEAD ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>2775 Powell Creek Dr</AddressLine>
     <AddressLine>Charlottesville, VA 229117539</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.112383</Latitude>
+      <Longitude>-78.439298</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80522">
     <AddressLine>CATEC</AddressLine>
@@ -1427,6 +1529,10 @@
     <AddressLine>958 N Milton Rd</AddressLine>
     <AddressLine>Charlottesville, VA 229113612</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.010650</Latitude>
+      <Longitude>-78.397309</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80469">
     <AddressLine>ELKS LODGE HALL</AddressLine>
@@ -1439,12 +1545,20 @@
     <AddressLine>3893 Stony Point Rd</AddressLine>
     <AddressLine>Keswick, VA 229471503</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>41.229539</Latitude>
+      <Longitude>-73.987085</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl82419">
     <AddressLine>EARLYSVILLE FIRE DEPARTMENT</AddressLine>
     <AddressLine>283 Reas Ford Rd</AddressLine>
     <AddressLine>Earlysville, VA 229362410</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.152907</Latitude>
+      <Longitude>-78.462406</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81466">
     <AddressLine>UNIVERSITY HALL</AddressLine>
@@ -1454,24 +1568,40 @@
       <Text language="en">North Lobby</Text>
     </Directions>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.044667</Latitude>
+      <Longitude>-78.508818</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81857">
     <AddressLine>WOODBROOK ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>100 Woodbrook Dr</AddressLine>
     <AddressLine>Charlottesville, VA 229011133</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.087175</Latitude>
+      <Longitude>-78.466174</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81990">
     <AddressLine>RED HILL ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>3901 Red Hill School Rd</AddressLine>
     <AddressLine>North Garden, VA 229591704</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>37.964307</Latitude>
+      <Longitude>-78.634461</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl82177">
     <AddressLine>PAUL H CALE ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>1757 Avon Street Ext</AddressLine>
     <AddressLine>Charlottesville, VA 229028708</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>37.996254</Latitude>
+      <Longitude>-78.499288</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80548">
     <AddressLine>BEREAN BAPTIST CHURCH</AddressLine>
@@ -1484,6 +1614,10 @@
     <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
     <AddressLine>Crozet, VA 229323401</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.052251</Latitude>
+      <Longitude>-78.702520</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80354">
     <AddressLine>ZION HILL BAPTIST CHURCH</AddressLine>
@@ -1496,12 +1630,20 @@
     <AddressLine>1407 Crozet Ave</AddressLine>
     <AddressLine>Crozet, VA 229322722</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.074684</Latitude>
+      <Longitude>-78.697296</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80541">
     <AddressLine>SCOTTSVILLE ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>7868 Scottsville Rd</AddressLine>
     <AddressLine>Scottsville, VA 245903963</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>37.818476</Latitude>
+      <Longitude>-78.510843</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80432">
     <AddressLine>AGNOR-HURT ELEMENTARY SCHOOL</AddressLine>
@@ -1514,6 +1656,10 @@
     <AddressLine>799 Faulconer Drive</AddressLine>
     <AddressLine>Charlottesville, VA 22903</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.055801</Latitude>
+      <Longitude>-78.520233</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl82220">
     <AddressLine>MONTICELLO HIGH SCHOOL</AddressLine>
@@ -1526,6 +1672,10 @@
     <AddressLine>185 Buck Mountain Rd</AddressLine>
     <AddressLine>Earlysville, VA 229362009</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.162374</Latitude>
+      <Longitude>-78.489944</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81118">
     <AddressLine>MERIWETHER LEWIS ELEM SCHOOL</AddressLine>
@@ -1538,6 +1688,10 @@
     <AddressLine>2201 Old Ivy Rd</AddressLine>
     <AddressLine>Charlottesville, VA 229034822</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.047660</Latitude>
+      <Longitude>-78.513654</Longitude>
+    </LatLng>
   </PollingLocation>
 
   <!--
@@ -1553,6 +1707,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>203 - GEORGETOWN</Name>
     <Number>0203</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81274</PollingLocationId>
   </Precinct>
   <Precinct id="pre90139">
@@ -1564,6 +1719,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>103 - BRANCHLANDS</Name>
     <Number>0103</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80232</PollingLocationId>
   </Precinct>
   <Precinct id="pre90183">
@@ -1574,6 +1730,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>602 - FREE UNION</Name>
     <Number>0602</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81853</PollingLocationId>
   </Precinct>
   <Precinct id="pre90348sp0000">
@@ -1585,6 +1742,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81662</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
@@ -1597,6 +1755,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81662</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
@@ -1608,6 +1767,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>503 - HOLLYMEAD</Name>
     <Number>0503</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80142</PollingLocationId>
   </Precinct>
   <Precinct id="pre90666">
@@ -1619,6 +1779,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>105 - DUNLORA</Name>
     <Number>0105</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80522</PollingLocationId>
   </Precinct>
   <Precinct id="pre90929">
@@ -1630,6 +1791,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>406 - STONE ROBINSON</Name>
     <Number>0406</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81500</PollingLocationId>
   </Precinct>
   <Precinct id="pre90994sp0000">
@@ -1640,6 +1802,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80469</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
@@ -1651,6 +1814,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80469</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
@@ -1662,6 +1826,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81516</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
@@ -1673,6 +1838,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81516</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
@@ -1685,6 +1851,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>106 - NORTHSIDE</Name>
     <Number>0106</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82419</PollingLocationId>
   </Precinct>
   <Precinct id="pre91602">
@@ -1696,6 +1863,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>202 - UNIVERSITY HALL</Name>
     <Number>0202</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81466</PollingLocationId>
   </Precinct>
   <Precinct id="pre91781sp0000">
@@ -1708,6 +1876,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81857</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
@@ -1720,6 +1889,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81857</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
@@ -1732,6 +1902,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>302 - RED HILL</Name>
     <Number>0302</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81990</PollingLocationId>
   </Precinct>
   <Precinct id="pre91999">
@@ -1743,6 +1914,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>405 - CALE</Name>
     <Number>0405</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82177</PollingLocationId>
   </Precinct>
   <Precinct id="pre92065">
@@ -1754,6 +1926,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>305 - COUNTRY GREEN</Name>
     <Number>0305</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80548</PollingLocationId>
   </Precinct>
   <Precinct id="pre92087">
@@ -1764,6 +1937,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>604 - BROWNSVILLE</Name>
     <Number>0604</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81939</PollingLocationId>
   </Precinct>
   <Precinct id="pre92140">
@@ -1774,6 +1948,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>501 - KESWICK</Name>
     <Number>0501</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80354</PollingLocationId>
   </Precinct>
   <Precinct id="pre92145">
@@ -1784,6 +1959,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>601 - CROZET</Name>
     <Number>0601</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82204</PollingLocationId>
   </Precinct>
   <Precinct id="pre92171sp0000">
@@ -1795,6 +1971,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80541</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
@@ -1807,6 +1984,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80541</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
@@ -1819,6 +1997,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>104 - AGNOR-HURT</Name>
     <Number>0104</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80432</PollingLocationId>
   </Precinct>
   <Precinct id="pre92306">
@@ -1830,6 +2009,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>204 - BELFIELD</Name>
     <Number>0204</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81191</PollingLocationId>
   </Precinct>
   <Precinct id="pre92320">
@@ -1841,6 +2021,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>402 - MONTICELLO</Name>
     <Number>0402</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82220</PollingLocationId>
   </Precinct>
   <Precinct id="pre92353">
@@ -1851,6 +2032,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>603 - EARLYSVILLE</Name>
     <Number>0603</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80131</PollingLocationId>
   </Precinct>
   <Precinct id="pre92360">
@@ -1873,8 +2055,11 @@
     <LocalityId>loc70001</LocalityId>
     <Name>304 - EAST IVY</Name>
     <Number>0304</Number>
+    <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81213</PollingLocationId>
   </Precinct>
+
+  <!-- Street segments -->
   <StreetSegment id="ss309904">
     <NonHouseAddress>
       <City>GREENWOOD</City>
