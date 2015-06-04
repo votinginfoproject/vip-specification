@@ -596,6 +596,7 @@
               <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="IsStatewide" type="xs:boolean" minOccurs="0" />
+	      <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
               <!--
                    Note: The "PollingHours" element is being deprecated
                    and will be removed in future versions of VIP.

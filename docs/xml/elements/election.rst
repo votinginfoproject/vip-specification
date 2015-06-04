@@ -37,6 +37,11 @@ with one Election object.
 |                           |                             |             |         |                                       |required to default to "yes".    |
 |                           |                             |             |         |                                       |                                 |
 +---------------------------+-----------------------------+-------------+---------+---------------------------------------+---------------------------------+
+| Name                      |:doc:`InternationalizedText  |Optional     |Single   |The name for the election (**NB:**     |If the element is invalid or not |
+|                           |<internationalized_text>`    |             |         |while optional, this element is highly |present, the implementation is   |
+|                           |                             |             |         |recommended).                          |required to ignore it.           |
+|                           |                             |             |         |                                       |                                 |
++---------------------------+-----------------------------+-------------+---------+---------------------------------------+---------------------------------+
 | RegistrationInfo          |:doc:`InternationalizedText  |Optional     |Single   |Specifies information about            |If the field is invalid or not   |
 |                           |<internationalized_text>`    |             |         |registration for this election either  |present, the implementation is   |
 |                           |                             |             |         |as text or a URL.                      |required to ignore it.           |
@@ -95,16 +100,21 @@ with one Election object.
 .. code-block:: xml
    :linenos:
 
-   <Election id="12345">
-     <Date>2007-09-15</Date>
-     <Statewide>yes</Statewide>
-     <StateId>49</StateId>
-     <ElectionType>Federal</ElectionType>
-     <ResultsUrl>http://elections.results.org</ResultsUrl>
-     <RegistrationInfo>To register for this election, blah blah blah</RegistrationInfo>
-     <AbsenteeBallotInfo>To request an absentee ballot, blah blah blah</AbsenteeBallotInfo>
-     <PollingHours>7am-8pm</PollingHours>
-     <ElectionDayRegistration>yes</ElectionDayRegistration>
-     <RegistrationDeadline>2009-10-01</RegistrationDeadline>
-     <AbsenteeRequestDeadline>2009-11-01</AbsenteeRequestDeadline>
+   <Election id="ele30000">
+     <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
+     <Date>2013-11-05</Date>
+     <ElectionType>
+       <Text language="en">General</Text>
+       <Text language="es">Generales</Text>
+     </ElectionType>
+     <HasElectionDayRegistration>false</HasElectionDayRegistration>
+     <HoursOpenId>hours0001</HoursOpenId>
+     <IsStatewide>true</IsStatewide>
+     <Name>
+       <Text language="en">2013 Statewide General</Text>
+     </Name>
+     <RegistrationDeadline>2013-10-15</RegistrationDeadline>
+     <ResultsUri>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUri>
+     <StateId>st51</StateId>
    </Election>
+
