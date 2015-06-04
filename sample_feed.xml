@@ -1468,12 +1468,20 @@
     <AddressLine>Charlottesville, VA 229018917</AddressLine>
     <HoursOpenId>hours0002</HoursOpenId>
     <IsEarlyVoting>true</IsEarlyVoting>
+    <LatLng>
+      <Latitude>38.075578</Latitude>
+      <Longitude>-78.501695</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81274">
     <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
     <AddressLine>2775 Hydraulic Rd</AddressLine>
     <AddressLine>Charlottesville, VA 229018917</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.075578</Latitude>
+      <Longitude>-78.501695</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80232">
     <AddressLine>SENIOR CENTER</AddressLine>
@@ -1492,12 +1500,20 @@
     <AddressLine>210 Lambs Ln</AddressLine>
     <AddressLine>Charlottesville, VA 229018951</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.077069</Latitude>
+      <Longitude>-78.506559</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80142">
     <AddressLine>HOLLYMEAD ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>2775 Powell Creek Dr</AddressLine>
     <AddressLine>Charlottesville, VA 229117539</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.112383</Latitude>
+      <Longitude>-78.439298</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80522">
     <AddressLine>CATEC</AddressLine>
@@ -1510,6 +1526,10 @@
     <AddressLine>958 N Milton Rd</AddressLine>
     <AddressLine>Charlottesville, VA 229113612</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.010650</Latitude>
+      <Longitude>-78.397309</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80469">
     <AddressLine>ELKS LODGE HALL</AddressLine>
@@ -1522,12 +1542,20 @@
     <AddressLine>3893 Stony Point Rd</AddressLine>
     <AddressLine>Keswick, VA 229471503</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>41.229539</Latitude>
+      <Longitude>-73.987085</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl82419">
     <AddressLine>EARLYSVILLE FIRE DEPARTMENT</AddressLine>
     <AddressLine>283 Reas Ford Rd</AddressLine>
     <AddressLine>Earlysville, VA 229362410</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.152907</Latitude>
+      <Longitude>-78.462406</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81466">
     <AddressLine>UNIVERSITY HALL</AddressLine>
@@ -1537,24 +1565,40 @@
       <Text language="en">North Lobby</Text>
     </Directions>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.044667</Latitude>
+      <Longitude>-78.508818</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81857">
     <AddressLine>WOODBROOK ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>100 Woodbrook Dr</AddressLine>
     <AddressLine>Charlottesville, VA 229011133</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.087175</Latitude>
+      <Longitude>-78.466174</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81990">
     <AddressLine>RED HILL ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>3901 Red Hill School Rd</AddressLine>
     <AddressLine>North Garden, VA 229591704</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>37.964307</Latitude>
+      <Longitude>-78.634461</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl82177">
     <AddressLine>PAUL H CALE ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>1757 Avon Street Ext</AddressLine>
     <AddressLine>Charlottesville, VA 229028708</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>37.996254</Latitude>
+      <Longitude>-78.499288</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80548">
     <AddressLine>BEREAN BAPTIST CHURCH</AddressLine>
@@ -1567,6 +1611,10 @@
     <AddressLine>5870 Rockfish Gap Tpke</AddressLine>
     <AddressLine>Crozet, VA 229323401</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.052251</Latitude>
+      <Longitude>-78.702520</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80354">
     <AddressLine>ZION HILL BAPTIST CHURCH</AddressLine>
@@ -1579,12 +1627,20 @@
     <AddressLine>1407 Crozet Ave</AddressLine>
     <AddressLine>Crozet, VA 229322722</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.074684</Latitude>
+      <Longitude>-78.697296</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80541">
     <AddressLine>SCOTTSVILLE ELEMENTARY SCHOOL</AddressLine>
     <AddressLine>7868 Scottsville Rd</AddressLine>
     <AddressLine>Scottsville, VA 245903963</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>37.818476</Latitude>
+      <Longitude>-78.510843</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl80432">
     <AddressLine>AGNOR-HURT ELEMENTARY SCHOOL</AddressLine>
@@ -1597,6 +1653,10 @@
     <AddressLine>799 Faulconer Drive</AddressLine>
     <AddressLine>Charlottesville, VA 22903</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.055801</Latitude>
+      <Longitude>-78.520233</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl82220">
     <AddressLine>MONTICELLO HIGH SCHOOL</AddressLine>
@@ -1609,6 +1669,10 @@
     <AddressLine>185 Buck Mountain Rd</AddressLine>
     <AddressLine>Earlysville, VA 229362009</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.162374</Latitude>
+      <Longitude>-78.489944</Longitude>
+    </LatLng>
   </PollingLocation>
   <PollingLocation id="pl81118">
     <AddressLine>MERIWETHER LEWIS ELEM SCHOOL</AddressLine>
@@ -1621,6 +1685,10 @@
     <AddressLine>2201 Old Ivy Rd</AddressLine>
     <AddressLine>Charlottesville, VA 229034822</AddressLine>
     <HoursOpenId>hours0001</HoursOpenId>
+    <LatLng>
+      <Latitude>38.047660</Latitude>
+      <Longitude>-78.513654</Longitude>
+    </LatLng>
   </PollingLocation>
 
   <!--
