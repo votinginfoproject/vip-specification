@@ -7,12 +7,17 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 | Tag                   | Data Type                 | Required?    | Repeats?   | Description                 | Error Handling        |
 |                       |                           |              |            |                             |                       |
 +=======================+===========================+==============+============+=============================+=======================+
-| AddressLine           | xs:string                 | Optional     | Repeats    |Represents the various parts |If the field is invalid|
-|                       |                           |              |            |of an address to a polling   |or not present, the    |
-|                       |                           |              |            |location.                    |implementation is      |
+| AddressLine           | xs:string                 | **Required** | Repeats    |Represents the various parts |At least one valid     |
+|                       |                           |              |            |of an address to a polling   |``AddressLine`` must be|
+|                       |                           |              |            |location.                    |present for            |
+|                       |                           |              |            |                             |``PollingLocation`` to |
+|                       |                           |              |            |                             |be valid. If no valid  |
+|                       |                           |              |            |                             |``AddressLine`` is     |
+|                       |                           |              |            |                             |present, the           |
+|                       |                           |              |            |                             |implementation is      |
 |                       |                           |              |            |                             |required to ignore the |
-|                       |                           |              |            |                             |PollingLocation element|
-|                       |                           |              |            |                             |that contains it.      |
+|                       |                           |              |            |                             |``PollingLocation``    |
+|                       |                           |              |            |                             |element containing it. |
 +-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
 | Directions            |:doc:`InternationalizedText| Optional     | Single     |Specifies further            |If the field is invalid|
 |                       |<internationalized_text>`  |              |            |instructions for locating the|or not present, the    |
@@ -22,15 +27,15 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 +-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
 | Hours **[deprecated]**|:doc:`InternationalizedText| Optional     | Single     |Contains the hours (in local |If the field is invalid|
 |                       |<internationalized_text>`  |              |            |time) that the polling       |or not present, the    |
-|                       |                           |              |            |location is open (*NB: this  |implementation is      |
-|                       |                           |              |            |element is deprecated in     |required to ignore it. |
+|                       |                           |              |            |location is open (**NB:**    |implementation is      |
+|                       |                           |              |            |this element is deprecated in|required to ignore it. |
 |                       |                           |              |            |favor of the more structured |                       |
-|                       |                           |              |            |HoursOpen element. It is     |                       |
-|                       |                           |              |            |strongly encouraged that data|                       |
+|                       |                           |              |            |:doc:`HoursOpen <hours_open>`|                       |
+|                       |                           |              |            |element. It is strongly      |                       |
+|                       |                           |              |            |encouraged that data         |                       |
 |                       |                           |              |            |providers move toward        |                       |
 |                       |                           |              |            |contributing hours in this   |                       |
-|                       |                           |              |            |format)*.                    |                       |
-|                       |                           |              |            |                             |                       |
+|                       |                           |              |            |format).                     |                       |
 |                       |                           |              |            |                             |                       |
 |                       |                           |              |            |                             |                       |
 |                       |                           |              |            |                             |                       |
@@ -58,8 +63,8 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                       |                           |              |            |site.                        |implementation is      |
 |                       |                           |              |            |                             |required to ignore it. |
 +-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
-| LatLng                | :ref:`LatLng              | Optional     | Single     |Specifies the latitude and   |If the element is      |
-|                       | <pl-latlng>`              |              |            |longitude of this polling    |invalid or not present,|
+| LatLng                | `LatLng`_                 | Optional     | Single     |Specifies the latitude and   |If the element is      |
+|                       |                           |              |            |longitude of this polling    |invalid or not present,|
 |                       |                           |              |            |location.                    |the implementation is  |
 |                       |                           |              |            |                             |required to ignore it. |
 +-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
@@ -69,7 +74,8 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                       |                           |              |            |                             |required to ignore it. |
 +-----------------------+---------------------------+--------------+------------+-----------------------------+-----------------------+
 
-.. _pl-latlng:
+LatLng
+------
 
 The latitude and longitude of a polling location in `WGS 84`_ format. Both
 latitude and longitude values are measured in decimal degrees.
