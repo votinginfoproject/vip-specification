@@ -326,6 +326,17 @@
       <Type>full-term</Type>
     </Term>
   </Office>
+  <Office id="off20006">
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <FilingDeadline>1900-01-01</FilingDeadline>
+    <IsPartisan>false</IsPartisan>
+    <Name>
+      <Text language="en">Justice, Supreme Court of Virginia</Text>
+    </Name>
+    <Term>
+      <Type>full-term</Type>
+    </Term>
+  </Office>
   <!--
        There are several House of Delegates offices up for election in this
        county. Multiple offices may share the same name, but need distinct
@@ -654,6 +665,22 @@
     </ProStatement>
     <Type>referendum</Type>
   </BallotMeasureContest>
+  <!--
+       Virginia does not actually elect their judges; this is for demonstration
+       and documentation purposes only.
+    -->
+  <RetentionContest id="rc40001">
+    <BallotSelectionId>rc40001a</BallotSelectionId>
+    <BallotSelectionId>rc40001b</BallotSelectionId>
+    <BallotTitle>
+      <Text language="en">Retention of Supreme Court Justice</Text>
+      <Text language="es">La retención de juez de la Corte Suprema</Text>
+    </BallotTitle>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <Name>Judicial Retention, Supreme Court</Name>
+    <CandidateId>asdfds</CandidateId>
+    <OfficeId>off20006</OfficeId>
+  </RetentionContest>
 
   <!-- The various ballot styles in use by the different precincts. -->
   <BallotStyle id="bs00000">
@@ -665,6 +692,7 @@
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00001">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -675,6 +703,7 @@
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00002">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -685,6 +714,7 @@
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00003">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -693,6 +723,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00004">
     <OrderedContestId>oc20003bca</OrderedContestId>
@@ -700,6 +731,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20024</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00005">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -708,6 +740,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00006">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -718,6 +751,7 @@
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00007">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -728,6 +762,7 @@
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00008">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -739,6 +774,7 @@
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00009">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -748,6 +784,7 @@
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00010">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -758,6 +795,7 @@
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00011">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -767,6 +805,7 @@
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
 
   <!--
@@ -838,6 +877,9 @@
   </OrderedContest>
   <OrderedContest id="oc30001">
     <ContestId>bmc30001</ContestId>
+  </OrderedContest>
+  <OrderedContest id="oc40001">
+    <ContestId>rc40001</ContestId>
   </OrderedContest>
 
   <!--
@@ -1088,6 +1130,23 @@
     <MiddleName>R.</MiddleName>
     <PartyId>par0003</PartyId>
   </Person>
+  <!--
+       This is a candidate for judicial retention. We don't select the
+       candidate, but we do need to know about them in order to vote
+       yes/no on them.
+    -->
+  <Candidate id="can14444">
+    <BallotName>
+      <Text language="en">Cleo E. Powell</Text>
+    </BallotName>
+    <PersonId>per14444</PersonId>
+  </Candidate>
+  <Person id="per14444">
+    <FirstName>Cleo</FirstName>
+    <LastName>Powell</LastName>
+    <MiddleName>E.</MiddleName>
+  </Person>
+  <!-- End Judicial candidate block -->
   <CandidateSelection id="cs10422">
     <CandidateId>can10422</CandidateId>
     <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1456,6 +1515,19 @@
   </BallotMeasureSelection>
   <BallotMeasureSelection id="bms30001b">
     <Selection identifier="bms30001bt">
+      <Text language="en">No</Text>
+      <Text language="es">No</Text>
+    </Selection>
+  </BallotMeasureSelection>
+  <!-- Retention contest selections -->
+  <BallotMeasureSelection id="rc40001a">
+    <Selection identifier="rc40001at">
+      <Text language="en">Yes</Text>
+      <Text language="es">Sí</Text>
+    </Selection>
+  </BallotMeasureSelection>
+  <BallotMeasureSelection id="rc40001b">
+    <Selection identifier="rc40001bt">
       <Text language="en">No</Text>
       <Text language="es">No</Text>
     </Selection>
