@@ -10,14 +10,60 @@ Element Identifiers
 Most elements within the VIP feed require unique identifiers, `xs:ID` data types, and in order to maintain uniqueness
 and provide context for the identifiers, the best practice is to use `Hungarian-Style`_ notation for identifiers.
 
-ID values should follow Hungarian-Style notation, were the identifier prefix implicitly names the data element as the
-following examples illustrate.
+ID values should follow Hungarian-Style notation, were the identifier prefix implicitly names the data element.  Below
+is a list of preferred prefixes by element:
 
-* Examples:
-   `<ElectionAdministrationId>ea39200018</ElectionAdministrationId>`
-   `<Precinct id="pre3906103208">`
-   `<StreetSegment id="ss3940000020760">`
-   `<ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>`
++----------------------------------------+---------------------------------------+
+| Element                                | Prefix                                |
+|                                        |                                       |
++========================================+=======================================+
+| BallotMeasureContest                   | bmc                                   |
++----------------------------------------+---------------------------------------+
+| BallotMeasureSelection                 | bms                                   |
++----------------------------------------+---------------------------------------+
+| BallotStyle                            | bs                                    |
++----------------------------------------+---------------------------------------+
+| Candidate                              | can                                   |
++----------------------------------------+---------------------------------------+
+| CandidateContest                       | cc                                    |
++----------------------------------------+---------------------------------------+
+| CandidateSelection                     | cs                                    |
++----------------------------------------+---------------------------------------+
+| ContactInformation                     | ci                                    |
++----------------------------------------+---------------------------------------+
+| ElectionAdministration                 | ea                                    |
++----------------------------------------+---------------------------------------+
+| ElectoralDistrict                      | ed                                    |
++----------------------------------------+---------------------------------------+
+| HoursOpen                              | hours                                 |
++----------------------------------------+---------------------------------------+
+| Locality                               | loc                                   |
++----------------------------------------+---------------------------------------+
+| Office                                 | off                                   |
++----------------------------------------+---------------------------------------+
+| OrderedContest                         | oc                                    |
++----------------------------------------+---------------------------------------+
+| Party                                  | par                                   |
++----------------------------------------+---------------------------------------+
+| PartyContest                           | pc                                    |
++----------------------------------------+---------------------------------------+
+| PartySelection                         | ps                                    |
++----------------------------------------+---------------------------------------+
+| Person                                 | per                                   |
++----------------------------------------+---------------------------------------+
+| PollingLocation                        | pl                                    |
++----------------------------------------+---------------------------------------+
+| RetentionContest                       | rc                                    |
++----------------------------------------+---------------------------------------+
+| State                                  | st                                    |
++----------------------------------------+---------------------------------------+
+| StreetSegment                          | ss                                    |
++----------------------------------------+---------------------------------------+
+| Source                                 | src                                   |
++----------------------------------------+---------------------------------------+
+| Election                               | ele                                   |
++----------------------------------------+---------------------------------------+
+
 
 .. _Hungarian-Style: http://en.wikipedia.org/wiki/Hungarian_notation
 
@@ -46,23 +92,26 @@ Elements with a data type of `xs:language` should contain a two character, lower
 Elements that have enumerations which include an `other` should have a corresponding value assigned to `OtherType` within
 the containing element.  For example:
 
- `<BallotMeasureContest id="bm390616670907">`
-    `<BallotSelectionId>bms390616670907</BallotSelectionId>`
-    `<ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>`
-    `<Name>Proposed Tax Levy School District</Name>`
-    `<SequenceOrder>34</SequenceOrder>`
-    `<FullText>`
-      `<Text language="en">An additional tax for the benefit of the Lockland Local School District, County of Hamilton,`
-        `Ohio, for the purpose of CURRENT EXPENSES at a rate not exceeding eleven and two-tenths (11.2) mills for each`
-        `one dollar of valuation, which amounts to one dollar and twelve cents ($1.12) for each one hundred dollars of`
-        `valuation, for a continuing period of time, commencing in 2015, first due in calendar year 2016.</Text>`
-    `</FullText>`
-    `<SummaryText>`
-      `<Text language="en">4 Proposed Tax Levy</Text>`
-    `</SummaryText>`
-    `<Type>other</Type>`
-    `<OtherType>bond</OtherType>`
-  `</BallotMeasureContest>`
+.. code-block:: xml
+   :linenos:
+   
+ <BallotMeasureContest id="bm390616670907">
+    <BallotSelectionId>bms390616670907</BallotSelectionId>
+    <ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>
+    <Name>Proposed Tax Levy School District</Name>
+    <SequenceOrder>34</SequenceOrder>
+    <FullText>
+      <Text language="en">An additional tax for the benefit of the Lockland Local School District, County of Hamilton,
+        Ohio, for the purpose of CURRENT EXPENSES at a rate not exceeding eleven and two-tenths (11.2) mills for each
+        one dollar of valuation, which amounts to one dollar and twelve cents ($1.12) for each one hundred dollars of
+        valuation, for a continuing period of time, commencing in 2015, first due in calendar year 2016.</Text>
+    </FullText>
+    <SummaryText>
+      <Text language="en">4 Proposed Tax Levy</Text>
+    </SummaryText>
+    <Type>other</Type>
+    <OtherType>bond</OtherType>
+  </BallotMeasureContest>
 
 
 .. _ISO-8601: http://en.wikipedia.org/wiki/ISO_8601
