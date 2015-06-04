@@ -70,6 +70,7 @@ is a list of preferred prefixes by element:
 File Structure
 --------------
 All XML files should be encoded UFT-8 and line breaks should be LF (\n) as opposed to CR LF (\r\n).
+
 For consistency across files and to aid human readability all lines should be indented two spaces and tabs should not
 be used.
 
@@ -77,25 +78,32 @@ General Data Structure
 ----------------------
 All data that are presented to end users of the data (i.e. contest names, referendum text, polling location names,
 street names, proper names), where possible, should be converted to Title Case to aid readability.
+
 All data should be trimmed to remove leading and trailing white space.
+
 Optional elements without values should be omitted from XML feed.
 
 Specific Data Types
 -------------------
 Elements with a data type of `xs:integer` must contain a valid whole number greater than zero.
+
 Elements with a data type of `xs:anyURI` should be entered as a fully qualified domain name
 (e.g. https://www.votinginfoproject.org/)
+
 Elements with a data type of `xs:dateTime` should be entered in `ISO-8601`_ format.
+
 Elements with a data type of `xs:boolean` should either have a value of `true` or `false`
+
 Elements with a data type of `xs:language` should contain a two character, lower-case, value corresponding to the
 `ISO 639`_ standard.
+
 Elements that have enumerations which include an `other` should have a corresponding value assigned to `OtherType` within
 the containing element.  For example:
 
 .. code-block:: xml
    :linenos:
 
- <BallotMeasureContest id="bm390616670907">
+ ``<BallotMeasureContest id="bm390616670907">
     <BallotSelectionId>bms390616670907</BallotSelectionId>
     <ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>
     <Name>Proposed Tax Levy School District</Name>
@@ -111,7 +119,7 @@ the containing element.  For example:
     </SummaryText>
     <Type>other</Type>
     <OtherType>bond</OtherType>
-  </BallotMeasureContest>
+  </BallotMeasureContest>``
 
 
 .. _ISO-8601: http://en.wikipedia.org/wiki/ISO_8601
@@ -122,6 +130,7 @@ Specific Data Elements
 
 Street Segments: Valid street segment records should not contain leading zeros in `xs:integer` fields and should have
 a `Zip` value of `00000` if a value is unknown.
+
 External Identifiers: External identifiers with an enumeration of `fips` should contain valid FIPS code values as
 defined by the `U.S. Census Bureau`_.  External identifiers with an enumeration of `ocd-id` should contain a valid
 `Open Civic Data Division Identifier`_.
