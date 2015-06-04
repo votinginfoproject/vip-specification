@@ -603,6 +603,29 @@
     <OfficeId>off20476</OfficeId>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
+  <BallotMeasureContest id="bmc30001">
+    <BallotSelectionId>bms30001a</BallotSelectionId>
+    <BallotSelectionId>bms30001b</BallotSelectionId>
+    <BallotTitle>
+      <Text language="en">State of the State</Text>
+      <Text language="es">Estado del Estado.</Text>
+    </BallotTitle>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <Name>Referendum on Virginia</Name>
+    <ConStatement identifier="bmc30001con">
+      <Text language="en">This is no good.</Text>
+      <Text language="es">Esto no es bueno.</Text>
+    </ConStatement>
+    <EffectOfAbstain identifier="bmc30001abs">
+      <Text language="en">Nothing will happen.</Text>
+      <Text language="es">Nada pasará.</Text>
+    </EffectOfAbstain>
+    <ProStatement identifier="bmc30001pro">
+      <Text language="en">Everything will be great.</Text>
+      <Text language="es">Todo va a estar bien.</Text>
+    </ProStatement>
+    <Type>referendum</Type>
+  </BallotMeasureContest>
 
   <!-- The various ballot styles in use by the different precincts. -->
   <BallotStyle id="bs00000">
@@ -613,6 +636,7 @@
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00001">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -622,6 +646,7 @@
     <OrderedContestId>oc20033</OrderedContestId>
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00002">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -631,6 +656,7 @@
     <OrderedContestId>oc20024</OrderedContestId>
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00003">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -638,12 +664,14 @@
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20100</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00004">
     <OrderedContestId>oc20003bca</OrderedContestId>
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20024</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00005">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -651,6 +679,7 @@
     <OrderedContestId>oc20004</OrderedContestId>
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00006">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -660,6 +689,7 @@
     <OrderedContestId>oc20024</OrderedContestId>
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00007">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -669,6 +699,7 @@
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00008">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -679,6 +710,7 @@
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00009">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -687,6 +719,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00010">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -696,6 +729,7 @@
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00011">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -704,6 +738,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
+    <OrderedContestId>oc30001</OrderedContestId>
   </BallotStyle>
 
   <!--
@@ -772,6 +807,9 @@
   </OrderedContest>
   <OrderedContest id="oc20350">
     <ContestId>cc20350</ContestId>
+  </OrderedContest>
+  <OrderedContest id="oc30001">
+    <ContestId>bmc30001</ContestId>
   </OrderedContest>
 
   <!--
@@ -1381,6 +1419,19 @@
     <Nickname>Kate</Nickname>
     <PartyId>par0004</PartyId>
   </Person>
+  <!-- Ballot measure selections -->
+  <BallotMeasureSelection id="bms30001a">
+    <Selection identifier="bms30001at">
+      <Text language="en">Yes</Text>
+      <Text language="es">Sí</Text>
+    </Selection>
+  </BallotMeasureSelection>
+  <BallotMeasureSelection id="bms30001b">
+    <Selection identifier="bms30001bt">
+      <Text language="en">No</Text>
+      <Text language="es">No</Text>
+    </Selection>
+  </BallotMeasureSelection>
 
   <!-- The polling locations in this jurisdiction. -->
   <PollingLocation id="pl81274">
