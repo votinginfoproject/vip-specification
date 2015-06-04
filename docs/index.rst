@@ -19,7 +19,11 @@ The documentation is split into two distinct parts.
 
 * :ref:`xml-docs`
 * :ref:`csv-docs`
-   
+
+To see a changelog of all of the updates, please see `the GitHub repository`_.
+
+.. _`the GitHub repository`: https://github.com/votinginfoproject/vip-specification/blob/vip5/HISTORY.md
+
 .. _xml-docs:
 
 XML Documentation
