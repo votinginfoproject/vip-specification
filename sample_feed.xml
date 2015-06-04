@@ -678,7 +678,7 @@
     </BallotTitle>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>Judicial Retention, Supreme Court</Name>
-    <CandidateId>asdfds</CandidateId>
+    <CandidateId>can14444</CandidateId>
     <OfficeId>off20006</OfficeId>
   </RetentionContest>
 
@@ -2138,7 +2138,7 @@
       <Zip>22943</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90065</PrecinctId>
+    <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>201</EndHouseNumber>
   </StreetSegment>
@@ -2151,7 +2151,7 @@
       <Zip>22932</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90065</PrecinctId>
+    <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>521</EndHouseNumber>
   </StreetSegment>
@@ -2164,7 +2164,7 @@
       <Zip>22932</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90065</PrecinctId>
+    <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>572</EndHouseNumber>
   </StreetSegment>
@@ -2190,7 +2190,7 @@
       <Zip>22901</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90348</PrecinctId>
+    <PrecinctId>pre90348sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>180</EndHouseNumber>
   </StreetSegment>
@@ -2229,7 +2229,7 @@
       <Zip>22911</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90994</PrecinctId>
+    <PrecinctId>pre90994sp0001</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>120</EndHouseNumber>
   </StreetSegment>
@@ -2242,7 +2242,7 @@
       <Zip>22911</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90994</PrecinctId>
+    <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>151</EndHouseNumber>
   </StreetSegment>
@@ -2255,7 +2255,7 @@
       <Zip>22911</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90994</PrecinctId>
+    <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>31</EndHouseNumber>
   </StreetSegment>
