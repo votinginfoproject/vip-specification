@@ -7,7 +7,7 @@ formatting data within your VIP XML file.
 Element Identifiers
 -------------------
 
-Most elements within the VIP feed require unique identifiers, `xs:ID` data types, and in order to maintain uniqueness
+Most elements within the VIP feed require unique identifiers, ``xs:ID`` data types, and in order to maintain uniqueness
 and provide context for the identifiers, the best practice is to use `Hungarian-Style`_ notation for identifiers.
 
 ID values should follow Hungarian-Style notation, were the identifier prefix implicitly names the data element.  Below
@@ -85,19 +85,19 @@ Optional elements without values should be omitted from XML feed.
 
 Specific Data Types
 -------------------
-Elements with a data type of `xs:integer` must contain a valid whole number greater than zero.
+Elements with a data type of ``xs:integer`` must contain a valid whole number greater than zero.
 
-Elements with a data type of `xs:anyURI` should be entered as a fully qualified domain name
+Elements with a data type of ``xs:anyURI`` should be entered as a fully qualified domain name
 (e.g. https://www.votinginfoproject.org/)
 
-Elements with a data type of `xs:dateTime` should be entered in `ISO-8601`_ format.
+Elements with a data type of ``xs:dateTime`` should be entered in `ISO-8601`_ format.
 
-Elements with a data type of `xs:boolean` should either have a value of `true` or `false`
+Elements with a data type of ``xs:boolean`` should either have a value of ``true`` or ``false``
 
-Elements with a data type of `xs:language` should contain a two character, lower-case, value corresponding to the
+Elements with a data type of ``xs:language`` should contain a two character, lower-case, value corresponding to the
 `ISO 639`_ standard.
 
-Elements that have enumerations which include an `other` should have a corresponding value assigned to `OtherType` within
+Elements that have enumerations which include an ``other`` should have a corresponding value assigned to ``OtherType`` within
 the containing element.  For example:
 
 .. code-block:: xml
@@ -119,7 +119,7 @@ the containing element.  For example:
     </SummaryText>
     <Type>other</Type>
     <OtherType>bond</OtherType>
-  </BallotMeasureContest>``
+  </BallotMeasureContest>
 
 
 .. _ISO-8601: http://en.wikipedia.org/wiki/ISO_8601
@@ -128,13 +128,17 @@ the containing element.  For example:
 Specific Data Elements
 ----------------------
 
-Street Segments: Valid street segment records should not contain leading zeros in `xs:integer` fields and should have
-a `Zip` value of `00000` if a value is unknown.
+Street Segments: Valid street segment records should not contain leading zeros in ``xs:integer`` fields and should have
+a ``Zip`` value of ``00000`` if a value is unknown.
 
-External Identifiers: External identifiers with an enumeration of `fips` should contain valid FIPS code values as
-defined by the `U.S. Census Bureau`_.  External identifiers with an enumeration of `ocd-id` should contain a valid
+External Identifiers: External identifiers with an enumeration of ``fips`` should contain valid FIPS code values as
+defined by the `U.S. Census Bureau`_.  External identifiers with an enumeration of ``ocd-id`` should contain a valid
 `Open Civic Data Division Identifier`_.
 
+For long text fields (e.g. ``FullText`` in ``BallotMeasureContest``) the XML line break (``&#xA;``) should be used to
+enforce line break styling.
+
+In all fields the characters ``<``, ``>``, and ``&`` should be encoded ``&lt;``, ``&gt;``, and ``&amp;`` respectively.
 
 .. _U.S. Census Bureau: http://www.census.gov/geo/reference/ansi.html
 .. _Open Civic Data Division Identifier: https://github.com/opencivicdata/ocd-division-ids
