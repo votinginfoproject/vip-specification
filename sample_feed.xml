@@ -1534,6 +1534,18 @@
   </BallotMeasureSelection>
 
   <!-- The polling locations in this jurisdiction. -->
+  <PollingLocation id="pl00000">
+    <AddressLine>DEPARTMENT OF VOTER REGISTRATION AND ELECTIONS</AddressLine>
+    <AddressLine>1600 5TH STREET</AddressLine>
+    <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
+    <HoursOpenId>hours0002</HoursOpenId>
+    <IsDropBox>true</IsDropBox>
+    <IsEarlyVoting>true</IsEarlyVoting>
+    <LatLng>
+      <Latitude>38.009939</Latitude>
+      <Longitude>-78.506204</Longitude>
+    </LatLng>
+  </PollingLocation>
   <PollingLocation id="pl81273">
     <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
     <AddressLine>2775 Hydraulic Rd</AddressLine>
@@ -1786,6 +1798,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>203 - GEORGETOWN</Name>
     <Number>0203</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81274</PollingLocationId>
   </Precinct>
@@ -1798,6 +1811,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>103 - BRANCHLANDS</Name>
     <Number>0103</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80232</PollingLocationId>
   </Precinct>
@@ -1809,6 +1823,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>602 - FREE UNION</Name>
     <Number>0602</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81853</PollingLocationId>
   </Precinct>
@@ -1821,6 +1836,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81662</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1834,6 +1850,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81662</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1846,6 +1863,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>503 - HOLLYMEAD</Name>
     <Number>0503</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80142</PollingLocationId>
   </Precinct>
@@ -1858,6 +1876,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>105 - DUNLORA</Name>
     <Number>0105</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80522</PollingLocationId>
   </Precinct>
@@ -1870,6 +1889,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>406 - STONE ROBINSON</Name>
     <Number>0406</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81500</PollingLocationId>
   </Precinct>
@@ -1881,6 +1901,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80469</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1893,6 +1914,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80469</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1905,6 +1927,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81516</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1917,6 +1940,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81516</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1930,6 +1954,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>106 - NORTHSIDE</Name>
     <Number>0106</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82419</PollingLocationId>
   </Precinct>
@@ -1942,6 +1967,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>202 - UNIVERSITY HALL</Name>
     <Number>0202</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81466</PollingLocationId>
   </Precinct>
@@ -1955,6 +1981,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81857</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1968,6 +1995,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81857</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1981,6 +2009,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>302 - RED HILL</Name>
     <Number>0302</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81990</PollingLocationId>
   </Precinct>
@@ -1993,6 +2022,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>405 - CALE</Name>
     <Number>0405</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82177</PollingLocationId>
   </Precinct>
@@ -2005,6 +2035,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>305 - COUNTRY GREEN</Name>
     <Number>0305</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80548</PollingLocationId>
   </Precinct>
@@ -2016,6 +2047,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>604 - BROWNSVILLE</Name>
     <Number>0604</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81939</PollingLocationId>
   </Precinct>
@@ -2027,6 +2059,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>501 - KESWICK</Name>
     <Number>0501</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80354</PollingLocationId>
   </Precinct>
@@ -2038,6 +2071,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>601 - CROZET</Name>
     <Number>0601</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82204</PollingLocationId>
   </Precinct>
@@ -2050,6 +2084,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80541</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -2063,6 +2098,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80541</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -2076,6 +2112,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>104 - AGNOR-HURT</Name>
     <Number>0104</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80432</PollingLocationId>
   </Precinct>
@@ -2088,6 +2125,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>204 - BELFIELD</Name>
     <Number>0204</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81191</PollingLocationId>
   </Precinct>
@@ -2100,6 +2138,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>402 - MONTICELLO</Name>
     <Number>0402</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82220</PollingLocationId>
   </Precinct>
@@ -2111,6 +2150,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>603 - EARLYSVILLE</Name>
     <Number>0603</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80131</PollingLocationId>
   </Precinct>
@@ -2134,6 +2174,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>304 - EAST IVY</Name>
     <Number>0304</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81213</PollingLocationId>
   </Precinct>
