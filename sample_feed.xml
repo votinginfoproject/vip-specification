@@ -1767,6 +1767,16 @@
        The precincts which tie it all together. These link ballot styles,
        electoral districts, localities, and polling locations.
     -->
+  <Precinct id="pre99999">
+    <BallotStyleId>bs00000</BallotStyleId>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+    <IsMailOnly>true</IsMailOnly>
+    <LocalityId>loc70001</LocalityId>
+    <Name>9999 - PERMANENT MAIL-IN</Name>
+    <Number>9999</Number>
+  </Precinct>
   <Precinct id="pre90111">
     <BallotStyleId>bs00010</BallotStyleId>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
@@ -2129,6 +2139,18 @@
   </Precinct>
 
   <!-- Street segments -->
+  <StreetSegment id="ss999999">
+    <NonHouseAddress>
+      <City>Charlottesville</City>
+      <State>VA</State>
+      <StreetName>CHAPEL HILL RD</StreetName>
+      <Zip>22901</Zip>
+    </NonHouseAddress>
+    <OddEvenBoth>both</OddEvenBoth>
+    <PrecinctId>pre99999</PrecinctId>
+    <StartHouseNumber>0</StartHouseNumber>
+    <EndHouseNumber>0</EndHouseNumber>
+  </StreetSegment>
   <StreetSegment id="ss309904">
     <NonHouseAddress>
       <City>GREENWOOD</City>
