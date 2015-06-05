@@ -2184,7 +2184,8 @@
     <NonHouseAddress>
       <City>Charlottesville</City>
       <State>VA</State>
-      <StreetName>CHAPEL HILL RD</StreetName>
+      <StreetName>CHAPEL HILL</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
       <Zip>22901</Zip>
     </NonHouseAddress>
     <OddEvenBoth>both</OddEvenBoth>
