@@ -227,7 +227,7 @@
       <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
-    <xs:attribute name="identifier" type="xs:string" use="required" />
+    <xs:attribute name="csvRowId" type="xs:string" />
   </xs:complexType>
 
   <xs:complexType name="ContestBase" abstract="true">
@@ -278,9 +278,11 @@
                   <xs:element name="Type" type="VoterServiceType" minOccurs="0" />
                   <xs:element name="OtherType" type="xs:string" minOccurs="0" />
                 </xs:all>
+                <xs:attribute name="csvRowId" type="xs:string" />
               </xs:complexType>
             </xs:element>
           </xs:sequence>
+          <xs:attribute name="csvRowId" type="xs:string" />
         </xs:complexType>
       </xs:element>
       <xs:element name="ElectionsUri" type="xs:anyURI" minOccurs="0" />
@@ -312,9 +314,11 @@
             <xs:element name="OtherType" type="xs:string" minOccurs="0" />
             <xs:element name="Value" type="xs:string" />
           </xs:all>
+          <xs:attribute name="csvRowId" type="xs:string" />
         </xs:complexType>
       </xs:element>
     </xs:sequence>
+    <xs:attribute name="csvRowId" type="xs:string" />
   </xs:complexType>
 
   <xs:complexType name="HoursOpen">
@@ -328,6 +332,7 @@
                   <xs:element name="StartTime" type="TimeWithZone" maxOccurs="1" />
                   <xs:element name="EndTime" type="TimeWithZone" maxOccurs="1" />
                 </xs:sequence>
+                <xs:attribute name="csvRowId" type="xs:string" />
               </xs:complexType>
             </xs:element>
             <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
@@ -336,6 +341,7 @@
             <xs:element name="StartDate" type="xs:date" minOccurs="0" />
             <xs:element name="EndDate" type="xs:date" minOccurs="0" />
           </xs:sequence>
+          <xs:attribute name="csvRowId" type="xs:string" />
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -371,11 +377,7 @@
     <xs:sequence>
       <xs:element name="Text" type="LanguageString" minOccurs="1" maxOccurs="unbounded" />
     </xs:sequence>
-    <!--
-        This is not type "xs:ID" because the same element can potentially
-        appear multiple times in the document.
-      -->
-    <xs:attribute name="identifier" type="xs:string" />
+    <xs:attribute name="csvRowId" type="xs:string" />
   </xs:complexType>
 
   <!--
@@ -418,6 +420,7 @@
             <xs:element name="StartDate" type="xs:date" minOccurs="0" />
             <xs:element name="EndDate" type="xs:date" minOccurs="0" />
           </xs:sequence>
+          <xs:attribute name="csvRowId" type="xs:string" />
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -496,6 +499,7 @@
             <xs:element name="Longitude" type="xs:float" minOccurs="1" maxOccurs="1" />
             <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1" />
           </xs:sequence>
+          <xs:attribute name="csvRowId" type="xs:string" />
         </xs:complexType>
       </xs:element>
       <xs:element name="PhotoUri" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
@@ -596,7 +600,7 @@
               <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="IsStatewide" type="xs:boolean" minOccurs="0" />
-	      <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
               <!--
                    Note: The "PollingHours" element is being deprecated
                    and will be removed in future versions of VIP.

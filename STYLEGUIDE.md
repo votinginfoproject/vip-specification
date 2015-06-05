@@ -64,9 +64,15 @@ Markdown, etc).
   ```
 
 
-### IDs
+### Primary Key Attribute: `id`
 
-* A primary key ID should be an attribute with type "xs:ID" and name "id".
+* A complex type should have a primary key attribute if and only if
+  instances of the type occur only as immediate children of the "VipObject"
+  root object.  We use this as the requirement because this is a simple
+  way to characterize whether instances of the type are defined "in one
+  place" in an XML feed (and so cannot occur twice).
+
+* A primary key should be an attribute with type "xs:ID" and name "id".
   For example,
 
     ```xml
@@ -88,6 +94,18 @@ Markdown, etc).
     ```xml
     <!-- Instead of ContestBaseId. -->
     <xs:element name="ContestId" type="xs:IDREF" />
+    ```
+
+
+### Row ID Attribute: `csvRowId`
+
+A complex type should have an optional attribute named "csvRowId" of type
+"xs:string" if (1) instances of the type are represented by rows of a flat
+file when using flat files and (2) the type does not already have a primary
+key attribute.  The attribute looks like this when present:
+
+    ```xml
+    <xs:attribute name="csvRowId" type="xs:string" />
     ```
 
 
@@ -250,7 +268,13 @@ Global type definitions should be ordered as follows:
 
 
 ## CSV Styles
-To be determined
+
+### Row ID
+
+The first column of each CSV file should be either "id" or "csvRowId",
+depending on whether the corresponding type has an "id" or "csvRowId"
+attribute.  We call the value of this column for a given row the "row ID."
+The row ID should be unique across all rows of a given file.
 
 
 [vssc_1622]: http://grouper.ieee.org/groups/1622/groups/2/index.html
