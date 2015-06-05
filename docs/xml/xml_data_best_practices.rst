@@ -11,7 +11,7 @@ Most elements within the VIP feed require unique identifiers, ``xs:ID`` data typ
 and provide context for the identifiers, the best practice is to use `Hungarian-Style`_ notation for identifiers.
 
 ID values should follow Hungarian-Style notation, were the identifier prefix implicitly names the data element.  Below
-is a list of preferred prefixes by element:
+is a list of preferred prefixes by element (e.g. par00001 for a ``Party`` ``id``):
 
 +----------------------------------------+---------------------------------------+
 | Element                                | Prefix                                |
@@ -69,7 +69,7 @@ is a list of preferred prefixes by element:
 
 File Structure
 --------------
-All XML files should be encoded UFT-8 and line breaks should be LF (``\n``) as opposed to CR LF (``\r\n``).
+All XML files should be encoded UFT-8 and line breaks should be LF (`\n`) as opposed to CR LF (`\r\n`).
 
 For consistency across files and to aid human readability all lines should be indented two spaces and tabs should not
 be used.
