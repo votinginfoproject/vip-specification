@@ -73,7 +73,7 @@ Markdown, etc).
     <xs:attribute name="id" type="xs:ID" use="required" />
     ```
   Note that this departs from the style used by [VSSC 1622.2][vssc_1622],
-  where the name is "object_id".
+  where the name is "ObjectId".
 
 * A reference to a primary key should have type "xs:IDREF".  The name
   of the element or attribute should normally end with the name of the type
