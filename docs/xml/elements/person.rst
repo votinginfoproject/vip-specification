@@ -28,6 +28,15 @@ or elected official. These elements reference ``Person``:
 |                    |                           |              |            |                           |required to ignore it.          |
 |                    |                           |              |            |                           |                                |
 +--------------------+---------------------------+--------------+------------+---------------------------+--------------------------------+
+| FullName           |:doc:`InternationalizedText| Optional     | Single     |Specifies a person's       |If the field is invalid or not  |
+|                    |<internationalized_text>`  |              |            |full name (**NB:** this    |present, the implementation is  |
+|                    |                           |              |            |information is             |required to ignore it.          |
+|                    |                           |              |            |:doc:`InternationalizedText|                                |
+|                    |                           |              |            |<internationalized_text>`  |                                |
+|                    |                           |              |            |because it sometimes       |                                |
+|                    |                           |              |            |appears on ballots in      |                                |
+|                    |                           |              |            |multiple languages).       |                                |
++--------------------+---------------------------+--------------+------------+---------------------------+--------------------------------+
 | LastName           | xs:string                 | Optional     | Single     |Represents an              |If the field is invalid or not  |
 |                    |                           |              |            |individual's last name.    |present, the implementation is  |
 |                    |                           |              |            |                           |required to ignore it.          |
