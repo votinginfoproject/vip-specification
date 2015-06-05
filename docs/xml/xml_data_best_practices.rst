@@ -103,7 +103,7 @@ the containing element.  For example:
 .. code-block:: xml
    :linenos:
 
- ``<BallotMeasureContest id="bm390616670907">
+ <BallotMeasureContest id="bm390616670907">
     <BallotSelectionId>bms390616670907</BallotSelectionId>
     <ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>
     <Name>Proposed Tax Levy School District</Name>
