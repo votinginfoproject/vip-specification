@@ -830,22 +830,22 @@
   </OrderedContest>
   <!-- Start of ballot rotation examples for the gubenatorial race. -->
   <OrderedContest id="oc20003abc">
-    <BallotSelectionId>cs10961</BallotSelectionId>
-    <BallotSelectionId>cs10962</BallotSelectionId>
-    <BallotSelectionId>cs10963</BallotSelectionId>
     <ContestId>cc20003</ContestId>
+    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
   </OrderedContest>
   <OrderedContest id="oc20003bca">
-    <BallotSelectionId>cs10962</BallotSelectionId>
-    <BallotSelectionId>cs10963</BallotSelectionId>
-    <BallotSelectionId>cs10961</BallotSelectionId>
     <ContestId>cc20003</ContestId>
+    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
   </OrderedContest>
   <OrderedContest id="oc20003cab">
-    <BallotSelectionId>cs10963</BallotSelectionId>
-    <BallotSelectionId>cs10961</BallotSelectionId>
-    <BallotSelectionId>cs10962</BallotSelectionId>
     <ContestId>cc20003</ContestId>
+    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
   </OrderedContest>
   <!-- End of ballot rotation for gubenatorial race. -->
   <OrderedContest id="oc20005">
