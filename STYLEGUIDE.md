@@ -70,7 +70,7 @@ Markdown, etc).
   instances of the type occur only as immediate children of the "VipObject"
   root object.  We use this as the requirement because this is a simple
   way to characterize whether instances of the type are defined "in one
-  place" in an XML feed (and so cannot occur twice).
+  place" in an XML feed (and so not at risk of occurring twice).
 
 * A primary key should be an attribute with type "xs:ID" and name "id".
   For example,
@@ -101,12 +101,21 @@ Markdown, etc).
 
 A complex type should have an optional attribute named "csvRowId" of type
 "xs:string" if (1) instances of the type are represented by rows of a flat
-file when using flat files and (2) the type does not already have a primary
+file when using flat files, and (2) the type does not already have a primary
 key attribute.  The attribute looks like this when present:
 
-    ```xml
-    <xs:attribute name="csvRowId" type="xs:string" />
-    ```
+```xml
+<xs:attribute name="csvRowId" type="xs:string" />
+```
+
+The "csvRowId" attribute is useful for troubleshooting, etc. because it
+lets one trace data in an XML feed that might not otherwise be traceable
+to the row of the flat file from which it came.
+
+The attribute is not a primary key relative to an XML feed because it is
+possible for the same attribute value to occur in more than one place in
+the feed (e.g. if the same "Term" instance occurs as an element of more
+than one "Office" instance).
 
 
 ### Element/Attribute Property Ordering
