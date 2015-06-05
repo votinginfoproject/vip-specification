@@ -10,8 +10,8 @@ are equal.
 | Tag                  | Data Type                               | Required?    | Repeats?   | Description            | Error Handling         |
 |                      |                                         |              |            |                        |                        |
 +======================+=========================================+==============+============+========================+========================+
-| NonHouseAddress      |:ref:`NonHouseAddress                    | Optional     | Single     |The common street       |If the element is not   |
-|                      |<non-house-address>`                     |              |            |address (as well as     |present or invalid, the |
+| NonHouseAddress      |`NonHouseAddress`_                       | **Required** | Single     |The common street       |If the element is not   |
+|                      |                                         |              |            |address (as well as     |present or invalid, the |
 |                      |                                         |              |            |city, state, and zip) of|implementation is       |
 |                      |                                         |              |            |the start and end points|required to ignore the  |
 |                      |                                         |              |            |of the segment. Specific|StreetSegment element   |
@@ -105,10 +105,8 @@ are equal.
 |                      |                                         |              |            |is true.                |                        |
 +----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
 
-.. _non-house-address:
-
-StreetSegment.NonHouseAddress
------------------------------
+NonHouseAddress
+---------------
 
 +-------------------+------------+-------------+-------------+----------------------+-------------------------+
 | Tag               | Data Type  | Required?   | Repeats?    | Description          | Error Handling          |
