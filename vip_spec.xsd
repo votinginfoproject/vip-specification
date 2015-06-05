@@ -93,13 +93,14 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="1-of-m" />
       <xs:enumeration value="approval" />
+      <xs:enumeration value="borda" />
       <xs:enumeration value="cumulative" />
       <xs:enumeration value="majority" />
       <xs:enumeration value="n-of-m" />
       <xs:enumeration value="plurality" />
+      <xs:enumeration value="proportional" />
       <xs:enumeration value="range" />
       <xs:enumeration value="rcv" />
-      <xs:enumeration value="rcv-borda" />
       <xs:enumeration value="super-majority" />
       <xs:enumeration value="other" />
     </xs:restriction>
