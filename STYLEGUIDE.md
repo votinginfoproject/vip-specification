@@ -97,25 +97,26 @@ Markdown, etc).
     ```
 
 
-### Row ID Attribute: `csvRowId`
+### Object ID Attribute: `objectId`
 
-A complex type should have an optional attribute named "csvRowId" of type
+A complex type should have an optional attribute named "objectId" of type
 "xs:string" if (1) instances of the type are represented by rows of a flat
 file when using flat files, and (2) the type does not already have a primary
-key attribute.  The attribute looks like this when present:
+key "id" attribute.  The attribute looks like this when present:
 
 ```xml
-<xs:attribute name="csvRowId" type="xs:string" />
+<xs:attribute name="objectId" type="xs:string" />
 ```
 
-The "csvRowId" attribute is useful for troubleshooting, etc. because it
+The "objectId" attribute is useful for troubleshooting, etc. because it
 lets one trace data in an XML feed that might not otherwise be traceable
-to the row of the flat file from which it came.
+back to the object or flat file row from which it came.
 
-The attribute is not a primary key relative to an XML feed because it is
-possible for the same attribute value to occur in more than one place in
-the feed (e.g. if the same "Term" instance occurs as an element of more
-than one "Office" instance).
+The attribute name differs from "id" to distinguish it from the primary key
+attributes.  The attribute is not a primary key in the feed because it's
+possible for the same "objectId" value to occur in more than one place in
+a feed for a given type.  For example, the same "Term" instance could occur
+as an element of more than one "Office" instance.
 
 
 ### Element/Attribute Property Ordering
@@ -280,8 +281,8 @@ Global type definitions should be ordered as follows:
 
 ### Row ID
 
-The first column of each CSV file should be either "id" or "csvRowId",
-depending on whether the corresponding type has an "id" or "csvRowId"
+The first column of each CSV file should be either "id" or "objectId",
+depending on whether the corresponding type has an "id" or "objectId"
 attribute.  We call the value of this column for a given row the "row ID."
 The row ID should be unique across all rows of a given file.
 
