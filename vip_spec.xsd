@@ -556,10 +556,11 @@
           </xs:all>
         </xs:complexType>
       </xs:element>
+      <xs:element name="IncludesAllAddresses" type="xs:boolean" minOccurs="0" />
       <xs:element name="OddEvenBoth" type="OebEnum" />
       <xs:element name="PrecinctId" type="xs:IDREF" />
-      <xs:element name="StartHouseNumber" type="xs:integer" />
-      <xs:element name="EndHouseNumber" type="xs:integer" />
+      <xs:element name="StartHouseNumber" type="xs:integer" minOccurs="0" />
+      <xs:element name="EndHouseNumber" type="xs:integer" minOccurs="0" />
       <xs:element name="UnitNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
