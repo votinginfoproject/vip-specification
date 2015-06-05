@@ -50,6 +50,7 @@
       <xs:enumeration value="state" />
       <xs:enumeration value="state-house" />
       <xs:enumeration value="state-senate" />
+      <xs:enumeration value="town" />
       <xs:enumeration value="township" />
       <xs:enumeration value="utility" />
       <xs:enumeration value="village" />
@@ -426,8 +427,8 @@
 
   <xs:complexType name="OrderedContest">
     <xs:sequence>
-      <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ContestId" type="xs:IDREF" />
+      <xs:element name="OrderedBallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -464,6 +465,7 @@
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
       <xs:element name="FirstName" type="xs:string" minOccurs="0" />
+      <xs:element name="FullName" type="InternationalizedText" minOccurs="0" />
       <xs:element name="LastName" type="xs:string" minOccurs="0" />
       <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Nickname" type="xs:string" minOccurs="0" />
