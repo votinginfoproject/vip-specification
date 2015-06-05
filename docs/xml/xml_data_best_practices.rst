@@ -69,7 +69,7 @@ is a list of preferred prefixes by element (e.g. par00001 for a ``Party`` ``id``
 
 File Structure
 --------------
-All XML files should be encoded UFT-8 and line breaks should be LF (`\n`) as opposed to CR LF (`\r\n`).
+All XML files should be encoded UFT-8 and line breaks should be LF (``\n``) as opposed to CR LF (``\r\n``).
 
 For consistency across files and to aid human readability all lines should be indented two spaces and tabs should not
 be used.
