@@ -71,8 +71,8 @@ File Structure
 --------------
 All XML files should be encoded UFT-8 and line breaks should be LF (``\n``) as opposed to CR LF (``\r\n``).
 
-For consistency across files and to aid human readability all lines should be indented two spaces and tabs should not
-be used.
+For consistency across files and to aid human readability all indentation of elements should be an indent of two spaces
+and tabs should not be used.  Each child node of an element should also be indented an additional two spaces.
 
 General Data Structure
 ----------------------
