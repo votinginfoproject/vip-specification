@@ -40,7 +40,7 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * Issue [#21](https://github.com/votinginfoproject/vip-specification/issues/21)
 * `StreetSegment` objects can use `IncludesAllAddresses` instead of magic values
   for `StartHouseNumber` and `EndHouseNumber`.
-  * Issue [#236](https://github.com/votinginfoproject/vip-specification/issues/236)
+  * Issue [#235](https://github.com/votinginfoproject/vip-specification/issues/235)
 * Support for various voter services being handled by different departments or
   people.
   * Issue [#63](https://github.com/votinginfoproject/vip-specification/issues/63)
