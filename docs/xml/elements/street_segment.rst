@@ -40,7 +40,7 @@ are equal.
 |                      |                                         |              |            |must be *both*.         |                        |
 |                      |                                         |              |            |                        |                        |
 +----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| OddEvenBoth          |:doc:`OebEnum <../enumerations/oeb_enum>`| Optional     | Single     |Specifies whether the   |If the field is not     |
+| OddEvenBoth          |:doc:`OebEnum <../enumerations/oeb_enum>`| **Required** | Single     |Specifies whether the   |If the field is not     |
 |                      |                                         |              |            |odd side of the street  |present or invalid, the |
 |                      |                                         |              |            |(in terms of house      |implementation is       |
 |                      |                                         |              |            |numbers), the even side,|required to ignore the  |
