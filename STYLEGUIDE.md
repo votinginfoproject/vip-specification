@@ -64,7 +64,7 @@ Markdown, etc).
   ```
 
 
-### Primary Key Attribute: `id`
+### Primary Key ID Attribute: `id`
 
 * A complex type should have a primary key attribute if and only if
   instances of the type occur only as immediate children of the "VipObject"
@@ -97,26 +97,30 @@ Markdown, etc).
     ```
 
 
-### Object ID Attribute: `objectId`
+### Internal ID Attribute: `internalId`
 
-A complex type should have an optional attribute named "objectId" of type
-"xs:string" if (1) instances of the type are represented by rows of a flat
-file when using flat files, and (2) the type does not already have a primary
-key "id" attribute.  The attribute looks like this when present:
+A complex type should have an optional internal ID attribute if and only if
+(1) instances of the type are represented by rows of a flat file when flat
+files are used, and (2) the type definition does not already have a primary
+key ID attribute.
+
+The internal ID attribute should have name "internalId" and type "xs:string".
+It looks like this when present:
 
 ```xml
-<xs:attribute name="objectId" type="xs:string" />
+<xs:attribute name="internalId" type="xs:string" />
 ```
 
-The "objectId" attribute is useful for troubleshooting, etc. because it
+The internal ID attribute is useful for troubleshooting, etc. because it
 lets one trace data in an XML feed that might not otherwise be traceable
 back to the object or flat file row from which it came.
 
 The attribute name differs from "id" to distinguish it from the primary key
-attributes.  The attribute is not a primary key in the feed because it's
-possible for the same "objectId" value to occur in more than one place in
-a feed for a given type.  For example, the same "Term" instance could occur
-as an element of more than one "Office" instance.
+ID attribute.  The internal ID cannot serve as a primary key in the feed
+because for these objects it's possible for the same object to occur in more
+than one place in a feed.  In particular, the same ID value can occur
+more than once for a given type.  For example, the same "Term" instance
+can occur as an element of more than one "Office" instance.
 
 
 ### Element/Attribute Property Ordering
@@ -281,8 +285,8 @@ Global type definitions should be ordered as follows:
 
 ### Row ID
 
-The first column of each CSV file should be either "id" or "objectId",
-depending on whether the corresponding type has an "id" or "objectId"
+The first column of each CSV file should be either "id" or "internalId",
+depending on whether the corresponding type has an "id" or "internalId"
 attribute.  We call the value of this column for a given row the "row ID."
 The row ID should be unique across all rows of a given file.
 
