@@ -177,7 +177,7 @@
     <xs:sequence>
       <xs:element name="BallotName" type="InternationalizedText" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
-      <xs:element name="FileDate" type="xs:dateTime" minOccurs="0" />
+      <xs:element name="FileDate" type="xs:date" minOccurs="0" />
       <xs:element name="IsIncumbent" type="xs:boolean" minOccurs="0" />
       <xs:element name="IsTopTicket" type="xs:boolean" minOccurs="0" />
       <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
