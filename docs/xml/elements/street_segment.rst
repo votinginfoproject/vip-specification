@@ -6,106 +6,107 @@ geography (i.e., segment) is contained within. The start address house number mu
 end address house number unless the segment consists of only one address in which case these values
 are equal.
 
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| Tag             | Data Type                               | Required?    | Repeats?   | Description            | Error Handling         |
-|                 |                                         |              |            |                        |                        |
-+=================+=========================================+==============+============+========================+========================+
-| NonHouseAddress |:ref:`NonHouseAddress                    | Optional     | Single     |The common street       |If the element is not   |
-|                 |<non-house-address>`                     |              |            |address (as well as     |present or invalid, the |
-|                 |                                         |              |            |city, state, and zip) of|implementation is       |
-|                 |                                         |              |            |the start and end points|required to ignore the  |
-|                 |                                         |              |            |of the segment. Specific|StreetSegment element   |
-|                 |                                         |              |            |information such as     |containing it           |
-|                 |                                         |              |            |street direction should |                        |
-|                 |                                         |              |            |be included.            |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| OddEvenBoth     |:doc:`OebEnum <../enumerations/oeb_enum>`| Optional     | Single     |Specifies whether the   |If the field is not     |
-|                 |                                         |              |            |odd side of the street  |present or invalid, the |
-|                 |                                         |              |            |(in terms of house      |implementation is       |
-|                 |                                         |              |            |numbers), the even side,|required to ignore the  |
-|                 |                                         |              |            |or both are in included |StreetSegment containing|
-|                 |                                         |              |            |in the street segment.  |it.                     |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| PrecinctId      | xs:IDREF                                | Optional     | Single     |References the          |If the field is not     |
-|                 |                                         |              |            |:doc:`precinct          |present or invalid, the |
-|                 |                                         |              |            |<precinct>` that        |implementation is       |
-|                 |                                         |              |            |contains the entire     |required to ignore the  |
-|                 |                                         |              |            |street segment.         |StreetSegment element   |
-|                 |                                         |              |            |                        |containing it.          |
-|                 |                                         |              |            |                        |                        |
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| StartHouseNumber| xs:integer                              | Optional     | Single     |The house number at     |If the field is not     |
-|                 |                                         |              |            |which the street        |present or invalid, the |
-|                 |                                         |              |            |segment starts. This    |implementation is       |
-|                 |                                         |              |            |value is very           |required to ignore the  |
-|                 |                                         |              |            |necessary for the       |street segment element  |
-|                 |                                         |              |            |street segment to make  |containing it. If the   |
-|                 |                                         |              |            |any sense. It must be   |**StartHouseNumber** is |
-|                 |                                         |              |            |less than (or equal     |greater than the        |
-|                 |                                         |              |            |to) the                 |**EndHouseNumber**, the |
-|                 |                                         |              |            |EndHouseNumber. To      |implementation should   |
-|                 |                                         |              |            |specify any house on    |ignore the element      |
-|                 |                                         |              |            |the street (or when     |containing them.        |
-|                 |                                         |              |            |using the "\*"          |                        |
-|                 |                                         |              |            |wildcard for street     |                        |
-|                 |                                         |              |            |name), the best         |                        |
-|                 |                                         |              |            |practice is to put 0    |                        |
-|                 |                                         |              |            |in this field.          |                        |
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| EndHouseNumber  | xs:integer                              | Optional     | Single     |The house number at     |If the field is not     |
-|                 |                                         |              |            |which the street        |present or invalid, the |
-|                 |                                         |              |            |segment ends. This      |implementation is       |
-|                 |                                         |              |            |value is very           |required to ignore the  |
-|                 |                                         |              |            |necessary for the       |street segment element  |
-|                 |                                         |              |            |street segment to make  |containing it. If the   |
-|                 |                                         |              |            |any sense. It must be   |**EndHouseNumber** is   |
-|                 |                                         |              |            |greater than (or equal  |less than the           |
-|                 |                                         |              |            |to) the                 |**StartHouseNumber**,   |
-|                 |                                         |              |            |StartHouseNumber. To    |the implementation      |
-|                 |                                         |              |            |specify any house on    |should ignore the       |
-|                 |                                         |              |            |the street (or when     |element containing it.  |
-|                 |                                         |              |            |using the "\*"          |                        |
-|                 |                                         |              |            |wildcard for street     |                        |
-|                 |                                         |              |            |name), the best         |                        |
-|                 |                                         |              |            |practice is to put a    |                        |
-|                 |                                         |              |            |very large number such  |                        |
-|                 |                                         |              |            |as 999999 in this       |                        |
-|                 |                                         |              |            |field.                  |                        |
-|                 |                                         |              |            |                        |                        |
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
-| UnitNumber      | xs:string                               | Optional     | Repeats    |The apartment/unit      |If the field is not     |
-|                 |                                         |              |            |number for a street     |present or invalid, the |
-|                 |                                         |              |            |segment. If this value  |implementation is       |
-|                 |                                         |              |            |is present then         |required to ignore it.  |
-|                 |                                         |              |            |**StartHouseNumber**    |                        |
-|                 |                                         |              |            |must be equal to        |                        |
-|                 |                                         |              |            |**EndHouseNumber**.     |                        |
-|                 |                                         |              |            |                        |                        |
-|                 |                                         |              |            |                        |                        |
-+-----------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| Tag                  | Data Type                               | Required?    | Repeats?   | Description            | Error Handling         |
+|                      |                                         |              |            |                        |                        |
++======================+=========================================+==============+============+========================+========================+
+| NonHouseAddress      |`NonHouseAddress`_                       | **Required** | Single     |The common street       |If the element is not   |
+|                      |                                         |              |            |address (as well as     |present or invalid, the |
+|                      |                                         |              |            |city, state, and zip) of|implementation is       |
+|                      |                                         |              |            |the start and end points|required to ignore the  |
+|                      |                                         |              |            |of the segment. Specific|StreetSegment element   |
+|                      |                                         |              |            |information such as     |containing it           |
+|                      |                                         |              |            |street direction should |                        |
+|                      |                                         |              |            |be included.            |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| IncludesAllAddresses | xs:boolean                              | Optional     | Single     |Specifies if the segment|If the field is not     |
+|                      |                                         |              |            |covers every address on |present or invalid, the |
+|                      |                                         |              |            |this street. If this is |implementation is       |
+|                      |                                         |              |            |*true*, then the values |required to ignore it.  |
+|                      |                                         |              |            |of **StartHouseNumber** |                        |
+|                      |                                         |              |            |and **EndHouseNumber**  |                        |
+|                      |                                         |              |            |should be ignored. The  |                        |
+|                      |                                         |              |            |value of **OddEvenBoth**|                        |
+|                      |                                         |              |            |must be *both*.         |                        |
+|                      |                                         |              |            |                        |                        |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| OddEvenBoth          |:doc:`OebEnum <../enumerations/oeb_enum>`| **Required** | Single     |Specifies whether the   |If the field is not     |
+|                      |                                         |              |            |odd side of the street  |present or invalid, the |
+|                      |                                         |              |            |(in terms of house      |implementation is       |
+|                      |                                         |              |            |numbers), the even side,|required to ignore the  |
+|                      |                                         |              |            |or both are in included |StreetSegment containing|
+|                      |                                         |              |            |in the street segment.  |it.                     |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
+|                      |                                         |              |            |                        |                        |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| PrecinctId           | xs:IDREF                                | Optional     | Single     |References the          |If the field is not     |
+|                      |                                         |              |            |:doc:`precinct          |present or invalid, the |
+|                      |                                         |              |            |<precinct>` that        |implementation is       |
+|                      |                                         |              |            |contains the entire     |required to ignore the  |
+|                      |                                         |              |            |street segment.         |StreetSegment element   |
+|                      |                                         |              |            |                        |containing it.          |
+|                      |                                         |              |            |                        |                        |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| StartHouseNumber     | xs:integer                              | Optional     | Single     |The house number at     |Unless                  |
+|                      |                                         |              |            |which the street        |**IncludesAllAddresses**|
+|                      |                                         |              |            |segment starts. This    |is true, if the field is|
+|                      |                                         |              |            |value is necessary for  |not present or invalid, |
+|                      |                                         |              |            |the street segment to   |the implementation is   |
+|                      |                                         |              |            |make any sense. Unless  |required to ignore the  |
+|                      |                                         |              |            |**IncludesAllAddresses**|street segment element  |
+|                      |                                         |              |            |is true, this value must|containing it. If the   |
+|                      |                                         |              |            |be less than or equal to|**StartHouseNumber** is |
+|                      |                                         |              |            |**EndHouseNumber**. If  |greater than the        |
+|                      |                                         |              |            |**IncludesAllAddresses**|**EndHouseNumber**, the |
+|                      |                                         |              |            |is true, this value is  |implementation should   |
+|                      |                                         |              |            |ignored.                |ignore the element      |
+|                      |                                         |              |            |                        |containing them.        |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| EndHouseNumber       | xs:integer                              | Optional     | Single     |The house number at     |Unless                  |
+|                      |                                         |              |            |which the street        |**IncludesAllAddresses**|
+|                      |                                         |              |            |segment ends. This      |is true, if the field is|
+|                      |                                         |              |            |value is necessary for  |not present or invalid, |
+|                      |                                         |              |            |the street segment to   |the implementation is   |
+|                      |                                         |              |            |make any sense. Unless  |required to ignore the  |
+|                      |                                         |              |            |**IncludesAllAddresses**|street segment element  |
+|                      |                                         |              |            |is true, it must be     |containing it. If the   |
+|                      |                                         |              |            |greater than or equal to|**EndHouseNumber** is   |
+|                      |                                         |              |            |**StartHouseNumber**. If|less than the           |
+|                      |                                         |              |            |**IncludesAllAddresses**|**StartHouseNumber**,   |
+|                      |                                         |              |            |is true, this value is  |the implementation      |
+|                      |                                         |              |            |ignored.                |should ignore the       |
+|                      |                                         |              |            |                        |element containing it.  |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
+| UnitNumber           | xs:string                               | Optional     | Repeats    |The apartment/unit      |If the field is not     |
+|                      |                                         |              |            |number for a street     |present or invalid, the |
+|                      |                                         |              |            |segment. If this value  |implementation is       |
+|                      |                                         |              |            |is present then         |required to ignore it.  |
+|                      |                                         |              |            |**StartHouseNumber**    |                        |
+|                      |                                         |              |            |must be equal to        |                        |
+|                      |                                         |              |            |**EndHouseNumber**. This|                        |
+|                      |                                         |              |            |field cannot be used if |                        |
+|                      |                                         |              |            |**IncludesAllAddresses**|                        |
+|                      |                                         |              |            |is true.                |                        |
++----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
 
-.. _non-house-address:
-
-StreetSegment.NonHouseAddress
------------------------------
+NonHouseAddress
+---------------
 
 +-------------------+------------+-------------+-------------+----------------------+-------------------------+
 | Tag               | Data Type  | Required?   | Repeats?    | Description          | Error Handling          |
