@@ -1,0 +1,11 @@
+/* override table width restrictions
+ * modified solution from https://github.com/snide/sphinx_rtd_theme/issues/117#issuecomment-41606147
+ */
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal !important;
+    padding: 4px 8px !important;
+}
+
+.wy-table-responsive {
+    overflow: visible !important;
+}
