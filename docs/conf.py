@@ -155,11 +155,6 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_context = {
-  'css_files': [
-    '_static/theme_overrides.css',
-  ],
-}
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
@@ -373,3 +368,7 @@ epub_exclude_files = ['search.html']
 
 # If false, no index is generated.
 #epub_use_index = True
+
+# Inject a custom stylesheet into the Read the Docs theme
+def setup(app):
+  app.add_stylesheet("theme_overrides.css")
