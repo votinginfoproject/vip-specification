@@ -41,12 +41,13 @@ import subprocess
 import sys
 import textwrap
 
-import vippy.common as common
+from vippy import common
+from vippy import rest
 
 
 _log = logging.getLogger()
 
-DATA_DIR = 'scripts/data'
+DATA_DIR = 'docs/data'
 FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
 
 DESCRIPTION = """\
@@ -70,6 +71,17 @@ def _get_all_files(dir_path):
             paths.append(path)
 
     return paths
+
+
+def command_make_table(ns):
+    path = ns.path
+    if path:
+        paths = [path]
+    else:
+        paths = _get_all_files(DATA_DIR)
+        paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
+    for path in paths:
+        rest.make_table(path)
 
 
 def command_norm_yaml(ns):
@@ -109,6 +121,13 @@ def create_parser():
                 help="normalize one or more YAML files.")
     parser.add_argument('--all', dest='all', action='store_true',
         help='normalize all YAML files.')
+    parser.add_argument('path', metavar='PATH', nargs='?',
+        help="a path to a YAML file.")
+
+    parser = make_subparser(sub, "make_table",
+                help="make a reST table.")
+    parser.add_argument('--all', dest='all', action='store_true',
+        help='make all reST tables.')
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file.")
 
