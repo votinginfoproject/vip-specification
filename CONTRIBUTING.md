@@ -31,8 +31,9 @@ At any one point in time ("feature/" and "bug/" temporary branches aside), there
 
 ## Dev Environment
 
-First [install Python](https://www.python.org/downloads/).  We recommend
-the latest stable version (Python 3.4.3 as of June 2015).
+This section explains how to set up your local development environment for
+contributing.  First, [install Python][python_install].  We recommend
+installing the latest stable version of Python 3 (Python 3.4.3 as of June 2015).
 
 We also recommend setting up a virtual environment (e.g. using
 [virtualenv][virtualenv]) prior to installing dependencies.
@@ -62,3 +63,7 @@ $ sphinx-autobuild . _build/html
 ```
 
 Once the above command is executed, open a browser and enter http://127.0.0.1:8000 to see the documentation.
+
+
+[python_install]: https://www.python.org/downloads
+[virtualenv]: https://pypi.python.org/pypi/virtualenv/
