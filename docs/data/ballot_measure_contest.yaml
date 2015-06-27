@@ -1,0 +1,8 @@
+name: BallotMeasureContest
+tags:
+- description: Specifies a statement in opposition to the referendum. It does not
+    necessarily appear on the ballot.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  name: ConStatement
+  type: InternationalizedText
