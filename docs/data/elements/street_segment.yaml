@@ -8,7 +8,7 @@ tags:
     to ignore the StreetSegment element containing it
   repeating: Single
   required: '**Required**'
-  type: '`NonHouseAddress`_'
+  type: NonHouseAddress
 - _name: IncludesAllAddresses
   description: Specifies if the segment covers every address on this street. If this
     is *true*, then the values of **StartHouseNumber** and **EndHouseNumber** should
@@ -25,7 +25,7 @@ tags:
     ignore the StreetSegment containing it.
   repeating: Single
   required: '**Required**'
-  type: :doc:`OebEnum <../enumerations/oeb_enum>`
+  type: OebEnum
 - _name: PrecinctId
   description: References the :doc:`precinct <precinct>` that contains the entire
     street segment.

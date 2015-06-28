@@ -63,27 +63,20 @@ def _wrap(text):
     return text
 
 
-def _get_all_files(dir_path):
-    paths = []
-    for root_dir, dir_paths, file_names in os.walk(dir_path):
-        for file_name in file_names:
-            path = os.path.join(root_dir, file_name)
-            paths.append(path)
-
-    return paths
-
-
 def ns_to_paths(ns, dir_path, ext):
     path = ns.path
     if path:
         paths = [path]
     else:
-        paths = _get_all_files(dir_path)
-        paths = [p for p in paths if os.path.splitext(p)[1] == ext]
+        paths = common.get_all_files(dir_path, ext=ext)
     return paths
 
 
-def command_make_tables(ns):
+def command_analyze_types(ns):
+    common.analyze_types()
+
+
+def command_update_tables(ns):
     parent_dir = common.DATA_DIR
     paths = ns_to_paths(ns, dir_path=parent_dir, ext='.yaml')
     for path in paths:
@@ -133,8 +126,8 @@ def create_parser():
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file.")
 
-    parser = make_subparser(sub, "make_tables",
-                help="make reST tables from YAML files.")
+    parser = make_subparser(sub, "update_tables",
+                help="update the reST tables from the YAML files.")
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file. Defaults to all files.")
 
@@ -142,6 +135,9 @@ def create_parser():
                 help="parse the reST tables from a file.")
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a reST file. Defaults to all files.")
+
+    parser = make_subparser(sub, "analyze_types",
+                help="report on the YAML type files.")
 
     return root_parser
 

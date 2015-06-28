@@ -7,4 +7,4 @@ tags:
     ``HoursOpen`` element.
   repeating: Repeats
   required: '**Required**'
-  type: '`Schedule`_'
+  type: Schedule

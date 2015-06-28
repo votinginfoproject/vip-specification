@@ -7,7 +7,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`ContactInformation <contact_information>`
+  type: ContactInformation
 - _name: ElectionOfficialPersonId
   description: The individual to contact at the election administration office. The
     specified person should be the :doc:`election official <person>`.
@@ -23,4 +23,4 @@ tags:
     to ignore it.
   repeating: Repeats
   required: Optional
-  type: :ref:`VoterService <ea-dep-voter-service>`
+  type: VoterService

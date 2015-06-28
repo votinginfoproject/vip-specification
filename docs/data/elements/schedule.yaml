@@ -6,7 +6,7 @@ tags:
     ignore it.
   repeating: Repeats
   required: Optional
-  type: '`Hours`_'
+  type: Hours
 - _name: IsOnlyByAppointment
   description: If true, the place is only open during the specified time window with
     an appointment.

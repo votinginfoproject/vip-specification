@@ -31,7 +31,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: HoursOpenId
   description: References an :doc:`HoursOpen <hours_open>` element, which lists the
     hours of operation for a location.

@@ -6,7 +6,7 @@ tags:
     to ignore it.
   repeating: Repeats
   required: Optional
-  type: :doc:`ContactInformation <contact_information>`
+  type: ContactInformation
 - _name: DateOfBirth
   description: Represents the individual's date of birth.
   error: If the field is invalid or not present, the implementation is required to
@@ -29,7 +29,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: LastName
   description: Represents an individual's last name.
   error: If the field is invalid or not present, the implementation is required to
@@ -74,7 +74,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: Suffix
   description: Specifies a suffix associated with a person (e.g. Jr.).
   error: If the field is invalid or not present, the implementation is required to
@@ -90,4 +90,4 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText

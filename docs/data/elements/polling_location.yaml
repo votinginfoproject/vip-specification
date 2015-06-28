@@ -14,7 +14,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: Hours **[deprecated]**
   description: Contains the hours (in local time) that the polling location is open
     (**NB:** this element is deprecated in favor of the more structured :doc:`HoursOpen
@@ -24,7 +24,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: HoursOpenId
   description: Links to an :doc:`HoursOpen <hours_open>` element, which is a schedule
     of dates and hours during which the polling location is available.
@@ -53,7 +53,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: '`LatLng`_'
+  type: LatLng
 - _name: PhotoUri
   description: Contains a link to an image of the polling location.
   error: If the field is invalid or not present, the implementation is required to

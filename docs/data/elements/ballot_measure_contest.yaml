@@ -7,7 +7,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: EffectOfAbstain
   description: Specifies what effect abstaining (i.e. not voting) on this proposition
     will have (i.e. whether abstaining is considered a vote against it).
@@ -15,14 +15,14 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: FullText
   description: Specifies the full text of the referendum as it appears on the ballot.
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: InfoUri
   description: Specifies a URI that links to additional information about the referendum.
   error: If the field is invalid or not present, the implementation is required to
@@ -40,7 +40,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: ProStatement
   description: Specifies a statement in favor of the referendum. It does not necessarily
     appear on the ballot.
@@ -48,7 +48,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: SummaryText
   description: Specifies a short summary of the referendum that is on the ballot,
     below the title, but above the text.
@@ -56,7 +56,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: Type
   description: Specifies the particular type of ballot measure. Must be one of the
     valid :doc:`BallotMeasureType <../enumerations/ballot_measure_type>` options.
@@ -64,7 +64,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`BallotMeasureType <../enumerations/ballot_measure_type>`
+  type: BallotMeasureType
 - _name: OtherType
   description: Allows for cataloging a new :doc:`BallotMeasureType <../enumerations/ballot_measure_type>`
     option, when Type is specified as "other."

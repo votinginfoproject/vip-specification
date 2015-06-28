@@ -7,7 +7,7 @@ tags:
     to ignore it.
   repeating: Repeats
   required: Optional
-  type: :doc:`ContactInformation <contact_information>`
+  type: ContactInformation
 - _name: ElectoralDistrictId
   description: Links to the :doc:`ElectoralDistrict <electoral_district>` element
     associated with the office.
@@ -23,7 +23,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`ExternalIdentifiers <external_identifiers>`
+  type: ExternalIdentifiers
 - _name: FilingDeadline
   description: Specifies the date and time when a candidate must have filed for the
     contest for the office.
@@ -45,7 +45,7 @@ tags:
     ignore the ``Office`` element containing it.
   repeating: Single
   required: '**Required**'
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: OfficeHolderPersonId
   description: Links to the :doc:`Person <person>` element(s) that hold additional
     information about the current office holder(s).
@@ -60,4 +60,4 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: '`Term`_'
+  type: Term

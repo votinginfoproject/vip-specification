@@ -27,6 +27,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import logging
+import os.path
 
 import yaml
 
@@ -60,6 +61,18 @@ def write(path, text):
         f.write(text)
 
 
+def get_all_files(dir_path, ext=None):
+    paths = []
+    for root_dir, dir_paths, file_names in os.walk(dir_path):
+        for file_name in file_names:
+            path = os.path.join(root_dir, file_name)
+            paths.append(path)
+    if ext is not None:
+        paths = [p for p in paths if os.path.splitext(p)[1] == ext]
+
+    return paths
+
+
 def configure_yaml():
     yaml.add_representer(str, _yaml_str_representer)
 
@@ -83,3 +96,43 @@ def write_yaml(data, path):
 def normalize_yaml(path):
     data = read_yaml(path)
     write_yaml(data, path)
+
+
+TYPE_MAP = {
+    ':doc:`BallotMeasureType <../enumerations/ballot_measure_type>`': 'BallotMeasureType',
+    ':doc:`CandidatePostElectionStatus <../enumerations/candidate_post_election_status>`': 'CandidatePostElectionStatus',
+    ':doc:`CandidatePreElectionStatus <../enumerations/candidate_pre_election_status>`': 'CandidatePreElectionStatus',
+    ':doc:`ContactInformation <contact_information>`': 'ContactInformation',
+    ':ref:`Department <ea-dep>`': 'Department',
+    ':doc:`DistrictType <../enumerations/district_type>`': 'DistrictType',
+    '`ExternalIdentifier`_': 'ExternalIdentifier',
+    ':doc:`ExternalIdentifiers <external_identifiers>`': 'ExternalIdentifiers',
+    '`Hours`_': 'Hours',
+    '`HtmlColorString`_': 'HtmlColorString',
+    ':doc:`IdentifierType <../enumerations/identifier_type>`': 'IdentifierType',
+    ':doc:`InternationalizedText <internationalized_text>`': 'InternationalizedText',
+    '`Schedule`_': 'Schedule',
+    '`LanguageString`_': 'LanguageString',
+    '`LatLng`_': 'LatLng',
+    '`NonHouseAddress`_': 'NonHouseAddress',
+    ':doc:`OebEnum <../enumerations/oeb_enum>`': 'OebEnum',
+    ':doc:`OfficeTermType <../enumerations/office_term_type>`': 'OfficeTermType',
+    '`Schedule`_': 'Schedule',
+    '`Term`_': 'Term',
+    '`TimeWithZone`_': 'TimeWithZone',
+    ':doc:`VoteVariation <../enumerations/vote_variation>`': 'VoteVariation',
+    ':ref:`VoterService <ea-dep-voter-service>`': 'VoterService',
+    ':doc:`VoterServiceType <../enumerations/voter_service_type>`': 'VoterServiceType',
+}
+
+def analyze_types():
+    dir_path = os.path.join(DATA_DIR, 'elements')
+    yaml_paths = get_all_files(dir_path, ext='.yaml')
+    for path in yaml_paths:
+        data = read_yaml(path)
+        tags_data = data['tags']
+        for tag_data in tags_data:
+            value = tag_data['type']
+            value = TYPE_MAP.get(value, value)
+            tag_data['type'] = value
+        write_yaml(data, path)

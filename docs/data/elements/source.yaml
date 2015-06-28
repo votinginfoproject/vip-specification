@@ -31,7 +31,7 @@ tags:
   error: If the field is invalid, the implementation is required to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: OrganizationUrl
   description: Specifies a URL to the home page of the organization publishing the
     data.

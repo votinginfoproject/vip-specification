@@ -6,4 +6,4 @@ tags:
     to ignore the BallotMeasureSelection containing it.
   repeating: Single
   required: '**Required**'
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText

@@ -8,4 +8,4 @@ tags:
     is required to ignore the ``ExternalIdentifiers`` element.
   repeating: Repeats
   required: '**Required**'
-  type: '`ExternalIdentifier`_'
+  type: ExternalIdentifier

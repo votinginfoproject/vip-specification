@@ -7,7 +7,7 @@ tags:
     ignore the ``Office`` element containing it.
   repeating: Single
   required: '**Required**'
-  type: :doc:`OfficeTermType <../enumerations/office_term_type>`
+  type: OfficeTermType
 - _name: StartDate
   description: Specifies the start date for the current term of the office.
   error: If the field is invalid or not present, the implementation is required to

@@ -52,6 +52,7 @@ $ pip install Sphinx PyYAML
 To build the documentation:
 
 ```sh
+$ python scripts/vip.py update_tables
 $ cd /path/to/vip-specification/docs/
 $ make html
 ```

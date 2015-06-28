@@ -21,7 +21,7 @@ tags:
     to ignore the **ElectionAdministration** object that contains it.
   repeating: Repeats
   required: '**Required**'
-  type: :ref:`Department <ea-dep>`
+  type: Department
 - _name: ElectionsUri
   description: Specifies web address the administration's website.
   error: If the field is invalid or not present, the implementation is required to

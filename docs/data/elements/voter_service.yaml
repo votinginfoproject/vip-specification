@@ -6,14 +6,14 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`ContactInformation <contact_information>`
+  type: ContactInformation
 - _name: Description
   description: Long description of the services available.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: ElectionOfficialPersonId
   description: The :doc:`authority <person>` for a particular voter service.
   error: If the field is invalid or not present, the implementation is required to
@@ -27,7 +27,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`VoterServiceType <../enumerations/voter_service_type>`
+  type: VoterServiceType
 - _name: OtherType
   description: If Type is "other", OtherType allows for cataloging another type of
     voter service.

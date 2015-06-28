@@ -14,7 +14,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: '`HtmlColorString`_'
+  type: HtmlColorString
 - _name: ExternalIdentifiers
   description: Other identifiers that link this party to other related data sets (e.g.
     a campaign finance system, etc).
@@ -22,7 +22,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`ExternalIdentifiers <external_identifiers>`
+  type: ExternalIdentifiers
 - _name: LogoUri
   description: Web address of a logo to use in displays.
   error: If the field is invalid or not present, the implementation is required to
@@ -36,4 +36,4 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText

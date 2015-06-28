@@ -7,7 +7,7 @@ tags:
     ignore the ``ElectionIdentifier`` containing it.
   repeating: Single
   required: '**Required**'
-  type: :doc:`IdentifierType <../enumerations/identifier_type>`
+  type: IdentifierType
 - _name: OtherType
   description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
     the options listed in :doc:`IdentifierType <../enumerations/identifier_type>`.

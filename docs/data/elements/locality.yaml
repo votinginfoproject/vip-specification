@@ -15,7 +15,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`ExternalIdentifiers <external_identifiers>`
+  type: ExternalIdentifiers
 - _name: Name
   description: Specifies the name of a locality.
   error: If the field is not present or invalid, the implementation is required to
@@ -47,7 +47,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`DistrictType <../enumerations/district_type>`
+  type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
     listed in :doc:`DistrictType <../enumerations/district_type>`.

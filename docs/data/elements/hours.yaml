@@ -6,11 +6,11 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: '`TimeWithZone`_'
+  type: TimeWithZone
 - _name: EndTime
   description: The time at which this place closes.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
   required: Optional
-  type: '`TimeWithZone`_'
+  type: TimeWithZone

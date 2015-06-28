@@ -15,7 +15,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: StateId
   description: Specifies a link to the state element where the election is being held.
   error: If the field is not present or invalid, the implementation is required to
@@ -37,7 +37,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: RegistrationInfo
   description: Specifies information about registration for this election either as
     text or a URL.
@@ -45,7 +45,7 @@ tags:
     ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: AbsenteeBallotInfo
   description: Specifies information about requesting absentee ballots either as text
     or a URL
@@ -53,7 +53,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: ResultsUrl
   description: Contains a URL where results for the election may be found
   error: If the field is invalid or not present, the implementation is required to
@@ -72,7 +72,7 @@ tags:
     to ignore it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: HoursOpenId
   description: References the :doc:`HoursOpen <hours_open>` element, which lists the
     hours of operation for polling locations.

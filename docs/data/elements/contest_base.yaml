@@ -21,14 +21,14 @@ tags:
     it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: BallotTitle
   description: Title of the contest as it appears on the ballot.
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: ElectoralDistrictId
   description: References an :doc:`ElectoralDistrict <electoral_district>` element
     that represents the geographical scope of the contest.
@@ -47,14 +47,14 @@ tags:
     it.
   repeating: Single
   required: Optional
-  type: :doc:`InternationalizedText <internationalized_text>`
+  type: InternationalizedText
 - _name: ExternalIdentifiers
   description: Other identifiers for a contest that links to another source of information.
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
   required: Optional
-  type: :doc:`ExternalIdentifiers <external_identifiers>`
+  type: ExternalIdentifiers
 - _name: HasRotation
   description: Indicates whether the selections in the contest are rotated.
   error: If the field is invalid or not present, the implementation should ignore
@@ -84,7 +84,7 @@ tags:
     it.
   repeating: Single
   required: Optional
-  type: :doc:`VoteVariation <../enumerations/vote_variation>`
+  type: VoteVariation
 - _name: OtherVoteVariation
   description: If "other" is selected as the **VoteVariation**, the name of the variation
     can be specified here.
