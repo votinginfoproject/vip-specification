@@ -3,12 +3,12 @@ tags:
 - _name: ElectionAdministrationId
   description: Links to the locality's :doc:`election administration <election_administration>`
     object.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Another identifier for a locality that links to another dataset (e.g.
     `OCD-ID`_)
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the name of a locality.
@@ -34,10 +34,10 @@ tags:
 - _name: Type
   description: Defines the kind of locality (e.g. county, town, et al.), which is
     one of the various :doc:`DistrictType enumerations <../enumerations/district_type>`.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
     listed in :doc:`DistrictType <../enumerations/district_type>`.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string

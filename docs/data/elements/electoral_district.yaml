@@ -2,7 +2,7 @@ name: ElectoralDistrict
 tags:
 - _name: ExternalIdentifiers
   description: Other identifiers that link to external datasets (e.g. `OCD-IDs`_)
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the electoral area's name.
@@ -15,7 +15,7 @@ tags:
     of the 34th State Senate District). If a number is not applicable, instead of
     leaving the field blank, leave this field out of the object; empty strings are
     not valid for xs:integer fields.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:integer
 - _name: Type
   description: Specifies the type of electoral area.
@@ -26,5 +26,5 @@ tags:
 - _name: OtherType
   description: Allows for cataloging a new :doc:`DistrictType <../enumerations/district_type>`
     option when ``Type`` is specified as "other".
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: xs:string

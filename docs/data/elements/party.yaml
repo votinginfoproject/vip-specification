@@ -2,23 +2,23 @@ name: Party
 tags:
 - _name: Abbreviation
   description: An abbreviation for the party name.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string
 - _name: Color
   description: The preferred display color for the party, for use in maps and other
     displays.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: HtmlColorString
 - _name: ExternalIdentifiers
   description: Other identifiers that link this party to other related data sets (e.g.
     a campaign finance system, etc).
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: ExternalIdentifiers
 - _name: LogoUri
   description: Web address of a logo to use in displays.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:anyURI
 - _name: Name
   description: The name of the party.
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: InternationalizedText

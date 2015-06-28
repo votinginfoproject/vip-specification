@@ -10,33 +10,33 @@ tags:
   type: xs:string
 - _name: Directions
   description: Specifies further instructions for locating the polling location.
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: InternationalizedText
 - _name: Hours **[deprecated]**
   description: Contains the hours (in local time) that the polling location is open
     (**NB:** this element is deprecated in favor of the more structured :doc:`HoursOpen
     <hours_open>` element. It is strongly encouraged that data providers move toward
     contributing hours in this format).
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: InternationalizedText
 - _name: HoursOpenId
   description: Links to an :doc:`HoursOpen <hours_open>` element, which is a schedule
     of dates and hours during which the polling location is available.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:IDREF
 - _name: IsDropBox
   description: Indicates if this polling location is a drop box.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:boolean
 - _name: IsEarlyVoting
   description: Indicates if this polling location is an early vote site.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:boolean
 - _name: LatLng
   description: Specifies the latitude and longitude of this polling location.
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: LatLng
 - _name: PhotoUri
   description: Contains a link to an image of the polling location.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:anyURI

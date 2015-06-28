@@ -4,21 +4,21 @@ tags:
   description: The common street address (as well as city, state, and zip) of the
     start and end points of the segment. Specific information such as street direction
     should be included.
-  error: If the element is invalid, the implementation is required
-    to ignore the StreetSegment element containing it
+  error: If the element is invalid, the implementation is required to ignore the StreetSegment
+    element containing it
   required: true
   type: NonHouseAddress
 - _name: IncludesAllAddresses
   description: Specifies if the segment covers every address on this street. If this
     is *true*, then the values of **StartHouseNumber** and **EndHouseNumber** should
     be ignored. The value of **OddEvenBoth** must be *both*.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:boolean
 - _name: OddEvenBoth
   description: Specifies whether the odd side of the street (in terms of house numbers),
     the even side, or both are in included in the street segment.
-  error: If the field is invalid, the implementation is required to
-    ignore the StreetSegment containing it.
+  error: If the field is invalid, the implementation is required to ignore the StreetSegment
+    containing it.
   required: true
   type: OebEnum
 - _name: PrecinctId
@@ -51,6 +51,6 @@ tags:
   description: The apartment/unit number for a street segment. If this value is present
     then **StartHouseNumber** must be equal to **EndHouseNumber**. This field cannot
     be used if **IncludesAllAddresses** is true.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   repeating: true
   type: xs:string

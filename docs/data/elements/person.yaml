@@ -2,58 +2,58 @@ name: Person
 tags:
 - _name: ContactInformation
   description: Specifies contact information for the person.
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   repeating: true
   type: ContactInformation
 - _name: DateOfBirth
   description: Represents the individual's date of birth.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:date
 - _name: FirstName
   description: Represents an individual's first name.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string
 - _name: FullName
   description: Specifies a person's full name (**NB:** this information is :doc:`InternationalizedText
     <internationalized_text>` because it sometimes appears on ballots in multiple
     languages).
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: InternationalizedText
 - _name: LastName
   description: Represents an individual's last name.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string
 - _name: MiddleName
   description: Represents any number of names between an individual's first and last
     names (e.g. John **Ronald Reuel** Tolkien).
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   repeating: true
   type: xs:string
 - _name: Nickname
   description: Represents an individual's nickname.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string
 - _name: PartyId
   description: Refers to the associated :doc:`Party <party>`.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:IDREF
 - _name: Prefix
   description: Specifies a prefix associated with a person (e.g. Dr.).
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string
 - _name: Profession
   description: Specifies a person's profession (**NB:** this information is :doc:`InternationalizedText
     <internationalized_text>` because it sometimes appears on ballots in multiple
     languages).
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: InternationalizedText
 - _name: Suffix
   description: Specifies a suffix associated with a person (e.g. Jr.).
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:string
 - _name: Title
   description: A title associated with a person (**NB:** this information is :doc:`InternationalizedText
     <internationalized_text>` because it sometimes appears on ballots in multiple
     languages).
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: InternationalizedText

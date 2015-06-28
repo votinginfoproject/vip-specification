@@ -2,22 +2,22 @@ name: State
 tags:
 - _name: ElectionAdministrationId
   description: Links to the state's election administration object.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Other identifier for the state that relates to another dataset (e.g.
     `OCD-ID`_).
-  error: =must-ignore-element
+  error_then: =must-ignore-element
   type: ExternalIdentifiers
 - _name: Name
   description: Specifiers the name of a state, such as Alabama.
-  error: =field-must-ignore-containing-element
+  error_then: =field-must-ignore-containing-element
   type: xs:string
 - _name: PollingLocationId
   description: Specifies a link to the state's :doc:`polling locations <polling_location>`.
     If early vote centers or ballot drop locations are state-wide (e.g., anyone in
     the state can use them), they can be specified here, but are encouraged to only
     use the :doc:`Precinct <precinct>` element.
-  error: =must-ignore-field
+  error_then: =must-ignore-field
   repeating: true
   type: xs:IDREF
