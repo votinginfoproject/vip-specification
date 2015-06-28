@@ -34,6 +34,8 @@ state's FIPS code.
 |                         |                         |           |          |<precinct>` element.             |                                    |
 +-------------------------+-------------------------+-----------+----------+---------------------------------+------------------------------------+
 
+.. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
 .. code-block:: xml
    :linenos:
 
