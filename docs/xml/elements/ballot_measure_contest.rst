@@ -4,6 +4,8 @@ BallotMeasureContest
 The BallotMeasureContest provides information about a ballot measure before the voters, including
 summary statements on each side. Extends extends :doc:`ContestBase <contest_base>`.
 
+.. include:: ../../tables/ballot_measure_contest.rst
+
 +------------------+---------------------------------------+-------------+----------+--------------------------------------+------------------------+
 | Tag              | Data Type                             | Required?   | Repeats? | Description                          | Error Handling         |
 |                  |                                       |             |          |                                      |                        |
