@@ -75,10 +75,15 @@ TYPE_NAME_TO_BASE_NAME = {
 }
 
 
+def get_column_infos(path):
+    column_infos = ELEMENT_COLUMNS if 'elements' in path else ENUMERATION_COLUMNS
+    return column_infos
+
+
 def make_table(path):
     data = common.read_yaml(path)
     tags = data['tags']
-    formatter = make_table_formatter()
+    formatter = make_table_formatter(path)
     lines = formatter.make_table(tags)
     table = "\n".join(lines) + "\n"
 
@@ -95,8 +100,9 @@ def update_table_file(parent_dir, yaml_path):
     common.write(rest_path, text)
 
 
-def make_table_formatter():
-    keys, headers = ([c[i] for c in COLUMNS] for i in range(2))
+def make_table_formatter(path):
+    column_infos = get_column_infos(path)
+    keys, headers = ([c[i] for c in column_infos] for i in range(2))
     formatter = TableFormatter(headers=headers, keys=keys)
     return formatter
 
@@ -168,7 +174,7 @@ def make_yaml_path(rel_path, type_name):
 
 def parse_tables(parent_dir, path):
     _log.info("parsing: {0}".format(path))
-    columns_info = ELEMENT_COLUMNS if 'elements' in path else ENUMERATION_COLUMNS
+    column_infos = get_column_infos(path)
     rel_path = os.path.relpath(path, start=parent_dir)
     with open(path) as f:
         lines = f.readlines()
@@ -182,7 +188,7 @@ def parse_tables(parent_dir, path):
         if "+===" in line:
             # Then we just consumed a table header.
             yaml_path = make_yaml_path(rel_path, type_name)
-            tags_data = parse_table(iter_lines, columns_info)
+            tags_data = parse_table(iter_lines, column_infos)
             data = {
                 'name': type_name,
                 'tags': tags_data,
