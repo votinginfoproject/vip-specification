@@ -26,8 +26,12 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import logging
+
 import yaml
 
+
+_log = logging.getLogger()
 
 # The idea for this comes from here:
 # http://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data
@@ -44,6 +48,12 @@ def _yaml_str_representer(dumper, data):
     """
     style = '|' if '\n' in data else None
     return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
+
+
+def write(path, text):
+    _log.info("writing to: {0}".format(path))
+    with open(path, mode='w') as f:
+        f.write(text)
 
 
 def configure_yaml():

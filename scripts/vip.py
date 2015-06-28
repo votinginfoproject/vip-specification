@@ -47,8 +47,10 @@ from vippy import rest
 
 _log = logging.getLogger()
 
-DATA_DIR = 'docs/data'
 FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
+
+DATA_DIR = 'docs/data'
+TABLES_DIR = 'docs/tables'
 
 DESCRIPTION = """\
 Helper script for contributors to the vip-specification repo.
@@ -81,7 +83,7 @@ def command_make_table(ns):
         paths = _get_all_files(DATA_DIR)
         paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
     for path in paths:
-        rest.make_table(path)
+        rest.update_table_file(path, tables_dir=TABLES_DIR)
 
 
 def command_norm_yaml(ns):

@@ -27,12 +27,19 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import itertools
+import os.path
 from pprint import pprint
 import textwrap
 
 from vippy import common
 
 
+TABLE_COMMENT = """\
+.. This file is auto-generated.  Do not edit it by hand!
+
+"""
+
+# TODO: convert this to COLUMNS.
 _HEADERS = ('Tag', 'Data Type', 'Required?', 'Repeats?', 'Description', 'Error Handling')
 _KEYS = ('name', 'type', 'required', 'repeating', 'description', 'error')
 _WIDTHS = (18, 39, 13, 10, 38, 24)
@@ -47,7 +54,19 @@ def make_table(path):
     tags = data['tags']
     formatter = make_table_formatter()
     lines = formatter.make_table(tags)
-    print("\n".join(lines))
+    table = "\n".join(lines) + "\n"
+
+    return table
+
+
+def update_table_file(yaml_path, tables_dir):
+    file_name = os.path.basename(yaml_path)
+    root, ext = os.path.splitext(file_name)
+    rest_file_name = "{0}.rst".format(root)
+    rest_path = os.path.join(tables_dir, rest_file_name)
+    table = make_table(yaml_path)
+    text = TABLE_COMMENT + table
+    common.write(rest_path, text)
 
 
 def make_table_formatter():
