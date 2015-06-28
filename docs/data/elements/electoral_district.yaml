@@ -6,8 +6,8 @@ tags:
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the electoral area's name.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore the ``ElectoralDistrict`` object containing it.
+  error_then: the implementation is required to ignore the ``ElectoralDistrict`` object
+    containing it.
   required: true
   type: xs:string
 - _name: Number
@@ -19,8 +19,8 @@ tags:
   type: xs:integer
 - _name: Type
   description: Specifies the type of electoral area.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore the ``ElectoralDistrict`` object containing it.
+  error_then: the implementation is required to ignore the ``ElectoralDistrict`` object
+    containing it.
   required: true
   type: DistrictType
 - _name: OtherType

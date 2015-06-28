@@ -2,8 +2,8 @@ name: OrderedContest
 tags:
 - _name: ContestId
   description: Links to elements that extend :doc:`ContestBase <contest_base>`.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``OrderedContest`` element containing it.
+  error_then: the implementation is required to ignore the ``OrderedContest`` element
+    containing it.
   required: true
   type: xs:IDREF
 - _name: OrderedBallotSelectionId

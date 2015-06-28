@@ -9,8 +9,8 @@ tags:
 - _name: ElectoralDistrictId
   description: Links to the :doc:`ElectoralDistrict <electoral_district>` element
     associated with the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``Office`` element containing it.
+  error_then: the implementation is required to ignore the ``Office`` element containing
+    it.
   required: true
   type: xs:IDREF
 - _name: ExternalIdentifiers
@@ -29,8 +29,8 @@ tags:
   type: xs:boolean
 - _name: Name
   description: The name of the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``Office`` element containing it.
+  error_then: the implementation is required to ignore the ``Office`` element containing
+    it.
   required: true
   type: InternationalizedText
 - _name: OfficeHolderPersonId

@@ -22,19 +22,18 @@ tags:
   type: ExternalIdentifiers
 - _name: IsMailOnly
   description: Determines if the precinct runs mail-only elections.
-  error: If the field is missing or invalid, the implementation is required to assume
-    **IsMailOnly** is false.
+  error_then: the implementation is required to assume **IsMailOnly** is false.
   type: xs:boolean
 - _name: LocalityId
   description: Links to the :doc:`locality <locality>` that comprises the precinct.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the precinct element containing it.
+  error_then: the implementation is required to ignore the precinct element containing
+    it.
   required: true
   type: xs:IDREF
 - _name: Name
   description: Specifies the precinct's name (or number if no name exists).
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the precinct element containing it.
+  error_then: the implementation is required to ignore the precinct element containing
+    it.
   required: true
   type: xs:string
 - _name: Number

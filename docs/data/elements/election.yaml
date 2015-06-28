@@ -3,8 +3,8 @@ tags:
 - _name: Date
   description: Specifies when the election is being held. The Date is considered to
     be in the timezone local to the state holding the election.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the election element containing it.
+  error_then: the implementation is required to ignore the election element containing
+    it.
   required: true
   type: xs:date
 - _name: ElectionType
