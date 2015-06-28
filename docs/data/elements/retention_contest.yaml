@@ -2,11 +2,11 @@ name: RetentionContest
 tags:
 - _name: CandidateId
   description: Links to the :doc:`Candidate <candidate>` being retained.
-  error_then: the implementation is required to ignore the ``RetentionContest`` element
+  on_error: the implementation is required to ignore the ``RetentionContest`` element
     containing it.
   required: true
   type: xs:IDREF
 - _name: OfficeId
   description: Links to the information about the office.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: xs:IDREF

@@ -3,20 +3,20 @@ tags:
 - _name: ConStatement
   description: Specifies a statement in opposition to the referendum. It does not
     necessarily appear on the ballot.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: EffectOfAbstain
   description: Specifies what effect abstaining (i.e. not voting) on this proposition
     will have (i.e. whether abstaining is considered a vote against it).
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: FullText
   description: Specifies the full text of the referendum as it appears on the ballot.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: InfoUri
   description: Specifies a URI that links to additional information about the referendum.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: xs:anyURI
 - _name: PassageThreshold
   description: Specifies the threshold of votes that the referendum needs in order
@@ -24,25 +24,25 @@ tags:
     thresholds are "three-fifths" and "two-thirds". If there are `competing initiatives`_,
     information about their effect on the passage of the BallotMeasureContest would
     go here.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: ProStatement
   description: Specifies a statement in favor of the referendum. It does not necessarily
     appear on the ballot.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: SummaryText
   description: Specifies a short summary of the referendum that is on the ballot,
     below the title, but above the text.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: Type
   description: Specifies the particular type of ballot measure. Must be one of the
     valid :doc:`BallotMeasureType <../enumerations/ballot_measure_type>` options.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: BallotMeasureType
 - _name: OtherType
   description: Allows for cataloging a new :doc:`BallotMeasureType <../enumerations/ballot_measure_type>`
     option, when Type is specified as "other."
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: xs:string

@@ -2,22 +2,22 @@ name: VoterService
 tags:
 - _name: ContactInformation
   description: The contact for a particular voter service.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: ContactInformation
 - _name: Description
   description: Long description of the services available.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: InternationalizedText
 - _name: ElectionOfficialPersonId
   description: The :doc:`authority <person>` for a particular voter service.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: xs:IDREF
 - _name: Type
   description: The type of :doc:`voter service <../enumerations/voter_service_type>`.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: VoterServiceType
 - _name: OtherType
   description: If Type is "other", OtherType allows for cataloging another type of
     voter service.
-  error_then: =must-ignore
+  on_error: =must-ignore
   type: xs:string

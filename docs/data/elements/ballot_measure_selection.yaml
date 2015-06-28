@@ -2,7 +2,7 @@ name: BallotMeasureSelection
 tags:
 - _name: Selection
   description: Selection text for a :doc:`BallotMeasureContest <ballot_measure_contest>`
-  error_then: the implementation is required to ignore the BallotMeasureSelection
-    containing it.
+  on_error: the implementation is required to ignore the BallotMeasureSelection containing
+    it.
   required: true
   type: InternationalizedText
