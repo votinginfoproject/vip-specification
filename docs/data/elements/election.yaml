@@ -3,7 +3,7 @@ tags:
 - _name: Date
   description: Specifies when the election is being held. The Date is considered to
     be in the timezone local to the state holding the election.
-  error: If the field is not present or invalid, the implementation is required to
+  error: If the field is invalid or not present, the implementation is required to
     ignore the election element containing it.
   required: true
   type: xs:date
@@ -19,7 +19,7 @@ tags:
   type: xs:IDREF
 - _name: IsStatewide
   description: Indicates whether the election is statewide.
-  error: If the field is not present or invalid, the implementation is required to
+  error: If the field is invalid or not present, the implementation is required to
     default to "yes".
   type: xs:boolean
 - _name: Name
