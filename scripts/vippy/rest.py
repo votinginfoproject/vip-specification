@@ -58,6 +58,18 @@ DEFAULT_VALUES = {
     'repeating': 'Single',
 }
 
+TYPE_NAME_TO_BASE_NAME = {
+    'Department': 'department',
+    'ExternalIdentifier': 'external_identifier',
+    'Hours': 'hours',
+    'LatLng': 'lat_lng',
+    'NonHouseAddress': 'non_house_address',
+    'Schedule': 'schedule',
+    'Term': 'term',
+    'VoterService': 'voter_service',
+}
+
+
 def make_table(path):
     data = common.read_yaml(path)
     tags = data['tags']
@@ -81,14 +93,6 @@ def update_table_file(yaml_path, tables_dir):
 def make_table_formatter():
     formatter = TableFormatter(headers=_HEADERS, keys=_KEYS, widths=_WIDTHS)
     return formatter
-
-
-def make_yaml_path(root, table_number):
-    if table_number > 1:
-        root += "_{0}".format(table_number)
-    path = root + ".yaml"
-    path = os.path.join(common.DATA_DIR, path)
-    return path
 
 
 def parse_row(iter_lines):
@@ -137,23 +141,40 @@ def parse_table(iter_lines):
     return tags_data
 
 
+def snake_to_camel(text):
+    parts = text.split("_")
+    return "".join([p.capitalize() for p in parts])
+
+
+def make_yaml_path(rel_path, type_name, table_number):
+    root, ext = os.path.splitext(rel_path)
+    rel_dir, base_name = os.path.split(root)
+    base_name = TYPE_NAME_TO_BASE_NAME.get(type_name, base_name)
+    camel_base_name = snake_to_camel(base_name)
+    if camel_base_name != type_name:
+        raise Exception("{0} != {1}".format(camel_base_name, type_name))
+    file_name = base_name + ".yaml"
+    path = os.path.join(common.DATA_DIR, rel_dir, file_name)
+    print(type_name, base_name)
+    return path
+
+
 def parse_tables(parent_dir, path):
     _log.info("parsing: {0}".format(path))
     rel_path = os.path.relpath(path, start=parent_dir)
-    root, ext = os.path.splitext(rel_path)
-    output_path = os.path.join(TABLES_DIR, rel_path)
     with open(path) as f:
         lines = f.readlines()
     table_number = 0
     iter_lines = iter(lines)
     for line in iter_lines:
         line = line.strip()
-        if line and " " not in line and "-" not in line and "=" not in line:
-            type_name = line
+        if (line and " " not in line and "-" not in line and
+            "=" not in line and not line.endswith('.')):
+            type_name = line.split(".")[-1]
         if "+===" in line:
             # Then we just consumed a table header.
             table_number += 1
-            yaml_path = make_yaml_path(root, table_number)
+            yaml_path = make_yaml_path(rel_path, type_name, table_number)
             tags_data = parse_table(iter_lines)
             data = {
                 'name': type_name,
