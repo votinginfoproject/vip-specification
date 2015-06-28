@@ -164,15 +164,14 @@ def snake_to_camel(text):
     return "".join([p.capitalize() for p in parts])
 
 
-def make_yaml_path(rel_path, type_name):
+def fix_rel_path(rel_path, type_name):
     root, ext = os.path.splitext(rel_path)
     rel_dir, base_name = os.path.split(root)
     base_name = TYPE_NAME_TO_BASE_NAME.get(type_name, base_name)
     camel_base_name = snake_to_camel(base_name)
     if camel_base_name != type_name:
         raise Exception("{0} != {1}".format(camel_base_name, type_name))
-    file_name = base_name + ".yaml"
-    path = os.path.join(common.DATA_DIR, rel_dir, file_name)
+    path = os.path.join(rel_dir, base_name)
     return path
 
 
@@ -194,9 +193,11 @@ def parse_tables(parent_dir, rest_path):
             new_lines.append(line)
             continue
         # Otherwise, we just started a table.
-        new_line = ".. include:: ../../tables/{0}\n\n".format(rel_path)
+        rel_base = fix_rel_path(rel_path, type_name)
+        rel_table_path = rel_base + ".rst"
+        yaml_path = os.path.join(common.DATA_DIR, rel_base + ".yaml")
+        new_line = ".. include:: ../../tables/{0}\n\n".format(rel_table_path)
         new_lines.append(new_line)
-        yaml_path = make_yaml_path(rel_path, type_name)
         tags_data = parse_table(iter_lines, column_infos)
         data = {
             'name': type_name,
