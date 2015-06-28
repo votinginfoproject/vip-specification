@@ -6,7 +6,6 @@ tags:
   error: If the field is missing or invalid, the implementation is required to ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: ElectoralDistrictId
   description: Links to an :doc:`electoral district <electoral_district>` (e.g., congressional
@@ -18,7 +17,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Other identifier for the precinct that relates to another dataset (e.g.
@@ -26,28 +24,26 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: ExternalIdentifiers
 - _name: IsMailOnly
   description: Determines if the precinct runs mail-only elections.
   error: If the field is missing or invalid, the implementation is required to assume
     **IsMailOnly** is false.
   repeating: Single
-  required: Optional
   type: xs:boolean
 - _name: LocalityId
   description: Links to the :doc:`locality <locality>` that comprises the precinct.
   error: If the field is invalid or not present, the implementation is required to
     ignore the precinct element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:IDREF
 - _name: Name
   description: Specifies the precinct's name (or number if no name exists).
   error: If the field is invalid or not present, the implementation is required to
     ignore the precinct element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: Number
   description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
@@ -56,7 +52,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: PollingLocationId
   description: Specifies a link to the precinct's :doc:`polling location <polling_location>`
@@ -66,19 +61,16 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF
 - _name: PrecinctSplitName
   description: Refers to name of the associated precinct split.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: Ward
   description: Specifies the ward the precinct is contained within.
   error: If the field is missing or invalid, the implementation is required to ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:string

@@ -5,7 +5,6 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:integer
 - _name: OfficeId
   description: References an :doc:`Office <office>` element, if available, which gives
@@ -13,7 +12,6 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF
 - _name: PrimaryPartyId
   description: References a :doc:`Party <party>` element, if the contest is related
@@ -21,12 +19,10 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: VotesAllowed
   description: Maximum number of votes/write-ins per voter in this contest.
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:integer

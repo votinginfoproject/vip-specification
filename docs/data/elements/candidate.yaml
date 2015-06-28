@@ -6,7 +6,7 @@ tags:
   error: If the element is invalid or not present, then the implementation is required
     to ignore the Candidate element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: InternationalizedText
 - _name: ExternalIdentifiers
   description: Another identifier for a candidate that links to another source of
@@ -14,14 +14,12 @@ tags:
   error: If the element is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: ExternalIdentifiers
 - _name: FileDate
   description: Date and time when the candidate filed for the contest.
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:dateTime
 - _name: IsIncumbent
   description: Indicates whether the candidate is the incumbent for the office associated
@@ -29,7 +27,6 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:boolean
 - _name: IsTopTicket
   description: Indicates whether the candidate is the top of a ticket that includes
@@ -37,7 +34,6 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:boolean
 - _name: PartyId
   description: Reference to a :doc:`Party <party>` element with additional information
@@ -45,7 +41,6 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: PersonId
   description: Reference to a :doc:`Person <person>` element with additional information
@@ -53,21 +48,18 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: PostElectionStatus
   description: Final status of the candidate (e.g. winner, withdrawn, etc...).
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: CandidatePostElectionStatus
 - _name: PreElectionStatus
   description: Registration status of the candidate (e.g. filed, qualified, etc...).
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: CandidatePreElectionStatus
 - _name: SequenceOrder
   description: The order in which the candidate can be listed on the ballot or in
@@ -75,5 +67,4 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:integer

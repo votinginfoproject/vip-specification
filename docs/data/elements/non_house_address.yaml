@@ -6,21 +6,20 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: City
   description: The city specifies the city or town of the address.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: State
   description: Specifies the two-letter state abbreviation of the address.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: StreetDirection
   description: Specifies the (inter-)cardinal direction of the street address (e.g.,
@@ -28,7 +27,6 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: StreetName
   description: Represents the name of the street for the address. A special wildcard,
@@ -39,7 +37,7 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: StreetSuffix
   description: Represents the abbreviated, non-directional suffix to the street name.
@@ -47,7 +45,6 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: Zip
   description: Specifies the zip code of the address. It may be 5 or 9 digits, and
@@ -56,5 +53,5 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string

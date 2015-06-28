@@ -5,5 +5,5 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore the BallotMeasureSelection containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: InternationalizedText

@@ -6,5 +6,5 @@ tags:
     to be valid. If no valid ``Text`` is present, the implementation is required to
     ignore the ``InternationalizedText`` element.
   repeating: Repeats
-  required: '**Required**'
+  required: true
   type: LanguageString

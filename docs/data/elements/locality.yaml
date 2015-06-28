@@ -6,7 +6,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Another identifier for a locality that links to another dataset (e.g.
@@ -14,14 +13,13 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the name of a locality.
   error: If the field is not present or invalid, the implementation is required to
     ignore the Locality element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: PollingLocationId
   description: Specifies a link to the locality's :doc:`polling locations <polling_location>`.
@@ -31,14 +29,13 @@ tags:
     ignore it. However, the implementation should still check to see if there are
     any polling locations associated with this locality's state.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF
 - _name: StateId
   description: References the locality's :doc:`state <state>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the locality element containing.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:IDREF
 - _name: Type
   description: Defines the kind of locality (e.g. county, town, et al.), which is
@@ -46,7 +43,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
@@ -54,5 +50,4 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string

@@ -5,12 +5,11 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``RetentionContest`` element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:IDREF
 - _name: OfficeId
   description: Links to the information about the office.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF

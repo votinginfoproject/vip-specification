@@ -5,19 +5,16 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: OrderedContestId
   description: Reference to an :doc:`OrderedContest <ordered_contest>`
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF
 - _name: PartyId
   description: Reference to a :doc:`Party <party>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF

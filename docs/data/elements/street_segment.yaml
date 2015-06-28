@@ -7,7 +7,7 @@ tags:
   error: If the element is not present or invalid, the implementation is required
     to ignore the StreetSegment element containing it
   repeating: Single
-  required: '**Required**'
+  required: true
   type: NonHouseAddress
 - _name: IncludesAllAddresses
   description: Specifies if the segment covers every address on this street. If this
@@ -16,7 +16,6 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:boolean
 - _name: OddEvenBoth
   description: Specifies whether the odd side of the street (in terms of house numbers),
@@ -24,7 +23,7 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore the StreetSegment containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: OebEnum
 - _name: PrecinctId
   description: References the :doc:`precinct <precinct>` that contains the entire
@@ -32,7 +31,6 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore the StreetSegment element containing it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: StartHouseNumber
   description: The house number at which the street segment starts. This value is
@@ -44,7 +42,6 @@ tags:
     it. If the **StartHouseNumber** is greater than the **EndHouseNumber**, the implementation
     should ignore the element containing them.
   repeating: Single
-  required: Optional
   type: xs:integer
 - _name: EndHouseNumber
   description: The house number at which the street segment ends. This value is necessary
@@ -56,7 +53,6 @@ tags:
     it. If the **EndHouseNumber** is less than the **StartHouseNumber**, the implementation
     should ignore the element containing it.
   repeating: Single
-  required: Optional
   type: xs:integer
 - _name: UnitNumber
   description: The apartment/unit number for a street segment. If this value is present
@@ -65,5 +61,4 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
   repeating: Repeats
-  required: Optional
   type: xs:string

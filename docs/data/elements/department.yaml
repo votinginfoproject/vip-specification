@@ -6,7 +6,6 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: ContactInformation
 - _name: ElectionOfficialPersonId
   description: The individual to contact at the election administration office. The
@@ -14,7 +13,6 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: VoterService
   description: The types of services and appropriate contact individual available
@@ -22,5 +20,4 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Repeats
-  required: Optional
   type: VoterService

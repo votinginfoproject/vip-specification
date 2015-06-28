@@ -6,5 +6,5 @@ tags:
     If no valid `Schedule`_ is present, the implementation is required to ignore the
     ``HoursOpen`` element.
   repeating: Repeats
-  required: '**Required**'
+  required: true
   type: Schedule

@@ -6,7 +6,7 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``ElectionIdentifier`` containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: IdentifierType
 - _name: OtherType
   description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
@@ -15,12 +15,11 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: Value
   description: Specifies the identifier.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``ElectionIdentifier`` containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string

@@ -6,5 +6,5 @@ tags:
   error: If one or more parties referenced are invalid or not present, the implementation
     is required to ignore the PartySelection containing it.
   repeating: Repeats
-  required: '**Required**'
+  required: true
   type: xs:IDREF

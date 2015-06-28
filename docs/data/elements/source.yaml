@@ -5,7 +5,7 @@ tags:
   error: If the field is invalid, the implementation is required to ignore the source
     element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: VipId
   description: Specifies the ID of the organization as assigned by VIP. This ID is
@@ -14,7 +14,7 @@ tags:
   error: If the field is invalid, the implementation is required to ignore the source
     element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:string
 - _name: DateTime
   description: Specifies the date and time of the feed production. The date/time is
@@ -23,14 +23,13 @@ tags:
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
   repeating: Single
-  required: '**Required**'
+  required: true
   type: xs:dateTime
 - _name: Description
   description: Specifies both the nature of the organization providing the data and
     what data is in the feed.
   error: If the field is invalid, the implementation is required to ignore it.
   repeating: Single
-  required: Optional
   type: InternationalizedText
 - _name: OrganizationUrl
   description: Specifies a URL to the home page of the organization publishing the
@@ -38,7 +37,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: FeedContactId
   description: Reference to the :doc:`person <person>` who will respond to inquiries
@@ -46,12 +44,10 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: TouUrl
   description: Specifies the website where the Terms of Use for the information in
     this file can be found.
   error: If the field is invalid, the implementation is required to ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI

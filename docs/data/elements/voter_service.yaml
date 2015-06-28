@@ -5,28 +5,24 @@ tags:
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: ContactInformation
 - _name: Description
   description: Long description of the services available.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: InternationalizedText
 - _name: ElectionOfficialPersonId
   description: The :doc:`authority <person>` for a particular voter service.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: Type
   description: The type of :doc:`voter service <../enumerations/voter_service_type>`.
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
   repeating: Single
-  required: Optional
   type: VoterServiceType
 - _name: OtherType
   description: If Type is "other", OtherType allows for cataloging another type of
@@ -34,5 +30,4 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:string

@@ -5,7 +5,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: AmIRegisteredUri
   description: Specifies the web address for information on whether an individual
@@ -13,35 +12,31 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: Department
   description: Describes the administrative body for a particular voter service.
   error: If the element is invalid or not present, the implementation is required
     to ignore the **ElectionAdministration** object that contains it.
   repeating: Repeats
-  required: '**Required**'
+  required: true
   type: Department
 - _name: ElectionsUri
   description: Specifies web address the administration's website.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: RegistrationUri
   description: Specifies web address for information on registering to vote.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: RulesUri
   description: Specifies a URL for the election rules and laws (if any) for the jurisdiction
     of the administration.
   error: If the field is invalid the implementation is required to ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: WhatIsOnMyBallotUri
   description: Specifies web address for information on what is on an individual's
@@ -49,7 +44,6 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI
 - _name: WhereDoIVoteUri
   description: The Specifies web address for information on where an individual votes
@@ -57,5 +51,4 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
   repeating: Single
-  required: Optional
   type: xs:anyURI

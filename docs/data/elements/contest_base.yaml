@@ -5,7 +5,6 @@ tags:
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: BallotSelectionId
   description: References a particular BallotSelection, which could be of any selection
@@ -13,21 +12,18 @@ tags:
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Repeats
-  required: Optional
   type: xs:IDREF
 - _name: BallotSubTitle
   description: Subtitle of the contest as it appears on the ballot.
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: InternationalizedText
 - _name: BallotTitle
   description: Title of the contest as it appears on the ballot.
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: InternationalizedText
 - _name: ElectoralDistrictId
   description: References an :doc:`ElectoralDistrict <electoral_district>` element
@@ -35,7 +31,6 @@ tags:
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:IDREF
 - _name: ElectorateSpecification
   description: Specifies any changes to the eligible electorate for this contest past
@@ -46,21 +41,18 @@ tags:
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: InternationalizedText
 - _name: ExternalIdentifiers
   description: Other identifiers for a contest that links to another source of information.
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: ExternalIdentifiers
 - _name: HasRotation
   description: Indicates whether the selections in the contest are rotated.
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:boolean
 - _name: Name
   description: 'Name of the contest, not necessarily how it appears on the ballot
@@ -68,14 +60,12 @@ tags:
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:string
 - _name: SequenceOrder
   description: Order in which the candidates are listed on the ballot.
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:integer
 - _name: VoteVariation
   description: Vote variation associated with the contest (e.g. n-of-m, majority,
@@ -83,7 +73,6 @@ tags:
   error: If the element is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: VoteVariation
 - _name: OtherVoteVariation
   description: If "other" is selected as the **VoteVariation**, the name of the variation
@@ -91,5 +80,4 @@ tags:
   error: If the field is invalid or not present, the implementation should ignore
     it.
   repeating: Single
-  required: Optional
   type: xs:string

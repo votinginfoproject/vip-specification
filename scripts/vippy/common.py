@@ -125,14 +125,23 @@ TYPE_MAP = {
     ':doc:`VoterServiceType <../enumerations/voter_service_type>`': 'VoterServiceType',
 }
 
+REQUIRED_MAP = {
+    'Optional': None,
+    '**Required**': True,
+}
+
 def analyze_types():
     dir_path = os.path.join(DATA_DIR, 'elements')
     yaml_paths = get_all_files(dir_path, ext='.yaml')
+    key = 'required'
     for path in yaml_paths:
         data = read_yaml(path)
         tags_data = data['tags']
         for tag_data in tags_data:
-            value = tag_data['type']
-            value = TYPE_MAP.get(value, value)
-            tag_data['type'] = value
+            value = tag_data[key]
+            value = REQUIRED_MAP.get(value, value)
+            if not value:
+                del tag_data[key]
+            else:
+                tag_data[key] = value
         write_yaml(data, path)
