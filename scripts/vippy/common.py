@@ -28,6 +28,7 @@
 
 import logging
 import os.path
+import pprint
 
 import yaml
 
@@ -38,65 +39,17 @@ DATA_DIR = 'docs/data'
 TABLES_DIR = 'docs/tables'
 XML_DIR = 'docs/xml'
 
-# The idea for this comes from here:
-# http://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data
-def _yaml_str_representer(dumper, data):
-    """A PyYAML representer that uses literal blocks for multi-line strings.
+TAG_KEY_NAME = '_name'
+TAG_KEY_TYPE = 'type'
+TAG_KEY_REQUIRED = 'required'
+TAG_KEY_REPEATING = 'repeating'
+TAG_KEY_DESCRIPTION = 'description'
+TAG_KEY_ERROR_HANDLING = 'error'
 
-    For example--
-
-      long: |
-        This is
-        a multi-line
-        string.
-      short: This is a one-line string.
-    """
-    style = '|' if '\n' in data else None
-    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
-
-
-def write(path, text):
-    _log.info("writing to: {0}".format(path))
-    with open(path, mode='w') as f:
-        f.write(text)
-
-
-def get_all_files(dir_path, ext=None):
-    paths = []
-    for root_dir, dir_paths, file_names in os.walk(dir_path):
-        for file_name in file_names:
-            path = os.path.join(root_dir, file_name)
-            paths.append(path)
-    if ext is not None:
-        paths = [p for p in paths if os.path.splitext(p)[1] == ext]
-
-    return paths
-
-
-def configure_yaml():
-    yaml.add_representer(str, _yaml_str_representer)
-
-
-def read_yaml(path):
-    with open(path) as f:
-        data = yaml.load(f)
-    return data
-
-
-def yaml_dump(*args):
-    return yaml.dump(*args, default_flow_style=False, allow_unicode=True,
-                     default_style=None)
-
-
-def write_yaml(data, path):
-    with open(path, "w") as f:
-        yaml_dump(data, f)
-
-
-def normalize_yaml(path):
-    data = read_yaml(path)
-    write_yaml(data, path)
-
+DEFAULT_TAG_VALUES = {
+    TAG_KEY_REQUIRED: False,
+    TAG_KEY_REPEATING: False,
+}
 
 TYPE_MAP = {
     ':doc:`BallotMeasureType <../enumerations/ballot_measure_type>`': 'BallotMeasureType',
@@ -148,6 +101,88 @@ REQUIRED_MAP = {
     'Optional': None,
     '**Required**': True,
 }
+
+
+def reverse_map(mapping):
+    inverted = {}
+    for k, v in mapping.items():
+        if v in inverted:
+            raise Exception("key appears twice: {0}".format(key))
+        inverted[v] = k
+    return inverted
+
+
+def write(path, text):
+    _log.info("writing to: {0}".format(path))
+    with open(path, mode='w') as f:
+        f.write(text)
+
+
+def get_all_files(dir_path, ext=None):
+    paths = []
+    for root_dir, dir_paths, file_names in os.walk(dir_path):
+        for file_name in file_names:
+            path = os.path.join(root_dir, file_name)
+            paths.append(path)
+    if ext is not None:
+        paths = [p for p in paths if os.path.splitext(p)[1] == ext]
+
+    return paths
+
+
+# The idea for this comes from here:
+# http://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data
+def _yaml_str_representer(dumper, data):
+    """A PyYAML representer that uses literal blocks for multi-line strings.
+
+    For example--
+
+      long: |
+        This is
+        a multi-line
+        string.
+      short: This is a one-line string.
+    """
+    style = '|' if '\n' in data else None
+    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
+
+
+def configure_yaml():
+    yaml.add_representer(str, _yaml_str_representer)
+
+
+def read_yaml(path):
+    with open(path) as f:
+        data = yaml.load(f)
+    return data
+
+
+def yaml_dump(*args):
+    return yaml.dump(*args, default_flow_style=False, allow_unicode=True,
+                     default_style=None)
+
+
+def write_yaml(data, path):
+    with open(path, "w") as f:
+        yaml_dump(data, f)
+
+
+def normalize_yaml(path):
+    data = read_yaml(path)
+    write_yaml(data, path)
+
+
+def get_tag_value(tag_data, key):
+    try:
+        try:
+            value = tag_data[key]
+        except KeyError:
+            value = DEFAULT_TAG_VALUES[key]
+    except Exception:
+        raise Exception("tag_data: {0}".format(pprint.pformat(tag_data)))
+
+    return value
+
 
 def analyze_types():
     dir_path = os.path.join(DATA_DIR, 'elements')

@@ -33,6 +33,9 @@ from pprint import pprint
 import textwrap
 
 from vippy import common
+from vippy.common import (TAG_KEY_NAME, TAG_KEY_TYPE, TAG_KEY_REQUIRED,
+                          TAG_KEY_REPEATING, TAG_KEY_DESCRIPTION,
+                          TAG_KEY_ERROR_HANDLING)
 
 
 _log = logging.getLogger()
@@ -43,25 +46,6 @@ TABLE_COMMENT = """\
 .. This file is auto-generated.  Do not edit it by hand!
 
 """
-
-ELEMENT_COLUMNS = [
-    ('_name', 'Tag', MIN_COLUMN_WIDTH),
-    ('type', 'Data Type', MIN_COLUMN_WIDTH),
-    ('required', 'Required?', MIN_COLUMN_WIDTH),
-    ('repeating', 'Repeats?', MIN_COLUMN_WIDTH),
-    ('description', 'Description', 40),
-    ('error', 'Error Handling', 40),
-]
-
-ENUMERATION_COLUMNS = [
-    ('_name', 'Tag', MIN_COLUMN_WIDTH),
-    ('description', 'Description', 50),
-]
-
-DEFAULT_VALUES = {
-    'required': 'Optional',
-    'repeating': 'Single',
-}
 
 TYPE_NAME_TO_BASE_NAME = {
     'Department': 'department',
@@ -74,10 +58,43 @@ TYPE_NAME_TO_BASE_NAME = {
     'VoterService': 'voter_service',
 }
 
+ELEMENT_COLUMNS = [
+    (TAG_KEY_NAME, 'Tag', MIN_COLUMN_WIDTH),
+    (TAG_KEY_TYPE, 'Data Type', MIN_COLUMN_WIDTH),
+    (TAG_KEY_REQUIRED, 'Required?', MIN_COLUMN_WIDTH),
+    (TAG_KEY_REPEATING, 'Repeats?', MIN_COLUMN_WIDTH),
+    (TAG_KEY_DESCRIPTION, 'Description', 40),
+    (TAG_KEY_ERROR_HANDLING, 'Error Handling', 40),
+]
 
-def get_column_infos(path):
-    column_infos = ELEMENT_COLUMNS if 'elements' in path else ENUMERATION_COLUMNS
-    return column_infos
+ENUMERATION_COLUMNS = [
+    ('_name', 'Tag', MIN_COLUMN_WIDTH),
+    ('description', 'Description', 50),
+]
+
+ELEMENT_CELL_VALUES = {
+    TAG_KEY_TYPE: common.reverse_map(common.TYPE_MAP),
+    TAG_KEY_REQUIRED: {
+        False: 'Optional',
+        True: '**Required**',
+    },
+    TAG_KEY_REPEATING: {
+        False: 'Single',
+        True: 'Repeats',
+    },
+}
+
+ENUMERATION_CELL_VALUES = {}
+
+
+def get_type_info(path):
+    if 'elements' in path:
+        column_infos = ELEMENT_COLUMNS
+        cell_values = ELEMENT_CELL_VALUES
+    else:
+        column_infos = ENUMERATION_COLUMNS
+        cell_values = ENUMERATION_CELL_VALUES
+    return column_infos, cell_values
 
 
 def make_table(path):
@@ -101,9 +118,9 @@ def update_table_file(parent_dir, yaml_path):
 
 
 def make_table_formatter(path):
-    column_infos = get_column_infos(path)
+    column_infos, cell_values = get_type_info(path)
     keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
-    formatter = TableFormatter(headers=headers, keys=keys, widths=widths)
+    formatter = TableFormatter(headers=headers, keys=keys, widths=widths, cell_values=cell_values)
     return formatter
 
 
@@ -177,7 +194,7 @@ def fix_rel_path(rel_path, type_name):
 
 def parse_tables(parent_dir, rest_path):
     _log.info("parsing: {0}".format(rest_path))
-    column_infos = get_column_infos(rest_path)
+    column_infos, cell_values = get_type_info(rest_path)
     rel_path = os.path.relpath(rest_path, start=parent_dir)
     with open(rest_path) as f:
         lines = f.readlines()
@@ -213,24 +230,35 @@ class TableFormatter(object):
     # The size of the left and right margin of each cell as a number of spaces.
     margin = 1
 
-    def __init__(self, headers, keys, widths):
+    def __init__(self, cell_values, headers, keys, widths):
+        self.cell_values = cell_values
         self.headers = headers
         self.keys = keys
-        self.widths = widths
+        self.min_widths = widths
 
     def wrap(self, text, width):
         return textwrap.wrap(text, width=width, break_long_words=False,
                              break_on_hyphens=False)
 
+    def get_cell_value(self, tag_data, key):
+        data_value = common.get_tag_value(tag_data, key)
+        try:
+            conversions = self.cell_values[key]
+        except KeyError:
+            value = data_value
+        else:
+            value = conversions.get(data_value, data_value)
+        return value
+
     def make_width(self, i, header, tags_data):
         all_words = [header]
         key = self.keys[i]
         for tag_data in tags_data:
-            value = tag_data[key]
+            value = self.get_cell_value(tag_data, key)
             words = value.split(" ")
             all_words.extend(words)
-        width = max((len(w) for w in all_words))
-        width = max(width, self.widths[i])
+        width = max(len(w) for w in all_words)
+        width = max(width, self.min_widths[i])
         return width
 
     def make_widths(self, headers, tags_data):
@@ -262,18 +290,18 @@ class TableFormatter(object):
         line = self.make_line(parts, glue='|')
         return line
 
-    def make_row(self, strings, widths, separator=None):
+    def make_row(self, cell_values, widths, separator=None):
         if separator is None:
             separator = '-'
-        contents = [self.wrap(s, width=w) for s, w in zip(strings, widths)]
+        contents = [self.wrap(s, width=w) for s, w in zip(cell_values, widths)]
         parts_seq = itertools.zip_longest(*contents, fillvalue='')
         lines = [self.make_text_line(parts, widths=widths) for parts in parts_seq]
         lines.append(self.make_divider(widths=widths, fill_char=separator))
         return lines
 
-    def make_row_from_data(self, data, widths):
-        texts = [data.get(k, DEFAULT_VALUES.get(k, '')) for k in self.keys]
-        lines = self.make_row(texts, widths=widths)
+    def make_row_from_data(self, tag_data, widths):
+        cell_values = [self.get_cell_value(tag_data, k) for k in self.keys]
+        lines = self.make_row(cell_values, widths=widths)
         return lines
 
     def make_table(self, tags_data):
