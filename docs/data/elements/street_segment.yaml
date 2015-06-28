@@ -1,0 +1,69 @@
+name: StreetSegment
+tags:
+- _name: NonHouseAddress
+  description: The common street address (as well as city, state, and zip) of the
+    start and end points of the segment. Specific information such as street direction
+    should be included.
+  error: If the element is not present or invalid, the implementation is required
+    to ignore the StreetSegment element containing it
+  repeating: Single
+  required: '**Required**'
+  type: '`NonHouseAddress`_'
+- _name: IncludesAllAddresses
+  description: Specifies if the segment covers every address on this street. If this
+    is *true*, then the values of **StartHouseNumber** and **EndHouseNumber** should
+    be ignored. The value of **OddEvenBoth** must be *both*.
+  error: If the field is not present or invalid, the implementation is required to
+    ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:boolean
+- _name: OddEvenBoth
+  description: Specifies whether the odd side of the street (in terms of house numbers),
+    the even side, or both are in included in the street segment.
+  error: If the field is not present or invalid, the implementation is required to
+    ignore the StreetSegment containing it.
+  repeating: Single
+  required: '**Required**'
+  type: :doc:`OebEnum <../enumerations/oeb_enum>`
+- _name: PrecinctId
+  description: References the :doc:`precinct <precinct>` that contains the entire
+    street segment.
+  error: If the field is not present or invalid, the implementation is required to
+    ignore the StreetSegment element containing it.
+  repeating: Single
+  required: Optional
+  type: xs:IDREF
+- _name: StartHouseNumber
+  description: The house number at which the street segment starts. This value is
+    necessary for the street segment to make any sense. Unless **IncludesAllAddresses**
+    is true, this value must be less than or equal to **EndHouseNumber**. If **IncludesAllAddresses**
+    is true, this value is ignored.
+  error: Unless **IncludesAllAddresses** is true, if the field is not present or invalid,
+    the implementation is required to ignore the street segment element containing
+    it. If the **StartHouseNumber** is greater than the **EndHouseNumber**, the implementation
+    should ignore the element containing them.
+  repeating: Single
+  required: Optional
+  type: xs:integer
+- _name: EndHouseNumber
+  description: The house number at which the street segment ends. This value is necessary
+    for the street segment to make any sense. Unless **IncludesAllAddresses** is true,
+    it must be greater than or equal to **StartHouseNumber**. If **IncludesAllAddresses**
+    is true, this value is ignored.
+  error: Unless **IncludesAllAddresses** is true, if the field is not present or invalid,
+    the implementation is required to ignore the street segment element containing
+    it. If the **EndHouseNumber** is less than the **StartHouseNumber**, the implementation
+    should ignore the element containing it.
+  repeating: Single
+  required: Optional
+  type: xs:integer
+- _name: UnitNumber
+  description: The apartment/unit number for a street segment. If this value is present
+    then **StartHouseNumber** must be equal to **EndHouseNumber**. This field cannot
+    be used if **IncludesAllAddresses** is true.
+  error: If the field is not present or invalid, the implementation is required to
+    ignore it.
+  repeating: Repeats
+  required: Optional
+  type: xs:string

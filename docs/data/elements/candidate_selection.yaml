@@ -1,0 +1,27 @@
+name: CandidateSelection
+tags:
+- _name: CandidateId
+  description: References a :doc:`Candidate <candidate>` element. The number of candidates
+    that can be references is unbounded in cases where the ballot selection is for
+    a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Repeats
+  required: Optional
+  type: xs:IDREF
+- _name: EndorsementPartyId
+  description: References a :doc:`Party <party>` element, which signifies one or more
+    endorsing parties for the candidate(s).
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Repeats
+  required: Optional
+  type: xs:IDREF
+- _name: IsWriteIn
+  description: Signifies if the particular ballot selection allows for write-in candidates.
+    If true, one or more write-in candidates are allowed for this contest.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:boolean

@@ -1,0 +1,38 @@
+name: ElectionAdministration.Department.VoterService
+tags:
+- _name: ContactInformation
+  description: The contact for a particular voter service.
+  error: If the element is invalid or not present, the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: :doc:`ContactInformation <contact_information>`
+- _name: Description
+  description: Long description of the services available.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Single
+  required: Optional
+  type: :doc:`InternationalizedText <internationalized_text>`
+- _name: ElectionOfficialPersonId
+  description: The :doc:`authority <person>` for a particular voter service.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:IDREF
+- _name: Type
+  description: The type of :doc:`voter service <../enumerations/voter_service_type>`.
+  error: If the element is invalid or not present, the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: :doc:`VoterServiceType <../enumerations/voter_service_type>`
+- _name: OtherType
+  description: If Type is "other", OtherType allows for cataloging another type of
+    voter service.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:string

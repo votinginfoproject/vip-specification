@@ -1,0 +1,42 @@
+name: DistrictType
+tags:
+- _name: city
+  type: A city.
+- _name: city-council
+  type: A specific seat/jurisdiction for a city, town, or village council.
+- _name: congressional
+  type: A United States congressional district.
+- _name: county
+  type: A county.
+- _name: county-council
+  type: A county council district, either in its entirety or for a specific seat.
+- _name: judicial
+  type: A judicial district.
+- _name: municipality
+  type: A civil division which is not a town, city, village, or county.
+- _name: national
+  type: The United States.
+- _name: school
+  type: A school district.
+- _name: special
+  type: A `special-purpose district`_ that exist separate from general-purpose districts.
+- _name: state
+  type: A state, district, commonwealth, or U.S. territory.
+- _name: state-house
+  type: The lower house of a state legislature.
+- _name: state-senate
+  type: The upper house of a state legislature.
+- _name: town
+  type: A town_.
+- _name: township
+  type: A township, which may be different than a town. See the `Wikipedia article`_.
+- _name: utility
+  type: A non-water public or municipal utility district.
+- _name: village
+  type: A village district.
+- _name: ward
+  type: A ward.
+- _name: water
+  type: A water district.
+- _name: other
+  type: Any district not described above. Use the *OtherType* field to describe it.

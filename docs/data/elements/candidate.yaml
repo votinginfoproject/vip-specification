@@ -1,0 +1,79 @@
+name: Candidate
+tags:
+- _name: BallotName
+  description: The candidate's name as it will be displayed on the official ballot
+    (e.g. "Ken T. Cuccinelli II").
+  error: If the element is invalid or not present, then the implementation is required
+    to ignore the Candidate element containing it.
+  repeating: Single
+  required: '**Required**'
+  type: :doc:`InternationalizedText <internationalized_text>`
+- _name: ExternalIdentifiers
+  description: Another identifier for a candidate that links to another source of
+    information (e.g. a campaign committee ID that links to a campaign finance system).
+  error: If the element is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: :doc:`ExternalIdentifiers <external_identifiers>`
+- _name: FileDate
+  description: Date and time when the candidate filed for the contest.
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:dateTime
+- _name: IsIncumbent
+  description: Indicates whether the candidate is the incumbent for the office associated
+    with the contest.
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:boolean
+- _name: IsTopTicket
+  description: Indicates whether the candidate is the top of a ticket that includes
+    multiple candidates.
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:boolean
+- _name: PartyId
+  description: Reference to a :doc:`Party <party>` element with additional information
+    about the candidate's affiliated party.
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:IDREF
+- _name: PersonId
+  description: Reference to a :doc:`Person <person>` element with additional information
+    about the candidate.
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:IDREF
+- _name: PostElectionStatus
+  description: Final status of the candidate (e.g. winner, withdrawn, etc...).
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: :doc:`CandidatePostElectionStatus <../enumerations/candidate_post_election_status>`
+- _name: PreElectionStatus
+  description: Registration status of the candidate (e.g. filed, qualified, etc...).
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: :doc:`CandidatePreElectionStatus <../enumerations/candidate_pre_election_status>`
+- _name: SequenceOrder
+  description: The order in which the candidate can be listed on the ballot or in
+    results.
+  error: If the field is invalid or not present, then the implementation is required
+    to ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:integer

@@ -1,0 +1,12 @@
+name: VoterServiceType
+tags:
+- _name: absentee-ballots
+  type: This department handles the dispatch, tracking, and return of absentee ballots.
+- _name: overseas-voting
+  type: The department for overseas, military, and other outside-the-U.S. voters.
+- _name: polling-places
+  type: This deparment handles the selection and management of polling places.
+- _name: voter-registration
+  type: The deparment that manages voter registration.
+- _name: other
+  type: Any other service not covered by the above descriptions.

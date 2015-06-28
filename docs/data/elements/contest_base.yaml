@@ -1,0 +1,95 @@
+name: ContestBase
+tags:
+- _name: Abbreviation
+  description: An abbreviation for the contest.
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: xs:string
+- _name: BallotSelectionId
+  description: References a particular BallotSelection, which could be of any selection
+    type that extends :doc:`BallotSelectionBase <ballot_selection_base>`.
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Repeats
+  required: Optional
+  type: xs:IDREF
+- _name: BallotSubTitle
+  description: Subtitle of the contest as it appears on the ballot.
+  error: If the element is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: :doc:`InternationalizedText <internationalized_text>`
+- _name: BallotTitle
+  description: Title of the contest as it appears on the ballot.
+  error: If the element is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: :doc:`InternationalizedText <internationalized_text>`
+- _name: ElectoralDistrictId
+  description: References an :doc:`ElectoralDistrict <electoral_district>` element
+    that represents the geographical scope of the contest.
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: xs:IDREF
+- _name: ElectorateSpecification
+  description: Specifies any changes to the eligible electorate for this contest past
+    the usual, "all registered voters" electorate. This subtag will most often be
+    used for primaries and local elections. In primaries, voters may have to be registered
+    as a specific party to vote, or there may be special rules for which ballot a
+    voter can pull. In some local elections, non-citizens can vote.
+  error: If the element is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: :doc:`InternationalizedText <internationalized_text>`
+- _name: ExternalIdentifiers
+  description: Other identifiers for a contest that links to another source of information.
+  error: If the element is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: :doc:`ExternalIdentifiers <external_identifiers>`
+- _name: HasRotation
+  description: Indicates whether the selections in the contest are rotated.
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: xs:boolean
+- _name: Name
+  description: 'Name of the contest, not necessarily how it appears on the ballot
+    (NB: BallotTitle should be used for this purpose).'
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: xs:string
+- _name: SequenceOrder
+  description: Order in which the candidates are listed on the ballot.
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: xs:integer
+- _name: VoteVariation
+  description: Vote variation associated with the contest (e.g. n-of-m, majority,
+    et al).
+  error: If the element is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: :doc:`VoteVariation <../enumerations/vote_variation>`
+- _name: OtherVoteVariation
+  description: If "other" is selected as the **VoteVariation**, the name of the variation
+    can be specified here.
+  error: If the field is invalid or not present, the implementation should ignore
+    it.
+  repeating: Single
+  required: Optional
+  type: xs:string

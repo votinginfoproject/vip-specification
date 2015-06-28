@@ -1,0 +1,26 @@
+name: ExternalIdentifier
+tags:
+- _name: Type
+  description: Specifies the type of identifier. Must be one of the valid types as
+    defined by :doc:`IdentifierType <../enumerations/identifier_type>`.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``ElectionIdentifier`` containing it.
+  repeating: Single
+  required: '**Required**'
+  type: :doc:`IdentifierType <../enumerations/identifier_type>`
+- _name: OtherType
+  description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
+    the options listed in :doc:`IdentifierType <../enumerations/identifier_type>`.
+    ``Type`` should be set to "other" when using this field.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it.
+  repeating: Single
+  required: Optional
+  type: xs:string
+- _name: Value
+  description: Specifies the identifier.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``ElectionIdentifier`` containing it.
+  repeating: Single
+  required: '**Required**'
+  type: xs:string
