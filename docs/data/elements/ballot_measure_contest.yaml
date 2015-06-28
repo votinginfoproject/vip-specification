@@ -44,5 +44,5 @@ tags:
 - _name: OtherType
   description: Allows for cataloging a new :doc:`BallotMeasureType <../enumerations/ballot_measure_type>`
     option, when Type is specified as "other."
-  error: =must-ignore-element
+  error: =must-ignore-field
   type: xs:string

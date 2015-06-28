@@ -2,7 +2,7 @@ name: Schedule
 tags:
 - _name: Hours
   description: Blocks of hours in the date range in which the place is open.
-  error: =must-ignore-field
+  error: =must-ignore-element
   repeating: true
   type: Hours
 - _name: IsOnlyByAppointment

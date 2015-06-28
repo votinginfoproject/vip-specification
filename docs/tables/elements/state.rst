@@ -7,9 +7,9 @@
 |                          |                           |              |              | administration object.                   | then the implementation is required to   |
 |                          |                           |              |              |                                          | ignore it.                               |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers      | :doc:`ExternalIdentifiers | Optional     | Single       | Other identifier for the state that      | If the field is invalid or not present,  |
-|                          | <external_identifiers>`   |              |              | relates to another dataset (e.g.         | then the implementation is required to   |
-|                          |                           |              |              | `OCD-ID`_).                              | ignore it.                               |
+| ExternalIdentifiers      | :doc:`ExternalIdentifiers | Optional     | Single       | Other identifier for the state that      | If the element is invalid or not         |
+|                          | <external_identifiers>`   |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
+|                          |                           |              |              | `OCD-ID`_).                              | required to ignore it.                   |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | xs:string                 | Optional     | Single       | Specifiers the name of a state, such as  | If the field is invalid or not present,  |
 |                          |                           |              |              | Alabama.                                 | then the implementation is required to   |

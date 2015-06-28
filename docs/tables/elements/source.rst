@@ -21,7 +21,7 @@
 |                 |                             |              |              | to match the datetime specified in the   |                                          |
 |                 |                             |              |              | feed's filename.                         |                                          |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description     | :doc:`InternationalizedText | Optional     | Single       | Specifies both the nature of the         | If the field is invalid, the             |
+| Description     | :doc:`InternationalizedText | Optional     | Single       | Specifies both the nature of the         | If the element is invalid, the           |
 |                 | <internationalized_text>`   |              |              | organization providing the data and what | implementation is required to ignore it. |
 |                 |                             |              |              | data is in the feed.                     |                                          |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

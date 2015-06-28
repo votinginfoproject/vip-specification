@@ -24,7 +24,7 @@ tags:
 - _name: Description
   description: Specifies both the nature of the organization providing the data and
     what data is in the feed.
-  error: If the field is invalid, the implementation is required to ignore it.
+  error: If the element is invalid, the implementation is required to ignore it.
   type: InternationalizedText
 - _name: OrganizationUrl
   description: Specifies a URL to the home page of the organization publishing the

@@ -3,9 +3,9 @@
 +---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+==============+==============+==============+==========================================+==========================================+
-| Hours               | `Hours`_     | Optional     | Repeats      | Blocks of hours in the date range in     | If the field is invalid or not present,  |
-|                     |              |              |              | which the place is open.                 | then the implementation is required to   |
-|                     |              |              |              |                                          | ignore it.                               |
+| Hours               | `Hours`_     | Optional     | Repeats      | Blocks of hours in the date range in     | If the element is invalid or not         |
+|                     |              |              |              | which the place is open.                 | present, then the implementation is      |
+|                     |              |              |              |                                          | required to ignore it.                   |
 +---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsOnlyByAppointment | xs:boolean   | Optional     | Single       | If true, the place is only open during   | If the field is invalid or not present,  |
 |                     |              |              |              | the specified time window with an        | then the implementation is required to   |

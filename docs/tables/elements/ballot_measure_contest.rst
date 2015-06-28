@@ -44,9 +44,9 @@
 |                  |                                        |              |              | <../enumerations/ballot_measure_type>`   |                                          |
 |                  |                                        |              |              | options.                                 |                                          |
 +------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType        | xs:string                              | Optional     | Single       | Allows for cataloging a new              | If the element is invalid or not         |
-|                  |                                        |              |              | :doc:`BallotMeasureType                  | present, then the implementation is      |
-|                  |                                        |              |              | <../enumerations/ballot_measure_type>`   | required to ignore it.                   |
+| OtherType        | xs:string                              | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
+|                  |                                        |              |              | :doc:`BallotMeasureType                  | then the implementation is required to   |
+|                  |                                        |              |              | <../enumerations/ballot_measure_type>`   | ignore it.                               |
 |                  |                                        |              |              | option, when Type is specified as        |                                          |
 |                  |                                        |              |              | "other."                                 |                                          |
 +------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
