@@ -121,10 +121,8 @@ def create_parser():
 
     parser = make_subparser(sub, "norm_yaml",
                 help="normalize one or more YAML files.")
-    parser.add_argument('--all', dest='all', action='store_true',
-        help='normalize all YAML files.')
     parser.add_argument('path', metavar='PATH', nargs='?',
-        help="a path to a YAML file.")
+        help="a path to a YAML file. Defaults to all files.")
 
     parser = make_subparser(sub, "update_tables",
                 help="update the reST tables from the YAML files.")

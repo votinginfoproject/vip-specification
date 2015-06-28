@@ -227,7 +227,7 @@ def parse_tables(parent_dir, rest_path):
 
 
 def analyze_types():
-    dir_path = os.path.join(common.DATA_DIR, 'elements')
+    dir_path = os.path.join(common.DATA_DIR, 'enumerations')
     yaml_paths = common.get_all_files(dir_path, ext='.yaml')
     values = {}
     for yaml_path in yaml_paths:
@@ -236,17 +236,13 @@ def analyze_types():
         data = common.read_yaml(yaml_path)
         tags_data = data['tags']
         for tag_data in tags_data:
-            tag_type = tag_data[TAG_KEY_TYPE]
-            if not TAG_KEY_ERROR_HANDLE in tag_data:
+            #tag_type = tag_data[TAG_KEY_TYPE]
+            try:
+                value = tag_data['error_custom']
+            except KeyError:
                 continue
-            error = common.get_tag_value(tag_data, TAG_KEY_ERROR_HANDLE)
-            error_if = "If the field is invalid"
-            if error.startswith(error_if):
-                error_then = error[len(error_if):].strip()
-                del tag_data[TAG_KEY_ERROR_HANDLE]
-                tag_data[TAG_KEY_ERROR_THEN] = error_then
-            else:
-                print(error)
+            del tag_data['error_custom']
+            tag_data['on_error_custom'] = value
         common.write_yaml(data, yaml_path)
     #pprint(values)
 

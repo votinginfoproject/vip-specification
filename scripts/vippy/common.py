@@ -39,8 +39,8 @@ DATA_DIR = 'docs/data'
 TABLES_DIR = 'docs/tables'
 XML_DIR = 'docs/xml'
 
-_TAG_KEY_ERROR_CUSTOM = 'error_custom'
-_TAG_KEY_ERROR_THEN = 'error_then'
+_TAG_KEY_ON_ERROR = 'on_error'
+_TAG_KEY_ON_ERROR_CUSTOM = 'on_error_custom'
 
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
@@ -224,7 +224,7 @@ def make_error_if(tag_data):
 
 
 def make_error_then(tag_data):
-    error_then = tag_data[_TAG_KEY_ERROR_THEN]
+    error_then = tag_data[_TAG_KEY_ON_ERROR]
     if error_then.startswith('='):
         error_then = _ERROR_THENS[error_then]
     return error_then
@@ -232,7 +232,7 @@ def make_error_then(tag_data):
 
 def get_error_value(tag_data):
     try:
-        error = tag_data[_TAG_KEY_ERROR_CUSTOM]
+        error = tag_data[_TAG_KEY_ON_ERROR_CUSTOM]
     except KeyError:
         error_if = make_error_if(tag_data)
         error_then = make_error_then(tag_data)
