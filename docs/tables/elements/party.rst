@@ -19,7 +19,7 @@
 |                     |                             |              |              | displays.                                | then the implementation is required to   |
 |                     |                             |              |              |                                          | ignore it.                               |
 +---------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                | :doc:`InternationalizedText | Optional     | Single       | The name of the party.                   | If the field is invalid or not present,  |
-|                     | <internationalized_text>`   |              |              |                                          | then the implementation is required to   |
-|                     |                             |              |              |                                          | ignore it.                               |
+| Name                | :doc:`InternationalizedText | Optional     | Single       | The name of the party.                   | If the element is invalid or not         |
+|                     | <internationalized_text>`   |              |              |                                          | present, then the implementation is      |
+|                     |                             |              |              |                                          | required to ignore it.                   |
 +---------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

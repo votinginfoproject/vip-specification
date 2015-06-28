@@ -30,7 +30,7 @@ tags:
 - _name: RegistrationInfo
   description: Specifies information about registration for this election either as
     text or a URL.
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: AbsenteeBallotInfo
   description: Specifies information about requesting absentee ballots either as text

@@ -7,9 +7,9 @@
 |                          | <contact_information>`                |              |              | service.                                 | present, then the implementation is      |
 |                          |                                       |              |              |                                          | required to ignore it.                   |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description              | :doc:`InternationalizedText           | Optional     | Single       | Long description of the services         | If the field is invalid or not present,  |
-|                          | <internationalized_text>`             |              |              | available.                               | then the implementation is required to   |
-|                          |                                       |              |              |                                          | ignore it.                               |
+| Description              | :doc:`InternationalizedText           | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
+|                          | <internationalized_text>`             |              |              | available.                               | present, then the implementation is      |
+|                          |                                       |              |              |                                          | required to ignore it.                   |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionOfficialPersonId | xs:IDREF                              | Optional     | Single       | The :doc:`authority <person>` for a      | If the field is invalid or not present,  |
 |                          |                                       |              |              | particular voter service.                | then the implementation is required to   |

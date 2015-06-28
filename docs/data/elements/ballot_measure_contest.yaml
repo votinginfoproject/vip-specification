@@ -3,16 +3,16 @@ tags:
 - _name: ConStatement
   description: Specifies a statement in opposition to the referendum. It does not
     necessarily appear on the ballot.
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: EffectOfAbstain
   description: Specifies what effect abstaining (i.e. not voting) on this proposition
     will have (i.e. whether abstaining is considered a vote against it).
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: FullText
   description: Specifies the full text of the referendum as it appears on the ballot.
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: InfoUri
   description: Specifies a URI that links to additional information about the referendum.

@@ -10,13 +10,13 @@
 |                  |                             |              |              |                                          | to ignore the ``PollingLocation``        |
 |                  |                             |              |              |                                          | element containing it.                   |
 +------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Directions       | :doc:`InternationalizedText | Optional     | Single       | Specifies further instructions for       | If the field is invalid or not present,  |
-|                  | <internationalized_text>`   |              |              | locating the polling location.           | then the implementation is required to   |
-|                  |                             |              |              |                                          | ignore it.                               |
+| Directions       | :doc:`InternationalizedText | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  | <internationalized_text>`   |              |              | locating the polling location.           | present, then the implementation is      |
+|                  |                             |              |              |                                          | required to ignore it.                   |
 +------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Hours            | :doc:`InternationalizedText | Optional     | Single       | Contains the hours (in local time) that  | If the field is invalid or not present,  |
-| **[deprecated]** | <internationalized_text>`   |              |              | the polling location is open (**NB:**    | then the implementation is required to   |
-|                  |                             |              |              | this element is deprecated in favor of   | ignore it.                               |
+| Hours            | :doc:`InternationalizedText | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
+| **[deprecated]** | <internationalized_text>`   |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
+|                  |                             |              |              | this element is deprecated in favor of   | required to ignore it.                   |
 |                  |                             |              |              | the more structured :doc:`HoursOpen      |                                          |
 |                  |                             |              |              | <hours_open>` element. It is strongly    |                                          |
 |                  |                             |              |              | encouraged that data providers move      |                                          |

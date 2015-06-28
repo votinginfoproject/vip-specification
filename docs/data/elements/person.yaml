@@ -17,7 +17,7 @@ tags:
   description: Specifies a person's full name (**NB:** this information is :doc:`InternationalizedText
     <internationalized_text>` because it sometimes appears on ballots in multiple
     languages).
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: LastName
   description: Represents an individual's last name.
@@ -45,7 +45,7 @@ tags:
   description: Specifies a person's profession (**NB:** this information is :doc:`InternationalizedText
     <internationalized_text>` because it sometimes appears on ballots in multiple
     languages).
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: Suffix
   description: Specifies a suffix associated with a person (e.g. Jr.).
@@ -55,5 +55,5 @@ tags:
   description: A title associated with a person (**NB:** this information is :doc:`InternationalizedText
     <internationalized_text>` because it sometimes appears on ballots in multiple
     languages).
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText

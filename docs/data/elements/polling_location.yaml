@@ -10,14 +10,14 @@ tags:
   type: xs:string
 - _name: Directions
   description: Specifies further instructions for locating the polling location.
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: Hours **[deprecated]**
   description: Contains the hours (in local time) that the polling location is open
     (**NB:** this element is deprecated in favor of the more structured :doc:`HoursOpen
     <hours_open>` element. It is strongly encouraged that data providers move toward
     contributing hours in this format).
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: HoursOpenId
   description: Links to an :doc:`HoursOpen <hours_open>` element, which is a schedule

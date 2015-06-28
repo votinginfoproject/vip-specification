@@ -6,7 +6,7 @@ tags:
   type: ContactInformation
 - _name: Description
   description: Long description of the services available.
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: ElectionOfficialPersonId
   description: The :doc:`authority <person>` for a particular voter service.

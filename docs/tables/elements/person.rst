@@ -15,9 +15,9 @@
 |                    |                             |              |              |                                          | then the implementation is required to   |
 |                    |                             |              |              |                                          | ignore it.                               |
 +--------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FullName           | :doc:`InternationalizedText | Optional     | Single       | Specifies a person's full name (**NB:**  | If the field is invalid or not present,  |
-|                    | <internationalized_text>`   |              |              | this information is                      | then the implementation is required to   |
-|                    |                             |              |              | :doc:`InternationalizedText              | ignore it.                               |
+| FullName           | :doc:`InternationalizedText | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
+|                    | <internationalized_text>`   |              |              | this information is                      | present, then the implementation is      |
+|                    |                             |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
 |                    |                             |              |              | <internationalized_text>` because it     |                                          |
 |                    |                             |              |              | sometimes appears on ballots in multiple |                                          |
 |                    |                             |              |              | languages).                              |                                          |
@@ -42,9 +42,9 @@
 |                    |                             |              |              | person (e.g. Dr.).                       | then the implementation is required to   |
 |                    |                             |              |              |                                          | ignore it.                               |
 +--------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Profession         | :doc:`InternationalizedText | Optional     | Single       | Specifies a person's profession (**NB:** | If the field is invalid or not present,  |
-|                    | <internationalized_text>`   |              |              | this information is                      | then the implementation is required to   |
-|                    |                             |              |              | :doc:`InternationalizedText              | ignore it.                               |
+| Profession         | :doc:`InternationalizedText | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
+|                    | <internationalized_text>`   |              |              | this information is                      | present, then the implementation is      |
+|                    |                             |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
 |                    |                             |              |              | <internationalized_text>` because it     |                                          |
 |                    |                             |              |              | sometimes appears on ballots in multiple |                                          |
 |                    |                             |              |              | languages).                              |                                          |
@@ -53,9 +53,9 @@
 |                    |                             |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
 |                    |                             |              |              |                                          | ignore it.                               |
 +--------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Title              | :doc:`InternationalizedText | Optional     | Single       | A title associated with a person         | If the field is invalid or not present,  |
-|                    | <internationalized_text>`   |              |              | (**NB:** this information is             | then the implementation is required to   |
-|                    |                             |              |              | :doc:`InternationalizedText              | ignore it.                               |
+| Title              | :doc:`InternationalizedText | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
+|                    | <internationalized_text>`   |              |              | (**NB:** this information is             | present, then the implementation is      |
+|                    |                             |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
 |                    |                             |              |              | <internationalized_text>` because it     |                                          |
 |                    |                             |              |              | sometimes appears on ballots in multiple |                                          |
 |                    |                             |              |              | languages).                              |                                          |

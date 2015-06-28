@@ -24,9 +24,9 @@
 |                            | <internationalized_text>`   |              |              | optional, this element is highly         | present, then the implementation is      |
 |                            |                             |              |              | recommended).                            | required to ignore it.                   |
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RegistrationInfo           | :doc:`InternationalizedText | Optional     | Single       | Specifies information about registration | If the field is invalid or not present,  |
-|                            | <internationalized_text>`   |              |              | for this election either as text or a    | then the implementation is required to   |
-|                            |                             |              |              | URL.                                     | ignore it.                               |
+| RegistrationInfo           | :doc:`InternationalizedText | Optional     | Single       | Specifies information about registration | If the element is invalid or not         |
+|                            | <internationalized_text>`   |              |              | for this election either as text or a    | present, then the implementation is      |
+|                            |                             |              |              | URL.                                     | required to ignore it.                   |
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | AbsenteeBallotInfo         | :doc:`InternationalizedText | Optional     | Single       | Specifies information about requesting   | If the element is invalid or not         |
 |                            | <internationalized_text>`   |              |              | absentee ballots either as text or a URL | present, then the implementation is      |

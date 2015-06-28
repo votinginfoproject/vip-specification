@@ -20,5 +20,5 @@ tags:
   type: xs:anyURI
 - _name: Name
   description: The name of the party.
-  error: =must-ignore-field
+  error: =must-ignore-element
   type: InternationalizedText
