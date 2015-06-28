@@ -30,6 +30,7 @@ import logging
 
 import yaml
 
+
 _log = logging.getLogger()
 
 DATA_DIR = 'docs/data'

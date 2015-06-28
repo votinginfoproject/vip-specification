@@ -27,11 +27,15 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import itertools
+import logging
 import os.path
 from pprint import pprint
 import textwrap
 
 from vippy import common
+
+
+_log = logging.getLogger()
 
 TABLES_DIR = 'docs/tables'
 
@@ -96,9 +100,11 @@ def parse_row(iter_lines):
     for line in iter_lines:
         if line.startswith('+--'):
             break
+        if not line.startswith('|'):
+            return False
         lines.append(line)
     else:
-        # Then there were no more rows.
+        # Then there are no more lines in the file.
         return False
     parts_seq = []
     for line in lines:
@@ -132,6 +138,7 @@ def parse_table(iter_lines):
 
 
 def parse_tables(parent_dir, path):
+    _log.info("parsing: {0}".format(path))
     rel_path = os.path.relpath(path, start=parent_dir)
     root, ext = os.path.splitext(rel_path)
     output_path = os.path.join(TABLES_DIR, rel_path)
