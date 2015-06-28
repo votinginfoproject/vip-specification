@@ -30,8 +30,10 @@ import logging
 
 import yaml
 
-
 _log = logging.getLogger()
+
+DATA_DIR = 'docs/data'
+XML_DIR = 'docs/xml'
 
 # The idea for this comes from here:
 # http://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data

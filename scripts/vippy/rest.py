@@ -33,6 +33,7 @@ import textwrap
 
 from vippy import common
 
+TABLES_DIR = 'docs/tables'
 
 TABLE_COMMENT = """\
 .. This file is auto-generated.  Do not edit it by hand!
@@ -72,6 +73,36 @@ def update_table_file(yaml_path, tables_dir):
 def make_table_formatter():
     formatter = TableFormatter(headers=_HEADERS, keys=_KEYS, widths=_WIDTHS)
     return formatter
+
+
+def make_yaml_path(root, table_number):
+    if table_number > 1:
+        root += "_{0}".format(table_number)
+    path = root + ".yaml"
+    path = os.path.join(common.DATA_DIR, path)
+    return path
+
+
+def parse_table(iter_lines):
+    for line in lines:
+        print(line)
+
+
+def parse_tables(parent_dir, path):
+    rel_path = os.path.relpath(path, start=parent_dir)
+    root, ext = os.path.splitext(rel_path)
+    output_path = os.path.join(TABLES_DIR, rel_path)
+    with open(path) as f:
+        lines = f.readlines()
+    table_number = 0
+    iter_lines = iter(lines)
+    for line in iter_lines:
+        if "+===" in line:
+            # Then we just consumed a table header.
+            table_number += 1
+            path = make_yaml_path(root, table_number)
+            print(path)
+            parse_table(iter_lines)
 
 
 class TableFormatter(object):

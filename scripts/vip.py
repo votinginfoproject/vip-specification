@@ -42,15 +42,13 @@ import sys
 import textwrap
 
 from vippy import common
+from vippy.common import XML_DIR
 from vippy import rest
 
 
 _log = logging.getLogger()
 
 FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
-
-DATA_DIR = 'docs/data'
-TABLES_DIR = 'docs/tables'
 
 DESCRIPTION = """\
 Helper script for contributors to the vip-specification repo.
@@ -75,6 +73,16 @@ def _get_all_files(dir_path):
     return paths
 
 
+def ns_to_paths(ns, dir_path, ext):
+    path = ns.path
+    if path:
+        paths = [path]
+    else:
+        paths = _get_all_files(dir_path)
+        paths = [p for p in paths if os.path.splitext(p)[1] == ext]
+    return paths
+
+
 def command_make_table(ns):
     path = ns.path
     if path:
@@ -95,6 +103,13 @@ def command_norm_yaml(ns):
         paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
     for path in paths:
         common.normalize_yaml(path)
+
+
+def command_parse_tables(ns):
+    parent_dir = XML_DIR
+    paths = ns_to_paths(ns, dir_path=XML_DIR, ext='.rst')
+    for path in paths:
+        rest.parse_tables(parent_dir, path)
 
 
 def make_subparser(sub, command_name, help, command_func=None, details=None, **kwargs):
@@ -132,6 +147,11 @@ def create_parser():
         help='make all reST tables.')
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file.")
+
+    parser = make_subparser(sub, "parse_tables",
+                help="parse the reST tables from a file.")
+    parser.add_argument('path', metavar='PATH', nargs='?',
+        help="a path to a reST file. Defaults to all files.")
 
     return root_parser
 
