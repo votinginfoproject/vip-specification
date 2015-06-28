@@ -91,10 +91,10 @@ def make_table(path):
 
 
 def update_table_file(parent_dir, yaml_path):
-    file_name = os.path.basename(yaml_path)
-    root, ext = os.path.splitext(file_name)
-    rest_file_name = "{0}.rst".format(root)
-    rest_path = os.path.join(common.TABLES_DIR, rest_file_name)
+    rel_path = os.path.relpath(yaml_path, start=parent_dir)
+    root, ext = os.path.splitext(rel_path)
+    rest_rel_path = "{0}.rst".format(root)
+    rest_path = os.path.join(common.TABLES_DIR, rest_rel_path)
     table = make_table(yaml_path)
     text = TABLE_COMMENT + table
     common.write(rest_path, text)
