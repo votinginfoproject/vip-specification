@@ -3,8 +3,8 @@ tags:
 - _name: BallotName
   description: The candidate's name as it will be displayed on the official ballot
     (e.g. "Ken T. Cuccinelli II").
-  error: If the element is invalid or not present, then the implementation is required
-    to ignore the Candidate element containing it.
+  error_then: the implementation is required to ignore the Candidate element
+    containing it.
   required: true
   type: InternationalizedText
 - _name: ExternalIdentifiers
