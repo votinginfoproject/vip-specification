@@ -53,7 +53,7 @@ To build the documentation:
 
 ```sh
 $ cd /path/to/vip-specification/docs/
-$ build html
+$ make html
 ```
 
 To see changes to the documentation as the files are edited, use the following command:
