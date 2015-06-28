@@ -14,9 +14,9 @@
 |                 |                             |              |              | (since id attributes must be unique      |                                          |
 |                 |                             |              |              | across the entire file).                 |                                          |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| DateTime        | xs:dateTime                 | **Required** | Single       | Specifies the date and time of the feed  | If the field is not present or invalid,  |
-|                 |                             |              |              | production. The date/time is considered  | the implementation is required to ignore |
-|                 |                             |              |              | to be in the timezone local to the       | the element containing it.               |
+| DateTime        | xs:dateTime                 | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid or not present,  |
+|                 |                             |              |              | production. The date/time is considered  | then the implementation is required to   |
+|                 |                             |              |              | to be in the timezone local to the       | ignore the element containing it.        |
 |                 |                             |              |              | organization. This datetime is required  |                                          |
 |                 |                             |              |              | to match the datetime specified in the   |                                          |
 |                 |                             |              |              | feed's filename.                         |                                          |
@@ -26,12 +26,12 @@
 |                 |                             |              |              | data is in the feed.                     |                                          |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OrganizationUrl | xs:string                   | Optional     | Single       | Specifies a URL to the home page of the  | If the field is invalid or not present,  |
-|                 |                             |              |              | organization publishing the data.        | the implementation is required to ignore |
-|                 |                             |              |              |                                          | it.                                      |
+|                 |                             |              |              | organization publishing the data.        | then the implementation is required to   |
+|                 |                             |              |              |                                          | ignore it.                               |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | FeedContactId   | xs:IDREF                    | Optional     | Single       | Reference to the :doc:`person <person>`  | If the field is invalid or not present,  |
-|                 |                             |              |              | who will respond to inquiries about the  | the implementation is required to ignore |
-|                 |                             |              |              | information contained within the file.   | it.                                      |
+|                 |                             |              |              | who will respond to inquiries about the  | then the implementation is required to   |
+|                 |                             |              |              | information contained within the file.   | ignore it.                               |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | TouUrl          | xs:anyURI                   | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid, the             |
 |                 |                             |              |              | Use for the information in this file can | implementation is required to ignore it. |

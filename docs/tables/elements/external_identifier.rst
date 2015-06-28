@@ -9,8 +9,8 @@
 |              |                                    |              |              | <../enumerations/identifier_type>`.      | it.                                      |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType    | xs:string                          | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                                    |              |              | ``ExternalIdentifier`` type that falls   | the implementation is required to ignore |
-|              |                                    |              |              | outside the options listed in            | it.                                      |
+|              |                                    |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                    |              |              | outside the options listed in            | ignore it.                               |
 |              |                                    |              |              | :doc:`IdentifierType                     |                                          |
 |              |                                    |              |              | <../enumerations/identifier_type>`.      |                                          |
 |              |                                    |              |              | ``Type`` should be set to "other" when   |                                          |

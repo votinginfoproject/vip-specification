@@ -26,7 +26,7 @@
 |                     |                                  |              |              |                                          | containing it.                           |
 +---------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType           | xs:string                        | Optional     | Single       | Allows for cataloging a new              | If the element is invalid or not         |
-|                     |                                  |              |              | :doc:`DistrictType                       | present, the implementation is required  |
-|                     |                                  |              |              | <../enumerations/district_type>` option  | to ignore it.                            |
+|                     |                                  |              |              | :doc:`DistrictType                       | present, then the implementation is      |
+|                     |                                  |              |              | <../enumerations/district_type>` option  | required to ignore it.                   |
 |                     |                                  |              |              | when ``Type`` is specified as "other".   |                                          |
 +---------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

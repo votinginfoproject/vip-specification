@@ -4,20 +4,20 @@
 | Tag                      | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+===========================+==============+==============+==========================================+==========================================+
 | ElectionAdministrationId | xs:IDREF                  | Optional     | Single       | Links to the state's election            | If the field is invalid or not present,  |
-|                          |                           |              |              | administration object.                   | the implementation is required to ignore |
-|                          |                           |              |              |                                          | it.                                      |
+|                          |                           |              |              | administration object.                   | then the implementation is required to   |
+|                          |                           |              |              |                                          | ignore it.                               |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers      | :doc:`ExternalIdentifiers | Optional     | Single       | Other identifier for the state that      | If the field is invalid or not present,  |
-|                          | <external_identifiers>`   |              |              | relates to another dataset (e.g.         | the implementation is required to ignore |
-|                          |                           |              |              | `OCD-ID`_).                              | it.                                      |
+|                          | <external_identifiers>`   |              |              | relates to another dataset (e.g.         | then the implementation is required to   |
+|                          |                           |              |              | `OCD-ID`_).                              | ignore it.                               |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                     | xs:string                 | Optional     | Single       | Specifiers the name of a state, such as  | If the field is not present or invalid,  |
-|                          |                           |              |              | Alabama.                                 | the implementation is required to ignore |
-|                          |                           |              |              |                                          | the element containing it.               |
+| Name                     | xs:string                 | Optional     | Single       | Specifiers the name of a state, such as  | If the field is invalid or not present,  |
+|                          |                           |              |              | Alabama.                                 | then the implementation is required to   |
+|                          |                           |              |              |                                          | ignore the element containing it.        |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingLocationId        | xs:IDREF                  | Optional     | Repeats      | Specifies a link to the state's          | If the field is missing or invalid, the  |
-|                          |                           |              |              | :doc:`polling locations                  | implementation is required to ignore it. |
-|                          |                           |              |              | <polling_location>`. If early vote       |                                          |
+| PollingLocationId        | xs:IDREF                  | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
+|                          |                           |              |              | :doc:`polling locations                  | then the implementation is required to   |
+|                          |                           |              |              | <polling_location>`. If early vote       | ignore it.                               |
 |                          |                           |              |              | centers or ballot drop locations are     |                                          |
 |                          |                           |              |              | state-wide (e.g., anyone in the state    |                                          |
 |                          |                           |              |              | can use them), they can be specified     |                                          |

@@ -9,9 +9,9 @@
 |                      |                             |              |              | information such as street direction     | containing it                            |
 |                      |                             |              |              | should be included.                      |                                          |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IncludesAllAddresses | xs:boolean                  | Optional     | Single       | Specifies if the segment covers every    | If the field is not present or invalid,  |
-|                      |                             |              |              | address on this street. If this is       | the implementation is required to ignore |
-|                      |                             |              |              | *true*, then the values of               | it.                                      |
+| IncludesAllAddresses | xs:boolean                  | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
+|                      |                             |              |              | address on this street. If this is       | then the implementation is required to   |
+|                      |                             |              |              | *true*, then the values of               | ignore it.                               |
 |                      |                             |              |              | **StartHouseNumber** and                 |                                          |
 |                      |                             |              |              | **EndHouseNumber** should be ignored.    |                                          |
 |                      |                             |              |              | The value of **OddEvenBoth** must be     |                                          |
@@ -44,9 +44,9 @@
 |                      |                             |              |              | **IncludesAllAddresses** is true, this   | implementation should ignore the element |
 |                      |                             |              |              | value is ignored.                        | containing it.                           |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| UnitNumber           | xs:string                   | Optional     | Repeats      | The apartment/unit number for a street   | If the field is not present or invalid,  |
-|                      |                             |              |              | segment. If this value is present then   | the implementation is required to ignore |
-|                      |                             |              |              | **StartHouseNumber** must be equal to    | it.                                      |
+| UnitNumber           | xs:string                   | Optional     | Repeats      | The apartment/unit number for a street   | If the field is invalid or not present,  |
+|                      |                             |              |              | segment. If this value is present then   | then the implementation is required to   |
+|                      |                             |              |              | **StartHouseNumber** must be equal to    | ignore it.                               |
 |                      |                             |              |              | **EndHouseNumber**. This field cannot be |                                          |
 |                      |                             |              |              | used if **IncludesAllAddresses** is      |                                          |
 |                      |                             |              |              | true.                                    |                                          |

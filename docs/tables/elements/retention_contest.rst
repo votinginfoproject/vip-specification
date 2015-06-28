@@ -9,6 +9,6 @@
 |              |              |              |              |                                          | containing it.                           |
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OfficeId     | xs:IDREF     | Optional     | Single       | Links to the information about the       | If the field is invalid or not present,  |
-|              |              |              |              | office.                                  | the implementation is required to ignore |
-|              |              |              |              |                                          | it.                                      |
+|              |              |              |              | office.                                  | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+

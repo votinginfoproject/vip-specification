@@ -9,10 +9,10 @@
 |              |                                     |              |              | valid values).                           |                                          |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartDate    | xs:date                             | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
-|              |                                     |              |              | term of the office.                      | the implementation is required to ignore |
-|              |                                     |              |              |                                          | it.                                      |
+|              |                                     |              |              | term of the office.                      | then the implementation is required to   |
+|              |                                     |              |              |                                          | ignore it.                               |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | EndDate      | xs:date                             | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
-|              |                                     |              |              | term of the office.                      | the implementation is required to ignore |
-|              |                                     |              |              |                                          | it.                                      |
+|              |                                     |              |              | term of the office.                      | then the implementation is required to   |
+|              |                                     |              |              |                                          | ignore it.                               |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

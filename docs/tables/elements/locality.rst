@@ -4,12 +4,12 @@
 | Tag                      | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+==================================+==============+==============+==========================================+==========================================+
 | ElectionAdministrationId | xs:IDREF                         | Optional     | Single       | Links to the locality's :doc:`election   | If the field is invalid or not present,  |
-|                          |                                  |              |              | administration                           | the implementation is required to ignore |
-|                          |                                  |              |              | <election_administration>` object.       | it.                                      |
+|                          |                                  |              |              | administration                           | then the implementation is required to   |
+|                          |                                  |              |              | <election_administration>` object.       | ignore it.                               |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers      | :doc:`ExternalIdentifiers        | Optional     | Single       | Another identifier for a locality that   | If the element is invalid or not         |
-|                          | <external_identifiers>`          |              |              | links to another dataset (e.g.           | present, the implementation is required  |
-|                          |                                  |              |              | `OCD-ID`_)                               | to ignore it.                            |
+|                          | <external_identifiers>`          |              |              | links to another dataset (e.g.           | present, then the implementation is      |
+|                          |                                  |              |              | `OCD-ID`_)                               | required to ignore it.                   |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | xs:string                        | **Required** | Single       | Specifies the name of a locality.        | If the field is not present or invalid,  |
 |                          |                                  |              |              |                                          | the implementation is required to ignore |
@@ -27,13 +27,13 @@
 |                          |                                  |              |              |                                          | the locality element containing.         |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :doc:`DistrictType               | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
-|                          | <../enumerations/district_type>` |              |              | county, town, et al.), which is one of   | the implementation is required to ignore |
-|                          |                                  |              |              | the various :doc:`DistrictType           | it.                                      |
+|                          | <../enumerations/district_type>` |              |              | county, town, et al.), which is one of   | then the implementation is required to   |
+|                          |                                  |              |              | the various :doc:`DistrictType           | ignore it.                               |
 |                          |                                  |              |              | enumerations                             |                                          |
 |                          |                                  |              |              | <../enumerations/district_type>`.        |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType                | xs:string                        | Optional     | Single       | Allows for defining a type of locality   | If the field is invalid or not present,  |
-|                          |                                  |              |              | that falls outside the options listed in | the implementation is required to ignore |
-|                          |                                  |              |              | :doc:`DistrictType                       | it.                                      |
+|                          |                                  |              |              | that falls outside the options listed in | then the implementation is required to   |
+|                          |                                  |              |              | :doc:`DistrictType                       | ignore it.                               |
 |                          |                                  |              |              | <../enumerations/district_type>`.        |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
