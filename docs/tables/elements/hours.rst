@@ -1,0 +1,13 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
++--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type       | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+=================+==============+==============+==========================================+==========================================+
+| StartTime    | `TimeWithZone`_ | Optional     | Single       | The time at which this place opens.      | If the field is invalid or not present,  |
+|              |                 |              |              |                                          | the implementation is required to ignore |
+|              |                 |              |              |                                          | it.                                      |
++--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| EndTime      | `TimeWithZone`_ | Optional     | Single       | The time at which this place closes.     | If the field is invalid or not present,  |
+|              |                 |              |              |                                          | the implementation is required to ignore |
+|              |                 |              |              |                                          | it.                                      |
++--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
