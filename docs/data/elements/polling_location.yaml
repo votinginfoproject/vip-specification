@@ -5,14 +5,13 @@ tags:
   error: At least one valid ``AddressLine`` must be present for ``PollingLocation``
     to be valid. If no valid ``AddressLine`` is present, the implementation is required
     to ignore the ``PollingLocation`` element containing it.
-  repeating: Repeats
+  repeating: true
   required: true
   type: xs:string
 - _name: Directions
   description: Specifies further instructions for locating the polling location.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: Hours **[deprecated]**
   description: Contains the hours (in local time) that the polling location is open
@@ -21,36 +20,30 @@ tags:
     contributing hours in this format).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: HoursOpenId
   description: Links to an :doc:`HoursOpen <hours_open>` element, which is a schedule
     of dates and hours during which the polling location is available.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:IDREF
 - _name: IsDropBox
   description: Indicates if this polling location is a drop box.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:boolean
 - _name: IsEarlyVoting
   description: Indicates if this polling location is an early vote site.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:boolean
 - _name: LatLng
   description: Specifies the latitude and longitude of this polling location.
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: LatLng
 - _name: PhotoUri
   description: Contains a link to an image of the polling location.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:anyURI

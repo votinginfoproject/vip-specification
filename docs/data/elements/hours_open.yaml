@@ -5,6 +5,6 @@ tags:
   error: At least one valid `Schedule`_ must be present for ``HoursOpen`` to be valid.
     If no valid `Schedule`_ is present, the implementation is required to ignore the
     ``HoursOpen`` element.
-  repeating: Repeats
+  repeating: true
   required: true
   type: Schedule

@@ -5,7 +5,6 @@ tags:
     defined by :doc:`IdentifierType <../enumerations/identifier_type>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``ElectionIdentifier`` containing it.
-  repeating: Single
   required: true
   type: IdentifierType
 - _name: OtherType
@@ -14,12 +13,10 @@ tags:
     ``Type`` should be set to "other" when using this field.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: Value
   description: Specifies the identifier.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``ElectionIdentifier`` containing it.
-  repeating: Single
   required: true
   type: xs:string

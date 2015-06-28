@@ -5,7 +5,6 @@ tags:
     be in the timezone local to the state holding the election.
   error: If the field is not present or invalid, the implementation is required to
     ignore the election element containing it.
-  repeating: Single
   required: true
   type: xs:date
 - _name: ElectionType
@@ -13,47 +12,40 @@ tags:
     state, county, city, town, etc.)
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: StateId
   description: Specifies a link to the state element where the election is being held.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   required: true
   type: xs:IDREF
 - _name: IsStatewide
   description: Indicates whether the election is statewide.
   error: If the field is not present or invalid, the implementation is required to
     default to "yes".
-  repeating: Single
   type: xs:boolean
 - _name: Name
   description: The name for the election (**NB:** while optional, this element is
     highly recommended).
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: RegistrationInfo
   description: Specifies information about registration for this election either as
     text or a URL.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: AbsenteeBallotInfo
   description: Specifies information about requesting absentee ballots either as text
     or a URL
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: ResultsUrl
   description: Contains a URL where results for the election may be found
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:anyUri
 - _name: PollingHours **[deprecated]**
   description: 'Contains the hours (in local time) that Election Day polling locations
@@ -64,32 +56,27 @@ tags:
     hours in this format)*.'
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: HoursOpenId
   description: References the :doc:`HoursOpen <hours_open>` element, which lists the
     hours of operation for polling locations.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:IDREF
 - _name: HasElectionDayRegistration
   description: Specifies if a voter can register on the same day of the election (i.e.,
     the last day of the election). Valid items are "yes" and "no".
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:boolean
 - _name: RegistrationDeadline
   description: Specifies the last day to register for the election with the possible
     exception of Election Day registration.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:date
 - _name: AbsenteeRequestDeadline
   description: Specifies the last day to request an absentee ballot.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:date

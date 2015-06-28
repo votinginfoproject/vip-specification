@@ -5,19 +5,17 @@ tags:
     body (see :doc:`ContactInformation <contact_information>`).
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: ContactInformation
 - _name: ElectionOfficialPersonId
   description: The individual to contact at the election administration office. The
     specified person should be the :doc:`election official <person>`.
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: xs:IDREF
 - _name: VoterService
   description: The types of services and appropriate contact individual available
     to voters.
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Repeats
+  repeating: true
   type: VoterService

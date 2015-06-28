@@ -4,13 +4,11 @@ tags:
   description: Other identifiers that link to external datasets (e.g. `OCD-IDs`_)
   error: If the element is invalid or not present, then the implementation is required
     to ignore it.
-  repeating: Single
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the electoral area's name.
   error: If the field is invalid or not present, then the implementation is required
     to ignore the ``ElectoralDistrict`` object containing it.
-  repeating: Single
   required: true
   type: xs:string
 - _name: Number
@@ -20,13 +18,11 @@ tags:
     not valid for xs:integer fields.
   error: If the field is invalid or not present, then the implementation is required
     to ignore it.
-  repeating: Single
   type: xs:integer
 - _name: Type
   description: Specifies the type of electoral area.
   error: If the field is invalid or not present, then the implementation is required
     to ignore the ``ElectoralDistrict`` object containing it.
-  repeating: Single
   required: true
   type: DistrictType
 - _name: OtherType
@@ -34,5 +30,4 @@ tags:
     option when ``Type`` is specified as "other".
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: xs:string

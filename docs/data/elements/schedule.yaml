@@ -4,21 +4,19 @@ tags:
   description: Blocks of hours in the date range in which the place is open.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Repeats
+  repeating: true
   type: Hours
 - _name: IsOnlyByAppointment
   description: If true, the place is only open during the specified time window with
     an appointment.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:boolean
 - _name: IsOrByAppointment
   description: If true, the place is open during the hours specified time window and
     may also be open with an appointment.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:boolean
 - _name: IsSubjectToChange
   description: If true, the place should be open during the specified time window,
@@ -26,19 +24,16 @@ tags:
     hours are still accurate.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:boolean
 - _name: StartDate
   description: The date at which this collection of start and end times and options
     begin.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:date
 - _name: EndDate
   description: The date at which this collection of start and end times and options
     end.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:date

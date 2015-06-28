@@ -6,6 +6,6 @@ tags:
   error: At least one valid `ExternalIdentifier`_ must be present for ``ExternalIdentifiers``
     to be valid. If no valid `ExternalIdentifier`_ is present, the implementation
     is required to ignore the ``ExternalIdentifiers`` element.
-  repeating: Repeats
+  repeating: true
   required: true
   type: ExternalIdentifier

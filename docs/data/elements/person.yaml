@@ -4,19 +4,17 @@ tags:
   description: Specifies contact information for the person.
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Repeats
+  repeating: true
   type: ContactInformation
 - _name: DateOfBirth
   description: Represents the individual's date of birth.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:date
 - _name: FirstName
   description: Represents an individual's first name.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: FullName
   description: Specifies a person's full name (**NB:** this information is :doc:`InternationalizedText
@@ -24,38 +22,33 @@ tags:
     languages).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: LastName
   description: Represents an individual's last name.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: MiddleName
   description: Represents any number of names between an individual's first and last
     names (e.g. John **Ronald Reuel** Tolkien).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Repeats
+  repeating: true
   type: xs:string
 - _name: Nickname
   description: Represents an individual's nickname.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: PartyId
   description: Refers to the associated :doc:`Party <party>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:IDREF
 - _name: Prefix
   description: Specifies a prefix associated with a person (e.g. Dr.).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: Profession
   description: Specifies a person's profession (**NB:** this information is :doc:`InternationalizedText
@@ -63,13 +56,11 @@ tags:
     languages).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: InternationalizedText
 - _name: Suffix
   description: Specifies a suffix associated with a person (e.g. Jr.).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: Title
   description: A title associated with a person (**NB:** this information is :doc:`InternationalizedText
@@ -77,5 +68,4 @@ tags:
     languages).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: InternationalizedText

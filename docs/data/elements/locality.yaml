@@ -5,20 +5,17 @@ tags:
     object.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Another identifier for a locality that links to another dataset (e.g.
     `OCD-ID`_)
   error: If the element is invalid or not present, the implementation is required
     to ignore it.
-  repeating: Single
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the name of a locality.
   error: If the field is not present or invalid, the implementation is required to
     ignore the Locality element containing it.
-  repeating: Single
   required: true
   type: xs:string
 - _name: PollingLocationId
@@ -28,13 +25,12 @@ tags:
   error: If the field is invalid or not present, the implementation is required to
     ignore it. However, the implementation should still check to see if there are
     any polling locations associated with this locality's state.
-  repeating: Repeats
+  repeating: true
   type: xs:IDREF
 - _name: StateId
   description: References the locality's :doc:`state <state>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the locality element containing.
-  repeating: Single
   required: true
   type: xs:IDREF
 - _name: Type
@@ -42,12 +38,10 @@ tags:
     one of the various :doc:`DistrictType enumerations <../enumerations/district_type>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
     listed in :doc:`DistrictType <../enumerations/district_type>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string

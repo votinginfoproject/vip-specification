@@ -4,7 +4,6 @@ tags:
   description: Links to elements that extend :doc:`ContestBase <contest_base>`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``OrderedContest`` element containing it.
-  repeating: Single
   required: true
   type: xs:IDREF
 - _name: OrderedBallotSelectionId
@@ -14,5 +13,5 @@ tags:
     order of the selection will be the order of :doc:`BallotSelectionBase <ballot_selection_base>`-extended
     elements referenced by the underlying :doc:`ContestBase <contest_base>`-extended
     elements.
-  repeating: Repeats
+  repeating: true
   type: xs:IDREF

@@ -5,6 +5,6 @@ tags:
   error: At least one valid ``Text`` must be present for ``InternationalizedText``
     to be valid. If no valid ``Text`` is present, the implementation is required to
     ignore the ``InternationalizedText`` element.
-  repeating: Repeats
+  repeating: true
   required: true
   type: LanguageString

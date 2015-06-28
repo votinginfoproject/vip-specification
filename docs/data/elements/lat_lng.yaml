@@ -4,14 +4,12 @@ tags:
   description: The latitude of the polling location.
   error: If field is invalid or not present, the implementation is required to ignore
     the element containing it.
-  repeating: Single
   required: true
   type: xs:float
 - _name: Longitude
   description: The longitude of the polling location.
   error: If the field is invalid or not present, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   required: true
   type: xs:float
 - _name: Source
@@ -19,5 +17,4 @@ tags:
     For example, this could be the name of a geocoding service.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string

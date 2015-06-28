@@ -4,20 +4,17 @@ tags:
   description: Links to the state's election administration object.
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Other identifier for the state that relates to another dataset (e.g.
     `OCD-ID`_).
   error: If the field is invalid or not present, the implementation is required to
     ignore it.
-  repeating: Single
   type: ExternalIdentifiers
 - _name: Name
   description: Specifiers the name of a state, such as Alabama.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   type: xs:string
 - _name: PollingLocationId
   description: Specifies a link to the state's :doc:`polling locations <polling_location>`.
@@ -26,5 +23,5 @@ tags:
     use the :doc:`Precinct <precinct>` element.
   error: If the field is missing or invalid, the implementation is required to ignore
     it.
-  repeating: Repeats
+  repeating: true
   type: xs:IDREF

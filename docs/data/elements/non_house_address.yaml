@@ -5,20 +5,17 @@ tags:
     example is "NE" for the address "100 E Capitol St NE."
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: City
   description: The city specifies the city or town of the address.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   required: true
   type: xs:string
 - _name: State
   description: Specifies the two-letter state abbreviation of the address.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   required: true
   type: xs:string
 - _name: StreetDirection
@@ -26,7 +23,6 @@ tags:
     the "E" in "100 E Capitol St NE").
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: StreetName
   description: Represents the name of the street for the address. A special wildcard,
@@ -36,7 +32,6 @@ tags:
     not preferred. Preferred is street name alone (e.g. "Capitol").
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   required: true
   type: xs:string
 - _name: StreetSuffix
@@ -44,7 +39,6 @@ tags:
     An example is "St" for the address "100 E Capitol St NE."
   error: If the field is not present or invalid, the implementation is required to
     ignore it.
-  repeating: Single
   type: xs:string
 - _name: Zip
   description: Specifies the zip code of the address. It may be 5 or 9 digits, and
@@ -52,6 +46,5 @@ tags:
     is crucial for distributors.
   error: If the field is not present or invalid, the implementation is required to
     ignore the element containing it.
-  repeating: Single
   required: true
   type: xs:string
