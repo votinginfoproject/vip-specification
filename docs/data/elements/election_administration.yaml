@@ -1,4 +1,4 @@
-name: functions.
+name: ElectionAdministration
 tags:
 - _name: AbsenteeUri
   description: Specifies the web address for information on absentee voting.

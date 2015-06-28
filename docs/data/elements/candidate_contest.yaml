@@ -1,4 +1,4 @@
-name: candidates.
+name: CandidateContest
 tags:
 - _name: NumberElected
   description: Number of candidates that are elected in the contest (i.e. "N" of N-of-M).

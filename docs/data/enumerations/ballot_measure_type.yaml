@@ -1,4 +1,4 @@
-name: jurisdiction.
+name: BallotMeasureType
 tags:
 - _name: ballot-measure
   type: A catch-all for generic types of non-candidate-based contests.

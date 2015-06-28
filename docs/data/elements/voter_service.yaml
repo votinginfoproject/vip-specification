@@ -1,4 +1,4 @@
-name: ElectionAdministration.Department.VoterService
+name: VoterService
 tags:
 - _name: ContactInformation
   description: The contact for a particular voter service.

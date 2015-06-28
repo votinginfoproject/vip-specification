@@ -1,4 +1,4 @@
-name: ElectionAdministration.Department
+name: Department
 tags:
 - _name: ContactInformation
   description: Contact and physical address information for the election administration
