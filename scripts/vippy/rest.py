@@ -37,6 +37,10 @@ _HEADERS = ('Tag', 'Data Type', 'Required?', 'Repeats?', 'Description', 'Error H
 _KEYS = ('name', 'type', 'required', 'repeating', 'description', 'error')
 _WIDTHS = (18, 39, 13, 10, 38, 24)
 
+DEFAULT_VALUES = {
+    'required': 'Optional',
+    'repeating': 'Single',
+}
 
 def make_table(path):
     data = common.read_yaml(path)
@@ -89,7 +93,7 @@ class TableFormatter(object):
         return lines
 
     def make_row_from_data(self, data):
-        texts = [data.get(k, '') for k in self.keys]
+        texts = [data.get(k, DEFAULT_VALUES.get(k, '')) for k in self.keys]
         lines = self.make_row(texts)
         return lines
 
