@@ -41,12 +41,9 @@ _WIDTHS = (18, 39, 13, 10, 38, 24)
 def make_table(path):
     data = common.read_yaml(path)
     tags = data['tags']
-    tag_data = tags[0]
     formatter = make_table_formatter()
-    lines = formatter.make_row_from_data(tag_data)
+    lines = formatter.make_table(tags)
     print("\n".join(lines))
-    # print(formatter.make_divider())
-    # print(formatter.make_text_line(_HEADERS))
 
 
 def make_table_formatter():
@@ -69,26 +66,36 @@ class TableFormatter(object):
         line = glue.join(parts)
         return line
 
-    def make_divider(self, char=None):
-        if char is None:
-            char = '-'
-        parts = [w * char for w in self.widths]
+    def make_divider(self, fill_char=None):
+        if fill_char is None:
+            fill_char = '-'
+        parts = [w * fill_char for w in self.widths]
         line = self.make_line(parts, glue='+')
         return line
 
     def make_text_line(self, parts):
-        parts = [(" " + s).ljust(w) for s, w in zip(parts, self.widths)]
+        parts = [(self.margin * " " + s).ljust(w) for s, w in zip(parts, self.widths)]
         line = self.make_line(parts, glue='|')
         return line
 
-    def make_row(self, strings):
+    def make_row(self, strings, separator=None):
+        if separator is None:
+            separator = '-'
         widths = [w - 2 * self.margin for w in self.widths]
         contents = [textwrap.wrap(s, width=w) for s, w in zip(strings, widths)]
         parts_seq = itertools.zip_longest(*contents, fillvalue='')
         lines = [self.make_text_line(parts) for parts in parts_seq]
+        lines.append(self.make_divider(fill_char=separator))
         return lines
 
     def make_row_from_data(self, data):
         texts = [data.get(k, '') for k in self.keys]
         lines = self.make_row(texts)
+        return lines
+
+    def make_table(self, tags_data):
+        lines = [self.make_divider()]
+        lines.extend(self.make_row(self.headers, separator='='))
+        for tag_data in tags_data:
+            lines.extend(self.make_row_from_data(tag_data))
         return lines
