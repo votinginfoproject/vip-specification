@@ -20,9 +20,9 @@ tags:
   description: Specifies a link to the locality's :doc:`polling locations <polling_location>`.
     If early vote centers or ballot drop locations are locality-wide, they should
     be specified here.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it. However, the implementation should still check to see if there are
-    any polling locations associated with this locality's state.
+  error_then: the implementation is required to ignore it. However, the implementation
+    should still check to see if there are any polling locations associated with this
+    locality's state.
   repeating: true
   type: xs:IDREF
 - _name: StateId

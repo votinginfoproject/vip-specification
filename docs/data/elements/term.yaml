@@ -3,8 +3,8 @@ tags:
 - _name: Type
   description: Specifies the type of office term (see :doc:`OfficeTermType <../enumerations/office_term_type>`
     for valid values).
-  error: If the field is invalid, the implementation is required to ignore the ``Office``
-    element containing it.
+  error_then: the implementation is required to ignore the ``Office`` element containing
+    it.
   required: true
   type: OfficeTermType
 - _name: StartDate

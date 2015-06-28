@@ -19,8 +19,7 @@ tags:
   type: xs:IDREF
 - _name: IsStatewide
   description: Indicates whether the election is statewide.
-  error: If the field is invalid or not present, the implementation is required to
-    default to "yes".
+  error_then: the implementation is required to default to "yes".
   type: xs:boolean
 - _name: Name
   description: The name for the election (**NB:** while optional, this element is
