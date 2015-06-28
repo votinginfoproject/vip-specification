@@ -47,9 +47,6 @@ TABLE_COMMENT = """\
 
 """
 
-ERROR_FORMAT_STRING = ("If the {object} is invalid or not present, then the "
-                       "implementation {action} ignore {ignore}.")
-
 TYPE_NAME_TO_BASE_NAME = {
     'Department': 'department',
     'ExternalIdentifier': 'external_identifier',
@@ -74,6 +71,9 @@ ENUMERATION_COLUMNS = [
     ('_name', 'Tag', MIN_COLUMN_WIDTH),
     ('description', 'Description', 50),
 ]
+
+ERROR_FORMAT_STRING = ("If the {object} is invalid or not present, then the "
+                       "implementation {action} ignore {ignore}.")
 
 ELEMENT_CELL_VALUES = {
     TAG_KEY_TYPE: common.reverse_map(common.TYPE_MAP),
