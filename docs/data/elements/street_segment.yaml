@@ -32,7 +32,7 @@ tags:
     necessary for the street segment to make any sense. Unless **IncludesAllAddresses**
     is true, this value must be less than or equal to **EndHouseNumber**. If **IncludesAllAddresses**
     is true, this value is ignored.
-  error: Unless **IncludesAllAddresses** is true, if the field is invalid or not present,
+  error_custom: Unless **IncludesAllAddresses** is true, if the field is invalid or not present,
     the implementation is required to ignore the street segment element containing
     it. If the **StartHouseNumber** is greater than the **EndHouseNumber**, the implementation
     should ignore the element containing them.
@@ -42,7 +42,7 @@ tags:
     for the street segment to make any sense. Unless **IncludesAllAddresses** is true,
     it must be greater than or equal to **StartHouseNumber**. If **IncludesAllAddresses**
     is true, this value is ignored.
-  error: Unless **IncludesAllAddresses** is true, if the field is invalid or not present,
+  error_custom: Unless **IncludesAllAddresses** is true, if the field is invalid or not present,
     the implementation is required to ignore the street segment element containing
     it. If the **EndHouseNumber** is less than the **StartHouseNumber**, the implementation
     should ignore the element containing it.

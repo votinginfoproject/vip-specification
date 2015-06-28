@@ -3,7 +3,7 @@ tags:
 - _name: ExternalIdentifier
   description: Defines the identifier and the type of identifier it is (see `ExternalIdentifier`_
     for complete information).
-  error: At least one valid `ExternalIdentifier`_ must be present for ``ExternalIdentifiers``
+  error_custom: At least one valid `ExternalIdentifier`_ must be present for ``ExternalIdentifiers``
     to be valid. If no valid `ExternalIdentifier`_ is present, the implementation
     is required to ignore the ``ExternalIdentifiers`` element.
   repeating: true

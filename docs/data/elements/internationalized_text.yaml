@@ -2,7 +2,7 @@ name: InternationalizedText
 tags:
 - _name: Text
   description: Contains the translations of a particular string of text.
-  error: At least one valid ``Text`` must be present for ``InternationalizedText``
+  error_custom: At least one valid ``Text`` must be present for ``InternationalizedText``
     to be valid. If no valid ``Text`` is present, the implementation is required to
     ignore the ``InternationalizedText`` element.
   repeating: true
