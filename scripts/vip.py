@@ -73,7 +73,7 @@ def ns_to_paths(ns, dir_path, ext):
 
 
 def command_analyze_types(ns):
-    common.analyze_types()
+    rest.analyze_types()
 
 
 def command_update_tables(ns):
@@ -137,7 +137,7 @@ def create_parser():
         help="a path to a reST file. Defaults to all files.")
 
     parser = make_subparser(sub, "analyze_types",
-                help="report on the YAML type files.")
+                help="Temporary scratch command.")
 
     return root_parser
 

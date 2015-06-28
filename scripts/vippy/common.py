@@ -39,16 +39,29 @@ DATA_DIR = 'docs/data'
 TABLES_DIR = 'docs/tables'
 XML_DIR = 'docs/xml'
 
+_TAG_KEY_ERROR_CUSTOM = 'error_custom'
+_TAG_KEY_ERROR_THEN = 'error_then'
+
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
 TAG_KEY_REQUIRED = 'required'
 TAG_KEY_REPEATING = 'repeating'
 TAG_KEY_DESCRIPTION = 'description'
-TAG_KEY_ERROR_HANDLING = 'error'
+TAG_KEY_ERROR_HANDLE = 'error'
 
 DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
     TAG_KEY_REPEATING: False,
+}
+
+ENUMERATIONS = set(['DistrictType', 'IdentifierType', 'OebEnum', 'OfficeTermType'])
+
+_ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
+
+_ERROR_THENS = {
+    '=must-ignore': _ERROR_FORMAT_STRING.format(action='is required to', ignore='it'),
+    '=should-ignore': _ERROR_FORMAT_STRING.format(action='should', ignore='it'),
+    '=must-ignore-containing-element': _ERROR_FORMAT_STRING.format(action='is required to', ignore='the element containing it'),
 }
 
 TYPE_MAP = {
@@ -79,17 +92,17 @@ TYPE_MAP = {
 }
 
 ERROR_MAP = {
-    'If the element is invalid or not present, the implementation is required to ignore it.': '=must-ignore-element',
-    'If the element is invalid or not present, then the implementation is required to ignore it.': '=must-ignore-element',
-    'If the element is invalid or not present, the implementation should ignore it.': '=should-ignore-element',
-    'If the field is invalid or not present, the implementation is required to ignore it.': '=must-ignore-field',
-    'If the field is invalid or not present, the implementation should ignore it.': '=should-ignore-field',
-    'If the field is invalid or not present, then the implementation is required to ignore it.': '=must-ignore-field',
-    'If the field is missing or invalid, the implementation is required to ignore it.': '=must-ignore-field',
-    'If the field is not present or invalid, the implementation is required to ignore it.': '=must-ignore-field',
-    'If the field is not present or invalid, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
-    'If the field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
-    'If field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+    'If the element is invalid or not present, the implementation is required to ignore it.': '=must-ignore',
+    'If the element is invalid or not present, then the implementation is required to ignore it.': '=must-ignore',
+    'If the element is invalid or not present, the implementation should ignore it.': '=should-ignore',
+    'If the field is invalid or not present, the implementation is required to ignore it.': '=must-ignore',
+    'If the field is invalid or not present, the implementation should ignore it.': '=should-ignore',
+    'If the field is invalid or not present, then the implementation is required to ignore it.': '=must-ignore',
+    'If the field is missing or invalid, the implementation is required to ignore it.': '=must-ignore',
+    'If the field is not present or invalid, the implementation is required to ignore it.': '=must-ignore',
+    'If the field is not present or invalid, the implementation is required to ignore the element containing it.': '=must-ignore-containing-element',
+    'If the field is invalid or not present, the implementation is required to ignore the element containing it.': '=must-ignore-containing-element',
+    'If field is invalid or not present, the implementation is required to ignore the element containing it.': '=must-ignore-containing-element',
 }
 
 REPEATING_MAP = {
@@ -172,7 +185,16 @@ def normalize_yaml(path):
     write_yaml(data, path)
 
 
+def is_tag_field(tag_data):
+    tag_type = tag_data[TAG_KEY_TYPE]
+    if tag_type.startswith('xs:') or tag_type in ENUMERATIONS:
+        return True
+    return False
+
+
 def get_tag_value(tag_data, key):
+    if key == TAG_KEY_ERROR_HANDLE:
+        return get_error_value(tag_data)
     try:
         try:
             value = tag_data[key]
@@ -184,15 +206,26 @@ def get_tag_value(tag_data, key):
     return value
 
 
-def analyze_types():
-    dir_path = os.path.join(DATA_DIR, 'elements')
-    yaml_paths = get_all_files(dir_path, ext='.yaml')
-    key = 'error'
-    for path in yaml_paths:
-        data = read_yaml(path)
-        tags_data = data['tags']
-        for tag_data in tags_data:
-            value = tag_data[key]
-            value = ERROR_MAP.get(value, value)
-            tag_data[key] = value
-        write_yaml(data, path)
+def make_error_if(tag_data):
+    noun = 'field' if is_tag_field(tag_data) else 'element'
+    required = get_tag_value(tag_data, TAG_KEY_REQUIRED)
+    condition = 'invalid' if required else 'invalid or not present'
+    return "If the {noun} is {condition},".format(noun=noun, condition=condition)
+
+
+def make_error_then(tag_data):
+    error_then = tag_data[_TAG_KEY_ERROR_THEN]
+    if error_then.startswith('='):
+        error_then = _ERROR_THENS[error_then]
+    return error_then
+
+
+def get_error_value(tag_data):
+    try:
+        error = tag_data[_TAG_KEY_ERROR_CUSTOM]
+    except KeyError:
+        error_if = make_error_if(tag_data)
+        error_then = make_error_then(tag_data)
+        error = "{0} {1}".format(error_if, error_then)
+
+    return error

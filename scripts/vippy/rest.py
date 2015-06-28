@@ -29,13 +29,13 @@
 import itertools
 import logging
 import os.path
-from pprint import pprint
+from pprint import pformat, pprint
 import textwrap
 
 from vippy import common
 from vippy.common import (TAG_KEY_NAME, TAG_KEY_TYPE, TAG_KEY_REQUIRED,
                           TAG_KEY_REPEATING, TAG_KEY_DESCRIPTION,
-                          TAG_KEY_ERROR_HANDLING)
+                          TAG_KEY_ERROR_HANDLE)
 
 
 _log = logging.getLogger()
@@ -64,7 +64,7 @@ ELEMENT_COLUMNS = [
     (TAG_KEY_REQUIRED, 'Required?', MIN_COLUMN_WIDTH),
     (TAG_KEY_REPEATING, 'Repeats?', MIN_COLUMN_WIDTH),
     (TAG_KEY_DESCRIPTION, 'Description', 40),
-    (TAG_KEY_ERROR_HANDLING, 'Error Handling', 40),
+    (TAG_KEY_ERROR_HANDLE, 'Error Handling', 40),
 ]
 
 ENUMERATION_COLUMNS = [
@@ -72,8 +72,6 @@ ENUMERATION_COLUMNS = [
     ('description', 'Description', 50),
 ]
 
-ERROR_FORMAT_STRING = ("If the {object} is invalid or not present, then the "
-                       "implementation {action} ignore {ignore}.")
 
 ELEMENT_CELL_VALUES = {
     TAG_KEY_TYPE: common.reverse_map(common.TYPE_MAP),
@@ -85,13 +83,6 @@ ELEMENT_CELL_VALUES = {
         False: 'Single',
         True: 'Repeats',
     },
-    TAG_KEY_ERROR_HANDLING: {
-        '=must-ignore-element': ERROR_FORMAT_STRING.format(object='element', action='is required to', ignore='it'),
-        '=must-ignore-field': ERROR_FORMAT_STRING.format(object='field', action='is required to', ignore='it'),
-        '=should-ignore-element': ERROR_FORMAT_STRING.format(object='element', action='should', ignore='it'),
-        '=should-ignore-field': ERROR_FORMAT_STRING.format(object='field', action='should', ignore='it'),
-        '=field-must-ignore-containing-element': ERROR_FORMAT_STRING.format(object='field', action='is required to', ignore='the element containing it'),
-    }
 }
 
 ENUMERATION_CELL_VALUES = {}
@@ -233,6 +224,31 @@ def parse_tables(parent_dir, rest_path):
         common.write_yaml(data, yaml_path)
     new_rest = "".join(new_lines)
     common.write(rest_path, new_rest)
+
+
+def analyze_types():
+    dir_path = os.path.join(common.DATA_DIR, 'elements')
+    yaml_paths = common.get_all_files(dir_path, ext='.yaml')
+    values = {}
+    for yaml_path in yaml_paths:
+#        _log.info("processing: {0}".format(path))
+        formatter = make_table_formatter(yaml_path)
+        data = common.read_yaml(yaml_path)
+        tags_data = data['tags']
+        for tag_data in tags_data:
+            tag_type = tag_data[TAG_KEY_TYPE]
+            if not TAG_KEY_ERROR_HANDLE in tag_data:
+                continue
+            error = common.get_tag_value(tag_data, TAG_KEY_ERROR_HANDLE)
+            error_if = "If the field is invalid"
+            if error.startswith(error_if):
+                error_then = error[len(error_if):].strip()
+                del tag_data[TAG_KEY_ERROR_HANDLE]
+                tag_data[TAG_KEY_ERROR_THEN] = error_then
+            else:
+                print(error)
+        common.write_yaml(data, yaml_path)
+    #pprint(values)
 
 
 class TableFormatter(object):
