@@ -47,6 +47,9 @@ TABLE_COMMENT = """\
 
 """
 
+ERROR_FORMAT_STRING = ("If the {object} is invalid or not present, then the "
+                       "implementation {action} ignore {ignore}.")
+
 TYPE_NAME_TO_BASE_NAME = {
     'Department': 'department',
     'ExternalIdentifier': 'external_identifier',
@@ -83,13 +86,11 @@ ELEMENT_CELL_VALUES = {
         True: 'Repeats',
     },
     TAG_KEY_ERROR_HANDLING: {
-        '=must-ignore-element': "If the element is invalid or not present, then the implementation is required to ignore it.",
-        '=must-ignore-field': "If the field is invalid or not present, then the implementation is required to ignore it.",
-        # 'If the element is invalid or not present, the implementation should ignore it.': '=should-ignore-element',
-        # 'If the field is invalid or not present, the implementation should ignore it.': '=should-ignore-field',
-        # 'If the field is not present or invalid, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
-        # 'If the field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
-        # 'If field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+        '=must-ignore-element': ERROR_FORMAT_STRING.format(object='element', action='is required to', ignore='it'),
+        '=must-ignore-field': ERROR_FORMAT_STRING.format(object='field', action='is required to', ignore='it'),
+        '=should-ignore-element': ERROR_FORMAT_STRING.format(object='element', action='should', ignore='it'),
+        '=should-ignore-field': ERROR_FORMAT_STRING.format(object='field', action='should', ignore='it'),
+        '=field-must-ignore-containing-element': ERROR_FORMAT_STRING.format(object='field', action='is required to', ignore='the element containing it'),
     }
 }
 
