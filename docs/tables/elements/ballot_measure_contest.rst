@@ -38,9 +38,9 @@
 |                  | <internationalized_text>`              |              |              | referendum that is on the ballot, below  | present, then the implementation is      |
 |                  |                                        |              |              | the title, but above the text.           | required to ignore it.                   |
 +------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type             | :doc:`BallotMeasureType                | Optional     | Single       | Specifies the particular type of ballot  | If the element is invalid or not         |
-|                  | <../enumerations/ballot_measure_type>` |              |              | measure. Must be one of the valid        | present, then the implementation is      |
-|                  |                                        |              |              | :doc:`BallotMeasureType                  | required to ignore it.                   |
+| Type             | :doc:`BallotMeasureType                | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
+|                  | <../enumerations/ballot_measure_type>` |              |              | measure. Must be one of the valid        | then the implementation is required to   |
+|                  |                                        |              |              | :doc:`BallotMeasureType                  | ignore it.                               |
 |                  |                                        |              |              | <../enumerations/ballot_measure_type>`   |                                          |
 |                  |                                        |              |              | options.                                 |                                          |
 +------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

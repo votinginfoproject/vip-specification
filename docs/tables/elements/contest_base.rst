@@ -53,9 +53,9 @@
 |                         |                                   |              |              | on the ballot.                           | then the implementation should ignore    |
 |                         |                                   |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VoteVariation           | :doc:`VoteVariation               | Optional     | Single       | Vote variation associated with the       | If the element is invalid or not         |
-|                         | <../enumerations/vote_variation>` |              |              | contest (e.g. n-of-m, majority, et al).  | present, then the implementation should  |
-|                         |                                   |              |              |                                          | ignore it.                               |
+| VoteVariation           | :doc:`VoteVariation               | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                         | <../enumerations/vote_variation>` |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
+|                         |                                   |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherVoteVariation      | xs:string                         | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
 |                         |                                   |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |

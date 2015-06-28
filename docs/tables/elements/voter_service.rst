@@ -15,9 +15,9 @@
 |                          |                                       |              |              | particular voter service.                | then the implementation is required to   |
 |                          |                                       |              |              |                                          | ignore it.                               |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :doc:`VoterServiceType                | Optional     | Single       | The type of :doc:`voter service          | If the element is invalid or not         |
-|                          | <../enumerations/voter_service_type>` |              |              | <../enumerations/voter_service_type>`.   | present, then the implementation is      |
-|                          |                                       |              |              |                                          | required to ignore it.                   |
+| Type                     | :doc:`VoterServiceType                | Optional     | Single       | The type of :doc:`voter service          | If the field is invalid or not present,  |
+|                          | <../enumerations/voter_service_type>` |              |              | <../enumerations/voter_service_type>`.   | then the implementation is required to   |
+|                          |                                       |              |              |                                          | ignore it.                               |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType                | xs:string                             | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
 |                          |                                       |              |              | cataloging another type of voter         | then the implementation is required to   |

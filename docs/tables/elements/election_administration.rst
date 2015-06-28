@@ -11,10 +11,10 @@
 |                     |                  |              |              | information on whether an individual is  | then the implementation is required to   |
 |                     |                  |              |              | registered.                              | ignore it.                               |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Department          | :ref:`Department | **Required** | Repeats      | Describes the administrative body for a  | If the element is invalid or not         |
-|                     | <ea-dep>`        |              |              | particular voter service.                | present, the implementation is required  |
-|                     |                  |              |              |                                          | to ignore the **ElectionAdministration** |
-|                     |                  |              |              |                                          | object that contains it.                 |
+| Department          | :ref:`Department | **Required** | Repeats      | Describes the administrative body for a  | If the element is invalid, then the      |
+|                     | <ea-dep>`        |              |              | particular voter service.                | implementation is required to ignore the |
+|                     |                  |              |              |                                          | **ElectionAdministration** object that   |
+|                     |                  |              |              |                                          | contains it.                             |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionsUri        | xs:anyURI        | Optional     | Single       | Specifies web address the                | If the field is invalid or not present,  |
 |                     |                  |              |              | administration's website.                | then the implementation is required to   |
@@ -24,9 +24,9 @@
 |                     |                  |              |              | registering to vote.                     | then the implementation is required to   |
 |                     |                  |              |              |                                          | ignore it.                               |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RulesUri            | xs:anyURI        | Optional     | Single       | Specifies a URL for the election rules   | If the field is invalid the              |
-|                     |                  |              |              | and laws (if any) for the jurisdiction   | implementation is required to ignore it. |
-|                     |                  |              |              | of the administration.                   |                                          |
+| RulesUri            | xs:anyURI        | Optional     | Single       | Specifies a URL for the election rules   | If the field is invalid or not present,  |
+|                     |                  |              |              | and laws (if any) for the jurisdiction   | then the implementation is required to   |
+|                     |                  |              |              | of the administration.                   | ignore it.                               |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | WhatIsOnMyBallotUri | xs:anyURI        | Optional     | Single       | Specifies web address for information on | If the field is invalid or not present,  |
 |                     |                  |              |              | what is on an individual's ballot.       | then the implementation is required to   |

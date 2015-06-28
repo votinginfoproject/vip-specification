@@ -11,20 +11,20 @@
 |                          | <external_identifiers>`          |              |              | links to another dataset (e.g.           | present, then the implementation is      |
 |                          |                                  |              |              | `OCD-ID`_)                               | required to ignore it.                   |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                     | xs:string                        | **Required** | Single       | Specifies the name of a locality.        | If the field is not present or invalid,  |
-|                          |                                  |              |              |                                          | the implementation is required to ignore |
-|                          |                                  |              |              |                                          | the Locality element containing it.      |
+| Name                     | xs:string                        | **Required** | Single       | Specifies the name of a locality.        | If the field is invalid, then the        |
+|                          |                                  |              |              |                                          | implementation is required to ignore the |
+|                          |                                  |              |              |                                          | Locality element containing it.          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | xs:IDREF                         | Optional     | Repeats      | Specifies a link to the locality's       | If the field is invalid or not present,  |
-|                          |                                  |              |              | :doc:`polling locations                  | the implementation is required to ignore |
-|                          |                                  |              |              | <polling_location>`. If early vote       | it. However, the implementation should   |
-|                          |                                  |              |              | centers or ballot drop locations are     | still check to see if there are any      |
-|                          |                                  |              |              | locality-wide, they should be specified  | polling locations associated with this   |
-|                          |                                  |              |              | here.                                    | locality's state.                        |
+|                          |                                  |              |              | :doc:`polling locations                  | then the implementation is required to   |
+|                          |                                  |              |              | <polling_location>`. If early vote       | ignore it. However, the implementation   |
+|                          |                                  |              |              | centers or ballot drop locations are     | should still check to see if there are   |
+|                          |                                  |              |              | locality-wide, they should be specified  | any polling locations associated with    |
+|                          |                                  |              |              | here.                                    | this locality's state.                   |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StateId                  | xs:IDREF                         | **Required** | Single       | References the locality's :doc:`state    | If the field is invalid or not present,  |
-|                          |                                  |              |              | <state>`.                                | the implementation is required to ignore |
-|                          |                                  |              |              |                                          | the locality element containing.         |
+| StateId                  | xs:IDREF                         | **Required** | Single       | References the locality's :doc:`state    | If the field is invalid, then the        |
+|                          |                                  |              |              | <state>`.                                | implementation is required to ignore the |
+|                          |                                  |              |              |                                          | locality element containing.             |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :doc:`DistrictType               | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
 |                          | <../enumerations/district_type>` |              |              | county, town, et al.), which is one of   | then the implementation is required to   |

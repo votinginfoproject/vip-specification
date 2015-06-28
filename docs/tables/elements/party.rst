@@ -7,13 +7,13 @@
 |                     |                             |              |              |                                          | then the implementation is required to   |
 |                     |                             |              |              |                                          | ignore it.                               |
 +---------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Color               | `HtmlColorString`_          | Optional     | Single       | The preferred display color for the      | If the field is invalid or not present,  |
-|                     |                             |              |              | party, for use in maps and other         | then the implementation is required to   |
-|                     |                             |              |              | displays.                                | ignore it.                               |
+| Color               | `HtmlColorString`_          | Optional     | Single       | The preferred display color for the      | If the element is invalid or not         |
+|                     |                             |              |              | party, for use in maps and other         | present, then the implementation is      |
+|                     |                             |              |              | displays.                                | required to ignore it.                   |
 +---------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers | :doc:`ExternalIdentifiers   | Optional     | Single       | Other identifiers that link this party   | If the field is invalid or not present,  |
-|                     | <external_identifiers>`     |              |              | to other related data sets (e.g. a       | then the implementation is required to   |
-|                     |                             |              |              | campaign finance system, etc).           | ignore it.                               |
+| ExternalIdentifiers | :doc:`ExternalIdentifiers   | Optional     | Single       | Other identifiers that link this party   | If the element is invalid or not         |
+|                     | <external_identifiers>`     |              |              | to other related data sets (e.g. a       | present, then the implementation is      |
+|                     |                             |              |              | campaign finance system, etc).           | required to ignore it.                   |
 +---------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LogoUri             | xs:anyURI                   | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
 |                     |                             |              |              | displays.                                | then the implementation is required to   |

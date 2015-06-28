@@ -3,10 +3,9 @@
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                         | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+===================================================+==============+==============+==========================================+==========================================+
-| BallotName          | :doc:`InternationalizedText                       | **Required** | Single       | The candidate's name as it will be       | If the element is invalid or not         |
-|                     | <internationalized_text>`                         |              |              | displayed on the official ballot (e.g.   | present, then the implementation is      |
-|                     |                                                   |              |              | "Ken T. Cuccinelli II").                 | required to ignore the Candidate element |
-|                     |                                                   |              |              |                                          | containing it.                           |
+| BallotName          | :doc:`InternationalizedText                       | **Required** | Single       | The candidate's name as it will be       | If the element is invalid, then the      |
+|                     | <internationalized_text>`                         |              |              | displayed on the official ballot (e.g.   | implementation is required to ignore the |
+|                     |                                                   |              |              | "Ken T. Cuccinelli II").                 | Candidate element containing it.         |
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers | :doc:`ExternalIdentifiers <external_identifiers>` | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
 |                     |                                                   |              |              | links to another source of information   | present, then the implementation is      |
