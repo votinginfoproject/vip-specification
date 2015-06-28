@@ -1,12 +1,12 @@
 name: BallotMeasureType
 tags:
 - _name: ballot-measure
-  type: A catch-all for generic types of non-candidate-based contests.
+  description: A catch-all for generic types of non-candidate-based contests.
 - _name: initiative
-  type: These are usually citizen-driven measures to be placed on the ballot. These
-    could include both statutory changes and constitutional amendments.
+  description: These are usually citizen-driven measures to be placed on the ballot.
+    These could include both statutory changes and constitutional amendments.
 - _name: referendum
-  type: These could include measures to repeal existing acts of legislation, legislative
-    referrals, and legislatively-referred state constitutional amendments.
+  description: These could include measures to repeal existing acts of legislation,
+    legislative referrals, and legislatively-referred state constitutional amendments.
 - _name: other
-  type: Anything that does not fall into the above categories.
+  description: Anything that does not fall into the above categories.
