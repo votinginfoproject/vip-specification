@@ -45,17 +45,17 @@ TABLE_COMMENT = """\
 """
 
 ELEMENT_COLUMNS = [
-    ('_name', 'Tag'),
-    ('type', 'Data Type'),
-    ('required', 'Required?'),
-    ('repeating', 'Repeats?'),
-    ('description', 'Description'),
-    ('error', 'Error Handling'),
+    ('_name', 'Tag', MIN_COLUMN_WIDTH),
+    ('type', 'Data Type', MIN_COLUMN_WIDTH),
+    ('required', 'Required?', MIN_COLUMN_WIDTH),
+    ('repeating', 'Repeats?', MIN_COLUMN_WIDTH),
+    ('description', 'Description', 40),
+    ('error', 'Error Handling', 40),
 ]
 
 ENUMERATION_COLUMNS = [
-    ('_name', 'Tag'),
-    ('description', 'Description'),
+    ('_name', 'Tag', MIN_COLUMN_WIDTH),
+    ('description', 'Description', 50),
 ]
 
 DEFAULT_VALUES = {
@@ -102,8 +102,8 @@ def update_table_file(parent_dir, yaml_path):
 
 def make_table_formatter(path):
     column_infos = get_column_infos(path)
-    keys, headers = ([c[i] for c in column_infos] for i in range(2))
-    formatter = TableFormatter(headers=headers, keys=keys)
+    keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
+    formatter = TableFormatter(headers=headers, keys=keys, widths=widths)
     return formatter
 
 
@@ -143,6 +143,10 @@ def values_to_tag_data(values, columns_info):
 
 
 def parse_table(iter_lines, columns_info):
+    # Advance past the header row.
+    for line in iter_lines:
+        if line.startswith('+==='):
+            break
     tags_data = []
     while True:
         values = parse_row(iter_lines)
@@ -172,28 +176,35 @@ def make_yaml_path(rel_path, type_name):
     return path
 
 
-def parse_tables(parent_dir, path):
-    _log.info("parsing: {0}".format(path))
-    column_infos = get_column_infos(path)
-    rel_path = os.path.relpath(path, start=parent_dir)
-    with open(path) as f:
+def parse_tables(parent_dir, rest_path):
+    _log.info("parsing: {0}".format(rest_path))
+    column_infos = get_column_infos(rest_path)
+    rel_path = os.path.relpath(rest_path, start=parent_dir)
+    with open(rest_path) as f:
         lines = f.readlines()
     table_number = 0
     iter_lines = iter(lines)
+    new_lines = []
     for line in iter_lines:
-        line = line.strip()
-        if (line and " " not in line and "-" not in line and
-            "=" not in line and not line.endswith('.')):
-            type_name = line.split(".")[-1]
-        if "+===" in line:
-            # Then we just consumed a table header.
-            yaml_path = make_yaml_path(rel_path, type_name)
-            tags_data = parse_table(iter_lines, column_infos)
-            data = {
-                'name': type_name,
-                'tags': tags_data,
-            }
-            common.write_yaml(data, yaml_path)
+        norm_line = line.strip()
+        if (norm_line and " " not in norm_line and "-" not in norm_line and
+            "=" not in norm_line and not norm_line.endswith('.')):
+            type_name = norm_line.split(".")[-1]
+        if not norm_line.startswith("+---"):
+            new_lines.append(line)
+            continue
+        # Otherwise, we just started a table.
+        new_line = ".. include:: ../../tables/{0}\n\n".format(rel_path)
+        new_lines.append(new_line)
+        yaml_path = make_yaml_path(rel_path, type_name)
+        tags_data = parse_table(iter_lines, column_infos)
+        data = {
+            'name': type_name,
+            'tags': tags_data,
+        }
+        common.write_yaml(data, yaml_path)
+    new_rest = "".join(new_lines)
+    common.write(rest_path, new_rest)
 
 
 class TableFormatter(object):
@@ -201,9 +212,10 @@ class TableFormatter(object):
     # The size of the left and right margin of each cell as a number of spaces.
     margin = 1
 
-    def __init__(self, headers, keys):
+    def __init__(self, headers, keys, widths):
         self.headers = headers
         self.keys = keys
+        self.widths = widths
 
     def wrap(self, text, width):
         return textwrap.wrap(text, width=width, break_long_words=False,
@@ -217,7 +229,7 @@ class TableFormatter(object):
             words = value.split(" ")
             all_words.extend(words)
         width = max((len(w) for w in all_words))
-        width = max(width, MIN_COLUMN_WIDTH)
+        width = max(width, self.widths[i])
         return width
 
     def make_widths(self, headers, tags_data):
