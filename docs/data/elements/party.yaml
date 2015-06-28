@@ -2,28 +2,23 @@ name: Party
 tags:
 - _name: Abbreviation
   description: An abbreviation for the party name.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:string
 - _name: Color
   description: The preferred display color for the party, for use in maps and other
     displays.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: HtmlColorString
 - _name: ExternalIdentifiers
   description: Other identifiers that link this party to other related data sets (e.g.
     a campaign finance system, etc).
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: ExternalIdentifiers
 - _name: LogoUri
   description: Web address of a logo to use in displays.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
 - _name: Name
   description: The name of the party.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: InternationalizedText

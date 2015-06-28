@@ -8,6 +8,5 @@ tags:
   type: xs:IDREF
 - _name: OfficeId
   description: Links to the information about the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:IDREF

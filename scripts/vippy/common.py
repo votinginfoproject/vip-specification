@@ -125,6 +125,20 @@ TYPE_MAP = {
     ':doc:`VoterServiceType <../enumerations/voter_service_type>`': 'VoterServiceType',
 }
 
+ERROR_MAP = {
+    'If the element is invalid or not present, the implementation is required to ignore it.': '=must-ignore-element',
+    'If the element is invalid or not present, then the implementation is required to ignore it.': '=must-ignore-element',
+    'If the element is invalid or not present, the implementation should ignore it.': '=should-ignore-element',
+    'If the field is invalid or not present, the implementation is required to ignore it.': '=must-ignore-field',
+    'If the field is invalid or not present, the implementation should ignore it.': '=should-ignore-field',
+    'If the field is invalid or not present, then the implementation is required to ignore it.': '=must-ignore-field',
+    'If the field is missing or invalid, the implementation is required to ignore it.': '=must-ignore-field',
+    'If the field is not present or invalid, the implementation is required to ignore it.': '=must-ignore-field',
+    'If the field is not present or invalid, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+    'If the field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+    'If field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+}
+
 REPEATING_MAP = {
     'Single': None,
     'Repeats': True,
@@ -138,15 +152,12 @@ REQUIRED_MAP = {
 def analyze_types():
     dir_path = os.path.join(DATA_DIR, 'elements')
     yaml_paths = get_all_files(dir_path, ext='.yaml')
-    key = 'repeating'
+    key = 'error'
     for path in yaml_paths:
         data = read_yaml(path)
         tags_data = data['tags']
         for tag_data in tags_data:
             value = tag_data[key]
-            value = REPEATING_MAP.get(value, value)
-            if not value:
-                del tag_data[key]
-            else:
-                tag_data[key] = value
+            value = ERROR_MAP.get(value, value)
+            tag_data[key] = value
         write_yaml(data, path)

@@ -12,8 +12,7 @@ tags:
   description: Specifies if the segment covers every address on this street. If this
     is *true*, then the values of **StartHouseNumber** and **EndHouseNumber** should
     be ignored. The value of **OddEvenBoth** must be *both*.
-  error: If the field is not present or invalid, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:boolean
 - _name: OddEvenBoth
   description: Specifies whether the odd side of the street (in terms of house numbers),
@@ -52,7 +51,6 @@ tags:
   description: The apartment/unit number for a street segment. If this value is present
     then **StartHouseNumber** must be equal to **EndHouseNumber**. This field cannot
     be used if **IncludesAllAddresses** is true.
-  error: If the field is not present or invalid, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:string

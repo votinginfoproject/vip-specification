@@ -3,20 +3,17 @@ tags:
 - _name: AddressLine
   description: Represents the various parts of an address of a physical or mailing
     location.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:string
 - _name: Email
   description: An email address for the contact.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:string
 - _name: Fax
   description: A fax line for the contact.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:string
 - _name: Hours **[deprecated]**
@@ -24,29 +21,24 @@ tags:
     this element is deprecated in favor of the more structured :doc:`HoursOpen <hours_open>`
     element. It is strongly encouraged that data providers move toward contributing
     hours in this format)*.'
-  error: If the element is invalid or not present, the implementation is required
-    to ignore it.
+  error: =must-ignore-element
   type: InternationalizedText
 - _name: HoursOpenId
   description: References an :doc:`HoursOpen <hours_open>` element, which lists the
     hours of operation for a location.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:IDREF
 - _name: Name
   description: The name of the location or contact.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:string
 - _name: Phone
   description: A phone number for the contact.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:string
 - _name: Uri
   description: An informational URI for the contact or location.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:anyURI

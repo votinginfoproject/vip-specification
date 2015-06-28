@@ -11,8 +11,7 @@ tags:
   description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
     the options listed in :doc:`IdentifierType <../enumerations/identifier_type>`.
     ``Type`` should be set to "other" when using this field.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:string
 - _name: Value
   description: Specifies the identifier.

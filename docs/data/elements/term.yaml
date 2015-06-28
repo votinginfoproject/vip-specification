@@ -9,11 +9,9 @@ tags:
   type: OfficeTermType
 - _name: StartDate
   description: Specifies the start date for the current term of the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:date
 - _name: EndDate
   description: Specifies the end date for the current term of the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:date

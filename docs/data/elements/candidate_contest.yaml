@@ -2,24 +2,20 @@ name: CandidateContest
 tags:
 - _name: NumberElected
   description: Number of candidates that are elected in the contest (i.e. "N" of N-of-M).
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore it.
+  error: =must-ignore-field
   type: xs:integer
 - _name: OfficeId
   description: References an :doc:`Office <office>` element, if available, which gives
     additional information about the office.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore it.
+  error: =must-ignore-field
   repeating: true
   type: xs:IDREF
 - _name: PrimaryPartyId
   description: References a :doc:`Party <party>` element, if the contest is related
     to a particular party.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore it.
+  error: =must-ignore-field
   type: xs:IDREF
 - _name: VotesAllowed
   description: Maximum number of votes/write-ins per voter in this contest.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore it.
+  error: =must-ignore-field
   type: xs:integer

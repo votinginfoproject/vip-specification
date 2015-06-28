@@ -2,14 +2,12 @@ name: ElectionAdministration
 tags:
 - _name: AbsenteeUri
   description: Specifies the web address for information on absentee voting.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
 - _name: AmIRegisteredUri
   description: Specifies the web address for information on whether an individual
     is registered.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
 - _name: Department
   description: Describes the administrative body for a particular voter service.
@@ -20,13 +18,11 @@ tags:
   type: Department
 - _name: ElectionsUri
   description: Specifies web address the administration's website.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
 - _name: RegistrationUri
   description: Specifies web address for information on registering to vote.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
 - _name: RulesUri
   description: Specifies a URL for the election rules and laws (if any) for the jurisdiction
@@ -36,12 +32,10 @@ tags:
 - _name: WhatIsOnMyBallotUri
   description: Specifies web address for information on what is on an individual's
     ballot.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
 - _name: WhereDoIVoteUri
   description: The Specifies web address for information on where an individual votes
     based on their address.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it.
+  error: =must-ignore-field
   type: xs:anyURI
