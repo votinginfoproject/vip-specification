@@ -82,6 +82,15 @@ ELEMENT_CELL_VALUES = {
         False: 'Single',
         True: 'Repeats',
     },
+    TAG_KEY_ERROR_HANDLING: {
+        '=must-ignore-element': "If the element is invalid or not present, then the implementation is required to ignore it.",
+        '=must-ignore-field': "If the field is invalid or not present, then the implementation is required to ignore it.",
+        # 'If the element is invalid or not present, the implementation should ignore it.': '=should-ignore-element',
+        # 'If the field is invalid or not present, the implementation should ignore it.': '=should-ignore-field',
+        # 'If the field is not present or invalid, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+        # 'If the field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+        # 'If field is invalid or not present, the implementation is required to ignore the element containing it.': '=field-must-ignore-containing-element',
+    }
 }
 
 ENUMERATION_CELL_VALUES = {}
@@ -248,6 +257,8 @@ class TableFormatter(object):
             value = data_value
         else:
             value = conversions.get(data_value, data_value)
+        if value.startswith('='):
+            raise Exception("unconverted value: {0}".format(value))
         return value
 
     def make_width(self, i, header, tags_data):
