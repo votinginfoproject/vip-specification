@@ -18,7 +18,7 @@ tags:
   description: Specifies the date and time of the feed production. The date/time is
     considered to be in the timezone local to the organization. This datetime is required
     to match the datetime specified in the feed's filename.
-  error_then: =field-must-ignore-containing-element
+  error_then: =must-ignore-containing-element
   required: true
   type: xs:dateTime
 - _name: Description
@@ -29,12 +29,12 @@ tags:
 - _name: OrganizationUrl
   description: Specifies a URL to the home page of the organization publishing the
     data.
-  error_then: =must-ignore-field
+  error_then: =must-ignore
   type: xs:string
 - _name: FeedContactId
   description: Reference to the :doc:`person <person>` who will respond to inquiries
     about the information contained within the file.
-  error_then: =must-ignore-field
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: TouUrl
   description: Specifies the website where the Terms of Use for the information in

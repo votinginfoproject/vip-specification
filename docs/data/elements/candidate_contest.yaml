@@ -2,20 +2,20 @@ name: CandidateContest
 tags:
 - _name: NumberElected
   description: Number of candidates that are elected in the contest (i.e. "N" of N-of-M).
-  error_then: =must-ignore-field
+  error_then: =must-ignore
   type: xs:integer
 - _name: OfficeId
   description: References an :doc:`Office <office>` element, if available, which gives
     additional information about the office.
-  error_then: =must-ignore-field
+  error_then: =must-ignore
   repeating: true
   type: xs:IDREF
 - _name: PrimaryPartyId
   description: References a :doc:`Party <party>` element, if the contest is related
     to a particular party.
-  error_then: =must-ignore-field
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: VotesAllowed
   description: Maximum number of votes/write-ins per voter in this contest.
-  error_then: =must-ignore-field
+  error_then: =must-ignore
   type: xs:integer
