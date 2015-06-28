@@ -54,7 +54,17 @@ DEFAULT_TAG_VALUES = {
     TAG_KEY_REPEATING: False,
 }
 
-ENUMERATIONS = set(['DistrictType', 'IdentifierType', 'OebEnum', 'OfficeTermType'])
+ENUMERATIONS = set([
+    'BallotMeasureType',
+    'CandidatePostElectionStatus',
+    'CandidatePreElectionStatus',
+    'DistrictType',
+    'IdentifierType',
+    'OebEnum',
+    'OfficeTermType',
+    'VoteVariation',
+    'VoterServiceType',
+])
 
 _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 
@@ -226,6 +236,6 @@ def get_error_value(tag_data):
     except KeyError:
         error_if = make_error_if(tag_data)
         error_then = make_error_then(tag_data)
-        error = "{0} {1}".format(error_if, error_then)
+        error = "{0} then {1}".format(error_if, error_then)
 
     return error
