@@ -34,6 +34,7 @@ import yaml
 _log = logging.getLogger()
 
 DATA_DIR = 'docs/data'
+TABLES_DIR = 'docs/tables'
 XML_DIR = 'docs/xml'
 
 # The idea for this comes from here:

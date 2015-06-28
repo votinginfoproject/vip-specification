@@ -37,20 +37,25 @@ from vippy import common
 
 _log = logging.getLogger()
 
-TABLES_DIR = 'docs/tables'
+MIN_COLUMN_WIDTH = 12
 
 TABLE_COMMENT = """\
 .. This file is auto-generated.  Do not edit it by hand!
 
 """
 
-COLUMNS = [
-    ('_name', 'Tag', 18),
-    ('type', 'Data Type', 39),
-    ('required', 'Required?', 13),
-    ('repeating', 'Repeats?', 10),
-    ('description', 'Description', 38),
-    ('error', 'Error Handling', 24),
+ELEMENT_COLUMNS = [
+    ('_name', 'Tag'),
+    ('type', 'Data Type'),
+    ('required', 'Required?'),
+    ('repeating', 'Repeats?'),
+    ('description', 'Description'),
+    ('error', 'Error Handling'),
+]
+
+ENUMERATION_COLUMNS = [
+    ('_name', 'Tag'),
+    ('description', 'Description'),
 ]
 
 DEFAULT_VALUES = {
@@ -80,18 +85,19 @@ def make_table(path):
     return table
 
 
-def update_table_file(yaml_path, tables_dir):
+def update_table_file(parent_dir, yaml_path):
     file_name = os.path.basename(yaml_path)
     root, ext = os.path.splitext(file_name)
     rest_file_name = "{0}.rst".format(root)
-    rest_path = os.path.join(tables_dir, rest_file_name)
+    rest_path = os.path.join(common.TABLES_DIR, rest_file_name)
     table = make_table(yaml_path)
     text = TABLE_COMMENT + table
     common.write(rest_path, text)
 
 
 def make_table_formatter():
-    formatter = TableFormatter(headers=_HEADERS, keys=_KEYS, widths=_WIDTHS)
+    keys, headers = ([c[i] for c in COLUMNS] for i in range(2))
+    formatter = TableFormatter(headers=headers, keys=keys)
     return formatter
 
 
@@ -122,21 +128,23 @@ def parse_row(iter_lines):
     return values
 
 
-def values_to_tag_data(values):
+def values_to_tag_data(values, columns_info):
     data = {}
-    for column_info, value in zip(COLUMNS, values):
+    for column_info, value in zip(columns_info, values):
         key = column_info[0]
         data[key] = value
     return data
 
 
-def parse_table(iter_lines):
+def parse_table(iter_lines, columns_info):
     tags_data = []
     while True:
         values = parse_row(iter_lines)
         if values is False:
             break
-        tag_data = values_to_tag_data(values)
+        if len(values) != len(columns_info):
+            raise Exception("{0} != {1}".format(len(values), len(columns_info)))
+        tag_data = values_to_tag_data(values, columns_info=columns_info)
         tags_data.append(tag_data)
     return tags_data
 
@@ -146,7 +154,7 @@ def snake_to_camel(text):
     return "".join([p.capitalize() for p in parts])
 
 
-def make_yaml_path(rel_path, type_name, table_number):
+def make_yaml_path(rel_path, type_name):
     root, ext = os.path.splitext(rel_path)
     rel_dir, base_name = os.path.split(root)
     base_name = TYPE_NAME_TO_BASE_NAME.get(type_name, base_name)
@@ -155,12 +163,12 @@ def make_yaml_path(rel_path, type_name, table_number):
         raise Exception("{0} != {1}".format(camel_base_name, type_name))
     file_name = base_name + ".yaml"
     path = os.path.join(common.DATA_DIR, rel_dir, file_name)
-    print(type_name, base_name)
     return path
 
 
 def parse_tables(parent_dir, path):
     _log.info("parsing: {0}".format(path))
+    columns_info = ELEMENT_COLUMNS if 'elements' in path else ENUMERATION_COLUMNS
     rel_path = os.path.relpath(path, start=parent_dir)
     with open(path) as f:
         lines = f.readlines()
@@ -173,9 +181,8 @@ def parse_tables(parent_dir, path):
             type_name = line.split(".")[-1]
         if "+===" in line:
             # Then we just consumed a table header.
-            table_number += 1
-            yaml_path = make_yaml_path(rel_path, type_name, table_number)
-            tags_data = parse_table(iter_lines)
+            yaml_path = make_yaml_path(rel_path, type_name)
+            tags_data = parse_table(iter_lines, columns_info)
             data = {
                 'name': type_name,
                 'tags': tags_data,
@@ -188,46 +195,72 @@ class TableFormatter(object):
     # The size of the left and right margin of each cell as a number of spaces.
     margin = 1
 
-    def __init__(self, headers, keys, widths):
+    def __init__(self, headers, keys):
         self.headers = headers
         self.keys = keys
-        self.widths = widths
+
+    def wrap(self, text, width):
+        return textwrap.wrap(text, width=width, break_long_words=False,
+                             break_on_hyphens=False)
+
+    def make_width(self, i, header, tags_data):
+        all_words = [header]
+        key = self.keys[i]
+        for tag_data in tags_data:
+            value = tag_data[key]
+            words = value.split(" ")
+            all_words.extend(words)
+        width = max((len(w) for w in all_words))
+        width = max(width, MIN_COLUMN_WIDTH)
+        return width
+
+    def make_widths(self, headers, tags_data):
+        widths = []
+        for i, header in enumerate(headers):
+            width = self.make_width(i, header, tags_data)
+            widths.append(width)
+        return widths
+
+    def get_cell_widths(self, widths):
+        return [w + 2 * self.margin for w in widths]
 
     def make_line(self, parts, glue):
         parts = [''] + parts + ['']
         line = glue.join(parts)
         return line
 
-    def make_divider(self, fill_char=None):
+    def make_divider(self, widths, fill_char=None):
         if fill_char is None:
             fill_char = '-'
-        parts = [w * fill_char for w in self.widths]
+        cell_widths = self.get_cell_widths(widths)
+        parts = [w * fill_char for w in cell_widths]
         line = self.make_line(parts, glue='+')
         return line
 
-    def make_text_line(self, parts):
-        parts = [(self.margin * " " + s).ljust(w) for s, w in zip(parts, self.widths)]
+    def make_text_line(self, parts, widths):
+        cell_widths = self.get_cell_widths(widths)
+        parts = [(self.margin * " " + s).ljust(w) for s, w in zip(parts, cell_widths)]
         line = self.make_line(parts, glue='|')
         return line
 
-    def make_row(self, strings, separator=None):
+    def make_row(self, strings, widths, separator=None):
         if separator is None:
             separator = '-'
-        widths = [w - 2 * self.margin for w in self.widths]
-        contents = [textwrap.wrap(s, width=w) for s, w in zip(strings, widths)]
+        contents = [self.wrap(s, width=w) for s, w in zip(strings, widths)]
         parts_seq = itertools.zip_longest(*contents, fillvalue='')
-        lines = [self.make_text_line(parts) for parts in parts_seq]
-        lines.append(self.make_divider(fill_char=separator))
+        lines = [self.make_text_line(parts, widths=widths) for parts in parts_seq]
+        lines.append(self.make_divider(widths=widths, fill_char=separator))
         return lines
 
-    def make_row_from_data(self, data):
+    def make_row_from_data(self, data, widths):
         texts = [data.get(k, DEFAULT_VALUES.get(k, '')) for k in self.keys]
-        lines = self.make_row(texts)
+        lines = self.make_row(texts, widths=widths)
         return lines
 
     def make_table(self, tags_data):
-        lines = [self.make_divider()]
-        lines.extend(self.make_row(self.headers, separator='='))
+        widths = self.make_widths(self.headers, tags_data)
+        lines = [self.make_divider(widths)]
+        lines.extend(self.make_row(self.headers, widths, separator='='))
         for tag_data in tags_data:
-            lines.extend(self.make_row_from_data(tag_data))
+            lines.extend(self.make_row_from_data(tag_data, widths=widths))
         return lines

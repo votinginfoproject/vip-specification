@@ -83,31 +83,23 @@ def ns_to_paths(ns, dir_path, ext):
     return paths
 
 
-def command_make_table(ns):
-    path = ns.path
-    if path:
-        paths = [path]
-    else:
-        paths = _get_all_files(DATA_DIR)
-        paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
+def command_make_tables(ns):
+    parent_dir = common.DATA_DIR
+    paths = ns_to_paths(ns, dir_path=parent_dir, ext='.yaml')
     for path in paths:
-        rest.update_table_file(path, tables_dir=TABLES_DIR)
+        rest.update_table_file(parent_dir, path)
 
 
 def command_norm_yaml(ns):
-    path = ns.path
-    if path:
-        paths = [path]
-    else:
-        paths = _get_all_files(DATA_DIR)
-        paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
+    parent_dir = common.DATA_DIR
+    paths = ns_to_paths(ns, dir_path=parent_dir, ext='.yaml')
     for path in paths:
         common.normalize_yaml(path)
 
 
 def command_parse_tables(ns):
-    parent_dir = XML_DIR
-    paths = ns_to_paths(ns, dir_path=XML_DIR, ext='.rst')
+    parent_dir = common.XML_DIR
+    paths = ns_to_paths(ns, dir_path=parent_dir, ext='.rst')
     for path in paths:
         rest.parse_tables(parent_dir, path)
 
@@ -141,12 +133,10 @@ def create_parser():
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file.")
 
-    parser = make_subparser(sub, "make_table",
-                help="make a reST table.")
-    parser.add_argument('--all', dest='all', action='store_true',
-        help='make all reST tables.')
+    parser = make_subparser(sub, "make_tables",
+                help="make reST tables from YAML files.")
     parser.add_argument('path', metavar='PATH', nargs='?',
-        help="a path to a YAML file.")
+        help="a path to a YAML file. Defaults to all files.")
 
     parser = make_subparser(sub, "parse_tables",
                 help="parse the reST tables from a file.")
