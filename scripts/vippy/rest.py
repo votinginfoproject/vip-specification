@@ -40,10 +40,14 @@ TABLE_COMMENT = """\
 
 """
 
-# TODO: convert this to COLUMNS.
-_HEADERS = ('Tag', 'Data Type', 'Required?', 'Repeats?', 'Description', 'Error Handling')
-_KEYS = ('name', 'type', 'required', 'repeating', 'description', 'error')
-_WIDTHS = (18, 39, 13, 10, 38, 24)
+COLUMNS = [
+    ('_name', 'Tag', 18),
+    ('type', 'Data Type', 39),
+    ('required', 'Required?', 13),
+    ('repeating', 'Repeats?', 10),
+    ('description', 'Description', 38),
+    ('error', 'Error Handling', 24),
+]
 
 DEFAULT_VALUES = {
     'required': 'Optional',
@@ -83,9 +87,48 @@ def make_yaml_path(root, table_number):
     return path
 
 
-def parse_table(iter_lines):
+def parse_row(iter_lines):
+    """Parse the next row of a reST table.
+
+    Returns the values in the next row as a list of strings.
+    """
+    lines = []
+    for line in iter_lines:
+        if line.startswith('+--'):
+            break
+        lines.append(line)
+    else:
+        # Then there were no more rows.
+        return False
+    parts_seq = []
     for line in lines:
-        print(line)
+        line = line.strip().strip('|')
+        parts = [part.strip() for part in line.split('|')]
+        parts_seq.append(parts)
+    values = []
+    for i in range(len(parts_seq[0])):
+        value = " ".join(parts[i] for parts in parts_seq if parts[i])
+        values.append(value)
+    return values
+
+
+def values_to_tag_data(values):
+    data = {}
+    for column_info, value in zip(COLUMNS, values):
+        key = column_info[0]
+        data[key] = value
+    return data
+
+
+def parse_table(iter_lines):
+    tags_data = []
+    while True:
+        values = parse_row(iter_lines)
+        if values is False:
+            break
+        tag_data = values_to_tag_data(values)
+        tags_data.append(tag_data)
+    return tags_data
 
 
 def parse_tables(parent_dir, path):
@@ -97,12 +140,19 @@ def parse_tables(parent_dir, path):
     table_number = 0
     iter_lines = iter(lines)
     for line in iter_lines:
+        line = line.strip()
+        if line and " " not in line and "-" not in line and "=" not in line:
+            type_name = line
         if "+===" in line:
             # Then we just consumed a table header.
             table_number += 1
-            path = make_yaml_path(root, table_number)
-            print(path)
-            parse_table(iter_lines)
+            yaml_path = make_yaml_path(root, table_number)
+            tags_data = parse_table(iter_lines)
+            data = {
+                'name': type_name,
+                'tags': tags_data,
+            }
+            common.write_yaml(data, yaml_path)
 
 
 class TableFormatter(object):
