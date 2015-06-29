@@ -22,10 +22,9 @@
 |                      |                             |              |              | even side, or both are in included in    | ``StreetSegment`` element containing it. |
 |                      |                             |              |              | the street segment.                      |                                          |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctId           | xs:IDREF                    | Optional     | Single       | References the :doc:`precinct            | If the field is invalid or not present,  |
-|                      |                             |              |              | <precinct>` that contains the entire     | then the implementation is required to   |
-|                      |                             |              |              | street segment.                          | ignore the ``StreetSegment`` element     |
-|                      |                             |              |              |                                          | containing it.                           |
+| PrecinctId           | xs:IDREF                    | **Required** | Single       | References the :doc:`precinct            | If the field is invalid, then the        |
+|                      |                             |              |              | <precinct>` that contains the entire     | implementation is required to ignore the |
+|                      |                             |              |              | street segment.                          | ``StreetSegment`` element containing it. |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartHouseNumber     | xs:integer                  | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** is true, |
 |                      |                             |              |              | segment starts. This value is necessary  | if the field is invalid or not present,  |

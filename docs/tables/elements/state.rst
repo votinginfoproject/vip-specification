@@ -11,10 +11,9 @@
 |                          | <external_identifiers>`   |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
 |                          |                           |              |              | `OCD-ID`_).                              | required to ignore it.                   |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                     | xs:string                 | Optional     | Single       | Specifiers the name of a state, such as  | If the field is invalid or not present,  |
-|                          |                           |              |              | Alabama.                                 | then the implementation is required to   |
-|                          |                           |              |              |                                          | ignore the ``State`` element containing  |
-|                          |                           |              |              |                                          | it.                                      |
+| Name                     | xs:string                 | **Required** | Single       | Specifiers the name of a state, such as  | If the field is invalid, then the        |
+|                          |                           |              |              | Alabama.                                 | implementation is required to ignore the |
+|                          |                           |              |              |                                          | ``State`` element containing it.         |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | xs:IDREF                  | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                           |              |              | :doc:`polling locations                  | then the implementation is required to   |
