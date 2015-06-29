@@ -237,22 +237,30 @@ def make_error_if(tag_data):
     return "If the {noun} is {condition},".format(noun=noun, condition=condition)
 
 
-def make_error_then(tag_data):
-    error_then = tag_data[_TAG_KEY_ON_ERROR]
+def make_error_base(tag_data):
+    try:
+        error_then = tag_data[_TAG_KEY_ON_ERROR]
+    except KeyError:
+        return ''
     if error_then.startswith('='):
         error_then_format = _ERROR_THENS[error_then]
         containing_type = tag_data['containing_type']
         error_then = error_then_format.format(containing_type=containing_type)
+    error_if = make_error_if(tag_data)
+    error_base = "{0} then {1}".format(error_if, error_then)
 
-    return error_then
+    return error_base
 
 
 def get_error_value(tag_data):
+    error = make_error_base(tag_data)
     try:
-        error = tag_data[_TAG_KEY_ON_ERROR_CUSTOM]
+        error_custom = tag_data[_TAG_KEY_ON_ERROR_CUSTOM]
     except KeyError:
-        error_if = make_error_if(tag_data)
-        error_then = make_error_then(tag_data)
-        error = "{0} then {1}".format(error_if, error_then)
+        pass
+    else:
+        if error:
+            error += ' '
+        error += error_custom
 
     return error
