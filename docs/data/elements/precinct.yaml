@@ -26,12 +26,10 @@ tags:
   type: xs:boolean
 - _name: LocalityId
   description: Links to the :doc:`locality <locality>` that comprises the precinct.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:IDREF
 - _name: Name
   description: Specifies the precinct's name (or number if no name exists).
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: Number

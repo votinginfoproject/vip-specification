@@ -2,21 +2,18 @@ name: Source
 tags:
 - _name: Name
   description: Specifies the name of the organization that is providing the information.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: VipId
   description: Specifies the ID of the organization as assigned by VIP. This ID is
     not an attribute so as not to interfere with organizations' own numbering conventions
     (since id attributes must be unique across the entire file).
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: DateTime
   description: Specifies the date and time of the feed production. The date/time is
     considered to be in the timezone local to the organization. This datetime is required
     to match the datetime specified in the feed's filename.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:dateTime
 - _name: Description

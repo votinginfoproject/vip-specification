@@ -3,7 +3,6 @@ tags:
 - _name: BallotName
   description: The candidate's name as it will be displayed on the official ballot
     (e.g. "Ken T. Cuccinelli II").
-  on_error: =must-ignore-containing-element
   required: true
   type: InternationalizedText
 - _name: ExternalIdentifiers

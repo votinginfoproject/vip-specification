@@ -2,12 +2,10 @@ name: LatLng
 tags:
 - _name: Latitude
   description: The latitude of the polling location.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:float
 - _name: Longitude
   description: The longitude of the polling location.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:float
 - _name: Source

@@ -11,7 +11,6 @@ tags:
   type: ExternalIdentifiers
 - _name: Name
   description: Specifiers the name of a state, such as Alabama.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: PollingLocationId

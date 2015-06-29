@@ -2,6 +2,5 @@ name: BallotMeasureSelection
 tags:
 - _name: Selection
   description: Selection text for a :doc:`BallotMeasureContest <ballot_measure_contest>`
-  on_error: =must-ignore-containing-element
   required: true
   type: InternationalizedText

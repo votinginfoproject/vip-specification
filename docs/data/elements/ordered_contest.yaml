@@ -2,7 +2,6 @@ name: OrderedContest
 tags:
 - _name: ContestId
   description: Links to elements that extend :doc:`ContestBase <contest_base>`.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:IDREF
 - _name: OrderedBallotSelectionId

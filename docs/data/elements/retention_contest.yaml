@@ -2,7 +2,6 @@ name: RetentionContest
 tags:
 - _name: CandidateId
   description: Links to the :doc:`Candidate <candidate>` being retained.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:IDREF
 - _name: OfficeId

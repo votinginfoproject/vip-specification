@@ -3,7 +3,6 @@ tags:
 - _name: Type
   description: Specifies the type of identifier. Must be one of the valid types as
     defined by :doc:`IdentifierType <../enumerations/identifier_type>`.
-  on_error: =must-ignore-containing-element
   required: true
   type: IdentifierType
 - _name: OtherType
@@ -14,6 +13,5 @@ tags:
   type: xs:string
 - _name: Value
   description: Specifies the identifier.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:string

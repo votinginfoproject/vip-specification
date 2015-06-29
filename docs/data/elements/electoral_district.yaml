@@ -6,7 +6,6 @@ tags:
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the electoral area's name.
-  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: Number
@@ -18,7 +17,6 @@ tags:
   type: xs:integer
 - _name: Type
   description: Specifies the type of electoral area.
-  on_error: =must-ignore-containing-element
   required: true
   type: DistrictType
 - _name: OtherType
