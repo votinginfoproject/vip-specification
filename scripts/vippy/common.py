@@ -76,7 +76,8 @@ _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 _ERROR_THENS = {
     '=must-ignore': _ERROR_FORMAT_STRING.format(action='is required to', ignore='it'),
     '=should-ignore': _ERROR_FORMAT_STRING.format(action='should', ignore='it'),
-    '=must-ignore-containing-element': _ERROR_FORMAT_STRING.format(action='is required to', ignore='the {containing_type} element containing it'),
+    '=must-ignore-containing-element': _ERROR_FORMAT_STRING.format(action='is required to',
+                ignore='the ``{containing_type}`` element containing it'),
 }
 
 TYPE_MAP = {

@@ -5,7 +5,7 @@
 +======================+=============================+==============+==============+==========================================+==========================================+
 | NonHouseAddress      | `NonHouseAddress`_          | **Required** | Single       | The common street address (as well as    | If the element is invalid, then the      |
 |                      |                             |              |              | city, state, and zip) of the start and   | implementation is required to ignore the |
-|                      |                             |              |              | end points of the segment. Specific      | StreetSegment element containing it.     |
+|                      |                             |              |              | end points of the segment. Specific      | ``StreetSegment`` element containing it. |
 |                      |                             |              |              | information such as street direction     |                                          |
 |                      |                             |              |              | should be included.                      |                                          |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -19,12 +19,12 @@
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OddEvenBoth          | :doc:`OebEnum               | **Required** | Single       | Specifies whether the odd side of the    | If the field is invalid, then the        |
 |                      | <../enumerations/oeb_enum>` |              |              | street (in terms of house numbers), the  | implementation is required to ignore the |
-|                      |                             |              |              | even side, or both are in included in    | StreetSegment element containing it.     |
+|                      |                             |              |              | even side, or both are in included in    | ``StreetSegment`` element containing it. |
 |                      |                             |              |              | the street segment.                      |                                          |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrecinctId           | xs:IDREF                    | Optional     | Single       | References the :doc:`precinct            | If the field is invalid or not present,  |
 |                      |                             |              |              | <precinct>` that contains the entire     | then the implementation is required to   |
-|                      |                             |              |              | street segment.                          | ignore the StreetSegment element         |
+|                      |                             |              |              | street segment.                          | ignore the ``StreetSegment`` element     |
 |                      |                             |              |              |                                          | containing it.                           |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartHouseNumber     | xs:integer                  | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** is true, |

@@ -5,7 +5,7 @@
 +=====================+===================================================+==============+==============+==========================================+==========================================+
 | BallotName          | :doc:`InternationalizedText                       | **Required** | Single       | The candidate's name as it will be       | If the element is invalid, then the      |
 |                     | <internationalized_text>`                         |              |              | displayed on the official ballot (e.g.   | implementation is required to ignore the |
-|                     |                                                   |              |              | "Ken T. Cuccinelli II").                 | Candidate element containing it.         |
+|                     |                                                   |              |              | "Ken T. Cuccinelli II").                 | ``Candidate`` element containing it.     |
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers | :doc:`ExternalIdentifiers <external_identifiers>` | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
 |                     |                                                   |              |              | links to another source of information   | present, then the implementation is      |

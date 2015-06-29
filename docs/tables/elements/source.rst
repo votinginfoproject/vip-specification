@@ -5,18 +5,18 @@
 +=================+=============================+==============+==============+==========================================+==========================================+
 | Name            | xs:string                   | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
 |                 |                             |              |              | that is providing the information.       | implementation is required to ignore the |
-|                 |                             |              |              |                                          | Source element containing it.            |
+|                 |                             |              |              |                                          | ``Source`` element containing it.        |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | VipId           | xs:string                   | **Required** | Single       | Specifies the ID of the organization as  | If the field is invalid, then the        |
 |                 |                             |              |              | assigned by VIP. This ID is not an       | implementation is required to ignore the |
-|                 |                             |              |              | attribute so as not to interfere with    | Source element containing it.            |
+|                 |                             |              |              | attribute so as not to interfere with    | ``Source`` element containing it.        |
 |                 |                             |              |              | organizations' own numbering conventions |                                          |
 |                 |                             |              |              | (since id attributes must be unique      |                                          |
 |                 |                             |              |              | across the entire file).                 |                                          |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | DateTime        | xs:dateTime                 | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
 |                 |                             |              |              | production. The date/time is considered  | implementation is required to ignore the |
-|                 |                             |              |              | to be in the timezone local to the       | Source element containing it.            |
+|                 |                             |              |              | to be in the timezone local to the       | ``Source`` element containing it.        |
 |                 |                             |              |              | organization. This datetime is required  |                                          |
 |                 |                             |              |              | to match the datetime specified in the   |                                          |
 |                 |                             |              |              | feed's filename.                         |                                          |

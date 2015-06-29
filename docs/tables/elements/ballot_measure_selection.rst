@@ -5,6 +5,6 @@
 +==============+=============================+==============+==============+==========================================+==========================================+
 | Selection    | :doc:`InternationalizedText | **Required** | Single       | Selection text for a                     | If the element is invalid, then the      |
 |              | <internationalized_text>`   |              |              | :doc:`BallotMeasureContest               | implementation is required to ignore the |
-|              |                             |              |              | <ballot_measure_contest>`                | BallotMeasureSelection element           |
+|              |                             |              |              | <ballot_measure_contest>`                | ``BallotMeasureSelection`` element       |
 |              |                             |              |              |                                          | containing it.                           |
 +--------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

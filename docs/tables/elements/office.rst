@@ -9,7 +9,7 @@
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId  | xs:IDREF                    | **Required** | Single       | Links to the :doc:`ElectoralDistrict     | If the field is invalid, then the        |
 |                      |                             |              |              | <electoral_district>` element associated | implementation is required to ignore the |
-|                      |                             |              |              | with the office.                         | Office element containing it.            |
+|                      |                             |              |              | with the office.                         | ``Office`` element containing it.        |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers  | :doc:`ExternalIdentifiers   | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
 |                      | <external_identifiers>`     |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
@@ -25,7 +25,7 @@
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                 | :doc:`InternationalizedText | **Required** | Single       | The name of the office.                  | If the element is invalid, then the      |
 |                      | <internationalized_text>`   |              |              |                                          | implementation is required to ignore the |
-|                      |                             |              |              |                                          | Office element containing it.            |
+|                      |                             |              |              |                                          | ``Office`` element containing it.        |
 +----------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OfficeHolderPersonId | xs:IDREF                    | Optional     | Repeats      | Links to the :doc:`Person <person>`      | If the field is invalid or not present,  |
 |                      |                             |              |              | element(s) that hold additional          | then the implementation is required to   |

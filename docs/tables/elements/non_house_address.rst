@@ -10,11 +10,13 @@
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | City             | xs:string    | **Required** | Single       | The city specifies the city or town of   | If the field is invalid, then the        |
 |                  |              |              |              | the address.                             | implementation is required to ignore the |
-|                  |              |              |              |                                          | NonHouseAddress element containing it.   |
+|                  |              |              |              |                                          | ``NonHouseAddress`` element containing   |
+|                  |              |              |              |                                          | it.                                      |
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | State            | xs:string    | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
 |                  |              |              |              | abbreviation of the address.             | implementation is required to ignore the |
-|                  |              |              |              |                                          | NonHouseAddress element containing it.   |
+|                  |              |              |              |                                          | ``NonHouseAddress`` element containing   |
+|                  |              |              |              |                                          | it.                                      |
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StreetDirection  | xs:string    | Optional     | Single       | Specifies the (inter-)cardinal direction | If the field is invalid or not present,  |
 |                  |              |              |              | of the street address (e.g., the "E" in  | then the implementation is required to   |
@@ -22,8 +24,8 @@
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StreetName       | xs:string    | **Required** | Single       | Represents the name of the street for    | If the field is invalid, then the        |
 |                  |              |              |              | the address. A special wildcard, "*",    | implementation is required to ignore the |
-|                  |              |              |              | denotes every street in the given        | NonHouseAddress element containing it.   |
-|                  |              |              |              | city/town. It optionally may contain     |                                          |
+|                  |              |              |              | denotes every street in the given        | ``NonHouseAddress`` element containing   |
+|                  |              |              |              | city/town. It optionally may contain     | it.                                      |
 |                  |              |              |              | street direction, street suffix or       |                                          |
 |                  |              |              |              | address direction (e.g., both "Capitol"  |                                          |
 |                  |              |              |              | and "E Capitol St NE" are acceptable for |                                          |
@@ -38,7 +40,7 @@
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Zip              | xs:string    | **Required** | Single       | Specifies the zip code of the address.   | If the field is invalid, then the        |
 |                  |              |              |              | It may be 5 or 9 digits, and it may      | implementation is required to ignore the |
-|                  |              |              |              | include a hyphen ('-'). It is required   | NonHouseAddress element containing it.   |
-|                  |              |              |              | as it helps with geocoding, which is     |                                          |
+|                  |              |              |              | include a hyphen ('-'). It is required   | ``NonHouseAddress`` element containing   |
+|                  |              |              |              | as it helps with geocoding, which is     | it.                                      |
 |                  |              |              |              | crucial for distributors.                |                                          |
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+

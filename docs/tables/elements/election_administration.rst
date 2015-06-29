@@ -13,7 +13,7 @@
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Department          | :ref:`Department | **Required** | Repeats      | Describes the administrative body for a  | If the element is invalid, then the      |
 |                     | <ea-dep>`        |              |              | particular voter service.                | implementation is required to ignore the |
-|                     |                  |              |              |                                          | ElectionAdministration element           |
+|                     |                  |              |              |                                          | ``ElectionAdministration`` element       |
 |                     |                  |              |              |                                          | containing it.                           |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionsUri        | xs:anyURI        | Optional     | Single       | Specifies web address the                | If the field is invalid or not present,  |

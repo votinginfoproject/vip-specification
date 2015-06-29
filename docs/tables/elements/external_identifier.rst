@@ -5,8 +5,8 @@
 +==============+====================================+==============+==============+==========================================+==========================================+
 | Type         | :doc:`IdentifierType               | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid, then the        |
 |              | <../enumerations/identifier_type>` |              |              | be one of the valid types as defined by  | implementation is required to ignore the |
-|              |                                    |              |              | :doc:`IdentifierType                     | ExternalIdentifier element containing    |
-|              |                                    |              |              | <../enumerations/identifier_type>`.      | it.                                      |
+|              |                                    |              |              | :doc:`IdentifierType                     | ``ExternalIdentifier`` element           |
+|              |                                    |              |              | <../enumerations/identifier_type>`.      | containing it.                           |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType    | xs:string                          | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
 |              |                                    |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
@@ -18,6 +18,6 @@
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Value        | xs:string                          | **Required** | Single       | Specifies the identifier.                | If the field is invalid, then the        |
 |              |                                    |              |              |                                          | implementation is required to ignore the |
-|              |                                    |              |              |                                          | ExternalIdentifier element containing    |
-|              |                                    |              |              |                                          | it.                                      |
+|              |                                    |              |              |                                          | ``ExternalIdentifier`` element           |
+|              |                                    |              |              |                                          | containing it.                           |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

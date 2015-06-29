@@ -13,7 +13,7 @@
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | xs:string                        | **Required** | Single       | Specifies the name of a locality.        | If the field is invalid, then the        |
 |                          |                                  |              |              |                                          | implementation is required to ignore the |
-|                          |                                  |              |              |                                          | Locality element containing it.          |
+|                          |                                  |              |              |                                          | ``Locality`` element containing it.      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | xs:IDREF                         | Optional     | Repeats      | Specifies a link to the locality's       | If the field is invalid or not present,  |
 |                          |                                  |              |              | :doc:`polling locations                  | then the implementation is required to   |
@@ -24,7 +24,7 @@
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StateId                  | xs:IDREF                         | **Required** | Single       | References the locality's :doc:`state    | If the field is invalid, then the        |
 |                          |                                  |              |              | <state>`.                                | implementation is required to ignore the |
-|                          |                                  |              |              |                                          | Locality element containing it.          |
+|                          |                                  |              |              |                                          | ``Locality`` element containing it.      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :doc:`DistrictType               | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
 |                          | <../enumerations/district_type>` |              |              | county, town, et al.), which is one of   | then the implementation is required to   |

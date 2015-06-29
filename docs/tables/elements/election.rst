@@ -5,7 +5,7 @@
 +============================+=============================+==============+==============+==========================================+==========================================+
 | Date                       | xs:date                     | **Required** | Single       | Specifies when the election is being     | If the field is invalid, then the        |
 |                            |                             |              |              | held. The Date is considered to be in    | implementation is required to ignore the |
-|                            |                             |              |              | the timezone local to the state holding  | Election element containing it.          |
+|                            |                             |              |              | the timezone local to the state holding  | ``Election`` element containing it.      |
 |                            |                             |              |              | the election.                            |                                          |
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionType               | :doc:`InternationalizedText | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
@@ -14,7 +14,7 @@
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StateId                    | xs:IDREF                    | **Required** | Single       | Specifies a link to the state element    | If the field is invalid, then the        |
 |                            |                             |              |              | where the election is being held.        | implementation is required to ignore the |
-|                            |                             |              |              |                                          | Election element containing it.          |
+|                            |                             |              |              |                                          | ``Election`` element containing it.      |
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsStatewide                | xs:boolean                  | Optional     | Single       | Indicates whether the election is        | If the field is invalid or not present,  |
 |                            |                             |              |              | statewide.                               | then the implementation is required to   |
