@@ -2,7 +2,7 @@ name: HoursOpen
 tags:
 - _name: Schedule
   description: Defines a block of days and hours that a place will be open.
-  on_error_custom: At least one valid `Schedule`_ must be present for ``HoursOpen``
+  error: At least one valid `Schedule`_ must be present for ``HoursOpen``
     to be valid. If no valid `Schedule`_ is present, the implementation is required
     to ignore the ``HoursOpen`` element.
   repeating: true

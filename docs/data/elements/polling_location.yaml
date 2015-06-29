@@ -2,7 +2,7 @@ name: PollingLocation
 tags:
 - _name: AddressLine
   description: Represents the various parts of an address to a polling location.
-  on_error_custom: At least one valid ``AddressLine`` must be present for ``PollingLocation``
+  error: At least one valid ``AddressLine`` must be present for ``PollingLocation``
     to be valid. If no valid ``AddressLine`` is present, the implementation is required
     to ignore the ``PollingLocation`` element containing it.
   repeating: true

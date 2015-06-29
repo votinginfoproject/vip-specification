@@ -7,7 +7,7 @@ tags:
 - _name: OrderedBallotSelectionId
   description: Links to elements that extend :doc:`BallotSelectionBase <ballot_selection_base>`.
   error_then: =must-ignore
-  on_error_custom: If no ``OrderedBallotSelectionId`` elements are present, the presumed
+  error_extra: If no ``OrderedBallotSelectionId`` elements are present, the presumed
     order of the selection will be the order of :doc:`BallotSelectionBase <ballot_selection_base>`-extended
     elements referenced by the underlying :doc:`ContestBase <contest_base>`-extended
     elements.

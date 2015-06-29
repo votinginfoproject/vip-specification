@@ -3,7 +3,7 @@ tags:
 - _name: PartyId
   description: One or more :doc:`Party <party>` IDs which collectively represent a
     ballot selection.
-  on_error_custom: If one or more parties referenced are invalid or not present, the
+  error: If one or more parties referenced are invalid or not present, the
     implementation is required to ignore the PartySelection containing it.
   repeating: true
   required: true
