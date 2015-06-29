@@ -13,7 +13,7 @@ tags:
 - _name: FileDate
   description: Date and time when the candidate filed for the contest.
   on_error: =must-ignore
-  type: xs:dateTime
+  type: xs:date
 - _name: IsIncumbent
   description: Indicates whether the candidate is the incumbent for the office associated
     with the contest.
