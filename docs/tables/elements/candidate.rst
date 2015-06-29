@@ -12,7 +12,7 @@
 |                     |                                                   |              |              | (e.g. a campaign committee ID that links | required to ignore it.                   |
 |                     |                                                   |              |              | to a campaign finance system).           |                                          |
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FileDate            | xs:dateTime                                       | Optional     | Single       | Date and time when the candidate filed   | If the field is invalid or not present,  |
+| FileDate            | xs:date                                           | Optional     | Single       | Date and time when the candidate filed   | If the field is invalid or not present,  |
 |                     |                                                   |              |              | for the contest.                         | then the implementation is required to   |
 |                     |                                                   |              |              |                                          | ignore it.                               |
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
