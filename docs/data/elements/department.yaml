@@ -3,16 +3,16 @@ tags:
 - _name: ContactInformation
   description: Contact and physical address information for the election administration
     body (see :doc:`ContactInformation <contact_information>`).
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: ContactInformation
 - _name: ElectionOfficialPersonId
   description: The individual to contact at the election administration office. The
     specified person should be the :doc:`election official <person>`.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: VoterService
   description: The types of services and appropriate contact individual available
     to voters.
-  on_error: =must-ignore
+  error_then: =must-ignore
   repeating: true
   type: VoterService

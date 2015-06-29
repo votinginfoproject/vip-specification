@@ -3,7 +3,7 @@ tags:
 - _name: AddressDirection
   description: Specifies the (inter-)cardinal direction of the entire address. An
     example is "NE" for the address "100 E Capitol St NE."
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: City
   description: The city specifies the city or town of the address.
@@ -16,7 +16,7 @@ tags:
 - _name: StreetDirection
   description: Specifies the (inter-)cardinal direction of the street address (e.g.,
     the "E" in "100 E Capitol St NE").
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: StreetName
   description: Represents the name of the street for the address. A special wildcard,
@@ -29,7 +29,7 @@ tags:
 - _name: StreetSuffix
   description: Represents the abbreviated, non-directional suffix to the street name.
     An example is "St" for the address "100 E Capitol St NE."
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: Zip
   description: Specifies the zip code of the address. It may be 5 or 9 digits, and

@@ -2,32 +2,32 @@ name: Schedule
 tags:
 - _name: Hours
   description: Blocks of hours in the date range in which the place is open.
-  on_error: =must-ignore
+  error_then: =must-ignore
   repeating: true
   type: Hours
 - _name: IsOnlyByAppointment
   description: If true, the place is only open during the specified time window with
     an appointment.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:boolean
 - _name: IsOrByAppointment
   description: If true, the place is open during the hours specified time window and
     may also be open with an appointment.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:boolean
 - _name: IsSubjectToChange
   description: If true, the place should be open during the specified time window,
     but may be subject to change. People should contact prior to arrival to confirm
     hours are still accurate.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:boolean
 - _name: StartDate
   description: The date at which this collection of start and end times and options
     begin.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date
 - _name: EndDate
   description: The date at which this collection of start and end times and options
     end.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date

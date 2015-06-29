@@ -6,5 +6,5 @@ tags:
   type: xs:IDREF
 - _name: OfficeId
   description: Links to the information about the office.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF

@@ -8,42 +8,42 @@ tags:
 - _name: ExternalIdentifiers
   description: Another identifier for a candidate that links to another source of
     information (e.g. a campaign committee ID that links to a campaign finance system).
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: FileDate
   description: Date and time when the candidate filed for the contest.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date
 - _name: IsIncumbent
   description: Indicates whether the candidate is the incumbent for the office associated
     with the contest.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:boolean
 - _name: IsTopTicket
   description: Indicates whether the candidate is the top of a ticket that includes
     multiple candidates.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:boolean
 - _name: PartyId
   description: Reference to a :doc:`Party <party>` element with additional information
     about the candidate's affiliated party.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: PersonId
   description: Reference to a :doc:`Person <person>` element with additional information
     about the candidate.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: PostElectionStatus
   description: Final status of the candidate (e.g. winner, withdrawn, etc...).
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: CandidatePostElectionStatus
 - _name: PreElectionStatus
   description: Registration status of the candidate (e.g. filed, qualified, etc...).
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: CandidatePreElectionStatus
 - _name: SequenceOrder
   description: The order in which the candidate can be listed on the ballot or in
     results.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:integer

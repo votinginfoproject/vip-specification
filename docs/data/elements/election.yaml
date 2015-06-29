@@ -8,7 +8,7 @@ tags:
 - _name: ElectionType
   description: Specifies the highest controlling authority for election (e.g., federal,
     state, county, city, town, etc.)
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: InternationalizedText
 - _name: StateId
   description: Specifies a link to the state element where the election is being held.
@@ -16,26 +16,26 @@ tags:
   type: xs:IDREF
 - _name: IsStatewide
   description: Indicates whether the election is statewide.
-  on_error: the implementation is required to default to "yes".
+  error_then: the implementation is required to default to "yes".
   type: xs:boolean
 - _name: Name
   description: The name for the election (**NB:** while optional, this element is
     highly recommended).
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: InternationalizedText
 - _name: RegistrationInfo
   description: Specifies information about registration for this election either as
     text or a URL.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: InternationalizedText
 - _name: AbsenteeBallotInfo
   description: Specifies information about requesting absentee ballots either as text
     or a URL
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: InternationalizedText
 - _name: ResultsUrl
   description: Contains a URL where results for the election may be found
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyUri
 - _name: PollingHours **[deprecated]**
   description: 'Contains the hours (in local time) that Election Day polling locations
@@ -44,24 +44,24 @@ tags:
     this element is deprecated in favor of the more structured :doc:`HoursOpen <hours_open>`
     element. It is strongly encouraged that data providers move toward contributing
     hours in this format)*.'
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
   description: References the :doc:`HoursOpen <hours_open>` element, which lists the
     hours of operation for polling locations.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: HasElectionDayRegistration
   description: Specifies if a voter can register on the same day of the election (i.e.,
     the last day of the election). Valid items are "yes" and "no".
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:boolean
 - _name: RegistrationDeadline
   description: Specifies the last day to register for the election with the possible
     exception of Election Day registration.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date
 - _name: AbsenteeRequestDeadline
   description: Specifies the last day to request an absentee ballot.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date

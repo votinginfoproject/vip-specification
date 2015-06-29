@@ -3,15 +3,15 @@ tags:
 - _name: Type
   description: Specifies the type of office term (see :doc:`OfficeTermType <../enumerations/office_term_type>`
     for valid values).
-  on_error: the implementation is required to ignore the ``Office`` element containing
+  error_then: the implementation is required to ignore the ``Office`` element containing
     it.
   required: true
   type: OfficeTermType
 - _name: StartDate
   description: Specifies the start date for the current term of the office.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date
 - _name: EndDate
   description: Specifies the end date for the current term of the office.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:date

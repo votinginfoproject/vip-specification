@@ -19,20 +19,20 @@ tags:
 - _name: Description
   description: Specifies both the nature of the organization providing the data and
     what data is in the feed.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: InternationalizedText
 - _name: OrganizationUrl
   description: Specifies a URL to the home page of the organization publishing the
     data.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: FeedContactId
   description: Reference to the :doc:`person <person>` who will respond to inquiries
     about the information contained within the file.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: TouUrl
   description: Specifies the website where the Terms of Use for the information in
     this file can be found.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI

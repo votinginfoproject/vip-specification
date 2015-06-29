@@ -3,12 +3,12 @@ tags:
 - _name: ElectionAdministrationId
   description: Links to the locality's :doc:`election administration <election_administration>`
     object.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Another identifier for a locality that links to another dataset (e.g.
     `OCD-ID`_)
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the name of a locality.
@@ -18,7 +18,7 @@ tags:
   description: Specifies a link to the locality's :doc:`polling locations <polling_location>`.
     If early vote centers or ballot drop locations are locality-wide, they should
     be specified here.
-  on_error: =must-ignore
+  error_then: =must-ignore
   on_error_custom: However, the implementation should still check to see if there
     are any polling locations associated with this locality's state.
   repeating: true
@@ -30,10 +30,10 @@ tags:
 - _name: Type
   description: Defines the kind of locality (e.g. county, town, et al.), which is
     one of the various :doc:`DistrictType enumerations <../enumerations/district_type>`.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
     listed in :doc:`DistrictType <../enumerations/district_type>`.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string

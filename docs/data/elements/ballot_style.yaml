@@ -2,15 +2,15 @@ name: BallotStyle
 tags:
 - _name: ImageUri
   description: Specifies a URI that returns an image of the sample ballot.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestId
   description: Reference to an :doc:`OrderedContest <ordered_contest>`
-  on_error: =must-ignore
+  error_then: =must-ignore
   repeating: true
   type: xs:IDREF
 - _name: PartyId
   description: Reference to a :doc:`Party <party>`.
-  on_error: =must-ignore
+  error_then: =must-ignore
   repeating: true
   type: xs:IDREF

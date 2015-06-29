@@ -2,9 +2,9 @@ name: Hours
 tags:
 - _name: StartTime
   description: The time at which this place opens.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: TimeWithZone
 - _name: EndTime
   description: The time at which this place closes.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: TimeWithZone

@@ -9,7 +9,7 @@ tags:
   description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
     the options listed in :doc:`IdentifierType <../enumerations/identifier_type>`.
     ``Type`` should be set to "other" when using this field.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: Value
   description: Specifies the identifier.

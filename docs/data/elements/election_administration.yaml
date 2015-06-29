@@ -2,12 +2,12 @@ name: ElectionAdministration
 tags:
 - _name: AbsenteeUri
   description: Specifies the web address for information on absentee voting.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: AmIRegisteredUri
   description: Specifies the web address for information on whether an individual
     is registered.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: Department
   description: Describes the administrative body for a particular voter service.
@@ -16,24 +16,24 @@ tags:
   type: Department
 - _name: ElectionsUri
   description: Specifies web address the administration's website.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: RegistrationUri
   description: Specifies web address for information on registering to vote.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: RulesUri
   description: Specifies a URL for the election rules and laws (if any) for the jurisdiction
     of the administration.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: WhatIsOnMyBallotUri
   description: Specifies web address for information on what is on an individual's
     ballot.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI
 - _name: WhereDoIVoteUri
   description: The Specifies web address for information on where an individual votes
     based on their address.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:anyURI

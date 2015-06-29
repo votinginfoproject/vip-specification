@@ -3,7 +3,7 @@ tags:
 - _name: BallotStyleId
   description: Links to the :doc:`ballot style <ballot_style>`, which a person who
     lives in this precinct will vote.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictId
   description: Links to an :doc:`electoral district <electoral_district>` (e.g., congressional
@@ -12,17 +12,17 @@ tags:
     and recommended to specify the geography of multiple electoral districts. If an
     electoral district splits a precinct, use the **PrecinctSplitName** object and
     do not specify that particular electoral district in this object.
-  on_error: =must-ignore
+  error_then: =must-ignore
   repeating: true
   type: xs:IDREF
 - _name: ExternalIdentifiers
   description: Other identifier for the precinct that relates to another dataset (e.g.
     `OCD-ID`_).
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: IsMailOnly
   description: Determines if the precinct runs mail-only elections.
-  on_error: the implementation is required to assume **IsMailOnly** is false.
+  error_then: the implementation is required to assume **IsMailOnly** is false.
   type: xs:boolean
 - _name: LocalityId
   description: Links to the :doc:`locality <locality>` that comprises the precinct.
@@ -36,21 +36,21 @@ tags:
   description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
     are legal). Should be used if the **Name** field is populated by a name and not
     a number.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationId
   description: Specifies a link to the precinct's :doc:`polling location <polling_location>`
     object(s). Multiple **PollingLocationId** tags may be specified, but this use
     should be reserved for when multiple Election-Day-only vote locations serve specific
     precincts.
-  on_error: =must-ignore
+  error_then: =must-ignore
   repeating: true
   type: xs:IDREF
 - _name: PrecinctSplitName
   description: Refers to name of the associated precinct split.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
 - _name: Ward
   description: Specifies the ward the precinct is contained within.
-  on_error: =must-ignore
+  error_then: =must-ignore
   type: xs:string
