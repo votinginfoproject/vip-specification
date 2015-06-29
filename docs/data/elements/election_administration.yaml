@@ -27,7 +27,7 @@ tags:
 - _name: RulesUri
   description: Specifies a URL for the election rules and laws (if any) for the jurisdiction
     of the administration.
-  on_error: the implementation is required to ignore it.
+  on_error: =must-ignore
   type: xs:anyURI
 - _name: WhatIsOnMyBallotUri
   description: Specifies web address for information on what is on an individual's
