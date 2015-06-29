@@ -66,6 +66,11 @@ ENUMERATIONS = set([
     'VoterServiceType',
 ])
 
+SIMPLE_TYPES = set([
+    'HtmlColorString',
+    'TimeWithZone',
+])
+
 _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 
 _ERROR_THENS = {
@@ -197,9 +202,8 @@ def normalize_yaml(path):
 
 def is_tag_field(tag_data):
     tag_type = tag_data[TAG_KEY_TYPE]
-    if tag_type.startswith('xs:') or tag_type in ENUMERATIONS:
-        return True
-    return False
+    return (tag_type.startswith('xs:') or tag_type in ENUMERATIONS or
+            tag_type in SIMPLE_TYPES)
 
 
 def get_tag_value(tag_data, key):
