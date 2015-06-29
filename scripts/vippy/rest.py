@@ -112,7 +112,10 @@ def update_table_file(parent_dir, yaml_path):
     root, ext = os.path.splitext(rel_path)
     rest_rel_path = "{0}.rst".format(root)
     rest_path = os.path.join(common.TABLES_DIR, rest_rel_path)
-    table = make_table(yaml_path)
+    try:
+        table = make_table(yaml_path)
+    except Exception:
+        raise Exception("while processing: {0}".format(yaml_path))
     text = TABLE_COMMENT + table
     common.write(rest_path, text)
 
@@ -229,23 +232,22 @@ def analyze_types():
     dir_path = os.path.join(common.DATA_DIR, 'elements')
     yaml_paths = common.get_all_files(dir_path, ext='.yaml')
     values = {}
+    i = 0
     for yaml_path in yaml_paths:
 #        _log.info("processing: {0}".format(path))
         formatter = make_table_formatter(yaml_path)
-        data = common.read_yaml(yaml_path)
-        tags_data = data['tags']
-        for tag_data in tags_data:
-            #tag_type = tag_data[TAG_KEY_TYPE]
-            try:
-                value = tag_data['on_error']
-            except KeyError:
-                continue
-            try:
-                values[value] += 1
-            except KeyError:
-                values[value] = 1
-        #common.write_yaml(data, yaml_path)
-    pprint(values)
+        type_info = common.read_type_info(yaml_path)
+        type_yaml = common.read_yaml(yaml_path)
+        tags_data = type_info['tags']
+        tags_yaml = type_yaml['tags']
+        for tag, tag_yaml in zip(tags_data, tags_yaml):
+            tag_name = tag[TAG_KEY_NAME]
+            tag_type = tag[TAG_KEY_TYPE]
+            required = common.get_tag_value(tag, TAG_KEY_REQUIRED)
+            if 'on_error_custom' in tag and 'error_then' not in tag:
+                print(yaml_path, tag_name)
+        #common.write_yaml(type_yaml, yaml_path)
+    #pprint(values)
 
 
 class TableFormatter(object):

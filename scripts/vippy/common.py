@@ -28,7 +28,7 @@
 
 import logging
 import os.path
-import pprint
+from pprint import pformat
 
 import yaml
 
@@ -39,15 +39,16 @@ DATA_DIR = 'docs/data'
 TABLES_DIR = 'docs/tables'
 XML_DIR = 'docs/xml'
 
-_TAG_KEY_ON_ERROR = 'on_error'
-_TAG_KEY_ON_ERROR_CUSTOM = 'on_error_custom'
-
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
 TAG_KEY_REQUIRED = 'required'
 TAG_KEY_REPEATING = 'repeating'
 TAG_KEY_DESCRIPTION = 'description'
 TAG_KEY_ERROR_HANDLE = 'error'
+
+_TAG_KEY_ERROR = 'error'
+_TAG_KEY_ERROR_THEN = 'error_then'
+_TAG_KEY_ERROR_EXTRA = 'error_extra'
 
 DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
@@ -73,11 +74,12 @@ SIMPLE_TYPES = set([
 
 _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 
+_ERROR_THEN_FORMAT_REQUIRED = _ERROR_FORMAT_STRING.format(action='is required to',
+                                    ignore='the ``{containing_type}`` element containing it')
+
 _ERROR_THENS = {
     '=must-ignore': _ERROR_FORMAT_STRING.format(action='is required to', ignore='it'),
     '=should-ignore': _ERROR_FORMAT_STRING.format(action='should', ignore='it'),
-    '=must-ignore-containing-element': _ERROR_FORMAT_STRING.format(action='is required to',
-                ignore='the ``{containing_type}`` element containing it'),
 }
 
 TYPE_MAP = {
@@ -225,7 +227,7 @@ def get_tag_value(tag_data, key):
         except KeyError:
             value = DEFAULT_TAG_VALUES[key]
     except Exception:
-        raise Exception("tag_data: {0}".format(pprint.pformat(tag_data)))
+        raise Exception("tag_data: {0}".format(pformat(tag_data)))
 
     return value
 
@@ -234,33 +236,58 @@ def make_error_if(tag_data):
     noun = 'field' if is_tag_field(tag_data) else 'element'
     required = get_tag_value(tag_data, TAG_KEY_REQUIRED)
     condition = 'invalid' if required else 'invalid or not present'
+
     return "If the {noun} is {condition},".format(noun=noun, condition=condition)
 
 
-def make_error_base(tag_data):
-    try:
-        error_then = tag_data[_TAG_KEY_ON_ERROR]
-    except KeyError:
-        return ''
+def make_error_if_then(tag_data, error_then):
     if error_then.startswith('='):
         error_then_format = _ERROR_THENS[error_then]
         containing_type = tag_data['containing_type']
         error_then = error_then_format.format(containing_type=containing_type)
     error_if = make_error_if(tag_data)
-    error_base = "{0} then {1}".format(error_if, error_then)
+    error = "{0} then {1}".format(error_if, error_then)
 
-    return error_base
+    return error
+
+
+def make_error_default(tag_data):
+    required = get_tag_value(tag_data, TAG_KEY_REQUIRED)
+    if not required:
+        raise Exception('we have not defined a default "error" value for '
+                        "tags that are not required.\n"
+                        "tag data:\n{0}".format(pformat(tag_data)))
+    error_then = _ERROR_THEN_FORMAT_REQUIRED.format(**tag_data)
+    error = make_error_if_then(tag_data, error_then)
+    return error
+
+
+def make_error(tag_data):
+    try:
+        error = tag_data[_TAG_KEY_ERROR]
+    except KeyError:
+        error = make_error_default(tag_data)
+    return error
+
+
+def make_error_initial(tag_data):
+    try:
+        error_then = tag_data[_TAG_KEY_ERROR_THEN]
+    except KeyError:
+        error = make_error(tag_data)
+    else:
+        error = make_error_if_then(tag_data, error_then)
+
+    return error
 
 
 def get_error_value(tag_data):
-    error = make_error_base(tag_data)
+    error = make_error_initial(tag_data)
     try:
-        error_custom = tag_data[_TAG_KEY_ON_ERROR_CUSTOM]
+        error_extra = tag_data[_TAG_KEY_ERROR_EXTRA]
     except KeyError:
         pass
     else:
-        if error:
-            error += ' '
-        error += error_custom
+        error += " " + error_extra
 
     return error
