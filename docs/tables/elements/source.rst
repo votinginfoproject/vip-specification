@@ -16,7 +16,7 @@
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | DateTime        | xs:dateTime                 | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
 |                 |                             |              |              | production. The date/time is considered  | implementation is required to ignore the |
-|                 |                             |              |              | to be in the timezone local to the       | element containing it.                   |
+|                 |                             |              |              | to be in the timezone local to the       | Source element containing it.            |
 |                 |                             |              |              | organization. This datetime is required  |                                          |
 |                 |                             |              |              | to match the datetime specified in the   |                                          |
 |                 |                             |              |              | feed's filename.                         |                                          |

@@ -76,7 +76,7 @@ _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 _ERROR_THENS = {
     '=must-ignore': _ERROR_FORMAT_STRING.format(action='is required to', ignore='it'),
     '=should-ignore': _ERROR_FORMAT_STRING.format(action='should', ignore='it'),
-    '=must-ignore-containing-element': _ERROR_FORMAT_STRING.format(action='is required to', ignore='the element containing it'),
+    '=must-ignore-containing-element': _ERROR_FORMAT_STRING.format(action='is required to', ignore='the {containing_type} element containing it'),
 }
 
 TYPE_MAP = {
@@ -200,6 +200,15 @@ def normalize_yaml(path):
     write_yaml(data, path)
 
 
+def read_type_info(yaml_path):
+    type_info = read_yaml(yaml_path)
+    type_name = type_info['name']
+    tags = type_info['tags']
+    for tag in tags:
+        tag['containing_type'] = type_name
+    return type_info
+
+
 def is_tag_field(tag_data):
     tag_type = tag_data[TAG_KEY_TYPE]
     return (tag_type.startswith('xs:') or tag_type in ENUMERATIONS or
@@ -230,7 +239,10 @@ def make_error_if(tag_data):
 def make_error_then(tag_data):
     error_then = tag_data[_TAG_KEY_ON_ERROR]
     if error_then.startswith('='):
-        error_then = _ERROR_THENS[error_then]
+        error_then_format = _ERROR_THENS[error_then]
+        containing_type = tag_data['containing_type']
+        error_then = error_then_format.format(containing_type=containing_type)
+
     return error_then
 
 

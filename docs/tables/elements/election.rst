@@ -14,7 +14,7 @@
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StateId                    | xs:IDREF                    | **Required** | Single       | Specifies a link to the state element    | If the field is invalid, then the        |
 |                            |                             |              |              | where the election is being held.        | implementation is required to ignore the |
-|                            |                             |              |              |                                          | element containing it.                   |
+|                            |                             |              |              |                                          | Election element containing it.          |
 +----------------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsStatewide                | xs:boolean                  | Optional     | Single       | Indicates whether the election is        | If the field is invalid or not present,  |
 |                            |                             |              |              | statewide.                               | then the implementation is required to   |

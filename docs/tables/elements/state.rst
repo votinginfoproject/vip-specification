@@ -13,7 +13,7 @@
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | xs:string                 | Optional     | Single       | Specifiers the name of a state, such as  | If the field is invalid or not present,  |
 |                          |                           |              |              | Alabama.                                 | then the implementation is required to   |
-|                          |                           |              |              |                                          | ignore the element containing it.        |
+|                          |                           |              |              |                                          | ignore the State element containing it.  |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | xs:IDREF                  | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                           |              |              | :doc:`polling locations                  | then the implementation is required to   |

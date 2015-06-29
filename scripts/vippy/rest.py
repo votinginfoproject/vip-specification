@@ -98,11 +98,10 @@ def get_type_info(path):
     return column_infos, cell_values
 
 
-def make_table(path):
-    data = common.read_yaml(path)
-    tags = data['tags']
-    formatter = make_table_formatter(path)
-    lines = formatter.make_table(tags)
+def make_table(yaml_path):
+    type_info = common.read_type_info(yaml_path)
+    formatter = make_table_formatter(yaml_path)
+    lines = formatter.make_table(type_info)
     table = "\n".join(lines) + "\n"
 
     return table
@@ -227,7 +226,7 @@ def parse_tables(parent_dir, rest_path):
 
 
 def analyze_types():
-    dir_path = os.path.join(common.DATA_DIR, 'enumerations')
+    dir_path = os.path.join(common.DATA_DIR, 'elements')
     yaml_paths = common.get_all_files(dir_path, ext='.yaml')
     values = {}
     for yaml_path in yaml_paths:
@@ -238,13 +237,15 @@ def analyze_types():
         for tag_data in tags_data:
             #tag_type = tag_data[TAG_KEY_TYPE]
             try:
-                value = tag_data['error_custom']
+                value = tag_data['on_error']
             except KeyError:
                 continue
-            del tag_data['error_custom']
-            tag_data['on_error_custom'] = value
-        common.write_yaml(data, yaml_path)
-    #pprint(values)
+            try:
+                values[value] += 1
+            except KeyError:
+                values[value] = 1
+        #common.write_yaml(data, yaml_path)
+    pprint(values)
 
 
 class TableFormatter(object):
@@ -328,10 +329,11 @@ class TableFormatter(object):
         lines = self.make_row(cell_values, widths=widths)
         return lines
 
-    def make_table(self, tags_data):
-        widths = self.make_widths(self.headers, tags_data)
+    def make_table(self, type_info):
+        tags = type_info['tags']
+        widths = self.make_widths(self.headers, tags)
         lines = [self.make_divider(widths)]
         lines.extend(self.make_row(self.headers, widths, separator='='))
-        for tag_data in tags_data:
-            lines.extend(self.make_row_from_data(tag_data, widths=widths))
+        for tag in tags:
+            lines.extend(self.make_row_from_data(tag, widths=widths))
         return lines
