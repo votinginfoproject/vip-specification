@@ -2,16 +2,14 @@ name: Source
 tags:
 - _name: Name
   description: Specifies the name of the organization that is providing the information.
-  on_error: the implementation is required to ignore the source element containing
-    it.
+  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: VipId
   description: Specifies the ID of the organization as assigned by VIP. This ID is
     not an attribute so as not to interfere with organizations' own numbering conventions
     (since id attributes must be unique across the entire file).
-  on_error: the implementation is required to ignore the source element containing
-    it.
+  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: DateTime

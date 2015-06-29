@@ -5,11 +5,11 @@
 +=================+=============================+==============+==============+==========================================+==========================================+
 | Name            | xs:string                   | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
 |                 |                             |              |              | that is providing the information.       | implementation is required to ignore the |
-|                 |                             |              |              |                                          | source element containing it.            |
+|                 |                             |              |              |                                          | Source element containing it.            |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | VipId           | xs:string                   | **Required** | Single       | Specifies the ID of the organization as  | If the field is invalid, then the        |
 |                 |                             |              |              | assigned by VIP. This ID is not an       | implementation is required to ignore the |
-|                 |                             |              |              | attribute so as not to interfere with    | source element containing it.            |
+|                 |                             |              |              | attribute so as not to interfere with    | Source element containing it.            |
 |                 |                             |              |              | organizations' own numbering conventions |                                          |
 |                 |                             |              |              | (since id attributes must be unique      |                                          |
 |                 |                             |              |              | across the entire file).                 |                                          |

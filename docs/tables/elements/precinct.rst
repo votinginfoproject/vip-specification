@@ -31,11 +31,11 @@
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LocalityId          | xs:IDREF                  | **Required** | Single       | Links to the :doc:`locality <locality>`  | If the field is invalid, then the        |
 |                     |                           |              |              | that comprises the precinct.             | implementation is required to ignore the |
-|                     |                           |              |              |                                          | precinct element containing it.          |
+|                     |                           |              |              |                                          | Precinct element containing it.          |
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                | xs:string                 | **Required** | Single       | Specifies the precinct's name (or number | If the field is invalid, then the        |
 |                     |                           |              |              | if no name exists).                      | implementation is required to ignore the |
-|                     |                           |              |              |                                          | precinct element containing it.          |
+|                     |                           |              |              |                                          | Precinct element containing it.          |
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Number              | xs:string                 | Optional     | Single       | Specifies the precinct's number (e.g.,   | If the field is invalid or not present,  |
 |                     |                           |              |              | 32 or 32A -- alpha characters are        | then the implementation is required to   |

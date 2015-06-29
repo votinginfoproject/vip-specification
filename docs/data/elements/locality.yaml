@@ -12,8 +12,7 @@ tags:
   type: ExternalIdentifiers
 - _name: Name
   description: Specifies the name of a locality.
-  on_error: the implementation is required to ignore the Locality element containing
-    it.
+  on_error: =must-ignore-containing-element
   required: true
   type: xs:string
 - _name: PollingLocationId
@@ -27,7 +26,7 @@ tags:
   type: xs:IDREF
 - _name: StateId
   description: References the locality's :doc:`state <state>`.
-  on_error: the implementation is required to ignore the locality element containing it.
+  on_error: =must-ignore-containing-element
   required: true
   type: xs:IDREF
 - _name: Type

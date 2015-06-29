@@ -24,7 +24,7 @@
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StateId                  | xs:IDREF                         | **Required** | Single       | References the locality's :doc:`state    | If the field is invalid, then the        |
 |                          |                                  |              |              | <state>`.                                | implementation is required to ignore the |
-|                          |                                  |              |              |                                          | locality element containing it.          |
+|                          |                                  |              |              |                                          | Locality element containing it.          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :doc:`DistrictType               | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
 |                          | <../enumerations/district_type>` |              |              | county, town, et al.), which is one of   | then the implementation is required to   |
