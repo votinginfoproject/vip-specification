@@ -4,8 +4,7 @@ tags:
   description: The common street address (as well as city, state, and zip) of the
     start and end points of the segment. Specific information such as street direction
     should be included.
-  on_error: the implementation is required to ignore the StreetSegment element containing
-    it
+  on_error: =must-ignore-containing-element
   required: true
   type: NonHouseAddress
 - _name: IncludesAllAddresses
@@ -17,15 +16,13 @@ tags:
 - _name: OddEvenBoth
   description: Specifies whether the odd side of the street (in terms of house numbers),
     the even side, or both are in included in the street segment.
-  on_error: the implementation is required to ignore the StreetSegment containing
-    it.
+  on_error: =must-ignore-containing-element
   required: true
   type: OebEnum
 - _name: PrecinctId
   description: References the :doc:`precinct <precinct>` that contains the entire
     street segment.
-  on_error: the implementation is required to ignore the StreetSegment element containing
-    it.
+  on_error: =must-ignore-containing-element
   type: xs:IDREF
 - _name: StartHouseNumber
   description: The house number at which the street segment starts. This value is

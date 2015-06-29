@@ -11,8 +11,7 @@ tags:
   type: xs:anyURI
 - _name: Department
   description: Describes the administrative body for a particular voter service.
-  on_error: the implementation is required to ignore the **ElectionAdministration**
-    object that contains it.
+  on_error: =must-ignore-containing-element
   repeating: true
   required: true
   type: Department

@@ -9,8 +9,7 @@
 +---------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                | xs:string                        | **Required** | Single       | Specifies the electoral area's name.     | If the field is invalid, then the        |
 |                     |                                  |              |              |                                          | implementation is required to ignore the |
-|                     |                                  |              |              |                                          | ``ElectoralDistrict`` object containing  |
-|                     |                                  |              |              |                                          | it.                                      |
+|                     |                                  |              |              |                                          | ElectoralDistrict element containing it. |
 +---------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Number              | xs:integer                       | Optional     | Single       | Specifies the district number of the     | If the field is invalid or not present,  |
 |                     |                                  |              |              | district (e.g. 34, in the case of the    | then the implementation is required to   |
@@ -22,8 +21,7 @@
 +---------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                | :doc:`DistrictType               | **Required** | Single       | Specifies the type of electoral area.    | If the field is invalid, then the        |
 |                     | <../enumerations/district_type>` |              |              |                                          | implementation is required to ignore the |
-|                     |                                  |              |              |                                          | ``ElectoralDistrict`` object containing  |
-|                     |                                  |              |              |                                          | it.                                      |
+|                     |                                  |              |              |                                          | ElectoralDistrict element containing it. |
 +---------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType           | xs:string                        | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
 |                     |                                  |              |              | :doc:`DistrictType                       | then the implementation is required to   |
