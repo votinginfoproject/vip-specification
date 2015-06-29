@@ -23,6 +23,7 @@ tags:
   description: References the :doc:`precinct <precinct>` that contains the entire
     street segment.
   on_error: =must-ignore-containing-element
+  required: true
   type: xs:IDREF
 - _name: StartHouseNumber
   description: The house number at which the street segment starts. This value is
