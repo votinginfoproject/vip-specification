@@ -32,13 +32,15 @@ At any one point in time ("feature/" and "bug/" temporary branches aside), there
 ## Dev Environment
 
 This section explains how to set up your local development environment for
-contributing.  First, [install Python][python_install].  We recommend
+contributing.  First, [install Python][python_download].  We recommend
 installing the latest stable version of Python 3 (Python 3.4.3 as of June 2015).
 
-We also recommend setting up a virtual environment (e.g. using
+We also recommend setting up a virtual environment for the repo (e.g. using
 [virtualenv][virtualenv]) prior to installing dependencies.
 
-To install dependencies, open a terminal window and run:
+Use [`pip`][pip] to install dependencies, which comes with Python 3.4+
+(and is installed automatically when creating a virtual environment).
+Open a terminal window and run:
 
 ```sh
 $ pip install Sphinx PyYAML
@@ -66,5 +68,6 @@ $ sphinx-autobuild . _build/html
 Once the above command is executed, open a browser and enter http://127.0.0.1:8000 to see the documentation.
 
 
-[python_install]: https://www.python.org/downloads
+[pip]: https://pip.pypa.io/en/stable/
+[python_download]: https://www.python.org/downloads
 [virtualenv]: https://pypi.python.org/pypi/virtualenv/
