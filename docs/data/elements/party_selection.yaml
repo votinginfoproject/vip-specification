@@ -3,8 +3,8 @@ tags:
 - _name: PartyId
   description: One or more :doc:`Party <party>` IDs which collectively represent a
     ballot selection.
-  error: If one or more parties referenced are invalid or not present, the
-    implementation is required to ignore the PartySelection containing it.
+  error: If one or more parties referenced are invalid or not present, the implementation
+    is required to ignore the PartySelection containing it.
   repeating: true
   required: true
   type: xs:IDREF
