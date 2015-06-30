@@ -335,10 +335,13 @@ class TableFormatter(object):
         return lines
 
     def make_table(self, data_type):
-        tags = data_type.tags
-        widths = self.make_widths(self.headers, tags)
-        lines = [self.make_divider(widths)]
-        lines.extend(self.make_row(self.headers, widths, separator='='))
-        for tag in tags:
-            lines.extend(self.make_row_from_data(tag, widths=widths))
+        try:
+            tags = data_type.tags
+            widths = self.make_widths(self.headers, tags)
+            lines = [self.make_divider(widths)]
+            lines.extend(self.make_row(self.headers, widths, separator='='))
+            for tag in tags:
+                lines.extend(self.make_row_from_data(tag, widths=widths))
+        except Exception:
+            raise Exception("with data_type:\n{0}".format(data_type))
         return lines

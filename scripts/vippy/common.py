@@ -232,13 +232,9 @@ def is_tag_field(all_types, tag_data):
 def get_simple_tag_value(tag_data, key):
     """This works for everything except for the error values."""
     try:
-        try:
-            value = tag_data[key]
-        except KeyError:
-            value = DEFAULT_TAG_VALUES[key]
-    except Exception:
-        raise Exception("tag_data: {0}".format(pformat(tag_data)))
-
+        value = tag_data[key]
+    except KeyError:
+        value = DEFAULT_TAG_VALUES[key]
     return value
 
 
@@ -304,10 +300,13 @@ def get_error_handling_value(all_types, tag_data):
 
 
 def get_tag_value(all_types, tag_data, key):
-    if key == TAG_KEY_ERROR_HANDLE:
-        value = get_error_handling_value(all_types, tag_data)
-    else:
-        value = get_simple_tag_value(tag_data, key)
+    try:
+        if key == TAG_KEY_ERROR_HANDLE:
+            value = get_error_handling_value(all_types, tag_data)
+        else:
+            value = get_simple_tag_value(tag_data, key)
+    except Exception:
+        raise Exception("tag_data: {0}".format(pformat(tag_data)))
 
     return value
 
@@ -337,7 +336,7 @@ class DataType(object):
         self.yaml = yaml
 
     def __repr__(self):
-        return ("<DataType object (name={0!r}, path={1!r})>"
+        return ("<DataType object (name={0!r}, rel_path={1!r})>"
                 .format(self.name, self.rel_path))
 
     @property
