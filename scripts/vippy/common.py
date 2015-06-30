@@ -45,11 +45,12 @@ TAG_KEY_TYPE = 'type'
 TAG_KEY_REQUIRED = 'required'
 TAG_KEY_REPEATING = 'repeating'
 TAG_KEY_DESCRIPTION = 'description'
+# The error_handling key corresponds to the aggregate error-handling tag
+# value and does not correspond to a literal key-value in the YAML data.
 TAG_KEY_ERROR_HANDLE = 'error_handling'
-
-_TAG_KEY_ERROR = 'error'
-_TAG_KEY_ERROR_THEN = 'error_then'
-_TAG_KEY_ERROR_EXTRA = 'error_extra'
+TAG_KEY_ERROR_BASE = 'error'
+TAG_KEY_ERROR_THEN = 'error_then'
+TAG_KEY_ERROR_EXTRA = 'error_extra'
 
 DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
@@ -271,9 +272,9 @@ def make_error_default(all_types, tag_data):
     return error
 
 
-def make_error(all_types, tag_data):
+def make_error_base(all_types, tag_data):
     try:
-        error = tag_data[_TAG_KEY_ERROR]
+        error = tag_data[TAG_KEY_ERROR_BASE]
     except KeyError:
         error = make_error_default(all_types, tag_data)
     return error
@@ -281,19 +282,19 @@ def make_error(all_types, tag_data):
 
 def make_error_initial(all_types, tag_data):
     try:
-        error_then = tag_data[_TAG_KEY_ERROR_THEN]
+        error_then = tag_data[TAG_KEY_ERROR_THEN]
     except KeyError:
-        error = make_error(all_types, tag_data)
+        error = make_error_base(all_types, tag_data)
     else:
         error = make_error_if_then(all_types, tag_data, error_then)
 
     return error
 
 
-def get_error_value(all_types, tag_data):
+def get_error_handling_value(all_types, tag_data):
     error = make_error_initial(all_types, tag_data)
     try:
-        error_extra = tag_data[_TAG_KEY_ERROR_EXTRA]
+        error_extra = tag_data[TAG_KEY_ERROR_EXTRA]
     except KeyError:
         pass
     else:
@@ -304,7 +305,7 @@ def get_error_value(all_types, tag_data):
 
 def get_tag_value(all_types, tag_data, key):
     if key == TAG_KEY_ERROR_HANDLE:
-        value = get_error_value(all_types, tag_data)
+        value = get_error_handling_value(all_types, tag_data)
     else:
         value = get_simple_tag_value(tag_data, key)
 
