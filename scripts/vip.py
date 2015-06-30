@@ -76,13 +76,6 @@ def command_analyze_types(ns):
     rest.analyze_types()
 
 
-def command_update_tables(ns):
-    parent_dir = common.DATA_DIR
-    paths = ns_to_paths(ns, dir_path=parent_dir, ext='.yaml')
-    for path in paths:
-        rest.update_table_file(parent_dir, path)
-
-
 def command_norm_yaml(ns):
     parent_dir = common.DATA_DIR
     paths = ns_to_paths(ns, dir_path=parent_dir, ext='.yaml')
@@ -95,6 +88,10 @@ def command_parse_tables(ns):
     paths = ns_to_paths(ns, dir_path=parent_dir, ext='.rst')
     for path in paths:
         rest.parse_tables(parent_dir, path)
+
+
+def command_update_tables(ns):
+    rest.update_table_files(ns.type_name)
 
 
 def make_subparser(sub, command_name, help, command_func=None, details=None, **kwargs):
@@ -125,9 +122,10 @@ def create_parser():
         help="a path to a YAML file. Defaults to all files.")
 
     parser = make_subparser(sub, "update_tables",
-                help="update the reST tables from the YAML files.")
-    parser.add_argument('path', metavar='PATH', nargs='?',
-        help="a path to a YAML file. Defaults to all files.")
+                help="update reST tables from YAML files.")
+    parser.add_argument('type_name', metavar='TYPE_NAME', nargs='?',
+        help=('the name of a type (e.g. "HoursOpen"). '
+              "Defaults to all types."))
 
     parser = make_subparser(sub, "parse_tables",
                 help="parse the reST tables from a file.")

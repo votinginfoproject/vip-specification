@@ -26,6 +26,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import copy
 import logging
 import os.path
 from pprint import pformat
@@ -44,7 +45,7 @@ TAG_KEY_TYPE = 'type'
 TAG_KEY_REQUIRED = 'required'
 TAG_KEY_REPEATING = 'repeating'
 TAG_KEY_DESCRIPTION = 'description'
-TAG_KEY_ERROR_HANDLE = 'error'
+TAG_KEY_ERROR_HANDLE = 'error_handling'
 
 _TAG_KEY_ERROR = 'error'
 _TAG_KEY_ERROR_THEN = 'error_then'
@@ -54,23 +55,6 @@ DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
     TAG_KEY_REPEATING: False,
 }
-
-ENUMERATIONS = set([
-    'BallotMeasureType',
-    'CandidatePostElectionStatus',
-    'CandidatePreElectionStatus',
-    'DistrictType',
-    'IdentifierType',
-    'OebEnum',
-    'OfficeTermType',
-    'VoteVariation',
-    'VoterServiceType',
-])
-
-SIMPLE_TYPES = set([
-    'HtmlColorString',
-    'TimeWithZone',
-])
 
 _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 
@@ -149,12 +133,14 @@ def write(path, text):
         f.write(text)
 
 
-def get_all_files(dir_path, ext=None):
+def get_all_files(parent_dir, ext=None):
+    """Return a list of paths relative to the given dir_path."""
     paths = []
-    for root_dir, dir_paths, file_names in os.walk(dir_path):
+    for root_dir, dir_paths, file_names in os.walk(parent_dir):
         for file_name in file_names:
             path = os.path.join(root_dir, file_name)
-            paths.append(path)
+            rel_path = os.path.relpath(path, start=parent_dir)
+            paths.append(rel_path)
     if ext is not None:
         paths = [p for p in paths if os.path.splitext(p)[1] == ext]
 
@@ -203,24 +189,47 @@ def normalize_yaml(path):
     write_yaml(data, path)
 
 
-def read_type_info(yaml_path):
-    type_info = read_yaml(yaml_path)
-    type_name = type_info['name']
-    tags = type_info['tags']
-    for tag in tags:
-        tag['containing_type'] = type_name
-    return type_info
+def read_type(parent_dir, rel_path):
+    yaml_path = os.path.join(parent_dir, rel_path)
+    type_yaml = read_yaml(yaml_path)
+    data_type = DataType.from_yaml(type_yaml, rel_path=rel_path)
+    return data_type
 
 
-def is_tag_field(tag_data):
-    tag_type = tag_data[TAG_KEY_TYPE]
-    return (tag_type.startswith('xs:') or tag_type in ENUMERATIONS or
-            tag_type in SIMPLE_TYPES)
+def read_types():
+    parent_dir = DATA_DIR
+    data_types = {}
+    rel_paths = get_all_files(parent_dir, ext='.yaml')
+    for rel_path in rel_paths:
+        data_type = read_type(parent_dir, rel_path)
+        type_name = data_type.name
+        data_types[type_name] = data_type
+
+    return data_types
 
 
-def get_tag_value(tag_data, key):
-    if key == TAG_KEY_ERROR_HANDLE:
-        return get_error_value(tag_data)
+def get_type(all_types, type_name):
+    try:
+        data_type = all_types[type_name]
+    except KeyError:
+        all_names = sorted(all_types.keys())
+        raise Exception("available type names: {0}".format(", ".join(all_names)))
+
+    return data_type
+
+
+def is_tag_field(all_types, tag_data):
+    type_name = tag_data[TAG_KEY_TYPE]
+    try:
+        data_type = all_types[type_name]
+    except KeyError:
+        # Then we assume it is a simple type like "xs:string" or "TimeWithZone".
+        return True
+    return data_type.is_enum
+
+
+def get_simple_tag_value(tag_data, key):
+    """This works for everything except for the error values."""
     try:
         try:
             value = tag_data[key]
@@ -232,57 +241,57 @@ def get_tag_value(tag_data, key):
     return value
 
 
-def make_error_if(tag_data):
-    noun = 'field' if is_tag_field(tag_data) else 'element'
-    required = get_tag_value(tag_data, TAG_KEY_REQUIRED)
+def make_error_if(all_types, tag_data):
+    noun = 'field' if is_tag_field(all_types, tag_data) else 'element'
+    required = get_simple_tag_value(tag_data, TAG_KEY_REQUIRED)
     condition = 'invalid' if required else 'invalid or not present'
 
     return "If the {noun} is {condition},".format(noun=noun, condition=condition)
 
 
-def make_error_if_then(tag_data, error_then):
+def make_error_if_then(all_types, tag_data, error_then):
     if error_then.startswith('='):
         error_then_format = _ERROR_THENS[error_then]
         containing_type = tag_data['containing_type']
         error_then = error_then_format.format(containing_type=containing_type)
-    error_if = make_error_if(tag_data)
+    error_if = make_error_if(all_types, tag_data)
     error = "{0} then {1}".format(error_if, error_then)
 
     return error
 
 
-def make_error_default(tag_data):
-    required = get_tag_value(tag_data, TAG_KEY_REQUIRED)
+def make_error_default(all_types, tag_data):
+    required = get_simple_tag_value(tag_data, TAG_KEY_REQUIRED)
     if not required:
         raise Exception('we have not defined a default "error" value for '
                         "tags that are not required.\n"
                         "tag data:\n{0}".format(pformat(tag_data)))
     error_then = _ERROR_THEN_FORMAT_REQUIRED.format(**tag_data)
-    error = make_error_if_then(tag_data, error_then)
+    error = make_error_if_then(all_types, tag_data, error_then)
     return error
 
 
-def make_error(tag_data):
+def make_error(all_types, tag_data):
     try:
         error = tag_data[_TAG_KEY_ERROR]
     except KeyError:
-        error = make_error_default(tag_data)
+        error = make_error_default(all_types, tag_data)
     return error
 
 
-def make_error_initial(tag_data):
+def make_error_initial(all_types, tag_data):
     try:
         error_then = tag_data[_TAG_KEY_ERROR_THEN]
     except KeyError:
-        error = make_error(tag_data)
+        error = make_error(all_types, tag_data)
     else:
-        error = make_error_if_then(tag_data, error_then)
+        error = make_error_if_then(all_types, tag_data, error_then)
 
     return error
 
 
-def get_error_value(tag_data):
-    error = make_error_initial(tag_data)
+def get_error_value(all_types, tag_data):
+    error = make_error_initial(all_types, tag_data)
     try:
         error_extra = tag_data[_TAG_KEY_ERROR_EXTRA]
     except KeyError:
@@ -291,3 +300,58 @@ def get_error_value(tag_data):
         error += " " + error_extra
 
     return error
+
+
+def get_tag_value(all_types, tag_data, key):
+    if key == TAG_KEY_ERROR_HANDLE:
+        value = get_error_value(all_types, tag_data)
+    else:
+        value = get_simple_tag_value(tag_data, key)
+
+    return value
+
+
+class DataType(object):
+
+    @classmethod
+    def from_yaml(cls, type_yaml, rel_path):
+        file_name = os.path.basename(rel_path)
+        snake_name, ext = os.path.splitext(file_name)
+
+        type_name = type_yaml['name']
+        type_data = copy.deepcopy(type_yaml)
+        tags = type_data['tags']
+        for tag in tags:
+            tag['containing_type'] = type_name
+
+        is_enum = 'enumerations' in rel_path
+
+        return cls(type_yaml, type_data, rel_path, snake_name=snake_name, is_enum=is_enum)
+
+    def __init__(self, yaml, data, rel_path, snake_name, is_enum):
+        self.data = data
+        self.is_enum = is_enum
+        self.rel_path = rel_path
+        self.snake_name = snake_name
+        self.yaml = yaml
+
+    def __repr__(self):
+        return ("<DataType object (name={0!r}, path={1!r})>"
+                .format(self.name, self.rel_path))
+
+    @property
+    def name(self):
+        return self.data['name']
+
+    @property
+    def tags(self):
+        return self.data['tags']
+
+    @property
+    def table_path(self):
+        """Return a path relative to the repo root."""
+        rel_path = self.rel_path
+        root, ext = os.path.splitext(rel_path)
+        rest_rel_path = "{0}.rst".format(root)
+        path = os.path.join(TABLES_DIR, rest_rel_path)
+        return path

@@ -88,43 +88,45 @@ ELEMENT_CELL_VALUES = {
 ENUMERATION_CELL_VALUES = {}
 
 
-def get_type_info(path):
-    if 'elements' in path:
-        column_infos = ELEMENT_COLUMNS
-        cell_values = ELEMENT_CELL_VALUES
-    else:
+def get_type_info(data_type):
+    if data_type.is_enum:
         column_infos = ENUMERATION_COLUMNS
         cell_values = ENUMERATION_CELL_VALUES
+    else:
+        column_infos = ELEMENT_COLUMNS
+        cell_values = ELEMENT_CELL_VALUES
     return column_infos, cell_values
 
 
-def make_table(yaml_path):
-    type_info = common.read_type_info(yaml_path)
-    formatter = make_table_formatter(yaml_path)
-    lines = formatter.make_table(type_info)
+def make_table_formatter(all_types, data_type):
+    column_infos, cell_values = get_type_info(data_type)
+    keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
+    formatter = TableFormatter(all_types=all_types, headers=headers, keys=keys,
+                               widths=widths, cell_values=cell_values)
+    return formatter
+
+
+def make_table(all_types, data_type):
+    formatter = make_table_formatter(all_types, data_type)
+    lines = formatter.make_table(data_type)
     table = "\n".join(lines) + "\n"
 
     return table
 
 
-def update_table_file(parent_dir, yaml_path):
-    rel_path = os.path.relpath(yaml_path, start=parent_dir)
-    root, ext = os.path.splitext(rel_path)
-    rest_rel_path = "{0}.rst".format(root)
-    rest_path = os.path.join(common.TABLES_DIR, rest_rel_path)
-    try:
-        table = make_table(yaml_path)
-    except Exception:
-        raise Exception("while processing: {0}".format(yaml_path))
-    text = TABLE_COMMENT + table
-    common.write(rest_path, text)
+def update_table_files(type_name=None):
+    all_types = common.read_types()
+    if type_name is None:
+        type_names = sorted(all_types.keys())
+    else:
+        type_names = [type_name]
 
-
-def make_table_formatter(path):
-    column_infos, cell_values = get_type_info(path)
-    keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
-    formatter = TableFormatter(headers=headers, keys=keys, widths=widths, cell_values=cell_values)
-    return formatter
+    for type_name in type_names:
+        data_type = common.get_type(all_types, type_name)
+        table = make_table(all_types, data_type)
+        text = TABLE_COMMENT + table
+        rest_path = data_type.table_path
+        common.write(rest_path, text)
 
 
 def parse_row(iter_lines):
@@ -236,7 +238,7 @@ def analyze_types():
     for yaml_path in yaml_paths:
 #        _log.info("processing: {0}".format(path))
         formatter = make_table_formatter(yaml_path)
-        type_info = common.read_type_info(yaml_path)
+        type_info = common.read_type(yaml_path)
         type_yaml = common.read_yaml(yaml_path)
         tags_data = type_info['tags']
         tags_yaml = type_yaml['tags']
@@ -255,7 +257,8 @@ class TableFormatter(object):
     # The size of the left and right margin of each cell as a number of spaces.
     margin = 1
 
-    def __init__(self, cell_values, headers, keys, widths):
+    def __init__(self, all_types, cell_values, headers, keys, widths):
+        self.all_types = all_types
         self.cell_values = cell_values
         self.headers = headers
         self.keys = keys
@@ -266,7 +269,7 @@ class TableFormatter(object):
                              break_on_hyphens=False)
 
     def get_cell_value(self, tag_data, key):
-        data_value = common.get_tag_value(tag_data, key)
+        data_value = common.get_tag_value(self.all_types, tag_data, key)
         try:
             conversions = self.cell_values[key]
         except KeyError:
@@ -331,8 +334,8 @@ class TableFormatter(object):
         lines = self.make_row(cell_values, widths=widths)
         return lines
 
-    def make_table(self, type_info):
-        tags = type_info['tags']
+    def make_table(self, data_type):
+        tags = data_type.tags
         widths = self.make_widths(self.headers, tags)
         lines = [self.make_divider(widths)]
         lines.extend(self.make_row(self.headers, widths, separator='='))
