@@ -63,7 +63,7 @@ def _wrap(text):
     return text
 
 
-def ns_to_paths(ns, dir_path, ext):
+def ns_to_rel_paths(ns, dir_path, ext):
     path = ns.path
     if path:
         paths = [path]
@@ -78,14 +78,15 @@ def command_analyze_types(ns):
 
 def command_norm_yaml(ns):
     parent_dir = common.DATA_DIR
-    paths = ns_to_paths(ns, dir_path=parent_dir, ext='.yaml')
-    for path in paths:
+    rel_paths = ns_to_rel_paths(ns, dir_path=parent_dir, ext='.yaml')
+    for rel_path in rel_paths:
+        path = os.path.join(parent_dir, rel_path)
         common.normalize_yaml(path)
 
 
 def command_parse_tables(ns):
     parent_dir = common.XML_DIR
-    paths = ns_to_paths(ns, dir_path=parent_dir, ext='.rst')
+    paths = ns_to_rel_paths(ns, dir_path=parent_dir, ext='.rst')
     for path in paths:
         rest.parse_tables(parent_dir, path)
 
