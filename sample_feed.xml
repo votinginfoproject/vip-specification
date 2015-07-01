@@ -2184,145 +2184,123 @@
 
   <!-- Street segments -->
   <StreetSegment id="ss999999">
-    <NonHouseAddress>
-      <City>Charlottesville</City>
-      <State>VA</State>
-      <StreetName>CHAPEL HILL</StreetName>
-      <StreetSuffix>RD</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>Charlottesville</City>
     <IncludesAllAddresses>true</IncludeAllAddresses>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre99999</PrecinctId>
+    <State>VA</State>
+    <StreetName>CHAPEL HILL</StreetName>
+    <StreetSuffix>RD</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss309904">
-    <NonHouseAddress>
-      <City>GREENWOOD</City>
-      <State>VA</State>
-      <StreetName>MISTY MOUNTAIN</StreetName>
-      <StreetSuffix>RD</StreetSuffix>
-      <Zip>22943</Zip>
-    </NonHouseAddress>
+    <City>GREENWOOD</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>201</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>MISTY MOUNTAIN</StreetName>
+    <StreetSuffix>RD</StreetSuffix>
+    <Zip>22943</Zip>
   </StreetSegment>
   <StreetSegment id="ss321552">
-    <NonHouseAddress>
-      <City>CROZET</City>
-      <State>VA</State>
-      <StreetName>PATTERSON MILL</StreetName>
-      <StreetSuffix>LN</StreetSuffix>
-      <Zip>22932</Zip>
-    </NonHouseAddress>
+    <City>CROZET</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>521</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>PATTERSON MILL</StreetName>
+    <StreetSuffix>LN</StreetSuffix>
+    <Zip>22932</Zip>
   </StreetSegment>
   <StreetSegment id="ss322357">
-    <NonHouseAddress>
-      <City>CROZET</City>
-      <State>VA</State>
-      <StreetName>BURCHS CREEK</StreetName>
-      <StreetSuffix>RD</StreetSuffix>
-      <Zip>22932</Zip>
-    </NonHouseAddress>
+    <City>CROZET</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>572</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>BURCHS CREEK</StreetName>
+    <StreetSuffix>RD</StreetSuffix>
+    <Zip>22932</Zip>
   </StreetSegment>
   <StreetSegment id="ss302292">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>ARBOR CREST</StreetName>
-      <StreetSuffix>DR</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90111</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>110</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>ARBOR CREST</StreetName>
+    <StreetSuffix>DR</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss307486">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>GEORGETOWN</StreetName>
-      <StreetSuffix>GRN</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90348sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>180</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>GEORGETOWN</StreetName>
+    <StreetSuffix>GRN</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss311518">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>ASHWOOD</StreetName>
-      <StreetSuffix>BLVD</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90614</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>2399</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>ASHWOOD</StreetName>
+    <StreetSuffix>BLVD</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
   <StreetSegment id="ss327061">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>ROCKBROOK</StreetName>
-      <StreetSuffix>DR</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90666</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>9</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>ROCKBROOK</StreetName>
+    <StreetSuffix>DR</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss303181">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>GARNETT CENTER</StreetName>
-      <StreetSuffix>DR</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90994sp0001</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>120</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>GARNETT CENTER</StreetName>
+    <StreetSuffix>DR</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
   <StreetSegment id="ss305809">
-    <NonHouseAddress>
-      <City>Charlottesville</City>
-      <State>VA</State>
-      <StreetName>Steubin</StreetName>
-      <StreetSuffix>Ln</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>Charlottesville</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>151</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>Steubin</StreetName>
+    <StreetSuffix>Ln</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
   <StreetSegment id="ss315262">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>VINCENNES</StreetName>
-      <StreetSuffix>CT</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>31</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>VINCENNES</StreetName>
+    <StreetSuffix>CT</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
 </VipObject>
