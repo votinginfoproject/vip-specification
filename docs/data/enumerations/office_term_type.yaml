@@ -1,0 +1,8 @@
+name: OfficeTermType
+tags:
+- _name: full-term
+  description: This election is for an office for which the existing term has been
+    completed.
+- _name: unexpired-term
+  description: This election is for an office for which the original term is not yet
+    complete.

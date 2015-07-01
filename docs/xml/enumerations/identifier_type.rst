@@ -5,22 +5,7 @@ IdentifierType
 
    Document IdentifierType
 
-+----------------------+-------------------------------------------------------------------------------------+
-| Name                 | Description                                                                         |
-|                      |                                                                                     |
-+======================+=====================================================================================+
-| fips                 | Federal Information Processing Standards codes for states_, counties_, and cities_. |
-+----------------------+-------------------------------------------------------------------------------------+
-| local-level          | An identifier generated or used by local governments or organizations.              |
-+----------------------+-------------------------------------------------------------------------------------+
-| national-level       | An identifier generated or used by national organizations.                          |
-+----------------------+-------------------------------------------------------------------------------------+
-| ocd-id               | An `Open Civic Data Division Identifier`_.                                          |
-+----------------------+-------------------------------------------------------------------------------------+
-| state-level          | An identifier generated or used by state governments or organizations.              |
-+----------------------+-------------------------------------------------------------------------------------+
-| other                | Any identifier which doesn't fall into any of the above categories.                 |
-+----------------------+-------------------------------------------------------------------------------------+
+.. include:: ../../tables/enumerations/identifier_type.rst
 
 .. _states: http://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code
 .. _counties: http://en.wikipedia.org/wiki/FIPS_county_code

@@ -1,0 +1,10 @@
+name: RetentionContest
+tags:
+- _name: CandidateId
+  description: Links to the :doc:`Candidate <candidate>` being retained.
+  required: true
+  type: xs:IDREF
+- _name: OfficeId
+  description: Links to the information about the office.
+  error_then: =must-ignore
+  type: xs:IDREF

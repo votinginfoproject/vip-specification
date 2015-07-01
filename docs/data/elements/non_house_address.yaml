@@ -1,0 +1,39 @@
+name: NonHouseAddress
+tags:
+- _name: AddressDirection
+  description: Specifies the (inter-)cardinal direction of the entire address. An
+    example is "NE" for the address "100 E Capitol St NE."
+  error_then: =must-ignore
+  type: xs:string
+- _name: City
+  description: The city specifies the city or town of the address.
+  required: true
+  type: xs:string
+- _name: State
+  description: Specifies the two-letter state abbreviation of the address.
+  required: true
+  type: xs:string
+- _name: StreetDirection
+  description: Specifies the (inter-)cardinal direction of the street address (e.g.,
+    the "E" in "100 E Capitol St NE").
+  error_then: =must-ignore
+  type: xs:string
+- _name: StreetName
+  description: Represents the name of the street for the address. A special wildcard,
+    "*", denotes every street in the given city/town. It optionally may contain street
+    direction, street suffix or address direction (e.g., both "Capitol" and "E Capitol
+    St NE" are acceptable for the address "100 E Capitol St NE"), however this is
+    not preferred. Preferred is street name alone (e.g. "Capitol").
+  required: true
+  type: xs:string
+- _name: StreetSuffix
+  description: Represents the abbreviated, non-directional suffix to the street name.
+    An example is "St" for the address "100 E Capitol St NE."
+  error_then: =must-ignore
+  type: xs:string
+- _name: Zip
+  description: Specifies the zip code of the address. It may be 5 or 9 digits, and
+    it may include a hyphen ('-'). It is required as it helps with geocoding, which
+    is crucial for distributors.
+  required: true
+  type: xs:string

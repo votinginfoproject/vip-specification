@@ -1,0 +1,15 @@
+name: LatLng
+tags:
+- _name: Latitude
+  description: The latitude of the polling location.
+  required: true
+  type: xs:float
+- _name: Longitude
+  description: The longitude of the polling location.
+  required: true
+  type: xs:float
+- _name: Source
+  description: The system used to perform the lookup from location name to lat/lng.
+    For example, this could be the name of a geocoding service.
+  error_then: =must-ignore
+  type: xs:string

@@ -1,0 +1,6 @@
+name: BallotMeasureSelection
+tags:
+- _name: Selection
+  description: Selection text for a :doc:`BallotMeasureContest <ballot_measure_contest>`
+  required: true
+  type: InternationalizedText

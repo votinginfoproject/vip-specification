@@ -29,13 +29,34 @@ While the following information shouldn't be considered hard-and-fast rules, the
 
 At any one point in time ("feature/" and "bug/" temporary branches aside), there should only be a dev branch (called 'vip5' in the vip-specification's case, but it may change to simply 'dev' in the future), a stable branch (called 'master' in most cases), and, if necessary, a documentation branch (called 'gh-pages' if hosted on GitHub).
 
-# Installing Sphinx
-In order to build the documentation, you must install [Sphinx](http://sphinx-doc.org), which involves first [installing python](https://www.python.org/downloads/). Once python is installed, you should have access to the python package installer, `pip`. Open a terminal window and enter the following commands:
+## Dev Environment
+
+This section explains how to set up your local development environment for
+contributing.  First, [install Python][python_download].  We recommend
+installing the latest stable version of Python 3 (Python 3.4.3 as of June 2015).
+
+We also recommend setting up a virtual environment for the repo (e.g. using
+[virtualenv][virtualenv]) prior to installing dependencies.
+
+Use [`pip`][pip] to install dependencies, which comes with Python 3.4+
+(and is installed automatically when creating a virtual environment).
+Open a terminal window and run:
 
 ```sh
-$ pip install Sphinx
+$ pip install Sphinx PyYAML
+```
+
+([Sphinx](http://sphinx-doc.org) is for building the documentation.)
+
+
+## Building the Documentation
+
+To build the documentation:
+
+```sh
+$ python scripts/vip.py update_tables
 $ cd /path/to/vip-specification/docs/
-$ build html
+$ make html
 ```
 
 To see changes to the documentation as the files are edited, use the following command:
@@ -45,3 +66,8 @@ $ sphinx-autobuild . _build/html
 ```
 
 Once the above command is executed, open a browser and enter http://127.0.0.1:8000 to see the documentation.
+
+
+[pip]: https://pip.pypa.io/en/stable/
+[python_download]: https://www.python.org/downloads
+[virtualenv]: https://pypi.python.org/pypi/virtualenv/
