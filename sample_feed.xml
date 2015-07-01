@@ -2192,7 +2192,7 @@
       <StreetSuffix>RD</StreetSuffix>
       <Zip>22901</Zip>
     </NonHouseAddress>
-    <IncludesAllAddresses>true</IncludeAllAddresses>
+    <IncludesAllAddresses>true</IncludesAllAddresses>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre99999</PrecinctId>
   </StreetSegment>
