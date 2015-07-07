@@ -2186,7 +2186,7 @@
   <!-- Street segments -->
   <StreetSegment id="ss999999">
     <City>Charlottesville</City>
-    <IncludesAllAddresses>true</IncludeAllAddresses>
+    <IncludesAllAddresses>true</IncludesAllAddresses>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre99999</PrecinctId>
     <State>VA</State>
