@@ -217,8 +217,8 @@
   <xs:complexType name="ContactInformation">
     <xs:sequence>
       <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Email" type="PurposeString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Fax" type="PurposeString" minOccurs="0" maxOccurs="unbounded" />
       <!-- Note: The "Hours" element is being deprecated and will be removed
            in future versions of VIP.
         -->
@@ -226,7 +226,7 @@
       <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="xs:string" minOccurs="0" />
-      <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Phone" type="PurposeString" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="identifier" type="xs:string" use="required" />
@@ -520,6 +520,17 @@
       <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
+  </xs:complexType>
+
+  <!--
+      PurposeString: a type representing a string with a purpose specified.
+    -->
+  <xs:complexType name="PurposeString">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="purpose" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
   </xs:complexType>
 
   <xs:complexType name="RetentionContest">
