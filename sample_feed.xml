@@ -908,7 +908,7 @@
       <AddressLine>Washington, DC 20006</AddressLine>
       <Email>president@whitehouse.gov</Email>
       <Phone>202-456-1111</Phone>
-      <Phone purpose="TDD">202-456-6213</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
       <Uri>http://www.whitehouse.gov</Uri>
     </ContactInformation>
     <FirstName>Barack</FirstName>
@@ -2187,7 +2187,7 @@
   <!-- Street segments -->
   <StreetSegment id="ss999999">
     <City>Charlottesville</City>
-    <IncludesAllAddresses>true</IncludeAllAddresses>
+    <IncludesAllAddresses>true</IncludesAllAddresses>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre99999</PrecinctId>
     <State>VA</State>
