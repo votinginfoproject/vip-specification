@@ -27,7 +27,7 @@ Candidate object may be used.
 |                     |                                                 |              |          |                      |                      |
 |                     |                                                 |              |          |                      |                      |
 +---------------------+-------------------------------------------------+--------------+----------+----------------------+----------------------+
-| FileDate            |xs:dateTime                                      | Optional     | Single   |Date and time when the|If the field is       |
+| FileDate            |xs:date                                          | Optional     | Single   |Date when the         |If the field is       |
 |                     |                                                 |              |          |candidate filed for   |invalid or not        |
 |                     |                                                 |              |          |the contest.          |present, then the     |
 |                     |                                                 |              |          |                      |implementation is     |

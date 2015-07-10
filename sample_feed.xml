@@ -329,6 +329,17 @@
       <Type>full-term</Type>
     </Term>
   </Office>
+  <Office id="off20006">
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <FilingDeadline>1900-01-01</FilingDeadline>
+    <IsPartisan>false</IsPartisan>
+    <Name>
+      <Text language="en">Justice, Supreme Court of Virginia</Text>
+    </Name>
+    <Term>
+      <Type>full-term</Type>
+    </Term>
+  </Office>
   <!--
        There are several House of Delegates offices up for election in this
        county. Multiple offices may share the same name, but need distinct
@@ -657,6 +668,22 @@
     </ProStatement>
     <Type>referendum</Type>
   </BallotMeasureContest>
+  <!--
+       Virginia does not actually elect their judges; this is for demonstration
+       and documentation purposes only.
+    -->
+  <RetentionContest id="rc40001">
+    <BallotSelectionId>rc40001a</BallotSelectionId>
+    <BallotSelectionId>rc40001b</BallotSelectionId>
+    <BallotTitle>
+      <Text language="en">Retention of Supreme Court Justice</Text>
+      <Text language="es">La retención de juez de la Corte Suprema</Text>
+    </BallotTitle>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <Name>Judicial Retention, Supreme Court</Name>
+    <CandidateId>can14444</CandidateId>
+    <OfficeId>off20006</OfficeId>
+  </RetentionContest>
 
   <!-- The various ballot styles in use by the different precincts. -->
   <BallotStyle id="bs00000">
@@ -668,6 +695,7 @@
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00001">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -678,6 +706,7 @@
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00002">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -688,6 +717,7 @@
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00003">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -696,6 +726,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00004">
     <OrderedContestId>oc20003bca</OrderedContestId>
@@ -703,6 +734,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20024</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00005">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -711,6 +743,7 @@
     <OrderedContestId>oc20005</OrderedContestId>
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00006">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -721,6 +754,7 @@
     <OrderedContestId>oc20350</OrderedContestId>
     <OrderedContestId>oc20473</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00007">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -731,6 +765,7 @@
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00008">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -742,6 +777,7 @@
     <OrderedContestId>oc20355</OrderedContestId>
     <OrderedContestId>oc20449</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00009">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -751,6 +787,7 @@
     <OrderedContestId>oc20100</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00010">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -761,6 +798,7 @@
     <OrderedContestId>oc20305</OrderedContestId>
     <OrderedContestId>oc20476</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
   <BallotStyle id="bs00011">
     <OrderedContestId>oc20002</OrderedContestId>
@@ -770,6 +808,7 @@
     <OrderedContestId>oc20025</OrderedContestId>
     <OrderedContestId>oc20262</OrderedContestId>
     <OrderedContestId>oc30001</OrderedContestId>
+    <OrderedContestId>oc40001</OrderedContestId>
   </BallotStyle>
 
   <!--
@@ -791,22 +830,22 @@
   </OrderedContest>
   <!-- Start of ballot rotation examples for the gubenatorial race. -->
   <OrderedContest id="oc20003abc">
-    <BallotSelectionId>cs10961</BallotSelectionId>
-    <BallotSelectionId>cs10962</BallotSelectionId>
-    <BallotSelectionId>cs10963</BallotSelectionId>
     <ContestId>cc20003</ContestId>
+    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
   </OrderedContest>
   <OrderedContest id="oc20003bca">
-    <BallotSelectionId>cs10962</BallotSelectionId>
-    <BallotSelectionId>cs10963</BallotSelectionId>
-    <BallotSelectionId>cs10961</BallotSelectionId>
     <ContestId>cc20003</ContestId>
+    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
   </OrderedContest>
   <OrderedContest id="oc20003cab">
-    <BallotSelectionId>cs10963</BallotSelectionId>
-    <BallotSelectionId>cs10961</BallotSelectionId>
-    <BallotSelectionId>cs10962</BallotSelectionId>
     <ContestId>cc20003</ContestId>
+    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
+    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
   </OrderedContest>
   <!-- End of ballot rotation for gubenatorial race. -->
   <OrderedContest id="oc20005">
@@ -842,6 +881,9 @@
   <OrderedContest id="oc30001">
     <ContestId>bmc30001</ContestId>
   </OrderedContest>
+  <OrderedContest id="oc40001">
+    <ContestId>rc40001</ContestId>
+  </OrderedContest>
 
   <!--
        CandidateSelections (i.e., an item on a ballot you can select) and the
@@ -856,6 +898,7 @@
     <BallotName>
       <Text language="en">Barack H. Obama</Text>
     </BallotName>
+    <FileDate>2015-06-01</FileDate>
     <PartyId>par0003</PartyId>
     <PersonId>per10861a</PersonId>
   </Candidate>
@@ -865,6 +908,7 @@
       <AddressLine>Washington, DC 20006</AddressLine>
       <Email>president@whitehouse.gov</Email>
       <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
       <Uri>http://www.whitehouse.gov</Uri>
     </ContactInformation>
     <FirstName>Barack</FirstName>
@@ -1091,6 +1135,23 @@
     <MiddleName>R.</MiddleName>
     <PartyId>par0003</PartyId>
   </Person>
+  <!--
+       This is a candidate for judicial retention. We don't select the
+       candidate, but we do need to know about them in order to vote
+       yes/no on them.
+    -->
+  <Candidate id="can14444">
+    <BallotName>
+      <Text language="en">Cleo E. Powell</Text>
+    </BallotName>
+    <PersonId>per14444</PersonId>
+  </Candidate>
+  <Person id="per14444">
+    <FirstName>Cleo</FirstName>
+    <LastName>Powell</LastName>
+    <MiddleName>E.</MiddleName>
+  </Person>
+  <!-- End Judicial candidate block -->
   <CandidateSelection id="cs10422">
     <CandidateId>can10422</CandidateId>
     <EndorsementPartyId>par0001</EndorsementPartyId>
@@ -1463,8 +1524,33 @@
       <Text language="es">No</Text>
     </Selection>
   </BallotMeasureSelection>
+  <!-- Retention contest selections -->
+  <BallotMeasureSelection id="rc40001a">
+    <Selection identifier="rc40001at">
+      <Text language="en">Yes</Text>
+      <Text language="es">Sí</Text>
+    </Selection>
+  </BallotMeasureSelection>
+  <BallotMeasureSelection id="rc40001b">
+    <Selection identifier="rc40001bt">
+      <Text language="en">No</Text>
+      <Text language="es">No</Text>
+    </Selection>
+  </BallotMeasureSelection>
 
   <!-- The polling locations in this jurisdiction. -->
+  <PollingLocation id="pl00000">
+    <AddressLine>DEPARTMENT OF VOTER REGISTRATION AND ELECTIONS</AddressLine>
+    <AddressLine>1600 5TH STREET</AddressLine>
+    <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
+    <HoursOpenId>hours0002</HoursOpenId>
+    <IsDropBox>true</IsDropBox>
+    <IsEarlyVoting>true</IsEarlyVoting>
+    <LatLng>
+      <Latitude>38.009939</Latitude>
+      <Longitude>-78.506204</Longitude>
+    </LatLng>
+  </PollingLocation>
   <PollingLocation id="pl81273">
     <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
     <AddressLine>2775 Hydraulic Rd</AddressLine>
@@ -1698,6 +1784,16 @@
        The precincts which tie it all together. These link ballot styles,
        electoral districts, localities, and polling locations.
     -->
+  <Precinct id="pre99999">
+    <BallotStyleId>bs00000</BallotStyleId>
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+    <IsMailOnly>true</IsMailOnly>
+    <LocalityId>loc70001</LocalityId>
+    <Name>9999 - PERMANENT MAIL-IN</Name>
+    <Number>9999</Number>
+  </Precinct>
   <Precinct id="pre90111">
     <BallotStyleId>bs00010</BallotStyleId>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
@@ -1707,6 +1803,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>203 - GEORGETOWN</Name>
     <Number>0203</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81274</PollingLocationId>
   </Precinct>
@@ -1719,6 +1816,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>103 - BRANCHLANDS</Name>
     <Number>0103</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80232</PollingLocationId>
   </Precinct>
@@ -1730,6 +1828,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>602 - FREE UNION</Name>
     <Number>0602</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81853</PollingLocationId>
   </Precinct>
@@ -1742,6 +1841,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81662</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1755,6 +1855,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81662</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1767,6 +1868,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>503 - HOLLYMEAD</Name>
     <Number>0503</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80142</PollingLocationId>
   </Precinct>
@@ -1779,6 +1881,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>105 - DUNLORA</Name>
     <Number>0105</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80522</PollingLocationId>
   </Precinct>
@@ -1791,6 +1894,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>406 - STONE ROBINSON</Name>
     <Number>0406</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81500</PollingLocationId>
   </Precinct>
@@ -1802,6 +1906,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80469</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1814,6 +1919,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80469</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1826,6 +1932,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81516</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1838,6 +1945,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81516</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1851,6 +1959,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>106 - NORTHSIDE</Name>
     <Number>0106</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82419</PollingLocationId>
   </Precinct>
@@ -1863,6 +1972,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>202 - UNIVERSITY HALL</Name>
     <Number>0202</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81466</PollingLocationId>
   </Precinct>
@@ -1876,6 +1986,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81857</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1889,6 +2000,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81857</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1902,6 +2014,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>302 - RED HILL</Name>
     <Number>0302</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81990</PollingLocationId>
   </Precinct>
@@ -1914,6 +2027,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>405 - CALE</Name>
     <Number>0405</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82177</PollingLocationId>
   </Precinct>
@@ -1926,6 +2040,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>305 - COUNTRY GREEN</Name>
     <Number>0305</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80548</PollingLocationId>
   </Precinct>
@@ -1937,6 +2052,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>604 - BROWNSVILLE</Name>
     <Number>0604</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81939</PollingLocationId>
   </Precinct>
@@ -1948,6 +2064,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>501 - KESWICK</Name>
     <Number>0501</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80354</PollingLocationId>
   </Precinct>
@@ -1959,6 +2076,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>601 - CROZET</Name>
     <Number>0601</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82204</PollingLocationId>
   </Precinct>
@@ -1971,6 +2089,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80541</PollingLocationId>
     <PrecinctSplitName>0000</PrecinctSplitName>
@@ -1984,6 +2103,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80541</PollingLocationId>
     <PrecinctSplitName>0001</PrecinctSplitName>
@@ -1997,6 +2117,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>104 - AGNOR-HURT</Name>
     <Number>0104</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80432</PollingLocationId>
   </Precinct>
@@ -2009,6 +2130,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>204 - BELFIELD</Name>
     <Number>0204</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81191</PollingLocationId>
   </Precinct>
@@ -2021,6 +2143,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>402 - MONTICELLO</Name>
     <Number>0402</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl82220</PollingLocationId>
   </Precinct>
@@ -2032,6 +2155,7 @@
     <LocalityId>loc70001</LocalityId>
     <Name>603 - EARLYSVILLE</Name>
     <Number>0603</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl80131</PollingLocationId>
   </Precinct>
@@ -2055,139 +2179,130 @@
     <LocalityId>loc70001</LocalityId>
     <Name>304 - EAST IVY</Name>
     <Number>0304</Number>
+    <PollingLocationId>pl00000</PollingLocationId>
     <PollingLocationId>pl81273</PollingLocationId>
     <PollingLocationId>pl81213</PollingLocationId>
   </Precinct>
 
   <!-- Street segments -->
-  <StreetSegment id="ss309904">
-    <NonHouseAddress>
-      <City>GREENWOOD</City>
-      <State>VA</State>
-      <StreetName>MISTY MOUNTAIN</StreetName>
-      <StreetSuffix>RD</StreetSuffix>
-      <Zip>22943</Zip>
-    </NonHouseAddress>
+  <StreetSegment id="ss999999">
+    <City>Charlottesville</City>
+    <IncludesAllAddresses>true</IncludesAllAddresses>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90065</PrecinctId>
+    <PrecinctId>pre99999</PrecinctId>
+    <State>VA</State>
+    <StreetName>CHAPEL HILL</StreetName>
+    <StreetSuffix>RD</StreetSuffix>
+    <Zip>22901</Zip>
+  </StreetSegment>
+  <StreetSegment id="ss309904">
+    <City>GREENWOOD</City>
+    <OddEvenBoth>both</OddEvenBoth>
+    <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>201</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>MISTY MOUNTAIN</StreetName>
+    <StreetSuffix>RD</StreetSuffix>
+    <Zip>22943</Zip>
   </StreetSegment>
   <StreetSegment id="ss321552">
-    <NonHouseAddress>
-      <City>CROZET</City>
-      <State>VA</State>
-      <StreetName>PATTERSON MILL</StreetName>
-      <StreetSuffix>LN</StreetSuffix>
-      <Zip>22932</Zip>
-    </NonHouseAddress>
+    <City>CROZET</City>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90065</PrecinctId>
+    <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>521</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>PATTERSON MILL</StreetName>
+    <StreetSuffix>LN</StreetSuffix>
+    <Zip>22932</Zip>
   </StreetSegment>
   <StreetSegment id="ss322357">
-    <NonHouseAddress>
-      <City>CROZET</City>
-      <State>VA</State>
-      <StreetName>BURCHS CREEK</StreetName>
-      <StreetSuffix>RD</StreetSuffix>
-      <Zip>22932</Zip>
-    </NonHouseAddress>
+    <City>CROZET</City>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90065</PrecinctId>
+    <PrecinctId>pre92145</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>572</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>BURCHS CREEK</StreetName>
+    <StreetSuffix>RD</StreetSuffix>
+    <Zip>22932</Zip>
   </StreetSegment>
   <StreetSegment id="ss302292">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>ARBOR CREST</StreetName>
-      <StreetSuffix>DR</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90111</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>110</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>ARBOR CREST</StreetName>
+    <StreetSuffix>DR</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss307486">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>GEORGETOWN</StreetName>
-      <StreetSuffix>GRN</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90348</PrecinctId>
+    <PrecinctId>pre90348sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>180</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>GEORGETOWN</StreetName>
+    <StreetSuffix>GRN</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss311518">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>ASHWOOD</StreetName>
-      <StreetSuffix>BLVD</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90614</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>2399</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>ASHWOOD</StreetName>
+    <StreetSuffix>BLVD</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
   <StreetSegment id="ss327061">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>ROCKBROOK</StreetName>
-      <StreetSuffix>DR</StreetSuffix>
-      <Zip>22901</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
     <PrecinctId>pre90666</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>9</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>ROCKBROOK</StreetName>
+    <StreetSuffix>DR</StreetSuffix>
+    <Zip>22901</Zip>
   </StreetSegment>
   <StreetSegment id="ss303181">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>GARNETT CENTER</StreetName>
-      <StreetSuffix>DR</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90994</PrecinctId>
+    <PrecinctId>pre90994sp0001</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>120</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>GARNETT CENTER</StreetName>
+    <StreetSuffix>DR</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
   <StreetSegment id="ss305809">
-    <NonHouseAddress>
-      <City>Charlottesville</City>
-      <State>VA</State>
-      <StreetName>Steubin</StreetName>
-      <StreetSuffix>Ln</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>Charlottesville</City>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90994</PrecinctId>
+    <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>151</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>Steubin</StreetName>
+    <StreetSuffix>Ln</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
   <StreetSegment id="ss315262">
-    <NonHouseAddress>
-      <City>CHARLOTTESVILLE</City>
-      <State>VA</State>
-      <StreetName>VINCENNES</StreetName>
-      <StreetSuffix>CT</StreetSuffix>
-      <Zip>22911</Zip>
-    </NonHouseAddress>
+    <City>CHARLOTTESVILLE</City>
     <OddEvenBoth>both</OddEvenBoth>
-    <PrecinctId>pre90994</PrecinctId>
+    <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>31</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>VINCENNES</StreetName>
+    <StreetSuffix>CT</StreetSuffix>
+    <Zip>22911</Zip>
   </StreetSegment>
 </VipObject>

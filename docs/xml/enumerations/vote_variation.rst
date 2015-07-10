@@ -18,6 +18,9 @@ to be assigned to a contest.
 +----------------------+----------------------------------------------------------------------------------+
 | approval             | `Approval voting`_, where each voter can select as many options as desired.      |
 +----------------------+----------------------------------------------------------------------------------+
+| borda                | `Borda count`_, where each voter can rank the options, and the rankings are      |
+|                      | assigned point values.                                                           |
++----------------------+----------------------------------------------------------------------------------+
 | cumulative           | `Cumulative voting`_, where each voter can distribute their vote to up to        |
 |                      | *N* options.                                                                     |
 +----------------------+----------------------------------------------------------------------------------+
@@ -28,14 +31,14 @@ to be assigned to a contest.
 | plurality            | A 1-of-m method where the option with the most votes is elected, regardless      |
 |                      | of whether the option has more than 50% of the vote.                             |
 +----------------------+----------------------------------------------------------------------------------+
+| proportional         | A `proportional representation`_ method (other than STV), which is any system    |
+|                      | that elects winners in proportion to the total vote.                             |
++----------------------+----------------------------------------------------------------------------------+
 | range                | `Range voting`_, where each voter can select a score for each option.            |
 +----------------------+----------------------------------------------------------------------------------+
 | rcv                  | `Ranked choice voting`_ (RCV), where each voter can rank the options, and        |
 |                      | the ballots are counted in rounds.  Also known as instant-runoff voting (IRV)    |
 |                      | and the single transferable vote (STV).                                          |
-+----------------------+----------------------------------------------------------------------------------+
-| rcv-borda            | `Borda count`_, where each voter can rank the options, and the rankings are      |
-|                      | assigned point values.                                                           |
 +----------------------+----------------------------------------------------------------------------------+
 | super-majority       | A 1-of-m method where the winner needs more than some predetermined fraction     |
 |                      | of the vote to be elected, where the fraction is more than 50% (e.g.             |
@@ -47,5 +50,6 @@ to be assigned to a contest.
 .. _`Approval voting`: http://en.wikipedia.org/wiki/Approval_voting
 .. _`Borda count`: http://en.wikipedia.org/wiki/Borda_count
 .. _`Cumulative voting`: http://en.wikipedia.org/wiki/Cumulative_voting
+.. _`proportional representation`: https://en.wikipedia.org/wiki/Proportional_representation
 .. _`Range voting`: http://en.wikipedia.org/wiki/Range_voting
 .. _`Ranked choice voting`: http://http://en.wikipedia.org/wiki/Ranked_Choice_Voting

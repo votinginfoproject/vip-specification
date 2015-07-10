@@ -50,6 +50,7 @@
       <xs:enumeration value="state" />
       <xs:enumeration value="state-house" />
       <xs:enumeration value="state-senate" />
+      <xs:enumeration value="town" />
       <xs:enumeration value="township" />
       <xs:enumeration value="utility" />
       <xs:enumeration value="village" />
@@ -93,13 +94,14 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="1-of-m" />
       <xs:enumeration value="approval" />
+      <xs:enumeration value="borda" />
       <xs:enumeration value="cumulative" />
       <xs:enumeration value="majority" />
       <xs:enumeration value="n-of-m" />
       <xs:enumeration value="plurality" />
+      <xs:enumeration value="proportional" />
       <xs:enumeration value="range" />
       <xs:enumeration value="rcv" />
-      <xs:enumeration value="rcv-borda" />
       <xs:enumeration value="super-majority" />
       <xs:enumeration value="other" />
     </xs:restriction>
@@ -122,6 +124,12 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="ShortString">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="16" />
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="TimeWithZone">
     <xs:restriction base="xs:string">
       <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))" />
@@ -129,6 +137,17 @@
   </xs:simpleType>
 
   <!-- Complex types. -->
+  <!--
+      AnnotatedString: a type representing a string with a purpose specified.
+    -->
+  <xs:complexType name="AnnotatedString">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="annotation" type="ShortString" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:complexType name="BallotMeasureContest">
     <xs:complexContent>
       <xs:extension base="ContestBase">
@@ -175,7 +194,7 @@
     <xs:sequence>
       <xs:element name="BallotName" type="InternationalizedText" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
-      <xs:element name="FileDate" type="xs:dateTime" minOccurs="0" />
+      <xs:element name="FileDate" type="xs:date" minOccurs="0" />
       <xs:element name="IsIncumbent" type="xs:boolean" minOccurs="0" />
       <xs:element name="IsTopTicket" type="xs:boolean" minOccurs="0" />
       <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" />
@@ -215,8 +234,8 @@
   <xs:complexType name="ContactInformation">
     <xs:sequence>
       <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Fax" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <!-- Note: The "Hours" element is being deprecated and will be removed
            in future versions of VIP.
         -->
@@ -224,7 +243,7 @@
       <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="xs:string" minOccurs="0" />
-      <xs:element name="Phone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="internalId" type="xs:string" />
@@ -429,8 +448,8 @@
 
   <xs:complexType name="OrderedContest">
     <xs:sequence>
-      <xs:element name="BallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="ContestId" type="xs:IDREF" />
+      <xs:element name="OrderedBallotSelectionId" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -467,6 +486,7 @@
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
       <xs:element name="FirstName" type="xs:string" minOccurs="0" />
+      <xs:element name="FullName" type="InternationalizedText" minOccurs="0" />
       <xs:element name="LastName" type="xs:string" minOccurs="0" />
       <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Nickname" type="xs:string" minOccurs="0" />
@@ -546,25 +566,19 @@
 
   <xs:complexType name="StreetSegment">
     <xs:sequence>
-      <xs:element name="NonHouseAddress">
-        <!-- DetailAddress -->
-        <xs:complexType>
-          <xs:all>
-            <xs:element name="AddressDirection" type="xs:string" minOccurs="0" />
-            <xs:element name="City" type="xs:string" />
-            <xs:element name="State" type="xs:string" />
-            <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
-            <xs:element name="StreetName" type="xs:string" />
-            <xs:element name="StreetSuffix" type="xs:string" minOccurs="0" />
-            <xs:element name="Zip" type="xs:string" />
-          </xs:all>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="AddressDirection" type="xs:string" minOccurs="0" />
+      <xs:element name="City" type="xs:string" />
+      <xs:element name="IncludesAllAddresses" type="xs:boolean" minOccurs="0" />
       <xs:element name="OddEvenBoth" type="OebEnum" />
       <xs:element name="PrecinctId" type="xs:IDREF" />
-      <xs:element name="StartHouseNumber" type="xs:integer" />
-      <xs:element name="EndHouseNumber" type="xs:integer" />
+      <xs:element name="StartHouseNumber" type="xs:integer" minOccurs="0" />
+      <xs:element name="EndHouseNumber" type="xs:integer" minOccurs="0" />
+      <xs:element name="State" type="xs:string" />
+      <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
+      <xs:element name="StreetName" type="xs:string" />
+      <xs:element name="StreetSuffix" type="xs:string" minOccurs="0" />
       <xs:element name="UnitNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Zip" type="xs:string" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -574,21 +588,23 @@
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
 
-        <!-- structural VIP elements-->
-        <xs:element name="Source" minOccurs="1" maxOccurs="1">
-          <xs:complexType>
-            <xs:all>
-              <xs:element name="DateTime" type="xs:dateTime" />
-              <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
-              <xs:element name="Name" type="xs:string" />
-              <xs:element name="OrganizationUri" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="TermsOfUseUri" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="VipId" type="xs:string" />
-            </xs:all>
-            <xs:attribute name="id" type="xs:ID" use="required" />
-          </xs:complexType>
-        </xs:element>
+        <!-- This replaces the "referendum" element in VIP -->
+        <xs:element name="BallotMeasureContest" type="BallotMeasureContest" />
+
+        <!-- Generic string for a ballot measure (referendum) selection -->
+        <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" />
+
+        <xs:element name="BallotSelection" type="BallotSelectionBase" />
+
+        <xs:element name="BallotStyle" type="BallotStyle" />
+
+        <xs:element name="Candidate" type="Candidate" />
+
+        <xs:element name="CandidateContest" type="CandidateContest" />
+
+        <xs:element name="CandidateSelection" type="CandidateSelection" />
+
+        <xs:element name="Contest" type="ContestBase" />
 
         <xs:element name="Election" minOccurs="1" maxOccurs="1">
           <xs:complexType>
@@ -614,41 +630,14 @@
             <xs:attribute name="id" type="xs:ID" use="required" />
           </xs:complexType>
         </xs:element>
-        <!-- end of structural VIP elements-->
 
-        <!-- geographic elements -->
-        <xs:element name="State" type="State" />
-
-        <xs:element name="Locality" type="Locality" />
-
-        <xs:element name="Precinct" type="Precinct" />
-
-        <xs:element name="StreetSegment" type="StreetSegment" />
-        <!-- end of geographic elements-->
-
-        <!-- administration elements-->
         <xs:element name="ElectionAdministration" type="ElectionAdministration" />
 
-        <xs:element name="PollingLocation" type="PollingLocation" />
-
         <xs:element name="ElectoralDistrict" type="ElectoralDistrict" />
-        <!--end of administration elements-->
 
-        <!-- This replaces the "referendum" element in VIP -->
-        <xs:element name="BallotMeasureContest" type="BallotMeasureContest" />
-        <xs:element name="Contest" type="ContestBase" />
-        <xs:element name="BallotSelection" type="BallotSelectionBase" />
+        <xs:element name="HoursOpen" type="HoursOpen" />
 
-        <!-- Generic string for a ballot measure (referendum) selection -->
-        <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" />
-
-        <xs:element name="BallotStyle" type="BallotStyle" />
-
-        <xs:element name="Candidate" type="Candidate" />
-
-        <xs:element name="CandidateContest" type="CandidateContest" />
-
-        <xs:element name="CandidateSelection" type="CandidateSelection" />
+        <xs:element name="Locality" type="Locality" />
 
         <xs:element name="Office" type="Office" />
 
@@ -662,12 +651,32 @@
 
         <xs:element name="Person" type="Person" />
 
+        <xs:element name="PollingLocation" type="PollingLocation" />
+
+        <xs:element name="Precinct" type="Precinct" />
+
         <xs:element name="RetentionContest" type="RetentionContest" />
 
-        <xs:element name="HoursOpen" type="HoursOpen" />
+        <xs:element name="Source" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="DateTime" type="xs:dateTime" />
+              <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
+              <xs:element name="Name" type="xs:string" />
+              <xs:element name="OrganizationUri" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="TermsOfUseUri" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="VipId" type="xs:string" />
+            </xs:all>
+            <xs:attribute name="id" type="xs:ID" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="State" type="State" />
+
+        <xs:element name="StreetSegment" type="StreetSegment" />
 
       </xs:choice>
-
       <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.0" />
     </xs:complexType>
   </xs:element>

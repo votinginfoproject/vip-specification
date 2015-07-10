@@ -239,7 +239,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'VotingInformationProjectSpecification.tex', u'Voting Information Project Specification Documentation',
-   u'Aaron Strauss, Jared Marcotte, Justin Moore, Paul Stenbjorn, Chris Jerdonek, Dave McGivney, Noma Thayer, Mike Jensen, and others', 'manual'),
+   u'', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -283,7 +283,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   (master_doc, 'VotingInformationProjectSpecification', u'Voting Information Project Specification Documentation',
-   author, 'VotingInformationProjectSpecification', 'One line description of project.',
+   author, 'VotingInformationProjectSpecification', 'Standard for open election data',
    'Miscellaneous'),
 ]
 
@@ -368,3 +368,7 @@ epub_exclude_files = ['search.html']
 
 # If false, no index is generated.
 #epub_use_index = True
+
+# Inject a custom stylesheet into the Read the Docs theme
+def setup(app):
+  app.add_stylesheet("theme_overrides.css")

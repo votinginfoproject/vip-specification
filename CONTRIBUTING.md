@@ -15,9 +15,11 @@ While the following information shouldn't be considered hard-and-fast rules, the
 
 1. Create a branch to work on a fix/feature (a fix/feature should have a companion bug/enhancement issue). Start the branch with either "feature/..." or "bug/...".
     1. If you're not a member of the VIP Spec team, fork the repository and follow the same process.
-2. Before sending out a pull request, please make sure the resulting XSD and sample feed XML still validate.
-    1. You can use http://www.utilities-online.info/xsdvalidation/ to do this validation online, or
-    2. If you have the `xmllint` tool on your system, please run `xmllint --postvalid --nonet --xinclude --noout --schema vip_spec.xsd sample_feed.xml`
+2. Before sending out a pull request, please make sure that:
+    1. if working on a schema bug/feature, the resulting XSD and sample feed XML still validate
+        1. You can use http://www.utilities-online.info/xsdvalidation/ to do this validation online, or
+        2. If you have the `xmllint` tool on your system, please run `xmllint --postvalid --nonet --xinclude --noout --schema vip_spec.xsd sample_feed.xml`
+    2. if working on a documentation bug/feature, the documentation must build with Sphinx with no errors (_**NB:** see [Installing Sphinx](#installing-sphinx) below_).
 3. Once it's done and tested, create a pull request to move it into the current working branch.
 4. At that point, some discussion might happen. In order to get approval for the pull request, you will need approval from two people, including one representative from Pew and one representative from Google (Pew and Google employees still need two approvers and cannot self-approve, but it is not required that the second approver be from the organization of the PR author). However it is important to note that other members have substantial technical and election background as well, so please take all feedback to heart, regardless of the source.
     1. Google approvers: @jdmgoogle @jktomer
@@ -26,3 +28,20 @@ While the following information shouldn't be considered hard-and-fast rules, the
 6. Delete the feature/bug branch.
 
 At any one point in time ("feature/" and "bug/" temporary branches aside), there should only be a dev branch (called 'vip5' in the vip-specification's case, but it may change to simply 'dev' in the future), a stable branch (called 'master' in most cases), and, if necessary, a documentation branch (called 'gh-pages' if hosted on GitHub).
+
+# Installing Sphinx
+In order to build the documentation, you must install [Sphinx](http://sphinx-doc.org), which involves first [installing python](https://www.python.org/downloads/). Once python is installed, you should have access to the python package installer, `pip`. Open a terminal window and enter the following commands:
+
+```sh
+$ pip install Sphinx
+$ cd /path/to/vip-specification/docs/
+$ build html
+```
+
+To see changes to the documentation as the files are edited, use the following command:
+
+```sh
+$ sphinx-autobuild . _build/html
+```
+
+Once the above command is executed, open a browser and enter http://127.0.0.1:8000 to see the documentation.
