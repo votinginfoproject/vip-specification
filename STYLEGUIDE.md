@@ -97,30 +97,34 @@ Markdown, etc).
     ```
 
 
-### Internal ID Attribute: `internalId`
+### Internal Label Attribute: `label`
 
-A complex type should have an optional internal ID attribute if and only if
-(1) instances of the type are represented by rows of a flat file when flat
+A complex type should have an optional internal "label" attribute if and only
+if (1) instances of the type are represented by rows of a flat file when flat
 files are used, and (2) the type definition does not already have a primary
 key ID attribute.
 
-The internal ID attribute should have name "internalId" and type "xs:string".
-It looks like this when present:
+The internal label attribute should have name "label" and type "xs:string". It
+looks like this when present:
 
 ```xml
-<xs:attribute name="internalId" type="xs:string" />
+<xs:attribute name="label" type="xs:string" />
 ```
 
-The internal ID attribute is useful for troubleshooting, etc. because it
-lets one trace data in an XML feed that might not otherwise be traceable
-back to the object or flat file row from which it came.
+The purpose of the attribute is to give feed creators a place to put the
+internal row ID of the element when flat files are being used. This is useful
+for troubleshooting, etc. because it lets one trace data in an XML feed that
+might not otherwise be traceable back to the object or flat file row from
+which it came.
 
-The attribute name differs from "id" to distinguish it from the primary key
-ID attribute.  The internal ID cannot serve as a primary key in the feed
+The attribute name differs from "id" to distinguish it from the primary key ID
+attribute. The internal label cannot serve as a primary key in the feed
 because for these objects it's possible for the same object to occur in more
-than one place in a feed.  In particular, the same ID value can occur
-more than once for a given type.  For example, the same "Term" instance
-can occur as an element of more than one "Office" instance.
+than one place in a feed. In particular, the same value can occur more than
+once for a given type. For example, the same "Term" instance can occur as an
+element of more than one "Office" instance. This is true even though
+_internally_ to the feed creator the value is unique and can serve as an ID
+(e.g. among the rows in the flat file providing the objects).
 
 
 ### Element/Attribute Property Ordering
@@ -285,8 +289,8 @@ Global type definitions should be ordered as follows:
 
 ### Row ID
 
-The first column of each CSV file should be either "id" or "internalId",
-depending on whether the corresponding type has an "id" or "internalId"
+The first column of each CSV file should be either "id" or "label",
+depending on whether the corresponding type has an "id" or "label"
 attribute.  We call the value of this column for a given row the "row ID."
 The row ID should be unique across all rows of a given file.
 
