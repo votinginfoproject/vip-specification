@@ -908,6 +908,7 @@
       <AddressLine>Washington, DC 20006</AddressLine>
       <Email>president@whitehouse.gov</Email>
       <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
       <Uri>http://www.whitehouse.gov</Uri>
     </ContactInformation>
     <FirstName>Barack</FirstName>
