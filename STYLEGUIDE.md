@@ -64,9 +64,15 @@ Markdown, etc).
   ```
 
 
-### IDs
+### Primary Key ID Attribute: `id`
 
-* A primary key ID should be an attribute with type "xs:ID" and name "id".
+* A complex type should have a primary key attribute if and only if
+  instances of the type occur only as immediate children of the "VipObject"
+  root object.  We use this as the requirement because this is a simple
+  way to characterize whether instances of the type are defined "in one
+  place" in an XML feed (and so not at risk of occurring twice).
+
+* A primary key should be an attribute with type "xs:ID" and name "id".
   For example,
 
     ```xml
@@ -89,6 +95,36 @@ Markdown, etc).
     <!-- Instead of ContestBaseId. -->
     <xs:element name="ContestId" type="xs:IDREF" />
     ```
+
+
+### Internal Label Attribute: `label`
+
+A complex type should have an optional internal "label" attribute if and only
+if (1) instances of the type are represented by rows of a flat file when flat
+files are used, and (2) the type definition does not already have a primary
+key ID attribute.
+
+The internal label attribute should have name "label" and type "xs:string". It
+looks like this when present:
+
+```xml
+<xs:attribute name="label" type="xs:string" />
+```
+
+The purpose of the attribute is to give feed creators a place to put the
+internal row ID of the element when flat files are being used. This is useful
+for troubleshooting, etc. because it lets one trace data in an XML feed that
+might not otherwise be traceable back to the object or flat file row from
+which it came.
+
+The attribute name differs from "id" to distinguish it from the primary key ID
+attribute. The internal label cannot serve as a primary key in the feed
+because for these objects it's possible for the same object to occur in more
+than one place in a feed. In particular, the same value can occur more than
+once for a given type. For example, the same "Term" instance can occur as an
+element of more than one "Office" instance. This is true even though
+_internally_ to the feed creator the value is unique and can serve as an ID
+(e.g. among the rows in the flat file providing the objects).
 
 
 ### Element/Attribute Property Ordering
@@ -250,7 +286,13 @@ Global type definitions should be ordered as follows:
 
 
 ## CSV Styles
-To be determined
+
+### Row ID
+
+The first column of each CSV file should be either "id" or "label",
+depending on whether the corresponding type has an "id" or "label"
+attribute.  We call the value of this column for a given row the "row ID."
+The row ID should be unique across all rows of a given file.
 
 
 [vssc_1622]: http://grouper.ieee.org/groups/1622/groups/2/index.html
