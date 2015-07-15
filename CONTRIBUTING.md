@@ -18,7 +18,8 @@ While the following information shouldn't be considered hard-and-fast rules, the
 2. Before sending out a pull request, please make sure that:
     1. if working on a schema bug/feature, the resulting XSD and sample feed XML still validate
         1. You can use http://www.utilities-online.info/xsdvalidation/ to do this validation online, or
-        2. If you have the `xmllint` tool on your system, please run `xmllint --postvalid --nonet --xinclude --noout --schema vip_spec.xsd sample_feed.xml`
+        2. If you have the [xmllint](http://xmlsoft.org/xmllint.html) tool installed, please run `xmllint --nonet --xinclude --noout --schema vip_spec.xsd sample_feed.xml`
+        3. If you have the [Jing](http://www.thaiopensource.com/relaxng/jing.html) validator installed, please run `jing vip_spec.xsd sample_feed.xml`
     2. if working on a documentation bug/feature, the documentation must build with Sphinx with no errors (_**NB:** see [Installing Sphinx](#installing-sphinx) below_).
 3. Once it's done and tested, create a pull request to move it into the current working branch.
 4. At that point, some discussion might happen. In order to get approval for the pull request, you will need approval from two people, including one representative from Pew and one representative from Google (Pew and Google employees still need two approvers and cannot self-approve, but it is not required that the second approver be from the organization of the PR author). However it is important to note that other members have substantial technical and election background as well, so please take all feedback to heart, regardless of the source.
