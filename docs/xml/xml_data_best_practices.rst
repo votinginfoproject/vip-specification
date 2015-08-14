@@ -103,23 +103,23 @@ the containing element.  For example:
 .. code-block:: xml
    :linenos:
 
- <BallotMeasureContest id="bm390616670907">
-    <BallotSelectionId>bms390616670907</BallotSelectionId>
-    <ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>
-    <Name>Proposed Tax Levy School District</Name>
-    <SequenceOrder>34</SequenceOrder>
-    <FullText>
-      <Text language="en">An additional tax for the benefit of the Lockland Local School District, County of Hamilton,
+   <BallotMeasureContest id="bm390616670907">
+      <BallotSelectionId>bms390616670907</BallotSelectionId>
+      <ElectoralDistrictId>ed3906177703103</ElectoralDistrictId>
+      <Name>Proposed Tax Levy School District</Name>
+      <SequenceOrder>34</SequenceOrder>
+      <FullText>
+        <Text language="en">An additional tax for the benefit of the Lockland Local School District, County of Hamilton,
         Ohio, for the purpose of CURRENT EXPENSES at a rate not exceeding eleven and two-tenths (11.2) mills for each
         one dollar of valuation, which amounts to one dollar and twelve cents ($1.12) for each one hundred dollars of
         valuation, for a continuing period of time, commencing in 2015, first due in calendar year 2016.</Text>
-    </FullText>
-    <SummaryText>
-      <Text language="en">4 Proposed Tax Levy</Text>
-    </SummaryText>
-    <Type>other</Type>
-    <OtherType>bond</OtherType>
-  </BallotMeasureContest>
+      </FullText>
+      <SummaryText>
+        <Text language="en">4 Proposed Tax Levy</Text>
+      </SummaryText>
+      <Type>other</Type>
+      <OtherType>bond</OtherType>
+   </BallotMeasureContest>
 
 
 .. _ISO-8601: http://en.wikipedia.org/wiki/ISO_8601
