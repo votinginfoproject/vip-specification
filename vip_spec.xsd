@@ -377,18 +377,17 @@
 
       could be:
 
-        <Office identifier="office_mayor">
+        <Office label="office_mayor">
           <Text language="en">Mayor</Text>
           <Text language="es">Alcalde</Text>
           <Text language="zh">市長</Text>
         </Office>
 
-      The optional "identifier" attribute can be used to name the text
-      being translated.  For example, if the translations come from a
-      comma-delimited flat file, the identifier for the corresponding row
-      in the flat file could be stored in this attribute for tracking purposes.
-      In the above example, the element could have come from a flat file with
-      row:
+      The optional "label" attribute can be used to name the text being
+      translated.  For example, if the translations come from a comma-delimited
+      flat file, the label for the corresponding row in the flat file could be
+      stored in this attribute for tracking purposes.  In the above example, the
+      element could have come from a flat file with row:
 
         office_mayor,Mayor,Alcalde,市長
     -->

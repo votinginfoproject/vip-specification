@@ -77,7 +77,7 @@
     <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
     <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
     <Department>
-      <ContactInformation identifier="ci60000">
+      <ContactInformation label="ci60000">
         <AddressLine>Washington Building First Floor</AddressLine>
         <AddressLine>1100 Bank Street</AddressLine>
         <AddressLine>Richmond, VA 23219</AddressLine>
@@ -94,7 +94,7 @@
     <AbsenteeUri>http://www.vote.virginia.gov</AbsenteeUri>
     <AmIRegisteredUri>http://www.vote.virginia.gov</AmIRegisteredUri>
     <Department>
-      <ContactInformation identifier="ci60001">
+      <ContactInformation label="ci60001">
         <AddressLine>1600 5TH STREET</AddressLine>
         <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
         <HoursOpenId>hours0000</HoursOpenId>
@@ -110,7 +110,7 @@
   </ElectionAdministration>
   <!-- A person referenced by an election administration object. -->
   <Person id="per50001">
-    <ContactInformation identifier="ci60002">
+    <ContactInformation label="ci60002">
       <Email>rwashburne@albemarle.org</Email>
       <Phone>4349724173</Phone>
     </ContactInformation>
@@ -654,15 +654,15 @@
     </BallotTitle>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>Referendum on Virginia</Name>
-    <ConStatement identifier="bmc30001con">
+    <ConStatement label="bmc30001con">
       <Text language="en">This is no good.</Text>
       <Text language="es">Esto no es bueno.</Text>
     </ConStatement>
-    <EffectOfAbstain identifier="bmc30001abs">
+    <EffectOfAbstain label="bmc30001abs">
       <Text language="en">Nothing will happen.</Text>
       <Text language="es">Nada pasará.</Text>
     </EffectOfAbstain>
-    <ProStatement identifier="bmc30001pro">
+    <ProStatement label="bmc30001pro">
       <Text language="en">Everything will be great.</Text>
       <Text language="es">Todo va a estar bien.</Text>
     </ProStatement>
@@ -903,7 +903,7 @@
     <PersonId>per10861a</PersonId>
   </Candidate>
   <Person id="per10861a">
-    <ContactInformation identifier="ci10861a">
+    <ContactInformation label="ci10861a">
       <AddressLine>1600 Pennsylvania Ave</AddressLine>
       <AddressLine>Washington, DC 20006</AddressLine>
       <Email>president@whitehouse.gov</Email>
@@ -942,7 +942,7 @@
     <PersonId>per10862a</PersonId>
   </Candidate>
   <Person id="per10862a">
-    <ContactInformation identifier="ci10862a">
+    <ContactInformation label="ci10862a">
       <AddressLine>Post Office Box 149756</AddressLine>
       <AddressLine>Boston, MA 02114-9756</AddressLine>
       <Email>info@mittromney.com</Email>
@@ -978,7 +978,7 @@
     <PersonId>per10961</PersonId>
   </Candidate>
   <Person id="per10961">
-    <ContactInformation identifier="ci10961">
+    <ContactInformation label="ci10961">
       <AddressLine>10560 Main St, Ste 218</AddressLine>
       <AddressLine>Fairfax, VA 22030</AddressLine>
       <Email>ken@cuccinelli.com</Email>
@@ -1003,7 +1003,7 @@
     <PersonId>per10962</PersonId>
   </Candidate>
   <Person id="per10962">
-    <ContactInformation identifier="ci10962">
+    <ContactInformation label="ci10962">
       <AddressLine>PO Box 224</AddressLine>
       <AddressLine>Annandale, VA 22003</AddressLine>
       <Email>info@robertsarvis.com</Email>
@@ -1026,7 +1026,7 @@
     <PersonId>per10963</PersonId>
   </Candidate>
   <Person id="per10963">
-    <ContactInformation identifier="ci10963">
+    <ContactInformation label="ci10963">
       <AddressLine>1601 N. Kent St., Suite 900</AddressLine>
       <AddressLine>Arlington, VA 22209</AddressLine>
       <Email>info@terrymcauliffe.com</Email>
@@ -1050,7 +1050,7 @@
     <PersonId>per10966</PersonId>
   </Candidate>
   <Person id="per10966">
-    <ContactInformation identifier="ci10966">
+    <ContactInformation label="ci10966">
       <AddressLine>PO Box 597</AddressLine>
       <AddressLine>Richmond, VA 23218</AddressLine>
       <Email>ralph@ralphnortham.com</Email>
@@ -1074,7 +1074,7 @@
     <PersonId>per10967</PersonId>
   </Candidate>
   <Person id="per10967">
-    <ContactInformation identifier="ci10967">
+    <ContactInformation label="ci10967">
       <AddressLine>Jackson for Lt. Governor</AddressLine>
       <AddressLine>PO Box 15003</AddressLine>
       <AddressLine>Chesapeake, VA 23328</AddressLine>
@@ -1099,7 +1099,7 @@
     <PersonId>per10964</PersonId>
   </Candidate>
   <Person id="per10964">
-    <ContactInformation identifier="ci10964">
+    <ContactInformation label="ci10964">
       <AddressLine>PO Box 555</AddressLine>
       <AddressLine>Harrisonburg, VA 228030555</AddressLine>
       <Email>campaign@markobenshain.com</Email>
@@ -1123,7 +1123,7 @@
     <PersonId>per10965</PersonId>
   </Candidate>
   <Person id="per10965">
-    <ContactInformation identifier="ci10965">
+    <ContactInformation label="ci10965">
       <AddressLine>PO Box 6201</AddressLine>
       <AddressLine>Leesburg, VA 201787428</AddressLine>
       <Email>kevin@herringforag.com</Email>
@@ -1164,7 +1164,7 @@
     <PersonId>per10422</PersonId>
   </Candidate>
   <Person id="per10422">
-    <ContactInformation identifier="ci10422">
+    <ContactInformation label="ci10422">
       <AddressLine>PO Box 12</AddressLine>
       <AddressLine>Verona, VA 24482</AddressLine>
       <Email>steve@stevelandes.com</Email>
@@ -1189,7 +1189,7 @@
     <PersonId>per10388</PersonId>
   </Candidate>
   <Person id="per10388">
-    <ContactInformation identifier="ci10388">
+    <ContactInformation label="ci10388">
       <AddressLine>PO Box 283</AddressLine>
       <AddressLine>Charlottesville, VA 22902</AddressLine>
       <Email>david@davidtoscano.com</Email>
@@ -1213,7 +1213,7 @@
     <PersonId>per10466</PersonId>
   </Candidate>
   <Person id="per10466">
-    <ContactInformation identifier="ci10466">
+    <ContactInformation label="ci10466">
       <AddressLine>243-B Livestock Rd</AddressLine>
       <AddressLine>Rustburg, VA 24588</AddressLine>
       <Email>friendsofmattfariss@gmail.com</Email>
@@ -1237,7 +1237,7 @@
     <PersonId>per10438</PersonId>
   </Candidate>
   <Person id="per10438">
-    <ContactInformation identifier="ci10438">
+    <ContactInformation label="ci10438">
       <AddressLine>2309 Finch Court</AddressLine>
       <AddressLine>Charlottesville, VA 22911</AddressLine>
       <Email>robbellgop@aol.com</Email>
@@ -1261,7 +1261,7 @@
     <PersonId>per10079</PersonId>
   </Candidate>
   <Person id="per10079">
-    <ContactInformation identifier="ci10079">
+    <ContactInformation label="ci10079">
       <AddressLine>1365 Tattersall Ct</AddressLine>
       <AddressLine>Keswick, VA 229479169</AddressLine>
       <Email>Jane4supervisor@gmail.com</Email>
@@ -1285,7 +1285,7 @@
     <PersonId>per10080</PersonId>
   </Candidate>
   <Person id="per10080">
-    <ContactInformation identifier="ci10080">
+    <ContactInformation label="ci10080">
       <AddressLine>PO Box 318</AddressLine>
       <AddressLine>Free Union, VA 229400318</AddressLine>
       <Email>cincha@aol.com</Email>
@@ -1310,7 +1310,7 @@
     <PersonId>per10075</PersonId>
   </Candidate>
   <Person id="per10075">
-    <ContactInformation identifier="ci10075">
+    <ContactInformation label="ci10075">
       <AddressLine>103 Smithfield Ct</AddressLine>
       <AddressLine>Charlottesville, VA 229012252</AddressLine>
       <Email>diantha.mckeel@embarqmail.com</Email>
@@ -1333,7 +1333,7 @@
     <PersonId>per10076</PersonId>
   </Candidate>
   <Person id="per10076">
-    <ContactInformation identifier="ci10076">
+    <ContactInformation label="ci10076">
       <AddressLine>2305 Fairway Ln</AddressLine>
       <AddressLine>Charlottesville, VA 229015022</AddressLine>
       <Email>bps43@comcast.net</Email>
@@ -1356,7 +1356,7 @@
     <PersonId>per10073</PersonId>
   </Candidate>
   <Person id="per10073">
-    <ContactInformation identifier="ci10073">
+    <ContactInformation label="ci10073">
       <AddressLine>PO Box 315</AddressLine>
       <AddressLine>Ivy, VA 229450315</AddressLine>
       <Email>Liz@LizPalmerforSupervisor.com</Email>
@@ -1380,7 +1380,7 @@
     <PersonId>per10074</PersonId>
   </Candidate>
   <Person id="per10074">
-    <ContactInformation identifier="ci10074">
+    <ContactInformation label="ci10074">
       <AddressLine>905 Leigh Way</AddressLine>
       <AddressLine>Charlottesville, VA 229017749</AddressLine>
       <Email>duanesnow@gmail.com</Email>
@@ -1404,7 +1404,7 @@
     <PersonId>per10077</PersonId>
   </Candidate>
   <Person id="per10077">
-    <ContactInformation identifier="ci10077">
+    <ContactInformation label="ci10077">
       <AddressLine>104 Dover Ct</AddressLine>
       <AddressLine>Charlottesville, VA 229011012</AddressLine>
       <Email>rodney@charlottesvillepress.com</Email>
@@ -1428,7 +1428,7 @@
     <PersonId>per10078</PersonId>
   </Candidate>
   <Person id="per10078">
-    <ContactInformation identifier="ci10078">
+    <ContactInformation label="ci10078">
       <AddressLine>844 Belvedere Blvd</AddressLine>
       <AddressLine>Charlottesville, VA 229013201</AddressLine>
       <Email>bsheffield@andaregroup.com</Email>
@@ -1453,7 +1453,7 @@
     <PersonId>per10214</PersonId>
   </Candidate>
   <Person id="per10214">
-    <ContactInformation identifier="ci10214">
+    <ContactInformation label="ci10214">
       <AddressLine>3974 Deepwoods Rd</AddressLine>
       <AddressLine>Earlysville, VA 229369776</AddressLine>
       <Email>prpmoynihan@comcast.net</Email>
@@ -1476,7 +1476,7 @@
     <PersonId>per10215</PersonId>
   </Candidate>
   <Person id="per10215">
-    <ContactInformation identifier="ci10215">
+    <ContactInformation label="ci10215">
       <AddressLine>1029 Tilman Rd</AddressLine>
       <AddressLine>Charlottesville, VA 229016336</AddressLine>
       <Email>ejs6j@virginia.edu</Email>
@@ -1499,7 +1499,7 @@
     <PersonId>per10213</PersonId>
   </Candidate>
   <Person id="per10213">
-    <ContactInformation identifier="ci10213">
+    <ContactInformation label="ci10213">
       <AddressLine>2210 Camargo Dr</AddressLine>
       <AddressLine>Charlottesville, VA 229018827</AddressLine>
       <Email>klacuff@earthlink.net</Email>
@@ -1513,26 +1513,26 @@
   </Person>
   <!-- Ballot measure selections -->
   <BallotMeasureSelection id="bms30001a">
-    <Selection identifier="bms30001at">
+    <Selection label="bms30001at">
       <Text language="en">Yes</Text>
       <Text language="es">Sí</Text>
     </Selection>
   </BallotMeasureSelection>
   <BallotMeasureSelection id="bms30001b">
-    <Selection identifier="bms30001bt">
+    <Selection label="bms30001bt">
       <Text language="en">No</Text>
       <Text language="es">No</Text>
     </Selection>
   </BallotMeasureSelection>
   <!-- Retention contest selections -->
   <BallotMeasureSelection id="rc40001a">
-    <Selection identifier="rc40001at">
+    <Selection label="rc40001at">
       <Text language="en">Yes</Text>
       <Text language="es">Sí</Text>
     </Selection>
   </BallotMeasureSelection>
   <BallotMeasureSelection id="rc40001b">
-    <Selection identifier="rc40001bt">
+    <Selection label="rc40001bt">
       <Text language="en">No</Text>
       <Text language="es">No</Text>
     </Selection>
