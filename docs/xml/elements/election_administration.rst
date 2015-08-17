@@ -133,7 +133,7 @@ ElectionAdministration.Department.VoterService
       <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
       <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
       <Department>
-        <ContactInformation identifier="ci60000">
+        <ContactInformation label="ci60000">
 	  <AddressLine>Washington Building First Floor</AddressLine>
 	  <AddressLine>1100 Bank Street</AddressLine>
 	  <AddressLine>Richmond, VA 23219</AddressLine>

@@ -90,7 +90,7 @@ or elected official. These elements reference ``Person``:
    :linenos:
 
    <Person id="per50001">
-      <ContactInformation identifier="ci60002">
+      <ContactInformation label="ci60002">
         <Email>rwashburne@albemarle.org</Email>
 	<Phone>4349724173</Phone>
       </ContactInformation>
