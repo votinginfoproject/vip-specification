@@ -2,9 +2,9 @@ InternationalizedText
 =====================
 
 ``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``identifier``, which allows the feed to refer
-back to the original identifier for the information (e.g. if the contact information came from a
-CSV, ``identifier`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
 
 * Any element that extends :doc:`ContestBase <contest_base>`
 
