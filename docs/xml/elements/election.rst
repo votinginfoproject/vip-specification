@@ -52,7 +52,7 @@ with one Election object.
 |                           |                             |             |         |URI                                    |required to ignore it.           |
 |                           |                             |             |         |                                       |                                 |
 +---------------------------+-----------------------------+-------------+---------+---------------------------------------+---------------------------------+
-| ResultsUrl                |xs:anyUri                    |Optional     |Single   |Contains a URI where results for the   |If the field is invalid or not   |
+| ResultsUri                |xs:anyUri                    |Optional     |Single   |Contains a URI where results for the   |If the field is invalid or not   |
 |                           |                             |             |         |election may be found                  |present, the implementation is   |
 |                           |                             |             |         |                                       |required to ignore it.           |
 |                           |                             |             |         |                                       |                                 |
