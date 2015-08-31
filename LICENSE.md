@@ -93,8 +93,7 @@ Similar Rights that apply to Your use of the Licensed Material and that the
 Licensor has authority to license.
 
 h. __Licensor__ means the individual(s) or entity(ies) granting rights under
-this Public License. See the [CONTRIBUTORS](CONTRIBUTORS.md) file for details on
-proper attribution.
+this Public License.
 
 i. __Share__ means to provide material to the public by any means or process
 that requires permission under the Licensed Rights, such as reproduction, public
@@ -190,7 +189,6 @@ a. ___Attribution.___
             i. identification of the creator(s) of the Licensed Material and any
             others designated to receive attribution, in any reasonable manner
             requested by the Licensor (including by pseudonym if designated);
-            please see the CONTRIBUTORS file for details;
 
             ii. a copyright notice;
 

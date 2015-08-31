@@ -1,9 +1,10 @@
 ## Contributors
 The Voting Information Project is a collaboration between Google and the Pew
 Charitable Trusts, with input from election officials and other members of the
-public. In order to meet the attribution requirements in the license, please use
-"The Voting Information Project" to signify the source of the content. The
-specific list of contributors and their GitHub usernames are included below.
+public. In order to meet the attribution requirements in the
+[license](LICENSE.md), please use "The Voting Information Project" to signify
+the source of the content. The specific list of contributors and their GitHub
+usernames are included below.
 
 ### Google
 * Justin Moore (jdmgoogle)
