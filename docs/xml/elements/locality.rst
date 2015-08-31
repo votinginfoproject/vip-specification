@@ -22,8 +22,8 @@ The Locality object represents the jurisdiction below the :doc:`state <state>` (
 |                          |                                |             |          |(e.g. `OCD-ID`_)                 |implementation is required  |
 |                          |                                |             |          |                                 |to ignore it.               |
 +--------------------------+--------------------------------+-------------+----------+---------------------------------+----------------------------+
-| Name                     | xs:string                      |**Required** | Single   |Specifies the name of a locality.|If the field is not present |
-|                          |                                |             |          |                                 |or invalid, the             |
+| Name                     | xs:string                      |**Required** | Single   |Specifies the name of a locality.|If the field is not         |
+|                          |                                |             |          |                                 |present or invalid, the     |
 |                          |                                |             |          |                                 |implementation is required  |
 |                          |                                |             |          |                                 |to ignore the Locality      |
 |                          |                                |             |          |                                 |element containing it.      |
@@ -42,7 +42,7 @@ The Locality object represents the jurisdiction below the :doc:`state <state>` (
 | StateId                  | xs:IDREF                       |**Required** | Single   |References the locality's        |If the field is invalid or  |
 |                          |                                |             |          |:doc:`state <state>`.            |not present, the            |
 |                          |                                |             |          |                                 |implementation is required  |
-|                          |                                |             |          |                                 |to ignore the locality      |
+|                          |                                |             |          |                                 |to ignore the Locality      |
 |                          |                                |             |          |                                 |element containing.         |
 +--------------------------+--------------------------------+-------------+----------+---------------------------------+----------------------------+
 | Type                     |:doc:`DistrictType              | Optional    | Single   |Defines the kind of locality     |If the field is invalid or  |

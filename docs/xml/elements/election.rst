@@ -44,15 +44,15 @@ with one Election object.
 +---------------------------+-----------------------------+-------------+---------+---------------------------------------+---------------------------------+
 | RegistrationInfo          |:doc:`InternationalizedText  |Optional     |Single   |Specifies information about            |If the field is invalid or not   |
 |                           |<internationalized_text>`    |             |         |registration for this election either  |present, the implementation is   |
-|                           |                             |             |         |as text or a URL.                      |required to ignore it.           |
+|                           |                             |             |         |as text or a URI.                      |required to ignore it.           |
 |                           |                             |             |         |                                       |                                 |
 +---------------------------+-----------------------------+-------------+---------+---------------------------------------+---------------------------------+
 | AbsenteeBallotInfo        |:doc:`InternationalizedText  |Optional     |Single   |Specifies information about requesting |If the element is invalid or not |
 |                           |<internationalized_text>`    |             |         |absentee ballots either as text or a   |present, the implementation is   |
-|                           |                             |             |         |URL                                    |required to ignore it.           |
+|                           |                             |             |         |URI                                    |required to ignore it.           |
 |                           |                             |             |         |                                       |                                 |
 +---------------------------+-----------------------------+-------------+---------+---------------------------------------+---------------------------------+
-| ResultsUrl                |xs:anyUri                    |Optional     |Single   |Contains a URL where results for the   |If the field is invalid or not   |
+| ResultsUrl                |xs:anyUri                    |Optional     |Single   |Contains a URI where results for the   |If the field is invalid or not   |
 |                           |                             |             |         |election may be found                  |present, the implementation is   |
 |                           |                             |             |         |                                       |required to ignore it.           |
 |                           |                             |             |         |                                       |                                 |

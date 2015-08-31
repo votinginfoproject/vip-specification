@@ -63,7 +63,7 @@ the only required object in the feed file, and only one source object is allowed
 |                |                           |                 |                     |the feed.            |                |
 |                |                           |                 |                     |                     |                |
 +----------------+---------------------------+-----------------+---------------------+---------------------+----------------+
-|OrganizationUrl |xs:string                  |Optional         |Single               |Specifies a URL to   |If the field is |
+|OrganizationUrl |xs:string                  |Optional         |Single               |Specifies a URI to   |If the field is |
 |                |                           |                 |                     |the home page of the |invalid or not  | 
 |                |                           |                 |                     |organization         |present, the    |
 |                |                           |                 |                     |publishing the data. |implementation  |

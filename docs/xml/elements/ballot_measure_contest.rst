@@ -2,7 +2,7 @@ BallotMeasureContest
 ====================
 
 The BallotMeasureContest provides information about a ballot measure before the voters, including
-summary statements on each side. Extends extends :doc:`ContestBase <contest_base>`.
+summary statements on each side. Extends :doc:`ContestBase <contest_base>`.
 
 +------------------+---------------------------------------+-------------+----------+--------------------------------------+------------------------+
 | Tag              | Data Type                             | Required?   | Repeats? | Description                          | Error Handling         |

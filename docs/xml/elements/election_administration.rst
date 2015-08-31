@@ -41,7 +41,7 @@ functions.
 |                     |                       |             |            |                           |to ignore it.             |
 |                     |                       |             |            |                           |                          |
 +---------------------+-----------------------+-------------+------------+---------------------------+--------------------------+
-| RulesUri            | xs:anyURI             | Optional    | Single     |Specifies a URL for the    |If the field is invalid   |
+| RulesUri            | xs:anyURI             | Optional    | Single     |Specifies a URI for the    |If the field is invalid   |
 |                     |                       |             |            |election rules and laws (if|the implementation is     |
 |                     |                       |             |            |any) for the jurisdiction  |required to ignore it.    |
 |                     |                       |             |            |of the administration.     |                          |
