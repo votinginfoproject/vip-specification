@@ -63,7 +63,7 @@ the only required object in the feed file, and only one source object is allowed
 |                |                           |                 |                     |the feed.            |                |
 |                |                           |                 |                     |                     |                |
 +----------------+---------------------------+-----------------+---------------------+---------------------+----------------+
-|OrganizationUrl |xs:string                  |Optional         |Single               |Specifies a URL to   |If the field is |
+|OrganizationUri |xs:string                  |Optional         |Single               |Specifies a URI to   |If the field is |
 |                |                           |                 |                     |the home page of the |invalid or not  | 
 |                |                           |                 |                     |organization         |present, the    |
 |                |                           |                 |                     |publishing the data. |implementation  |
@@ -83,7 +83,7 @@ the only required object in the feed file, and only one source object is allowed
 |                |                           |                 |                     |                     |                |
 |                |                           |                 |                     |                     |                |
 +----------------+---------------------------+-----------------+---------------------+---------------------+----------------+
-|TouUrl          |xs:anyURI                  |Optional         |Single               |Specifies the website|If the field is |
+|TouUri          |xs:anyURI                  |Optional         |Single               |Specifies the website|If the field is |
 |                |                           |                 |                     |where the Terms of   |invalid, the    |
 |                |                           |                 |                     |Use for the          |implementation  |
 |                |                           |                 |                     |information in this  |is required to  |
