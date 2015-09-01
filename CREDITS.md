@@ -7,21 +7,26 @@ the source of the content. The specific list of contributors and their GitHub
 usernames are included below.
 
 ### Google
-* Justin Moore (jdmgoogle)
 * Jesse Mwaura (jmwaura)
 * Jonathan Tomer (jktomer)
+* Justin Moore (jdmgoogle)
 
-### Pew (and contractors)
+### Pew
 * Jared Marcotte (jungshadow)
-* Paul Stenbjorn (pstenbjorn)
-* Noma Thayer (nomadaisy)
 * Jen Tolentino (jen-tolentino)
-* Paul Kominers (pkoms)
-* David McGivney (decmg & df-dave)
-* Margie Roswell (mroswell)
-* Brett Antonides (antinodes)
 
-### Other
-* Chris Jerdonek (cjerdonek)
-* Kenneth Bennett (kennethmbennett)
-* Joshua Bray (Josh-LACRRCC)
+### Pew Contractors
+* Brett Antonides (antinodes)
+* Margie Roswell (mroswell)
+* Noma Thayer (nomadaisy)
+* Paul Kominers (pkoms)
+* Paul Stenbjorn (pstenbjorn)
+
+### Independent Contributors
+* Aaron Strauss (aaron-strauss); former Pew and Google contractor
+* Chris Jerdonek (cjerdonek); President SF Election Commission
+* David McGivney (decmg & df-dave); Digital Foundry
+* Joshua Bray (Josh-LACRRCC); Application Developer, Registrar-Recorder/County
+  Clerk, County of Los Angeles
+* Kenneth Bennett (kennethmbennett); IT Manager, Registrar-Recorder/County
+  Clerk, County of Los Angeles
