@@ -11,6 +11,11 @@ earlier versions, see the ["v3-archive" release][archive_release].
 
 For release notes, see the [`HISTORY.md`](HISTORY.md) file.
 
+The VIP spec, documentation, and all other content in this repository are
+available under a [Creative Commons-Attribution license, version
+4.0](LICENSE.md).  Instructions for proper attribution are available in the
+[CREDITS file](CREDITS.md).
+
 
 [archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v3-archive
 [archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v3-archive
