@@ -131,6 +131,18 @@ tables should be checked in.  This lets people reviewing your pull request
 check to see how the reST tables will be affected by your patch.
 However, do not check in the generated HTML files.
 
+For help using the Python script above:
+
+```sh
+$ python scripts/vip.py -h
+```
+
+Or for help with a specific command (for example):
+
+```sh
+$ python scripts/vip.py update_tables -h
+```
+
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [pip]: https://pip.pypa.io/en/stable/
