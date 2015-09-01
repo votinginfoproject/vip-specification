@@ -24,7 +24,7 @@ usernames are included below.
 
 ### Independent Contributors
 * Aaron Strauss (aaron-strauss); former Pew and Google contractor
-* Chris Jerdonek (cjerdonek); President SF Election Commission\*
+* Chris Jerdonek (cjerdonek); President, San Francisco Elections Commission\*
 * David McGivney (decmg & df-dave); Digital Foundry
 * Joshua Bray (Josh-LACRRCC); Application Developer, Registrar-Recorder/County
   Clerk, County of Los Angeles
