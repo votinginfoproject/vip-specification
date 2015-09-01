@@ -51,23 +51,91 @@ dev branch (called 'vip5' in the vip-specification's case, but it may change to 
 future), a stable branch (called 'master' in most cases), and, if necessary, a documentation branch
 (called 'gh-pages' if hosted on GitHub).
 
-# Installing Sphinx
-In order to build the documentation, you must install [Sphinx](http://sphinx-doc.org), which
-involves first [installing python](https://www.python.org/downloads/). Once python is installed,
-you should have access to the python package installer, `pip`. Open a terminal window and enter the
-following commands:
+
+## Documentation Format
+
+VIP writes its documentation in a format called [reStructuredText][reST]
+(aka reST).  reST is a markup language used mainly for documentation.
+VIP chose reST because of its enhanced formatting capabilities.
+For example, reST supports tables.
+
+The documentation that VIP exposes to the public is in HTML.  VIP generates
+its HTML documentation from the reST files automatically using a process
+called "building" the documentation.  Instructions for building are below.
+
+One problem with reST is that tables in reST are hard to edit and maintain
+by hand.  For this reason, VIP stores the tabular documentation data in
+separate files in an open data format called [YAML][YAML]
+(specifically [YAML version 1.1][YAML_1.1]). YAML files are human-readable and
+easy to edit by hand.  The YAML files are stored in the
+[`docs/yaml`](docs/yaml) directory.
+
+
+## Dev Environment
+
+This section explains how to set up your local development environment for
+contributing.  First, [install Python][python_download].  We recommend
+installing the latest stable version of Python 3 (Python 3.4.3 as of June 2015).
+
+We also recommend setting up a virtual environment for the repo (e.g. using
+[virtualenv][virtualenv]) prior to installing dependencies.
+
+Use [`pip`][pip] to install dependencies, which comes with Python 3.4+
+(and is installed automatically when creating a virtual environment).
+Open a terminal window and run:
 
 ```sh
-$ pip install Sphinx
+$ pip install Sphinx PyYAML
+```
+
+([Sphinx](http://sphinx-doc.org) is for building the documentation.)
+
+
+## Building the Documentation
+
+To build the documentation:
+
+```sh
 $ cd /path/to/vip-specification/docs/
 $ make html
 ```
 
-To see changes to the documentation as the files are edited, use the following command:
+To see changes to the documentation as the files are edited, use the
+following command:
 
 ```sh
 $ sphinx-autobuild . _build/html
 ```
 
-Once the above command is executed, open a browser and enter http://127.0.0.1:8000 to see the
-documentation.
+Once the above command is executed, open a browser and view
+[http://127.0.0.1:8000](http://127.0.0.1:8000) to see the documentation.
+
+
+## Updating Tables in the Documentation
+
+To make changes to the tables, edit the YAML files by hand as needed.
+Do not edit the reST tables by hand since they are generated automatically
+from the YAML files.
+
+Then, normalize the YAML files and update the reST tables:
+
+```sh
+$ python scripts/vip.py norm_yaml
+$ python scripts/vip.py update_tables
+```
+
+After this, you will want to build the documentation as described above.
+
+When submitting a PR, changes to both the YAML files and the updated reST
+tables should be checked in.  This lets people reviewing your pull request
+check to see how the reST tables will be affected by your patch.
+However, do not check in the generated HTML files.
+
+
+[Markdown]: http://daringfireball.net/projects/markdown/
+[pip]: https://pip.pypa.io/en/stable/
+[python_download]: https://www.python.org/downloads
+[reST]: http://docutils.sourceforge.net/rst.html
+[virtualenv]: https://pypi.python.org/pypi/virtualenv/
+[YAML]: http://yaml.org/
+[YAML_1.1]: http://yaml.org/spec/1.1/
