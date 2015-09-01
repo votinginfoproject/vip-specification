@@ -3,7 +3,7 @@ StreetSegment
 
 A Street Segment objection represents a portion of a street and the links to the precinct that this
 geography (i.e., segment) is contained within. The start address house number must be less than the
-end address house number unless the segment consists of only one address in which case these values
+end address house number unless the segment consists of only one address, in which case these values
 are equal.
 
 +----------------------+-----------------------------------------+--------------+------------+------------------------+------------------------+
@@ -65,7 +65,7 @@ are equal.
 |                      |                                         |              |            |value is necessary for  |not present or invalid, |
 |                      |                                         |              |            |the street segment to   |the implementation is   |
 |                      |                                         |              |            |make any sense. Unless  |required to ignore the  |
-|                      |                                         |              |            |**IncludesAllAddresses**|street segment element  |
+|                      |                                         |              |            |**IncludesAllAddresses**|StreetSegment element   |
 |                      |                                         |              |            |is true, this value must|containing it. If the   |
 |                      |                                         |              |            |be less than or equal to|**StartHouseNumber** is |
 |                      |                                         |              |            |**EndHouseNumber**. If  |greater than the        |
@@ -80,7 +80,7 @@ are equal.
 |                      |                                         |              |            |value is necessary for  |not present or invalid, |
 |                      |                                         |              |            |the street segment to   |the implementation is   |
 |                      |                                         |              |            |make any sense. Unless  |required to ignore the  |
-|                      |                                         |              |            |**IncludesAllAddresses**|street segment element  |
+|                      |                                         |              |            |**IncludesAllAddresses**|StreetSegment element   |
 |                      |                                         |              |            |is true, it must be     |containing it. If the   |
 |                      |                                         |              |            |greater than or equal to|**EndHouseNumber** is   |
 |                      |                                         |              |            |**StartHouseNumber**. If|less than the           |
