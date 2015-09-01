@@ -48,7 +48,7 @@ Helper script for VIP contributors.
 """
 
 def _wrap(text):
-    """Format text for help outuput."""
+    """Format text for help output."""
     paras = text.split("\n\n")
     paras = [textwrap.fill(p) for p in paras]
     text = "\n\n".join(paras)
