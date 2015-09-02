@@ -24,11 +24,12 @@ usernames are included below.
 
 ### Independent Contributors
 * Aaron Strauss (aaron-strauss); former Pew and Google contractor
-* Chris Jerdonek (cjerdonek); President, San Francisco Elections Commission\*
+* Chris Jerdonek (cjerdonek); President, San Francisco Elections
+  Commission<sup>\*</sup>
 * David McGivney (decmg & df-dave); Digital Foundry
 * Joshua Bray (Josh-LACRRCC); Application Developer, Registrar-Recorder/County
   Clerk, County of Los Angeles
 * Kenneth Bennett (kennethmbennett); IT Manager, Registrar-Recorder/County
   Clerk, County of Los Angeles
 
-\* For identification purposes only.
+<sup>\*</sup> For identification purposes only.
