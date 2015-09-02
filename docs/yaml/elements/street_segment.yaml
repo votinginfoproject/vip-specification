@@ -1,0 +1,89 @@
+name: StreetSegment
+tags:
+- _name: AddressDirection
+  description: Specifies the (inter-)cardinal direction of the entire address. An
+    example is "NE" for the address "100 E Capitol St NE."
+  error_then: =must-ignore
+  type: xs:string
+- _name: City
+  description: The city specifies the city or town of the address.
+  error_then: =must-ignore
+  required: true
+  type: xs:string
+- _name: IncludesAllAddresses
+  description: Specifies if the segment covers every address on this street. If this
+    is *true*, then the values of **StartHouseNumber** and **EndHouseNumber** should
+    be ignored. The value of **OddEvenBoth** must be *both*.
+  error_then: =must-ignore
+  type: xs:boolean
+- _name: OddEvenBoth
+  description: Specifies whether the odd side of the street (in terms of house numbers),
+    the even side, or both are in included in the street segment.
+  error: If the field is not present or invalid, the implementation is required to
+    ignore the StreetSegment containing it.
+  required: true
+  type: OebEnum
+- _name: PrecinctId
+  description: References the :doc:`precinct <precinct>` that contains the entire
+    street segment.
+  error: If the field is not present or invalid, the implementation is required to
+    ignore the StreetSegment element containing it.
+  type: xs:IDREF
+- _name: StartHouseNumber
+  description: The house number at which the street segment starts. This value is
+    necessary for the street segment to make any sense. Unless **IncludesAllAddresses**
+    is true, this value must be less than or equal to **EndHouseNumber**. If **IncludesAllAddresses**
+    is true, this value is ignored.
+  error: Unless **IncludesAllAddresses** is true, if the field is not present or invalid,
+    the implementation is required to ignore the StreetSegment element containing
+    it. If the **StartHouseNumber** is greater than the **EndHouseNumber**, the implementation
+    should ignore the element containing them.
+  type: xs:integer
+- _name: EndHouseNumber
+  description: The house number at which the street segment ends. This value is necessary
+    for the street segment to make any sense. Unless **IncludesAllAddresses** is true,
+    it must be greater than or equal to **StartHouseNumber**. If **IncludesAllAddresses**
+    is true, this value is ignored.
+  error: Unless **IncludesAllAddresses** is true, if the field is not present or invalid,
+    the implementation is required to ignore the StreetSegment element containing
+    it. If the **EndHouseNumber** is less than the **StartHouseNumber**, the implementation
+    should ignore the element containing it.
+  type: xs:integer
+- _name: State
+  description: Specifies the two-letter state abbreviation of the address.
+  error_then: =must-ignore
+  required: true
+  type: xs:string
+- _name: StreetDirection
+  description: Specifies the (inter-)cardinal direction of the street address (e.g.,
+    the "E" in "100 E Capitol St NE").
+  error_then: =must-ignore
+  type: xs:string
+- _name: StreetName
+  description: Represents the name of the street for the address. A special wildcard,
+    "*", denotes every street in the given city/town. It optionally may contain street
+    direction, street suffix or address direction (e.g., both "Capitol" and "E Capitol
+    St NE" are acceptable for the address "100 E Capitol St NE"), however this is
+    not preferred. Preferred is street name alone (e.g. "Capitol").
+  error_then: =must-ignore
+  required: true
+  type: xs:string
+- _name: StreetSuffix
+  description: Represents the abbreviated, non-directional suffix to the street name.
+    An example is "St" for the address "100 E Capitol St NE."
+  error_then: =must-ignore
+  type: xs:string
+- _name: UnitNumber
+  description: The apartment/unit number for a street segment. If this value is present
+    then **StartHouseNumber** must be equal to **EndHouseNumber**. This field cannot
+    be used if **IncludesAllAddresses** is true.
+  error_then: =must-ignore
+  repeating: true
+  type: xs:string
+- _name: Zip
+  description: Specifies the zip code of the address. It may be 5 or 9 digits, and
+    it may include a hyphen ('-'). It is required as it helps with geocoding, which
+    is crucial for distributors.
+  error_then: =must-ignore
+  required: true
+  type: xs:string

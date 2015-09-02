@@ -28,21 +28,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 
 * :doc:`Source <source>`
 
-+------------+--------------------+--------------+-----------+----------------------+-------------------------------+
-| Tag        | Data Type          | Required?    | Repeats?  |Description           |Error Handling                 |
-|            |                    |              |           |                      |                               |
-+============+====================+==============+===========+======================+===============================+
-| Text       |`LanguageString`_   | **Required** | Repeats   |Contains the          |At least one valid ``Text``    |
-|            |                    |              |           |translations of a     |must be present for            |
-|            |                    |              |           |particular string of  |``InternationalizedText`` to be|
-|            |                    |              |           |text.                 |valid. If no valid ``Text`` is |
-|            |                    |              |           |                      |present, the implementation is |
-|            |                    |              |           |                      |required to ignore the         |
-|            |                    |              |           |                      |``InternationalizedText``      |
-|            |                    |              |           |                      |element.                       |
-|            |                    |              |           |                      |                               |
-|            |                    |              |           |                      |                               |
-+------------+--------------------+--------------+-----------+----------------------+-------------------------------+
+.. include:: ../../tables/elements/internationalized_text.rst
 
 LanguageString
 --------------
