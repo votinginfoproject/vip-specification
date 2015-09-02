@@ -26,7 +26,7 @@ ballot in the proper order.
 |                          |            |            |          |<ballot_selection_base>`.  |``OrderedBallotSelectionId``     |
 |                          |            |            |          |                           |elements are present, the        |
 |                          |            |            |          |                           |presumed order of the selection  |
-|                          |            |            |          |                           |will be the order of                         |
+|                          |            |            |          |                           |will be the order of             |
 |                          |            |            |          |                           |:doc:`BallotSelectionBase        |
 |                          |            |            |          |                           |<ballot_selection_base>`-extended|
 |                          |            |            |          |                           |elements referenced by the       |
