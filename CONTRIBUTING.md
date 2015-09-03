@@ -74,8 +74,9 @@ easy to edit by hand.  The YAML files are stored in the
 ## Dev Environment
 
 This section explains how to set up your local development environment for
-contributing.  First, [install Python][python_download].  We recommend
-installing the latest stable version of Python 3 (Python 3.4.3 as of June 2015).
+contributing.  First, [install Python][python_download].  **We recommend
+installing the latest stable version of Python 3** (Python 3.4.3 as of June
+2015).
 
 We also recommend setting up a virtual environment for the repo (e.g. using
 [virtualenv][virtualenv]) prior to installing dependencies.
@@ -85,7 +86,7 @@ Use [`pip`][pip] to install dependencies, which comes with Python 3.4+
 Open a terminal window and run:
 
 ```sh
-$ pip install Sphinx PyYAML
+$ pip install Sphinx PyYAML sphinx_rtd_theme
 ```
 
 ([Sphinx](http://sphinx-doc.org) is for building the documentation.)
