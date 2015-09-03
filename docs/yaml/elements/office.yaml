@@ -1,0 +1,45 @@
+name: Office
+tags:
+- _name: ContactInformation
+  description: Specifies the contact information for the office and/or individual
+    holding the office.
+  error_then: =must-ignore
+  repeating: true
+  type: ContactInformation
+- _name: ElectoralDistrictId
+  description: Links to the :doc:`ElectoralDistrict <electoral_district>` element
+    associated with the office.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``Office`` element containing it.
+  required: true
+  type: xs:IDREF
+- _name: ExternalIdentifiers
+  description: Other identifiers that link this office to other related datasets (e.g.
+    campaign finance systems, OCD IDs, et al.).
+  error_then: =must-ignore
+  type: ExternalIdentifiers
+- _name: FilingDeadline
+  description: Specifies the date and time when a candidate must have filed for the
+    contest for the office.
+  error_then: =must-ignore
+  type: xs:date
+- _name: IsPartisan
+  description: Indicates whether the office is partisan.
+  error_then: =must-ignore
+  type: xs:boolean
+- _name: Name
+  description: The name of the office.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``Office`` element containing it.
+  required: true
+  type: InternationalizedText
+- _name: OfficeHolderPersonId
+  description: Links to the :doc:`Person <person>` element(s) that hold additional
+    information about the current office holder(s).
+  error_then: =must-ignore
+  repeating: true
+  type: xs:IDREF
+- _name: Term
+  description: Defines the term the office can be held.
+  error_then: =must-ignore
+  type: Term

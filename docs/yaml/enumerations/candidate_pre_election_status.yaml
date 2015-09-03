@@ -1,0 +1,11 @@
+name: CandidatePreElectionStatus
+tags:
+- _name: filed
+  description: The candidate has filed for office but not yet been qualified.
+- _name: qualified
+  description: The candidate has qualified for the contest.
+- _name: withdrawn
+  description: The candidate has withdrawn from the contest (but may still be on the
+    ballot).
+- _name: write-in
+  description: ''
