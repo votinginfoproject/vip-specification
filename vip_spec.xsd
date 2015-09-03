@@ -88,7 +88,7 @@
 
   <xs:simpleType name="VoteVariation">
     <!-- While this will part of v5.0 of VIP, long-term this will likely get
-     replaced by whatever comes out of the 1622.6 "Voting Methods
+     replaced by whatever comes out of the NIST "Voting Methods
      Mathematical Models" Working Group
     -->
     <xs:restriction base="xs:string">

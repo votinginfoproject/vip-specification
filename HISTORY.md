@@ -6,19 +6,19 @@ This document includes release notes for the [VIP Spec][vip] for versions
 ## Version 5.0
 
 ### Spec Changes
-* Convergence with the [VSSC 1622.2][vssc_1622.2] election results reporting spec.
+* Convergence with the [NIST][nist_spec] election results reporting spec.
   * Issue [#42](https://github.com/votinginfoproject/vip-specification/issues/42)
-  * Objects and enumerations also used in 1622.2 include:
+  * Objects and enumerations also used in the NIST ERR spec include:
     * `CandidatePreElectionStatus` and `CandidatePostElectionStatus`
     * `DistrictType`
-    * `IdentifierType` (known in 1622.2 as `CodeType`)
+    * `IdentifierType`
     * `BallotSelectionBase`, `BallotMeasureSelection`, and `CandidateSelection`
     * `BallotStyle`
     * `Candidate`
     * `ContactInformation`
     * `ContestBase`, `BallotMeasureContest`, `CandidateContest`, `PartyContest`,
       and `RetentionContest`
-    * `HoursOpen` (known in 1622.2 as `Schedule`)
+    * `HoursOpen` (known in NIST ERR as `Schedule`)
     * `Office`
     * `OrderedContest`
     * `Party`
@@ -84,5 +84,5 @@ This document includes release notes for the [VIP Spec][vip] for versions
 * The sample feed now uses UTF-8.
   * Issue [#81](https://github.com/votinginfoproject/vip-specification/issues/81)
 
-[vssc_1622.2]: http://grouper.ieee.org/groups/1622/groups/2/
+[nist_spec]: https://github.com/usnistgov/Voting
 [vip]: https://github.com/votinginfoproject/vip-specification

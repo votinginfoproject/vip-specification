@@ -78,7 +78,7 @@ Markdown, etc).
     ```xml
     <xs:attribute name="id" type="xs:ID" use="required" />
     ```
-  Note that this departs from the style used by [VSSC 1622.2][vssc_1622],
+  Note that this departs from the style used by [NIST][nist_spec],
   where the name is "ObjectId".
 
 * A reference to a primary key should have type "xs:IDREF".  The name
@@ -295,4 +295,4 @@ attribute.  We call the value of this column for a given row the "row ID."
 The row ID should be unique across all rows of a given file.
 
 
-[vssc_1622]: http://grouper.ieee.org/groups/1622/groups/2/index.html
+[nist_spec]: https://github.com/usnistgov/Voting
