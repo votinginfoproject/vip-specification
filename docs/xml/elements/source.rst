@@ -6,6 +6,8 @@ the only required object in the feed file, and only one source object is allowed
 
 .. include:: ../../tables/elements/source.rst
 
+.. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
+
 .. code-block:: xml
    :linenos:
    
