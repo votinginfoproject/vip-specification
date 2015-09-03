@@ -11,10 +11,13 @@
 |                     |                  |              |              | information on whether an individual is  | then the implementation is required to   |
 |                     |                  |              |              | registered.                              | ignore it.                               |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Department          | :ref:`Department | **Required** | Repeats      | Describes the administrative body for a  | If the element is invalid or not         |
-|                     | <ea-dep>`        |              |              | particular voter service.                | present, the implementation is required  |
-|                     |                  |              |              |                                          | to ignore the **ElectionAdministration** |
-|                     |                  |              |              |                                          | object that contains it.                 |
+| Department          | :ref:`Department | **Required** | Repeats      | Describes the administrative body for a  | There must be at least one valid         |
+|                     | <ea-dep>`        |              |              | particular voter service.                | `Department` in each                     |
+|                     |                  |              |              |                                          | `ElectionAdministration` element. If no  |
+|                     |                  |              |              |                                          | valid `Department` objects are present,  |
+|                     |                  |              |              |                                          | the implementation is required to ignore |
+|                     |                  |              |              |                                          | the `ElectionAdministration` object that |
+|                     |                  |              |              |                                          | contains it/them.                        |
 +---------------------+------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionsUri        | xs:anyURI        | Optional     | Single       | Specifies web address the                | If the field is invalid or not present,  |
 |                     |                  |              |              | administration's website.                | then the implementation is required to   |

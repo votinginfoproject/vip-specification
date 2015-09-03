@@ -10,8 +10,8 @@ tags:
     district, state house district, school board district) to which the precinct belongs.
     **Highly Recommended** if candidate information is to be provided. Multiple allowed
     and recommended to specify the geography of multiple electoral districts. If an
-    electoral district splits a precinct, use the **PrecinctSplitName** object and
-    do not specify that particular electoral district in this object.
+    electoral district splits a precinct, use the `PrecinctSplitName` object and do
+    not specify that particular electoral district in this object.
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF
@@ -23,7 +23,7 @@ tags:
 - _name: IsMailOnly
   description: Determines if the precinct runs mail-only elections.
   error: If the field is missing or invalid, the implementation is required to assume
-    **IsMailOnly** is false.
+    `IsMailOnly` is false.
   type: xs:boolean
 - _name: LocalityId
   description: Links to the :doc:`locality <locality>` that comprises the precinct.
@@ -39,15 +39,13 @@ tags:
   type: xs:string
 - _name: Number
   description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
-    are legal). Should be used if the **Name** field is populated by a name and not
+    are legal). Should be used if the `Name` field is populated by a name and not
     a number.
   error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationId
   description: Specifies a link to the precinct's :doc:`polling location <polling_location>`
-    object(s). Multiple **PollingLocationId** tags may be specified, but this use
-    should be reserved for when multiple Election-Day-only vote locations serve specific
-    precincts.
+    object(s). Multiple `PollingLocationId` tags may be specified.
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF
