@@ -17,7 +17,7 @@
 |                     |                           |              |              | recommended to specify the geography of  |                                          |
 |                     |                           |              |              | multiple electoral districts. If an      |                                          |
 |                     |                           |              |              | electoral district splits a precinct,    |                                          |
-|                     |                           |              |              | use the **PrecinctSplitName** object and |                                          |
+|                     |                           |              |              | use the `PrecinctSplitName` object and   |                                          |
 |                     |                           |              |              | do not specify that particular electoral |                                          |
 |                     |                           |              |              | district in this object.                 |                                          |
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -27,7 +27,7 @@
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsMailOnly          | xs:boolean                | Optional     | Single       | Determines if the precinct runs          | If the field is missing or invalid, the  |
 |                     |                           |              |              | mail-only elections.                     | implementation is required to assume     |
-|                     |                           |              |              |                                          | **IsMailOnly** is false.                 |
+|                     |                           |              |              |                                          | `IsMailOnly` is false.                   |
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LocalityId          | xs:IDREF                  | **Required** | Single       | Links to the :doc:`locality <locality>`  | If the field is invalid or not present,  |
 |                     |                           |              |              | that comprises the precinct.             | the implementation is required to ignore |
@@ -39,18 +39,15 @@
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Number              | xs:string                 | Optional     | Single       | Specifies the precinct's number (e.g.,   | If the field is invalid or not present,  |
 |                     |                           |              |              | 32 or 32A -- alpha characters are        | then the implementation is required to   |
-|                     |                           |              |              | legal). Should be used if the **Name**   | ignore it.                               |
+|                     |                           |              |              | legal). Should be used if the `Name`     | ignore it.                               |
 |                     |                           |              |              | field is populated by a name and not a   |                                          |
 |                     |                           |              |              | number.                                  |                                          |
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId   | xs:IDREF                  | Optional     | Repeats      | Specifies a link to the precinct's       | If the field is invalid or not present,  |
 |                     |                           |              |              | :doc:`polling location                   | then the implementation is required to   |
 |                     |                           |              |              | <polling_location>` object(s). Multiple  | ignore it.                               |
-|                     |                           |              |              | **PollingLocationId** tags may be        |                                          |
-|                     |                           |              |              | specified, but this use should be        |                                          |
-|                     |                           |              |              | reserved for when multiple               |                                          |
-|                     |                           |              |              | Election-Day-only vote locations serve   |                                          |
-|                     |                           |              |              | specific precincts.                      |                                          |
+|                     |                           |              |              | `PollingLocationId` tags may be          |                                          |
+|                     |                           |              |              | specified.                               |                                          |
 +---------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrecinctSplitName   | xs:string                 | Optional     | Single       | Refers to name of the associated         | If the field is invalid or not present,  |
 |                     |                           |              |              | precinct split.                          | then the implementation is required to   |

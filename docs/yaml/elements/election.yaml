@@ -1,10 +1,8 @@
 name: Election
 tags:
 - _name: Date
-  description: Specifies when the election is being held. The `Date` is considered to
-    be in the timezone local to the state holding the election.
-  error: If the field is not present or invalid, the implementation is required to
-    ignore the `Election` element containing it.
+  description: Specifies when the election is being held. The `Date` is considered
+    to be in the timezone local to the state holding the election.
   required: true
   type: xs:date
 - _name: ElectionType
@@ -13,9 +11,8 @@ tags:
   error_then: =must-ignore
   type: InternationalizedText
 - _name: StateId
-  description: Specifies a link to the `State` element where the election is being held.
-  error: If the field is not present or invalid, the implementation is required to
-    ignore the `Election` element containing it.
+  description: Specifies a link to the `State` element where the election is being
+    held.
   required: true
   type: xs:IDREF
 - _name: IsStatewide

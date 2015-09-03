@@ -10,8 +10,8 @@ tags:
     district, state house district, school board district) to which the precinct belongs.
     **Highly Recommended** if candidate information is to be provided. Multiple allowed
     and recommended to specify the geography of multiple electoral districts. If an
-    electoral district splits a precinct, use the `PrecinctSplitName` object and
-    do not specify that particular electoral district in this object.
+    electoral district splits a precinct, use the `PrecinctSplitName` object and do
+    not specify that particular electoral district in this object.
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF
