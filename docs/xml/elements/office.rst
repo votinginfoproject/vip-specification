@@ -16,7 +16,7 @@ Term
 
    <Office id="off0000">
      <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-     <FilingDeadline>1900-01-01</FilingDeadline>
+     <FilingDeadline>2013-01-01</FilingDeadline>
      <IsPartisan>false</IsPartisan>
      <Name>
        <Text language="en">Governor</Text>
