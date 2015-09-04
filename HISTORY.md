@@ -63,7 +63,7 @@ This document includes release notes for the [VIP Spec][vip] for versions
 
 ### Other Changes
 * The spec and all content in this repository is available under a [Creative
-  Commons With-Attribution](LICENSE.md) license.
+  Commons Attribution 4.0 International](LICENSE.md) license.
   * Issue [#269](https://github.com/votinginfoproject/vip-specification/pulls/269)
 * The spec generally uses a [Venetian
   Blind](http://www.oracle.com/technetwork/java/design-patterns-142138.html) design philosophy.
