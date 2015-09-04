@@ -46,6 +46,8 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * Issue [#63](https://github.com/votinginfoproject/vip-specification/issues/63)
 * Better handling of apartments/multi-home lots.
   * Issue [#22](https://github.com/votinginfoproject/vip-specification/issues/22)
+* Removed `NonHouseAddress` since it was only used in one element now.
+  * Issue [#258](https://github.com/votinginfoproject/vip-specification/issues/259)
 * All elements which specify web links are now of type `xs:anyURI` (instead of
   `xs:string`) and end in `Uri` instead of `Url`.
   * Issue [#87](https://github.com/votinginfoproject/vip-specification/issues/87)
@@ -60,6 +62,9 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * Issue [#66](https://github.com/votinginfoproject/vip-specification/issues/66)
 
 ### Other Changes
+* The spec and all content in this repository is available under a [Creative
+  Commons With-Attribution](LICENSE.md) license.
+  * Issue [#269](https://github.com/votinginfoproject/vip-specification/pulls/269)
 * The spec generally uses a [Venetian
   Blind](http://www.oracle.com/technetwork/java/design-patterns-142138.html) design philosophy.
   * Issue [#113](https://github.com/votinginfoproject/vip-specification/issues/113)
@@ -79,6 +84,9 @@ This document includes release notes for the [VIP Spec][vip] for versions
   [CONTRIBUTING
   guide](https://github.com/votinginfoproject/vip-specification/blob/vip5/CONTRIBUTING.md).
   * Issue [#93](https://github.com/votinginfoproject/vip-specification/issues/93)
+* Documentation is now stored in YAML files, which are then used to generate the
+  RST and HTML documentation
+  * Issue [#255](https://github.com/votinginfoproject/vip-specification/issues/255)
 * Created an approval process for pull requests.
   * Issue [#117](https://github.com/votinginfoproject/vip-specification/issues/117)
 * The sample feed now uses UTF-8.
