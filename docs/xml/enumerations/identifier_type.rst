@@ -1,10 +1,6 @@
 IdentifierType
 ==============
 
-.. todo::
-
-   Document IdentifierType
-
 .. include:: ../../tables/enumerations/identifier_type.rst
 
 .. _states: http://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code

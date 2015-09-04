@@ -3,10 +3,6 @@ Locality
 
 The Locality object represents the jurisdiction below the :doc:`state <state>` (e.g. county).
 
-.. todo::
-
-   Fill out description for ExternalIdentifiers
-
 .. include:: ../../tables/elements/locality.rst
 
 .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
