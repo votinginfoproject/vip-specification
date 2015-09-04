@@ -9,7 +9,8 @@ ballot selection for a candidate contest.
 .. code-block:: xml
    :linenos:
       
-   <CandidateSelection id="cs10961">
-      <CandidateId>can10961</CandidateId>
+   <CandidateSelection id="cs10861">
+      <CandidateId>can10861a</CandidateId>
+      <CandidateId>can10861b</CandidateId>
       <EndorsementPartyId>par0001</EndorsementPartyId>
    </CandidateSelection>

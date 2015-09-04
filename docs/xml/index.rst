@@ -5,6 +5,8 @@ XML Specification
 
   * :ref:`naming-convention`
 
+  * :ref:`best-practices`
+
 * :ref:`elements`
 
 * :ref:`enumerations`
@@ -49,6 +51,17 @@ file is zipped, the file extensions of .zip or .xml.zip are also acceptable.
 
 For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the
 Nov 6, 2012 election.
+
+.. _best-practices:
+
+Best Practices
+~~~~~~~~~~~~~~
+
+There are many different ways to generate a valid feed. We strongly encourage
+reviewing and adhering to the guidelines described in this :doc:`best practices
+<xml_data_best_practices>` document. This document outlines several
+recommendations for feed layout, element identifiers, and enumeration selection
+that will make it easier to generate and troubleshoot your VIP feeds.
 
 .. _elements:
 

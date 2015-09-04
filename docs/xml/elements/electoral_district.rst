@@ -19,6 +19,10 @@ which precincts link to the ``ElectoralDistrict``.
           <Type>ocd-id</Type>
 	  <Value>ocd-division/country:us/state:va</Value>
 	</ExternalIdentifier>
+        <ExternalIdentifier>
+          <Type>fips</Type>
+          <Value>51</Value>
+        </ExternalIdentifier>
       </ExternalIdentifiers>
       <Name>Commonwealth of Virginia</Name>
       <Type>state</Type>

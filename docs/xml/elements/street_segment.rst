@@ -8,3 +8,27 @@ are equal.
 
 .. include:: ../../tables/elements/street_segment.rst
 
+.. code-block:: xml
+   :linenos:
+
+   <StreetSegment id="ss999999">
+      <City>Charlottesville</City>
+      <IncludesAllAddresses>true</IncludesAllAddresses>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre99999</PrecinctId>
+      <State>VA</State>
+      <StreetName>CHAPEL HILL</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22901</Zip>
+   </StreetSegment>
+   <StreetSegment id="ss309904">
+      <City>GREENWOOD</City>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre92145</PrecinctId>
+      <StartHouseNumber>1</StartHouseNumber>
+      <EndHouseNumber>201</EndHouseNumber>
+      <State>VA</State>
+      <StreetName>MISTY MOUNTAIN</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22943</Zip>
+   </StreetSegment>

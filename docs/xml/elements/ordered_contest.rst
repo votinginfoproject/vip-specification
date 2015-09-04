@@ -12,7 +12,6 @@ ballot in the proper order.
    :linenos:
 
    <OrderedContest id="oc20003abc">
-
       <ContestId>cc20003</ContestId>
       <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
       <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>

@@ -8,15 +8,15 @@ functions.
 
 .. _ea-dep:
 
-ElectionAdministration.Department
----------------------------------
+Department
+----------
 
 .. include:: ../../tables/elements/department.rst
 
 .. _ea-dep-voter-service:
 
-ElectionAdministration.Department.VoterService
-----------------------------------------------
+VoterService
+------------
 
 .. include:: ../../tables/elements/voter_service.rst
 

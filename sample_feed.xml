@@ -287,7 +287,7 @@
   <!-- The various offices for which there is an election. -->
   <Office id="off9999">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">President and Vice-President</Text>
@@ -298,7 +298,7 @@
   </Office>
   <Office id="off0000">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Governor</Text>
@@ -309,7 +309,7 @@
   </Office>
   <Office id="off0001">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Lieutenant Governor</Text>
@@ -320,7 +320,7 @@
   </Office>
   <Office id="off20005">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Attorney General</Text>
@@ -331,7 +331,7 @@
   </Office>
   <Office id="off20006">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Justice, Supreme Court of Virginia</Text>
@@ -347,7 +347,7 @@
     -->
   <Office id="off20024">
     <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member House of Delegates</Text>
@@ -358,7 +358,7 @@
   </Office>
   <Office id="off20025">
     <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member House of Delegates</Text>
@@ -369,7 +369,7 @@
   </Office>
   <Office id="off20033">
     <ElectoralDistrictId>ed60107</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member House of Delegates</Text>
@@ -380,7 +380,7 @@
   </Office>
   <Office id="off20100">
     <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member House of Delegates</Text>
@@ -392,7 +392,7 @@
   <!-- Board of Supervisors -->
   <Office id="off20262">
     <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member Board of Supervisors</Text>
@@ -403,7 +403,7 @@
   </Office>
   <Office id="off20305">
     <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member Board of Supervisors</Text>
@@ -414,7 +414,7 @@
   </Office>
   <Office id="off20350">
     <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member Board of Supervisors</Text>
@@ -425,7 +425,7 @@
   </Office>
   <Office id="off20355">
     <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member Board of Supervisors</Text>
@@ -437,7 +437,7 @@
   <!-- School board -->
   <Office id="off20449">
     <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member School Board</Text>
@@ -448,7 +448,7 @@
   </Office>
   <Office id="off20473">
     <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member School Board</Text>
@@ -459,7 +459,7 @@
   </Office>
   <Office id="off20476">
     <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    <FilingDeadline>1900-01-01</FilingDeadline>
+    <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
       <Text language="en">Member School Board</Text>

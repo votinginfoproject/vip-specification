@@ -44,3 +44,15 @@ address like the following::
     California Secretary of State, Elections Division
     1500 11th Street
     Sacramento, CA 95814
+
+.. code-block:: xml
+   :linenos:
+
+   <ContactInformation label="ci10861a">
+      <AddressLine>1600 Pennsylvania Ave</AddressLine>
+      <AddressLine>Washington, DC 20006</AddressLine>
+      <Email>president@whitehouse.gov</Email>
+      <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
+      <Uri>http://www.whitehouse.gov</Uri>
+   </ContactInformation>
