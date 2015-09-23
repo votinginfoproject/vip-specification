@@ -1,0 +1,2 @@
+date,name,election_type,state_id,is_statewide,registration_info,absentee_ballot_info,results_uri,polling_hours,has_election_day_registration,registration_deadline,absentee_request_deadline,hours_open_id,id
+2013-11-05,2013 Statewide General,general,st51,,,http://www.sbe.virginia.gov/ElectionResults.html,,false,2013-10-15,2013-10-30,hours0001,ele30000
