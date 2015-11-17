@@ -32,3 +32,6 @@
 |                 |                             |              |              | Use for the information in this file can | then the implementation is required to   |
 |                 |                             |              |              | be found.                                | ignore it.                               |
 +-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Version         | xs:string                   | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
+|                 |                             |              |              |                                          | implementation is required to ignore it. |
++-----------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

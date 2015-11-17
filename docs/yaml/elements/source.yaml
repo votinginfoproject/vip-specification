@@ -35,3 +35,8 @@ tags:
     this file can be found.
   error_then: =must-ignore
   type: xs:anyURI
+- _name: Version
+  description: Specifies the version of the data
+  error_then: =must-ignore
+  required: true
+  type: xs:string

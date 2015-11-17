@@ -2,7 +2,8 @@ source.txt
 ==========
 
 The source.txt file represents the organization that is publishing the information. This object is
-the only required object in the feed file, and only one source object is allowed to be present.
+the only required object in the feed file, and only one source object is allowed to be present. For 
+CSV files, source.txt is required to specify the version of the specification, either 3.0 or 5.0.
 
 .. include:: ../../tables/elements/source.rst
 
