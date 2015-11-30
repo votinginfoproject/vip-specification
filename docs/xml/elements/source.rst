@@ -19,4 +19,5 @@ the only required object in the feed file, and only one source object is allowed
       <Name>State Board of Elections, Commonwealth of Virginia</Name>
       <OrganizationUri>http://www.sbe.virginia.gov/</OrganizationUri>
       <VipId>51</VipId>
+      <Version>5.0</Version>
    </Source>

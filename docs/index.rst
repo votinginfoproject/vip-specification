@@ -5,7 +5,7 @@
 
 Welcome to the VIP Specification documentation
 ==============================================
-Welcome to the `Voting Information Project's`_ (VIP) :ref:`open XML <xml-docs>`
+Welcome to the `Voting Information Project's`_ (VIP) :ref:`open XML <xml-docs>` and :ref:`CSV <csv-docs>`
 format specification. This data format provides an easy way to produce data that
 lets developers take a voter's address, compare it to street segments, and
 determine that voter's precinct (or precinct split). Knowing a voter's precinct
@@ -22,6 +22,7 @@ To see a changelog of all of the updates, please see `the GitHub repository`_.
 .. _`the GitHub repository`: https://github.com/votinginfoproject/vip-specification/blob/vip5/HISTORY.md
 
 .. _xml-docs:
+.. _csv-docs:
 
 XML Documentation
 -----------------
@@ -30,4 +31,13 @@ XML Documentation
    :maxdepth: 2
 
    xml/index
+
+CSV Documentation
+-----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   csv/index
+
 
