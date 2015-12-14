@@ -1,0 +1,10 @@
+name: CandidatePostElectionStatus
+tags:
+- _name: advanced-to-runoff
+  description: For contests in which the top *N* candidates advance to the next round.
+- _name: projected-winner
+  description: A candidate is expected to win, but official results are not yet complete.
+- _name: winner
+  description: The candidate has officially won.
+- _name: withdrawn
+  description: The candidate has withdrawn from the contest.

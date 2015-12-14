@@ -1,0 +1,2 @@
+name,state_id,type,election_administration_id,external_identifiers,other_type,polling_location_id,id
+ALBEMARLE COUNTY,st51,county,ea40001,"ocd-id:ocd-division/country:us/state:va/county:albermarle",,pl81274,loc70001

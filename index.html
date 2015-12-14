@@ -61,9 +61,9 @@
           <h1 class="title"><abbr title="Voting Information Project">VIP</abbr> Format Specification <span class="version">Version 3.0</span></h1>
 
           <h2>General Introduction</h2>
-          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s (VIP) open XML and <a href="#csvdescription">flat file (CSV)</a> format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>.</p>
+          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
 
-          <h3>General XML Specification</h3>
+          <h3>General Specification</h3>
 
           <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="//github.com/votinginfoproject/vip-specification/">sample xml file and xsd file</a> for more details.
 
@@ -74,8 +74,8 @@
           <h3>Naming convention</h3>
           <p>The file containing the VIP feed should be named vipFeed-[<a href="//www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <p/><p/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
 
-          <h3>Comma-delimited flat files (CSV)</h3>
-          <p>If your office is producing flat files, they must be comma-delimited .txt files. The CSV column names differ slightly from XML tag names.<p/><p/> Examples of the flat files are below each XML example and include the necessary files to link those elements together as needed. To read more about the flat files, view complete file header templates, and review example files, you can do so in this <a href="https://github.com/votinginfoproject/csv-templates">GitHub repository.</a> </p>
+          <h3>Comma-delimited flat files</h3>
+          <p>If your office is producing flat files instead of an XML file, the files must be comma-delimited .txt files. While the format of the files differs slightly from the XML, the attributes included must conform to the field specifications below.<p/><p/> Examples of the flat files are below each XML example, along with the files included to link those elements when the files are compiled into an XML feed. To read more about the flat files, see complete file header templates and look at example files, you can do so in this <a href="https://github.com/votinginfoproject/csv-templates">GitHub repository.</a> </p>
 
           <div id="sourceitems" class="datatable">
             <h2>Source items</h2>
@@ -2085,7 +2085,6 @@
             <li><a href="#streetsegment">Street Segment</a></li>
             <li><a href="#contestresult">Contest Result</a></li>
             <li><a href="#ballotlineresult">Ballot Line Result</a></li>
-            <li><a href="#csvdescription">Comma-delimited flat files (CSV)</a></li>
           </ol>
           <h3>Custom Types</h3>
           <ol class="links">
@@ -2178,5 +2177,2108 @@
     </ul>
   </nav>
   <script src="//vip-website-assets.s3.amazonaws.com/core/js/vendor/prism.js"></script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale = 1.0" />
+
+  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Bitter:400,700,400italic" rel="stylesheet" type="text/css">
+  
+  <link href="https://vip-website-assets.s3.amazonaws.com/core/css/jquery.fs.shifter.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="https://vip-website-assets.s3.amazonaws.com/core/css/vendor/prism.css" rel="stylesheet" />
+  <link href="https://vip-website-assets.s3.amazonaws.com/core/css/style.css" rel="stylesheet" type="text/css">
+
+  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/jquery-1.11.0.min.js"></script>
+  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/waypoints.min.js"></script>
+  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/vip.js"></script>
+
+  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/jquery.fs.shifter.js"></script>
+</head>
+
+<body class="shifter">
+  <div class="desktop-nav-wrap nav-wrap">
+    <div class="container">
+      <a href="/">
+	<img src="//vip-website-assets.s3.amazonaws.com/core/images/logo.png" width="370px" height="40px" alt="Voting Information Project" class="logo">
+      </a>
+
+      <ul class="nav desktop-nav">
+	<li>
+	  <a href="/about/">About</a>
+	</li>
+	<li>
+	  <a href="/news/">News</a>
+	</li>
+	<li>
+	  <a href="/projects/">Projects</a>
+	</li>
+	<li>
+	  <a href="/get-involved/">Get Involved</a>
+	</li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="shifter-page">
+    <div class="mobile-nav-wrap nav-wrap">
+      <div class="container">
+	<a href="/" class="group">
+	  <img src="https://vip-website-assets.s3.amazonaws.com/core/images/logo.png" width="370px" height="40px" alt="Voting Information Project" class="logo">
+	</a>
+	<div class="mobile-nav search-mobile group">
+	  <a href="#" class="mobile-nav-slide shifter-handle">
+	    <img src="https://vip-website-assets.s3.amazonaws.com/core/images/btn-mobile-nav.png" width="20px" height="12px">
+	  </a>
+	</div>
+      </div>
+    </div>
+    <div class="inner-wrap standard">
+      <div class="container group">
+	<div class="content-column article">
+          <h1 class="title"><abbr title="Voting Information Project">VIP</abbr> Format Specification <span class="version">Version 3.0</span></h1>
+
+          <h2>General Introduction</h2>
+          <p>Welcome to the <a href="//www.votinginfoproject.org">Voting Information Project</a>'s open XML format. This data format provides an easy way to produce data that lets programmers take a voter's address, compare it to <a href="#streetsegment">street segments</a>, and determine that voter's <a href="#precinctitems">precinct</a> (or <a href="#precinctsplititems">precinct split</a>). Knowing a voter's precinct allows information disseminators (such as Google and Microsoft) provide voters with their official <a href="#pollinglocationitems">polling locations</a> (and <a href="#earlyvotesiteitems">early voting sites</a>), <a href="#ballotitems">ballots</a> (including both <a href="#candidateitems">candidates</a> and <a href="#referendumitems">referenda</a>), local <a href="#electionadministration">election administrations</a>, and <a href="#electionofficial">election officials</a>. After the election, voters can learn <a href="#contestresult">who won</a>.</p>
+
+          <h3>General Specification</h3>
+
+          <p>The actual election information specifies collections of elements, some containing links between each other. The entire set of tags <b>must</b> be encapsulated in a root object named <b>vip_object</b>. See the <a href="//github.com/votinginfoproject/vip-specification/">sample xml file and xsd file</a> for more details.
+
+          <p>Each top-level tag is a container for other fields, described in their own section. The <b>only required</b> top-level tags are the <b><a href="#souceitems">source</a></b> object and the <b><a href="#electionitems">election</a></b> object, each of which must be present exactly once. All other top-level tags can be repeated an unlimited number of times, or not included at all; order of top-level tags does not matter. Each top-level tag is <b>required</b> to have a single attribute, "id", which is required to be: (1) an integer, and (2) unique in a data file. The id attribute for the state object is often the state's <a href="http://www.itl.nist.gov/fipspubs/by-num.htm"><abbr title="Federal Information Processing Standards">FIPS</abbr> number</a>, but this is <b>not required</b>. The id attributes are not required to remain constant for the same piece of semantic data across multiple productions of the feed. (For example, candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state of Iowa publishes data.)</p>
+          <p>In general, subtag data can appear a maximum of one time within each top-level tag object and in any order. Exceptions are noted below.</p>
+          <p>For the data itself, the special characters &amp;, &lt;, and &gt; need to be encoded as &amp;amp;, &amp;lt;, and &amp;gt;, respectively</p>
+
+          <h3>Naming convention</h3>
+          <p>The file containing the VIP feed should be named vipFeed-[<a href="http://www.itl.nist.gov/fipspubs/co-codes/states.htm">FIPS code</a> for state or county]-[election year]-[election month]-[election day].xml. If the file is zipped, the file extensions of .zip or .xml.zip are also acceptable. <br/><br/>For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the Nov 6, 2012 election.</p>
+
+          <div id="sourceitems" class="datatable">
+            <h2>Source items</h2>
+
+            <table>
+              <caption>The Source object represents the organization that is publishing the information. This object is the only required object in the feed file, and only one source object is allowed to be present.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> field specifies the name of the organization that is providing the information.</td>
+                  <td>If the <b>name</b> field is invalid, the
+		    implementation is required to ignore the source element containing it.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>vip_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>vip_id</b> field specifies the ID of the organization as assigned by VIP. This ID is <b>not an attribute</b> so as not to interfere with organizations' own numbering conventions (since id attributes must be unique across the entire file).</td>
+                  <td>If the <b>vip_id</b> field is invalid, the
+		    implementation is required to ignore the source element containing it.</td>
+		</tr>
+		<tr>
+                  <td>datetime</td>
+                  <td>DateTime</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>datetime</b> field specifies the date and time of the feed production. The date/time is considered to be in the timezone local to the organization. This datetime is required to match the datetime specified in the feed's filename.</td>
+                  <td>If the <b>datetime</b> field is not present or invalid, the
+		    implementation is required to ignore the source element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>description</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>description</b> specifies both the nature of the organization providing the data and what data is in the feed.</td>
+                  <td>If the <b>description</b> is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>organization_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>organization_url</b> field contains a URL to the home page of the organization publishing the data</td>
+                  <td>If the <b>organization_url</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>feed_contact_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>feed_contact_id</b> is a reference to (an election official object) the person who will respond to inquiries about the information contained within the file.</td>
+                  <td>If the <b>feed_contact_id</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>tou_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>tou_url</b> is the website where the Terms of Use for the information in this file can be found.</td>
+                  <td>If the <b>tou_url</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a source element:</p>
+            <pre class="line-numbers" data-src="examples/source-1.xml"></pre>
+            <pre class="line-numbers" data-src="examples/source-2.xml"></pre>
+          </div>
+
+          <div id="electionitems" class="datatable">
+            <h2>Election items</h2>
+
+            <table>
+              <caption>The Election object represents an Election Day, which usually consists of many individual contests and/or referenda. <span class="rev22">A feed must contain <b>exactly one</b> Election object. All relationships in the feed (e.g., street segment to precinct [split] to polling location) are assumed to relate only to the Election specified by this object. It is permissible, and recommended, to combine unrelated contests (e.g., a special election and a general election) that occur on the same day into one feed with one Election object.</span></caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>date</td>
+                  <td>Date</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>date</b> field specifies when the election is being
+		    held. The date is considered to be in the timezone local to the state
+		    holding the election.</td>
+                  <td>If the <b>date</b> is not present or invalid, the
+		    implementation is required to ignore the election element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>election_type</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>election_type</b> field specifies the highest
+		    controlling authority for election (e.g., federal, state, county, city,
+		    town, etc.)</td>
+                  <td>If the <b>election_type</b> field is invalid, the
+		    implementation is required to ignore the election_type field.</td>
+		</tr>
+		<tr>
+                  <td>state_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>state_id</b> specifies a link to the state element
+		    where the election is being held.</td>
+                  <td>If the <b>state_id</b> is not present or invalid, the
+		    implementation is required to ignore the election element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>statewide</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>The <b>statewide</b> specifies whether the election is
+		    statewide. Valid items are "yes" and "no".</td>
+                  <td>If the <b>statewide</b> is not present or invalid, the
+		    implementation is required to default to "yes".</td>
+		</tr>
+		<tr class="rev2">
+                  <td>registration_info</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>registration_info</b> specifies information about
+		    registration for this election either as text or a URL.</td>
+                  <td>If the <b>registration_info</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>absentee_ballot_info</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>absentee_ballot_info</b> specifies information about
+		    requesting absentee ballots either as text or a URL</td>
+                  <td>If the <b>absentee_ballot_info</b> field isinvalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>results_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>results_url</b> field contains a URL where results
+		    for the election may be found</td>
+                  <td>If the <b>results_url</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev10">
+                  <td>polling_hours</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>polling_hours</b> field contains the hours (in local
+		    time) that Election Day polling locations are open. If polling hours
+		    differ in specific polling locations, alternative hours may be
+		    specified in the Polling Location object.</td>
+                  <td>If the <b>polling_hours</b> field is invalid or missing, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>election_day_registration</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>The <b>election_day_registration</b> specifies if a voter can register on the same day of the election (i.e., the last day of the election). Valid items are "yes" and "no".</td>
+                  <td>If the <b>election_day_registration</b> field is invalid or missing, the
+		    implementation is required to ignore it and not assume one way or the other.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>registration_deadline</td>
+                  <td>Date</td>
+                  <td>Optional</td>
+                  <td>The <b>registration_deadline</b> field specifies the last day to register for the election with the possible exception of Election Day registration.</td>
+                  <td>If the <b>registration_deadline</b> field is invalid or missing, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>absentee_request_deadline</td>
+                  <td>Date</td>
+                  <td>Optional</td>
+                  <td>The <b>absentee_request_deadline</b> field specifies the last day to request an absentee ballot.</td>
+                  <td>If the <b>absentee_request_deadline</b> field is invalid or missing, the
+		    implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for an election element:</p>
+            <pre class="line-numbers" data-src="examples/election.xml"></pre>
+          </div>
+
+          <div id="stateitems" class="datatable">
+            <h2>State items</h2>
+
+            <table>
+              <caption>The State object includes state-wide election information. The ID attribute is often the state's FIPS code.  Subtag data must appear in the order below.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr class="rev7">
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> is the name of a state, such as Alabama</td>
+                  <td>If the <b>name</b> field is not present or invalid, the
+		    implementation is required to ignore the state element
+		    containing it.</td>
+		</tr>
+		<tr class="rev11">
+                  <td>election_administration_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>election_administration_id</b> links to the state's election administration object.</td>
+                  <td>If the <b>election_administration_id</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev30">
+                  <td>early_vote_site_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>early_vote_site_id</b> specifies a link to the state's early vote or ballot drop locations. If early vote centers or ballot drop locations are state-wide (e.g., anyone in the state can use them), they should be specified here.</td>
+                  <td>If the <b>early_vote_site_id</b> field is missing or invalid, the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a state element:</p>
+            <pre class="line-numbers" data-src="examples/state.xml"></pre>
+          </div>
+
+          <div id="localityitems" class="datatable">
+            <h2>Locality items</h2>
+            <table>
+              <caption>The Locality object represents the jurisdiction below the state (e.g., county). Subtag data must appear in the order below.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> specifies the locality's name</td>
+                  <td>If the <b>name</b> field is invalid or not present, the
+		    implementation is required to ignore the locality element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>state_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>state_id</b> links to the locality's state</td>
+                  <td>If the <b>state_id</b> field is invalid or not present, the
+		    implementation is required to ignore the locality element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>type</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>type</b> specifies the locality's type. Valid values are: county, city, town, township, borough, parish, village, and region (for Alaska). </td>
+                  <td>If the <b>type</b> field is invalid or not present, the
+		    implementation is required to ignore the locality element
+		    containing it.</td>
+		</tr>
+		<tr class="rev11">
+                  <td>election_administration_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>election_administration_id</b> links to the locality's election administration object.</td>
+                  <td>If the <b>election_administration_id</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<!-- <tr class="rev22">
+                     <td>polling_location_id</td>
+                     <td>Integer</td>
+                     <td>Optional</td>
+                     <td>If everyone in a locality votes at the same polling location, the <b>polling_location_id</b> specifies a link to the
+		       locality's polling location object. Use the <b>early_vote_site</b> for early vote centers.</td>
+                     <td>If the <b>polling_location_id</b> field is missing or invalid, the
+		       implementation is required to ignore it.</td>
+		</tr> -->
+		<tr class="rev22 rev30">
+                  <td>early_vote_site_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>early_vote_site_id</b> specifies a link to the locality's early vote or ballot drop locations. If early vote centers or ballot drop locations are locality-wide, they should be specified here.</td>
+                  <td>If the <b>early_vote_site_id</b> field is missing or invalid, the implementation is required to ignore it. However, the implementation should still check to see if there are any early vote sites associated with this locality's state.</td>
+		</tr>
+		<!-- <tr class="rev22">
+                     <td>ballot_style_image_url</td>
+                     <td>String</td>
+                     <td>Optional</td>
+                     <td>The <b>ballot_style_image_url</b> specifies a URL that points to an image of the ballot that a person who lives in this locality will vote on. If multiple ballot styles exist in a single locality, ignore this field.</td>
+                     <td>If the <b>ballot_style_image_url</b> field is missing or invalid, the implementation is required to ignore it.</td>
+		</tr> -->
+              </tbody>
+            </table>
+
+            <p>Example XML for a locality element:</p>
+            <pre class="line-numbers" data-src="examples/locality.xml"></pre>
+          </div>
+
+          <div id="precinctitems" class="datatable">
+            <h2>Precinct</h2>
+
+            <table>
+              <caption>The Precinct object represents a precinct, which is contained within a Locality. Subtag data must appear in the order below. <br/><br/>While the id attribute does not have to be static across feeds for one election, the combination of vip_id, locality.name, precinct.ward, precinct.name, and precinct.number should remain constant across feeds for one election. (Note that not all of the fields just mentioned are required -- omitting those non-required fields is fine.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> specifies the precinct's name (or number if no name exists)</td>
+                  <td>If the <b>name</b> field is invalid or not present, the
+		    implementation is required to ignore the precinct element
+		    containing it.</td>
+		</tr>
+		<tr class="rev30">
+                  <td>number</td>
+                  <td>String</td>
+                  <td><b>Optional</b></td>
+                  <td>The <b>number</b> specifies the precinct's number (e.g., 32 or 32A -- alpha characters are legal). Should be used if the <b>name</b> field is populated by a name and not a number.</td>
+                  <td>If the <b>code</b> field is invalid or not present, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>locality_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>locality_id</b> links to the locality that comprises
+		    the precinct</td>
+                  <td>If the <b>locality_id</b> field is invalid or not present,
+		    the implementation is required to ignore the precinct element
+		    containing it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>electoral_district_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>electoral_district_id</b> links to an electoral district (e.g., congressional district, state house district, school board district) that the precinct belongs to. <b><i>Highly Recommended</i></b> if candidate information is to be provided. Multiple allowed and recommended to specify the geography of multiple electoral districts. If an electoral district splits a precinct, use the <b>precinct_split</b> object and do not specify that particular electoral district in this object.</td>
+                  <td>If the <b>electoral_district_id</b> field is invalid or not present,
+		    the implementation is required to ignore the precinct element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>ward</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>ward</b> specifies the ward the precinct is contained
+		    within</td>
+                  <td>If the <b>ward</b> field is missing or invalid, the implementation is required
+		    to ignore it.</td>
+		</tr>
+		<tr class="rev14">
+                  <td>mail_only</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>The <b>mail_only</b> specifies whether voters in the precinct vote only by mailing their ballots (with the possible option of dropping off their ballots as well). Valid values are "yes" and "no", with "no" being the default if the tag is not present.</td>
+                  <td>If the <b>mail_only</b> field is missing or invalid, the implementation is required to default to "no".</td>
+		</tr>
+		<tr>
+                  <td>polling_location_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>polling_location_id</b> specifies a link to the
+		    precinct's polling location object. Multiple <b>polling_location_id</b> tags may be specified, but this use should be reserved for when multiple Election-Day-only vote locations serve specific precincts. Use the <b>early_vote_site</b> for early vote centers.</td>
+                  <td>If the <b>polling_location_id</b> field is missing or invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22 rev30">
+                  <td>early_vote_site_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>early_vote_site_id</b> specifies a link to the
+		    precinct's early vote sites or ballot drop location. This tag is especially important for precinct-specific vote sites or drop locations, but should be disregarded for locality-level (i.e., county-level) sites where multiple drop locations serve multiple precincts. In this case, precinct multiple <b>early_vote_site_id</b> tags may be specified, but would constitute redundant information.</td>
+                  <td>If the <b>early_vote_site_id</b> field is missing or invalid, the implementation is required to ignore it with the following exception. In all cases, but especially if the precinct is mail-only: if the <b>early_vote_site_id</b> field is missing then the implementation is required to assume that any early_vote_site objects linked from this precinct's <b>locality</b> object are valid early vote/drop locations for this precinct.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>ballot_style_image_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>ballot_style_image_url</b> specifies a URL that points to an image of the ballot that a person who lives in this precinct will vote on. If multiple ballot styles exist in this precinct, ignore this field.</td>
+                  <td>If the <b>ballot_style_image_url</b> field is missing or invalid, the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Three example XML's for a precinct element. The first is a standard, in-person precinct. The second is a mail-in precinct with a precinct specific drop location. The third is a mail-in precinct with multiple drop locations spread around the county.</p>
+
+            <pre class="line-numbers" data-src="examples/precinct-1.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct-2.xml"></pre>
+            <pre class="line-numbers" data-src="examples/precinct-3.xml"></pre>
+          </div>
+
+          <div id="precinctsplititems" class="datatable">
+            <h2>Precinct Split</h2>
+
+            <table>
+              <caption>The Precinct Split object represents a part of a precinct. The Precinct Split object will link to its &quot;parent&quot; Precinct object. Subtag data must appear in the order below.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> specifies the precinct split's name (or
+		    number)</td>
+                  <td>If the <b>name</b> field is invalid or not present, the
+		    implementation is required to ignore the precinct split element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>precinct_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>precinct_id</b> specifies the precinct that comprises
+		    the precinct split.</td>
+                  <td>If the <b>precinct_id</b> field is invalid or not present,
+		    the implementation is required to ignore the precinct split
+		    element containing it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>electoral_district_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>electoral_district_id</b> links to an electoral district (e.g., congressional district, state house district, school board district) that the precinct split belongs to. <b><i>Highly Recommended</i></b> if candidate information is to be provided. Multiple allowed and recommended to specify the geography of multiple electoral districts.</td>
+                  <td>If the <b>electoral_district_id</b> field is invalid or not present,
+		    the implementation is required to ignore the precinct element
+		    containing it. Takes precedence over any conflicting information in the parent precinct object.</td>
+		</tr>
+		<tr>
+                  <td>polling_location_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>polling_location_id</b> specifies a link to the
+		    precinct split's polling location object. Multiple <b>polling_location_id</b> tags may be specified, but this use should be reserved for when multiple Election-Day-only vote locations serve specific precincts splits. Use the <b>early_vote_site</b> for early vote centers.</td>
+                  <td>If the <b>polling_location_id</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22 rev30">
+                  <td>early_vote_site_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>early_vote_site_id</b> specifies a link to the
+		    precinct split's early vote sites or ballot drop location. This tag is especially important for precinct split-specific vote sites or drop locations, but should be disregarded for precinct-level or locality-level (i.e., county-level) sites where multiple drop locations serve multiple precinct splits. In this case, multiple <b>early_vote_site_id</b> tags at the precinct-split level may be specified, but would constitute redundant information.</td>
+                  <td>If the <b>early_vote_site_id</b> field is missing or invalid, the implementation is required to ignore it with the following exception. In all cases, but especially if the precinct-split is mail-only: if the <b>early_vote_site_id</b> field is missing then the implementation is required to assume that any early_vote_site objects linked from this precinct split's <b>precinct</b> object or (failing that) this precinct split's <b>locality</b> object are valid early vote/drop locations for this precinct split.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>ballot_style_image_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>ballot_style_image_url</b> specifies a URL that points to an image of the ballot that a person who lives in this precinct split will vote on.</td>
+                  <td>If the <b>ballot_style_image_url</b> field is missing or invalid, the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a precinct split element:</p>
+            <pre class="line-numbers" data-src="examples/precinct_split.xml"></pre>
+          </div>
+
+          <div id="electionadministration" class="datatable">
+            <h2>Election Administration</h2>
+
+            <table>
+              <caption>The Election Administration represents an institution for serving a locality's (or state's) election functions.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr class="rev13">
+                  <td>name</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>name</b> specifies the name of the office/administration. While this field is optional for backwards compatibility reasons, it is recommended to be specified. Note the default value if unspecified.</td>
+                  <td>If the <b>name</b> field is invalid or not present,
+		    the implementation is required to use &quot;Election Administration&quot; as the default.</td>
+		</tr>
+		<tr>
+                  <td>eo_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>eo_id</b> links to the election official object for the person in charge of the office/administration.</td>
+                  <td>If the <b>eo_id</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>ovc_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>ovc_id</b> links to the election official object for the contact person for overseas voters.</td>
+                  <td>If the <b>ovc_id</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>physical_address</td>
+                  <td>simpleAddressType</td>
+                  <td>Optional</td>
+                  <td>The <b>physical_address</b> element specifies the election administration's office street address.</td>
+                  <td>If the <b>physical_address</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>mailing_address</td>
+                  <td>simpleAddressType</td>
+                  <td>Optional</td>
+                  <td>The <b>mailing_address</b> element specifies the election administration's mailing address.</td>
+                  <td>If the <b>mailing_address</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>elections_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>elections_url</b> specifies web address the administration's website.</td>
+                  <td>If the <b>elections_url</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>registration_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>registration_url</b> specifies web address for information on registering to vote.</td>
+                  <td>If the <b>registration_url</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>am_i_registered_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>am_i_registered_url</b> specifies the web address for information on whether an individual is registered.</td>
+                  <td>If the <b>am_i_registered_url</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>absentee_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>absentee_url</b> specifies the web address for information on absentee or early voting.</td>
+                  <td>If the <b>absentee_url</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev13">
+                  <td>where_do_i_vote_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>where_do_i_vote_url</b> specifies web address for information on where an individual votes based on their address.</td>
+                  <td>If the <b>where_do_i_vote_url</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>what_is_on_my_ballot_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>what_is_on_my_ballot_url</b> specifies web address for information on what is on an individual's ballot.</td>
+                  <td>If the <b>whats_on_my_ballot_url</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>rules_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>rules_url</b> specifies a URL for the election rules
+		    and laws (if any) for the jurisdiction of the administration</td>
+                  <td>If the <b>rules_url</b> field is invalid the implementation
+		    is required to ignore it.</td>
+		</tr>
+		<tr class="rev15">
+                  <td>voter_services</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>voter_services</b> item specify the services available
+		    voters at the election administration building. Services might include:
+		    registration, absentee ballot request, or early voting. Please use
+		    complete sentences. </td>
+                  <td>If the <b>voter_services</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>hours</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>hours</b> element specifies the hours of operation (in local time) of the election administration office.
+                  <td>If the <b>hours</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for an election administration element:</p>
+
+            <pre class="line-numbers" data-src="examples/election_administration.xml"></pre>
+          </div>
+
+          <div id="electionofficial" class="datatable">
+            <h2>Election Official</h2>
+
+            <table>
+              <caption>The Election Official object comprises the name and contact information for an election official.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> specifies the election official's name</td>
+                  <td>If the <b>name</b> field is invalid or not present, the
+		    implementation is required to ignore the Election Official element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>title</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>title</b> element specifies the election official's title in the office.</td>
+                  <td>If the <b>title</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>phone</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>phone</b> element specifies the election official's phone number, optionally including the extension.</td>
+                  <td>If the <b>phone</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>fax</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>fax</b> element specifies the election official's fax number.</td>
+                  <td>If the <b>fax</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>email</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>email</b> element specifies the election official's email address.</td>
+                  <td>If the <b>email</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for an election official element:</p>
+            <pre class="line-numbers" data-src="examples/election_official.xml"></pre>
+          </div>
+
+          <div id="pollinglocationitems" class="datatable">
+            <h2>Polling Location</h2>
+
+            <table>
+              <caption>The Polling Location object represents a site where voters cast ballots on Election Day.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>address</td>
+                  <td>simpleAddressType</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>address</b> specifies the polling location's address. It also optionally includes the polling location's name (e.g., Springfield Elementary).</td>
+                  <td>If the <b>address</b> field is invalid or not present, the
+		    implementation is required to ignore the polling location
+		    element containing it.</td>
+		</tr>
+		<tr>
+                  <td>directions</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>directions</b> specify further instructions for
+		    locating the polling location.</td>
+                  <td>If the <b>directions</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev10">
+                  <td>polling_hours</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>polling_hours</b> field contains the hours (in local
+		    time) that Election Day polling locations are open. This information
+		    overrides any information specified in the Election object.</td>
+                  <td>If the <b>polling_hours</b> field is invalid or missing, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev30">
+                  <td>photo_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>photo_url</b> is a url that points to a picture of this polling location. At the moment, one picture is permitted per polling location, though multiple pictures may be allowed in future revisions.</td>
+                  <td>If the <b>photo_url</b> field is invalid or missing, the
+		    implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a polling location element:</p>
+
+            <pre class="line-numbers" data-src="examples/polling_location.xml"></pre>
+          </div>
+
+          <div id="earlyvotesiteitems" class="datatable">
+            <h2>Early Vote Site items</h2>
+
+            <table>
+              <caption>The Early Vote Site object represents a place where ballots can be cast prior to the election, or drop boxes on Election Day. This object can represent: a registrar's office that offers early voting, a temporary early vote site, a ballot drop box, or similar location.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th><br>
+                  </th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>name</b> specifies the ballot drop location's name. Including the name of the main service will be helpful: &quot;Springfield Ballot Drop Location 2&quot; or &quot;East Springfield Early Vote Center&quot; is preferred to &quot;Springfield Center 2&quot;.</td>
+                  <td>If the <b>name</b> field is invalid or not present, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>address</td>
+                  <td>simpleAddressType</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>address</b> specifies the ballot drop location's
+		    address</td>
+                  <td>If the <b>address</b> field is invalid or not present, the
+		    implementation is required to ignore the ballot drop location
+		    element containing it.</td>
+		</tr>
+		<tr>
+                  <td>directions</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>directions</b> specify further instructions for
+		    locating the ballot drop location.</td>
+                  <td>If the <b>directions</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>voter_services</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>voter_services</b> item specify the services available
+		    voters at the early vote/ballot drop location. Services might include:
+		    registration, absentee ballot request, or early voting. Please use
+		    complete sentences. </td>
+                  <td>If the <b>voter_services</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>start_date</td>
+                  <td>Date</td>
+                  <td>Optional</td>
+                  <td>Highly recommended. The <b>start_date</b> specifies the first date for early voting (or ballot drop-off) at this site. </td>
+                  <td>If the <b>start_date</b> field is invalid or not present,
+		    the implementation is required to ignore it and assume that the early vote site is operational.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>end_date</td>
+                  <td>Date</td>
+                  <td>Optional</td>
+                  <td>Highly recommended. The <b>end_date</b> specifies the last date for early voting (or ballot drop-off) at this site. </td>
+                  <td>If the <b>end_date</b> field is invalid or not present,
+		    the implementation is required to ignore it and assume that the early vote site is operational.</td>
+		</tr>
+		<tr class="rev13 rev22">
+                  <td>days_times_open</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>days_times_open</b> item specify dates and times that the location is open for voter services. Please specify the days of the week (e.g., &quot;Monday through Saturday&quot;) and times (e.g., &quot;9am to 6pm&quot;). </td>
+                  <td>If the <b>days_times_open</b> field is invalid or not present,
+		    the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for an early vote element:</p>
+
+            <pre class="line-numbers" data-src="examples/early_vote_site.xml"></pre>
+          </div>
+
+          <div id="contestitems" class="datatable">
+            <h2>Contest items</h2>
+
+            <table>
+              <caption>The Contest object represents a single contest, which could be between candidates, adoption of a resolution, or retention of judges (among other possibilities). The geographic scope of the Contest object is the Electoral District, which the Contest object links to.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr class="rev5">
+                  <td>election_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>election_id</b> specifies a link to the election
+		    under which this contest is being held.</td>
+                  <td>If the <b>election_id</b> is not present or invalid, the
+		    implementation is required to ignore the contest element
+		    containing it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>electoral_district_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>electoral_district_id</b> specifies a link to the
+		    electoral district for the contest (e.g., congressional district, state senate district).</td>
+                  <td>If the <b>electoral_district_id</b> is not present or invalid,
+		    the implementation is required to ignore the contest element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>type</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>type</b> specifies the type of contest that is being
+		    run (i.e., general, primary, run-off, referendum).</td>
+                  <td>If the <b>type</b> field is invalid or not present, the
+		    implementation is required to ignore the contest element
+		    containing it.</td>
+		</tr>
+		<tr class="rev6">
+                  <td>partisan</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>The <b>partisan</b> field specifies whether the contest is
+		    partisan (i.e., the candidates are official affiliated with a party,
+		    including contests that are partisan primaries). Data should be either
+		    "yes" or "no". (This field may is a candidate for deletion.)</td>
+                  <td>If the <b>partisan</b> field is invalid, the implementation
+		    is required to ignore it.</td>
+		</tr>
+		<tr class="rev6">
+                  <td>primary_party</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>primary_party</b> field specifies the name of the
+		    party the contest is for, if this is a single-party contest (such as a
+		    Democratic primary).</td>
+                  <td>If the <b>primary_party</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev13">
+                  <td>electorate_specifications</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>electorate_specifications</b> field specifies any changes to the eligible electorate for this contest past the usual, "all registered voters" electorate. This subtag will most often be used for primaries and local elections. In primaries, voters may have to be registered as a specific party to vote, or there may be special rules for which ballot a voter can pull. In some local elections, non-citizens can vote.</td>
+                  <td>If the <b>electorate_specifications</b> field is invalid, the
+		    implementation is required to ignore it, and the implementation may assume that all registered voters are eligible to vote.</td>
+		</tr>
+		<tr class="rev6">
+                  <td>special</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>The <b>special</b> field specifies whether the contest is
+		    being held outside of the normal cycle for that office. Data should be
+		    either "yes" or "no"; the default is "no".</td>
+                  <td>If the <b>special</b> field is invalid, the implementation
+		    <b>defaults</b> to "no".</td>
+		</tr>
+		<tr>
+                  <td>office</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>Highly recommended (except for referenda). The <b>office</b> field specifies the name of the office
+		    that the contest is deciding and should be identical to what the voter sees on his/her ballot. Should only be blank for referenda.</td>
+                  <td>If the <b>office</b> field is invalid, the implementation is
+                    required to ignore it.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>filing_closed_date</td>
+                  <td>Date</td>
+                  <td>Optional</td>
+                  <td>The <b>filing_closed_date</b> field specifies the last date to file as a candidate for this contest.</td>
+                  <td>If the <b>filing_closed_date</b> field is invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev10">
+                  <td>number_elected</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>number_elected</b> field specifies the number of
+		    candidates elected to the office in this contest.</td>
+                  <td>If the <b>number_elected</b> field is invalid or missing,
+		    the implementation <b>defaults</b> to 1.</td>
+		</tr>
+		<tr class="rev10">
+                  <td>number_voting_for</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>number_voting_for</b> field specifies the number of
+		    candidates elected to the office in this contest.</td>
+                  <td>If the <b>number_voting_for</b> field is invalid or missing,
+		    the implementation <b>defaults</b> to 1.</td>
+		</tr>
+		<tr class="rev12">
+                  <td>ballot_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>ballot_id</b> field specifies a link to the ballot for this contest.</td>
+                  <td>If the <b>ballot_id</b> field is invalid, the implementation
+		    is required to ignore it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>ballot_placement</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>ballot_placement</b> the placement of this contest among the other contests in the election. For instance, the gubernatorial contest, on the top of the ballot, would have an a ballot_placement value of &quot;1&quot; and all of the congressional contests might have a value attribute of &quot;2&quot;. Since each voter only votes in one congressional contest, there would be no ambiguity for ballot placement. Numbers need not be consecutive.</td>
+                  <td>If the <b>ballot_placement</b> field is invalid, the implementation is required to ignore it. In this case, the implementation should order a ballot in a logical way (i.e., more important elections toward the top) but note that the actual order by be different.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a ballot element:</p>
+            <pre class="line-numbers" data-src="examples/contest.xml"></pre>
+          </div>
+
+          <div id="electoraldistrictitems" class="datatable">
+            <h2>Electoral District items</h2>
+
+            <table>
+              <caption>The Electoral District object represents the geographic area in which a single contest is held. Examples of Electoral District include: statewide, congressional district, a state senate district, and a fire district. The geographic area that comprises a Electoral District is defined by which precinct or precinct splits link to the Electoral District.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> specifies the electoral area's name</td>
+                  <td>If the <b>name</b> field is invalid or not present, the
+		    implementation is required to ignore the electoral area
+		    element containing it.</td>
+		</tr>
+		<tr>
+                  <td>type</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>type</b> specifies the type of electoral area (e.g.,
+		    statewide, state senate district, state house district, fire district,
+		    congressional district, school district, etc.)</td>
+                  <td>If the <b>type</b> field is invalid or not present, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>number</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>number</b> specifies the district number of the district. Example: 34, in the case of the 34th State Senate District. If a number is not applicable, instead of leaving the field blank, leave this field out of the object; empty strings are not valid for xs:integer fields.</td>
+                  <td>If the <b>number</b> field is invalid or not present, the
+		    implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Two examples of electoral area element.</p>
+            <pre class="line-numbers" data-src="examples/electoral_district-1.xml"></pre>
+            <pre class="line-numbers" data-src="examples/electoral_district-2.xml"></pre>
+          </div>
+
+          <div id="ballotitems" class="datatable">
+
+            <h2>Ballot items</h2>
+
+            <table>
+              <caption>The Ballot object represents the ballot item for <b>one contest</b>. The Ballot object is linked to by the corresponding Contest object. The Ballot object links to the Candidate objects or Referendum objects that compose the ballot. Subtag data must appear in the order below.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th><br>
+                  </th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>referendum_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>referendum_id</b> specifies a link to a referendum
+		    element, and is used to link to a single referendum item on a ballot.</td>
+                  <td>If the <b>referendum_id</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22 rev30">
+                  <td>candidate_id</td>
+                  <td>Integer</td>
+                  <td>Optional;<br>multiple allowed</td>
+                  <td>The <b>candidate_id</b> specifies a link to a candidate
+		    element, and is used to link to a single candidate on a ballot.
+		    Multiple (or zero) <b>candidate_id</b> tags may be present. <b>Deprecated and flagged for removal:</b> This
+		    element has an optional attribute named <b>sort_order</b> that may be
+		    specified, giving the ordering of the candidates as they appear on the
+		    actual ballot; however, this tag is deprecated -- use candidate.sort_order instead.</td>
+                  <td>If the <b>candidate_id</b> field is invalid, the
+		    implementation is required to ignore it. If the <b>sort_order</b> attribute is invalid or missing the implementation is required to ignore it. In this case, the implementation should check for sort_order data in the candidate element. If none exists, the candidates should be ordered either alphabetically or randomly with a note specifying this ordering and that the true ballot ordering is likely to be different.</td>
+		</tr>
+		<tr>
+                  <td>custom_ballot_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>custom_ballot_id</b> specifies a link to a custom
+		    ballot element, and is used to place an uncommon ballot element (e.g.,
+		    recall, retention) on the ballot.</td>
+                  <td>If the <b>candidate_id</b> field is invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev9">
+                  <td>write_in</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>The <b>write_in</b> field specifies whether the ballot
+		    includes a place for write-ins. Valid items are "yes" and "no".</td>
+                  <td>If the <b>write_in</b> field is invalid, the implementation
+		    is required to default to "yes" if a <b>candidate_id</b>
+		    element is present and "no" otherwise.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>image_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>image_url</b> links to a picture of this specific ballot item (i.e., one contest). This is <i>not</i> a link to the entire ballot with multiple contests. Because of the hundreds (or thousands) of possible permutations of ballot items combining into one full ballot, this schema does not provide for the linking to a full ballot.</td>
+                  <td>If the <b>image_url</b> field is invalid, the implementation
+		    is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a ballot element:</p>
+
+            <pre class="line-numbers" data-src="examples/ballot.xml"></pre>
+          </div>
+
+          <div id="candidateitems" class="datatable">
+            <h2>Candidate items</h2>
+
+            <table>
+              <caption>The candidate object represents a candidate. If a candidate is running in multiple contests, the same Candidate object may be used provided that the candidate's name, party, etc. appear the same in the ballot items for both contests.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th><br>
+                  </th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>name</b> specifies the full complete name of the
+		    candidate, as it will appear on the ballot.</td>
+                  <td>If the <b>name</b> field is not present or invalid, the
+		    implementation is required to ignore the candidate element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>party</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>party</b> specifies the candidate's party affiliation</td>
+                  <td>If the <b>party</b> field is invalid the implementation is required
+		    to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>candidate_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>candidate_url</b> specifies the URL for the
+		    candidate's official website</td>
+                  <td>If the <b>candidate_url</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>biography</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>biography</b> specifies the candidate's biographical
+		    information.</td>
+                  <td>If the <b>biography</b> field is invalid the implementation
+		    is required to ignore it.</td>
+		</tr>
+		<tr class="rev9">
+                  <td>phone</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>phone</b> specifies the candidate's phone number.</td>
+                  <td>If the <b>phone</b> field is invalid the implementation is required
+		    to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>photo_url</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>photo_url</b> specifies the URL for a photo of the
+		    candidate.</td>
+                  <td>If the <b>photo_url</b> field is invalid the implementation
+		    is required to ignore it.</td>
+		</tr>
+		<tr class="rev13">
+                  <td>filed_mailing_address</td>
+                  <td>simpleAddressType</td>
+                  <td>Optional</td>
+                  <td>The <b>filed_mailing_address</b> specifies the mailing address the candidate when the candidate filed.</td>
+                  <td>If the <b>filed_mailing_address</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>email</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>email</b> specifies the email address of the
+		    candidate.</td>
+                  <td>If the <b>email</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22 rev30">
+                  <td>sort_order</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>Recommended. The <b>sort_order</b> specifies position of the candidate on the ballot item for that contest.</td>
+                  <td>If the <b>sort_order</b> field is invalid the
+		    implementation is required to: order the candidates either alphabetically or randomly with a note specifying this ordering and that the true ballot ordering is likely to be different.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a candidate element:</p>
+
+            <pre class="line-numbers" data-src="examples/candidate.xml"></pre>
+          </div>
+
+          <div id="referendumitems" class="datatable">
+            <h2>Referendum items</h2>
+
+            <table>
+              <caption>The Referendum object provides information about a referendum before the voters, including summary statements on each side.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>title</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>title</b> specifies the full title of the referendum,
+		    as it will appear on the ballot.</td>
+                  <td>If the <b>title</b> field is not present or invalid, the
+		    implementation is required to ignore the referendum element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>subtitle</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>subtitle</b> specifies the subtile for a referendum, as it appears on the ballot below the title.</td>
+                  <td>If the <b>subtitle</b> field is invalid the implementation
+		    is required to ignore it.</td>
+		</tr>
+		<tr class="rev2">
+                  <td>brief</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>brief</b> specifies a short summary of the referendum that is on the ballot below the title but above the text.</td>
+                  <td>If the <b>brief</b> field is invalid the implementation is required
+		    to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>text</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>text</b> specifies the full text of the referendum as it appears on the ballot.</td>
+                  <td>If the <b>text</b> field is not present or invalid the
+		    implementation is required to treat it as if the text was an
+		    empty string.</td>
+		</tr>
+		<tr class="rev4">
+                  <td>pro_statement</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>pro_statement</b> specifies a statement in favor of
+		    the referendum. It does not necessarily appear on the ballot.</td>
+                  <td>If the <b>pro_statement</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev4">
+                  <td>con_statement</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>con_statement</b> specifies a statement in opposition
+		    to the referendum. It does not necessarily appear on the ballot.</td>
+                  <td>If the <b>con_statement</b> field is invalid the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev13">
+                  <td>passage_threshold</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>passage_threshold</b> specifies the threshold of votes that the referendum needs in order to pass. The default is a simple majority (50% plus one vote). Other common thresholds are "three-fifths" and "two-thirds".</td>
+                  <td>If the <b>passage_threshold</b> field is invalid or not present
+		    the implementation <b>defaults</b> to "simple majority" or 50% + one vote.</td>
+		</tr>
+		<tr class="rev6">
+                  <td>effect_of_abstain</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>effect_of_abstain</b> specifies what effect abstaining
+		    (not voting) on this proposition will have (i.e., whether abstaining is
+		    considered a vote against it.)</td>
+                  <td>If the <b>effect_of_abstrain</b> field is invalid or not present
+		    the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev4">
+                  <td>ballot_response_id</td>
+                  <td>Integer</td>
+                  <td><b>Required; multiple allowed</b></td>
+                  <td>The <b>ballot_response_id</b> specifies a link to a ballot
+		    response element. Multiple <b>ballot_response_id</b> tags may be
+		    present. This element has an optional attribute named <b>order</b> that may be specified, giving the ordering of the responses as they appear on the
+		    actual ballot.</td>
+                  <td>If no <b>ballot_response_id</b> field is invalid, the
+		    implementation is required to ignore the referendum element
+		    containing it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a referendum element:</p>
+            <pre class="line-numbers" data-src="examples/referendum.xml"></pre>
+          </div>
+
+          <div id="customballotitems" class="datatable">
+            <h2>Custom Ballot items</h2>
+
+            <table>
+              <caption>A Custom Ballot object represents a ballot for a contest that neither pits candidates against each other nor is a referendum. Examples include recall elections and the retention of judges. A Custom Ballot object consists of multiple Ballot Response objects and it links to these objects.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>heading</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>heading</b> specifies the text at the top of the
+		    ballot item.</td>
+                  <td>If the <b>heading</b> field is not present or invalid, the
+		    implementation is required to ignore the custom ballot element
+		    containing it.</td>
+		</tr>
+		<tr>
+                  <td>ballot_response_id</td>
+                  <td>Integer</td>
+                  <td><b>Required; multiple allowed</b></td>
+                  <td>The <b>ballot_response_id</b> specifies a link to a ballot
+		    response element. Multiple <b>ballot_response_id</b> tags may be
+		    present. This element has an optional attribute named <b>sort_order</b>
+		    that may be specified, giving the ordering of the elements as they
+		    appear on the actual ballot. </td>
+                  <td>If the <b>ballot_response_id</b> field is missing or invalid, the
+		    implementation is required to ignore the custom ballot element
+		    containing it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a custom ballot element:</p>
+
+            <pre class="line-numbers" data-src="examples/custom_ballot.xml"></pre>
+          </div>
+
+          <div id="ballotresponseitems" class="datatable">
+
+            <h2>Ballot Response items</h2>
+
+            <table>
+              <caption>A Ballot Response object represents a line on the ballot. Common examples might include "yes" or "no" for referenda, or a judge's name for a retention contest.</caption>
+              <thead>
+		<tr>
+		  <th>Tag</th>
+		  <th>Data type</th>
+		  <th>&nbsp;</th>
+		  <th>Description</th>
+		  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+		  <td>text</td>
+		  <td>String</td>
+		  <td><b>Required</b></td>
+		  <td>The <b>text</b> specifies the text of the response.</td>
+		  <td>If the <b>text</b> field is not present or invalid, the
+		    implementation is required to ignore the ballot response
+		    element containing it.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>sort_order</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>Recommended. The <b>sort_order</b> specifies position of the punches on the ballot item for that type of contest. Recommended for types of contests where the positions of the punches are fixed. Numbers are relative (with lowest appearing first) and need not be consecutive.</td>
+                  <td>If the <b>sort_order</b> field is invalid the
+		    implementation is required to ignore it. The implementation should check for a sort order in the ballot element. If none exists, the candidates should be ordered either alphabetically or randomly with a note specifying this ordering and that the true ballot ordering is likely to be different.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Four example XML's for a custom ballot response element:</p>
+            <pre class="line-numbers" data-src="examples/ballot_response-1.xml"></pre>
+	    <pre class="line-numbers" data-src="examples/ballot_response-2.xml"></pre>
+	    <pre class="line-numbers" data-src="examples/ballot_response-3.xml"></pre>
+	    <pre class="line-numbers" data-src="examples/ballot_response-4.xml"></pre>
+          </div>
+
+          <div id="streetsegment" class="datatable">
+            <h2>Street Segment</h2>
+
+            <table>
+              <caption>A Street Segment objection represents a portion of a street and the links to the precinct (and possibly precinct split) that this geography (i.e., segment) is contained within. The start address house number must be less than the end address house number unless the segment consists of only one address in which case these values are equal.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr class="rev20 rev30">
+                  <td>start_house_number</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>start_house_number</b> is the house number that street segment start at. This value is very necessary for the street segment to make any sense. It must be less than (or equal to) the end_house_number. To specify any house on the street (or when using the "*" wildcard for street name), the best practice is to put 0 in this field.</td>
+                  <td>If the <b>start_house_number</b> field is not present or invalid, the
+		    implementation is required to ignore the street segment
+		    element containing it. If the <b>start_house_number</b> is greater than the <b>end_house_number</b> the implementation <b>may</b> reverse the start or or end points or it <b>may</b> ignore the element containing it.</td>
+		</tr>
+		<tr class="rev20 rev30">
+                  <td>end_house_number</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>end_house_number</b> is the house number that street segment ends at. This value is very necessary for the street segment to make any sense. It must be greater than (or equal to) the start_house_number. To specify any house on the street (or when using the "*" wildcard for street name), the best practice is to put a very large number such as 999999 in this field.</td>
+                  <td>If the <b>end_house_number</b> field is not present or invalid, the
+		    implementation is required to ignore the street segment
+		    element containing it. If the <b>end_house_number</b> is less than the <b>start_house_number</b> the implementation <b>may</b> reverse the start or or end points or it <b>may</b> ignore the element containing it.</td>
+		</tr>
+		<tr>
+                  <td>odd_even_both</td>
+                  <td>oebEnum</td>
+                  <td>Required</td>
+                  <td>The <b>odd_even_both</b> field specifies whether the odd side of the street (in terms of house numbers), the even side, or both are in included in the street segment. Valid strings are "odd", "even", or "both". It does not apply to start_apartment_number or end_apartment_number</td>
+                  <td>If the <b>odd_even_both</b> field is not present or invalid, the
+		    implementation is required to ignore the street segment element containing it.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>start_apartment_number</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>start_apartment_number</b> is the apartment number that street segment start at. If this value is present then <b>start_house_number</b> must be equal to <b>end_house_number</b>.</td>
+                  <td>If the <b>start_apartment_number</b> field is not present or invalid, the
+		    implementation is required to ignore it and assume no distinction is made between apartment along the street segment.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>end_apartment_number</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>end_apartment_number</b> is the apartment number that street segment ends at. If this value is present then <b>start_house_number</b> must be equal to <b>end_house_number</b>.</td>
+                  <td>If the <b>end_apartment_number</b> field is not present or invalid, the
+		    implementation is required to ignore it and assume no distinction is made between apartment along the street segment.</td>
+		</tr>
+		<tr class="rev20">
+                  <td>non_house_address</td>
+                  <td>detailAddressType</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>non_house_address</b> is the common street address (as well as city, state, and zip) of the start and end points of the segment. Note the type is a <b>detailAddressType</b>; specific information such as street direction should be included. </td>
+                  <td>If the <b>non_house_address</b> field is not present or invalid, the
+		    implementation is required to ignore the street segment
+		    element containing it. </td>
+		</tr>
+		<tr>
+                  <td>precinct_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>precinct_id</b> references the precinct that contains the entire street segment</td>
+                  <td>If the <b>precinct_id</b> field is not present or invalid, the implementation is required to ignore the street segment element containing it.</td>
+		</tr>
+		<tr>
+                  <td>precinct_split_id</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>precinct_split_id</b> references the precinct split that contains the entire street segment</td>
+                  <td>If the <b>precinct_split_id</b> field is not present or invalid, the
+		    implementation is required to ignore the it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a street segment element: </p>
+            <pre class="line-numbers" data-src="examples/street_segment.xml"></pre>
+          </div>
+
+          <div id="contestresult" class="datatable">
+            <h2>Contest Result</h2>
+
+            <table>
+              <caption>A Contest Result item gives the contest-wide information (e.g., overvotes) for a given contest and a specified geography. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>contest_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>contest_id</b> references the contest that this result element refers to.</td>
+                  <td>If the <b>contest_id</b> field is not present or invalid, the
+		    implementation is required to ignore the contest result element containing it.</td>
+		</tr>
+		<tr>
+                  <td>jurisdiction_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>jurisdiction_id</b> references the jurisdiction (e.g., state, locality, precinct, precinct split) that these results are from. This id number can refer to a state_id, locality_id, precinct_id, precinct_split_id, or (in the case of complete results) an electoral_district_id. Districts that split jurisdictions are fine, these results need not be for the entire referenced jurisdiction, just the part of the jurisdiction that intersects with the district.</td>
+                  <td>If the <b>jurisdiction_id</b> field is not present or invalid, the implementation is required to ignore the contest result element containing it.</td>
+		</tr>
+		<tr>
+                  <td>entire_district</td>
+                  <td>yesNoEnum</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>entire_district</b> field specifies whether the results represent the entire electoral district of the contest. The default is "no."</td>
+                  <td>If the <b>entire_district</b> field is not present or invalid, the implementation is required default to <b>no</b>.</td>
+		</tr>
+		<tr>
+                  <td>total_votes</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>total_votes</b> field represents the total number of all votes, including blank votes, overvotes, write-ins, and accepted provisional ballot. In the schema, <b>total_votes = total_valid_votes + overvotes + blank votes</b>.</td>
+                  <td>If the <b>total_votes</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>total_valid_votes</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>total_valid_votes</b> field represents the total number of votes that counted for a candidate, including write-ins that were counted and accepted provisional ballot. This total excludes write-ins that were not tabulated, overvotes, blank votes, and rejected provisional ballots. </td>
+                  <td>If the <b>total_valid_votes</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>overvotes</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>overvotes</b> field represents the  number of votes in which the voter marked the ballot for more candidates than allowed.</td>
+                  <td>If the <b>overvotes</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>blank_votes</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>blank_votes</b> field represents the number of votes that did not contribute to any valid candidate's total. Most common examples are: completely blank ballots and write-in ballots that were not aggregated. </td>
+                  <td>If the <b>blank_votes</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>accepted_provisional_votes</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>accepted_provisional_votes</b> field represents the number of provisional votes that were accepted.</td>
+                  <td>If the <b>accepted_provisional_votes</b> field is not present or invalid, the implementation is required to ignore it. </td>
+		</tr>
+		<tr>
+                  <td>rejected_votes</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>rejected_votes</b> field represents the number of votes that were rejected, including both provisional ballots and judicially-rejected ballots. </td>
+                  <td>If the <b>rejected_votes</b> field is not present or invalid, the implementation is required to ignore it. </td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a contest result element:</p>
+            <pre class="line-numbers" data-src="examples/contest_result.xml"></pre>
+          </div>
+
+          <div id="ballotlineresult" class="datatable">
+            <h2>Ballot Line Result (e.g. Candidate Result)</h2>
+
+            <table>
+              <caption>A Ballot Line Result provides the candidates' or referenda responses' vote totals. In addition to <b>id</b> attribute, includes required attribute called <b>certification</b> of type <a href="#certificationetype">certificationEnum</a>.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>contest_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>contest_id</b> references the contest that this result element refers to.</td>
+                  <td>If the <b>contest_id</b> field is not present or invalid, the
+		    implementation is required to ignore the ballot line result element containing it.</td>
+		</tr>
+		<tr>
+                  <td>jurisdiction_id</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>jurisdiction_id</b> references the jurisdiction (e.g., state, locality, precinct, precinct split) that these results are from. This id number can refer to a state_id, locality_id, precinct_id, precinct_split_id, or (in the case of complete results) an electoral_district_id. Districts that split jurisdictions are fine, these results need not be for the entire referenced jurisdiction, just the part of the jurisdiction that intersects with the district.</td>
+                  <td>If the <b>jurisdiction_id</b> field is not present or invalid, the implementation is required to ignore the ballot line result element containing it.</td>
+		</tr>
+		<tr>
+                  <td>entire_district</td>
+                  <td>yesNoEnum</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>entire_district</b> field specifies whether the results represent the entire electoral district of the contest. The default is "no."</td>
+                  <td>If the <b>entire_district</b> field is not present or invalid, the implementation is required default to <b>no</b>.</td>
+		</tr>
+		<tr class="rev23">
+                  <td>candidate_id</td>
+                  <td>Integer</td>
+                  <td><b>Optional</b></td>
+                  <td>The <b>candidate_id</b> references the candidate that these results apply to.</td>
+                  <td>If the <b>candidate_id</b> field is not present or invalid, the implementation should look for a <b>ballot_response_id</b>. If neither a <b>candidate_id</b> nor a <b>ballot_response_id</b> is present, the implementation is required to ignore the ballot line result element.</td>
+		</tr>
+		<tr class="rev23">
+                  <td>ballot_response_id</td>
+                  <td>Integer</td>
+                  <td><b>Optional</b></td>
+                  <td>The <b>ballot_response_id</b> references the ballot response element that these results apply to. Ignore this item for contests with candidates; use for referenda and custom ballots.</td>
+                  <td>If the <b>ballot_response_id</b> field is not present or invalid, the implementation should look for a <b>ballot_response_id</b>. If neither a <b>ballot_response_id</b> nor a <b>candidate_id</b> is present, the implementation is required to ignore the ballot line result element.</td>
+		</tr>
+		<tr>
+                  <td>votes</td>
+                  <td>Integer</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>votes</b> field represents the total number of votes that the candidate received.</td>
+                  <td>If the <b>votes</b> field is not present or invalid, the implementation is required to ignore the element containing it.</td>
+		</tr>
+		<tr>
+                  <td>victorious</td>
+                  <td>yesNoEnum</td>
+                  <td>Optional</td>
+                  <td>Whether the candidate or referendum response was elected/won. Multiple candidates can have victorious=yes in elections which elect multiple candidates. This field is <i>very optional</i> and feed providers should feel no compunction to perform the interesting queries that may be needed to calculate this information. The <b>victorious</b> items always reflects the district-wide results, even in <b>ballot_line_response</b> objects that correspond to sub-jurisdictions of the district (e.g., a precinct in a congressional district).</td>
+                  <td>If the <b>victorious</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+            <p>Example XML for a ballot line result element:</p>
+            <pre class="line-numbers" data-src="examples/ballot_line_result.xml"></pre>
+          </div>
+
+          <div id="detailaddresstype" class="datatable">
+            <h2>Detail Address (Type) items</h2>
+
+            <table>
+              <caption>A Detail Address is an address that includes details such as street direction. It is a type and not an object, so no ID is required.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>house_number</td>
+                  <td>Integer</td>
+                  <td>Optional</td>
+                  <td>The <b>house_number</b> is the house number part of a street address. It may only be numeric. It is optional because: (1) some addresses do not have numbers (&quot;A Second St.&quot;), (2) some addresses only have house number suffixes (&quot;1/2 Second St.&quot;), and (3) a DetailAddress within a <b>street_segment</b> should not have a house number as it represents only the common aspects of the address. </td>
+                  <td>If the <b>house_number</b> field is not present or invalid, the
+		    implementation is required to ignore it. If each of <b>house_number</b>, <b>house_number_suffix</b>, and <b>house_number_prefix</b> is blank, the address represents the entire street.</td>
+		</tr>
+		<tr class="rev22">
+                  <td>house_number_prefix</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>house_number_prefix</b> is the house number part of a street address. It may contain letters or slashes (e.g., 'B' in 'B22 Main St').</td>
+                  <td>If the <b>house_number_prefix</b> field is not present or invalid, the implementation is required to ignore it. If each of <b>house_number</b>, <b>house_number_suffix</b>, and <b>house_number_prefix</b> is blank, the address represents the entire street.</td>
+		</tr>
+		<tr>
+                  <td>house_number_suffix</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>house_number_suffix</b> is the house number part of a street address. It may contain letters or slashes (e.g., B or 1/2).</td>
+                  <td>If the <b>house_number_suffix</b> field is not present or invalid, the
+		    implementation is required to ignore it. If each of <b>house_number</b>, <b>house_number_suffix</b>, and <b>house_number_prefix</b> is blank, the address represents the entire street.</td>
+		</tr>
+		<tr>
+                  <td>street_direction</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>street_direction</b> specifies the (inter-)cardinal direction of the street address (e.g., the &quot;E&quot; in &quot;100 E Capitol St NE&quot;).</td>
+                  <td>If the <b>street_direction</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr class="rev22 rev30">
+                  <td>street_name</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>street_name</b> is the name of the street for the address. A special wildcard, &quot;*&quot;, denotes every street in the given city/town. It optionally may contain street direction, street suffix or address direction (e.g., both &quot;Capitol&quot; and &quot;E Capitol St NE&quot; are acceptable for the address &quot;100 E Capitol St NE&quot;), however this is not preferred. Preferred is street name alone (e.g. &quot;Capitol&quot;).</td>
+                  <td>If the <b>street_name</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
+		</tr>
+		<tr>
+                  <td>street_suffix</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>street_suffix</b> is the abbreviated, non-directional suffix to the street name. An example is &quot;St&quot; for the address &quot;100 E Capitol St NE&quot;.</td>
+                  <td>If the <b>street_suffix</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>address_direction</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>address_direction</b> specifies the (inter-)cardinal direction of the entire address. An example is &quot;NE&quot; for the address &quot;100 E Capitol St NE&quot;.</td>
+                  <td>If the <b>address_direction</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>apartment</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>apartment</b> specifies the intra-building address. A prefix (e.g. &quot;Apt&quot;, &quot;Suite&quot;) is optional. Examples are &quot;Apt 303&quot;, &quot;303&quot;, &quot;4G&quot;, &quot;4th Floor&quot;.</td>
+                  <td>If the <b>apartment</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>city</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>city</b> specifies the city or town of the address.</td>
+                  <td>If the <b>city</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
+		</tr>
+		<tr>
+                  <td>state</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>state</b> specifies the two-letter state abbreviation of the address.</td>
+                  <td>If the <b>state</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
+		</tr>
+		<tr>
+                  <td>zip</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>Highly recommended. The <b>zip</b> specifies the zip code of the address. It may be 5 or 9 digits, and it may include a hyphen (&apos;-&apos;). It is required as it helps with geocoding, which is crucial for distributors.</td>
+                  <td>If the <b>zip</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
+		</tr>
+              </tbody>
+            </table>
+            <p>Example XML for Detail Addresses, which would appear within Street Segment objects: </p>
+            <pre class="line-numbers" data-src="examples/non_house_address-1.xml"></pre>
+            <pre class="line-numbers" data-src="examples/non_house_address-2.xml"></pre>
+	    <pre class="line-numbers" data-src="examples/non_house_address-3.xml"></pre>
+
+          </div>
+
+          <div id="simpleaddresstype" class="datatable">
+            <h2>Simple Address (Type) items</h2>
+
+            <table>
+              <caption>A Simple Address is an address that combines each address line into one string. It is a type and not an object, so no ID is required.</caption>
+              <thead>
+		<tr>
+                  <th>Tag</th>
+                  <th>Data type</th>
+                  <th>&nbsp;</th>
+                  <th>Description</th>
+                  <th>Error handling</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>location_name</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>location_name</b> is names of the location specified by the address. It is optional. Example: Martin Luther King, Jr. Library. </td>
+                  <td>If the <b>location_name</b> field is not present or invalid, the
+		    implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>line1</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>line1</b> field is the first line of the address. It is required. Example: 1 Main St. NW</td>
+                  <td>If the <b>line1</b> field is not present or invalid, the
+		    implementation is required to ignore the address element containing it.</td>
+		</tr>
+		<tr>
+                  <td>line2</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>line2</b> field specifies the second line of the address. Example: Second Floor</td>
+                  <td>If the <b>line2</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>line3</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>line3</b> field specifies the third line of the address. Example: Cambridge University, Carlton Hall</td>
+                  <td>If the <b>line3</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+		<tr>
+                  <td>city</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>city</b> specifies the city or town of the address.</td>
+                  <td>If the <b>city</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
+		</tr>
+		<tr>
+                  <td>state</td>
+                  <td>String</td>
+                  <td><b>Required</b></td>
+                  <td>The <b>state</b> specifies the two-letter state abbreviation of the address.</td>
+                  <td>If the <b>state</b> field is not present or invalid, the implementation is required to ignore the address element containing it.</td>
+		</tr>
+		<tr>
+                  <td>zip</td>
+                  <td>String</td>
+                  <td>Optional</td>
+                  <td>The <b>zip</b> specifies the zip code of the address. It may be 5 or 9 digits, and it may include a hypen ('-'). It is requires as it helps with geocoding, which is crucial for distributors.</td>
+                  <td>If the <b>zip</b> field is not present or invalid, the implementation is required to ignore it.</td>
+		</tr>
+              </tbody>
+            </table>
+
+            <p>Example XML for a Simple Addresses, which would appear within Polling Locations, Early Vote Sites, Candidates, and Election Administrations:</p>
+
+            <pre class="line-numbers" data-src="examples/address-1.xml"></pre>
+	    <pre class="line-numbers" data-src="examples/address-2.xml"></pre>
+            <pre class="line-numbers" data-src="examples/address-3.xml"></pre>
+          </div>
+
+          <div id="certificationtype" class="datatable">
+            <h2>Certification Enumeration</h2>
+            <table>
+              <caption>The Certification Enumeration provides information of the level of completeness of results. Lowercase is required.</caption>
+              <thead>
+		<tr>
+                  <th>Enumeration</th>
+                  <th>Description</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>unofficial_partial</td>
+                  <td>Results are unofficial and incomplete. Total is expected to increase.</td>
+		</tr>
+		<tr>
+                  <td>unofficial_complete</td>
+                  <td>Results are unofficial, but complete. All sub-jurisdictions have reported. Results may change.</td>
+		</tr>
+		<tr>
+                  <td>certified</td>
+                  <td>Results are complete and certified.</td>
+		</tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="termdefs">
+            <h3>Term definitions</h3>
+            <dl>
+              <dt>Required</dt>
+              <dd>Any implementation that does not implement things noted as required is not considered a conforming implementation.</dd>
+              <dt>Optional</dt>
+              <dd>Conforming implementations may validly ignore anything marked optional and still be considered conforming.</dd>
+            </dl>
+          </div>
+
+          <div id="fieldtypes" class="datatable">
+            <h3>Field types</h3>
+
+            <table>
+              <thead>
+		<tr>
+                  <th>Field type</th>
+                  <th>Description</th>
+		</tr>
+              </thead>
+              <tbody>
+		<tr>
+                  <td>Date</td>
+                  <td><b>Date</b> fields are required to be valid xs:date format (as defined by <a href="http://www.w3.org/TR/xmlschema-2/#date">The XML Schema specification</a>), which is yyyy-mm-dd &lt;optional timezone info&gt;</td>
+		</tr>
+		<tr>
+                  <td>DateTime</td>
+                  <td><b>DateTime</b> fields are required to be valid xs:dateTime format (as defined by <a href="http://www.w3.org/TR/xmlschema-2/#dateTime">The XML Schema specification</a>), which is "YYYY-MM-DDThh:mm:ss" &lt;optional timezone info&gt;<br>
+                  </td>
+		</tr>
+		<tr>
+                  <td>String</td>
+                  <td><b>String</b> fields contain arbitrary UTF-8 text. These fields are required to be valid UTF-8. Further restrictions on the content of a String field may be included in each field description</td>
+		</tr>
+		<tr>
+                  <td>Integer</td>
+                  <td><b>Integer</b> fields describe a numeric value. The value of an integer field is required to be representable as a two's complement 64 bit signed integer. That is, the value must be between -9223372036854775807 and 9223372036854775807</td>
+		</tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>An implementation <b>must not</b> rely on identifiers being the same over multiple fetches of the same data.</p>
+
+	</div>
+	<div class="left-sidebar">
+	  <h3>Top-Level Items</h3>
+          <ol class="links">
+            <li><a href="#sourceitems">Source</a></li>
+            <li><a href="#electionitems">Election</a></li>
+            <li><a href="#stateitems">State</a></li>
+            <li><a href="#localityitems">Locality</a></li>
+            <li><a href="#precinctitems">Precinct</a></li>
+            <li><a href="#precinctsplititems">Precinct Split</a></li>
+            <li><a href="#electionadministration">Election Administration</a></li>
+            <li><a href="#electionofficial">Election Official</a></li>
+            <li><a href="#pollinglocationitems">Polling Location</a></li>
+            <li><a href="#earlyvotesiteitems">Early Vote Site</a></li>
+            <li><a href="#contestitems">Contest</a></li>
+            <li><a href="#electoraldistrictitems">Electoral District</a></li>
+            <li><a href="#ballotitems">Ballot</a></li>
+            <li><a href="#candidateitems">Candidate</a></li>
+            <li><a href="#referendumitems">Referendum</a></li>
+            <li><a href="#customballotitems">Custom Ballot</a></li>
+            <li><a href="#ballotresponseitems">Ballot Response</a></li>
+            <li><a href="#streetsegment">Street Segment</a></li>
+            <li><a href="#contestresult">Contest Result</a></li>
+            <li><a href="#ballotlineresult">Ballot Line Result</a></li>
+          </ol>
+          <h3>Custom Types</h3>
+          <ol class="links">
+            <li><a href="#detailaddresstype">Detail Address</a></li>
+            <li><a href="#simpleaddresstype">Simple Address</a></li>
+            <li><a href="#certificationtype">Certification Enum</a></li>
+          </ol>
+          <h3>Revision History</h3>
+          <ol class="links">
+            <li><a href="#changelog">Changelog</a></li>
+          </ol>
+
+	</div>
+      </div>
+    </div>
+    <div class="footer group">
+      <div class="container">
+	<div class="left-column column">
+	  <h4>Partners</h4>
+	  <div class="logo-partners desktop-logo-partners">
+	    <a href="http://pewtrusts.org" class="pew">Pew</a>
+	    <a href="https://google.com" class="google">Google</a>
+	  </div>
+	  <h4>Collaborators</h4>
+	  <div class="logo-collab desktop-logo-collab">
+	    <a href="https://wordpress.com/" class="wordpress">Wordpress</a>
+	    <a href="https://disqus.com/" class="disqus">Disqus</a>
+	    <a href="https://foursquare.com/" class="foursquare">foursquare</a>
+	  </div>
+	  
+	</div>
+	<div class="right-column column">
+	  <a href="/">
+	    <img src="//vip-website-assets.s3.amazonaws.com/core/images/logo.png" width="370px" height="40px" alt="Voting Information Project" class="logo" />
+	  </a>
+	  <div class="address">
+	    <span>Voting Information Project</span> <br>
+	    901 E St. NW <br>
+	    Washington, DC 20004-2008
+	  </div>
+	  <div class="email">
+	    Media inquires: <a href="mailto:media@votinginfoproject.org">media@votinginfoproject.org</a> <br>
+	    General inquires: <a href="mailto:info@votinginfoproject.org">info@votinginfoproject.org</a>
+	  </div>
+	  <div class="social-links">
+	    <a href="https://www.facebook.com/VotingInfo" class="facebook">
+	      Facebook
+	    </a>
+	    <a href="https://twitter.com/VotingInfo" class="twitter">
+	      Twitter
+	    </a>
+	    <a href="#" class="googleplus">
+	      Google Plus
+	    </a>
+	    <a href="https://github.com/votinginfoproject" class="github">
+	      Github
+	    </a>
+	  </div>
+	</div>
+	
+	<div class="footer-nav group">
+	  <a href="/about/">ABOUT</a>|
+	  <a href="/news/">NEWS</a>|
+	  <a href="/projects/">PROJECTS</a>|
+	  <a href="/get-involved/">GET INVOLVED</a>
+	</div>
+	<div class="footer-nav footer-sub-nav">
+	  <a href="https://www.votinginfoproject.org/terms-service/"> TERMS OF SERVICE </a> |
+	  <a href="https://www.votinginfoproject.org/privacy-policy/"> PRIVACY POLICY </a> |
+	  <a href="http://oxidedesign.com/"> Website design by Oxide Design Co. </a> |
+	  <a href="https://www.votinginfoproject.org"> ©2014 Voting Information Project </a>
+	</div>
+      </div>
+    </div>
+  </div>
+  <nav class="shifter-navigation nav-wrap">
+    <ul class="nav">
+      <li>
+	<a href="/about/">About</a>
+      </li>
+      <li>
+	<a href="/news/">News</a>
+      </li>
+      <li>
+	<a href="/projects/">Projects</a>
+      </li>
+      <li>
+	<a href="/get-involved/">Get Involved</a>
+      </li>
+    </ul>
+  </nav>
+  <script src="https://vip-website-assets.s3.amazonaws.com/core/js/vendor/prism.js"></script>
 </body>
 </html>

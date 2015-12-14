@@ -1,0 +1,42 @@
+name: Source
+tags:
+- _name: Name
+  description: Specifies the name of the organization that is providing the information.
+  required: true
+  type: xs:string
+- _name: VipId
+  description: Specifies the ID of the organization. VIP uses FIPS_ codes for this
+    ID.
+  required: true
+  type: xs:string
+- _name: DateTime
+  description: Specifies the date and time of the feed production. The date/time is
+    considered to be in the timezone local to the organization.
+  error_then: =must-ignore
+  required: true
+  type: xs:dateTime
+- _name: Description
+  description: Specifies both the nature of the organization providing the data and
+    what data is in the feed.
+  error_then: =must-ignore
+  type: InternationalizedText
+- _name: OrganizationUri
+  description: Specifies a URI to the home page of the organization publishing the
+    data.
+  error_then: =must-ignore
+  type: xs:string
+- _name: FeedContactId
+  description: Reference to the :doc:`person <person>` who will respond to inquiries
+    about the information contained within the file.
+  error_then: =must-ignore
+  type: xs:IDREF
+- _name: TouUri
+  description: Specifies the website where the Terms of Use for the information in
+    this file can be found.
+  error_then: =must-ignore
+  type: xs:anyURI
+- _name: Version
+  description: Specifies the version of the data
+  error_then: =must-ignore
+  required: true
+  type: xs:string

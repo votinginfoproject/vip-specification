@@ -1,0 +1,36 @@
+name: VoteVariation
+tags:
+- _name: 1-of-m
+  description: A method where each voter can select up to one option.
+- _name: approval
+  description: '`Approval voting`_, where each voter can select as many options as
+    desired.'
+- _name: borda
+  description: '`Borda count`_, where each voter can rank the options, and the rankings
+    are assigned point values.'
+- _name: cumulative
+  description: '`Cumulative voting`_, where each voter can distribute their vote to
+    up to *N* options.'
+- _name: majority
+  description: A 1-of-m method where the winner needs more than 50% of the vote to
+    be elected.
+- _name: n-of-m
+  description: A method where each voter can select up to *N* options.
+- _name: plurality
+  description: A 1-of-m method where the option with the most votes is elected, regardless
+    of whether the option has more than 50% of the vote.
+- _name: proportional
+  description: A `proportional representation`_ method (other than STV), which is
+    any system that elects winners in proportion to the total vote.
+- _name: range
+  description: '`Range voting`_, where each voter can select a score for each option.'
+- _name: rcv
+  description: '`Ranked choice voting`_ (RCV), where each voter can rank the options,
+    and the ballots are counted in rounds.  Also known as instant-runoff voting (IRV)
+    and the single transferable vote (STV).'
+- _name: super-majority
+  description: A 1-of-m method where the winner needs more than some predetermined
+    fraction of the vote to be elected, where the fraction is more than 50% (e.g.
+    three-fifths or two-thirds).
+- _name: other
+  description: Used when the vote variation type is not included in this enumeration.

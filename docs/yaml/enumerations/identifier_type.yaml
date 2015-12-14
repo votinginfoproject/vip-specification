@@ -1,0 +1,15 @@
+name: IdentifierType
+tags:
+- _name: fips
+  description: Federal Information Processing Standards codes for states_, counties_,
+    and cities_.
+- _name: local-level
+  description: An identifier generated or used by local governments or organizations.
+- _name: national-level
+  description: An identifier generated or used by national organizations.
+- _name: ocd-id
+  description: An `Open Civic Data Division Identifier`_.
+- _name: state-level
+  description: An identifier generated or used by state governments or organizations.
+- _name: other
+  description: Any identifier which doesn't fall into any of the above categories.

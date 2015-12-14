@@ -1,0 +1,17 @@
+name: OrderedContest
+tags:
+- _name: ContestId
+  description: Links to elements that extend :doc:`ContestBase <contest_base>`.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``OrderedContest`` element containing it.
+  required: true
+  type: xs:IDREF
+- _name: OrderedBallotSelectionId
+  description: Links to elements that extend :doc:`BallotSelectionBase <ballot_selection_base>`.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore it. If no ``OrderedBallotSelectionId`` elements are present, the presumed
+    order of the selection will be the order of :doc:`BallotSelectionBase <ballot_selection_base>`-extended
+    elements referenced by the underlying :doc:`ContestBase <contest_base>`-extended
+    elements.
+  repeating: true
+  type: xs:IDREF

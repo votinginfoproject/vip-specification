@@ -1,0 +1,17 @@
+name: Term
+tags:
+- _name: Type
+  description: Specifies the type of office term (see :doc:`OfficeTermType <../enumerations/office_term_type>`
+    for valid values).
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``Office`` element containing it.
+  required: true
+  type: OfficeTermType
+- _name: StartDate
+  description: Specifies the start date for the current term of the office.
+  error_then: =must-ignore
+  type: xs:date
+- _name: EndDate
+  description: Specifies the end date for the current term of the office.
+  error_then: =must-ignore
+  type: xs:date

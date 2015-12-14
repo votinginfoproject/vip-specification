@@ -1,0 +1,8 @@
+name: OebEnum
+tags:
+- _name: both
+  description: Both even and odd addresses within the range.
+- _name: even
+  description: Only even-numbered addresses within the range.
+- _name: odd
+  description: Only odd-numbered addresses within the range.

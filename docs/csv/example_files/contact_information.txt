@@ -1,0 +1,3 @@
+adaddress_line,email,fax,hours,hours_open_id,name,phone,uri,id
+"1600 Pennsylvania Ave, Washington, DC 20006",president@whitehouse.gov,,,,202-456-1111,http://www.whitehouse.gov,ci10861a
+"1600 Pennsylvania Ave, Washington, DC 20006",president@whitehouse.gov,,,,TDD: 202-456-6213,http://www.whitehouse.gov,ci10861b
