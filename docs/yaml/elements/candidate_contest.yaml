@@ -4,12 +4,11 @@ tags:
   description: Number of candidates that are elected in the contest (i.e. "N" of N-of-M).
   error_then: =must-ignore
   type: xs:integer
-- _name: OfficeId
-  description: References an :doc:`Office <office>` element, if available, which gives
-    additional information about the office.
+- _name: OfficeIds
+  description: References a set of :doc:`Office <office>` elements, if available,
+    which give additional information about the offices.
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: PrimaryPartyId
   description: References a :doc:`Party <party>` element, if the contest is related
     to a particular party.

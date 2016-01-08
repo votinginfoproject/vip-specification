@@ -14,7 +14,7 @@
 | Name                     | xs:string                 | **Required** | Single       | Specifiers the name of a state, such as  | If the field is invalid, then the        |
 |                          |                           |              |              | Alabama.                                 | implementation is required to ignore it. |
 +--------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingLocationId        | xs:IDREF                  | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
+| PollingLocationIds       | xs:IDREFS                 | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                           |              |              | :doc:`polling locations                  | then the implementation is required to   |
 |                          |                           |              |              | <polling_location>`. If early vote       | ignore it.                               |
 |                          |                           |              |              | centers or ballot drop locations are     |                                          |

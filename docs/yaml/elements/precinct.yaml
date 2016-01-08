@@ -5,7 +5,7 @@ tags:
     lives in this precinct will vote.
   error_then: =must-ignore
   type: xs:IDREF
-- _name: ElectoralDistrictId
+- _name: ElectoralDistrictIds
   description: Links to an :doc:`electoral district <electoral_district>` (e.g., congressional
     district, state house district, school board district) to which the precinct belongs.
     **Highly Recommended** if candidate information is to be provided. Multiple allowed
@@ -13,8 +13,7 @@ tags:
     electoral district splits a precinct, use the `PrecinctSplitName` object and do
     not specify that particular electoral district in this object.
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: ExternalIdentifiers
   description: Other identifier for the precinct that relates to another dataset (e.g.
     `OCD-ID`_).
@@ -43,12 +42,11 @@ tags:
     a number.
   error_then: =must-ignore
   type: xs:string
-- _name: PollingLocationId
+- _name: PollingLocationIds
   description: Specifies a link to the precinct's :doc:`polling location <polling_location>`
-    object(s). Multiple `PollingLocationId` tags may be specified.
+    object(s).
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: PrecinctSplitName
   description: Refers to name of the associated precinct split.
   error_then: =must-ignore

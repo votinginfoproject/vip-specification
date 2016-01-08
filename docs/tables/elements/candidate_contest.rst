@@ -7,9 +7,10 @@
 |                |              |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
 |                |              |              |              |                                          | ignore it.                               |
 +----------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeId       | xs:IDREF     | Optional     | Repeats      | References an :doc:`Office <office>`     | If the field is invalid or not present,  |
-|                |              |              |              | element, if available, which gives       | then the implementation is required to   |
-|                |              |              |              | additional information about the office. | ignore it.                               |
+| OfficeIds      | xs:IDREFS    | Optional     | Single       | References a set of :doc:`Office         | If the field is invalid or not present,  |
+|                |              |              |              | <office>` elements, if available, which  | then the implementation is required to   |
+|                |              |              |              | give additional information about the    | ignore it.                               |
+|                |              |              |              | offices.                                 |                                          |
 +----------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrimaryPartyId | xs:IDREF     | Optional     | Single       | References a :doc:`Party <party>`        | If the field is invalid or not present,  |
 |                |              |              |              | element, if the contest is related to a  | then the implementation is required to   |

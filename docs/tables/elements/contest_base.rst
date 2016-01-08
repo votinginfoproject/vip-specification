@@ -7,7 +7,7 @@
 |                         |                                   |              |              |                                          | then the implementation should ignore    |
 |                         |                                   |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| BallotSelectionId       | xs:IDREF                          | Optional     | Repeats      | References a particular BallotSelection, | If the field is invalid or not present,  |
+| BallotSelectionIds      | xs:IDREFS                         | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
 |                         |                                   |              |              | which could be of any selection type     | then the implementation should ignore    |
 |                         |                                   |              |              | that extends :doc:`BallotSelectionBase   | it.                                      |
 |                         |                                   |              |              | <ballot_selection_base>`.                |                                          |

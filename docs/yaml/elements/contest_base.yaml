@@ -4,12 +4,11 @@ tags:
   description: An abbreviation for the contest.
   error_then: =should-ignore
   type: xs:string
-- _name: BallotSelectionId
-  description: References a particular BallotSelection, which could be of any selection
+- _name: BallotSelectionIds
+  description: References a set of BallotSelections, which could be of any selection
     type that extends :doc:`BallotSelectionBase <ballot_selection_base>`.
   error_then: =should-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: BallotSubTitle
   description: Subtitle of the contest as it appears on the ballot.
   error_then: =should-ignore

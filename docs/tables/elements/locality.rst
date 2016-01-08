@@ -15,9 +15,9 @@
 |                          |                                  |              |              |                                          | the implementation is required to ignore |
 |                          |                                  |              |              |                                          | the Locality element containing it.      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingLocationId        | xs:IDREF                         | Optional     | Repeats      | Specifies a link to the locality's       | If the field is invalid or not present,  |
-|                          |                                  |              |              | :doc:`polling locations                  | the implementation is required to ignore |
-|                          |                                  |              |              | <polling_location>`. If early vote       | it. However, the implementation should   |
+| PollingLocationIds       | xs:IDREFS                        | Optional     | Single       | Specifies a link to a set of the         | If the field is invalid or not present,  |
+|                          |                                  |              |              | locality's :doc:`polling locations       | the implementation is required to ignore |
+|                          |                                  |              |              | <polling_location>`s. If early vote      | it. However, the implementation should   |
 |                          |                                  |              |              | centers or ballot drop locations are     | still check to see if there are any      |
 |                          |                                  |              |              | locality-wide, they should be specified  | polling locations associated with this   |
 |                          |                                  |              |              | here.                                    | locality's state.                        |
