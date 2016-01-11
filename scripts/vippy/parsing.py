@@ -1,6 +1,7 @@
 """
 Supports parsing the reST files and generating the initial YAML files.
 
+This module is not needed for updating the reST.
 """
 
 import os
@@ -22,10 +23,13 @@ TYPE_NAME_TO_BASE_NAME = {
     'Department': 'department',
     'ExternalIdentifier': 'external_identifier',
     'Hours': 'hours',
+    'HtmlColorString': 'html_color_string',
+    'LanguageString': 'language_string',
     'LatLng': 'lat_lng',
     'NonHouseAddress': 'non_house_address',
     'Schedule': 'schedule',
     'Term': 'term',
+    'TimeWithZone': 'time_with_zone',
     'VoterService': 'voter_service',
 }
 
@@ -166,52 +170,113 @@ def parse_table(iter_lines, columns_info):
     return tags_data
 
 
+def make_yaml_path(rel_path, type_name):
+    rel_base = fix_rel_path(rel_path, type_name)
+    yaml_path = os.path.join(common.YAML_DIR, rel_base + ".yaml")
+    return yaml_path
+
+
+def parse_type(rel_path, type_name, iter_lines, parent_type=None):
+    msg = "parsing type: {0}".format(type_name)
+    if parent_type is not None:
+        msg += " ({0})".format(parent_type)
+    _log.debug(msg)
+
+    new_lines = []
+    next_type = None
+    type_description = None
+    for line in iter_lines:
+        norm_line = line.replace("\t", "    ").rstrip()
+        assert "\t" not in norm_line
+
+        # Check to see if we have reached a "child type."
+        assert "===" not in norm_line
+        # Checking for a space rules out headers like:
+        #   ``Name`` and ``AddressLine`` Usage Note
+        if "---" in norm_line and " " not in previous_line:
+            next_type = previous_line
+            # Remove the header line added in the previous loop iteration.
+            new_lines.pop()
+            break
+        previous_line = norm_line
+
+        if norm_line.startswith(".. include:: ../../tables"):
+            # Then we reached the end of the description (aka the "pre").
+            type_description = "\n".join(new_lines)
+            # Start the "post."
+            new_lines = []
+        else:
+            new_lines.append(norm_line)
+
+    # If we got here, then we have finished reading all lines of a type.
+    if type_description is None:
+        # Then there is no "post."
+        type_description = "\n".join(new_lines)
+        type_post = ""
+    else:
+        type_post = "\n".join(new_lines)
+
+    child_types = []
+    # Child types should only be processed by the original (parent) type.
+    if next_type is not None and parent_type is None:
+        while True:
+            child_types.append(next_type)
+            next_type = parse_type(rel_path, next_type, iter_lines, parent_type=type_name)
+            if next_type is None:
+                break
+
+    # Create or update the corresponding YAML file.
+    yaml_path = make_yaml_path(rel_path, type_name)
+    if os.path.exists(yaml_path):
+        yaml_data = common.read_yaml(yaml_path)
+        if "name" in yaml_data:
+            name = yaml_data['name']
+            assert name == type_name
+            del yaml_data['name']
+    else:
+        yaml_data = {}
+    yaml_data["_name"] = type_name
+    if child_types:
+        yaml_data["_sub_types"] = child_types
+    type_description = type_description.strip()
+    if type_description:
+        yaml_data["description"] = type_description
+    type_post = type_post.strip()
+    if type_post:
+        yaml_data["post"] = type_post
+    common.write_yaml(yaml_data, yaml_path)
+
+    return next_type
+
+
 def rest_file_to_yaml(parent_dir, rest_path):
     """
     Parse a reST file, and convert it to use a YAML file.
 
-    This function parses a reST file, extracts the table data,
-    creates (or updates) one or more YAML files in the correct location,
-    and then updates the reST file to use tables generated from the
-    YAML files.
+    This function--
+
+    1) parses a reST file,
+    2) extracts all of the information, and then
+    3) creates (or updates) one or more YAML files in the correct location.
     """
     dir_name = os.path.basename(os.path.dirname(rest_path))
     if dir_name not in ('elements', 'enumerations'):
         _log.info("skipping: {0}".format(rest_path))
         return
 
-    _log.debug("parsing: {0}".format(rest_path))
+    _log.debug("parsing file: {0}".format(rest_path))
     is_enum = (dir_name == 'enumerations')
     column_infos, cell_values = rest.get_type_info(is_enum)
     rel_path = os.path.relpath(rest_path, start=parent_dir)
+
     with open(rest_path) as f:
         lines = f.readlines()
     table_number = 0
     iter_lines = iter(lines)
-    new_lines = []
-    for line in iter_lines:
-        norm_line = line.strip()
-        if (norm_line and " " not in norm_line and "-" not in norm_line and
-            "=" not in norm_line and not norm_line.endswith('.')):
-            type_name = norm_line.split(".")[-1]
-        if not norm_line.startswith("+---"):
-            new_lines.append(line)
-            continue
-        # Otherwise, we just started a table.
-        rel_base = fix_rel_path(rel_path, type_name)
-        rel_table_path = rel_base + ".rst"
-        yaml_path = os.path.join(common.YAML_DIR, rel_base + ".yaml")
-        dir_path = os.path.dirname(yaml_path)
-        if not os.path.exists(dir_path):
-            _log.info("creating dir: {0}".format(dir_path))
-            os.makedirs(dir_path)
-        new_line = ".. include:: ../../tables/{0}\n\n".format(rel_table_path)
-        new_lines.append(new_line)
-        tags_data = parse_table(iter_lines, column_infos)
-        data = {
-            'name': type_name,
-            'tags': tags_data,
-        }
-        common.write_yaml(data, yaml_path)
-    new_rest = "".join(new_lines)
-    common.write_file(rest_path, new_rest)
+
+    first_line = next(iter_lines)
+    type_name = first_line.strip()
+    # Skip past the header marker "=====".
+    next(iter_lines)
+
+    parse_type(rel_path, type_name, iter_lines)

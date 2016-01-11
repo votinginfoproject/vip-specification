@@ -83,9 +83,9 @@ def command_rest2yaml(ns):
         parsing.rest_file_to_yaml(parent_dir, path)
 
 
-def command_update_tables(ns):
+def command_update_rest(ns):
     """Run the update_tables command."""
-    rest.update_table_files(ns.type_name)
+    rest.update_rest_files(ns.type_name)
 
 
 def command_scratch(ns):
@@ -132,14 +132,14 @@ def create_parser():
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file. Defaults to all files.")
 
-    parser = make_subparser(sub, "update_tables",
-        help=("update all reST tables from the data in the YAML files."))
+    parser = make_subparser(sub, "update_rest",
+        help=("update all reST files from the YAML files."))
     parser.add_argument('type_name', metavar='TYPE_NAME', nargs='?',
         help=('the name of a type (e.g. "HoursOpen"). '
               "Defaults to all types."))
 
     parser = make_subparser(sub, "rest2yaml",
-        help=("rewrite all reST files to use tables generated from YAML files. "
+        help=("parse reST files and update the corresponding YAML files. "
               "This command only needs to be run on the repo once. "
               "After that, this command can be permanently deleted."))
     parser.add_argument('path', metavar='PATH', nargs='?',
@@ -166,7 +166,7 @@ def main(argv=None):
     """
     if argv is None:
         argv = sys.argv[1:]
-    logging.basicConfig(level='DEBUG')
+    logging.basicConfig(level='DEBUG', style="{", format="vippy: [{levelname}] {message}")
     common.configure_yaml()
     parser = create_parser()
     ns = parser.parse_args(argv)  # an argparse.Namespace object.

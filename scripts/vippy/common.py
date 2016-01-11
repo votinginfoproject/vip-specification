@@ -298,9 +298,9 @@ class DataType(object):
         file_name = os.path.basename(rel_path)
         snake_name, ext = os.path.splitext(file_name)
 
-        type_name = type_yaml['name']
+        type_name = type_yaml['_name']
         type_data = copy.deepcopy(type_yaml)
-        tags = type_data['tags']
+        tags = type_data.get('tags', [])
         for tag in tags:
             tag['containing_type'] = type_name
 
@@ -321,17 +321,31 @@ class DataType(object):
 
     @property
     def name(self):
-        return self.data['name']
+        return self.data['_name']
+
+    @property
+    def sub_types(self):
+        return self.data.get('_sub_types', [])
 
     @property
     def tags(self):
-        return self.data['tags']
+        return self.data.get('tags')
 
     @property
     def table_path(self):
         """Return a path relative to the repo root."""
+        if not self.tags:
+            return
+        return self.get_rest_path(TABLES_DIR)
+
+    @property
+    def rest_path(self):
+        """Return a path relative to the repo root."""
+        return self.get_rest_path(XML_DIR)
+
+    def get_rest_path(self, dir_path):
         rel_path = self.rel_path
         root, ext = os.path.splitext(rel_path)
         rest_rel_path = "{0}.rst".format(root)
-        path = os.path.join(TABLES_DIR, rest_rel_path)
+        path = os.path.join(dir_path, rest_rel_path)
         return path
