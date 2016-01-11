@@ -111,7 +111,7 @@ def make_table_formatter(all_types, data_type):
 def make_table(all_types, data_type):
     formatter = make_table_formatter(all_types, data_type)
     lines = formatter.make_table(data_type)
-    table = "\n".join(lines) + "\n"
+    table = "\n".join(lines)
 
     return table
 
@@ -125,7 +125,7 @@ def update_table_file(all_types, data_type):
     if not data_type.tags:
         _log.debug("table not needed for: {0}".format(data_type))
         return
-    rest = make_table(all_types, data_type)
+    rest = make_table(all_types, data_type) + "\n"
     rest_path = data_type.table_path
     write_rest_file(rest_path, rest)
 
@@ -148,11 +148,9 @@ def make_type_rest(all_types, data_type, header_char):
     if description:
         rest = add_rest_section(rest, description)
 
-    if data_type.table_path:
-        table_path = data_type.table_path
-        rel_table_path = os.path.relpath(table_path, start="docs")
-        new_rest = ".. include:: ../../{0}".format(rel_table_path)
-        rest = add_rest_section(rest, new_rest)
+    if data_type.tags:
+        table_rest = make_table(all_types, data_type)
+        rest = add_rest_section(rest, table_rest)
 
     post = yaml_data.get('post')
     if post:
