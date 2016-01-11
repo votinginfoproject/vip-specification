@@ -30,7 +30,7 @@ TYPE_NAME_TO_REST = {
     'Department': ':ref:`Department <ea-dep>`',
     'DistrictType': ':doc:`DistrictType <../enumerations/district_type>`',
     'ExternalIdentifier': '`ExternalIdentifier`_',
-    'ExternalIdentifiers': ':doc:`ExternalIdentifiers <external_identifiers>`',
+    'ExternalIdentifiers': ':doc:`ExternalIdentifiers </xml/elements/external_identifiers>`',
     'Hours': '`Hours`_',
     'HtmlColorString': '`HtmlColorString`_',
     'IdentifierType': ':doc:`IdentifierType <../enumerations/identifier_type>`',

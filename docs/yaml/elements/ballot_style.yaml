@@ -18,7 +18,7 @@ tags:
   error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestId
-  description: Reference to an :doc:`OrderedContest <ordered_contest>`
+  description: Reference to an :doc:`OrderedContest </xml/elements/ordered_contest>`
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF
