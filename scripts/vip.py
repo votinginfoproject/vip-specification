@@ -84,7 +84,7 @@ def command_rest2yaml(ns):
 
 
 def command_update_rest(ns):
-    """Run the update_tables command."""
+    """Run the update_rest command."""
     rest.update_rest_files(ns.type_name)
 
 
