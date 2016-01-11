@@ -3,4 +3,12 @@
 OebEnum
 =======
 
-.. include:: ../../tables/enumerations/oeb_enum.rst
++--------------+----------------------------------------------------+
+| Tag          | Description                                        |
++==============+====================================================+
+| both         | Both even and odd addresses within the range.      |
++--------------+----------------------------------------------------+
+| even         | Only even-numbered addresses within the range.     |
++--------------+----------------------------------------------------+
+| odd          | Only odd-numbered addresses within the range.      |
++--------------+----------------------------------------------------+

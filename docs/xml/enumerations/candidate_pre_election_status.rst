@@ -3,4 +3,16 @@
 CandidatePreElectionStatus
 ==========================
 
-.. include:: ../../tables/enumerations/candidate_pre_election_status.rst
++--------------+----------------------------------------------------+
+| Tag          | Description                                        |
++==============+====================================================+
+| filed        | The candidate has filed for office but not yet     |
+|              | been qualified.                                    |
++--------------+----------------------------------------------------+
+| qualified    | The candidate has qualified for the contest.       |
++--------------+----------------------------------------------------+
+| withdrawn    | The candidate has withdrawn from the contest (but  |
+|              | may still be on the ballot).                       |
++--------------+----------------------------------------------------+
+| write-in     |                                                    |
++--------------+----------------------------------------------------+
