@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Office
 ======
 
@@ -5,6 +7,7 @@ Office
 School Board, et al).
 
 .. include:: ../../tables/elements/office.rst
+
 
 Term
 ----

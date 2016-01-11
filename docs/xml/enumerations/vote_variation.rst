@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 VoteVariation
 =============
 
@@ -8,7 +10,6 @@ even though there are majority voting methods that are not "1-of-m" (e.g.
 ranked choice voting), we constrain "majority" to 1-of-m.  We do this to
 eliminate any source of ambiguity when a single enumeration value needs
 to be assigned to a contest.
-
 
 .. include:: ../../tables/enumerations/vote_variation.rst
 

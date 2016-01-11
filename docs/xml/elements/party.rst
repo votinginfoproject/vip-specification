@@ -1,9 +1,12 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Party
 =====
 
 This element describes a political party and the metadata associated with them.
 
 .. include:: ../../tables/elements/party.rst
+
 
 HtmlColorString
 ---------------

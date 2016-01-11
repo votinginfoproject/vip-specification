@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 InternationalizedText
 =====================
 
@@ -29,6 +31,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 * :doc:`Source <source>`
 
 .. include:: ../../tables/elements/internationalized_text.rst
+
 
 LanguageString
 --------------

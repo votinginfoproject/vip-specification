@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Locality
 ========
 
@@ -9,7 +11,7 @@ The Locality object represents the jurisdiction below the :doc:`state <state>` (
 
 .. code-block:: xml
    :linenos:
-   
+
    <Locality id="loc70001">
      <ElectionAdministrationId>ea40001</ElectionAdministrationId>
      <ExternalIdentifiers>

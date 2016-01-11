@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Precinct
 ========
 
@@ -14,7 +16,7 @@ non-required fields is fine).
 
 .. code-block:: xml
    :linenos:
-   
+
    <Precinct id="pre90111">
       <BallotStyleId>bs00010</BallotStyleId>
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>

@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 ContestBase
 ===========
 
@@ -7,4 +9,3 @@ and :doc:`RetentionContest <retention_contest>` (NB: the latter because it exten
 :doc:`BallotMeasureContest <ballot_measure_contest>`).
 
 .. include:: ../../tables/elements/contest_base.rst
-

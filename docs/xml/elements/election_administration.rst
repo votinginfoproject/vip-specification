@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 ElectionAdministration
 ======================
 
@@ -8,12 +10,14 @@ functions.
 
 .. _ea-dep:
 
+
 Department
 ----------
 
 .. include:: ../../tables/elements/department.rst
 
 .. _ea-dep-voter-service:
+
 
 VoterService
 ------------

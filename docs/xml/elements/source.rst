@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Source
 ======
 
@@ -10,7 +12,7 @@ the only required object in the feed file, and only one source object is allowed
 
 .. code-block:: xml
    :linenos:
-   
+
    <Source id="src1">
       <DateTime>2013-10-24T14:25:28</DateTime>
       <Description>

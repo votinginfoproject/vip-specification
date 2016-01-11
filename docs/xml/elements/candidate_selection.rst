@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 CandidateSelection
 ==================
 
@@ -8,7 +10,7 @@ ballot selection for a candidate contest.
 
 .. code-block:: xml
    :linenos:
-      
+
    <CandidateSelection id="cs10861">
       <CandidateId>can10861a</CandidateId>
       <CandidateId>can10861b</CandidateId>

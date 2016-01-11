@@ -1,9 +1,11 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Candidate
 =========
 
 The Candidate object represents a candidate in a contest. If a candidate is running in multiple contests, the same
 Candidate object may be used.
-   
+
 .. include:: ../../tables/elements/candidate.rst
 
 .. code-block:: xml

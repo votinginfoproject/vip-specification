@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 Election
 ========
 
@@ -30,4 +32,3 @@ with one Election object.
      <ResultsUri>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUri>
      <StateId>st51</StateId>
    </Election>
-

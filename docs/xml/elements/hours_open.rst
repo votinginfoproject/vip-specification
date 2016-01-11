@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 HoursOpen
 =========
 
@@ -6,6 +8,7 @@ A structured way of describing the days and hours that a place such as a
 that an event such as an :doc:`Election <election>` is happening.
 
 .. include:: ../../tables/elements/hours_open.rst
+
 
 Schedule
 --------
@@ -16,6 +19,7 @@ describing whether or not appointments are necessary or possible.
 
 .. include:: ../../tables/elements/schedule.rst
 
+
 Hours
 -----
 
@@ -23,6 +27,7 @@ The open and close time for this place. All times must be fully specified,
 including a timezone offset from UTC.
 
 .. include:: ../../tables/elements/hours.rst
+
 
 TimeWithZone
 ------------

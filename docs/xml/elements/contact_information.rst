@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 ContactInformation
 ==================
 
@@ -9,7 +11,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
 (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 
 .. include:: ../../tables/elements/contact_information.rst
-
 
 .. _See usage note.:
 

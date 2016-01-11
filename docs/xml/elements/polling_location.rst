@@ -1,9 +1,12 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 PollingLocation
 ===============
 
 The PollingLocation object represents a site where voters cast or drop off ballots.
 
 .. include:: ../../tables/elements/polling_location.rst
+
 
 LatLng
 ------
@@ -29,4 +32,3 @@ latitude and longitude values are measured in decimal degrees.
         <Source>Google Maps</Source>
       </LatLng>
    </PollingLocation>
-

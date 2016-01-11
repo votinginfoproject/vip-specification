@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 ExternalIdentifiers
 ===================
 
@@ -25,6 +27,7 @@ found on the objects that support them:
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
 .. include:: ../../tables/elements/external_identifiers.rst
+
 
 ExternalIdentifier
 ------------------

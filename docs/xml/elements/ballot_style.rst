@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 BallotStyle
 ===========
 
@@ -16,4 +18,3 @@ A container for the contests/measures on the ballot.
       <OrderedContestId>oc20355</OrderedContestId>
       <OrderedContestId>oc20449</OrderedContestId>
    </BallotStyle>
-
