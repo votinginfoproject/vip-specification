@@ -18,7 +18,7 @@ or elected official. These elements reference ``Person``:
    <Person id="per50001">
       <ContactInformation label="ci60002">
         <Email>rwashburne@albemarle.org</Email>
-	<Phone>4349724173</Phone>
+        <Phone>4349724173</Phone>
       </ContactInformation>
       <FirstName>RICHARD</FirstName>
       <LastName>WASHBURNE</LastName>

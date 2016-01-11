@@ -22,17 +22,17 @@ VoterService
 
 .. code-block:: xml
    :linenos:
-   
+
    <ElectionAdministration id="ea40133">
       <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
       <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
       <Department>
         <ContactInformation label="ci60000">
-	  <AddressLine>Washington Building First Floor</AddressLine>
-	  <AddressLine>1100 Bank Street</AddressLine>
-	  <AddressLine>Richmond, VA 23219</AddressLine>
-	  <Name>State Board of Elections</Name>
-	</ContactInformation>
+          <AddressLine>Washington Building First Floor</AddressLine>
+          <AddressLine>1100 Bank Street</AddressLine>
+          <AddressLine>Richmond, VA 23219</AddressLine>
+          <Name>State Board of Elections</Name>
+        </ContactInformation>
       </Department>
       <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
       <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>

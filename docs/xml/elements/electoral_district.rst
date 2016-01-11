@@ -12,13 +12,13 @@ which precincts link to the ``ElectoralDistrict``.
 
 .. code-block:: xml
    :linenos:
-      
+
    <ElectoralDistrict id="ed60129">
       <ExternalIdentifiers>
         <ExternalIdentifier>
           <Type>ocd-id</Type>
-	  <Value>ocd-division/country:us/state:va</Value>
-	</ExternalIdentifier>
+          <Value>ocd-division/country:us/state:va</Value>
+        </ExternalIdentifier>
         <ExternalIdentifier>
           <Type>fips</Type>
           <Value>51</Value>

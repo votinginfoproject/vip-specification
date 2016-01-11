@@ -15,9 +15,9 @@ recommended to be the state's FIPS code, along with the prefix "st".
       <ElectionAdministrationId>ea40133</ElectionAdministrationId>
       <ExternalIdentifiers>
         <ExternalIdentifier>
-	  <Type>ocd-id</Type>
-	  <Value>ocd-division/country:us/state:va</Value>
-	</ExternalIdentifier>
+          <Type>ocd-id</Type>
+          <Value>ocd-division/country:us/state:va</Value>
+        </ExternalIdentifier>
       </ExternalIdentifiers>
       <Name>Virginia</Name>
    </State>
