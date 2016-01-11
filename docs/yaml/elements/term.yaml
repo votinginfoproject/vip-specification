@@ -1,4 +1,19 @@
-name: Term
+_name: Term
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <Office id="off0000">
+       <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+       <FilingDeadline>2013-01-01</FilingDeadline>
+       <IsPartisan>false</IsPartisan>
+       <Name>
+         <Text language="en">Governor</Text>
+       </Name>
+       <Term>
+         <Type>full-term</Type>
+       </Term>
+     </Office>
 tags:
 - _name: Type
   description: Specifies the type of office term (see :doc:`OfficeTermType <../enumerations/office_term_type>`

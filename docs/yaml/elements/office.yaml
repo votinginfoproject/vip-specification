@@ -1,4 +1,9 @@
-name: Office
+_name: Office
+_sub_types:
+- Term
+description: |-
+  ``Office`` represents the office associated with a contest or district (e.g. Alderman, Mayor,
+  School Board, et al).
 tags:
 - _name: ContactInformation
   description: Specifies the contact information for the office and/or individual

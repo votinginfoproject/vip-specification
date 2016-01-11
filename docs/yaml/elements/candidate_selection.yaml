@@ -1,4 +1,16 @@
-name: CandidateSelection
+_name: CandidateSelection
+description: |-
+  CandidateSelection extends :doc:`BallotSelectionBase <ballot_selection_base>` and represents a
+  ballot selection for a candidate contest.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <CandidateSelection id="cs10861">
+        <CandidateId>can10861a</CandidateId>
+        <CandidateId>can10861b</CandidateId>
+        <EndorsementPartyId>par0001</EndorsementPartyId>
+     </CandidateSelection>
 tags:
 - _name: CandidateId
   description: References a :doc:`Candidate <candidate>` element. The number of candidates

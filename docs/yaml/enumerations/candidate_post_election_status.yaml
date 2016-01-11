@@ -1,4 +1,4 @@
-name: CandidatePostElectionStatus
+_name: CandidatePostElectionStatus
 tags:
 - _name: advanced-to-runoff
   description: For contests in which the top *N* candidates advance to the next round.

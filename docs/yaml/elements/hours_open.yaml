@@ -1,4 +1,12 @@
-name: HoursOpen
+_name: HoursOpen
+_sub_types:
+- Schedule
+- Hours
+- TimeWithZone
+description: |-
+  A structured way of describing the days and hours that a place such as a
+  :doc:`Office <office>` or :doc:`PollingLocation <polling_location>` is open, or
+  that an event such as an :doc:`Election <election>` is happening.
 tags:
 - _name: Schedule
   description: Defines a block of days and hours that a place will be open.

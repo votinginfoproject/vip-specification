@@ -1,4 +1,4 @@
-name: OebEnum
+_name: OebEnum
 tags:
 - _name: both
   description: Both even and odd addresses within the range.

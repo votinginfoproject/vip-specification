@@ -1,4 +1,4 @@
-name: VoterServiceType
+_name: VoterServiceType
 tags:
 - _name: absentee-ballots
   description: This department handles the dispatch, tracking, and return of absentee
