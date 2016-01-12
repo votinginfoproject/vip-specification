@@ -1,4 +1,4 @@
-name: CandidatePreElectionStatus
+_name: CandidatePreElectionStatus
 tags:
 - _name: filed
   description: The candidate has filed for office but not yet been qualified.

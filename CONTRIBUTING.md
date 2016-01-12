@@ -74,9 +74,8 @@ easy to edit by hand.  The YAML files are stored in the
 ## Dev Environment
 
 This section explains how to set up your local development environment for
-contributing.  First, [install Python][python_download].  **We recommend
-installing the latest stable version of Python 3** (Python 3.4.3 as of June
-2015).
+contributing. First, [install Python][python_download]. **You must use Python
+3.4 or higher.**
 
 We also recommend setting up a virtual environment for the repo (e.g. using
 [virtualenv][virtualenv]) prior to installing dependencies.
@@ -112,24 +111,24 @@ Once the above command is executed, open a browser and view
 [http://127.0.0.1:8000](http://127.0.0.1:8000) to see the documentation.
 
 
-## Updating Tables in the Documentation
+## Updating the Documentation
 
-To make changes to the tables, edit the YAML files by hand as needed.
-Do not edit the reST tables by hand since they are generated automatically
+To update the documentation, edit the YAML files by hand as needed.
+Do not edit the reST files by hand since they are generated automatically
 from the YAML files.
 
-Then, normalize the YAML files and update the reST tables:
+Then, normalize the YAML files and update the reST files:
 
 ```sh
 $ python scripts/vip.py norm_yaml
-$ python scripts/vip.py update_tables
+$ python scripts/vip.py update_rest
 ```
 
 After this, you will want to build the documentation as described above.
 
 When submitting a PR, changes to both the YAML files and the updated reST
-tables should be checked in.  This lets people reviewing your pull request
-check to see how the reST tables will be affected by your patch.
+files should be checked in.  This lets people reviewing your pull request
+check to see how the reST files will be affected by your patch.
 However, do not check in the generated HTML files.
 
 For help using the Python script above:
@@ -141,7 +140,7 @@ $ python scripts/vip.py -h
 Or for help with a specific command (for example):
 
 ```sh
-$ python scripts/vip.py update_tables -h
+$ python scripts/vip.py update_rest -h
 ```
 
 

@@ -8,7 +8,7 @@
 |                  |              |              |              |                                          | ignore it.                               |
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OrderedContestId | xs:IDREF     | Optional     | Repeats      | Reference to an :doc:`OrderedContest     | If the field is invalid or not present,  |
-|                  |              |              |              | <ordered_contest>`                       | then the implementation is required to   |
+|                  |              |              |              | </xml/elements/ordered_contest>`         | then the implementation is required to   |
 |                  |              |              |              |                                          | ignore it.                               |
 +------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyId          | xs:IDREF     | Optional     | Repeats      | Reference to a :doc:`Party <party>`.     | If the field is invalid or not present,  |

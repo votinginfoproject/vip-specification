@@ -15,7 +15,7 @@ _log = logging.getLogger()
 
 MIN_COLUMN_WIDTH = 12
 
-TABLE_COMMENT = """\
+REST_HEADER = """\
 .. This file is auto-generated.  Do not edit it by hand!
 
 """
@@ -30,7 +30,7 @@ TYPE_NAME_TO_REST = {
     'Department': ':ref:`Department <ea-dep>`',
     'DistrictType': ':doc:`DistrictType <../enumerations/district_type>`',
     'ExternalIdentifier': '`ExternalIdentifier`_',
-    'ExternalIdentifiers': ':doc:`ExternalIdentifiers <external_identifiers>`',
+    'ExternalIdentifiers': ':doc:`ExternalIdentifiers </xml/elements/external_identifiers>`',
     'Hours': '`Hours`_',
     'HtmlColorString': '`HtmlColorString`_',
     'IdentifierType': ':doc:`IdentifierType <../enumerations/identifier_type>`',
@@ -111,12 +111,79 @@ def make_table_formatter(all_types, data_type):
 def make_table(all_types, data_type):
     formatter = make_table_formatter(all_types, data_type)
     lines = formatter.make_table(data_type)
-    table = "\n".join(lines) + "\n"
+    table = "\n".join(lines)
 
     return table
 
 
-def update_table_files(type_name=None):
+def write_rest_file(path, rest):
+    rest = REST_HEADER + rest
+    common.write_file(path, rest)
+
+
+def update_table_file(all_types, data_type):
+    if not data_type.tags:
+        _log.debug("table not needed for: {0}".format(data_type))
+        return
+    rest = make_table(all_types, data_type) + "\n"
+    rest_path = data_type.table_path
+    write_rest_file(rest_path, rest)
+
+
+def add_rest_section(rest, new_rest):
+    return rest + "{0}\n\n".format(new_rest)
+
+
+def make_type_rest(all_types, data_type, header_char):
+    """
+    Arguments:
+      header_char: "=" or "-".
+    """
+    type_name = data_type.name
+    rest = "{0}\n{1}\n\n".format(type_name, len(type_name) * header_char)
+
+    yaml_data = data_type.yaml
+
+    description = yaml_data.get('description')
+    if description:
+        rest = add_rest_section(rest, description)
+
+    if data_type.tags:
+        table_rest = make_table(all_types, data_type)
+        rest = add_rest_section(rest, table_rest)
+
+    post = yaml_data.get('post')
+    if post:
+        rest = add_rest_section(rest, post)
+
+    for sub_type_name in data_type.sub_types:
+        sub_type = common.get_type(all_types, sub_type_name)
+        sub_rest = make_type_rest(all_types, sub_type, header_char="-")
+        # Separate types with an additional line.
+        rest += "\n" + sub_rest
+
+    return rest
+
+
+def update_rest_file(all_types, data_type):
+    type_name = data_type.name
+    for parent_type in all_types.values():
+        if type_name in parent_type.sub_types:
+            _log.debug("skipping rest file for: {0} ({1})".format(type_name, parent_type.name))
+            return
+
+    rest_path = data_type.rest_path
+    _log.debug("updating: {0}".format(rest_path))
+
+    rest = make_type_rest(all_types, data_type, header_char="=")
+
+    # Make sure the file ends in a single newline.
+    rest = rest.strip() + "\n"
+
+    write_rest_file(rest_path, rest)
+
+
+def update_rest_files(type_name=None):
     all_types = common.read_types()
     if type_name is None:
         type_names = sorted(all_types.keys())
@@ -124,14 +191,10 @@ def update_table_files(type_name=None):
         type_names = [type_name]
 
     for type_name in type_names:
+        _log.debug("updating rest files for type: {0}".format(type_name))
         data_type = common.get_type(all_types, type_name)
-        table = make_table(all_types, data_type)
-        text = TABLE_COMMENT + table
-        rest_path = data_type.table_path
-        dir_path = os.path.dirname(rest_path)
-        if not os.path.exists(dir_path):
-            os.makedirs(dir_path)
-        common.write_file(rest_path, text)
+        update_table_file(all_types, data_type)
+        update_rest_file(all_types, data_type)
 
 
 def analyze_types():
