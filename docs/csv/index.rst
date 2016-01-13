@@ -1,11 +1,9 @@
 CSV Specification
 =================
 
-* :ref:`getting-started`
+.. contents::
+   :local:
 
-* :ref:`element_files`
-
-* :ref:`enumerations`
 
 .. _getting-started:
 
@@ -17,9 +15,9 @@ is compiled into an XML feed that represents the data according to the XML speci
 the `sample xml file`_ and `xsd file`_ for more details.
 
 Becoming familiar with the XML requirements can help you better understand the CSV specifications. The only
-required top-level XML tags are the :doc:`Source object <elements/source>` and the :doc:`Election object
-<xml/elements/election>`, each of which must be present exactly once. This means that the corresponding
-CSV files, :doc:`Source <element_files/source>` and :doc:`Election <element_files/election>`, must contain
+required top-level XML tags are the :ref:`single-xml-source` object and the :ref:`single-xml-election` object,
+each of which must be present exactly once. This means that the corresponding
+CSV files, :doc:`Source <element_files/source>` and :ref:`single-xml-election`, must contain
 only 1 record. All other element file records can exist an unlimited number of times, or not included at
 all; order of CSV records does not matter.
 

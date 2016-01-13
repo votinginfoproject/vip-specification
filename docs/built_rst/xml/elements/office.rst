@@ -16,7 +16,7 @@ School Board, et al).
 |                      |                                         |              |              | office.                                  | required to ignore it.                   |
 +----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId  | ``xs:IDREF``                            | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
-|                      |                                         |              |              | :ref:`single-xml-electoral-district`     | the implementation is required to ignore |
+|                      |                                         |              |              | :ref:`multi-xml-electoral-district`      | the implementation is required to ignore |
 |                      |                                         |              |              | element associated with the office.      | the ``Office`` element containing it.    |
 +----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers  | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
@@ -35,7 +35,7 @@ School Board, et al).
 |                      |                                         |              |              |                                          | the implementation is required to ignore |
 |                      |                                         |              |              |                                          | the ``Office`` element containing it.    |
 +----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeHolderPersonId | ``xs:IDREF``                            | Optional     | Repeats      | Links to the :ref:`single-xml-person`    | If the field is invalid or not present,  |
+| OfficeHolderPersonId | ``xs:IDREF``                            | Optional     | Repeats      | Links to the :ref:`multi-xml-person`     | If the field is invalid or not present,  |
 |                      |                                         |              |              | element(s) that hold additional          | then the implementation is required to   |
 |                      |                                         |              |              | information about the current office     | ignore it.                               |
 |                      |                                         |              |              | holder(s).                               |                                          |
@@ -55,7 +55,7 @@ Term
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===================================+==============+==============+==========================================+==========================================+
 | Type         | :ref:`multi-xml-office-term-type` | **Required** | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              |                                   |              |              | :ref:`single-xml-office-term-type` for   | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`multi-xml-office-term-type` for    | the implementation is required to ignore |
 |              |                                   |              |              | valid values).                           | the ``Office`` element containing it.    |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartDate    | ``xs:date``                       | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |

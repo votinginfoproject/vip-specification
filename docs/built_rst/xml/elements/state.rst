@@ -24,13 +24,13 @@ recommended to be the state's FIPS code, along with the prefix "st".
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | ``xs:IDREF``                          | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                                       |              |              | :ref:`polling locations                  | then the implementation is required to   |
-|                          |                                       |              |              | <single-xml-polling-location>`. If early | ignore it.                               |
+|                          |                                       |              |              | <multi-xml-polling-location>`. If early  | ignore it.                               |
 |                          |                                       |              |              | vote centers or ballot drop locations    |                                          |
 |                          |                                       |              |              | are state-wide (e.g., anyone in the      |                                          |
 |                          |                                       |              |              | state can use them), they can be         |                                          |
 |                          |                                       |              |              | specified here, but you are encouraged   |                                          |
 |                          |                                       |              |              | to only use the                          |                                          |
-|                          |                                       |              |              | :ref:`single-xml-precinct` element.      |                                          |
+|                          |                                       |              |              | :ref:`multi-xml-precinct` element.       |                                          |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html

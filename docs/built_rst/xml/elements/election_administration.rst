@@ -60,13 +60,13 @@ Department
 | ContactInformation       | :ref:`multi-xml-contact-information` | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
 |                          |                                      |              |              | for the election administration body     | present, then the implementation is      |
 |                          |                                      |              |              | (see                                     | required to ignore it.                   |
-|                          |                                      |              |              | :ref:`single-xml-contact-information`).  |                                          |
+|                          |                                      |              |              | :ref:`multi-xml-contact-information`).   |                                          |
 +--------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionOfficialPersonId | ``xs:IDREF``                         | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
 |                          |                                      |              |              | election administration office. The      | then the implementation is required to   |
 |                          |                                      |              |              | specified person should be the           | ignore it.                               |
 |                          |                                      |              |              | :ref:`election official                  |                                          |
-|                          |                                      |              |              | <single-xml-person>`.                    |                                          |
+|                          |                                      |              |              | <multi-xml-person>`.                     |                                          |
 +--------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | VoterService             | :ref:`multi-xml-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
 |                          |                                      |              |              | contact individual available to voters.  | present, then the implementation is      |
@@ -90,12 +90,12 @@ VoterService
 |                          |                                         |              |              | available.                               | present, then the implementation is      |
 |                          |                                         |              |              |                                          | required to ignore it.                   |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <single-xml-person>` | If the field is invalid or not present,  |
+| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <multi-xml-person>`  | If the field is invalid or not present,  |
 |                          |                                         |              |              | for a particular voter service.          | then the implementation is required to   |
 |                          |                                         |              |              |                                          | ignore it.                               |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :ref:`multi-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
-|                          |                                         |              |              | <single-xml-voter-service-type>`.        | then the implementation is required to   |
+|                          |                                         |              |              | <multi-xml-voter-service-type>`.         | then the implementation is required to   |
 |                          |                                         |              |              |                                          | ignore it.                               |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType                | ``xs:string``                           | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |

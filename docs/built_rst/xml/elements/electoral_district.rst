@@ -36,7 +36,7 @@ which precincts link to the ``ElectoralDistrict``.
 |                     |                                       |              |              |                                          | containing it.                           |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType           | ``xs:string``                         | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                     |                                       |              |              | :ref:`single-xml-district-type` option   | then the implementation is required to   |
+|                     |                                       |              |              | :ref:`multi-xml-district-type` option    | then the implementation is required to   |
 |                     |                                       |              |              | when ``Type`` is specified as "other".   | ignore it.                               |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 

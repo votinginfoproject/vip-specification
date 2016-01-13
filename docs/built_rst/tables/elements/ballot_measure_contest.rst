@@ -40,11 +40,11 @@
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type             | :ref:`multi-xml-ballot-measure-type`    | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
 |                  |                                         |              |              | measure. Must be one of the valid        | then the implementation is required to   |
-|                  |                                         |              |              | :ref:`single-xml-ballot-measure-type`    | ignore it.                               |
+|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`     | ignore it.                               |
 |                  |                                         |              |              | options.                                 |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType        | ``xs:string``                           | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`single-xml-ballot-measure-type`    | then the implementation is required to   |
+|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`     | then the implementation is required to   |
 |                  |                                         |              |              | option, when Type is specified as        | ignore it.                               |
 |                  |                                         |              |              | "other."                                 |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

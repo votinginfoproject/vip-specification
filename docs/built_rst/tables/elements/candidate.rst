@@ -25,11 +25,11 @@
 |                     |                                                 |              |              | top of a ticket that includes multiple   | then the implementation is required to   |
 |                     |                                                 |              |              | candidates.                              | ignore it.                               |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PartyId             | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`single-xml-party`   | If the field is invalid or not present,  |
+| PartyId             | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-party`    | If the field is invalid or not present,  |
 |                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                 |              |              | about the candidate's affiliated party.  | ignore it.                               |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`single-xml-person`  | If the field is invalid or not present,  |
+| PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-person`   | If the field is invalid or not present,  |
 |                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                 |              |              | about the candidate.                     | ignore it.                               |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

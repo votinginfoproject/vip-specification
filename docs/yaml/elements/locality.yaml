@@ -1,5 +1,5 @@
 _name: Locality
-description: The Locality object represents the jurisdiction below the :ref:`single-xml-state`
+description: The Locality object represents the jurisdiction below the :ref:`$$$-state`
   (e.g. county).
 post: |-
   .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
@@ -21,7 +21,7 @@ post: |-
      </Locality>
 tags:
 - _name: ElectionAdministrationId
-  description: Links to the locality's :ref:`single-xml-election-administration` object.
+  description: Links to the locality's :ref:`$$$-election-administration` object.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ExternalIdentifiers
@@ -36,7 +36,7 @@ tags:
   required: true
   type: xs:string
 - _name: PollingLocationId
-  description: Specifies a link to the locality's :ref:`polling locations <single-xml-polling-location>`.
+  description: Specifies a link to the locality's :ref:`polling locations <$$$-polling-location>`.
     If early vote centers or ballot drop locations are locality-wide, they should
     be specified here.
   error: If the field is invalid or not present, the implementation is required to
@@ -45,18 +45,18 @@ tags:
   repeating: true
   type: xs:IDREF
 - _name: StateId
-  description: References the locality's :ref:`single-xml-state`.
+  description: References the locality's :ref:`$$$-state`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the Locality element containing.
   required: true
   type: xs:IDREF
 - _name: Type
   description: Defines the kind of locality (e.g. county, town, et al.), which is
-    one of the various :ref:`DistrictType enumerations <single-xml-district-type>`.
+    one of the various :ref:`DistrictType enumerations <$$$-district-type>`.
   error_then: =must-ignore
   type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
-    listed in :ref:`DistrictType <single-xml-district-type>`.
+    listed in :ref:`DistrictType <$$$-district-type>`.
   error_then: =must-ignore
   type: xs:string

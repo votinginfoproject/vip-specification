@@ -155,21 +155,21 @@ BallotStyle
 
 A container for the contests/measures on the ballot.
 
-+------------------+---------------+--------------+--------------+--------------------------------------------+------------------------------------------+
-| Tag              | Data Type     | Required?    | Repeats?     | Description                                | Error Handling                           |
-+==================+===============+==============+==============+============================================+==========================================+
-| ImageUri         | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that returns an image of   | If the field is invalid or not present,  |
-|                  |               |              |              | the sample ballot.                         | then the implementation is required to   |
-|                  |               |              |              |                                            | ignore it.                               |
-+------------------+---------------+--------------+--------------+--------------------------------------------+------------------------------------------+
-| OrderedContestId | ``xs:IDREF``  | Optional     | Repeats      | Reference to an :doc:`OrderedContest       | If the field is invalid or not present,  |
-|                  |               |              |              | </built_rst/xml/elements/ordered_contest>` | then the implementation is required to   |
-|                  |               |              |              |                                            | ignore it.                               |
-+------------------+---------------+--------------+--------------+--------------------------------------------+------------------------------------------+
-| PartyId          | ``xs:IDREF``  | Optional     | Repeats      | Reference to a :ref:`single-xml-party`.    | If the field is invalid or not present,  |
-|                  |               |              |              |                                            | then the implementation is required to   |
-|                  |               |              |              |                                            | ignore it.                               |
-+------------------+---------------+--------------+--------------+--------------------------------------------+------------------------------------------+
++------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag              | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==================+===============+==============+==============+==========================================+==========================================+
+| ImageUri         | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that returns an image of | If the field is invalid or not present,  |
+|                  |               |              |              | the sample ballot.                       | then the implementation is required to   |
+|                  |               |              |              |                                          | ignore it.                               |
++------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OrderedContestId | ``xs:IDREF``  | Optional     | Repeats      | Reference to an                          | If the field is invalid or not present,  |
+|                  |               |              |              | :ref:`single-xml-ordered-contest`        | then the implementation is required to   |
+|                  |               |              |              |                                          | ignore it.                               |
++------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| PartyId          | ``xs:IDREF``  | Optional     | Repeats      | Reference to a :ref:`single-xml-party`.  | If the field is invalid or not present,  |
+|                  |               |              |              |                                          | then the implementation is required to   |
+|                  |               |              |              |                                          | ignore it.                               |
++------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:
@@ -351,8 +351,8 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+==========================================+==============+==============+==========================================+==========================================+
 | AddressLine      | ``xs:string``                            | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
-|                  |                                          |              |              | address. `See usage note.`_              | then the implementation is required to   |
-|                  |                                          |              |              |                                          | ignore it.                               |
+|                  |                                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Email            | ``xs:string``                            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
 |                  |                                          |              |              |                                          | then the implementation is required to   |
@@ -376,8 +376,8 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                          |              |              | location.                                |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
-|                  |                                          |              |              | `See usage note.`_                       | then the implementation is required to   |
-|                  |                                          |              |              |                                          | ignore it.                               |
+|                  |                                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Phone            | ``xs:string``                            | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
 |                  |                                          |              |              |                                          | then the implementation is required to   |
@@ -388,7 +388,7 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                          |              |              |                                          | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. _See usage note.:
+.. _single-xml-name-address-line-usage:
 
 ``Name`` and ``AddressLine`` Usage Note
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -445,63 +445,67 @@ A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
 and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 :ref:`single-xml-ballot-measure-contest`).
 
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| Tag                     | Data Type                                | Required?    | Repeats?     | Description                                       | Error Handling                           |
-+=========================+==========================================+==============+==============+===================================================+==========================================+
-| Abbreviation            | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.                  | If the field is invalid or not present,  |
-|                         |                                          |              |              |                                                   | then the implementation should ignore    |
-|                         |                                          |              |              |                                                   | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| BallotSelectionId       | ``xs:IDREF``                             | Optional     | Repeats      | References a particular BallotSelection, which    | If the field is invalid or not present,  |
-|                         |                                          |              |              | could be of any selection type that extends       | then the implementation should ignore    |
-|                         |                                          |              |              | :doc:`BallotSelectionBase                         | it.                                      |
-|                         |                                          |              |              | </built_rst/xml/elements/ballot_selection_base>`. |                                          |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| BallotSubTitle          | :ref:`single-xml-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on the      | If the element is invalid or not         |
-|                         |                                          |              |              | ballot.                                           | present, then the implementation should  |
-|                         |                                          |              |              |                                                   | ignore it.                               |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| BallotTitle             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Title of the contest as it appears on the ballot. | If the element is invalid or not         |
-|                         |                                          |              |              |                                                   | present, then the implementation should  |
-|                         |                                          |              |              |                                                   | ignore it.                               |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| ElectoralDistrictId     | ``xs:IDREF``                             | Optional     | Single       | References an                                     | If the field is invalid or not present,  |
-|                         |                                          |              |              | :ref:`single-xml-electoral-district` element that | then the implementation should ignore    |
-|                         |                                          |              |              | represents the geographical scope of the contest. | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible electorate  | If the element is invalid or not         |
-|                         |                                          |              |              | for this contest past the usual, "all registered  | present, then the implementation should  |
-|                         |                                          |              |              | voters" electorate. This subtag will most often   | ignore it.                               |
-|                         |                                          |              |              | be used for primaries and local elections. In     |                                          |
-|                         |                                          |              |              | primaries, voters may have to be registered as a  |                                          |
-|                         |                                          |              |              | specific party to vote, or there may be special   |                                          |
-|                         |                                          |              |              | rules for which ballot a voter can pull. In some  |                                          |
-|                         |                                          |              |              | local elections, non-citizens can vote.           |                                          |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| ExternalIdentifiers     | :ref:`single-xml-external-identifiers`   | Optional     | Single       | Other identifiers for a contest that links to     | If the element is invalid or not         |
-|                         |                                          |              |              | another source of information.                    | present, then the implementation should  |
-|                         |                                          |              |              |                                                   | ignore it.                               |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| HasRotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the contest   | If the field is invalid or not present,  |
-|                         |                                          |              |              | are rotated.                                      | then the implementation should ignore    |
-|                         |                                          |              |              |                                                   | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how it       | If the field is invalid or not present,  |
-|                         |                                          |              |              | appears on the ballot (NB: BallotTitle should be  | then the implementation should ignore    |
-|                         |                                          |              |              | used for this purpose).                           | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the candidates are listed on the   | If the field is invalid or not present,  |
-|                         |                                          |              |              | ballot.                                           | then the implementation should ignore    |
-|                         |                                          |              |              |                                                   | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| VoteVariation           | :ref:`single-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the contest (e.g.  | If the field is invalid or not present,  |
-|                         |                                          |              |              | n-of-m, majority, et al).                         | then the implementation should ignore    |
-|                         |                                          |              |              |                                                   | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| OtherVoteVariation      | ``xs:string``                            | Optional     | Single       | If "other" is selected as the **VoteVariation**,  | If the field is invalid or not present,  |
-|                         |                                          |              |              | the name of the variation can be specified here.  | then the implementation should ignore    |
-|                         |                                          |              |              |                                                   | it.                                      |
-+-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                     | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=========================+==========================================+==============+==============+==========================================+==========================================+
+| Abbreviation            | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                         |                                          |              |              |                                          | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSelectionId       | ``xs:IDREF``                             | Optional     | Repeats      | References a particular BallotSelection, | If the field is invalid or not present,  |
+|                         |                                          |              |              | which could be of any selection type     | then the implementation should ignore    |
+|                         |                                          |              |              | that extends                             | it.                                      |
+|                         |                                          |              |              | :ref:`single-xml-ballot-selection-base`. |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSubTitle          | :ref:`single-xml-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotTitle             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectoralDistrictId     | ``xs:IDREF``                             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | then the implementation should ignore    |
+|                         |                                          |              |              | element that represents the geographical | it.                                      |
+|                         |                                          |              |              | scope of the contest.                    |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
+|                         |                                          |              |              | electorate for this contest past the     | present, then the implementation should  |
+|                         |                                          |              |              | usual, "all registered voters"           | ignore it.                               |
+|                         |                                          |              |              | electorate. This subtag will most often  |                                          |
+|                         |                                          |              |              | be used for primaries and local          |                                          |
+|                         |                                          |              |              | elections. In primaries, voters may have |                                          |
+|                         |                                          |              |              | to be registered as a specific party to  |                                          |
+|                         |                                          |              |              | vote, or there may be special rules for  |                                          |
+|                         |                                          |              |              | which ballot a voter can pull. In some   |                                          |
+|                         |                                          |              |              | local elections, non-citizens can vote.  |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ExternalIdentifiers     | :ref:`single-xml-external-identifiers`   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
+|                         |                                          |              |              | links to another source of information.  | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HasRotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
+|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
+|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+|                         |                                          |              |              | purpose).                                |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the candidates are listed | If the field is invalid or not present,  |
+|                         |                                          |              |              | on the ballot.                           | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VoteVariation           | :ref:`single-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherVoteVariation      | ``xs:string``                            | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
+|                         |                                          |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
+|                         |                                          |              |              | variation can be specified here.         | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-election:

@@ -11,12 +11,12 @@
 |                          |                                         |              |              | available.                               | present, then the implementation is      |
 |                          |                                         |              |              |                                          | required to ignore it.                   |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <single-xml-person>` | If the field is invalid or not present,  |
+| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <multi-xml-person>`  | If the field is invalid or not present,  |
 |                          |                                         |              |              | for a particular voter service.          | then the implementation is required to   |
 |                          |                                         |              |              |                                          | ignore it.                               |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :ref:`multi-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
-|                          |                                         |              |              | <single-xml-voter-service-type>`.        | then the implementation is required to   |
+|                          |                                         |              |              | <multi-xml-voter-service-type>`.         | then the implementation is required to   |
 |                          |                                         |              |              |                                          | ignore it.                               |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType                | ``xs:string``                           | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |

@@ -18,12 +18,12 @@
 | **[deprecated]** |                                         |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
 |                  |                                         |              |              | this element is deprecated in favor of   | required to ignore it.                   |
 |                  |                                         |              |              | the more structured                      |                                          |
-|                  |                                         |              |              | :ref:`single-xml-hours-open` element. It |                                          |
+|                  |                                         |              |              | :ref:`multi-xml-hours-open` element. It  |                                          |
 |                  |                                         |              |              | is strongly encouraged that data         |                                          |
 |                  |                                         |              |              | providers move toward contributing hours |                                          |
 |                  |                                         |              |              | in this format).                         |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | Links to an :ref:`single-xml-hours-open` | If the field is invalid or not present,  |
+| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | Links to an :ref:`multi-xml-hours-open`  | If the field is invalid or not present,  |
 |                  |                                         |              |              | element, which is a schedule of dates    | then the implementation is required to   |
 |                  |                                         |              |              | and hours during which the polling       | ignore it.                               |
 |                  |                                         |              |              | location is available.                   |                                          |

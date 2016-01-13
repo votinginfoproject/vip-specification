@@ -4,12 +4,12 @@
 | Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+=======================================+==============+==============+==========================================+==========================================+
 | BallotStyleId       | ``xs:IDREF``                          | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
-|                     |                                       |              |              | :ref:`single-xml-ballot-style`, which a  | then the implementation is required to   |
+|                     |                                       |              |              | :ref:`multi-xml-ballot-style`, which a   | then the implementation is required to   |
 |                     |                                       |              |              | person who lives in this precinct will   | ignore it.                               |
 |                     |                                       |              |              | vote.                                    |                                          |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId | ``xs:IDREF``                          | Optional     | Repeats      | Links to an                              | If the field is invalid or not present,  |
-|                     |                                       |              |              | :ref:`single-xml-electoral-district`     | then the implementation is required to   |
+|                     |                                       |              |              | :ref:`multi-xml-electoral-district`      | then the implementation is required to   |
 |                     |                                       |              |              | (e.g., congressional district, state     | ignore it.                               |
 |                     |                                       |              |              | house district, school board district)   |                                          |
 |                     |                                       |              |              | to which the precinct belongs. **Highly  |                                          |
@@ -30,7 +30,7 @@
 |                     |                                       |              |              | mail-only elections.                     | implementation is required to assume     |
 |                     |                                       |              |              |                                          | `IsMailOnly` is false.                   |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LocalityId          | ``xs:IDREF``                          | **Required** | Single       | Links to the :ref:`single-xml-locality`  | If the field is invalid or not present,  |
+| LocalityId          | ``xs:IDREF``                          | **Required** | Single       | Links to the :ref:`multi-xml-locality`   | If the field is invalid or not present,  |
 |                     |                                       |              |              | that comprises the precinct.             | the implementation is required to ignore |
 |                     |                                       |              |              |                                          | the precinct element containing it.      |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -45,7 +45,7 @@
 |                     |                                       |              |              | number.                                  |                                          |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId   | ``xs:IDREF``                          | Optional     | Repeats      | Specifies a link to the precinct's       | If the field is invalid or not present,  |
-|                     |                                       |              |              | :ref:`single-xml-polling-location`       | then the implementation is required to   |
+|                     |                                       |              |              | :ref:`multi-xml-polling-location`        | then the implementation is required to   |
 |                     |                                       |              |              | object(s). Multiple `PollingLocationId`  | ignore it.                               |
 |                     |                                       |              |              | tags may be specified.                   |                                          |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

@@ -6,6 +6,6 @@ BallotSelectionBase
 ===================
 
 A base model for all ballot selection types:
-:ref:`single-xml-ballot-measure-selection`,
-:ref:`single-xml-candidate-selection`, and :ref:`single-xml-party-selection`.
+:ref:`multi-xml-ballot-measure-selection`,
+:ref:`multi-xml-candidate-selection`, and :ref:`multi-xml-party-selection`.
 Besides an id attribute, it has no additional fields.

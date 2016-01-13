@@ -6,8 +6,8 @@ HoursOpen
 =========
 
 A structured way of describing the days and hours that a place such as a
-:ref:`single-xml-office` or :ref:`single-xml-polling-location` is open, or
-that an event such as an :ref:`single-xml-election` is happening.
+:ref:`multi-xml-office` or :ref:`multi-xml-polling-location` is open, or
+that an event such as an :ref:`multi-xml-election` is happening.
 
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |

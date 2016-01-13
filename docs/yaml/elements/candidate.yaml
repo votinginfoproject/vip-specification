@@ -41,12 +41,12 @@ tags:
   error_then: =must-ignore
   type: xs:boolean
 - _name: PartyId
-  description: Reference to a :ref:`single-xml-party` element with additional information
+  description: Reference to a :ref:`$$$-party` element with additional information
     about the candidate's affiliated party.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: PersonId
-  description: Reference to a :ref:`single-xml-person` element with additional information
+  description: Reference to a :ref:`$$$-person` element with additional information
     about the candidate.
   error_then: =must-ignore
   type: xs:IDREF

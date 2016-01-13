@@ -1,8 +1,8 @@
 _name: BallotMeasureSelection
 description: |-
   Represents the possible selection (e.g. yes/no, recall/do not recall, et al) for a
-  :ref:`single-xml-ballot-measure-contest` that would appear on the ballot.
-  BallotMeasureSelection extends :ref:`single-xml-ballot-selection-base`.
+  :ref:`$$$-ballot-measure-contest` that would appear on the ballot.
+  BallotMeasureSelection extends :ref:`$$$-ballot-selection-base`.
 post: |-
   .. code-block:: xml
      :linenos:
@@ -21,7 +21,7 @@ post: |-
      </BallotMeasureSelection>
 tags:
 - _name: Selection
-  description: Selection text for a :ref:`single-xml-ballot-measure-contest`
+  description: Selection text for a :ref:`$$$-ballot-measure-contest`
   error: If the element is invalid or not present, the implementation is required
     to ignore the BallotMeasureSelection containing it.
   required: true

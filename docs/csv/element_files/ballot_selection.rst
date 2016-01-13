@@ -12,7 +12,6 @@ Ballot Measure Selection
 
 .. include:: ../../built_rst/tables/elements/ballot_measure_selection.rst
 
-.. _bm-selection:
 
 Contest Selection
 ------------------------

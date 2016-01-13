@@ -17,7 +17,7 @@
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | FullName           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
 |                    |                                         |              |              | this information is                      | present, then the implementation is      |
-|                    |                                         |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                         |              |              | :ref:`multi-xml-internationalized-text`  | required to ignore it.                   |
 |                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
 |                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -34,7 +34,7 @@
 |                    |                                         |              |              |                                          | ignore it.                               |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyId            | ``xs:IDREF``                            | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
-|                    |                                         |              |              | :ref:`single-xml-party`.                 | then the implementation is required to   |
+|                    |                                         |              |              | :ref:`multi-xml-party`.                  | then the implementation is required to   |
 |                    |                                         |              |              |                                          | ignore it.                               |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Prefix             | ``xs:string``                           | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
@@ -43,7 +43,7 @@
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Profession         | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
 |                    |                                         |              |              | this information is                      | present, then the implementation is      |
-|                    |                                         |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                         |              |              | :ref:`multi-xml-internationalized-text`  | required to ignore it.                   |
 |                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
 |                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -53,7 +53,7 @@
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Title              | :ref:`multi-xml-internationalized-text` | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
 |                    |                                         |              |              | (**NB:** this information is             | present, then the implementation is      |
-|                    |                                         |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                         |              |              | :ref:`multi-xml-internationalized-text`  | required to ignore it.                   |
 |                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
 |                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

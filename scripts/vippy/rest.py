@@ -104,9 +104,10 @@ def update_table_file(all_types, data_type, prefix):
     write_rest_file(rest_path, rest)
 
 
-def add_rest_section(rest, new_rest, sep=None):
+def add_rest_section(rest, new_rest, prefix, sep=None):
     if sep is None:
         sep = "\n"
+    new_rest = new_rest.replace("$$$", prefix)
     rest = "{0}{1}{2}".format(rest, sep, new_rest)
     if not rest.endswith("\n"):
         rest += "\n"
@@ -153,22 +154,22 @@ def make_type_rest(all_types, data_type, header_char, prefix):
 
     description = yaml_data.get('description')
     if description:
-        rest = add_rest_section(rest, description)
+        rest = add_rest_section(rest, description, prefix=prefix)
 
     if data_type.tags:
         table_rest = make_table(type_map, data_type, prefix=prefix)
-        rest = add_rest_section(rest, table_rest)
+        rest = add_rest_section(rest, table_rest, prefix=prefix)
 
     post = yaml_data.get('post')
     if post:
-        rest = add_rest_section(rest, post)
+        rest = add_rest_section(rest, post, prefix=prefix)
 
     header_char = get_next_header_char(header_char)
     for sub_type_name in data_type.sub_types:
         sub_type = common.get_type(type_map, sub_type_name)
         sub_rest = make_type_rest(all_types, sub_type, header_char=header_char, prefix=prefix)
         # Separate types with an additional line.
-        rest = add_rest_section(rest, sub_rest, sep="\n\n")
+        rest = add_rest_section(rest, sub_rest, prefix=prefix, sep="\n\n")
 
     if not rest.endswith("\n"):
         rest += "\n"
@@ -217,7 +218,7 @@ def update_rest_file_single_page(all_types):
             if data_type.is_sub_type:
                 continue
             new_rest = make_type_rest(all_types, data_type, header_char="~", prefix=prefix)
-            rest = add_rest_section(rest, new_rest, sep="\n\n")
+            rest = add_rest_section(rest, new_rest, prefix=prefix, sep="\n\n")
 
     write_rest_file(path, rest)
 
@@ -309,6 +310,7 @@ class TableFormatter(object):
             value = conversions.get(data_value, data_value)
         if value.startswith('='):
             raise Exception("unconverted value: {0}".format(value))
+        value = value.replace("$$$", self.prefix)
         return value
 
     def make_width(self, i, header, tags_data):

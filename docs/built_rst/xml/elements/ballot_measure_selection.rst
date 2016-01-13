@@ -6,14 +6,14 @@ BallotMeasureSelection
 ======================
 
 Represents the possible selection (e.g. yes/no, recall/do not recall, et al) for a
-:ref:`single-xml-ballot-measure-contest` that would appear on the ballot.
-BallotMeasureSelection extends :ref:`single-xml-ballot-selection-base`.
+:ref:`multi-xml-ballot-measure-contest` that would appear on the ballot.
+BallotMeasureSelection extends :ref:`multi-xml-ballot-selection-base`.
 
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+=========================================+==============+==============+==========================================+==========================================+
 | Selection    | :ref:`multi-xml-internationalized-text` | **Required** | Single       | Selection text for a                     | If the element is invalid or not         |
-|              |                                         |              |              | :ref:`single-xml-ballot-measure-contest` | present, the implementation is required  |
+|              |                                         |              |              | :ref:`multi-xml-ballot-measure-contest`  | present, the implementation is required  |
 |              |                                         |              |              |                                          | to ignore the BallotMeasureSelection     |
 |              |                                         |              |              |                                          | containing it.                           |
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

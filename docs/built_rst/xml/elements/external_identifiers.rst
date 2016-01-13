@@ -10,21 +10,21 @@ candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_
 greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
 found on the objects that support them:
 
-* :ref:`single-xml-candidate`
+* :ref:`multi-xml-candidate`
 
-* Any element that extends :ref:`single-xml-contest-base`
+* Any element that extends :ref:`multi-xml-contest-base`
 
-* :ref:`single-xml-electoral-district`
+* :ref:`multi-xml-electoral-district`
 
-* :ref:`single-xml-locality`
+* :ref:`multi-xml-locality`
 
-* :ref:`single-xml-office`
+* :ref:`multi-xml-office`
 
-* :ref:`single-xml-party`
+* :ref:`multi-xml-party`
 
-* :ref:`single-xml-precinct`
+* :ref:`multi-xml-precinct`
 
-* :ref:`single-xml-state`
+* :ref:`multi-xml-state`
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
@@ -51,13 +51,13 @@ ExternalIdentifier
 +==============+==================================+==============+==============+==========================================+==========================================+
 | Type         | :ref:`multi-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
 |              |                                  |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                                  |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                  |              |              | :ref:`multi-xml-identifier-type`.        | the ``ElectionIdentifier`` containing    |
 |              |                                  |              |              |                                          | it.                                      |
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType    | ``xs:string``                    | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
 |              |                                  |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
 |              |                                  |              |              | outside the options listed in            | ignore it.                               |
-|              |                                  |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                  |              |              | :ref:`multi-xml-identifier-type`.        |                                          |
 |              |                                  |              |              | ``Type`` should be set to "other" when   |                                          |
 |              |                                  |              |              | using this field.                        |                                          |
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

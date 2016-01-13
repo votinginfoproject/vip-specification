@@ -5,13 +5,13 @@
 RetentionContest
 ================
 
-``RetentionContest`` extends :ref:`single-xml-ballot-measure-contest` and represents a
+``RetentionContest`` extends :ref:`multi-xml-ballot-measure-contest` and represents a
 contest where a candidate is retained in a position (e.g. a judge).
 
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+==============+==============+==============+==========================================+==========================================+
-| CandidateId  | ``xs:IDREF`` | **Required** | Single       | Links to the :ref:`single-xml-candidate` | If the field is invalid or not present,  |
+| CandidateId  | ``xs:IDREF`` | **Required** | Single       | Links to the :ref:`multi-xml-candidate`  | If the field is invalid or not present,  |
 |              |              |              |              | being retained.                          | the implementation is required to ignore |
 |              |              |              |              |                                          | the ``RetentionContest`` element         |
 |              |              |              |              |                                          | containing it.                           |

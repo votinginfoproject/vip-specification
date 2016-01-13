@@ -8,7 +8,7 @@
 |                      |                                         |              |              | office.                                  | required to ignore it.                   |
 +----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId  | ``xs:IDREF``                            | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
-|                      |                                         |              |              | :ref:`single-xml-electoral-district`     | the implementation is required to ignore |
+|                      |                                         |              |              | :ref:`multi-xml-electoral-district`      | the implementation is required to ignore |
 |                      |                                         |              |              | element associated with the office.      | the ``Office`` element containing it.    |
 +----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers  | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
@@ -27,7 +27,7 @@
 |                      |                                         |              |              |                                          | the implementation is required to ignore |
 |                      |                                         |              |              |                                          | the ``Office`` element containing it.    |
 +----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeHolderPersonId | ``xs:IDREF``                            | Optional     | Repeats      | Links to the :ref:`single-xml-person`    | If the field is invalid or not present,  |
+| OfficeHolderPersonId | ``xs:IDREF``                            | Optional     | Repeats      | Links to the :ref:`multi-xml-person`     | If the field is invalid or not present,  |
 |                      |                                         |              |              | element(s) that hold additional          | then the implementation is required to   |
 |                      |                                         |              |              | information about the current office     | ignore it.                               |
 |                      |                                         |              |              | holder(s).                               |                                          |

@@ -5,7 +5,7 @@ XML Specification
    :local:
 
 
-.. _getting-started:
+.. _xml-getting-started:
 
 Getting Started
 ---------------
@@ -81,8 +81,6 @@ Single-page Format
    built_rst/xml/single_page
 
 
-.. _elements:
-
 Elements (Separate Pages)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -92,8 +90,6 @@ Elements (Separate Pages)
 
    built_rst/xml/elements/*
 
-
-.. _enumerations:
 
 Enumerations (Separate Pages)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

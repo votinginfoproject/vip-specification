@@ -53,16 +53,16 @@ with one Election object.
 |                            |                                         |              |              | If polling hours differ in specific      | required to ignore it.                   |
 |                            |                                         |              |              | polling locations, alternative hours may |                                          |
 |                            |                                         |              |              | be specified in the                      |                                          |
-|                            |                                         |              |              | :ref:`single-xml-polling-location`       |                                          |
-|                            |                                         |              |              | object *(NB: this element is deprecated  |                                          |
-|                            |                                         |              |              | in favor of the more structured          |                                          |
-|                            |                                         |              |              | :ref:`single-xml-hours-open` element. It |                                          |
+|                            |                                         |              |              | :ref:`multi-xml-polling-location` object |                                          |
+|                            |                                         |              |              | *(NB: this element is deprecated in      |                                          |
+|                            |                                         |              |              | favor of the more structured             |                                          |
+|                            |                                         |              |              | :ref:`multi-xml-hours-open` element. It  |                                          |
 |                            |                                         |              |              | is strongly encouraged that data         |                                          |
 |                            |                                         |              |              | providers move toward contributing hours |                                          |
 |                            |                                         |              |              | in this format)*.                        |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | HoursOpenId                | ``xs:IDREF``                            | Optional     | Single       | References the                           | If the field is invalid or not present,  |
-|                            |                                         |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                            |                                         |              |              | :ref:`multi-xml-hours-open` element,     | then the implementation is required to   |
 |                            |                                         |              |              | which lists the hours of operation for   | ignore it.                               |
 |                            |                                         |              |              | polling locations.                       |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

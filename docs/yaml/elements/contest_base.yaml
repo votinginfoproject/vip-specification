@@ -1,9 +1,9 @@
 _name: ContestBase
 description: |-
-  A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
-  :ref:`single-xml-candidate-contest`, :ref:`single-xml-party-contest`,
-  and :ref:`single-xml-retention-contest` (NB: the latter because it extends
-  :ref:`single-xml-ballot-measure-contest`).
+  A base model for all Contest types: :ref:`$$$-ballot-measure-contest`,
+  :ref:`$$$-candidate-contest`, :ref:`$$$-party-contest`,
+  and :ref:`$$$-retention-contest` (NB: the latter because it extends
+  :ref:`$$$-ballot-measure-contest`).
 tags:
 - _name: Abbreviation
   description: An abbreviation for the contest.
@@ -11,7 +11,7 @@ tags:
   type: xs:string
 - _name: BallotSelectionId
   description: References a particular BallotSelection, which could be of any selection
-    type that extends :doc:`BallotSelectionBase </built_rst/xml/elements/ballot_selection_base>`.
+    type that extends :ref:`$$$-ballot-selection-base`.
   error_then: =should-ignore
   repeating: true
   type: xs:IDREF
@@ -24,7 +24,7 @@ tags:
   error_then: =should-ignore
   type: InternationalizedText
 - _name: ElectoralDistrictId
-  description: References an :ref:`single-xml-electoral-district` element that represents
+  description: References an :ref:`$$$-electoral-district` element that represents
     the geographical scope of the contest.
   error_then: =should-ignore
   type: xs:IDREF

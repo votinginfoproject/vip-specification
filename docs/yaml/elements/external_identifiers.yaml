@@ -7,21 +7,21 @@ description: |-
   greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
   found on the objects that support them:
 
-  * :ref:`single-xml-candidate`
+  * :ref:`$$$-candidate`
 
-  * Any element that extends :ref:`single-xml-contest-base`
+  * Any element that extends :ref:`$$$-contest-base`
 
-  * :ref:`single-xml-electoral-district`
+  * :ref:`$$$-electoral-district`
 
-  * :ref:`single-xml-locality`
+  * :ref:`$$$-locality`
 
-  * :ref:`single-xml-office`
+  * :ref:`$$$-office`
 
-  * :ref:`single-xml-party`
+  * :ref:`$$$-party`
 
-  * :ref:`single-xml-precinct`
+  * :ref:`$$$-precinct`
 
-  * :ref:`single-xml-state`
+  * :ref:`$$$-state`
 
   .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 tags:

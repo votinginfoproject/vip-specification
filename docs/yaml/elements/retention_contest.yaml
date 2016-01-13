@@ -1,6 +1,6 @@
 _name: RetentionContest
 description: |-
-  ``RetentionContest`` extends :ref:`single-xml-ballot-measure-contest` and represents a
+  ``RetentionContest`` extends :ref:`$$$-ballot-measure-contest` and represents a
   contest where a candidate is retained in a position (e.g. a judge).
 post: |-
   .. code-block:: xml
@@ -20,7 +20,7 @@ post: |-
      </RetentionContest>
 tags:
 - _name: CandidateId
-  description: Links to the :ref:`single-xml-candidate` being retained.
+  description: Links to the :ref:`$$$-candidate` being retained.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``RetentionContest`` element containing it.
   required: true

@@ -2,12 +2,12 @@ _name: ContactInformation
 description: |-
   For defining contact information about objects such as persons, boards of authorities,
   organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-  :ref:`single-xml-election-administration`, :ref:`single-xml-office`,
-  :ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
+  :ref:`$$$-election-administration`, :ref:`$$$-office`,
+  :ref:`$$$-person`, :ref:`$$$-source`). ContactInformation has an optional attribute
   ``label``, which allows the feed to refer back to the original label for the information
   (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 post: |-
-  .. _See usage note.:
+  .. _$$$-name-address-line-usage:
 
   ``Name`` and ``AddressLine`` Usage Note
   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -54,7 +54,8 @@ post: |-
      </ContactInformation>
 tags:
 - _name: AddressLine
-  description: The "location" portion of a mailing address. `See usage note.`_
+  description: The "location" portion of a mailing address. :ref:`See usage note.
+    <$$$-name-address-line-usage>`
   error_then: =must-ignore
   repeating: true
   type: xs:string
@@ -70,18 +71,18 @@ tags:
   type: xs:string
 - _name: Hours **[deprecated]**
   description: 'Contains the hours (in local time) that the location is open *(NB:
-    this element is deprecated in favor of the more structured :ref:`single-xml-hours-open`
+    this element is deprecated in favor of the more structured :ref:`$$$-hours-open`
     element. It is strongly encouraged that data providers move toward contributing
     hours in this format)*.'
   error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
-  description: References an :ref:`single-xml-hours-open` element, which lists the
-    hours of operation for a location.
+  description: References an :ref:`$$$-hours-open` element, which lists the hours
+    of operation for a location.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Name
-  description: The name of the location or contact. `See usage note.`_
+  description: The name of the location or contact. :ref:`See usage note. <$$$-name-address-line-usage>`
   error_then: =must-ignore
   type: xs:string
 - _name: Phone

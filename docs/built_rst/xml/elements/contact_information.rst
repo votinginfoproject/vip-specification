@@ -7,8 +7,8 @@ ContactInformation
 
 For defining contact information about objects such as persons, boards of authorities,
 organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
-:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
+:ref:`multi-xml-election-administration`, :ref:`multi-xml-office`,
+:ref:`multi-xml-person`, :ref:`multi-xml-source`). ContactInformation has an optional attribute
 ``label``, which allows the feed to refer back to the original label for the information
 (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 
@@ -16,8 +16,8 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Tag              | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+=========================================+==============+==============+==========================================+==========================================+
 | AddressLine      | ``xs:string``                           | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
-|                  |                                         |              |              | address. `See usage note.`_              | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+|                  |                                         |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
+|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Email            | ``xs:string``                           | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
 |                  |                                         |              |              |                                          | then the implementation is required to   |
@@ -30,19 +30,19 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
 | **[deprecated]** |                                         |              |              | the location is open *(NB: this element  | present, then the implementation is      |
 |                  |                                         |              |              | is deprecated in favor of the more       | required to ignore it.                   |
-|                  |                                         |              |              | structured :ref:`single-xml-hours-open`  |                                          |
+|                  |                                         |              |              | structured :ref:`multi-xml-hours-open`   |                                          |
 |                  |                                         |              |              | element. It is strongly encouraged that  |                                          |
 |                  |                                         |              |              | data providers move toward contributing  |                                          |
 |                  |                                         |              |              | hours in this format)*.                  |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an                            | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                         |              |              | :ref:`multi-xml-hours-open` element,     | then the implementation is required to   |
 |                  |                                         |              |              | which lists the hours of operation for a | ignore it.                               |
 |                  |                                         |              |              | location.                                |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
-|                  |                                         |              |              | `See usage note.`_                       | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+|                  |                                         |              |              | :ref:`See usage note.                    | then the implementation is required to   |
+|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Phone            | ``xs:string``                           | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
 |                  |                                         |              |              |                                          | then the implementation is required to   |
@@ -53,7 +53,7 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                         |              |              |                                          | ignore it.                               |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. _See usage note.:
+.. _multi-xml-name-address-line-usage:
 
 ``Name`` and ``AddressLine`` Usage Note
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

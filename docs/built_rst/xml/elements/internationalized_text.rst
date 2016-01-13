@@ -10,27 +10,27 @@ InternationalizedText
 back to the original label for the information (e.g. if the contact information came from a
 CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
 
-* Any element that extends :ref:`single-xml-contest-base`
+* Any element that extends :ref:`multi-xml-contest-base`
 
-* Any element that extends :ref:`single-xml-ballot-selection-base`
+* Any element that extends :ref:`multi-xml-ballot-selection-base`
 
-* :ref:`single-xml-candidate`
+* :ref:`multi-xml-candidate`
 
-* :ref:`single-xml-contact-information`
+* :ref:`multi-xml-contact-information`
 
-* :ref:`single-xml-election`
+* :ref:`multi-xml-election`
 
-* :ref:`single-xml-election-administration`
+* :ref:`multi-xml-election-administration`
 
-* :ref:`single-xml-office`
+* :ref:`multi-xml-office`
 
-* :ref:`single-xml-party`
+* :ref:`multi-xml-party`
 
-* :ref:`single-xml-person`
+* :ref:`multi-xml-person`
 
-* :ref:`single-xml-polling-location`
+* :ref:`multi-xml-polling-location`
 
-* :ref:`single-xml-source`
+* :ref:`multi-xml-source`
 
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |

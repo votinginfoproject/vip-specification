@@ -6,7 +6,7 @@ BallotMeasureContest
 ====================
 
 The BallotMeasureContest provides information about a ballot measure before the voters, including
-summary statements on each side. Extends :ref:`single-xml-contest-base`.
+summary statements on each side. Extends :ref:`multi-xml-contest-base`.
 
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag              | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -48,11 +48,11 @@ summary statements on each side. Extends :ref:`single-xml-contest-base`.
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type             | :ref:`multi-xml-ballot-measure-type`    | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
 |                  |                                         |              |              | measure. Must be one of the valid        | then the implementation is required to   |
-|                  |                                         |              |              | :ref:`single-xml-ballot-measure-type`    | ignore it.                               |
+|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`     | ignore it.                               |
 |                  |                                         |              |              | options.                                 |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType        | ``xs:string``                           | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`single-xml-ballot-measure-type`    | then the implementation is required to   |
+|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`     | then the implementation is required to   |
 |                  |                                         |              |              | option, when Type is specified as        | ignore it.                               |
 |                  |                                         |              |              | "other."                                 |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
