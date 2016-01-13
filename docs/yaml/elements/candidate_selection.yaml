@@ -20,8 +20,8 @@ tags:
   repeating: true
   type: xs:IDREF
 - _name: EndorsementPartyId
-  description: References a :ref:`single-xml-party` element, which signifies one or more
-    endorsing parties for the candidate(s).
+  description: References a :ref:`single-xml-party` element, which signifies one or
+    more endorsing parties for the candidate(s).
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF

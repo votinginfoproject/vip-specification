@@ -74,7 +74,7 @@ tags:
   error_then: =must-ignore
   type: BallotMeasureType
 - _name: OtherType
-  description: Allows for cataloging a new :ref:`single-xml-ballot-measure-type`
-    option, when Type is specified as "other."
+  description: Allows for cataloging a new :ref:`single-xml-ballot-measure-type` option,
+    when Type is specified as "other."
   error_then: =must-ignore
   type: xs:string
