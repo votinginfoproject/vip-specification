@@ -81,8 +81,7 @@ exclude_patterns = [
   '_build',
   '*~',
   '#*',
-  'tables/elements/*.rst',
-  'tables/enumerations/*.rst',
+  'built_rst/tables/**.rst',
 ]
 
 # The reST default role (used for this markup: `text`) to use for all

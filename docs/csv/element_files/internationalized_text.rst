@@ -28,7 +28,7 @@ CSV, label may refer to a row ID). Examples of InternationalizedText can be seen
 
 * :doc:`Source <source>`
 
-.. include:: ../../tables/elements/internationalized_text.rst
+.. include:: ../../built_rst/tables/elements/internationalized_text.rst
 
 LanguageString
 --------------

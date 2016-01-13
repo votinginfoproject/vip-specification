@@ -21,8 +21,8 @@ each other. The entire set of tags must be encapsulated in a root object named v
 `sample xml file`_ and `xsd file`_ for more details.
 
 Each top-level tag is a container for other fields, described in their own section. The only required
-top-level tags are the :doc:`source object <elements/source>` and the
-:doc:`election object <elements/election>`, each of which must be present exactly once. All other
+top-level tags are the :doc:`source object <built_rst/xml/elements/source>` and the
+:doc:`election object <built_rst/xml/elements/election>`, each of which must be present exactly once. All other
 top-level tags can be repeated an unlimited number of times, or not included at all; order of
 top-level tags does not matter. Each top-level tag is required to have a single attribute, "id",
 which is required to be unique in a data file. The id attribute for the state object should be the
@@ -72,7 +72,7 @@ Elements
    :maxdepth: 2
    :glob:
 
-   elements/*
+   built_rst/xml/elements/*
 
 .. _enumerations:
 
@@ -83,4 +83,4 @@ Enumerations
    :maxdepth: 2
    :glob:
 
-   enumerations/*
+   built_rst/xml/enumerations/*

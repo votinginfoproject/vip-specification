@@ -2,5 +2,5 @@ OfficeTermType
 ==============
 
    
-.. include:: ../../tables/enumerations/office_term_type.rst
+.. include:: ../../built_rst/tables/enumerations/office_term_type.rst
 

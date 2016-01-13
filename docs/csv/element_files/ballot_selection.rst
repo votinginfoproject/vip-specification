@@ -10,14 +10,14 @@ BallotSelection extends :doc:`BallotSelectionBase <../../xml/elements/ballot_sel
 Ballot Measure Selection
 ------------------------
 
-.. include:: ../../tables/elements/ballot_measure_selection.rst
+.. include:: ../../built_rst/tables/elements/ballot_measure_selection.rst
 
 .. _bm-selection:
 
 Contest Selection
 ------------------------
 
-.. include:: ../../tables/elements/candidate_selection.rst
+.. include:: ../../built_rst/tables/elements/candidate_selection.rst
 
 .. literalinclude:: ../../csv/example_files/ballot_selection.txt
    :linenos:

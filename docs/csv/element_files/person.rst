@@ -10,7 +10,7 @@ or elected official. These elements reference Person:
 
 * :doc:`Office <office>`
 
-.. include:: ../../tables/elements/person.rst
+.. include:: ../../built_rst/tables/elements/person.rst
 
 .. literalinclude:: ../../csv/example_files/person.txt
    :linenos:

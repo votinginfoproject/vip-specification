@@ -8,7 +8,7 @@ organizations, etc. ContactInformation is always a sub-element of another object
 ``label``, which allows the feed to refer back to the original label for the information
 (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 
-.. include:: ../../tables/elements/contact_information.rst
+.. include:: ../../built_rst/tables/elements/contact_information.rst
 
 .. literalinclude:: ../../csv/example_files/contact_information.txt
    :linenos:

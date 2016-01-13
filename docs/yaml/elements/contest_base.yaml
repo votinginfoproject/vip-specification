@@ -11,7 +11,7 @@ tags:
   type: xs:string
 - _name: BallotSelectionId
   description: References a particular BallotSelection, which could be of any selection
-    type that extends :doc:`BallotSelectionBase </xml/elements/ballot_selection_base>`.
+    type that extends :doc:`BallotSelectionBase </built_rst/xml/elements/ballot_selection_base>`.
   error_then: =should-ignore
   repeating: true
   type: xs:IDREF

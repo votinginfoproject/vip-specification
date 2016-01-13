@@ -30,7 +30,7 @@ TYPE_NAME_TO_REST = {
     'Department': ':ref:`Department <ea-dep>`',
     'DistrictType': ':doc:`DistrictType <../enumerations/district_type>`',
     'ExternalIdentifier': '`ExternalIdentifier`_',
-    'ExternalIdentifiers': ':doc:`ExternalIdentifiers </xml/elements/external_identifiers>`',
+    'ExternalIdentifiers': ':doc:`ExternalIdentifiers </built_rst/xml/elements/external_identifiers>`',
     'Hours': '`Hours`_',
     'HtmlColorString': '`HtmlColorString`_',
     'IdentifierType': ':doc:`IdentifierType <../enumerations/identifier_type>`',
@@ -117,6 +117,10 @@ def make_table(all_types, data_type):
 
 
 def write_rest_file(path, rest):
+    dir_path = os.path.dirname(path)
+    if not os.path.exists(dir_path):
+        _log.info("creating dir: {0}".format(dir_path))
+        os.makedirs(dir_path)
     rest = REST_HEADER + rest
     common.write_file(path, rest)
 

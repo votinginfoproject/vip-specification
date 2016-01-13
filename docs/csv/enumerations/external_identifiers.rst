@@ -24,10 +24,10 @@ found on the objects that support them:
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
-.. include:: ../../tables/elements/external_identifiers.rst
+.. include:: ../../built_rst/tables/elements/external_identifiers.rst
 
 ExternalIdentifier
 ------------------
 
-.. include:: ../../tables/elements/external_identifier.rst
+.. include:: ../../built_rst/tables/elements/external_identifier.rst
 

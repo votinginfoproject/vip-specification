@@ -9,9 +9,10 @@ import yaml
 
 _log = logging.getLogger()
 
+AUTO_GENERATED_DIR = 'docs/built_rst'
 YAML_DIR = 'docs/yaml'
-TABLES_DIR = 'docs/tables'
-XML_DIR = 'docs/xml'
+TABLES_DIR = os.path.join(AUTO_GENERATED_DIR, 'tables')
+XML_DIR = os.path.join(AUTO_GENERATED_DIR, 'xml')
 
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
