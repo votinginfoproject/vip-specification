@@ -22,7 +22,6 @@ To see a changelog of all of the updates, please see `the GitHub repository`_.
 .. _`the GitHub repository`: https://github.com/votinginfoproject/vip-specification/blob/vip5/HISTORY.md
 
 .. _xml-docs:
-.. _csv-docs:
 
 XML Documentation
 -----------------
@@ -32,6 +31,9 @@ XML Documentation
 
    xml/index
 
+
+.. _csv-docs:
+
 CSV Documentation
 -----------------
 
@@ -39,5 +41,3 @@ CSV Documentation
    :maxdepth: 2
 
    csv/index
-
-
