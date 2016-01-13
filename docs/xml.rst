@@ -67,10 +67,24 @@ identifiers, and enumeration selection that will make it easier to generate
 and troubleshoot your VIP feeds.
 
 
+Elements & Enumerations
+-----------------------
+
+
+Single-page Format
+~~~~~~~~~~~~~~~~~~
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   built_rst/xml/single_page
+
+
 .. _elements:
 
-Elements
---------
+Elements (Separate Pages)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
@@ -81,8 +95,8 @@ Elements
 
 .. _enumerations:
 
-Enumerations
-------------
+Enumerations (Separate Pages)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
