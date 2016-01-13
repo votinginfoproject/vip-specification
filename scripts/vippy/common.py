@@ -145,24 +145,39 @@ def read_type(parent_dir, rel_path):
     return data_type
 
 
-def read_types():
-    """
-    Return information about all types by reading all of the YAML files.
+class AllTypes:
 
-    The information is returned in the form of a dict mapping type names
-    to `DataType` objects (i.e. element and enumeration types).  Examples
-    of type names include "BallotMeasureContest" in the case of elements
-    and "DistrictType" in the case of enumerations.
+    def __init__(self, type_map):
+        """
+        Arguments:
+          type_map: map from type name to DataType object.  Examples of type
+            names include "BallotMeasureContest" in the case of elements and
+            "DistrictType" in the case of enumerations.
+        """
+        self.elements = []
+        self.enumerations = []
+        self.type_map = type_map
+
+
+def get_all_types():
+    """
+    Read all YAML files, and return an AllTypes object.
     """
     parent_dir = YAML_DIR
     data_types = {}
+    all_types = AllTypes(data_types)
     rel_paths = get_all_files(parent_dir, ext='.yaml')
     for rel_path in rel_paths:
         data_type = read_type(parent_dir, rel_path)
         type_name = data_type.name
         data_types[type_name] = data_type
+        if data_type.is_enum:
+            seq = all_types.enumerations
+        else:
+            seq = all_types.elements
+        seq.append(data_type)
 
-    return data_types
+    return all_types
 
 
 def get_type(all_types, type_name):
@@ -323,6 +338,10 @@ class DataType(object):
     @property
     def name(self):
         return self.data['_name']
+
+    @property
+    def spinal_name(self):
+        return self.snake_name.replace("_", "-")
 
     @property
     def sub_types(self):

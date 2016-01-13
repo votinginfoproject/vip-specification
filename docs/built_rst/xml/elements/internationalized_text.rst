@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-internationalized-text:
+
 InternationalizedText
 =====================
 
@@ -41,6 +43,8 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 |              |                   |              |              |                                          | element.                                 |
 +--------------+-------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+
+.. _xml-multi-language-string:
 
 LanguageString
 --------------

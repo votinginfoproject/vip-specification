@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-party:
+
 Party
 =====
 
@@ -29,6 +31,8 @@ This element describes a political party and the metadata associated with them.
 |                     |                                                 |              |              |                                          | required to ignore it.                   |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+
+.. _xml-multi-html-color-string:
 
 HtmlColorString
 ---------------

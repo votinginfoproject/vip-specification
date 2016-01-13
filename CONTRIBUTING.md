@@ -121,7 +121,7 @@ Then, normalize the YAML files and update the reST files:
 
 ```sh
 $ python scripts/vip.py norm_yaml
-$ python scripts/vip.py update_rest
+$ python scripts/vip.py make_rest
 ```
 
 After this, you will want to build the documentation as described above.
@@ -140,7 +140,7 @@ $ python scripts/vip.py -h
 Or for help with a specific command (for example):
 
 ```sh
-$ python scripts/vip.py update_rest -h
+$ python scripts/vip.py make_rest -h
 ```
 
 

@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-polling-location:
+
 PollingLocation
 ===============
 
@@ -50,6 +52,8 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                  |                             |              |              |                                          | ignore it.                               |
 +------------------+-----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+
+.. _xml-multi-lat-lng:
 
 LatLng
 ------

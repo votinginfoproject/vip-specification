@@ -74,8 +74,8 @@ def command_norm_yaml(ns):
         common.normalize_yaml(path)
 
 
-def command_update_rest(ns):
-    """Run the update_rest command."""
+def command_make_rest(ns):
+    """Run the make_rest command."""
     rest.update_rest_files(ns.type_name)
 
 
@@ -89,7 +89,7 @@ def make_subparser(sub, command_name, help, command_func=None, details=None, **k
     Create the "sub-parser" for our command-line parser.
 
     This facilitates having multiple "commands" for a single script,
-    for example "norm_yaml", "update_rest", etc.
+    for example "norm_yaml", "make_rest", etc.
     """
     if command_func is None:
         command_func_name = "command_{0}".format(command_name)
@@ -123,7 +123,7 @@ def create_parser():
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file. Defaults to all files.")
 
-    parser = make_subparser(sub, "update_rest",
+    parser = make_subparser(sub, "make_rest",
         help=("update all reST files from the YAML files."))
     parser.add_argument('type_name', metavar='TYPE_NAME', nargs='?',
         help=('the name of a type (e.g. "HoursOpen"). '

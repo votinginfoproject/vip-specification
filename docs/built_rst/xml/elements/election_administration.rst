@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-election-administration:
+
 ElectionAdministration
 ======================
 
@@ -49,6 +51,8 @@ functions.
 .. _ea-dep:
 
 
+.. _xml-multi-department:
+
 Department
 ----------
 
@@ -72,6 +76,8 @@ Department
 
 .. _ea-dep-voter-service:
 
+
+.. _xml-multi-voter-service:
 
 VoterService
 ------------

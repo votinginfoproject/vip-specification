@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-external-identifiers:
+
 ExternalIdentifiers
 ===================
 
@@ -38,6 +40,8 @@ found on the objects that support them:
 |                    |                       |              |              |                                          | element.                                 |
 +--------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+
+.. _xml-multi-external-identifier:
 
 ExternalIdentifier
 ------------------

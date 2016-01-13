@@ -134,17 +134,50 @@ def update_table_file(all_types, data_type):
     write_rest_file(rest_path, rest)
 
 
-def add_rest_section(rest, new_rest):
-    return rest + "{0}\n\n".format(new_rest)
+def add_rest_section(rest, new_rest, sep=None):
+    if sep is None:
+        sep = "\n"
+    rest = "{0}{1}{2}".format(rest, sep, new_rest)
+    if not rest.endswith("\n"):
+        rest += "\n"
+    return rest
 
 
-def make_type_rest(all_types, data_type, header_char):
+def make_rest_header(title, label, header_char):
     """
     Arguments:
       header_char: "=" or "-".
     """
+    line = len(title) * header_char
+    rest = textwrap.dedent("""\
+    .. _{0}:
+
+    {1}
+    {line}
+    """).format(label, title, line=line)
+
+    return rest
+
+
+def get_next_header_char(char):
+    mapping = {
+        "=": "-",
+        "-": "~",
+        "~": "^",
+        "^": "%",
+    }
+    return mapping[char]
+
+def make_type_rest(all_types, data_type, header_char, prefix):
+    """
+    Arguments:
+      header_char: "=" or "-".
+      prefix: the label prefix (e.g. "single-xml" or "multi-xml").
+    """
+    type_map = all_types.type_map
     type_name = data_type.name
-    rest = "{0}\n{1}\n\n".format(type_name, len(type_name) * header_char)
+    ref_label = "{0}-{1}".format(prefix, data_type.spinal_name)
+    rest = make_rest_header(type_name, label=ref_label, header_char=header_char)
 
     yaml_data = data_type.yaml
 
@@ -153,25 +186,30 @@ def make_type_rest(all_types, data_type, header_char):
         rest = add_rest_section(rest, description)
 
     if data_type.tags:
-        table_rest = make_table(all_types, data_type)
+        table_rest = make_table(type_map, data_type)
         rest = add_rest_section(rest, table_rest)
 
     post = yaml_data.get('post')
     if post:
         rest = add_rest_section(rest, post)
 
+    header_char = get_next_header_char(header_char)
     for sub_type_name in data_type.sub_types:
-        sub_type = common.get_type(all_types, sub_type_name)
-        sub_rest = make_type_rest(all_types, sub_type, header_char="-")
+        sub_type = common.get_type(type_map, sub_type_name)
+        sub_rest = make_type_rest(all_types, sub_type, header_char=header_char, prefix=prefix)
         # Separate types with an additional line.
-        rest += "\n" + sub_rest
+        rest = add_rest_section(rest, sub_rest, sep="\n\n")
+
+    if not rest.endswith("\n"):
+        rest += "\n"
 
     return rest
 
 
 def update_rest_file(all_types, data_type):
+    type_map = all_types.type_map
     type_name = data_type.name
-    for parent_type in all_types.values():
+    for parent_type in type_map.values():
         if type_name in parent_type.sub_types:
             _log.debug("skipping rest file for: {0} ({1})".format(type_name, parent_type.name))
             return
@@ -179,7 +217,7 @@ def update_rest_file(all_types, data_type):
     rest_path = data_type.rest_path
     _log.debug("updating: {0}".format(rest_path))
 
-    rest = make_type_rest(all_types, data_type, header_char="=")
+    rest = make_type_rest(all_types, data_type, header_char="=", prefix="xml-multi")
 
     # Make sure the file ends in a single newline.
     rest = rest.strip() + "\n"
@@ -187,17 +225,45 @@ def update_rest_file(all_types, data_type):
     write_rest_file(rest_path, rest)
 
 
+def update_rest_file_single_page(all_types):
+    prefix = "single-xml"
+    path = os.path.join(common.XML_DIR, "single_page.rst")
+    _log.debug("updating single-page rest file: {0}".format(path))
+    rest = make_rest_header("XML Elements & Enumerations (Single Page)", label=prefix, header_char="=")
+
+    infos = [
+        ("Elements", all_types.elements),
+        ("Enumerations", all_types.enumerations)
+    ]
+    for title, data_types in infos:
+        rest += "\n\n"
+        label = "{0}-{1}".format(prefix, title.lower())
+        rest += make_rest_header(title, label=label, header_char="-")
+        for data_type in data_types:
+            new_rest = make_type_rest(all_types, data_type, header_char="~", prefix=prefix)
+            rest = add_rest_section(rest, new_rest, sep="\n\n")
+
+    write_rest_file(path, rest)
+
+
 def update_rest_files(type_name=None):
-    all_types = common.read_types()
+    """
+    Update auto-generated reST files.
+    """
+    all_types = common.get_all_types()
+    type_map = all_types.type_map
+
     if type_name is None:
-        type_names = sorted(all_types.keys())
+        type_names = sorted(type_map.keys())
     else:
         type_names = [type_name]
 
+    update_rest_file_single_page(all_types)
+
     for type_name in type_names:
         _log.debug("updating rest files for type: {0}".format(type_name))
-        data_type = common.get_type(all_types, type_name)
-        update_table_file(all_types, data_type)
+        data_type = common.get_type(type_map, type_name)
+        update_table_file(type_map, data_type)
         update_rest_file(all_types, data_type)
 
 

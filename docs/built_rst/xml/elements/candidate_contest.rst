@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-candidate-contest:
+
 CandidateContest
 ================
 

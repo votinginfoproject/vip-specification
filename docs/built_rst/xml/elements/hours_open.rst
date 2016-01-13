@@ -1,5 +1,7 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _xml-multi-hours-open:
+
 HoursOpen
 =========
 
@@ -17,6 +19,8 @@ that an event such as an :doc:`Election <election>` is happening.
 |              |              |              |              |                                          | ``HoursOpen`` element.                   |
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+
+.. _xml-multi-schedule:
 
 Schedule
 --------
@@ -56,6 +60,8 @@ describing whether or not appointments are necessary or possible.
 +---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
+.. _xml-multi-hours:
+
 Hours
 -----
 
@@ -74,6 +80,8 @@ including a timezone offset from UTC.
 |              |                 |              |              |                                          | required to ignore it.                   |
 +--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+
+.. _xml-multi-time-with-zone:
 
 TimeWithZone
 ------------
