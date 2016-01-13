@@ -1,15 +1,9 @@
 XML Specification
 =================
 
-* :ref:`getting-started`
+.. contents::
+   :local:
 
-  * :ref:`naming-convention`
-
-  * :ref:`best-practices`
-
-* :ref:`elements`
-
-* :ref:`enumerations`
 
 .. _getting-started:
 
@@ -39,6 +33,7 @@ respectively.
 
 .. _sample xml file: https://github.com/votinginfoproject/vip-specification/blob/vip5/sample_feed.xml
 .. _xsd file: https://github.com/votinginfoproject/vip-specification/blob/vip5/vip_spec.xsd
+
 
 .. _naming-convention:
 
