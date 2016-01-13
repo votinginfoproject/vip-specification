@@ -4,6 +4,9 @@
 
 XML Elements & Enumerations (Single Page)
 =========================================
+.. contents::
+   :local:
+
 
 
 .. _single-xml-elements:
@@ -390,7 +393,7 @@ organizations, etc. ContactInformation is always a sub-element of another object
 .. _See usage note.:
 
 ``Name`` and ``AddressLine`` Usage Note
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``Name`` and ``AddressLine`` fields should be chosen so that a display
 or mailing address can be constructed programmatically by joining the

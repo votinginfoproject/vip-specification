@@ -229,6 +229,11 @@ def update_rest_file_single_page(all_types):
     path = os.path.join(common.XML_DIR, "single_page.rst")
     _log.debug("updating single-page rest file: {0}".format(path))
     rest = make_rest_header("XML Elements & Enumerations (Single Page)", label=prefix, header_char="=")
+    rest += textwrap.dedent("""\
+    .. contents::
+       :local:
+
+    """)
 
     infos = [
         ("Elements", all_types.elements),
