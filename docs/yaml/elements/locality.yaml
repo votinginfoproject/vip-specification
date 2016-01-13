@@ -1,6 +1,6 @@
 _name: Locality
-description: The Locality object represents the jurisdiction below the :doc:`state
-  <state>` (e.g. county).
+description: The Locality object represents the jurisdiction below the :ref:`$$$-state`
+  (e.g. county).
 post: |-
   .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
@@ -21,8 +21,7 @@ post: |-
      </Locality>
 tags:
 - _name: ElectionAdministrationId
-  description: Links to the locality's :doc:`election administration <election_administration>`
-    object.
+  description: Links to the locality's :ref:`$$$-election-administration` object.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ExternalIdentifiers
@@ -37,26 +36,26 @@ tags:
   required: true
   type: xs:string
 - _name: PollingLocationIds
-  description: Specifies a link to a set of the locality's :doc:`polling locations
-    <polling_location>`s. If early vote centers or ballot drop locations are locality-wide,
+  description: Specifies a link to a set of the locality's :ref:`polling locations
+    <$$$-polling-location>`s. If early vote centers or ballot drop locations are locality-wide,
     they should be specified here.
   error: If the field is invalid or not present, the implementation is required to
     ignore it. However, the implementation should still check to see if there are
     any polling locations associated with this locality's state.
   type: xs:IDREFS
 - _name: StateId
-  description: References the locality's :doc:`state <state>`.
+  description: References the locality's :ref:`$$$-state`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the Locality element containing.
   required: true
   type: xs:IDREF
 - _name: Type
   description: Defines the kind of locality (e.g. county, town, et al.), which is
-    one of the various :doc:`DistrictType enumerations <../enumerations/district_type>`.
+    one of the various :ref:`DistrictType enumerations <$$$-district-type>`.
   error_then: =must-ignore
   type: DistrictType
 - _name: OtherType
   description: Allows for defining a type of locality that falls outside the options
-    listed in :doc:`DistrictType <../enumerations/district_type>`.
+    listed in :ref:`DistrictType <$$$-district-type>`.
   error_then: =must-ignore
   type: xs:string

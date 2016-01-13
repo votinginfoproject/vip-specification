@@ -1,7 +1,7 @@
 IdentifierType
 ==============
 
-.. include:: ../../tables/enumerations/identifier_type.rst
+.. include:: ../../built_rst/tables/enumerations/identifier_type.rst
 
 .. _states: http://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code
 .. _counties: http://en.wikipedia.org/wiki/FIPS_county_code

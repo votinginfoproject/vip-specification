@@ -49,7 +49,7 @@ tags:
   required: true
   type: DistrictType
 - _name: OtherType
-  description: Allows for cataloging a new :doc:`DistrictType <../enumerations/district_type>`
-    option when ``Type`` is specified as "other".
+  description: Allows for cataloging a new :ref:`$$$-district-type` option when ``Type``
+    is specified as "other".
   error_then: =must-ignore
   type: xs:string

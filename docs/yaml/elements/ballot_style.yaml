@@ -18,10 +18,10 @@ tags:
   error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestIds
-  description: Reference to a set of :doc:`OrderedContest </xml/elements/ordered_contest>`s
+  description: Reference to a set of :ref:`$$$-ordered-contest`s
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PartyIds
-  description: Reference to a set of :doc:`Party <party>`s.
+  description: Reference to a set of :ref:`$$$-party`s.
   error_then: =must-ignore
   type: xs:IDREFS

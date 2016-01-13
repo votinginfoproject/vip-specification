@@ -6,7 +6,7 @@ geography (i.e., segment) is contained within. The start address house number mu
 end address house number unless the segment consists of only one address, in which case these values
 are equal.
 
-.. include:: ../../tables/elements/street_segment.rst
+.. include:: ../../built_rst/tables/elements/street_segment.rst
 
 .. literalinclude:: ../../csv/example_files/street_segment.txt
    :linenos:

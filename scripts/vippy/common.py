@@ -9,9 +9,10 @@ import yaml
 
 _log = logging.getLogger()
 
+AUTO_GENERATED_DIR = 'docs/built_rst'
 YAML_DIR = 'docs/yaml'
-TABLES_DIR = 'docs/tables'
-XML_DIR = 'docs/xml'
+TABLES_DIR = os.path.join(AUTO_GENERATED_DIR, 'tables')
+XML_DIR = os.path.join(AUTO_GENERATED_DIR, 'xml')
 
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
@@ -144,24 +145,46 @@ def read_type(parent_dir, rel_path):
     return data_type
 
 
-def read_types():
-    """
-    Return information about all types by reading all of the YAML files.
+class AllTypes:
 
-    The information is returned in the form of a dict mapping type names
-    to `DataType` objects (i.e. element and enumeration types).  Examples
-    of type names include "BallotMeasureContest" in the case of elements
-    and "DistrictType" in the case of enumerations.
+    def __init__(self, type_map):
+        """
+        Arguments:
+          type_map: map from type name to DataType object.  Examples of type
+            names include "BallotMeasureContest" in the case of elements and
+            "DistrictType" in the case of enumerations.
+        """
+        self.elements = []
+        self.enumerations = []
+        self.sub_types = set()
+        self.type_map = type_map
+
+
+def get_all_types():
+    """
+    Read all YAML files, and return an AllTypes object.
     """
     parent_dir = YAML_DIR
-    data_types = {}
+    types_map = {}
+    all_types = AllTypes(types_map)
     rel_paths = get_all_files(parent_dir, ext='.yaml')
     for rel_path in rel_paths:
         data_type = read_type(parent_dir, rel_path)
         type_name = data_type.name
-        data_types[type_name] = data_type
+        types_map[type_name] = data_type
+        if data_type.is_enum:
+            seq = all_types.enumerations
+        else:
+            seq = all_types.elements
+        seq.append(data_type)
 
-    return data_types
+    for data_type in types_map.values():
+        sub_types = data_type.sub_types
+        for sub_type in sub_types:
+            data_type = types_map[sub_type]
+            data_type.is_sub_type = True
+
+    return all_types
 
 
 def get_type(all_types, type_name):
@@ -311,6 +334,7 @@ class DataType(object):
     def __init__(self, yaml, data, rel_path, snake_name, is_enum):
         self.data = data
         self.is_enum = is_enum
+        self.is_sub_type = False
         self.rel_path = rel_path
         self.snake_name = snake_name
         self.yaml = yaml
@@ -322,6 +346,10 @@ class DataType(object):
     @property
     def name(self):
         return self.data['_name']
+
+    @property
+    def spinal_name(self):
+        return self.snake_name.replace("_", "-")
 
     @property
     def sub_types(self):
@@ -349,3 +377,9 @@ class DataType(object):
         rest_rel_path = "{0}.rst".format(root)
         path = os.path.join(dir_path, rest_rel_path)
         return path
+
+    def make_ref_link(self, prefix):
+        """
+        Return, for example: ":ref:`single-xml-internationalized-text`".
+        """
+        return ":ref:`{0}-{1}`".format(prefix, self.spinal_name)

@@ -12,8 +12,8 @@ tags:
   repeating: true
   type: ContactInformation
 - _name: ElectoralDistrictId
-  description: Links to the :doc:`ElectoralDistrict <electoral_district>` element
-    associated with the office.
+  description: Links to the :ref:`$$$-electoral-district` element associated with
+    the office.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``Office`` element containing it.
   required: true
@@ -39,8 +39,8 @@ tags:
   required: true
   type: InternationalizedText
 - _name: OfficeHolderPersonIds
-  description: Links to the :doc:`Person <person>` element(s) that hold additional
-    information about the current office holder(s).
+  description: Links to the :ref:`$$$-person` element(s) that hold additional information
+    about the current office holder(s).
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: Term

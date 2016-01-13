@@ -2,7 +2,7 @@ _name: OrderedContest
 description: |-
   ``OrderedContest`` encapsulates links to the information that comprises a contest and potential
   ballot selections. ``OrderedContest`` elements can be collected within a
-  :doc:`BallotStyle <ballot_style>` to accurate depict exactly what will show up on a particular
+  :ref:`$$$-ballot-style` to accurate depict exactly what will show up on a particular
   ballot in the proper order.
 post: |-
   .. code-block:: xml
@@ -16,16 +16,15 @@ post: |-
      </OrderedContest>
 tags:
 - _name: ContestId
-  description: Links to elements that extend :doc:`ContestBase <contest_base>`.
+  description: Links to elements that extend :ref:`$$$-contest-base`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``OrderedContest`` element containing it.
   required: true
   type: xs:IDREF
 - _name: OrderedBallotSelectionIds
-  description: Links to elements that extend :doc:`BallotSelectionBase <ballot_selection_base>`.
+  description: Links to elements that extend :ref:`$$$-ballot-selection-base`.
   error: If the field is invalid or not present, the implementation is required to
-    ignore it. If no ``OrderedBallotSelectionId`` elements are present, the presumed
-    order of the selection will be the order of :doc:`BallotSelectionBase <ballot_selection_base>`-extended
-    elements referenced by the underlying :doc:`ContestBase <contest_base>`-extended
-    elements.
+    ignore it. If a ``OrderedBallotSelectionIds`` element is not present, the presumed
+    order of the selection will be the order of :ref:`$$$-ballot-selection-base`-extended
+    elements referenced by the underlying :ref:`$$$-contest-base`-extended elements.
   type: xs:IDREFS

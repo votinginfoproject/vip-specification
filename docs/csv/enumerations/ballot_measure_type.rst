@@ -10,7 +10,7 @@ choose the value which best describes the ballot measure(s) in their
 jurisdiction.
 
 
-.. include:: ../../tables/enumerations/ballot_measure_type.rst
+.. include:: ../../built_rst/tables/enumerations/ballot_measure_type.rst
 
 
 .. _Wikipedia: http://en.wikipedia.org/wiki/Initiatives_and_referendums_in_the_United_States

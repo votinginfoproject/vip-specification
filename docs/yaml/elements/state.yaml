@@ -34,9 +34,9 @@ tags:
   required: true
   type: xs:string
 - _name: PollingLocationIds
-  description: Specifies a link to the state's :doc:`polling locations <polling_location>`.
+  description: Specifies a link to the state's :ref:`polling locations <$$$-polling_location>`.
     If early vote centers or ballot drop locations are state-wide (e.g., anyone in
     the state can use them), they can be specified here, but you are encouraged to
-    only use the :doc:`Precinct <precinct>` element.
+    only use the :ref:`$$$-precinct` element.
   error_then: =must-ignore
   type: xs:IDREFS

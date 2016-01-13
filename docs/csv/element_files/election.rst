@@ -8,7 +8,7 @@ the Election specified by this object. It is permissible, and recommended, to co
 contests (e.g., a special election and a general election) that occur on the same day into one feed
 with one Election object.
 
-.. include:: ../../tables/elements/election.rst
+.. include:: ../../built_rst/tables/elements/election.rst
 
 .. literalinclude:: ../../csv/example_files/election.txt
    :linenos:

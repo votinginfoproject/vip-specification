@@ -8,7 +8,7 @@ attribute does not have to be static across feeds for one election, the combinat
 feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
 non-required fields is fine).
 
-.. include:: ../../tables/elements/precinct.rst
+.. include:: ../../built_rst/tables/elements/precinct.rst
 
 .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 

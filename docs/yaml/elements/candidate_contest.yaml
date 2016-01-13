@@ -1,6 +1,6 @@
 _name: CandidateContest
 description: |-
-  CandidateContest extends :doc:`ContestBase <contest_base>` and represents a contest among
+  CandidateContest extends :ref:`$$$-contest-base` and represents a contest among
   candidates.
 post: |-
   .. code-block:: xml
@@ -25,13 +25,13 @@ tags:
   error_then: =must-ignore
   type: xs:integer
 - _name: OfficeIds
-  description: References a set of :doc:`Office <office>` elements, if available,
-    which give additional information about the offices.
+  description: References a set of :ref:`$$$-office` elements, if available, which
+    give additional information about the offices.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrimaryPartyId
-  description: References a :doc:`Party <party>` element, if the contest is related
-    to a particular party.
+  description: References a :ref:`$$$-party` element, if the contest is related to
+    a particular party.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: VotesAllowed

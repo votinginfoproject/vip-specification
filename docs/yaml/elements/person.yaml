@@ -3,11 +3,11 @@ description: |-
   ``Person`` defines information about a person. The person may be a candidate, election administrator,
   or elected official. These elements reference ``Person``:
 
-  * :doc:`Candidate <candidate>`
+  * :ref:`$$$-candidate`
 
-  * :doc:`ElectionAdministration <election_administration>`
+  * :ref:`$$$-election-administration`
 
-  * :doc:`Office <office>`
+  * :ref:`$$$-office`
 post: |-
   .. code-block:: xml
      :linenos:
@@ -40,9 +40,8 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: FullName
-  description: Specifies a person's full name (**NB:** this information is :doc:`InternationalizedText
-    <internationalized_text>` because it sometimes appears on ballots in multiple
-    languages).
+  description: Specifies a person's full name (**NB:** this information is :ref:`$$$-internationalized-text`
+    because it sometimes appears on ballots in multiple languages).
   error_then: =must-ignore
   type: InternationalizedText
 - _name: LastName
@@ -60,7 +59,7 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: PartyId
-  description: Refers to the associated :doc:`Party <party>`.
+  description: Refers to the associated :ref:`$$$-party`.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Prefix
@@ -68,9 +67,8 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: Profession
-  description: Specifies a person's profession (**NB:** this information is :doc:`InternationalizedText
-    <internationalized_text>` because it sometimes appears on ballots in multiple
-    languages).
+  description: Specifies a person's profession (**NB:** this information is :ref:`$$$-internationalized-text`
+    because it sometimes appears on ballots in multiple languages).
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Suffix
@@ -78,8 +76,7 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: Title
-  description: A title associated with a person (**NB:** this information is :doc:`InternationalizedText
-    <internationalized_text>` because it sometimes appears on ballots in multiple
-    languages).
+  description: A title associated with a person (**NB:** this information is :ref:`$$$-internationalized-text`
+    because it sometimes appears on ballots in multiple languages).
   error_then: =must-ignore
   type: InternationalizedText

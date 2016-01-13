@@ -2,5 +2,5 @@ OebEnum
 =======
 
    
-.. include:: ../../tables/enumerations/oeb_enum.rst
+.. include:: ../../built_rst/tables/enumerations/oeb_enum.rst
 
