@@ -1,4 +1,7 @@
-name: Hours
+_name: Hours
+description: |-
+  The open and close time for this place. All times must be fully specified,
+  including a timezone offset from UTC.
 tags:
 - _name: StartTime
   description: The time at which this place opens.

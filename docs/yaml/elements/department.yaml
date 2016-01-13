@@ -1,4 +1,5 @@
-name: Department
+_name: Department
+post: '.. _ea-dep-voter-service:'
 tags:
 - _name: ContactInformation
   description: Contact and physical address information for the election administration

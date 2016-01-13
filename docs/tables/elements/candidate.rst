@@ -8,8 +8,8 @@
 |                     |                                                   |              |              | "Ken T. Cuccinelli II").                 | required to ignore the Candidate element |
 |                     |                                                   |              |              |                                          | containing it.                           |
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers | :doc:`ExternalIdentifiers <external_identifiers>` | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
-|                     |                                                   |              |              | links to another source of information   | present, then the implementation is      |
+| ExternalIdentifiers | :doc:`ExternalIdentifiers                         | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
+|                     | </xml/elements/external_identifiers>`             |              |              | links to another source of information   | present, then the implementation is      |
 |                     |                                                   |              |              | (e.g. a campaign committee ID that links | required to ignore it.                   |
 |                     |                                                   |              |              | to a campaign finance system).           |                                          |
 +---------------------+---------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

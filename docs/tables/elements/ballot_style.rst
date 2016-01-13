@@ -8,8 +8,8 @@
 |                   |              |              |              |                                          | ignore it.                               |
 +-------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OrderedContestIds | xs:IDREFS    | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                   |              |              |              | :doc:`OrderedContest <ordered_contest>`s | then the implementation is required to   |
-|                   |              |              |              |                                          | ignore it.                               |
+|                   |              |              |              | :doc:`OrderedContest                     | then the implementation is required to   |
+|                   |              |              |              | </xml/elements/ordered_contest>`s        | ignore it.                               |
 +-------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyIds          | xs:IDREFS    | Optional     | Single       | Reference to a set of :doc:`Party        | If the field is invalid or not present,  |
 |                   |              |              |              | <party>`s.                               | then the implementation is required to   |

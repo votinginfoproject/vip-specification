@@ -1,4 +1,19 @@
-name: OrderedContest
+_name: OrderedContest
+description: |-
+  ``OrderedContest`` encapsulates links to the information that comprises a contest and potential
+  ballot selections. ``OrderedContest`` elements can be collected within a
+  :doc:`BallotStyle <ballot_style>` to accurate depict exactly what will show up on a particular
+  ballot in the proper order.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <OrderedContest id="oc20003abc">
+        <ContestId>cc20003</ContestId>
+        <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
+        <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
+        <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+     </OrderedContest>
 tags:
 - _name: ContestId
   description: Links to elements that extend :doc:`ContestBase <contest_base>`.

@@ -1,3 +1,5 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 ExternalIdentifiers
 ===================
 
@@ -24,12 +26,43 @@ found on the objects that support them:
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
-.. include:: ../../tables/elements/external_identifiers.rst
++--------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | `ExternalIdentifier`_ | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                       |              |              |                                          | present, the implementation is required  |
+|                    |                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                       |              |              |                                          | element.                                 |
++--------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
 
 ExternalIdentifier
 ------------------
 
-.. include:: ../../tables/elements/external_identifier.rst
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+====================================+==============+==============+==========================================+==========================================+
+| Type         | :doc:`IdentifierType               | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              | <../enumerations/identifier_type>` |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                    |              |              | :doc:`IdentifierType                     | the ``ElectionIdentifier`` containing    |
+|              |                                    |              |              | <../enumerations/identifier_type>`.      | it.                                      |
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | xs:string                          | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                    |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                    |              |              | outside the options listed in            | ignore it.                               |
+|              |                                    |              |              | :doc:`IdentifierType                     |                                          |
+|              |                                    |              |              | <../enumerations/identifier_type>`.      |                                          |
+|              |                                    |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                    |              |              | using this field.                        |                                          |
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | xs:string                          | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                    |              |              |                                          | the implementation is required to ignore |
+|              |                                    |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                    |              |              |                                          | it.                                      |
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:

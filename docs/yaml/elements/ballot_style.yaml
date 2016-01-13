@@ -1,11 +1,24 @@
-name: BallotStyle
+_name: BallotStyle
+description: A container for the contests/measures on the ballot.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <BallotStyle id="bs00000">
+        <OrderedContestId>oc20003</OrderedContestId>
+        <OrderedContestId>oc20004</OrderedContestId>
+        <OrderedContestId>oc20005</OrderedContestId>
+        <OrderedContestId>oc20025</OrderedContestId>
+        <OrderedContestId>oc20355</OrderedContestId>
+        <OrderedContestId>oc20449</OrderedContestId>
+     </BallotStyle>
 tags:
 - _name: ImageUri
   description: Specifies a URI that returns an image of the sample ballot.
   error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestIds
-  description: Reference to a set of :doc:`OrderedContest <ordered_contest>`s
+  description: Reference to a set of :doc:`OrderedContest </xml/elements/ordered_contest>`s
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PartyIds

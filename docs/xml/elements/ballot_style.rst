@@ -1,9 +1,25 @@
+.. This file is auto-generated.  Do not edit it by hand!
+
 BallotStyle
 ===========
 
 A container for the contests/measures on the ballot.
 
-.. include:: ../../tables/elements/ballot_style.rst
++-------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag               | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++===================+==============+==============+==============+==========================================+==========================================+
+| ImageUri          | xs:anyURI    | Optional     | Single       | Specifies a URI that returns an image of | If the field is invalid or not present,  |
+|                   |              |              |              | the sample ballot.                       | then the implementation is required to   |
+|                   |              |              |              |                                          | ignore it.                               |
++-------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OrderedContestIds | xs:IDREFS    | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
+|                   |              |              |              | :doc:`OrderedContest                     | then the implementation is required to   |
+|                   |              |              |              | </xml/elements/ordered_contest>`s        | ignore it.                               |
++-------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| PartyIds          | xs:IDREFS    | Optional     | Single       | Reference to a set of :doc:`Party        | If the field is invalid or not present,  |
+|                   |              |              |              | <party>`s.                               | then the implementation is required to   |
+|                   |              |              |              |                                          | ignore it.                               |
++-------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:
@@ -16,4 +32,3 @@ A container for the contests/measures on the ballot.
       <OrderedContestId>oc20355</OrderedContestId>
       <OrderedContestId>oc20449</OrderedContestId>
    </BallotStyle>
-

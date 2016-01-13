@@ -1,4 +1,29 @@
-name: ExternalIdentifiers
+_name: ExternalIdentifiers
+_sub_types:
+- ExternalIdentifier
+description: |-
+  The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+  candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+  greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+  found on the objects that support them:
+
+  * :doc:`Candidate <candidate>`
+
+  * Any element that extends :doc:`ContestBase <contest_base>`
+
+  * :doc:`ElectoralDistrict <electoral_district>`
+
+  * :doc:`Locality <locality>`
+
+  * :doc:`Office <office>`
+
+  * :doc:`Party <party>`
+
+  * :doc:`Precinct <precinct>`
+
+  * :doc:`State <state>`
+
+  .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 tags:
 - _name: ExternalIdentifier
   description: Defines the identifier and the type of identifier it is (see `ExternalIdentifier`_

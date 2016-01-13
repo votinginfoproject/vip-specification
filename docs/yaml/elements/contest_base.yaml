@@ -1,4 +1,9 @@
-name: ContestBase
+_name: ContestBase
+description: |-
+  A base model for all Contest types: :doc:`BallotMeasureContest <ballot_measure_contest>`,
+  :doc:`CandidateContest <candidate_contest>`, :doc:`PartyContest <party_contest>`,
+  and :doc:`RetentionContest <retention_contest>` (NB: the latter because it extends
+  :doc:`BallotMeasureContest <ballot_measure_contest>`).
 tags:
 - _name: Abbreviation
   description: An abbreviation for the contest.
@@ -6,7 +11,7 @@ tags:
   type: xs:string
 - _name: BallotSelectionIds
   description: References a set of BallotSelections, which could be of any selection
-    type that extends :doc:`BallotSelectionBase <ballot_selection_base>`.
+    type that extends :doc:`BallotSelectionBase </xml/elements/ballot_selection_base>`.
   error_then: =should-ignore
   type: xs:IDREFS
 - _name: BallotSubTitle
