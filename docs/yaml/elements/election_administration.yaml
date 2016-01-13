@@ -5,7 +5,6 @@ _sub_types:
 description: |-
   The Election Administration represents an institution for serving a locality's (or state's) election
   functions.
-post: '.. _ea-dep:'
 tags:
 - _name: AbsenteeUri
   description: Specifies the web address for information on absentee voting.

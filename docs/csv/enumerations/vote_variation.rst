@@ -10,7 +10,7 @@ eliminate any source of ambiguity when a single enumeration value needs
 to be assigned to a contest.
 
 
-.. include:: ../../tables/enumerations/vote_variation.rst
+.. include:: ../../built_rst/tables/enumerations/vote_variation.rst
 
 .. _`Approval voting`: http://en.wikipedia.org/wiki/Approval_voting
 .. _`Borda count`: http://en.wikipedia.org/wiki/Borda_count

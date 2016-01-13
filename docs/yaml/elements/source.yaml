@@ -45,8 +45,8 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: FeedContactId
-  description: Reference to the :doc:`person <person>` who will respond to inquiries
-    about the information contained within the file.
+  description: Reference to the :ref:`$$$-person` who will respond to inquiries about
+    the information contained within the file.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: TouUri

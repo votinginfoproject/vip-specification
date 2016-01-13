@@ -3,7 +3,7 @@ party.txt
 
 This file describes political parties and the metadata associated with them.
 
-.. include:: ../../tables/elements/party.rst
+.. include:: ../../built_rst/tables/elements/party.rst
 
 HtmlColorString
 ---------------

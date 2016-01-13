@@ -26,15 +26,15 @@ post: |-
 tags:
 - _name: Type
   description: Specifies the type of identifier. Must be one of the valid types as
-    defined by :doc:`IdentifierType <../enumerations/identifier_type>`.
+    defined by :ref:`$$$-identifier-type`.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``ElectionIdentifier`` containing it.
   required: true
   type: IdentifierType
 - _name: OtherType
   description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
-    the options listed in :doc:`IdentifierType <../enumerations/identifier_type>`.
-    ``Type`` should be set to "other" when using this field.
+    the options listed in :ref:`$$$-identifier-type`. ``Type`` should be set to "other"
+    when using this field.
   error_then: =must-ignore
   type: xs:string
 - _name: Value

@@ -30,11 +30,11 @@ tags:
   error_then: =must-ignore
   type: InternationalizedText
 - _name: ElectionOfficialPersonId
-  description: The :doc:`authority <person>` for a particular voter service.
+  description: The :ref:`authority <$$$-person>` for a particular voter service.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Type
-  description: The type of :doc:`voter service <../enumerations/voter_service_type>`.
+  description: The type of :ref:`voter service <$$$-voter-service-type>`.
   error_then: =must-ignore
   type: VoterServiceType
 - _name: OtherType

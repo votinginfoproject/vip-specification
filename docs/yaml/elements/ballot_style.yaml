@@ -18,12 +18,12 @@ tags:
   error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestId
-  description: Reference to an :doc:`OrderedContest </xml/elements/ordered_contest>`
+  description: Reference to an :ref:`$$$-ordered-contest`
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF
 - _name: PartyId
-  description: Reference to a :doc:`Party <party>`.
+  description: Reference to a :ref:`$$$-party`.
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF

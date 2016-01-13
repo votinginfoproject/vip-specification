@@ -2,5 +2,5 @@ VoterServiceType
 ================
 
     
-.. include:: ../../tables/enumerations/voter_service_type.rst
+.. include:: ../../built_rst/tables/enumerations/voter_service_type.rst
 

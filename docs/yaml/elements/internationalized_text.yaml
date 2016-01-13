@@ -7,27 +7,27 @@ description: |-
   back to the original label for the information (e.g. if the contact information came from a
   CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
 
-  * Any element that extends :doc:`ContestBase <contest_base>`
+  * Any element that extends :ref:`$$$-contest-base`
 
-  * Any element that extends :doc:`BallotSelectionBase <ballot_selection_base>`
+  * Any element that extends :ref:`$$$-ballot-selection-base`
 
-  * :doc:`Candidate <candidate>`
+  * :ref:`$$$-candidate`
 
-  * :doc:`ContactInformation <contact_information>`
+  * :ref:`$$$-contact-information`
 
-  * :doc:`Election <election>`
+  * :ref:`$$$-election`
 
-  * :doc:`ElectionAdministration <election_administration>`
+  * :ref:`$$$-election-administration`
 
-  * :doc:`Office <office>`
+  * :ref:`$$$-office`
 
-  * :doc:`Party <party>`
+  * :ref:`$$$-party`
 
-  * :doc:`Person <person>`
+  * :ref:`$$$-person`
 
-  * :doc:`PollingLocation <polling_location>`
+  * :ref:`$$$-polling-location`
 
-  * :doc:`Source <source>`
+  * :ref:`$$$-source`
 tags:
 - _name: Text
   description: Contains the translations of a particular string of text.

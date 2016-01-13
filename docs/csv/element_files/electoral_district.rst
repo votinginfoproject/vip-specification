@@ -6,7 +6,7 @@ of ElectoralDistrict include: "the state of Maryland", "Virginia's 5th Congressi
 or "Union School District". The geographic area that comprises a ElectoralDistrict is defined by
 which precincts link to the ElectoralDistrict.
 
-.. include:: ../../tables/elements/electoral_district.rst
+.. include:: ../../built_rst/tables/elements/electoral_district.rst
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 

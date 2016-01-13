@@ -1,16 +1,16 @@
 person.txt
-======
+==========
 
 Person defines information about a person. The person may be a candidate, election administrator,
 or elected official. These elements reference Person:
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
-* :doc:`ElectionAdministration <election_administration>`
+* :ref:`single-xml-election-administration`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
-.. include:: ../../tables/elements/person.rst
+.. include:: ../../built_rst/tables/elements/person.rst
 
 .. literalinclude:: ../../csv/example_files/person.txt
    :linenos:

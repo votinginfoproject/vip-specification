@@ -1,6 +1,6 @@
 _name: CandidateSelection
 description: |-
-  CandidateSelection extends :doc:`BallotSelectionBase <ballot_selection_base>` and represents a
+  CandidateSelection extends :ref:`$$$-ballot-selection-base` and represents a
   ballot selection for a candidate contest.
 post: |-
   .. code-block:: xml
@@ -13,14 +13,14 @@ post: |-
      </CandidateSelection>
 tags:
 - _name: CandidateId
-  description: References a :doc:`Candidate <candidate>` element. The number of candidates
+  description: References a :ref:`$$$-candidate` element. The number of candidates
     that can be references is unbounded in cases where the ballot selection is for
     a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF
 - _name: EndorsementPartyId
-  description: References a :doc:`Party <party>` element, which signifies one or more
+  description: References a :ref:`$$$-party` element, which signifies one or more
     endorsing parties for the candidate(s).
   error_then: =must-ignore
   repeating: true

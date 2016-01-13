@@ -1,7 +1,7 @@
 _name: BallotMeasureContest
 description: |-
   The BallotMeasureContest provides information about a ballot measure before the voters, including
-  summary statements on each side. Extends :doc:`ContestBase <contest_base>`.
+  summary statements on each side. Extends :ref:`$$$-contest-base`.
 post: |-
   .. code-block:: xml
      :linenos:
@@ -70,11 +70,11 @@ tags:
   type: InternationalizedText
 - _name: Type
   description: Specifies the particular type of ballot measure. Must be one of the
-    valid :doc:`BallotMeasureType <../enumerations/ballot_measure_type>` options.
+    valid :ref:`$$$-ballot-measure-type` options.
   error_then: =must-ignore
   type: BallotMeasureType
 - _name: OtherType
-  description: Allows for cataloging a new :doc:`BallotMeasureType <../enumerations/ballot_measure_type>`
-    option, when Type is specified as "other."
+  description: Allows for cataloging a new :ref:`$$$-ballot-measure-type` option,
+    when Type is specified as "other."
   error_then: =must-ignore
   type: xs:string

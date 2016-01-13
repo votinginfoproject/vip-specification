@@ -35,7 +35,6 @@ import textwrap
 
 from vippy import common
 from vippy.common import XML_DIR
-from vippy import parsing
 from vippy import rest
 
 
@@ -75,16 +74,8 @@ def command_norm_yaml(ns):
         common.normalize_yaml(path)
 
 
-def command_rest2yaml(ns):
-    """Run the rest2yaml command."""
-    parent_dir = common.XML_DIR
-    paths = ns_to_paths(ns, parent_dir=parent_dir, ext='.rst')
-    for path in paths:
-        parsing.rest_file_to_yaml(parent_dir, path)
-
-
-def command_update_rest(ns):
-    """Run the update_rest command."""
+def command_make_rest(ns):
+    """Run the make_rest command."""
     rest.update_rest_files(ns.type_name)
 
 
@@ -98,7 +89,7 @@ def make_subparser(sub, command_name, help, command_func=None, details=None, **k
     Create the "sub-parser" for our command-line parser.
 
     This facilitates having multiple "commands" for a single script,
-    for example "norm_yaml", "rest2yaml", etc.
+    for example "norm_yaml", "make_rest", etc.
     """
     if command_func is None:
         command_func_name = "command_{0}".format(command_name)
@@ -132,18 +123,11 @@ def create_parser():
     parser.add_argument('path', metavar='PATH', nargs='?',
         help="a path to a YAML file. Defaults to all files.")
 
-    parser = make_subparser(sub, "update_rest",
+    parser = make_subparser(sub, "make_rest",
         help=("update all reST files from the YAML files."))
     parser.add_argument('type_name', metavar='TYPE_NAME', nargs='?',
         help=('the name of a type (e.g. "HoursOpen"). '
               "Defaults to all types."))
-
-    parser = make_subparser(sub, "rest2yaml",
-        help=("parse reST files and update the corresponding YAML files. "
-              "This command only needs to be run on the repo once. "
-              "After that, this command can be permanently deleted."))
-    parser.add_argument('path', metavar='PATH', nargs='?',
-        help="a path to a reST file. Defaults to all files.")
 
     parser = make_subparser(sub, "scratch",
         help=("temporary command for development purposes. You can "
