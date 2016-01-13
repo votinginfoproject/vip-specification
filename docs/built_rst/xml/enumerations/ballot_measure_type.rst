@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-ballot-measure-type:
+.. _multi-xml-ballot-measure-type:
 
 BallotMeasureType
 =================

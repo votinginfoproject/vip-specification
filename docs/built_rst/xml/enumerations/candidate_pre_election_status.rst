@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-candidate-pre-election-status:
+.. _multi-xml-candidate-pre-election-status:
 
 CandidatePreElectionStatus
 ==========================

@@ -8,7 +8,7 @@ found on the objects that support them:
 
 * :doc:`Candidate <candidate>`
 
-* Any element that extends :doc:`ContestBase <contest_base>`
+* Any element that extends :ref:`single-xml-contest-base`
 
 * :doc:`ElectoralDistrict <electoral_district>`
 
@@ -16,7 +16,7 @@ found on the objects that support them:
 
 * :doc:`Office <office>`
 
-* :doc:`Party <party>`
+* :ref:`single-xml-party`
 
 * :doc:`Precinct <precinct>`
 

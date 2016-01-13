@@ -2,8 +2,8 @@ _name: Precinct
 description: |-
   The Precinct object represents a precinct, which is contained within a Locality. While the id
   attribute does not have to be static across feeds for one election, the combination of
-  :doc:`Source.VipId <source>`, :doc:`Locality.Name <locality>`, :doc:`Precinct.Ward <precinct>`,
-  :doc:`Precinct.Name <precinct>`, and :doc:`Precinct.Number <precinct>` should remain constant across
+  :doc:`Source.VipId <source>`, :doc:`Locality.Name <locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
+  :ref:`Precinct.Name <single-xml-precinct>`, and :ref:`Precinct.Number <single-xml-precinct>` should remain constant across
   feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
   non-required fields is fine).
 post: |-

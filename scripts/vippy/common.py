@@ -377,3 +377,9 @@ class DataType(object):
         rest_rel_path = "{0}.rst".format(root)
         path = os.path.join(dir_path, rest_rel_path)
         return path
+
+    def make_ref_link(self, prefix):
+        """
+        Return, for example: ":ref:`single-xml-internationalized-text`".
+        """
+        return ":ref:`{0}-{1}`".format(prefix, self.spinal_name)

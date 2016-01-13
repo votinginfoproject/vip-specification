@@ -23,7 +23,7 @@ REST_HEADER = """\
 
 # A dict mapping type names to how they should appear in the reST.
 TYPE_NAME_TO_REST = {
-    'BallotMeasureType': ':doc:`BallotMeasureType <../enumerations/ballot_measure_type>`',
+    'BallotMeasureType': ':ref:`single-xml-ballot-measure-type`',
     'CandidatePostElectionStatus': ':doc:`CandidatePostElectionStatus <../enumerations/candidate_post_election_status>`',
     'CandidatePreElectionStatus': ':doc:`CandidatePreElectionStatus <../enumerations/candidate_pre_election_status>`',
     'ContactInformation': ':doc:`ContactInformation <contact_information>`',
@@ -34,7 +34,7 @@ TYPE_NAME_TO_REST = {
     'Hours': '`Hours`_',
     'HtmlColorString': '`HtmlColorString`_',
     'IdentifierType': ':doc:`IdentifierType <../enumerations/identifier_type>`',
-    'InternationalizedText': ':doc:`InternationalizedText <internationalized_text>`',
+    'InternationalizedText': ':ref:`single-xml-internationalized-text`',
     'LanguageString': '`LanguageString`_',
     'LatLng': '`LatLng`_',
     'NonHouseAddress': '`NonHouseAddress`_',
@@ -72,7 +72,6 @@ ENUMERATION_COLUMNS = [
 # For example, this dictionary converts a Python value of True for the
 # "required" column to the formatted reST string "**Required**".
 ELEMENT_CELL_VALUES = {
-    TAG_KEY_TYPE: TYPE_NAME_TO_REST,
     TAG_KEY_REQUIRED: {
         False: 'Optional',
         True: '**Required**',
@@ -99,17 +98,17 @@ def get_type_info(is_enum):
     return column_infos, cell_values
 
 
-def make_table_formatter(all_types, data_type):
+def make_table_formatter(all_types, data_type, prefix):
     is_enum = data_type.is_enum
     column_infos, cell_values = get_type_info(is_enum)
     keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
     formatter = TableFormatter(all_types=all_types, headers=headers, keys=keys,
-                               widths=widths, cell_values=cell_values)
+                               widths=widths, cell_values=cell_values, prefix=prefix)
     return formatter
 
 
-def make_table(all_types, data_type):
-    formatter = make_table_formatter(all_types, data_type)
+def make_table(all_types, data_type, prefix):
+    formatter = make_table_formatter(all_types, data_type, prefix=prefix)
     lines = formatter.make_table(data_type)
     table = "\n".join(lines)
 
@@ -125,11 +124,11 @@ def write_rest_file(path, rest):
     common.write_file(path, rest)
 
 
-def update_table_file(all_types, data_type):
+def update_table_file(all_types, data_type, prefix):
     if not data_type.tags:
         _log.debug("table not needed for: {0}".format(data_type))
         return
-    rest = make_table(all_types, data_type) + "\n"
+    rest = make_table(all_types, data_type, prefix=prefix) + "\n"
     rest_path = data_type.table_path
     write_rest_file(rest_path, rest)
 
@@ -186,7 +185,7 @@ def make_type_rest(all_types, data_type, header_char, prefix):
         rest = add_rest_section(rest, description)
 
     if data_type.tags:
-        table_rest = make_table(type_map, data_type)
+        table_rest = make_table(type_map, data_type, prefix=prefix)
         rest = add_rest_section(rest, table_rest)
 
     post = yaml_data.get('post')
@@ -206,7 +205,7 @@ def make_type_rest(all_types, data_type, header_char, prefix):
     return rest
 
 
-def update_rest_file(all_types, data_type):
+def update_rest_file(all_types, data_type, prefix):
     type_map = all_types.type_map
     type_name = data_type.name
     if data_type.is_sub_type:
@@ -216,7 +215,7 @@ def update_rest_file(all_types, data_type):
     rest_path = data_type.rest_path
     _log.debug("updating: {0}".format(rest_path))
 
-    rest = make_type_rest(all_types, data_type, header_char="=", prefix="xml-multi")
+    rest = make_type_rest(all_types, data_type, header_char="=", prefix=prefix)
 
     # Make sure the file ends in a single newline.
     rest = rest.strip() + "\n"
@@ -256,6 +255,7 @@ def update_rest_files(type_name=None):
     """
     Update auto-generated reST files.
     """
+    prefix = "multi-xml"
     all_types = common.get_all_types()
     type_map = all_types.type_map
 
@@ -269,8 +269,8 @@ def update_rest_files(type_name=None):
     for type_name in type_names:
         _log.debug("updating rest files for type: {0}".format(type_name))
         data_type = common.get_type(type_map, type_name)
-        update_table_file(type_map, data_type)
-        update_rest_file(all_types, data_type)
+        update_table_file(type_map, data_type, prefix=prefix)
+        update_rest_file(all_types, data_type, prefix=prefix)
 
 
 def analyze_types():
@@ -300,17 +300,18 @@ class TableFormatter(object):
     # The size of the left and right margin of each cell as a number of spaces.
     margin = 1
 
-    def __init__(self, all_types, cell_values, headers, keys, widths):
+    def __init__(self, all_types, cell_values, headers, keys, widths, prefix):
         """
         Arguments:
           cell_values:
 
         """
-        self.all_types = all_types
         self.cell_values = cell_values
         self.headers = headers
         self.keys = keys
         self.min_widths = widths
+        self.prefix = prefix
+        self.type_map = all_types
 
     def wrap(self, text, width):
         return textwrap.wrap(text, width=width, break_long_words=False,
@@ -320,7 +321,15 @@ class TableFormatter(object):
         """
         Return the text to put in the cell of a reST table.
         """
-        data_value = common.get_tag_value(self.all_types, tag_data, key)
+        if key == TAG_KEY_TYPE:
+            type_name = tag_data[key]
+            if type_name in self.type_map:
+                # Then the cell value is a type name.
+                data_type = self.type_map[type_name]
+                return data_type.make_ref_link(self.prefix)
+            # Otherwise, it is a "built-in" XML type.
+            return "``{0}``".format(type_name)
+        data_value = common.get_tag_value(self.type_map, tag_data, key)
         try:
             conversions = self.cell_values[key]
         except KeyError:

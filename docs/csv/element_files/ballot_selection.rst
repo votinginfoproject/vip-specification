@@ -2,7 +2,7 @@ ballot_selection.txt
 ============================
 
 Represents the possible selection (e.g. yes/no, recall/do not recall, candidate_id, et al) for a
-:doc:`BallotMeasureContest <ballot_measure_contest>` or :doc:`Contest <contest_base>` that would appear on the ballot.
+:ref:`single-xml-ballot-measure-contest` or :ref:`multi-xml-contest-base` that would appear on the ballot.
 BallotSelection extends :doc:`BallotSelectionBase <../../xml/elements/ballot_selection_base>` and :doc:`CandidateSelectionBase <../../xml/elements/candidate_selection>`.
 
 .. _bm-selection:

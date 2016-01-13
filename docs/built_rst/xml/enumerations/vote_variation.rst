@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-vote-variation:
+.. _multi-xml-vote-variation:
 
 VoteVariation
 =============

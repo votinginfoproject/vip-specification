@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-identifier-type:
+.. _multi-xml-identifier-type:
 
 IdentifierType
 ==============

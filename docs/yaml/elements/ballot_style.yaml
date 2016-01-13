@@ -23,7 +23,7 @@ tags:
   repeating: true
   type: xs:IDREF
 - _name: PartyId
-  description: Reference to a :doc:`Party <party>`.
+  description: Reference to a :ref:`single-xml-party`.
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF

@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-oeb-enum:
+.. _multi-xml-oeb-enum:
 
 OebEnum
 =======

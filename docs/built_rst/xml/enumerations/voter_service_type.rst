@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-voter-service-type:
+.. _multi-xml-voter-service-type:
 
 VoterServiceType
 ================

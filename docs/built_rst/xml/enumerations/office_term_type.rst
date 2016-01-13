@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-office-term-type:
+.. _multi-xml-office-term-type:
 
 OfficeTermType
 ==============

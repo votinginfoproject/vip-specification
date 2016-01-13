@@ -1,5 +1,5 @@
 person.txt
-======
+==========
 
 Person defines information about a person. The person may be a candidate, election administrator,
 or elected official. These elements reference Person:

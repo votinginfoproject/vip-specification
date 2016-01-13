@@ -60,7 +60,7 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: PartyId
-  description: Refers to the associated :doc:`Party <party>`.
+  description: Refers to the associated :ref:`single-xml-party`.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Prefix

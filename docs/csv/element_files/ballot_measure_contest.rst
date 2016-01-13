@@ -2,7 +2,7 @@ ballot_measure_contest.txt
 ==========================
 
 The ballot_measure_contest.txt file provides information about a ballot measure before the voters, including
-summary statements on each side. Extends :doc:`ContestBase <contest_base>`.
+summary statements on each side. Extends :ref:`single-xml-contest-base`.
 
 .. include:: ../../built_rst/tables/elements/ballot_measure_contest.rst
 

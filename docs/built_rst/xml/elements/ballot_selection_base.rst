@@ -1,11 +1,11 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-ballot-selection-base:
+.. _multi-xml-ballot-selection-base:
 
 BallotSelectionBase
 ===================
 
 A base model for all ballot selection types:
-:doc:`BallotMeasureSelection <ballot_measure_selection>`,
-:doc:`CandidateSelection <candidate_selection>`, and :doc:`PartySelection <party_selection>`.
+:ref:`single-xml-ballot-measure-selection`,
+:ref:`single-xml-candidate-selection`, and :ref:`single-xml-party-selection`.
 Besides an id attribute, it has no additional fields.

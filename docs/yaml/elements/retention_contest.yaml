@@ -1,6 +1,6 @@
 _name: RetentionContest
 description: |-
-  ``RetentionContest`` extends :doc:`BallotMeasureContest <ballot_measure_contest>` and represents a
+  ``RetentionContest`` extends :ref:`single-xml-ballot-measure-contest` and represents a
   contest where a candidate is retained in a position (e.g. a judge).
 post: |-
   .. code-block:: xml

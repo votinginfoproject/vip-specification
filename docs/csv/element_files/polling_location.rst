@@ -1,5 +1,5 @@
 polling_location.txt
-===============
+====================
 
 The polling_location.txt file represents sites where voters cast or drop off ballots.
 

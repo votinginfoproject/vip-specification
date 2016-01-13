@@ -1,6 +1,6 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
-.. _xml-multi-internationalized-text:
+.. _multi-xml-internationalized-text:
 
 InternationalizedText
 =====================
@@ -10,9 +10,9 @@ InternationalizedText
 back to the original label for the information (e.g. if the contact information came from a
 CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
 
-* Any element that extends :doc:`ContestBase <contest_base>`
+* Any element that extends :ref:`single-xml-contest-base`
 
-* Any element that extends :doc:`BallotSelectionBase <ballot_selection_base>`
+* Any element that extends :ref:`single-xml-ballot-selection-base`
 
 * :doc:`Candidate <candidate>`
 
@@ -24,7 +24,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 
 * :doc:`Office <office>`
 
-* :doc:`Party <party>`
+* :ref:`single-xml-party`
 
 * :doc:`Person <person>`
 
@@ -32,19 +32,19 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 
 * :doc:`Source <source>`
 
-+--------------+-------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type         | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===================+==============+==============+==========================================+==========================================+
-| Text         | `LanguageString`_ | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |                   |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |                   |              |              |                                          | present, the implementation is required  |
-|              |                   |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |                   |              |              |                                          | element.                                 |
-+--------------+-------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`multi-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                  |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                  |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                  |              |              |                                          | present, the implementation is required  |
+|              |                                  |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                  |              |              |                                          | element.                                 |
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _xml-multi-language-string:
+.. _multi-xml-language-string:
 
 LanguageString
 --------------
