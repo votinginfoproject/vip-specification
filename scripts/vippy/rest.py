@@ -230,9 +230,9 @@ def update_rest_file_single_page(all_types):
     _log.debug("updating single-page rest file: {0}".format(path))
     rest = make_rest_header("XML Elements & Enumerations (Single Page)", label=prefix, header_char="=")
     rest += textwrap.dedent("""\
+
     .. contents::
        :local:
-
     """)
 
     infos = [
