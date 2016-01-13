@@ -156,6 +156,7 @@ class AllTypes:
         """
         self.elements = []
         self.enumerations = []
+        self.sub_types = set()
         self.type_map = type_map
 
 
@@ -164,18 +165,24 @@ def get_all_types():
     Read all YAML files, and return an AllTypes object.
     """
     parent_dir = YAML_DIR
-    data_types = {}
-    all_types = AllTypes(data_types)
+    types_map = {}
+    all_types = AllTypes(types_map)
     rel_paths = get_all_files(parent_dir, ext='.yaml')
     for rel_path in rel_paths:
         data_type = read_type(parent_dir, rel_path)
         type_name = data_type.name
-        data_types[type_name] = data_type
+        types_map[type_name] = data_type
         if data_type.is_enum:
             seq = all_types.enumerations
         else:
             seq = all_types.elements
         seq.append(data_type)
+
+    for data_type in types_map.values():
+        sub_types = data_type.sub_types
+        for sub_type in sub_types:
+            data_type = types_map[sub_type]
+            data_type.is_sub_type = True
 
     return all_types
 
@@ -327,6 +334,7 @@ class DataType(object):
     def __init__(self, yaml, data, rel_path, snake_name, is_enum):
         self.data = data
         self.is_enum = is_enum
+        self.is_sub_type = False
         self.rel_path = rel_path
         self.snake_name = snake_name
         self.yaml = yaml

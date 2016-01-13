@@ -503,32 +503,6 @@ and :doc:`RetentionContest <retention_contest>` (NB: the latter because it exten
 +-------------------------+-------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
 
 
-.. _single-xml-department:
-
-Department
-~~~~~~~~~~
-
-+--------------------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+==========================+==============+==============+==========================================+==========================================+
-| ContactInformation       | :doc:`ContactInformation | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
-|                          | <contact_information>`   |              |              | for the election administration body     | present, then the implementation is      |
-|                          |                          |              |              | (see :doc:`ContactInformation            | required to ignore it.                   |
-|                          |                          |              |              | <contact_information>`).                 |                                          |
-+--------------------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | xs:IDREF                 | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
-|                          |                          |              |              | election administration office. The      | then the implementation is required to   |
-|                          |                          |              |              | specified person should be the           | ignore it.                               |
-|                          |                          |              |              | :doc:`election official <person>`.       |                                          |
-+--------------------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VoterService             | :ref:`VoterService       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
-|                          | <ea-dep-voter-service>`  |              |              | contact individual available to voters.  | present, then the implementation is      |
-|                          |                          |              |              |                                          | required to ignore it.                   |
-+--------------------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. _ea-dep-voter-service:
-
-
 .. _single-xml-election:
 
 Election
@@ -822,58 +796,6 @@ which precincts link to the ``ElectoralDistrict``.
    </ElectoralDistrict>
 
 
-.. _single-xml-external-identifier:
-
-ExternalIdentifier
-~~~~~~~~~~~~~~~~~~
-
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+====================================+==============+==============+==========================================+==========================================+
-| Type         | :doc:`IdentifierType               | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              | <../enumerations/identifier_type>` |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                                    |              |              | :doc:`IdentifierType                     | the ``ElectionIdentifier`` containing    |
-|              |                                    |              |              | <../enumerations/identifier_type>`.      | it.                                      |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType    | xs:string                          | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                                    |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                                    |              |              | outside the options listed in            | ignore it.                               |
-|              |                                    |              |              | :doc:`IdentifierType                     |                                          |
-|              |                                    |              |              | <../enumerations/identifier_type>`.      |                                          |
-|              |                                    |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                                    |              |              | using this field.                        |                                          |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Value        | xs:string                          | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                                    |              |              |                                          | the implementation is required to ignore |
-|              |                                    |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                                    |              |              |                                          | it.                                      |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-   <ExternalIdentifiers>
-      <ExternalIdentifier>
-         <Type>ocd-id</Type>
-         <Value>ocd-division/country:us/state:nc/county:durham</Value>
-      </ExternalIdentifier>
-      <ExternalIdentifier>
-         <Type>FIPS</Type>
-         <Value>37063</Value>
-      </ExternalIdentifier>
-      <ExternalIdentifier>
-         <Type>OTHER</Type>
-         <OtherType>GNIS</OtherType>
-         <Value>1008550</Value>
-      </ExternalIdentifier>
-      <external_identifer>
-         <Type>OTHER</Type>
-         <OtherType>census</OtherType>
-         <Value>99063</Value>
-      </ExternalIdentifier>
-   </ExternalIdentifiers>
-
-
 .. _single-xml-external-identifiers:
 
 ExternalIdentifiers
@@ -965,27 +887,6 @@ ExternalIdentifier
          <Value>99063</Value>
       </ExternalIdentifier>
    </ExternalIdentifiers>
-
-
-.. _single-xml-hours:
-
-Hours
-~~~~~
-
-The open and close time for this place. All times must be fully specified,
-including a timezone offset from UTC.
-
-+--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type       | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=================+==============+==============+==========================================+==========================================+
-| StartTime    | `TimeWithZone`_ | Optional     | Single       | The time at which this place opens.      | If the element is invalid or not         |
-|              |                 |              |              |                                          | present, then the implementation is      |
-|              |                 |              |              |                                          | required to ignore it.                   |
-+--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndTime      | `TimeWithZone`_ | Optional     | Single       | The time at which this place closes.     | If the element is invalid or not         |
-|              |                 |              |              |                                          | present, then the implementation is      |
-|              |                 |              |              |                                          | required to ignore it.                   |
-+--------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-hours-open:
@@ -1098,28 +999,6 @@ UTC. The pattern is
    </HoursOpen>
 
 
-.. _single-xml-html-color-string:
-
-HtmlColorString
-~~~~~~~~~~~~~~~
-
-A restricted string pattern for a six-character hex code representing an HTML
-color string. The pattern is:
-
-``[0-9a-f]{6}``
-
-.. code-block:: xml
-   :linenos:
-
-   <Party id="par0001">
-     <Abbreviation>REP</Abbreviation>
-     <Color>e91d0e</Color>
-     <Name>
-       <Text language="en">Republican</Text>
-     </Name>
-   </Party>
-
-
 .. _single-xml-internationalized-text:
 
 InternationalizedText
@@ -1182,67 +1061,6 @@ type of language ``LanguageString`` contains.
       <Text language="en">Retention of Supreme Court Justice</Text>
       <Text language="es">La retención de juez de la Corte Suprema</Text>
    </BallotTitle>
-
-
-.. _single-xml-language-string:
-
-LanguageString
-~~~~~~~~~~~~~~
-
-``LanguageString`` extends xs:string and can contain text from any language. ``LanguageString``
-has one required attribute, ``language``, that must contain the 2-character `language code`_ for the
-type of language ``LanguageString`` contains.
-
-.. _`language code`: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-
-.. code-block:: xml
-   :linenos:
-
-   <BallotTitle>
-      <Text language="en">Retention of Supreme Court Justice</Text>
-      <Text language="es">La retención de juez de la Corte Suprema</Text>
-   </BallotTitle>
-
-
-.. _single-xml-lat-lng:
-
-LatLng
-~~~~~~
-
-The latitude and longitude of a polling location in `WGS 84`_ format. Both
-latitude and longitude values are measured in decimal degrees.
-
-+--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+==============+==============+==============+==========================================+==========================================+
-| Latitude     | xs:float     | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
-|              |              |              |              |                                          | implementation is required to ignore it. |
-+--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Longitude    | xs:float     | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
-|              |              |              |              |                                          | implementation is required to ignore it. |
-+--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Source       | xs:string    | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
-|              |              |              |              | from location name to lat/lng. For       | then the implementation is required to   |
-|              |              |              |              | example, this could be the name of a     | ignore it.                               |
-|              |              |              |              | geocoding service.                       |                                          |
-+--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
-
-.. code-block:: xml
-   :linenos:
-
-   <PollingLocation id="pl81274">
-      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
-      <AddressLine>2775 Hydraulic Rd</AddressLine>
-      <AddressLine>Charlottesville, VA 229018917</AddressLine>
-      <HoursOpenId>hours0001</HoursOpenId>
-      <LatLng>
-        <Latitude>38.0754627</Latitude>
-        <Longitude>-78.5014875</Longitude>
-        <Source>Google Maps</Source>
-      </LatLng>
-   </PollingLocation>
 
 
 .. _single-xml-locality:
@@ -1831,46 +1649,6 @@ contest where a candidate is retained in a position (e.g. a judge).
    </RetentionContest>
 
 
-.. _single-xml-schedule:
-
-Schedule
-~~~~~~~~
-
-A sub-portion of the schedule. This describes a range of days, along with one or
-more set of open and close times for those days, as well as the options
-describing whether or not appointments are necessary or possible.
-
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+==============+==============+==============+==========================================+==========================================+
-| Hours               | `Hours`_     | Optional     | Repeats      | Blocks of hours in the date range in     | If the element is invalid or not         |
-|                     |              |              |              | which the place is open.                 | present, then the implementation is      |
-|                     |              |              |              |                                          | required to ignore it.                   |
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsOnlyByAppointment | xs:boolean   | Optional     | Single       | If true, the place is only open during   | If the field is invalid or not present,  |
-|                     |              |              |              | the specified time window with an        | then the implementation is required to   |
-|                     |              |              |              | appointment.                             | ignore it.                               |
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsOrByAppointment   | xs:boolean   | Optional     | Single       | If true, the place is open during the    | If the field is invalid or not present,  |
-|                     |              |              |              | hours specified time window and may also | then the implementation is required to   |
-|                     |              |              |              | be open with an appointment.             | ignore it.                               |
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsSubjectToChange   | xs:boolean   | Optional     | Single       | If true, the place should be open during | If the field is invalid or not present,  |
-|                     |              |              |              | the specified time window, but may be    | then the implementation is required to   |
-|                     |              |              |              | subject to change. People should contact | ignore it.                               |
-|                     |              |              |              | prior to arrival to confirm hours are    |                                          |
-|                     |              |              |              | still accurate.                          |                                          |
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StartDate           | xs:date      | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                     |              |              |              | start and end times and options begin.   | then the implementation is required to   |
-|                     |              |              |              |                                          | ignore it.                               |
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndDate             | xs:date      | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                     |              |              |              | start and end times and options end.     | then the implementation is required to   |
-|                     |              |              |              |                                          | ignore it.                               |
-+---------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-xml-source:
 
 Source
@@ -2098,124 +1876,6 @@ are equal.
       <StreetSuffix>RD</StreetSuffix>
       <Zip>22943</Zip>
    </StreetSegment>
-
-
-.. _single-xml-term:
-
-Term
-~~~~
-
-+--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type                           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================================+==============+==============+==========================================+==========================================+
-| Type         | :doc:`OfficeTermType                | **Required** | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              | <../enumerations/office_term_type>` |              |              | :doc:`OfficeTermType                     | the implementation is required to ignore |
-|              |                                     |              |              | <../enumerations/office_term_type>` for  | the ``Office`` element containing it.    |
-|              |                                     |              |              | valid values).                           |                                          |
-+--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StartDate    | xs:date                             | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
-|              |                                     |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                     |              |              |                                          | ignore it.                               |
-+--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndDate      | xs:date                             | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
-|              |                                     |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                     |              |              |                                          | ignore it.                               |
-+--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-   <Office id="off0000">
-     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-     <FilingDeadline>2013-01-01</FilingDeadline>
-     <IsPartisan>false</IsPartisan>
-     <Name>
-       <Text language="en">Governor</Text>
-     </Name>
-     <Term>
-       <Type>full-term</Type>
-     </Term>
-   </Office>
-
-
-.. _single-xml-time-with-zone:
-
-TimeWithZone
-~~~~~~~~~~~~
-
-A string pattern restricting the value to a time with an included offset from
-UTC. The pattern is
-
-``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))``
-
-.. code-block:: xml
-   :linenos:
-
-   <HoursOpen id="hours0001">
-     <Schedule>
-       <Hours>
-         <StartTime>06:00:00-05:00</StartTime>
-         <EndTime>12:00:00-05:00</EndTime>
-       </Hours>
-       <Hours>
-         <StartTime>13:00:00-05:00</StartTime>
-         <EndTime>19:00:00-05:00</EndTime>
-       </Hours>
-       <StartDate>2013-11-05</StartDate>
-       <EndDate>2013-11-05</EndDate>
-     </Schedule>
-   </HoursOpen>
-
-
-.. _single-xml-voter-service:
-
-VoterService
-~~~~~~~~~~~~
-
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+=======================================+==============+==============+==========================================+==========================================+
-| ContactInformation       | :doc:`ContactInformation              | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
-|                          | <contact_information>`                |              |              | service.                                 | present, then the implementation is      |
-|                          |                                       |              |              |                                          | required to ignore it.                   |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description              | :doc:`InternationalizedText           | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
-|                          | <internationalized_text>`             |              |              | available.                               | present, then the implementation is      |
-|                          |                                       |              |              |                                          | required to ignore it.                   |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | xs:IDREF                              | Optional     | Single       | The :doc:`authority <person>` for a      | If the field is invalid or not present,  |
-|                          |                                       |              |              | particular voter service.                | then the implementation is required to   |
-|                          |                                       |              |              |                                          | ignore it.                               |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :doc:`VoterServiceType                | Optional     | Single       | The type of :doc:`voter service          | If the field is invalid or not present,  |
-|                          | <../enumerations/voter_service_type>` |              |              | <../enumerations/voter_service_type>`.   | then the implementation is required to   |
-|                          |                                       |              |              |                                          | ignore it.                               |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType                | xs:string                             | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
-|                          |                                       |              |              | cataloging another type of voter         | then the implementation is required to   |
-|                          |                                       |              |              | service.                                 | ignore it.                               |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-   <ElectionAdministration id="ea40133">
-      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
-      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
-      <Department>
-        <ContactInformation label="ci60000">
-          <AddressLine>Washington Building First Floor</AddressLine>
-          <AddressLine>1100 Bank Street</AddressLine>
-          <AddressLine>Richmond, VA 23219</AddressLine>
-          <Name>State Board of Elections</Name>
-        </ContactInformation>
-      </Department>
-      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
-      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
-      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
-      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
-      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
-   </ElectionAdministration>
 
 
 .. _single-xml-enumerations:

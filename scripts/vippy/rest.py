@@ -209,10 +209,9 @@ def make_type_rest(all_types, data_type, header_char, prefix):
 def update_rest_file(all_types, data_type):
     type_map = all_types.type_map
     type_name = data_type.name
-    for parent_type in type_map.values():
-        if type_name in parent_type.sub_types:
-            _log.debug("skipping rest file for: {0} ({1})".format(type_name, parent_type.name))
-            return
+    if data_type.is_sub_type:
+        _log.debug("skipping rest file for sub-type: {0}".format(type_name))
+        return
 
     rest_path = data_type.rest_path
     _log.debug("updating: {0}".format(rest_path))
@@ -240,6 +239,8 @@ def update_rest_file_single_page(all_types):
         label = "{0}-{1}".format(prefix, title.lower())
         rest += make_rest_header(title, label=label, header_char="-")
         for data_type in data_types:
+            if data_type.is_sub_type:
+                continue
             new_rest = make_type_rest(all_types, data_type, header_char="~", prefix=prefix)
             rest = add_rest_section(rest, new_rest, sep="\n\n")
 
