@@ -20,35 +20,6 @@ REST_HEADER = """\
 
 """
 
-
-# A dict mapping type names to how they should appear in the reST.
-TYPE_NAME_TO_REST = {
-    'BallotMeasureType': ':ref:`single-xml-ballot-measure-type`',
-    'CandidatePostElectionStatus': ':doc:`CandidatePostElectionStatus <../enumerations/candidate_post_election_status>`',
-    'CandidatePreElectionStatus': ':doc:`CandidatePreElectionStatus <../enumerations/candidate_pre_election_status>`',
-    'ContactInformation': ':doc:`ContactInformation <contact_information>`',
-    'Department': ':ref:`Department <ea-dep>`',
-    'DistrictType': ':doc:`DistrictType <../enumerations/district_type>`',
-    'ExternalIdentifier': '`ExternalIdentifier`_',
-    'ExternalIdentifiers': ':doc:`ExternalIdentifiers </built_rst/xml/elements/external_identifiers>`',
-    'Hours': '`Hours`_',
-    'HtmlColorString': '`HtmlColorString`_',
-    'IdentifierType': ':doc:`IdentifierType <../enumerations/identifier_type>`',
-    'InternationalizedText': ':ref:`single-xml-internationalized-text`',
-    'LanguageString': '`LanguageString`_',
-    'LatLng': '`LatLng`_',
-    'NonHouseAddress': '`NonHouseAddress`_',
-    'OebEnum': ':doc:`OebEnum <../enumerations/oeb_enum>`',
-    'OfficeTermType': ':doc:`OfficeTermType <../enumerations/office_term_type>`',
-    'Schedule': '`Schedule`_',
-    'Term': '`Term`_',
-    'TimeWithZone': '`TimeWithZone`_',
-    'VoteVariation': ':doc:`VoteVariation <../enumerations/vote_variation>`',
-    'VoterService': ':ref:`VoterService <ea-dep-voter-service>`',
-    'VoterServiceType': ':doc:`VoterServiceType <../enumerations/voter_service_type>`'
-}
-
-
 # The reST table columns for an element.
 ELEMENT_COLUMNS = [
     (TAG_KEY_NAME, 'Tag', MIN_COLUMN_WIDTH),

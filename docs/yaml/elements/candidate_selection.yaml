@@ -13,7 +13,7 @@ post: |-
      </CandidateSelection>
 tags:
 - _name: CandidateId
-  description: References a :doc:`Candidate <candidate>` element. The number of candidates
+  description: References a :ref:`single-xml-candidate` element. The number of candidates
     that can be references is unbounded in cases where the ballot selection is for
     a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
   error_then: =must-ignore

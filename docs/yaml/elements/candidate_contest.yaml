@@ -25,8 +25,8 @@ tags:
   error_then: =must-ignore
   type: xs:integer
 - _name: OfficeId
-  description: References an :doc:`Office <office>` element, if available, which gives
-    additional information about the office.
+  description: References an :ref:`single-xml-office` element, if available, which
+    gives additional information about the office.
   error_then: =must-ignore
   repeating: true
   type: xs:IDREF

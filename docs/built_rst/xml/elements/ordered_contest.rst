@@ -7,7 +7,7 @@ OrderedContest
 
 ``OrderedContest`` encapsulates links to the information that comprises a contest and potential
 ballot selections. ``OrderedContest`` elements can be collected within a
-:doc:`BallotStyle <ballot_style>` to accurate depict exactly what will show up on a particular
+:ref:`single-xml-ballot-style` to accurate depict exactly what will show up on a particular
 ballot in the proper order.
 
 +--------------------------+--------------+--------------+--------------+------------------------------------------+--------------------------------------------------+

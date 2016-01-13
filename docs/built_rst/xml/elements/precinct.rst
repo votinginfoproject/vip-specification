@@ -7,7 +7,7 @@ Precinct
 
 The Precinct object represents a precinct, which is contained within a Locality. While the id
 attribute does not have to be static across feeds for one election, the combination of
-:doc:`Source.VipId <source>`, :doc:`Locality.Name <locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
+:ref:`Source.VipId <single-xml-source>`, :ref:`Locality.Name <single-xml-locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
 :ref:`Precinct.Name <single-xml-precinct>`, and :ref:`Precinct.Number <single-xml-precinct>` should remain constant across
 feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
 non-required fields is fine).
@@ -15,15 +15,16 @@ non-required fields is fine).
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+=======================================+==============+==============+==========================================+==========================================+
-| BallotStyleId       | ``xs:IDREF``                          | Optional     | Single       | Links to the :doc:`ballot style          | If the field is invalid or not present,  |
-|                     |                                       |              |              | <ballot_style>`, which a person who      | then the implementation is required to   |
-|                     |                                       |              |              | lives in this precinct will vote.        | ignore it.                               |
+| BallotStyleId       | ``xs:IDREF``                          | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
+|                     |                                       |              |              | :ref:`single-xml-ballot-style`, which a  | then the implementation is required to   |
+|                     |                                       |              |              | person who lives in this precinct will   | ignore it.                               |
+|                     |                                       |              |              | vote.                                    |                                          |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictId | ``xs:IDREF``                          | Optional     | Repeats      | Links to an :doc:`electoral district     | If the field is invalid or not present,  |
-|                     |                                       |              |              | <electoral_district>` (e.g.,             | then the implementation is required to   |
-|                     |                                       |              |              | congressional district, state house      | ignore it.                               |
-|                     |                                       |              |              | district, school board district) to      |                                          |
-|                     |                                       |              |              | which the precinct belongs. **Highly     |                                          |
+| ElectoralDistrictId | ``xs:IDREF``                          | Optional     | Repeats      | Links to an                              | If the field is invalid or not present,  |
+|                     |                                       |              |              | :ref:`single-xml-electoral-district`     | then the implementation is required to   |
+|                     |                                       |              |              | (e.g., congressional district, state     | ignore it.                               |
+|                     |                                       |              |              | house district, school board district)   |                                          |
+|                     |                                       |              |              | to which the precinct belongs. **Highly  |                                          |
 |                     |                                       |              |              | Recommended** if candidate information   |                                          |
 |                     |                                       |              |              | is to be provided. Multiple allowed and  |                                          |
 |                     |                                       |              |              | recommended to specify the geography of  |                                          |
@@ -41,7 +42,7 @@ non-required fields is fine).
 |                     |                                       |              |              | mail-only elections.                     | implementation is required to assume     |
 |                     |                                       |              |              |                                          | `IsMailOnly` is false.                   |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LocalityId          | ``xs:IDREF``                          | **Required** | Single       | Links to the :doc:`locality <locality>`  | If the field is invalid or not present,  |
+| LocalityId          | ``xs:IDREF``                          | **Required** | Single       | Links to the :ref:`single-xml-locality`  | If the field is invalid or not present,  |
 |                     |                                       |              |              | that comprises the precinct.             | the implementation is required to ignore |
 |                     |                                       |              |              |                                          | the precinct element containing it.      |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -56,10 +57,9 @@ non-required fields is fine).
 |                     |                                       |              |              | number.                                  |                                          |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId   | ``xs:IDREF``                          | Optional     | Repeats      | Specifies a link to the precinct's       | If the field is invalid or not present,  |
-|                     |                                       |              |              | :doc:`polling location                   | then the implementation is required to   |
-|                     |                                       |              |              | <polling_location>` object(s). Multiple  | ignore it.                               |
-|                     |                                       |              |              | `PollingLocationId` tags may be          |                                          |
-|                     |                                       |              |              | specified.                               |                                          |
+|                     |                                       |              |              | :ref:`single-xml-polling-location`       | then the implementation is required to   |
+|                     |                                       |              |              | object(s). Multiple `PollingLocationId`  | ignore it.                               |
+|                     |                                       |              |              | tags may be specified.                   |                                          |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrecinctSplitName   | ``xs:string``                         | Optional     | Single       | Refers to name of the associated         | If the field is invalid or not present,  |
 |                     |                                       |              |              | precinct split.                          | then the implementation is required to   |

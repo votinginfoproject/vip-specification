@@ -37,7 +37,7 @@ Candidate object may be used.
 |                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                 |              |              | about the candidate's affiliated party.  | ignore it.                               |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :doc:`Person <person>`    | If the field is invalid or not present,  |
+| PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`single-xml-person`  | If the field is invalid or not present,  |
 |                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                 |              |              | about the candidate.                     | ignore it.                               |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

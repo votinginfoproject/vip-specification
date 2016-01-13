@@ -18,13 +18,13 @@ tags:
   type: InternationalizedText
 - _name: Hours **[deprecated]**
   description: Contains the hours (in local time) that the polling location is open
-    (**NB:** this element is deprecated in favor of the more structured :doc:`HoursOpen
-    <hours_open>` element. It is strongly encouraged that data providers move toward
-    contributing hours in this format).
+    (**NB:** this element is deprecated in favor of the more structured :ref:`single-xml-hours-open`
+    element. It is strongly encouraged that data providers move toward contributing
+    hours in this format).
   error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
-  description: Links to an :doc:`HoursOpen <hours_open>` element, which is a schedule
+  description: Links to an :ref:`single-xml-hours-open` element, which is a schedule
     of dates and hours during which the polling location is available.
   error_then: =must-ignore
   type: xs:IDREF

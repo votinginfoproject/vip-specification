@@ -17,16 +17,16 @@
 | Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
 | **[deprecated]** |                                         |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
 |                  |                                         |              |              | this element is deprecated in favor of   | required to ignore it.                   |
-|                  |                                         |              |              | the more structured :doc:`HoursOpen      |                                          |
-|                  |                                         |              |              | <hours_open>` element. It is strongly    |                                          |
-|                  |                                         |              |              | encouraged that data providers move      |                                          |
-|                  |                                         |              |              | toward contributing hours in this        |                                          |
-|                  |                                         |              |              | format).                                 |                                          |
+|                  |                                         |              |              | the more structured                      |                                          |
+|                  |                                         |              |              | :ref:`single-xml-hours-open` element. It |                                          |
+|                  |                                         |              |              | is strongly encouraged that data         |                                          |
+|                  |                                         |              |              | providers move toward contributing hours |                                          |
+|                  |                                         |              |              | in this format).                         |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | Links to an :doc:`HoursOpen              | If the field is invalid or not present,  |
-|                  |                                         |              |              | <hours_open>` element, which is a        | then the implementation is required to   |
-|                  |                                         |              |              | schedule of dates and hours during which | ignore it.                               |
-|                  |                                         |              |              | the polling location is available.       |                                          |
+| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | Links to an :ref:`single-xml-hours-open` | If the field is invalid or not present,  |
+|                  |                                         |              |              | element, which is a schedule of dates    | then the implementation is required to   |
+|                  |                                         |              |              | and hours during which the polling       | ignore it.                               |
+|                  |                                         |              |              | location is available.                   |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsDropBox        | ``xs:boolean``                          | Optional     | Single       | Indicates if this polling location is a  | If the field is invalid or not present,  |
 |                  |                                         |              |              | drop box.                                | then the implementation is required to   |

@@ -16,7 +16,7 @@ post: |-
      </Office>
 tags:
 - _name: Type
-  description: Specifies the type of office term (see :doc:`OfficeTermType <../enumerations/office_term_type>`
+  description: Specifies the type of office term (see :ref:`single-xml-office-term-type`
     for valid values).
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``Office`` element containing it.

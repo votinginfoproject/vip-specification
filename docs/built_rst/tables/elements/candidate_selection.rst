@@ -3,13 +3,12 @@
 +--------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +====================+================+==============+==============+==========================================+==========================================+
-| CandidateId        | ``xs:IDREF``   | Optional     | Repeats      | References a :doc:`Candidate             | If the field is invalid or not present,  |
-|                    |                |              |              | <candidate>` element. The number of      | then the implementation is required to   |
-|                    |                |              |              | candidates that can be references is     | ignore it.                               |
-|                    |                |              |              | unbounded in cases where the ballot      |                                          |
-|                    |                |              |              | selection is for a ticket (e.g.          |                                          |
-|                    |                |              |              | "President/Vice President", "Governor/Lt |                                          |
-|                    |                |              |              | Governor").                              |                                          |
+| CandidateId        | ``xs:IDREF``   | Optional     | Repeats      | References a :ref:`single-xml-candidate` | If the field is invalid or not present,  |
+|                    |                |              |              | element. The number of candidates that   | then the implementation is required to   |
+|                    |                |              |              | can be references is unbounded in cases  | ignore it.                               |
+|                    |                |              |              | where the ballot selection is for a      |                                          |
+|                    |                |              |              | ticket (e.g. "President/Vice President", |                                          |
+|                    |                |              |              | "Governor/Lt Governor").                 |                                          |
 +--------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | EndorsementPartyId | ``xs:IDREF``   | Optional     | Repeats      | References a :ref:`single-xml-party`     | If the field is invalid or not present,  |
 |                    |                |              |              | element, which signifies one or more     | then the implementation is required to   |

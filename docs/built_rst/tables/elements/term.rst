@@ -4,9 +4,8 @@
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===================================+==============+==============+==========================================+==========================================+
 | Type         | :ref:`multi-xml-office-term-type` | **Required** | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              |                                   |              |              | :doc:`OfficeTermType                     | the implementation is required to ignore |
-|              |                                   |              |              | <../enumerations/office_term_type>` for  | the ``Office`` element containing it.    |
-|              |                                   |              |              | valid values).                           |                                          |
+|              |                                   |              |              | :ref:`single-xml-office-term-type` for   | the implementation is required to ignore |
+|              |                                   |              |              | valid values).                           | the ``Office`` element containing it.    |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartDate    | ``xs:date``                       | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
 |              |                                   |              |              | term of the office.                      | then the implementation is required to   |

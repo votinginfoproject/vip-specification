@@ -20,9 +20,9 @@
 |                         |                                         |              |              |                                                   | present, then the implementation should  |
 |                         |                                         |              |              |                                                   | ignore it.                               |
 +-------------------------+-----------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| ElectoralDistrictId     | ``xs:IDREF``                            | Optional     | Single       | References an :doc:`ElectoralDistrict             | If the field is invalid or not present,  |
-|                         |                                         |              |              | <electoral_district>` element that represents the | then the implementation should ignore    |
-|                         |                                         |              |              | geographical scope of the contest.                | it.                                      |
+| ElectoralDistrictId     | ``xs:IDREF``                            | Optional     | Single       | References an                                     | If the field is invalid or not present,  |
+|                         |                                         |              |              | :ref:`single-xml-electoral-district` element that | then the implementation should ignore    |
+|                         |                                         |              |              | represents the geographical scope of the contest. | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible electorate  | If the element is invalid or not         |
 |                         |                                         |              |              | for this contest past the usual, "all registered  | present, then the implementation should  |

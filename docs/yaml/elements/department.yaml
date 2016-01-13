@@ -2,12 +2,12 @@ _name: Department
 tags:
 - _name: ContactInformation
   description: Contact and physical address information for the election administration
-    body (see :doc:`ContactInformation <contact_information>`).
+    body (see :ref:`single-xml-contact-information`).
   error_then: =must-ignore
   type: ContactInformation
 - _name: ElectionOfficialPersonId
   description: The individual to contact at the election administration office. The
-    specified person should be the :doc:`election official <person>`.
+    specified person should be the :ref:`election official <single-xml-person>`.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: VoterService

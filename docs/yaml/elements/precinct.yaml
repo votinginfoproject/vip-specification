@@ -2,7 +2,7 @@ _name: Precinct
 description: |-
   The Precinct object represents a precinct, which is contained within a Locality. While the id
   attribute does not have to be static across feeds for one election, the combination of
-  :doc:`Source.VipId <source>`, :doc:`Locality.Name <locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
+  :ref:`Source.VipId <single-xml-source>`, :ref:`Locality.Name <single-xml-locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
   :ref:`Precinct.Name <single-xml-precinct>`, and :ref:`Precinct.Number <single-xml-precinct>` should remain constant across
   feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
   non-required fields is fine).
@@ -25,12 +25,12 @@ post: |-
      </Precinct>
 tags:
 - _name: BallotStyleId
-  description: Links to the :doc:`ballot style <ballot_style>`, which a person who
-    lives in this precinct will vote.
+  description: Links to the :ref:`single-xml-ballot-style`, which a person who lives
+    in this precinct will vote.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictId
-  description: Links to an :doc:`electoral district <electoral_district>` (e.g., congressional
+  description: Links to an :ref:`single-xml-electoral-district` (e.g., congressional
     district, state house district, school board district) to which the precinct belongs.
     **Highly Recommended** if candidate information is to be provided. Multiple allowed
     and recommended to specify the geography of multiple electoral districts. If an
@@ -50,7 +50,7 @@ tags:
     `IsMailOnly` is false.
   type: xs:boolean
 - _name: LocalityId
-  description: Links to the :doc:`locality <locality>` that comprises the precinct.
+  description: Links to the :ref:`single-xml-locality` that comprises the precinct.
   error: If the field is invalid or not present, the implementation is required to
     ignore the precinct element containing it.
   required: true
@@ -68,7 +68,7 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationId
-  description: Specifies a link to the precinct's :doc:`polling location <polling_location>`
+  description: Specifies a link to the precinct's :ref:`single-xml-polling-location`
     object(s). Multiple `PollingLocationId` tags may be specified.
   error_then: =must-ignore
   repeating: true

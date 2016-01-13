@@ -34,9 +34,9 @@ are equal.
 |                      |                           |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
 |                      |                           |              |              | the street segment.                      |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctId           | ``xs:IDREF``              | Optional     | Single       | References the :doc:`precinct            | If the field is not present or invalid,  |
-|                      |                           |              |              | <precinct>` that contains the entire     | the implementation is required to ignore |
-|                      |                           |              |              | street segment.                          | the StreetSegment element containing it. |
+| PrecinctId           | ``xs:IDREF``              | Optional     | Single       | References the                           | If the field is not present or invalid,  |
+|                      |                           |              |              | :ref:`single-xml-precinct` that contains | the implementation is required to ignore |
+|                      |                           |              |              | the entire street segment.               | the StreetSegment element containing it. |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartHouseNumber     | ``xs:integer``            | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** is true, |
 |                      |                           |              |              | segment starts. This value is necessary  | if the field is not present or invalid,  |

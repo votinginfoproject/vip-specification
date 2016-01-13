@@ -14,23 +14,23 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 
 * Any element that extends :ref:`single-xml-ballot-selection-base`
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
-* :doc:`ContactInformation <contact_information>`
+* :ref:`single-xml-contact-information`
 
-* :doc:`Election <election>`
+* :ref:`single-xml-election`
 
-* :doc:`ElectionAdministration <election_administration>`
+* :ref:`single-xml-election-administration`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 * :ref:`single-xml-party`
 
-* :doc:`Person <person>`
+* :ref:`single-xml-person`
 
-* :doc:`PollingLocation <polling_location>`
+* :ref:`single-xml-polling-location`
 
-* :doc:`Source <source>`
+* :ref:`single-xml-source`
 
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |

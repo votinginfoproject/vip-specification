@@ -8,25 +8,25 @@ CSV, label may refer to a row ID). Examples of InternationalizedText can be seen
 
 * Any element that extends :ref:`single-xml-contest-base`
 
-* Any element that extends :doc:`BallotSelection <ballot_selection>`
+* Any element that extends :ref:`single-xml-ballot-selection-base`
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
-* :doc:`ContactInformation <contact_information>`
+* :ref:`single-xml-contact-information`
 
-* :doc:`Election <election>`
+* :ref:`single-xml-election`
 
-* :doc:`ElectionAdministration <election_administration>`
+* :ref:`single-xml-election-administration`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 * :ref:`single-xml-party`
 
-* :doc:`Person <person>`
+* :ref:`single-xml-person`
 
-* :doc:`PollingLocation <polling_location>`
+* :ref:`single-xml-polling-location`
 
-* :doc:`Source <source>`
+* :ref:`single-xml-source`
 
 .. include:: ../../built_rst/tables/elements/internationalized_text.rst
 

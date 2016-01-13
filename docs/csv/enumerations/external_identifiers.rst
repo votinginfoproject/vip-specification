@@ -6,21 +6,21 @@ candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_
 greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
 found on the objects that support them:
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
 * Any element that extends :ref:`single-xml-contest-base`
 
-* :doc:`ElectoralDistrict <electoral_district>`
+* :ref:`single-xml-electoral-district`
 
-* :doc:`Locality <locality>`
+* :ref:`single-xml-locality`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 * :ref:`single-xml-party`
 
-* :doc:`Precinct <precinct>`
+* :ref:`single-xml-precinct`
 
-* :doc:`State <state>`
+* :ref:`single-xml-state`
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 

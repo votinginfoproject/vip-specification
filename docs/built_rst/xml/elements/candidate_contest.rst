@@ -15,7 +15,7 @@ candidates.
 |                |                |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
 |                |                |              |              |                                          | ignore it.                               |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeId       | ``xs:IDREF``   | Optional     | Repeats      | References an :doc:`Office <office>`     | If the field is invalid or not present,  |
+| OfficeId       | ``xs:IDREF``   | Optional     | Repeats      | References an :ref:`single-xml-office`   | If the field is invalid or not present,  |
 |                |                |              |              | element, if available, which gives       | then the implementation is required to   |
 |                |                |              |              | additional information about the office. | ignore it.                               |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+

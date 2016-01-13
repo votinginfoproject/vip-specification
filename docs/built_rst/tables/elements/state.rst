@@ -15,11 +15,12 @@
 |                          |                                       |              |              | Alabama.                                 | implementation is required to ignore it. |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | ``xs:IDREF``                          | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
-|                          |                                       |              |              | :doc:`polling locations                  | then the implementation is required to   |
-|                          |                                       |              |              | <polling_location>`. If early vote       | ignore it.                               |
-|                          |                                       |              |              | centers or ballot drop locations are     |                                          |
-|                          |                                       |              |              | state-wide (e.g., anyone in the state    |                                          |
-|                          |                                       |              |              | can use them), they can be specified     |                                          |
-|                          |                                       |              |              | here, but you are encouraged to only use |                                          |
-|                          |                                       |              |              | the :doc:`Precinct <precinct>` element.  |                                          |
+|                          |                                       |              |              | :ref:`polling locations                  | then the implementation is required to   |
+|                          |                                       |              |              | <single-xml-polling-location>`. If early | ignore it.                               |
+|                          |                                       |              |              | vote centers or ballot drop locations    |                                          |
+|                          |                                       |              |              | are state-wide (e.g., anyone in the      |                                          |
+|                          |                                       |              |              | state can use them), they can be         |                                          |
+|                          |                                       |              |              | specified here, but you are encouraged   |                                          |
+|                          |                                       |              |              | to only use the                          |                                          |
+|                          |                                       |              |              | :ref:`single-xml-precinct` element.      |                                          |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

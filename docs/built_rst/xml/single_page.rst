@@ -221,7 +221,7 @@ Candidate object may be used.
 |                     |                                                  |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                  |              |              | about the candidate's affiliated party.  | ignore it.                               |
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PersonId            | ``xs:IDREF``                                     | Optional     | Single       | Reference to a :doc:`Person <person>`    | If the field is invalid or not present,  |
+| PersonId            | ``xs:IDREF``                                     | Optional     | Single       | Reference to a :ref:`single-xml-person`  | If the field is invalid or not present,  |
 |                     |                                                  |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                  |              |              | about the candidate.                     | ignore it.                               |
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -265,7 +265,7 @@ candidates.
 |                |                |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
 |                |                |              |              |                                          | ignore it.                               |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeId       | ``xs:IDREF``   | Optional     | Repeats      | References an :doc:`Office <office>`     | If the field is invalid or not present,  |
+| OfficeId       | ``xs:IDREF``   | Optional     | Repeats      | References an :ref:`single-xml-office`   | If the field is invalid or not present,  |
 |                |                |              |              | element, if available, which gives       | then the implementation is required to   |
 |                |                |              |              | additional information about the office. | ignore it.                               |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -307,13 +307,12 @@ ballot selection for a candidate contest.
 +--------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +====================+================+==============+==============+==========================================+==========================================+
-| CandidateId        | ``xs:IDREF``   | Optional     | Repeats      | References a :doc:`Candidate             | If the field is invalid or not present,  |
-|                    |                |              |              | <candidate>` element. The number of      | then the implementation is required to   |
-|                    |                |              |              | candidates that can be references is     | ignore it.                               |
-|                    |                |              |              | unbounded in cases where the ballot      |                                          |
-|                    |                |              |              | selection is for a ticket (e.g.          |                                          |
-|                    |                |              |              | "President/Vice President", "Governor/Lt |                                          |
-|                    |                |              |              | Governor").                              |                                          |
+| CandidateId        | ``xs:IDREF``   | Optional     | Repeats      | References a :ref:`single-xml-candidate` | If the field is invalid or not present,  |
+|                    |                |              |              | element. The number of candidates that   | then the implementation is required to   |
+|                    |                |              |              | can be references is unbounded in cases  | ignore it.                               |
+|                    |                |              |              | where the ballot selection is for a      |                                          |
+|                    |                |              |              | ticket (e.g. "President/Vice President", |                                          |
+|                    |                |              |              | "Governor/Lt Governor").                 |                                          |
 +--------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | EndorsementPartyId | ``xs:IDREF``   | Optional     | Repeats      | References a :ref:`single-xml-party`     | If the field is invalid or not present,  |
 |                    |                |              |              | element, which signifies one or more     | then the implementation is required to   |
@@ -343,8 +342,8 @@ ContactInformation
 
 For defining contact information about objects such as persons, boards of authorities,
 organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-:doc:`ElectionAdministration <election_administration>`, :doc:`Office <office>`,
-:doc:`Person <person>`, :doc:`Source <source>`). ContactInformation has an optional attribute
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
 ``label``, which allows the feed to refer back to the original label for the information
 (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 
@@ -366,14 +365,15 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
 | **[deprecated]** |                                          |              |              | the location is open *(NB: this element  | present, then the implementation is      |
 |                  |                                          |              |              | is deprecated in favor of the more       | required to ignore it.                   |
-|                  |                                          |              |              | structured :doc:`HoursOpen <hours_open>` |                                          |
+|                  |                                          |              |              | structured :ref:`single-xml-hours-open`  |                                          |
 |                  |                                          |              |              | element. It is strongly encouraged that  |                                          |
 |                  |                                          |              |              | data providers move toward contributing  |                                          |
 |                  |                                          |              |              | hours in this format)*.                  |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | References an :doc:`HoursOpen            | If the field is invalid or not present,  |
-|                  |                                          |              |              | <hours_open>` element, which lists the   | then the implementation is required to   |
-|                  |                                          |              |              | hours of operation for a location.       | ignore it.                               |
+| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                          |              |              | which lists the hours of operation for a | ignore it.                               |
+|                  |                                          |              |              | location.                                |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
 |                  |                                          |              |              | `See usage note.`_                       | then the implementation is required to   |
@@ -441,8 +441,8 @@ ContestBase
 ~~~~~~~~~~~
 
 A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
-:doc:`CandidateContest <candidate_contest>`, :doc:`PartyContest <party_contest>`,
-and :doc:`RetentionContest <retention_contest>` (NB: the latter because it extends
+:ref:`single-xml-candidate-contest`, :ref:`single-xml-party-contest`,
+and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 :ref:`single-xml-ballot-measure-contest`).
 
 +-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
@@ -465,9 +465,9 @@ and :doc:`RetentionContest <retention_contest>` (NB: the latter because it exten
 |                         |                                          |              |              |                                                   | present, then the implementation should  |
 |                         |                                          |              |              |                                                   | ignore it.                               |
 +-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
-| ElectoralDistrictId     | ``xs:IDREF``                             | Optional     | Single       | References an :doc:`ElectoralDistrict             | If the field is invalid or not present,  |
-|                         |                                          |              |              | <electoral_district>` element that represents the | then the implementation should ignore    |
-|                         |                                          |              |              | geographical scope of the contest.                | it.                                      |
+| ElectoralDistrictId     | ``xs:IDREF``                             | Optional     | Single       | References an                                     | If the field is invalid or not present,  |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district` element that | then the implementation should ignore    |
+|                         |                                          |              |              | represents the geographical scope of the contest. | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible electorate  | If the element is invalid or not         |
 |                         |                                          |              |              | for this contest past the usual, "all registered  | present, then the implementation should  |
@@ -557,19 +557,18 @@ with one Election object.
 |                            |                                          |              |              | If polling hours differ in specific      | required to ignore it.                   |
 |                            |                                          |              |              | polling locations, alternative hours may |                                          |
 |                            |                                          |              |              | be specified in the                      |                                          |
-|                            |                                          |              |              | :doc:`PollingLocation                    |                                          |
-|                            |                                          |              |              | <polling_location>` object *(NB: this    |                                          |
-|                            |                                          |              |              | element is deprecated in favor of the    |                                          |
-|                            |                                          |              |              | more structured :doc:`HoursOpen          |                                          |
-|                            |                                          |              |              | <hours_open>` element. It is strongly    |                                          |
-|                            |                                          |              |              | encouraged that data providers move      |                                          |
-|                            |                                          |              |              | toward contributing hours in this        |                                          |
-|                            |                                          |              |              | format)*.                                |                                          |
+|                            |                                          |              |              | :ref:`single-xml-polling-location`       |                                          |
+|                            |                                          |              |              | object *(NB: this element is deprecated  |                                          |
+|                            |                                          |              |              | in favor of the more structured          |                                          |
+|                            |                                          |              |              | :ref:`single-xml-hours-open` element. It |                                          |
+|                            |                                          |              |              | is strongly encouraged that data         |                                          |
+|                            |                                          |              |              | providers move toward contributing hours |                                          |
+|                            |                                          |              |              | in this format)*.                        |                                          |
 +----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId                | ``xs:IDREF``                             | Optional     | Single       | References the :doc:`HoursOpen           | If the field is invalid or not present,  |
-|                            |                                          |              |              | <hours_open>` element, which lists the   | then the implementation is required to   |
-|                            |                                          |              |              | hours of operation for polling           | ignore it.                               |
-|                            |                                          |              |              | locations.                               |                                          |
+| HoursOpenId                | ``xs:IDREF``                             | Optional     | Single       | References the                           | If the field is invalid or not present,  |
+|                            |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                            |                                          |              |              | which lists the hours of operation for   | ignore it.                               |
+|                            |                                          |              |              | polling locations.                       |                                          |
 +----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | HasElectionDayRegistration | ``xs:boolean``                           | Optional     | Single       | Specifies if a voter can register on the | If the field is invalid or not present,  |
 |                            |                                          |              |              | same day of the election (i.e., the last | then the implementation is required to   |
@@ -666,13 +665,14 @@ Department
 +==========================+=======================================+==============+==============+==========================================+==========================================+
 | ContactInformation       | :ref:`single-xml-contact-information` | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
 |                          |                                       |              |              | for the election administration body     | present, then the implementation is      |
-|                          |                                       |              |              | (see :doc:`ContactInformation            | required to ignore it.                   |
-|                          |                                       |              |              | <contact_information>`).                 |                                          |
+|                          |                                       |              |              | (see                                     | required to ignore it.                   |
+|                          |                                       |              |              | :ref:`single-xml-contact-information`).  |                                          |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionOfficialPersonId | ``xs:IDREF``                          | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
 |                          |                                       |              |              | election administration office. The      | then the implementation is required to   |
 |                          |                                       |              |              | specified person should be the           | ignore it.                               |
-|                          |                                       |              |              | :doc:`election official <person>`.       |                                          |
+|                          |                                       |              |              | :ref:`election official                  |                                          |
+|                          |                                       |              |              | <single-xml-person>`.                    |                                          |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | VoterService             | :ref:`single-xml-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
 |                          |                                       |              |              | contact individual available to voters.  | present, then the implementation is      |
@@ -696,12 +696,12 @@ VoterService
 |                          |                                          |              |              | available.                               | present, then the implementation is      |
 |                          |                                          |              |              |                                          | required to ignore it.                   |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | ``xs:IDREF``                             | Optional     | Single       | The :doc:`authority <person>` for a      | If the field is invalid or not present,  |
-|                          |                                          |              |              | particular voter service.                | then the implementation is required to   |
+| ElectionOfficialPersonId | ``xs:IDREF``                             | Optional     | Single       | The :ref:`authority <single-xml-person>` | If the field is invalid or not present,  |
+|                          |                                          |              |              | for a particular voter service.          | then the implementation is required to   |
 |                          |                                          |              |              |                                          | ignore it.                               |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :ref:`single-xml-voter-service-type`     | Optional     | Single       | The type of :doc:`voter service          | If the field is invalid or not present,  |
-|                          |                                          |              |              | <../enumerations/voter_service_type>`.   | then the implementation is required to   |
+| Type                     | :ref:`single-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
+|                          |                                          |              |              | <single-xml-voter-service-type>`.        | then the implementation is required to   |
 |                          |                                          |              |              |                                          | ignore it.                               |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType                | ``xs:string``                            | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
@@ -767,9 +767,8 @@ which precincts link to the ``ElectoralDistrict``.
 |                     |                                        |              |              |                                          | containing it.                           |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType           | ``xs:string``                          | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                     |                                        |              |              | :doc:`DistrictType                       | then the implementation is required to   |
-|                     |                                        |              |              | <../enumerations/district_type>` option  | ignore it.                               |
-|                     |                                        |              |              | when ``Type`` is specified as "other".   |                                          |
+|                     |                                        |              |              | :ref:`single-xml-district-type` option   | then the implementation is required to   |
+|                     |                                        |              |              | when ``Type`` is specified as "other".   | ignore it.                               |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
@@ -803,21 +802,21 @@ candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_
 greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
 found on the objects that support them:
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
 * Any element that extends :ref:`single-xml-contest-base`
 
-* :doc:`ElectoralDistrict <electoral_district>`
+* :ref:`single-xml-electoral-district`
 
-* :doc:`Locality <locality>`
+* :ref:`single-xml-locality`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 * :ref:`single-xml-party`
 
-* :doc:`Precinct <precinct>`
+* :ref:`single-xml-precinct`
 
-* :doc:`State <state>`
+* :ref:`single-xml-state`
 
 .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
@@ -844,14 +843,13 @@ ExternalIdentifier
 +==============+===================================+==============+==============+==========================================+==========================================+
 | Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
 |              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                                   |              |              | :doc:`IdentifierType                     | the ``ElectionIdentifier`` containing    |
-|              |                                   |              |              | <../enumerations/identifier_type>`.      | it.                                      |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
 |              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
 |              |                                   |              |              | outside the options listed in            | ignore it.                               |
-|              |                                   |              |              | :doc:`IdentifierType                     |                                          |
-|              |                                   |              |              | <../enumerations/identifier_type>`.      |                                          |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
 |              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
 |              |                                   |              |              | using this field.                        |                                          |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -892,8 +890,8 @@ HoursOpen
 ~~~~~~~~~
 
 A structured way of describing the days and hours that a place such as a
-:doc:`Office <office>` or :doc:`PollingLocation <polling_location>` is open, or
-that an event such as an :doc:`Election <election>` is happening.
+:ref:`single-xml-office` or :ref:`single-xml-polling-location` is open, or
+that an event such as an :ref:`single-xml-election` is happening.
 
 +--------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                  | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -1010,23 +1008,23 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 
 * Any element that extends :ref:`single-xml-ballot-selection-base`
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
-* :doc:`ContactInformation <contact_information>`
+* :ref:`single-xml-contact-information`
 
-* :doc:`Election <election>`
+* :ref:`single-xml-election`
 
-* :doc:`ElectionAdministration <election_administration>`
+* :ref:`single-xml-election-administration`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 * :ref:`single-xml-party`
 
-* :doc:`Person <person>`
+* :ref:`single-xml-person`
 
-* :doc:`PollingLocation <polling_location>`
+* :ref:`single-xml-polling-location`
 
-* :doc:`Source <source>`
+* :ref:`single-xml-source`
 
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -1065,45 +1063,44 @@ type of language ``LanguageString`` contains.
 Locality
 ~~~~~~~~
 
-The Locality object represents the jurisdiction below the :doc:`state <state>` (e.g. county).
+The Locality object represents the jurisdiction below the :ref:`single-xml-state` (e.g. county).
 
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+========================================+==============+==============+==========================================+==========================================+
-| ElectionAdministrationId | ``xs:IDREF``                           | Optional     | Single       | Links to the locality's :doc:`election   | If the field is invalid or not present,  |
-|                          |                                        |              |              | administration                           | then the implementation is required to   |
-|                          |                                        |              |              | <election_administration>` object.       | ignore it.                               |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers      | :ref:`single-xml-external-identifiers` | Optional     | Single       | Another identifier for a locality that   | If the element is invalid or not         |
-|                          |                                        |              |              | links to another dataset (e.g.           | present, then the implementation is      |
-|                          |                                        |              |              | `OCD-ID`_)                               | required to ignore it.                   |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.        | If the field is not present or invalid,  |
-|                          |                                        |              |              |                                          | the implementation is required to ignore |
-|                          |                                        |              |              |                                          | the Locality element containing it.      |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingLocationId        | ``xs:IDREF``                           | Optional     | Repeats      | Specifies a link to the locality's       | If the field is invalid or not present,  |
-|                          |                                        |              |              | :doc:`polling locations                  | the implementation is required to ignore |
-|                          |                                        |              |              | <polling_location>`. If early vote       | it. However, the implementation should   |
-|                          |                                        |              |              | centers or ballot drop locations are     | still check to see if there are any      |
-|                          |                                        |              |              | locality-wide, they should be specified  | polling locations associated with this   |
-|                          |                                        |              |              | here.                                    | locality's state.                        |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StateId                  | ``xs:IDREF``                           | **Required** | Single       | References the locality's :doc:`state    | If the field is invalid or not present,  |
-|                          |                                        |              |              | <state>`.                                | the implementation is required to ignore |
-|                          |                                        |              |              |                                          | the Locality element containing.         |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :ref:`single-xml-district-type`        | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
-|                          |                                        |              |              | county, town, et al.), which is one of   | then the implementation is required to   |
-|                          |                                        |              |              | the various :doc:`DistrictType           | ignore it.                               |
-|                          |                                        |              |              | enumerations                             |                                          |
-|                          |                                        |              |              | <../enumerations/district_type>`.        |                                          |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType                | ``xs:string``                          | Optional     | Single       | Allows for defining a type of locality   | If the field is invalid or not present,  |
-|                          |                                        |              |              | that falls outside the options listed in | then the implementation is required to   |
-|                          |                                        |              |              | :doc:`DistrictType                       | ignore it.                               |
-|                          |                                        |              |              | <../enumerations/district_type>`.        |                                          |
-+--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                              | Required?    | Repeats?     | Description                               | Error Handling                           |
++==========================+========================================+==============+==============+===========================================+==========================================+
+| ElectionAdministrationId | ``xs:IDREF``                           | Optional     | Single       | Links to the locality's                   | If the field is invalid or not present,  |
+|                          |                                        |              |              | :ref:`single-xml-election-administration` | then the implementation is required to   |
+|                          |                                        |              |              | object.                                   | ignore it.                               |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| ExternalIdentifiers      | :ref:`single-xml-external-identifiers` | Optional     | Single       | Another identifier for a locality that    | If the element is invalid or not         |
+|                          |                                        |              |              | links to another dataset (e.g. `OCD-ID`_) | present, then the implementation is      |
+|                          |                                        |              |              |                                           | required to ignore it.                   |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is not present or invalid,  |
+|                          |                                        |              |              |                                           | the implementation is required to ignore |
+|                          |                                        |              |              |                                           | the Locality element containing it.      |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| PollingLocationId        | ``xs:IDREF``                           | Optional     | Repeats      | Specifies a link to the locality's        | If the field is invalid or not present,  |
+|                          |                                        |              |              | :ref:`polling locations                   | the implementation is required to ignore |
+|                          |                                        |              |              | <single-xml-polling-location>`. If early  | it. However, the implementation should   |
+|                          |                                        |              |              | vote centers or ballot drop locations are | still check to see if there are any      |
+|                          |                                        |              |              | locality-wide, they should be specified   | polling locations associated with this   |
+|                          |                                        |              |              | here.                                     | locality's state.                        |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| StateId                  | ``xs:IDREF``                           | **Required** | Single       | References the locality's                 | If the field is invalid or not present,  |
+|                          |                                        |              |              | :ref:`single-xml-state`.                  | the implementation is required to ignore |
+|                          |                                        |              |              |                                           | the Locality element containing.         |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| Type                     | :ref:`single-xml-district-type`        | Optional     | Single       | Defines the kind of locality (e.g.        | If the field is invalid or not present,  |
+|                          |                                        |              |              | county, town, et al.), which is one of    | then the implementation is required to   |
+|                          |                                        |              |              | the various :ref:`DistrictType            | ignore it.                               |
+|                          |                                        |              |              | enumerations <single-xml-district-type>`. |                                          |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| OtherType                | ``xs:string``                          | Optional     | Single       | Allows for defining a type of locality    | If the field is invalid or not present,  |
+|                          |                                        |              |              | that falls outside the options listed in  | then the implementation is required to   |
+|                          |                                        |              |              | :ref:`DistrictType                        | ignore it.                               |
+|                          |                                        |              |              | <single-xml-district-type>`.              |                                          |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
 
 .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
@@ -1139,9 +1136,9 @@ School Board, et al).
 |                      |                                          |              |              | the office and/or individual holding the | present, then the implementation is      |
 |                      |                                          |              |              | office.                                  | required to ignore it.                   |
 +----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictId  | ``xs:IDREF``                             | **Required** | Single       | Links to the :doc:`ElectoralDistrict     | If the field is invalid or not present,  |
-|                      |                                          |              |              | <electoral_district>` element associated | the implementation is required to ignore |
-|                      |                                          |              |              | with the office.                         | the ``Office`` element containing it.    |
+| ElectoralDistrictId  | ``xs:IDREF``                             | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
+|                      |                                          |              |              | :ref:`single-xml-electoral-district`     | the implementation is required to ignore |
+|                      |                                          |              |              | element associated with the office.      | the ``Office`` element containing it.    |
 +----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers  | :ref:`single-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
 |                      |                                          |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
@@ -1159,7 +1156,7 @@ School Board, et al).
 |                      |                                          |              |              |                                          | the implementation is required to ignore |
 |                      |                                          |              |              |                                          | the ``Office`` element containing it.    |
 +----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeHolderPersonId | ``xs:IDREF``                             | Optional     | Repeats      | Links to the :doc:`Person <person>`      | If the field is invalid or not present,  |
+| OfficeHolderPersonId | ``xs:IDREF``                             | Optional     | Repeats      | Links to the :ref:`single-xml-person`    | If the field is invalid or not present,  |
 |                      |                                          |              |              | element(s) that hold additional          | then the implementation is required to   |
 |                      |                                          |              |              | information about the current office     | ignore it.                               |
 |                      |                                          |              |              | holder(s).                               |                                          |
@@ -1179,9 +1176,8 @@ Term
 | Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+====================================+==============+==============+==========================================+==========================================+
 | Type         | :ref:`single-xml-office-term-type` | **Required** | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              |                                    |              |              | :doc:`OfficeTermType                     | the implementation is required to ignore |
-|              |                                    |              |              | <../enumerations/office_term_type>` for  | the ``Office`` element containing it.    |
-|              |                                    |              |              | valid values).                           |                                          |
+|              |                                    |              |              | :ref:`single-xml-office-term-type` for   | the implementation is required to ignore |
+|              |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartDate    | ``xs:date``                        | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
 |              |                                    |              |              | term of the office.                      | then the implementation is required to   |
@@ -1215,7 +1211,7 @@ OrderedContest
 
 ``OrderedContest`` encapsulates links to the information that comprises a contest and potential
 ballot selections. ``OrderedContest`` elements can be collected within a
-:doc:`BallotStyle <ballot_style>` to accurate depict exactly what will show up on a particular
+:ref:`single-xml-ballot-style` to accurate depict exactly what will show up on a particular
 ballot in the proper order.
 
 +--------------------------+--------------+--------------+--------------+------------------------------------------+--------------------------------------------------+
@@ -1307,8 +1303,7 @@ PartyContest
 ~~~~~~~~~~~~
 
 An extension of :ref:`single-xml-contest-base` which describes a contest in
-which the possible ballot selections are of type :doc:`PartySelection
-<party_selection>`. These could include contests in which straight-party
+which the possible ballot selections are of type :ref:`single-xml-party-selection`. These could include contests in which straight-party
 selections are allowed, or party-list contests (although these are more common
 outside of the United States).
 
@@ -1339,11 +1334,11 @@ Person
 ``Person`` defines information about a person. The person may be a candidate, election administrator,
 or elected official. These elements reference ``Person``:
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
-* :doc:`ElectionAdministration <election_administration>`
+* :ref:`single-xml-election-administration`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -1362,10 +1357,9 @@ or elected official. These elements reference ``Person``:
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | FullName           | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
 |                    |                                          |              |              | this information is                      | present, then the implementation is      |
-|                    |                                          |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
-|                    |                                          |              |              | <internationalized_text>` because it     |                                          |
-|                    |                                          |              |              | sometimes appears on ballots in multiple |                                          |
-|                    |                                          |              |              | languages).                              |                                          |
+|                    |                                          |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                          |              |              | because it sometimes appears on ballots  |                                          |
+|                    |                                          |              |              | in multiple languages).                  |                                          |
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LastName           | ``xs:string``                            | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
 |                    |                                          |              |              |                                          | then the implementation is required to   |
@@ -1389,10 +1383,9 @@ or elected official. These elements reference ``Person``:
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Profession         | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
 |                    |                                          |              |              | this information is                      | present, then the implementation is      |
-|                    |                                          |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
-|                    |                                          |              |              | <internationalized_text>` because it     |                                          |
-|                    |                                          |              |              | sometimes appears on ballots in multiple |                                          |
-|                    |                                          |              |              | languages).                              |                                          |
+|                    |                                          |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                          |              |              | because it sometimes appears on ballots  |                                          |
+|                    |                                          |              |              | in multiple languages).                  |                                          |
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Suffix             | ``xs:string``                            | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
 |                    |                                          |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
@@ -1400,10 +1393,9 @@ or elected official. These elements reference ``Person``:
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Title              | :ref:`single-xml-internationalized-text` | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
 |                    |                                          |              |              | (**NB:** this information is             | present, then the implementation is      |
-|                    |                                          |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
-|                    |                                          |              |              | <internationalized_text>` because it     |                                          |
-|                    |                                          |              |              | sometimes appears on ballots in multiple |                                          |
-|                    |                                          |              |              | languages).                              |                                          |
+|                    |                                          |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                          |              |              | because it sometimes appears on ballots  |                                          |
+|                    |                                          |              |              | in multiple languages).                  |                                          |
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -1448,16 +1440,16 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 | Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
 | **[deprecated]** |                                          |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
 |                  |                                          |              |              | this element is deprecated in favor of   | required to ignore it.                   |
-|                  |                                          |              |              | the more structured :doc:`HoursOpen      |                                          |
-|                  |                                          |              |              | <hours_open>` element. It is strongly    |                                          |
-|                  |                                          |              |              | encouraged that data providers move      |                                          |
-|                  |                                          |              |              | toward contributing hours in this        |                                          |
-|                  |                                          |              |              | format).                                 |                                          |
+|                  |                                          |              |              | the more structured                      |                                          |
+|                  |                                          |              |              | :ref:`single-xml-hours-open` element. It |                                          |
+|                  |                                          |              |              | is strongly encouraged that data         |                                          |
+|                  |                                          |              |              | providers move toward contributing hours |                                          |
+|                  |                                          |              |              | in this format).                         |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | Links to an :doc:`HoursOpen              | If the field is invalid or not present,  |
-|                  |                                          |              |              | <hours_open>` element, which is a        | then the implementation is required to   |
-|                  |                                          |              |              | schedule of dates and hours during which | ignore it.                               |
-|                  |                                          |              |              | the polling location is available.       |                                          |
+| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | Links to an :ref:`single-xml-hours-open` | If the field is invalid or not present,  |
+|                  |                                          |              |              | element, which is a schedule of dates    | then the implementation is required to   |
+|                  |                                          |              |              | and hours during which the polling       | ignore it.                               |
+|                  |                                          |              |              | location is available.                   |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsDropBox        | ``xs:boolean``                           | Optional     | Single       | Indicates if this polling location is a  | If the field is invalid or not present,  |
 |                  |                                          |              |              | drop box.                                | then the implementation is required to   |
@@ -1525,7 +1517,7 @@ Precinct
 
 The Precinct object represents a precinct, which is contained within a Locality. While the id
 attribute does not have to be static across feeds for one election, the combination of
-:doc:`Source.VipId <source>`, :doc:`Locality.Name <locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
+:ref:`Source.VipId <single-xml-source>`, :ref:`Locality.Name <single-xml-locality>`, :ref:`Precinct.Ward <single-xml-precinct>`,
 :ref:`Precinct.Name <single-xml-precinct>`, and :ref:`Precinct.Number <single-xml-precinct>` should remain constant across
 feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
 non-required fields is fine).
@@ -1533,15 +1525,16 @@ non-required fields is fine).
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+========================================+==============+==============+==========================================+==========================================+
-| BallotStyleId       | ``xs:IDREF``                           | Optional     | Single       | Links to the :doc:`ballot style          | If the field is invalid or not present,  |
-|                     |                                        |              |              | <ballot_style>`, which a person who      | then the implementation is required to   |
-|                     |                                        |              |              | lives in this precinct will vote.        | ignore it.                               |
+| BallotStyleId       | ``xs:IDREF``                           | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
+|                     |                                        |              |              | :ref:`single-xml-ballot-style`, which a  | then the implementation is required to   |
+|                     |                                        |              |              | person who lives in this precinct will   | ignore it.                               |
+|                     |                                        |              |              | vote.                                    |                                          |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictId | ``xs:IDREF``                           | Optional     | Repeats      | Links to an :doc:`electoral district     | If the field is invalid or not present,  |
-|                     |                                        |              |              | <electoral_district>` (e.g.,             | then the implementation is required to   |
-|                     |                                        |              |              | congressional district, state house      | ignore it.                               |
-|                     |                                        |              |              | district, school board district) to      |                                          |
-|                     |                                        |              |              | which the precinct belongs. **Highly     |                                          |
+| ElectoralDistrictId | ``xs:IDREF``                           | Optional     | Repeats      | Links to an                              | If the field is invalid or not present,  |
+|                     |                                        |              |              | :ref:`single-xml-electoral-district`     | then the implementation is required to   |
+|                     |                                        |              |              | (e.g., congressional district, state     | ignore it.                               |
+|                     |                                        |              |              | house district, school board district)   |                                          |
+|                     |                                        |              |              | to which the precinct belongs. **Highly  |                                          |
 |                     |                                        |              |              | Recommended** if candidate information   |                                          |
 |                     |                                        |              |              | is to be provided. Multiple allowed and  |                                          |
 |                     |                                        |              |              | recommended to specify the geography of  |                                          |
@@ -1559,7 +1552,7 @@ non-required fields is fine).
 |                     |                                        |              |              | mail-only elections.                     | implementation is required to assume     |
 |                     |                                        |              |              |                                          | `IsMailOnly` is false.                   |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LocalityId          | ``xs:IDREF``                           | **Required** | Single       | Links to the :doc:`locality <locality>`  | If the field is invalid or not present,  |
+| LocalityId          | ``xs:IDREF``                           | **Required** | Single       | Links to the :ref:`single-xml-locality`  | If the field is invalid or not present,  |
 |                     |                                        |              |              | that comprises the precinct.             | the implementation is required to ignore |
 |                     |                                        |              |              |                                          | the precinct element containing it.      |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -1574,10 +1567,9 @@ non-required fields is fine).
 |                     |                                        |              |              | number.                                  |                                          |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId   | ``xs:IDREF``                           | Optional     | Repeats      | Specifies a link to the precinct's       | If the field is invalid or not present,  |
-|                     |                                        |              |              | :doc:`polling location                   | then the implementation is required to   |
-|                     |                                        |              |              | <polling_location>` object(s). Multiple  | ignore it.                               |
-|                     |                                        |              |              | `PollingLocationId` tags may be          |                                          |
-|                     |                                        |              |              | specified.                               |                                          |
+|                     |                                        |              |              | :ref:`single-xml-polling-location`       | then the implementation is required to   |
+|                     |                                        |              |              | object(s). Multiple `PollingLocationId`  | ignore it.                               |
+|                     |                                        |              |              | tags may be specified.                   |                                          |
 +---------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrecinctSplitName   | ``xs:string``                          | Optional     | Single       | Refers to name of the associated         | If the field is invalid or not present,  |
 |                     |                                        |              |              | precinct split.                          | then the implementation is required to   |
@@ -1617,8 +1609,8 @@ contest where a candidate is retained in a position (e.g. a judge).
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+==============+==============+==============+==========================================+==========================================+
-| CandidateId  | ``xs:IDREF`` | **Required** | Single       | Links to the :doc:`Candidate             | If the field is invalid or not present,  |
-|              |              |              |              | <candidate>` being retained.             | the implementation is required to ignore |
+| CandidateId  | ``xs:IDREF`` | **Required** | Single       | Links to the :ref:`single-xml-candidate` | If the field is invalid or not present,  |
+|              |              |              |              | being retained.                          | the implementation is required to ignore |
 |              |              |              |              |                                          | the ``RetentionContest`` element         |
 |              |              |              |              |                                          | containing it.                           |
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -1676,9 +1668,10 @@ the only required object in the feed file, and only one source object is allowed
 |                 |                                          |              |              | organization publishing the data.        | then the implementation is required to   |
 |                 |                                          |              |              |                                          | ignore it.                               |
 +-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FeedContactId   | ``xs:IDREF``                             | Optional     | Single       | Reference to the :doc:`person <person>`  | If the field is invalid or not present,  |
-|                 |                                          |              |              | who will respond to inquiries about the  | then the implementation is required to   |
-|                 |                                          |              |              | information contained within the file.   | ignore it.                               |
+| FeedContactId   | ``xs:IDREF``                             | Optional     | Single       | Reference to the                         | If the field is invalid or not present,  |
+|                 |                                          |              |              | :ref:`single-xml-person` who will        | then the implementation is required to   |
+|                 |                                          |              |              | respond to inquiries about the           | ignore it.                               |
+|                 |                                          |              |              | information contained within the file.   |                                          |
 +-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | TouUri          | ``xs:anyURI``                            | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
 |                 |                                          |              |              | Use for the information in this file can | then the implementation is required to   |
@@ -1728,13 +1721,14 @@ recommended to be the state's FIPS code, along with the prefix "st".
 |                          |                                        |              |              | Alabama.                                 | implementation is required to ignore it. |
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationId        | ``xs:IDREF``                           | Optional     | Repeats      | Specifies a link to the state's          | If the field is invalid or not present,  |
-|                          |                                        |              |              | :doc:`polling locations                  | then the implementation is required to   |
-|                          |                                        |              |              | <polling_location>`. If early vote       | ignore it.                               |
-|                          |                                        |              |              | centers or ballot drop locations are     |                                          |
-|                          |                                        |              |              | state-wide (e.g., anyone in the state    |                                          |
-|                          |                                        |              |              | can use them), they can be specified     |                                          |
-|                          |                                        |              |              | here, but you are encouraged to only use |                                          |
-|                          |                                        |              |              | the :doc:`Precinct <precinct>` element.  |                                          |
+|                          |                                        |              |              | :ref:`polling locations                  | then the implementation is required to   |
+|                          |                                        |              |              | <single-xml-polling-location>`. If early | ignore it.                               |
+|                          |                                        |              |              | vote centers or ballot drop locations    |                                          |
+|                          |                                        |              |              | are state-wide (e.g., anyone in the      |                                          |
+|                          |                                        |              |              | state can use them), they can be         |                                          |
+|                          |                                        |              |              | specified here, but you are encouraged   |                                          |
+|                          |                                        |              |              | to only use the                          |                                          |
+|                          |                                        |              |              | :ref:`single-xml-precinct` element.      |                                          |
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
@@ -1788,9 +1782,9 @@ are equal.
 |                      |                            |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
 |                      |                            |              |              | the street segment.                      |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctId           | ``xs:IDREF``               | Optional     | Single       | References the :doc:`precinct            | If the field is not present or invalid,  |
-|                      |                            |              |              | <precinct>` that contains the entire     | the implementation is required to ignore |
-|                      |                            |              |              | street segment.                          | the StreetSegment element containing it. |
+| PrecinctId           | ``xs:IDREF``               | Optional     | Single       | References the                           | If the field is not present or invalid,  |
+|                      |                            |              |              | :ref:`single-xml-precinct` that contains | the implementation is required to ignore |
+|                      |                            |              |              | the entire street segment.               | the StreetSegment element containing it. |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartHouseNumber     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** is true, |
 |                      |                            |              |              | segment starts. This value is necessary  | if the field is not present or invalid,  |

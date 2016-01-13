@@ -32,9 +32,10 @@ the only required object in the feed file, and only one source object is allowed
 |                 |                                         |              |              | organization publishing the data.        | then the implementation is required to   |
 |                 |                                         |              |              |                                          | ignore it.                               |
 +-----------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FeedContactId   | ``xs:IDREF``                            | Optional     | Single       | Reference to the :doc:`person <person>`  | If the field is invalid or not present,  |
-|                 |                                         |              |              | who will respond to inquiries about the  | then the implementation is required to   |
-|                 |                                         |              |              | information contained within the file.   | ignore it.                               |
+| FeedContactId   | ``xs:IDREF``                            | Optional     | Single       | Reference to the                         | If the field is invalid or not present,  |
+|                 |                                         |              |              | :ref:`single-xml-person` who will        | then the implementation is required to   |
+|                 |                                         |              |              | respond to inquiries about the           | ignore it.                               |
+|                 |                                         |              |              | information contained within the file.   |                                          |
 +-----------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | TouUri          | ``xs:anyURI``                           | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
 |                 |                                         |              |              | Use for the information in this file can | then the implementation is required to   |

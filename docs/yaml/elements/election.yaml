@@ -70,14 +70,14 @@ tags:
 - _name: PollingHours **[deprecated]**
   description: 'Contains the hours (in local time) that Election Day polling locations
     are open. If polling hours differ in specific polling locations, alternative hours
-    may be specified in the :doc:`PollingLocation <polling_location>` object *(NB:
-    this element is deprecated in favor of the more structured :doc:`HoursOpen <hours_open>`
-    element. It is strongly encouraged that data providers move toward contributing
-    hours in this format)*.'
+    may be specified in the :ref:`single-xml-polling-location` object *(NB: this element
+    is deprecated in favor of the more structured :ref:`single-xml-hours-open` element.
+    It is strongly encouraged that data providers move toward contributing hours in
+    this format)*.'
   error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
-  description: References the :doc:`HoursOpen <hours_open>` element, which lists the
+  description: References the :ref:`single-xml-hours-open` element, which lists the
     hours of operation for polling locations.
   error_then: =must-ignore
   type: xs:IDREF

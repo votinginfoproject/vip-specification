@@ -7,8 +7,8 @@ ContactInformation
 
 For defining contact information about objects such as persons, boards of authorities,
 organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-:doc:`ElectionAdministration <election_administration>`, :doc:`Office <office>`,
-:doc:`Person <person>`, :doc:`Source <source>`). ContactInformation has an optional attribute
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
 ``label``, which allows the feed to refer back to the original label for the information
 (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 
@@ -30,14 +30,15 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
 | **[deprecated]** |                                         |              |              | the location is open *(NB: this element  | present, then the implementation is      |
 |                  |                                         |              |              | is deprecated in favor of the more       | required to ignore it.                   |
-|                  |                                         |              |              | structured :doc:`HoursOpen <hours_open>` |                                          |
+|                  |                                         |              |              | structured :ref:`single-xml-hours-open`  |                                          |
 |                  |                                         |              |              | element. It is strongly encouraged that  |                                          |
 |                  |                                         |              |              | data providers move toward contributing  |                                          |
 |                  |                                         |              |              | hours in this format)*.                  |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an :doc:`HoursOpen            | If the field is invalid or not present,  |
-|                  |                                         |              |              | <hours_open>` element, which lists the   | then the implementation is required to   |
-|                  |                                         |              |              | hours of operation for a location.       | ignore it.                               |
+| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                  |                                         |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                         |              |              | which lists the hours of operation for a | ignore it.                               |
+|                  |                                         |              |              | location.                                |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
 |                  |                                         |              |              | `See usage note.`_                       | then the implementation is required to   |

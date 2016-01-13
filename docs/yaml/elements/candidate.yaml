@@ -46,7 +46,7 @@ tags:
   error_then: =must-ignore
   type: xs:IDREF
 - _name: PersonId
-  description: Reference to a :doc:`Person <person>` element with additional information
+  description: Reference to a :ref:`single-xml-person` element with additional information
     about the candidate.
   error_then: =must-ignore
   type: xs:IDREF

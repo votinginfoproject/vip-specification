@@ -8,11 +8,11 @@ Person
 ``Person`` defines information about a person. The person may be a candidate, election administrator,
 or elected official. These elements reference ``Person``:
 
-* :doc:`Candidate <candidate>`
+* :ref:`single-xml-candidate`
 
-* :doc:`ElectionAdministration <election_administration>`
+* :ref:`single-xml-election-administration`
 
-* :doc:`Office <office>`
+* :ref:`single-xml-office`
 
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -31,10 +31,9 @@ or elected official. These elements reference ``Person``:
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | FullName           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
 |                    |                                         |              |              | this information is                      | present, then the implementation is      |
-|                    |                                         |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
-|                    |                                         |              |              | <internationalized_text>` because it     |                                          |
-|                    |                                         |              |              | sometimes appears on ballots in multiple |                                          |
-|                    |                                         |              |              | languages).                              |                                          |
+|                    |                                         |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
+|                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LastName           | ``xs:string``                           | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
 |                    |                                         |              |              |                                          | then the implementation is required to   |
@@ -58,10 +57,9 @@ or elected official. These elements reference ``Person``:
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Profession         | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
 |                    |                                         |              |              | this information is                      | present, then the implementation is      |
-|                    |                                         |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
-|                    |                                         |              |              | <internationalized_text>` because it     |                                          |
-|                    |                                         |              |              | sometimes appears on ballots in multiple |                                          |
-|                    |                                         |              |              | languages).                              |                                          |
+|                    |                                         |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
+|                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Suffix             | ``xs:string``                           | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
 |                    |                                         |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
@@ -69,10 +67,9 @@ or elected official. These elements reference ``Person``:
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Title              | :ref:`multi-xml-internationalized-text` | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
 |                    |                                         |              |              | (**NB:** this information is             | present, then the implementation is      |
-|                    |                                         |              |              | :doc:`InternationalizedText              | required to ignore it.                   |
-|                    |                                         |              |              | <internationalized_text>` because it     |                                          |
-|                    |                                         |              |              | sometimes appears on ballots in multiple |                                          |
-|                    |                                         |              |              | languages).                              |                                          |
+|                    |                                         |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
+|                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
+|                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

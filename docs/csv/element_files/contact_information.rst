@@ -3,8 +3,8 @@ contact_information.txt
 
 For defining contact information about objects such as persons, boards of authorities,
 organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-:doc:`ElectionAdministration <election_administration>`, :doc:`Office <office>`,
-:doc:`Person <person>`, :doc:`Source <source>`). ContactInformation has an optional attribute
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
 ``label``, which allows the feed to refer back to the original label for the information
 (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 

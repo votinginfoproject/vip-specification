@@ -3,8 +3,8 @@
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+==============+==============+==============+==========================================+==========================================+
-| CandidateId  | ``xs:IDREF`` | **Required** | Single       | Links to the :doc:`Candidate             | If the field is invalid or not present,  |
-|              |              |              |              | <candidate>` being retained.             | the implementation is required to ignore |
+| CandidateId  | ``xs:IDREF`` | **Required** | Single       | Links to the :ref:`single-xml-candidate` | If the field is invalid or not present,  |
+|              |              |              |              | being retained.                          | the implementation is required to ignore |
 |              |              |              |              |                                          | the ``RetentionContest`` element         |
 |              |              |              |              |                                          | containing it.                           |
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+

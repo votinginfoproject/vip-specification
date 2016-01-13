@@ -1,7 +1,7 @@
 locality.txt
 ============
 
-The locality.txt file represents the jurisdictions below the :doc:`state <state>` (e.g. county).
+The locality.txt file represents the jurisdictions below the :ref:`single-xml-state` (e.g. county).
 
 .. include:: ../../built_rst/tables/elements/locality.rst
 

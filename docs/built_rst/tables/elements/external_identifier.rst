@@ -5,14 +5,13 @@
 +==============+==================================+==============+==============+==========================================+==========================================+
 | Type         | :ref:`multi-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
 |              |                                  |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                                  |              |              | :doc:`IdentifierType                     | the ``ElectionIdentifier`` containing    |
-|              |                                  |              |              | <../enumerations/identifier_type>`.      | it.                                      |
+|              |                                  |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                  |              |              |                                          | it.                                      |
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType    | ``xs:string``                    | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
 |              |                                  |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
 |              |                                  |              |              | outside the options listed in            | ignore it.                               |
-|              |                                  |              |              | :doc:`IdentifierType                     |                                          |
-|              |                                  |              |              | <../enumerations/identifier_type>`.      |                                          |
+|              |                                  |              |              | :ref:`single-xml-identifier-type`.       |                                          |
 |              |                                  |              |              | ``Type`` should be set to "other" when   |                                          |
 |              |                                  |              |              | using this field.                        |                                          |
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

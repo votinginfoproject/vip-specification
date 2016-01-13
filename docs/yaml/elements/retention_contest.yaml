@@ -20,7 +20,7 @@ post: |-
      </RetentionContest>
 tags:
 - _name: CandidateId
-  description: Links to the :doc:`Candidate <candidate>` being retained.
+  description: Links to the :ref:`single-xml-candidate` being retained.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``RetentionContest`` element containing it.
   required: true
