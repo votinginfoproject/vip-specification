@@ -10,23 +10,23 @@ ballot selections. ``OrderedContest`` elements can be collected within a
 :ref:`multi-xml-ballot-style` to accurate depict exactly what will show up on a particular
 ballot in the proper order.
 
-+--------------------------+--------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
-| Tag                      | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                                  |
-+==========================+==============+==============+==============+==========================================+=================================================+
-| ContestId                | ``xs:IDREF`` | **Required** | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
-|                          |              |              |              | :ref:`multi-xml-contest-base`.           | implementation is required to ignore the        |
-|                          |              |              |              |                                          | ``OrderedContest`` element containing it.       |
-+--------------------------+--------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
-| OrderedBallotSelectionId | ``xs:IDREF`` | Optional     | Repeats      | Links to elements that extend            | If the field is invalid or not present, the     |
-|                          |              |              |              | :ref:`multi-xml-ballot-selection-base`.  | implementation is required to ignore it. If no  |
-|                          |              |              |              |                                          | ``OrderedBallotSelectionId`` elements are       |
-|                          |              |              |              |                                          | present, the presumed order of the selection    |
-|                          |              |              |              |                                          | will be the order of                            |
-|                          |              |              |              |                                          | :ref:`multi-xml-ballot-selection-base`-extended |
-|                          |              |              |              |                                          | elements referenced by the underlying           |
-|                          |              |              |              |                                          | :ref:`multi-xml-contest-base`-extended          |
-|                          |              |              |              |                                          | elements.                                       |
-+--------------------------+--------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
++---------------------------+---------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
+| Tag                       | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                                  |
++===========================+===============+==============+==============+==========================================+=================================================+
+| ContestId                 | ``xs:IDREF``  | **Required** | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
+|                           |               |              |              | :ref:`multi-xml-contest-base`.           | implementation is required to ignore the        |
+|                           |               |              |              |                                          | ``OrderedContest`` element containing it.       |
++---------------------------+---------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
+| OrderedBallotSelectionIds | ``xs:IDREFS`` | Optional     | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
+|                           |               |              |              | :ref:`multi-xml-ballot-selection-base`.  | implementation is required to ignore it. If a   |
+|                           |               |              |              |                                          | ``OrderedBallotSelectionIds`` element is not    |
+|                           |               |              |              |                                          | present, the presumed order of the selection    |
+|                           |               |              |              |                                          | will be the order of                            |
+|                           |               |              |              |                                          | :ref:`multi-xml-ballot-selection-base`-extended |
+|                           |               |              |              |                                          | elements referenced by the underlying           |
+|                           |               |              |              |                                          | :ref:`multi-xml-contest-base`-extended          |
+|                           |               |              |              |                                          | elements.                                       |
++---------------------------+---------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
 
 .. code-block:: xml
    :linenos:

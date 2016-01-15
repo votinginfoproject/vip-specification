@@ -3,11 +3,10 @@ description: |-
   This element extends :ref:`$$$-ballot-selection-base` to
   support contests in which the selections can be groups of one or more parties.
 tags:
-- _name: PartyId
+- _name: PartyIds
   description: One or more :ref:`$$$-party` IDs which collectively represent a ballot
     selection.
   error: If one or more parties referenced are invalid or not present, the implementation
     is required to ignore the PartySelection containing it.
-  repeating: true
   required: true
-  type: xs:IDREF
+  type: xs:IDREFS

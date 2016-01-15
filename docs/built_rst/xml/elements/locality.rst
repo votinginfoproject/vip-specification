@@ -22,9 +22,9 @@ The Locality object represents the jurisdiction below the :ref:`multi-xml-state`
 |                          |                                       |              |              |                                          | the implementation is required to ignore |
 |                          |                                       |              |              |                                          | the Locality element containing it.      |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingLocationId        | ``xs:IDREF``                          | Optional     | Repeats      | Specifies a link to the locality's       | If the field is invalid or not present,  |
-|                          |                                       |              |              | :ref:`polling locations                  | the implementation is required to ignore |
-|                          |                                       |              |              | <multi-xml-polling-location>`. If early  | it. However, the implementation should   |
+| PollingLocationIds       | ``xs:IDREFS``                         | Optional     | Single       | Specifies a link to a set of the         | If the field is invalid or not present,  |
+|                          |                                       |              |              | locality's :ref:`polling locations       | the implementation is required to ignore |
+|                          |                                       |              |              | <multi-xml-polling-location>`s. If early | it. However, the implementation should   |
 |                          |                                       |              |              | vote centers or ballot drop locations    | still check to see if there are any      |
 |                          |                                       |              |              | are locality-wide, they should be        | polling locations associated with this   |
 |                          |                                       |              |              | specified here.                          | locality's state.                        |

@@ -38,12 +38,11 @@ tags:
     ignore the ``Office`` element containing it.
   required: true
   type: InternationalizedText
-- _name: OfficeHolderPersonId
+- _name: OfficeHolderPersonIds
   description: Links to the :ref:`$$$-person` element(s) that hold additional information
     about the current office holder(s).
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: Term
   description: Defines the term the office can be held.
   error_then: =must-ignore

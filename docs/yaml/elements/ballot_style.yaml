@@ -17,13 +17,11 @@ tags:
   description: Specifies a URI that returns an image of the sample ballot.
   error_then: =must-ignore
   type: xs:anyURI
-- _name: OrderedContestId
-  description: Reference to an :ref:`$$$-ordered-contest`
+- _name: OrderedContestIds
+  description: Reference to a set of :ref:`$$$-ordered-contest`s
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
-- _name: PartyId
-  description: Reference to a :ref:`$$$-party`.
+  type: xs:IDREFS
+- _name: PartyIds
+  description: Reference to a set of :ref:`$$$-party`s.
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS

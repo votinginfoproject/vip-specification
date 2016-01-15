@@ -471,183 +471,172 @@
 
   <!-- The different contests that may appear on the different ballot styles. -->
   <CandidateContest id="cc20002">
-    <BallotSelectionId>cs10861</BallotSelectionId>
-    <BallotSelectionId>cs10862</BallotSelectionId>
+    <BallotSelectionIds>cs10861 cs10862</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">President and Vice-President of the United States</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>President and Vice-President</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off9999</OfficeId>
+    <OfficeIds>off9999</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20003">
-    <BallotSelectionId>cs10961</BallotSelectionId>
-    <BallotSelectionId>cs10962</BallotSelectionId>
-    <BallotSelectionId>cs10963</BallotSelectionId>
+    <BallotSelectionIds>cs10961 cs10962 cs10963</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Governor of Virginia</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>Governor</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off0000</OfficeId>
+    <OfficeIds>off0000</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20004">
-    <BallotSelectionId>cs10961</BallotSelectionId>
-    <BallotSelectionId>cs10962</BallotSelectionId>
-    <BallotSelectionId>cs10963</BallotSelectionId>
+    <BallotSelectionIds>cs10961 cs10962 cs10963</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Lieutenant Governor of Virginia</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>Lieutenant Governor</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off0001</OfficeId>
+    <OfficeIds>off0001</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20005">
-    <BallotSelectionId>cs10964</BallotSelectionId>
-    <BallotSelectionId>cs10965</BallotSelectionId>
+    <BallotSelectionIds>cs10964 cs10965</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Attorney General</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>Attorney General</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20005</OfficeId>
+    <OfficeIds>off20005</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20024">
-    <BallotSelectionId>cs10422</BallotSelectionId>
+    <BallotSelectionIds>cs10422</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member House of Delegates</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60150</ElectoralDistrictId>
     <Name>Member House of Delegates</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20024</OfficeId>
+    <OfficeIds>off20024</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20025">
-    <BallotSelectionId>cs10388</BallotSelectionId>
+    <BallotSelectionIds>cs10388</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member House of Delegates</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60311</ElectoralDistrictId>
     <Name>Member House of Delegates</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20025</OfficeId>
+    <OfficeIds>off20025</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20033">
-    <BallotSelectionId>cs10466</BallotSelectionId>
+    <BallotSelectionIds>cs10466</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member House of Delegates</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60107</ElectoralDistrictId>
     <Name>Member House of Delegates</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20033</OfficeId>
+    <OfficeIds>off20033</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20100">
-    <BallotSelectionId>cs10438</BallotSelectionId>
+    <BallotSelectionIds>cs10438</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member House of Delegates</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60076</ElectoralDistrictId>
     <Name>Member House of Delegates</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20100</OfficeId>
+    <OfficeIds>off20100</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20262">
-    <BallotSelectionId>cs10079</BallotSelectionId>
-    <BallotSelectionId>cs10080</BallotSelectionId>
+    <BallotSelectionIds>cs10079 cs10080</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member Board of Supervisors</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60103</ElectoralDistrictId>
     <Name>Member Board of Supervisors</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20262</OfficeId>
+    <OfficeIds>off20262</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20305">
-    <BallotSelectionId>cs10075</BallotSelectionId>
-    <BallotSelectionId>cs10076</BallotSelectionId>
+    <BallotSelectionIds>cs10075 cs10076</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member Board of Supervisors</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60054</ElectoralDistrictId>
     <Name>Member Board of Supervisors</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20305</OfficeId>
+    <OfficeIds>off20305</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20350">
-    <BallotSelectionId>cs10073</BallotSelectionId>
-    <BallotSelectionId>cs10074</BallotSelectionId>
+    <BallotSelectionIds>cs10073 cs10074</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member Board of Supervisors</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60030</ElectoralDistrictId>
     <Name>Member Board of Supervisors</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20350</OfficeId>
+    <OfficeIds>off20350</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20355">
-    <BallotSelectionId>cs10077</BallotSelectionId>
-    <BallotSelectionId>cs10078</BallotSelectionId>
+    <BallotSelectionIds>cs10077 cs10078</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member Board of Supervisors</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60081</ElectoralDistrictId>
     <Name>Member Board of Supervisors</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20355</OfficeId>
+    <OfficeIds>off20355</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20449">
-    <BallotSelectionId>cs10214</BallotSelectionId>
+    <BallotSelectionIds>cs10214</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member School Board</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60081</ElectoralDistrictId>
     <Name>Member School Board</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20449</OfficeId>
+    <OfficeIds>off20449</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20473">
-    <BallotSelectionId>cs10215</BallotSelectionId>
+    <BallotSelectionIds>cs10215</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member School Board</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60030</ElectoralDistrictId>
     <Name>Member School Board</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20473</OfficeId>
+    <OfficeIds>off20473</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20476">
-    <BallotSelectionId>cs10213</BallotSelectionId>
+    <BallotSelectionIds>cs10213</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member School Board</Text>
     </BallotTitle>
     <ElectoralDistrictId>ed60054</ElectoralDistrictId>
     <Name>Member School Board</Name>
     <NumberElected>1</NumberElected>
-    <OfficeId>off20476</OfficeId>
+    <OfficeIds>off20476</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <BallotMeasureContest id="bmc30001">
-    <BallotSelectionId>bms30001a</BallotSelectionId>
-    <BallotSelectionId>bms30001b</BallotSelectionId>
+    <BallotSelectionIds>bms30001a bms30001b</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">State of the State</Text>
       <Text language="es">Estado del Estado.</Text>
@@ -673,8 +662,7 @@
        and documentation purposes only.
     -->
   <RetentionContest id="rc40001">
-    <BallotSelectionId>rc40001a</BallotSelectionId>
-    <BallotSelectionId>rc40001b</BallotSelectionId>
+    <BallotSelectionIds>rc40001a rc40001b</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Retention of Supreme Court Justice</Text>
       <Text language="es">La retención de juez de la Corte Suprema</Text>
@@ -687,133 +675,45 @@
 
   <!-- The various ballot styles in use by the different precincts. -->
   <BallotStyle id="bs00000">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003abc</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20025</OrderedContestId>
-    <OrderedContestId>oc20355</OrderedContestId>
-    <OrderedContestId>oc20449</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003abc oc20004 oc20005 oc20025 oc20355 oc20449 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00001">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003bca</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20033</OrderedContestId>
-    <OrderedContestId>oc20350</OrderedContestId>
-    <OrderedContestId>oc20473</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003bca oc20004 oc20005 oc20033 oc20350 oc20473 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00002">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003cab</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20024</OrderedContestId>
-    <OrderedContestId>oc20305</OrderedContestId>
-    <OrderedContestId>oc20476</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003cab oc20004 oc20005 oc20024 oc20305 oc20476 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00003">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003abc</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20100</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003abc oc20004 oc20005 oc20100 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00004">
-    <OrderedContestId>oc20003bca</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20024</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20003bca oc20004 oc20005 oc20024 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00005">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003cab</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20025</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003cab oc20004 oc20005 oc20025 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00006">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003abc</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20024</OrderedContestId>
-    <OrderedContestId>oc20350</OrderedContestId>
-    <OrderedContestId>oc20473</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003abc oc20004 oc20005 oc20024 oc20350 oc20473 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00007">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003bca</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20100</OrderedContestId>
-    <OrderedContestId>oc20355</OrderedContestId>
-    <OrderedContestId>oc20449</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003bca oc20004 oc20005 oc20100 oc20355 oc20449 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00008">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003cab</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20025</OrderedContestId>
-    <OrderedContestId>oc20100</OrderedContestId>
-    <OrderedContestId>oc20355</OrderedContestId>
-    <OrderedContestId>oc20449</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003cab oc20004 oc20005 oc20025 oc20100 oc20355 oc20449 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00009">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003abc</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20100</OrderedContestId>
-    <OrderedContestId>oc20262</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003abc oc20004 oc20005 oc20100 oc20262 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00010">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003bca</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20025</OrderedContestId>
-    <OrderedContestId>oc20305</OrderedContestId>
-    <OrderedContestId>oc20476</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003bca oc20004 oc20005 oc20025 oc20305 oc20476 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
   <BallotStyle id="bs00011">
-    <OrderedContestId>oc20002</OrderedContestId>
-    <OrderedContestId>oc20003cab</OrderedContestId>
-    <OrderedContestId>oc20004</OrderedContestId>
-    <OrderedContestId>oc20005</OrderedContestId>
-    <OrderedContestId>oc20025</OrderedContestId>
-    <OrderedContestId>oc20262</OrderedContestId>
-    <OrderedContestId>oc30001</OrderedContestId>
-    <OrderedContestId>oc40001</OrderedContestId>
+    <OrderedContestIds>oc20002 oc20003cab oc20004 oc20005 oc20025 oc20262 oc30001 oc40001</OrderedContestIds>
   </BallotStyle>
 
   <!--
        The ordered contests. These can optionally support ballot rotation by
-       specifying a different ordering of BallotSelectionId elements than are
+       specifying a different ordering of BallotSelectionIds elements than are
        defined in the original contest.
     -->
   <OrderedContest id="oc20262">
@@ -831,21 +731,15 @@
   <!-- Start of ballot rotation examples for the gubenatorial race. -->
   <OrderedContest id="oc20003abc">
     <ContestId>cc20003</ContestId>
-    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
-    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
-    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+    <OrderedBallotSelectionIds>cs10961 cs10962 cs10963</OrderedBallotSelectionIds>
   </OrderedContest>
   <OrderedContest id="oc20003bca">
     <ContestId>cc20003</ContestId>
-    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
-    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
-    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
+    <OrderedBallotSelectionIds>cs10962 cs10963 cs10961</OrderedBallotSelectionIds>
   </OrderedContest>
   <OrderedContest id="oc20003cab">
     <ContestId>cc20003</ContestId>
-    <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
-    <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
-    <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
+    <OrderedBallotSelectionIds>cs10963 cs10961 cs10962</OrderedBallotSelectionIds>
   </OrderedContest>
   <!-- End of ballot rotation for gubenatorial race. -->
   <OrderedContest id="oc20005">
@@ -890,9 +784,8 @@
        actual candidates and people underlying those selections.
     -->
   <CandidateSelection id="cs10861">
-    <CandidateId>can10861a</CandidateId>
-    <CandidateId>can10861b</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10861a can10861b</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10861a">
     <BallotName>
@@ -930,9 +823,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10862">
-    <CandidateId>can10862a</CandidateId>
-    <CandidateId>can10862b</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10862a can10862b</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10862a">
     <BallotName>
@@ -967,8 +859,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10961">
-    <CandidateId>can10961</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10961</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10961">
     <BallotName>
@@ -992,8 +884,8 @@
     <Suffix>II</Suffix>
   </Person>
   <CandidateSelection id="cs10962">
-    <CandidateId>can10962</CandidateId>
-    <EndorsementPartyId>par0002</EndorsementPartyId>
+    <CandidateIds>can10962</CandidateIds>
+    <EndorsementPartyIds>par0002</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10962">
     <BallotName>
@@ -1015,8 +907,8 @@
     <PartyId>par0002</PartyId>
   </Person>
   <CandidateSelection id="cs10963">
-    <CandidateId>can10963</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10963</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10963">
     <BallotName>
@@ -1039,8 +931,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10966">
-    <CandidateId>can10966</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10966</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10966">
     <BallotName>
@@ -1063,8 +955,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10967">
-    <CandidateId>can10967</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10967</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10967">
     <BallotName>
@@ -1088,8 +980,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10964">
-    <CandidateId>can10964</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10964</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10964">
     <BallotName>
@@ -1112,8 +1004,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10965">
-    <CandidateId>can10965</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10965</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10965">
     <BallotName>
@@ -1153,8 +1045,8 @@
   </Person>
   <!-- End Judicial candidate block -->
   <CandidateSelection id="cs10422">
-    <CandidateId>can10422</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10422</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10422">
     <BallotName>
@@ -1178,8 +1070,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10388">
-    <CandidateId>can10388</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10388</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10388">
     <BallotName>
@@ -1202,8 +1094,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10466">
-    <CandidateId>can10466</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10466</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10466">
     <BallotName>
@@ -1226,8 +1118,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10438">
-    <CandidateId>can10438</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10438</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10438">
     <BallotName>
@@ -1250,8 +1142,8 @@
     <Suffix>III</Suffix>
   </Person>
   <CandidateSelection id="cs10079">
-    <CandidateId>can10079</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10079</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10079">
     <BallotName>
@@ -1274,8 +1166,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10080">
-    <CandidateId>can10080</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10080</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10080">
     <BallotName>
@@ -1299,8 +1191,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10075">
-    <CandidateId>can10075</CandidateId>
-    <EndorsementPartyId>par0004</EndorsementPartyId>
+    <CandidateIds>can10075</CandidateIds>
+    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10075">
     <BallotName>
@@ -1322,8 +1214,8 @@
     <PartyId>par0004</PartyId>
   </Person>
   <CandidateSelection id="cs10076">
-    <CandidateId>can10076</CandidateId>
-    <EndorsementPartyId>par0004</EndorsementPartyId>
+    <CandidateIds>can10076</CandidateIds>
+    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10076">
     <BallotName>
@@ -1345,8 +1237,8 @@
     <PartyId>par0004</PartyId>
   </Person>
   <CandidateSelection id="cs10073">
-    <CandidateId>can10073</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10073</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10073">
     <BallotName>
@@ -1369,8 +1261,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10074">
-    <CandidateId>can10074</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10074</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10074">
     <BallotName>
@@ -1393,8 +1285,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10077">
-    <CandidateId>can10077</CandidateId>
-    <EndorsementPartyId>par0001</EndorsementPartyId>
+    <CandidateIds>can10077</CandidateIds>
+    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10077">
     <BallotName>
@@ -1417,8 +1309,8 @@
     <PartyId>par0001</PartyId>
   </Person>
   <CandidateSelection id="cs10078">
-    <CandidateId>can10078</CandidateId>
-    <EndorsementPartyId>par0003</EndorsementPartyId>
+    <CandidateIds>can10078</CandidateIds>
+    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10078">
     <BallotName>
@@ -1442,8 +1334,8 @@
     <PartyId>par0003</PartyId>
   </Person>
   <CandidateSelection id="cs10214">
-    <CandidateId>can10214</CandidateId>
-    <EndorsementPartyId>par0004</EndorsementPartyId>
+    <CandidateIds>can10214</CandidateIds>
+    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10214">
     <BallotName>
@@ -1465,8 +1357,8 @@
     <PartyId>par0004</PartyId>
   </Person>
   <CandidateSelection id="cs10215">
-    <CandidateId>can10215</CandidateId>
-    <EndorsementPartyId>par0004</EndorsementPartyId>
+    <CandidateIds>can10215</CandidateIds>
+    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10215">
     <BallotName>
@@ -1488,8 +1380,8 @@
     <PartyId>par0004</PartyId>
   </Person>
   <CandidateSelection id="cs10213">
-    <CandidateId>can10213</CandidateId>
-    <EndorsementPartyId>par0004</EndorsementPartyId>
+    <CandidateIds>can10213</CandidateIds>
+    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10213">
     <BallotName>
@@ -1786,9 +1678,7 @@
     -->
   <Precinct id="pre99999">
     <BallotStyleId>bs00000</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60311 ed60081</ElectoralDistrictIds>
     <IsMailOnly>true</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>9999 - PERMANENT MAIL-IN</Name>
@@ -1796,392 +1686,283 @@
   </Precinct>
   <Precinct id="pre90111">
     <BallotStyleId>bs00010</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60311 ed60054</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>203 - GEORGETOWN</Name>
     <Number>0203</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81274</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81274</PollingLocationIds>
   </Precinct>
   <Precinct id="pre90139">
     <BallotStyleId>bs00000</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60311 ed60081</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>103 - BRANCHLANDS</Name>
     <Number>0103</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80232</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80232</PollingLocationIds>
   </Precinct>
   <Precinct id="pre90183">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>602 - FREE UNION</Name>
     <Number>0602</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81853</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81853</PollingLocationIds>
   </Precinct>
   <Precinct id="pre90348sp0000">
     <BallotStyleId>bs00002</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60054 ed60150</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81662</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81662</PollingLocationIds>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre90348sp0001">
     <BallotStyleId>bs00002</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60054</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60054 ed60150</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>201 - JACK JOUETT</Name>
     <Number>0201</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81662</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81662</PollingLocationIds>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre90614">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>503 - HOLLYMEAD</Name>
     <Number>0503</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80142</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80142</PollingLocationIds>
   </Precinct>
   <Precinct id="pre90666">
     <BallotStyleId>bs00000</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60081 ed60311</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>105 - DUNLORA</Name>
     <Number>0105</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80522</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80522</PollingLocationIds>
   </Precinct>
   <Precinct id="pre90929">
     <BallotStyleId>bs00009</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076 ed60103</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>406 - STONE ROBINSON</Name>
     <Number>0406</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81500</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81500</PollingLocationIds>
   </Precinct>
   <Precinct id="pre90994sp0000">
     <BallotStyleId>bs00005</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60311</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80469</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80469</PollingLocationIds>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre90994sp0001">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>504 - FREE BRIDGE</Name>
     <Number>0504</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80469</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80469</PollingLocationIds>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre91089sp0000">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81516</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81516</PollingLocationIds>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre91089sp0001">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>502 - STONY POINT</Name>
     <Number>0502</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81516</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81516</PollingLocationIds>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre91298">
     <BallotStyleId>bs00007</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076 ed60081</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>106 - NORTHSIDE</Name>
     <Number>0106</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl82419</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl82419</PollingLocationIds>
   </Precinct>
   <Precinct id="pre91602">
     <BallotStyleId>bs00010</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60311 ed60054</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>202 - UNIVERSITY HALL</Name>
     <Number>0202</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81466</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81466</PollingLocationIds>
   </Precinct>
   <Precinct id="pre91781sp0000">
     <BallotStyleId>bs00008</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60311 ed60076 ed60081</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81857</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81857</PollingLocationIds>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre91781sp0001">
     <BallotStyleId>bs00000</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60081 ed60311</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>101 - WOODBROOK</Name>
     <Number>0101</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81857</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81857</PollingLocationIds>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre91918">
     <BallotStyleId>bs00001</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60107</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60107 ed60030</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>302 - RED HILL</Name>
     <Number>0302</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81990</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81990</PollingLocationIds>
   </Precinct>
   <Precinct id="pre91999">
     <BallotStyleId>bs00011</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60103</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60103 ed60311</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>405 - CALE</Name>
     <Number>0405</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl82177</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl82177</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92065">
     <BallotStyleId>bs00001</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60030</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60107</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60030 ed60107</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>305 - COUNTRY GREEN</Name>
     <Number>0305</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80548</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80548</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92087">
     <BallotStyleId>bs00004</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60150</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>604 - BROWNSVILLE</Name>
     <Number>0604</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81939</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81939</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92140">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>501 - KESWICK</Name>
     <Number>0501</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80354</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80354</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92145">
     <BallotStyleId>bs00004</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60150</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>601 - CROZET</Name>
     <Number>0601</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl82204</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl82204</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92171sp0000">
     <BallotStyleId>bs00009</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076 ed60103</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80541</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80541</PollingLocationIds>
     <PrecinctSplitName>0000</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre92171sp0001">
     <BallotStyleId>bs00009</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076 ed60103</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>401 - SCOTTSVILLE</Name>
     <Number>0401</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80541</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80541</PollingLocationIds>
     <PrecinctSplitName>0001</PrecinctSplitName>
   </Precinct>
   <Precinct id="pre92175">
     <BallotStyleId>bs00000</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60081</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60311</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60081 ed60311</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>104 - AGNOR-HURT</Name>
     <Number>0104</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80432</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80432</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92306">
     <BallotStyleId>bs00002</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60150 ed60054</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>204 - BELFIELD</Name>
     <Number>0204</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81191</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81191</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92320">
     <BallotStyleId>bs00009</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60103</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076 ed60103</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>402 - MONTICELLO</Name>
     <Number>0402</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl82220</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl82220</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92353">
     <BallotStyleId>bs00003</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60076</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60076</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>603 - EARLYSVILLE</Name>
     <Number>0603</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl80131</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl80131</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92360">
     <BallotStyleId>bs00006</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60150 ed60030</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>301 - IVY</Name>
     <Number>0301</Number>
-    <PollingLocationId>pl81118</PollingLocationId>
+    <PollingLocationIds>pl81118</PollingLocationIds>
   </Precinct>
   <Precinct id="pre92426">
     <BallotStyleId>bs00006</BallotStyleId>
-    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60150</ElectoralDistrictId>
-    <ElectoralDistrictId>ed60030</ElectoralDistrictId>
+    <ElectoralDistrictIds>ed60129 ed60150 ed60030</ElectoralDistrictIds>
     <IsMailOnly>false</IsMailOnly>
     <LocalityId>loc70001</LocalityId>
     <Name>304 - EAST IVY</Name>
     <Number>0304</Number>
-    <PollingLocationId>pl00000</PollingLocationId>
-    <PollingLocationId>pl81273</PollingLocationId>
-    <PollingLocationId>pl81213</PollingLocationId>
+    <PollingLocationIds>pl00000 pl81273 pl81213</PollingLocationIds>
   </Precinct>
 
   <!-- Street segments -->

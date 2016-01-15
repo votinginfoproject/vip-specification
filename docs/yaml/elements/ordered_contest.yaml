@@ -21,11 +21,10 @@ tags:
     ignore the ``OrderedContest`` element containing it.
   required: true
   type: xs:IDREF
-- _name: OrderedBallotSelectionId
+- _name: OrderedBallotSelectionIds
   description: Links to elements that extend :ref:`$$$-ballot-selection-base`.
   error: If the field is invalid or not present, the implementation is required to
-    ignore it. If no ``OrderedBallotSelectionId`` elements are present, the presumed
+    ignore it. If an ``OrderedBallotSelectionIds`` element is not present, the presumed
     order of the selection will be the order of :ref:`$$$-ballot-selection-base`-extended
     elements referenced by the underlying :ref:`$$$-contest-base`-extended elements.
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS

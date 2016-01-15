@@ -15,9 +15,10 @@ candidates.
 |                |                |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
 |                |                |              |              |                                          | ignore it.                               |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeId       | ``xs:IDREF``   | Optional     | Repeats      | References an :ref:`multi-xml-office`    | If the field is invalid or not present,  |
-|                |                |              |              | element, if available, which gives       | then the implementation is required to   |
-|                |                |              |              | additional information about the office. | ignore it.                               |
+| OfficeIds      | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
+|                |                |              |              | :ref:`multi-xml-office` elements, if     | then the implementation is required to   |
+|                |                |              |              | available, which give additional         | ignore it.                               |
+|                |                |              |              | information about the offices.           |                                          |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrimaryPartyId | ``xs:IDREF``   | Optional     | Single       | References a :ref:`multi-xml-party`      | If the field is invalid or not present,  |
 |                |                |              |              | element, if the contest is related to a  | then the implementation is required to   |

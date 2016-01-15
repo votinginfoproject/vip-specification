@@ -12,19 +12,17 @@ post: |-
         <EndorsementPartyId>par0001</EndorsementPartyId>
      </CandidateSelection>
 tags:
-- _name: CandidateId
-  description: References a :ref:`$$$-candidate` element. The number of candidates
+- _name: CandidateIds
+  description: References a set of :ref:`$$$-candidate` elements. The number of candidates
     that can be references is unbounded in cases where the ballot selection is for
     a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
-- _name: EndorsementPartyId
-  description: References a :ref:`$$$-party` element, which signifies one or more
-    endorsing parties for the candidate(s).
+  type: xs:IDREFS
+- _name: EndorsementPartyIds
+  description: References a set of :ref:`$$$-party` elements, which signifies one
+    or more endorsing parties for the candidate(s).
   error_then: =must-ignore
-  repeating: true
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: IsWriteIn
   description: Signifies if the particular ballot selection allows for write-in candidates.
     If true, one or more write-in candidates are allowed for this contest.
