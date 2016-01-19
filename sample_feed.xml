@@ -285,12 +285,23 @@
   </ElectoralDistrict>
 
   <!-- The various offices for which there is an election. -->
-  <Office id="off9999">
+  <Office id="off9999a">
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
     <Name>
-      <Text language="en">President and Vice-President</Text>
+      <Text language="en">President</Text>
+    </Name>
+    <Term>
+      <Type>full-term</Type>
+    </Term>
+  </Office>
+  <Office id="off9999b">
+    <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+    <FilingDeadline>2013-01-01</FilingDeadline>
+    <IsPartisan>false</IsPartisan>
+    <Name>
+      <Text language="en">Vice President</Text>
     </Name>
     <Term>
       <Type>full-term</Type>
@@ -478,7 +489,7 @@
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <Name>President and Vice-President</Name>
     <NumberElected>1</NumberElected>
-    <OfficeIds>off9999</OfficeIds>
+    <OfficeIds>off9999a off9999b</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20003">
