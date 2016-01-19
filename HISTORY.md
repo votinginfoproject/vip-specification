@@ -1,7 +1,21 @@
 # VIP Release Notes
 
 This document includes release notes for the [VIP Spec][vip] for versions
-5.0 and later.
+5.1 and later.
+
+## Version 5.1
+
+### Spec Changes
+* Use `xs:IDREFS` instead of `xs:IDREF maxOccurs="unbounded"`.
+  * The [NIST][nist_spec] also moved to `xs:IDREFS`
+  * This was also causing some issues with Java code generation.
+  * Issue [#298](https://github.com/votinginfoproject/vip-specification/issues/298)
+
+### Other Changes
+* Updated sample feed to include use of multiple offices on a single
+  `CandidateSelection`
+  * President and Vice-President [PR
+  #303](https://github.com/votinginfoproject/vip-specification/pull/303)
 
 ## Version 5.0
 
