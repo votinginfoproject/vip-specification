@@ -128,7 +128,7 @@ ballot in the proper order.
 |                           |               |              |              |                                          | ``OrderedContest`` element containing it.        |
 +---------------------------+---------------+--------------+--------------+------------------------------------------+--------------------------------------------------+
 | OrderedBallotSelectionIds | ``xs:IDREFS`` | Optional     | Single       | Links to elements that extend            | If the field is invalid or not present, the      |
-|                           |               |              |              | :ref:`single-xml-ballot-selection-base`. | implementation is required to ignore it. If a    |
+|                           |               |              |              | :ref:`single-xml-ballot-selection-base`. | implementation is required to ignore it. If an   |
 |                           |               |              |              |                                          | ``OrderedBallotSelectionIds`` element is not     |
 |                           |               |              |              |                                          | present, the presumed order of the selection     |
 |                           |               |              |              |                                          | will be the order of                             |
@@ -916,6 +916,13 @@ are equal.
 |                      |                            |              |              | The value of **OddEvenBoth** must be     |                                          |
 |                      |                            |              |              | *both*.                                  |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IncludesAllStreets   | ``xs:boolean``             | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
+|                      |                            |              |              | street in this city. If this is *true*,  | then the implementation is required to   |
+|                      |                            |              |              | then the values of **StartHouseNumber**, | ignore it.                               |
+|                      |                            |              |              | **EndHouseNumber**, **StreetName**, and  |                                          |
+|                      |                            |              |              | **Zip** should be ignored. The value of  |                                          |
+|                      |                            |              |              | **OddEvenBoth** must be *both*.          |                                          |
++----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OddEvenBoth          | :ref:`single-xml-oeb-enum` | **Required** | Single       | Specifies whether the odd side of the    | If the field is not present or invalid,  |
 |                      |                            |              |              | street (in terms of house numbers), the  | the implementation is required to ignore |
 |                      |                            |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
@@ -925,23 +932,27 @@ are equal.
 |                      |                            |              |              | :ref:`single-xml-precinct` that contains | the implementation is required to ignore |
 |                      |                            |              |              | the entire street segment.               | the StreetSegment element containing it. |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StartHouseNumber     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** is true, |
-|                      |                            |              |              | segment starts. This value is necessary  | if the field is not present or invalid,  |
-|                      |                            |              |              | for the street segment to make any       | the implementation is required to ignore |
-|                      |                            |              |              | sense. Unless **IncludesAllAddresses**   | the StreetSegment element containing it. |
-|                      |                            |              |              | is true, this value must be less than or | If the **StartHouseNumber** is greater   |
-|                      |                            |              |              | equal to **EndHouseNumber**. If          | than the **EndHouseNumber**, the         |
-|                      |                            |              |              | **IncludesAllAddresses** is true, this   | implementation should ignore the element |
-|                      |                            |              |              | value is ignored.                        | containing them.                         |
+| StartHouseNumber     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
+|                      |                            |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
+|                      |                            |              |              | for the street segment to make any       | field is not present or invalid, the     |
+|                      |                            |              |              | sense. Unless **IncludesAllAddresses**   | implementation is required to ignore the |
+|                      |                            |              |              | or **IncludesAllStreets** are true, this | StreetSegment element containing it. If  |
+|                      |                            |              |              | value must be less than or equal to      | the **StartHouseNumber** is greater than |
+|                      |                            |              |              | **EndHouseNumber**. If                   | the **EndHouseNumber**, the              |
+|                      |                            |              |              | **IncludesAllAddresses** or              | implementation should ignore the element |
+|                      |                            |              |              | **IncludesAllStreets** are true, this    | containing them.                         |
+|                      |                            |              |              | value is ignored.                        |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndHouseNumber       | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** is true, |
-|                      |                            |              |              | segment ends. This value is necessary    | if the field is not present or invalid,  |
-|                      |                            |              |              | for the street segment to make any       | the implementation is required to ignore |
-|                      |                            |              |              | sense. Unless **IncludesAllAddresses**   | the StreetSegment element containing it. |
-|                      |                            |              |              | is true, it must be greater than or      | If the **EndHouseNumber** is less than   |
-|                      |                            |              |              | equal to **StartHouseNumber**. If        | the **StartHouseNumber**, the            |
-|                      |                            |              |              | **IncludesAllAddresses** is true, this   | implementation should ignore the element |
-|                      |                            |              |              | value is ignored.                        | containing it.                           |
+| EndHouseNumber       | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
+|                      |                            |              |              | segment ends. This value is necessary    | **IncludesAllStreets** are true, if the  |
+|                      |                            |              |              | for the street segment to make any       | field is not present or invalid, the     |
+|                      |                            |              |              | sense. Unless **IncludesAllAddresses**   | implementation is required to ignore the |
+|                      |                            |              |              | or **IncludesAllStreets** are true, it   | StreetSegment element containing it. If  |
+|                      |                            |              |              | must be greater than or equal to         | the **EndHouseNumber** is less than the  |
+|                      |                            |              |              | **StartHouseNumber**. If                 | **StartHouseNumber**, the implementation |
+|                      |                            |              |              | **IncludesAllAddresses** or              | should ignore the element containing it. |
+|                      |                            |              |              | **IncludesAllStreets** are true, this    |                                          |
+|                      |                            |              |              | value is ignored.                        |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | State                | ``xs:string``              | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
 |                      |                            |              |              | abbreviation of the address.             | implementation is required to ignore it. |
@@ -950,9 +961,9 @@ are equal.
 |                      |                            |              |              | of the street address (e.g., the "E" in  | then the implementation is required to   |
 |                      |                            |              |              | "100 E Capitol St NE").                  | ignore it.                               |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StreetName           | ``xs:string``              | **Required** | Single       | Represents the name of the street for    | If the field is invalid, then the        |
-|                      |                            |              |              | the address. A special wildcard, "*",    | implementation is required to ignore it. |
-|                      |                            |              |              | denotes every street in the given        |                                          |
+| StreetName           | ``xs:string``              | Optional     | Single       | Represents the name of the street for    | If the field is invalid or not present,  |
+|                      |                            |              |              | the address. A special wildcard, "*",    | then the implementation is required to   |
+|                      |                            |              |              | denotes every street in the given        | ignore it.                               |
 |                      |                            |              |              | city/town. It optionally may contain     |                                          |
 |                      |                            |              |              | street direction, street suffix or       |                                          |
 |                      |                            |              |              | address direction (e.g., both "Capitol"  |                                          |
@@ -970,12 +981,12 @@ are equal.
 |                      |                            |              |              | segment. If this value is present then   | then the implementation is required to   |
 |                      |                            |              |              | **StartHouseNumber** must be equal to    | ignore it.                               |
 |                      |                            |              |              | **EndHouseNumber**. This field cannot be |                                          |
-|                      |                            |              |              | used if **IncludesAllAddresses** is      |                                          |
-|                      |                            |              |              | true.                                    |                                          |
+|                      |                            |              |              | used if **IncludesAllAddresses** or      |                                          |
+|                      |                            |              |              | **IncludesAllStreets** are true.         |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Zip                  | ``xs:string``              | **Required** | Single       | Specifies the zip code of the address.   | If the field is invalid, then the        |
-|                      |                            |              |              | It may be 5 or 9 digits, and it may      | implementation is required to ignore it. |
-|                      |                            |              |              | include a hyphen ('-'). It is required   |                                          |
+| Zip                  | ``xs:string``              | Optional     | Single       | Specifies the zip code of the address.   | If the field is invalid or not present,  |
+|                      |                            |              |              | It may be 5 or 9 digits, and it may      | then the implementation is required to   |
+|                      |                            |              |              | include a hyphen ('-'). It is required   | ignore it.                               |
 |                      |                            |              |              | as it helps with geocoding, which is     |                                          |
 |                      |                            |              |              | crucial for distributors.                |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -1265,7 +1276,7 @@ recommended to be the state's FIPS code, along with the prefix "st".
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                                        |              |              | :ref:`polling locations                  | then the implementation is required to   |
-|                          |                                        |              |              | <single-xml-polling_location>`. If early | ignore it.                               |
+|                          |                                        |              |              | <single-xml-polling-location>`. If early | ignore it.                               |
 |                          |                                        |              |              | vote centers or ballot drop locations    |                                          |
 |                          |                                        |              |              | are state-wide (e.g., anyone in the      |                                          |
 |                          |                                        |              |              | state can use them), they can be         |                                          |
