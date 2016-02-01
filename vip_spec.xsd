@@ -234,6 +234,7 @@
   <xs:complexType name="ContactInformation">
     <xs:sequence>
       <xs:element name="AddressLine" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
       <xs:element name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <!-- Note: The "Hours" element is being deprecated and will be removed
@@ -241,6 +242,7 @@
         -->
       <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
       <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
+      <xs:element name="LatLng" type="LatLng" minOccurs="0" />
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="xs:string" minOccurs="0" />
       <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
@@ -409,6 +411,15 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:complexType name="LatLng">
+    <xs:sequence>
+      <xs:element name="Latitude" type="xs:float" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Longitude" type="xs:float" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string" />
+  </xs:complexType>
+
   <xs:complexType name="Locality">
     <xs:sequence>
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
@@ -511,16 +522,7 @@
       <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-      <xs:element name="LatLng" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="Latitude" type="xs:float" minOccurs="1" maxOccurs="1" />
-            <xs:element name="Longitude" type="xs:float" minOccurs="1" maxOccurs="1" />
-            <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1" />
-          </xs:sequence>
-          <xs:attribute name="label" type="xs:string" />
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" />
       <xs:element name="PhotoUri" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
