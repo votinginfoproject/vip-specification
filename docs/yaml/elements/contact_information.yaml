@@ -59,6 +59,10 @@ tags:
   error_then: =must-ignore
   repeating: true
   type: xs:string
+- _name: Directions
+  description: Specifies further instructions for locating this entity.
+  error_then: =must-ignore
+  type: InternationalizedText
 - _name: Email
   description: An email address for the contact.
   error_then: =must-ignore
@@ -81,6 +85,10 @@ tags:
     of operation for a location.
   error_then: =must-ignore
   type: xs:IDREF
+- _name: LatLng
+  description: Specifies the latitude and longitude of this entity.
+  error_then: =must-ignore
+  type: LatLng
 - _name: Name
   description: The name of the location or contact. :ref:`See usage note. <$$$-name-address-line-usage>`
   error_then: =must-ignore

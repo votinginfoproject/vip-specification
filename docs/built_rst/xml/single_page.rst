@@ -128,7 +128,7 @@ ballot in the proper order.
 |                           |               |              |              |                                          | ``OrderedContest`` element containing it.        |
 +---------------------------+---------------+--------------+--------------+------------------------------------------+--------------------------------------------------+
 | OrderedBallotSelectionIds | ``xs:IDREFS`` | Optional     | Single       | Links to elements that extend            | If the field is invalid or not present, the      |
-|                           |               |              |              | :ref:`single-xml-ballot-selection-base`. | implementation is required to ignore it. If a    |
+|                           |               |              |              | :ref:`single-xml-ballot-selection-base`. | implementation is required to ignore it. If an   |
 |                           |               |              |              |                                          | ``OrderedBallotSelectionIds`` element is not     |
 |                           |               |              |              |                                          | present, the presumed order of the selection     |
 |                           |               |              |              |                                          | will be the order of                             |
@@ -332,6 +332,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
 |                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  |                                          |              |              | locating this entity.                    | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Email            | ``xs:string``                            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
 |                  |                                          |              |              |                                          | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
@@ -352,6 +356,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
 |                  |                                          |              |              | which lists the hours of operation for a | ignore it.                               |
 |                  |                                          |              |              | location.                                |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng           | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                  |                                          |              |              | this entity.                             | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
 |                  |                                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
@@ -757,47 +765,6 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                  |                                          |              |              | polling location.                        | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-xml-lat-lng:
-
-LatLng
-^^^^^^
-
-The latitude and longitude of a polling location in `WGS 84`_ format. Both
-latitude and longitude values are measured in decimal degrees.
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| Latitude     | ``xs:float``  | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
-|              |               |              |              |                                          | implementation is required to ignore it. |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Longitude    | ``xs:float``  | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
-|              |               |              |              |                                          | implementation is required to ignore it. |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Source       | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
-|              |               |              |              | from location name to lat/lng. For       | then the implementation is required to   |
-|              |               |              |              | example, this could be the name of a     | ignore it.                               |
-|              |               |              |              | geocoding service.                       |                                          |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
-
-.. code-block:: xml
-   :linenos:
-
-   <PollingLocation id="pl81274">
-      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
-      <AddressLine>2775 Hydraulic Rd</AddressLine>
-      <AddressLine>Charlottesville, VA 229018917</AddressLine>
-      <HoursOpenId>hours0001</HoursOpenId>
-      <LatLng>
-        <Latitude>38.0754627</Latitude>
-        <Longitude>-78.5014875</Longitude>
-        <Source>Google Maps</Source>
-      </LatLng>
-   </PollingLocation>
 
 
 .. _single-xml-ballot-measure-contest:
@@ -1241,6 +1208,47 @@ non-required fields is fine).
    </Precinct>
 
 
+.. _single-xml-lat-lng:
+
+LatLng
+~~~~~~
+
+The latitude and longitude of a polling location in `WGS 84`_ format. Both
+latitude and longitude values are measured in decimal degrees.
+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| Latitude     | ``xs:float``  | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
+|              |               |              |              |                                          | implementation is required to ignore it. |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Longitude    | ``xs:float``  | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
+|              |               |              |              |                                          | implementation is required to ignore it. |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Source       | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
+|              |               |              |              | from location name to lat/lng. For       | then the implementation is required to   |
+|              |               |              |              | example, this could be the name of a     | ignore it.                               |
+|              |               |              |              | geocoding service.                       |                                          |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
+
+.. code-block:: xml
+   :linenos:
+
+   <PollingLocation id="pl81274">
+      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
+      <AddressLine>2775 Hydraulic Rd</AddressLine>
+      <AddressLine>Charlottesville, VA 229018917</AddressLine>
+      <HoursOpenId>hours0001</HoursOpenId>
+      <LatLng>
+        <Latitude>38.0754627</Latitude>
+        <Longitude>-78.5014875</Longitude>
+        <Source>Google Maps</Source>
+      </LatLng>
+   </PollingLocation>
+
+
 .. _single-xml-state:
 
 State
@@ -1265,7 +1273,7 @@ recommended to be the state's FIPS code, along with the prefix "st".
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                                        |              |              | :ref:`polling locations                  | then the implementation is required to   |
-|                          |                                        |              |              | <single-xml-polling_location>`. If early | ignore it.                               |
+|                          |                                        |              |              | <single-xml-polling-location>`. If early | ignore it.                               |
 |                          |                                        |              |              | vote centers or ballot drop locations    |                                          |
 |                          |                                        |              |              | are state-wide (e.g., anyone in the      |                                          |
 |                          |                                        |              |              | state can use them), they can be         |                                          |
