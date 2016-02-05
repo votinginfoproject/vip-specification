@@ -10,11 +10,15 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * The [NIST][nist_spec] also moved to `xs:IDREFS`
   * This was also causing some issues with Java code generation.
   * Issue [#298](https://github.com/votinginfoproject/vip-specification/issues/298)
+* Support for city-level wildcarding
+  * Issue [#299](https://github.com/votinginfoproject/vip-specification/issues/299)
 
 ### Other Changes
-* Updated sample feed to include use of multiple offices on a single
-  `CandidateSelection`
-  * President and Vice-President [PR
+* Updated sample feed
+  * Describe support for party affiliations in open primary elections
+    * Issue [#268](https://github.com/votinginfoproject/vip-specification/issues/268)
+  * Include use of multiple offices on a single `CandidateSelection`
+    * President and Vice-President [PR
   #303](https://github.com/votinginfoproject/vip-specification/pull/303)
 
 ## Version 5.0
