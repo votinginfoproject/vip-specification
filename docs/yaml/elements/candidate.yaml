@@ -42,7 +42,8 @@ tags:
   type: xs:boolean
 - _name: PartyId
   description: Reference to a :ref:`$$$-party` element with additional information
-    about the candidate's affiliated party.
+    about the candidate's affiliated party. This is the party affiliation that is
+    intended to be presented as part of ballot information.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: PersonId

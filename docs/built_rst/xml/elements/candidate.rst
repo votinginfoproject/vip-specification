@@ -36,6 +36,9 @@ Candidate object may be used.
 | PartyId             | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-party`    | If the field is invalid or not present,  |
 |                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                 |              |              | about the candidate's affiliated party.  | ignore it.                               |
+|                     |                                                 |              |              | This is the party affiliation that is    |                                          |
+|                     |                                                 |              |              | intended to be presented as part of      |                                          |
+|                     |                                                 |              |              | ballot information.                      |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-person`   | If the field is invalid or not present,  |
 |                     |                                                 |              |              | element with additional information      | then the implementation is required to   |

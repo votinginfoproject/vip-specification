@@ -59,7 +59,10 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: PartyId
-  description: Refers to the associated :ref:`$$$-party`.
+  description: Refers to the associated :ref:`$$$-party`. This information is intended
+    to be used by feed consumers to help them disambiguate the person's identity,
+    but not to be presented as part of any ballot information. For that see :ref:`$$$-candidate`
+    **PartyId**.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Prefix
