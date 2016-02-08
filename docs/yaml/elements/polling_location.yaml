@@ -1,6 +1,4 @@
 _name: PollingLocation
-_sub_types:
-- LatLng
 description: The PollingLocation object represents a site where voters cast or drop
   off ballots.
 tags:

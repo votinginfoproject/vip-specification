@@ -19,6 +19,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                         |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
 |                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  |                                         |              |              | locating this entity.                    | present, then the implementation is      |
+|                  |                                         |              |              |                                          | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Email            | ``xs:string``                           | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
 |                  |                                         |              |              |                                          | then the implementation is required to   |
 |                  |                                         |              |              |                                          | ignore it.                               |
@@ -39,6 +43,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                         |              |              | :ref:`multi-xml-hours-open` element,     | then the implementation is required to   |
 |                  |                                         |              |              | which lists the hours of operation for a | ignore it.                               |
 |                  |                                         |              |              | location.                                |                                          |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng           | :ref:`multi-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                  |                                         |              |              | this entity.                             | present, then the implementation is      |
+|                  |                                         |              |              |                                          | required to ignore it.                   |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
 |                  |                                         |              |              | :ref:`See usage note.                    | then the implementation is required to   |

@@ -24,7 +24,7 @@ recommended to be the state's FIPS code, along with the prefix "st".
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                         | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                                       |              |              | :ref:`polling locations                  | then the implementation is required to   |
-|                          |                                       |              |              | <multi-xml-polling_location>`. If early  | ignore it.                               |
+|                          |                                       |              |              | <multi-xml-polling-location>`. If early  | ignore it.                               |
 |                          |                                       |              |              | vote centers or ballot drop locations    |                                          |
 |                          |                                       |              |              | are state-wide (e.g., anyone in the      |                                          |
 |                          |                                       |              |              | state can use them), they can be         |                                          |
