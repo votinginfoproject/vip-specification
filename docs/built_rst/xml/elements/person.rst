@@ -48,8 +48,13 @@ or elected official. These elements reference ``Person``:
 |                    |                                         |              |              |                                          | ignore it.                               |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyId            | ``xs:IDREF``                            | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
-|                    |                                         |              |              | :ref:`multi-xml-party`.                  | then the implementation is required to   |
-|                    |                                         |              |              |                                          | ignore it.                               |
+|                    |                                         |              |              | :ref:`multi-xml-party`. This information | then the implementation is required to   |
+|                    |                                         |              |              | is intended to be used by feed consumers | ignore it.                               |
+|                    |                                         |              |              | to help them disambiguate the person's   |                                          |
+|                    |                                         |              |              | identity, but not to be presented as     |                                          |
+|                    |                                         |              |              | part of any ballot information. For that |                                          |
+|                    |                                         |              |              | see :ref:`multi-xml-candidate`           |                                          |
+|                    |                                         |              |              | **PartyId**.                             |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Prefix             | ``xs:string``                           | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
 |                    |                                         |              |              | person (e.g. Dr.).                       | then the implementation is required to   |

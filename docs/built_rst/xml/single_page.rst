@@ -51,6 +51,9 @@ Candidate object may be used.
 | PartyId             | ``xs:IDREF``                                     | Optional     | Single       | Reference to a :ref:`single-xml-party`   | If the field is invalid or not present,  |
 |                     |                                                  |              |              | element with additional information      | then the implementation is required to   |
 |                     |                                                  |              |              | about the candidate's affiliated party.  | ignore it.                               |
+|                     |                                                  |              |              | This is the party affiliation that is    |                                          |
+|                     |                                                  |              |              | intended to be presented as part of      |                                          |
+|                     |                                                  |              |              | ballot information.                      |                                          |
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PersonId            | ``xs:IDREF``                                     | Optional     | Single       | Reference to a :ref:`single-xml-person`  | If the field is invalid or not present,  |
 |                     |                                                  |              |              | element with additional information      | then the implementation is required to   |
@@ -1632,7 +1635,7 @@ A container for the contests/measures on the ballot.
 Party
 ~~~~~
 
-This element describes a political party and the metadata associated with them.
+This element describes a political party and the metadata associated with them. These can also include "dummy" parties to indicate a type of contest (e.g., a Voter Nominated :ref:`single-xml-candidate-contest` can use the **PrimaryPartyId** field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
 
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -1729,8 +1732,13 @@ or elected official. These elements reference ``Person``:
 |                    |                                          |              |              |                                          | ignore it.                               |
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyId            | ``xs:IDREF``                             | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
-|                    |                                          |              |              | :ref:`single-xml-party`.                 | then the implementation is required to   |
-|                    |                                          |              |              |                                          | ignore it.                               |
+|                    |                                          |              |              | :ref:`single-xml-party`. This            | then the implementation is required to   |
+|                    |                                          |              |              | information is intended to be used by    | ignore it.                               |
+|                    |                                          |              |              | feed consumers to help them disambiguate |                                          |
+|                    |                                          |              |              | the person's identity, but not to be     |                                          |
+|                    |                                          |              |              | presented as part of any ballot          |                                          |
+|                    |                                          |              |              | information. For that see                |                                          |
+|                    |                                          |              |              | :ref:`single-xml-candidate` **PartyId**. |                                          |
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Prefix             | ``xs:string``                            | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
 |                    |                                          |              |              | person (e.g. Dr.).                       | then the implementation is required to   |

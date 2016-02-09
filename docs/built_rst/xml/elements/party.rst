@@ -5,7 +5,7 @@
 Party
 =====
 
-This element describes a political party and the metadata associated with them.
+This element describes a political party and the metadata associated with them. These can also include "dummy" parties to indicate a type of contest (e.g., a Voter Nominated :ref:`multi-xml-candidate-contest` can use the **PrimaryPartyId** field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
 
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |

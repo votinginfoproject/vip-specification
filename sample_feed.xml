@@ -207,6 +207,18 @@
       <Text language="en">Independent</Text>
     </Name>
   </Party>
+  <Party id="par0005">
+    <Abbreviation>VN</Abbreviation>
+    <Name>
+      <Text language="en">Voter Nominated</Text>
+    </Name>
+  </Party>
+  <Party id="par0006">
+    <Abbreviation>PPN</Abbreviation>
+    <Name>
+      <Text language="en">Party Preference: None</Text>
+    </Name>
+  </Party>
 
   <!-- The various electoral districts for which there are offices/contests in this election. -->
   <ElectoralDistrict id="ed60129">
@@ -558,6 +570,12 @@
     <OfficeIds>off20033</OfficeIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
+  <!--
+       This is an example of a "Top-Two" or "Louisiana primary" in which
+       candidates from all parties compete against each other. In VIP, we use
+       the "Voter-Nominated" party in the PrimaryPartyId field to show that the
+       contest itself is non-partisan, even if the candidates themselves are.
+    -->
   <CandidateContest id="cc20100">
     <BallotSelectionIds>cs10438</BallotSelectionIds>
     <BallotTitle>
@@ -567,6 +585,7 @@
     <Name>Member House of Delegates</Name>
     <NumberElected>1</NumberElected>
     <OfficeIds>off20100</OfficeIds>
+    <PrimaryPartyId>par0005</PrimaryPartyId>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20262">
@@ -796,7 +815,6 @@
     -->
   <CandidateSelection id="cs10861">
     <CandidateIds>can10861a can10861b</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10861a">
     <BallotName>
@@ -835,7 +853,6 @@
   </Person>
   <CandidateSelection id="cs10862">
     <CandidateIds>can10862a can10862b</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10862a">
     <BallotName>
@@ -871,7 +888,6 @@
   </Person>
   <CandidateSelection id="cs10961">
     <CandidateIds>can10961</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10961">
     <BallotName>
@@ -896,7 +912,6 @@
   </Person>
   <CandidateSelection id="cs10962">
     <CandidateIds>can10962</CandidateIds>
-    <EndorsementPartyIds>par0002</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10962">
     <BallotName>
@@ -919,7 +934,6 @@
   </Person>
   <CandidateSelection id="cs10963">
     <CandidateIds>can10963</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10963">
     <BallotName>
@@ -943,7 +957,6 @@
   </Person>
   <CandidateSelection id="cs10966">
     <CandidateIds>can10966</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10966">
     <BallotName>
@@ -967,7 +980,6 @@
   </Person>
   <CandidateSelection id="cs10967">
     <CandidateIds>can10967</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10967">
     <BallotName>
@@ -992,7 +1004,6 @@
   </Person>
   <CandidateSelection id="cs10964">
     <CandidateIds>can10964</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10964">
     <BallotName>
@@ -1016,7 +1027,6 @@
   </Person>
   <CandidateSelection id="cs10965">
     <CandidateIds>can10965</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10965">
     <BallotName>
@@ -1057,7 +1067,6 @@
   <!-- End Judicial candidate block -->
   <CandidateSelection id="cs10422">
     <CandidateIds>can10422</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10422">
     <BallotName>
@@ -1082,7 +1091,6 @@
   </Person>
   <CandidateSelection id="cs10388">
     <CandidateIds>can10388</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10388">
     <BallotName>
@@ -1106,7 +1114,6 @@
   </Person>
   <CandidateSelection id="cs10466">
     <CandidateIds>can10466</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10466">
     <BallotName>
@@ -1130,13 +1137,16 @@
   </Person>
   <CandidateSelection id="cs10438">
     <CandidateIds>can10438</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
+  <!--
+       This candidate has declined to state their party in the Top-Two contest,
+       and thus are linked to the "Party Preference: None" party.
+    -->
   <Candidate id="can10438">
     <BallotName>
       <Text language="en">Robert B. Bell III</Text>
     </BallotName>
-    <PartyId>par0001</PartyId>
+    <PartyId>par0006</PartyId>
     <PersonId>per10438</PersonId>
   </Candidate>
   <Person id="per10438">
@@ -1154,7 +1164,6 @@
   </Person>
   <CandidateSelection id="cs10079">
     <CandidateIds>can10079</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10079">
     <BallotName>
@@ -1178,7 +1187,6 @@
   </Person>
   <CandidateSelection id="cs10080">
     <CandidateIds>can10080</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10080">
     <BallotName>
@@ -1203,7 +1211,6 @@
   </Person>
   <CandidateSelection id="cs10075">
     <CandidateIds>can10075</CandidateIds>
-    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10075">
     <BallotName>
@@ -1226,7 +1233,6 @@
   </Person>
   <CandidateSelection id="cs10076">
     <CandidateIds>can10076</CandidateIds>
-    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10076">
     <BallotName>
@@ -1249,7 +1255,6 @@
   </Person>
   <CandidateSelection id="cs10073">
     <CandidateIds>can10073</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10073">
     <BallotName>
@@ -1273,7 +1278,6 @@
   </Person>
   <CandidateSelection id="cs10074">
     <CandidateIds>can10074</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10074">
     <BallotName>
@@ -1297,7 +1301,6 @@
   </Person>
   <CandidateSelection id="cs10077">
     <CandidateIds>can10077</CandidateIds>
-    <EndorsementPartyIds>par0001</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10077">
     <BallotName>
@@ -1321,7 +1324,6 @@
   </Person>
   <CandidateSelection id="cs10078">
     <CandidateIds>can10078</CandidateIds>
-    <EndorsementPartyIds>par0003</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10078">
     <BallotName>
@@ -1346,7 +1348,6 @@
   </Person>
   <CandidateSelection id="cs10214">
     <CandidateIds>can10214</CandidateIds>
-    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10214">
     <BallotName>
@@ -1369,7 +1370,6 @@
   </Person>
   <CandidateSelection id="cs10215">
     <CandidateIds>can10215</CandidateIds>
-    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10215">
     <BallotName>
@@ -1392,7 +1392,6 @@
   </Person>
   <CandidateSelection id="cs10213">
     <CandidateIds>can10213</CandidateIds>
-    <EndorsementPartyIds>par0004</EndorsementPartyIds>
   </CandidateSelection>
   <Candidate id="can10213">
     <BallotName>
