@@ -35,7 +35,6 @@ ballot selection for a candidate contest.
    :linenos:
 
    <CandidateSelection id="cs10861">
-      <CandidateId>can10861a</CandidateId>
-      <CandidateId>can10861b</CandidateId>
-      <EndorsementPartyId>par0001</EndorsementPartyId>
+      <CandidateIds>can10861a can10861b</CandidateIds>
+      <EndorsementPartyIds>par0001</EndorsementPartyIds>
    </CandidateSelection>

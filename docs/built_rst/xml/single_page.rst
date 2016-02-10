@@ -248,9 +248,8 @@ ballot selection for a candidate contest.
    :linenos:
 
    <CandidateSelection id="cs10861">
-      <CandidateId>can10861a</CandidateId>
-      <CandidateId>can10861b</CandidateId>
-      <EndorsementPartyId>par0001</EndorsementPartyId>
+      <CandidateIds>can10861a can10861b</CandidateIds>
+      <EndorsementPartyIds>par0001</EndorsementPartyIds>
    </CandidateSelection>
 
 
@@ -650,7 +649,18 @@ candidates.
 | OfficeIds      | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
 |                |                |              |              | :ref:`single-xml-office` elements, if    | then the implementation is required to   |
 |                |                |              |              | available, which give additional         | ignore it.                               |
-|                |                |              |              | information about the offices.           |                                          |
+|                |                |              |              | information about the offices. **Note:** |                                          |
+|                |                |              |              | the order of the office IDs **must** be  |                                          |
+|                |                |              |              | in the same order as the candidates      |                                          |
+|                |                |              |              | listed in `BallotSelectionIds`. E.g., if |                                          |
+|                |                |              |              | the various `BallotSelectionIds`         |                                          |
+|                |                |              |              | reference                                |                                          |
+|                |                |              |              | :ref:`single-xml-candidate-selection`    |                                          |
+|                |                |              |              | elements which reference the candidate   |                                          |
+|                |                |              |              | for President first and Vice-President   |                                          |
+|                |                |              |              | second, the `OfficeIds` should reference |                                          |
+|                |                |              |              | the office of President first and the    |                                          |
+|                |                |              |              | office of Vice-President second.         |                                          |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrimaryPartyId | ``xs:IDREF``   | Optional     | Single       | References a :ref:`single-xml-party`     | If the field is invalid or not present,  |
 |                |                |              |              | element, if the contest is related to a  | then the implementation is required to   |
@@ -665,9 +675,7 @@ candidates.
    :linenos:
 
    <CandidateContest id="cc20003">
-      <BallotSelectionId>cs10961</BallotSelectionId>
-      <BallotSelectionId>cs10962</BallotSelectionId>
-      <BallotSelectionId>cs10963</BallotSelectionId>
+      <BallotSelectionIds>cs10961 cs10962 cs10963</BallotSelectionIds>
       <BallotTitle>
         <Text language="en">Governor of Virginia</Text>
       </BallotTitle>
