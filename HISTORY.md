@@ -14,6 +14,8 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * Issue [#299](https://github.com/votinginfoproject/vip-specification/issues/299)
 
 ### Other Changes
+* Clarify documentation surrounding element use
+  * Issue [#291](https://github.com/votinginfoproject/vip-specification/issues/291)
 * Updated sample feed
   * Describe support for party affiliations in open primary elections
     * Issue [#268](https://github.com/votinginfoproject/vip-specification/issues/268)
