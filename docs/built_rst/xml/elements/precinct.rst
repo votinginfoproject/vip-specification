@@ -76,12 +76,10 @@ non-required fields is fine).
 
    <Precinct id="pre90111">
       <BallotStyleId>bs00010</BallotStyleId>
-      <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-      <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-      <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+      <ElectoralDistrictIds>ed60129 ed60311 ed60054</ElectoralDistrictIds>
       <IsMailOnly>false</IsMailOnly>
       <LocalityId>loc70001</LocalityId>
       <Name>203 - GEORGETOWN</Name>
       <Number>0203</Number>
-      <PollingLocationId>pl81274</PollingLocationId>
+      <PollingLocationIds>pl81274</PollingLocationIds>
    </Precinct>

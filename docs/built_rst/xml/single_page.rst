@@ -146,9 +146,7 @@ ballot in the proper order.
 
    <OrderedContest id="oc20003abc">
       <ContestId>cc20003</ContestId>
-      <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
-      <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
-      <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+      <OrderedBallotSelectionIds>cs10961 cs10962 cs10963</OrderedBallotSelectionIds>
    </OrderedContest>
 
 
@@ -712,8 +710,7 @@ contest where a candidate is retained in a position (e.g. a judge).
    :linenos:
 
    <RetentionContest id="rc40001">
-      <BallotSelectionId>rc40001a</BallotSelectionId>
-      <BallotSelectionId>rc40001b</BallotSelectionId>
+      <BallotSelectionIds>rc40001a rc40001b</BallotSelectionIds>
       <BallotTitle>
          <Text language="en">Retention of Supreme Court Justice</Text>
          <Text language="es">La retención de juez de la Corte Suprema</Text>
@@ -839,8 +836,7 @@ summary statements on each side. Extends :ref:`single-xml-contest-base`.
    :linenos:
 
    <BallotMeasureContest id="bmc30001">
-      <BallotSelectionId>bms30001a</BallotSelectionId>
-      <BallotSelectionId>bms30001b</BallotSelectionId>
+      <BallotSelectionIds>bms30001a bms30001b</BallotSelectionIds>
       <BallotTitle>
          <Text language="en">State of the State</Text>
          <Text language="es">Estado del Estado.</Text>
@@ -1208,14 +1204,12 @@ non-required fields is fine).
 
    <Precinct id="pre90111">
       <BallotStyleId>bs00010</BallotStyleId>
-      <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-      <ElectoralDistrictId>ed60311</ElectoralDistrictId>
-      <ElectoralDistrictId>ed60054</ElectoralDistrictId>
+      <ElectoralDistrictIds>ed60129 ed60311 ed60054</ElectoralDistrictIds>
       <IsMailOnly>false</IsMailOnly>
       <LocalityId>loc70001</LocalityId>
       <Name>203 - GEORGETOWN</Name>
       <Number>0203</Number>
-      <PollingLocationId>pl81274</PollingLocationId>
+      <PollingLocationIds>pl81274</PollingLocationIds>
    </Precinct>
 
 
@@ -1629,12 +1623,7 @@ A container for the contests/measures on the ballot.
    :linenos:
 
    <BallotStyle id="bs00000">
-      <OrderedContestId>oc20003</OrderedContestId>
-      <OrderedContestId>oc20004</OrderedContestId>
-      <OrderedContestId>oc20005</OrderedContestId>
-      <OrderedContestId>oc20025</OrderedContestId>
-      <OrderedContestId>oc20355</OrderedContestId>
-      <OrderedContestId>oc20449</OrderedContestId>
+      <OrderedContestIds>oc20003 oc20004 oc20005 oc20025 oc20355 oc20449</OrderedContestIds>
    </BallotStyle>
 
 

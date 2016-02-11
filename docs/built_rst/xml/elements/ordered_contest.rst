@@ -33,7 +33,5 @@ ballot in the proper order.
 
    <OrderedContest id="oc20003abc">
       <ContestId>cc20003</ContestId>
-      <OrderedBallotSelectionId>cs10961</OrderedBallotSelectionId>
-      <OrderedBallotSelectionId>cs10962</OrderedBallotSelectionId>
-      <OrderedBallotSelectionId>cs10963</OrderedBallotSelectionId>
+      <OrderedBallotSelectionIds>cs10961 cs10962 cs10963</OrderedBallotSelectionIds>
    </OrderedContest>
