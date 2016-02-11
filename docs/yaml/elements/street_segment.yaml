@@ -48,8 +48,8 @@ tags:
   type: xs:boolean
 - _name: IncludesAllStreets
   description: Specifies if the segment covers every street in this city. If this
-    is *true*, then the values of **StartHouseNumber**, **EndHouseNumber**, **StreetName**,
-    and **Zip** should be ignored. The value of **OddEvenBoth** must be *both*.
+    is *true*, then the values of **OddEvenBoth**, **StartHouseNumber**, **EndHouseNumber**,
+    **StreetName**, and **Zip** should be ignored.
   error_then: =must-ignore
   type: xs:boolean
 - _name: OddEvenBoth
@@ -57,7 +57,6 @@ tags:
     the even side, or both are in included in the street segment.
   error: If the field is not present or invalid, the implementation is required to
     ignore the StreetSegment containing it.
-  required: true
   type: OebEnum
 - _name: PrecinctId
   description: References the :ref:`$$$-precinct` that contains the entire street

@@ -21,12 +21,12 @@
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IncludesAllStreets   | ``xs:boolean``            | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
 |                      |                           |              |              | street in this city. If this is *true*,  | then the implementation is required to   |
-|                      |                           |              |              | then the values of **StartHouseNumber**, | ignore it.                               |
+|                      |                           |              |              | then the values of **OddEvenBoth**,      | ignore it.                               |
+|                      |                           |              |              | **StartHouseNumber**,                    |                                          |
 |                      |                           |              |              | **EndHouseNumber**, **StreetName**, and  |                                          |
-|                      |                           |              |              | **Zip** should be ignored. The value of  |                                          |
-|                      |                           |              |              | **OddEvenBoth** must be *both*.          |                                          |
+|                      |                           |              |              | **Zip** should be ignored.               |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OddEvenBoth          | :ref:`multi-xml-oeb-enum` | **Required** | Single       | Specifies whether the odd side of the    | If the field is not present or invalid,  |
+| OddEvenBoth          | :ref:`multi-xml-oeb-enum` | Optional     | Single       | Specifies whether the odd side of the    | If the field is not present or invalid,  |
 |                      |                           |              |              | street (in terms of house numbers), the  | the implementation is required to ignore |
 |                      |                           |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
 |                      |                           |              |              | the street segment.                      |                                          |
