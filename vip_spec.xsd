@@ -569,7 +569,7 @@
       <xs:element name="City" type="xs:string" />
       <xs:element name="IncludesAllAddresses" type="xs:boolean" minOccurs="0" />
       <xs:element name="IncludesAllStreets" type="xs:boolean" minOccurs="0" />
-      <xs:element name="OddEvenBoth" type="OebEnum" />
+      <xs:element name="OddEvenBoth" type="OebEnum" minOccurs="0" />
       <xs:element name="PrecinctId" type="xs:IDREF" />
       <xs:element name="StartHouseNumber" type="xs:integer" minOccurs="0" />
       <xs:element name="EndHouseNumber" type="xs:integer" minOccurs="0" />
