@@ -10,7 +10,18 @@
 | OfficeIds      | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
 |                |                |              |              | :ref:`multi-xml-office` elements, if     | then the implementation is required to   |
 |                |                |              |              | available, which give additional         | ignore it.                               |
-|                |                |              |              | information about the offices.           |                                          |
+|                |                |              |              | information about the offices. **Note:** |                                          |
+|                |                |              |              | the order of the office IDs **must** be  |                                          |
+|                |                |              |              | in the same order as the candidates      |                                          |
+|                |                |              |              | listed in `BallotSelectionIds`. E.g., if |                                          |
+|                |                |              |              | the various `BallotSelectionIds`         |                                          |
+|                |                |              |              | reference                                |                                          |
+|                |                |              |              | :ref:`multi-xml-candidate-selection`     |                                          |
+|                |                |              |              | elements which reference the candidate   |                                          |
+|                |                |              |              | for President first and Vice-President   |                                          |
+|                |                |              |              | second, the `OfficeIds` should reference |                                          |
+|                |                |              |              | the office of President first and the    |                                          |
+|                |                |              |              | office of Vice-President second.         |                                          |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PrimaryPartyId | ``xs:IDREF``   | Optional     | Single       | References a :ref:`multi-xml-party`      | If the field is invalid or not present,  |
 |                |                |              |              | element, if the contest is related to a  | then the implementation is required to   |

@@ -7,9 +7,7 @@ post: |-
      :linenos:
 
      <CandidateContest id="cc20003">
-        <BallotSelectionId>cs10961</BallotSelectionId>
-        <BallotSelectionId>cs10962</BallotSelectionId>
-        <BallotSelectionId>cs10963</BallotSelectionId>
+        <BallotSelectionIds>cs10961 cs10962 cs10963</BallotSelectionIds>
         <BallotTitle>
           <Text language="en">Governor of Virginia</Text>
         </BallotTitle>
@@ -26,7 +24,12 @@ tags:
   type: xs:integer
 - _name: OfficeIds
   description: References a set of :ref:`$$$-office` elements, if available, which
-    give additional information about the offices.
+    give additional information about the offices. **Note:** the order of the office
+    IDs **must** be in the same order as the candidates listed in `BallotSelectionIds`.
+    E.g., if the various `BallotSelectionIds` reference :ref:`$$$-candidate-selection`
+    elements which reference the candidate for President first and Vice-President
+    second, the `OfficeIds` should reference the office of President first and the
+    office of Vice-President second.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrimaryPartyId
