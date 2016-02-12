@@ -21,6 +21,10 @@
 |                    |                                         |              |              | because it sometimes appears on ballots  |                                          |
 |                    |                                         |              |              | in multiple languages).                  |                                          |
 +--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Gender             | ``xs:string``                           | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
+|                    |                                         |              |              |                                          | then the implementation is required to   |
+|                    |                                         |              |              |                                          | ignore it.                               |
++--------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LastName           | ``xs:string``                           | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
 |                    |                                         |              |              |                                          | then the implementation is required to   |
 |                    |                                         |              |              |                                          | ignore it.                               |

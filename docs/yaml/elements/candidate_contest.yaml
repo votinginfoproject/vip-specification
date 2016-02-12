@@ -32,11 +32,11 @@ tags:
     office of Vice-President second.
   error_then: =must-ignore
   type: xs:IDREFS
-- _name: PrimaryPartyId
-  description: References a :ref:`$$$-party` element, if the contest is related to
+- _name: PrimaryPartyIds
+  description: References :ref:`$$$-party` elements, if the contest is related to
     a particular party.
   error_then: =must-ignore
-  type: xs:IDREF
+  type: xs:IDREFS
 - _name: VotesAllowed
   description: Maximum number of votes/write-ins per voter in this contest.
   error_then: =must-ignore

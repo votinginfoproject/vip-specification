@@ -573,7 +573,7 @@
   <!--
        This is an example of a "Top-Two" or "Louisiana primary" in which
        candidates from all parties compete against each other. In VIP, we use
-       the "Voter-Nominated" party in the PrimaryPartyId field to show that the
+       the "Voter-Nominated" party in the PrimaryPartyIds field to show that the
        contest itself is non-partisan, even if the candidates themselves are.
     -->
   <CandidateContest id="cc20100">
@@ -585,7 +585,7 @@
     <Name>Member House of Delegates</Name>
     <NumberElected>1</NumberElected>
     <OfficeIds>off20100</OfficeIds>
-    <PrimaryPartyId>par0005</PrimaryPartyId>
+    <PrimaryPartyIds>par0005</PrimaryPartyIds>
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20262">

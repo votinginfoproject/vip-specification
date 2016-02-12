@@ -14,6 +14,8 @@ state, so please use the definition which best matches your local meaning.
 +----------------+----------------------------------------------------+
 | Tag            | Description                                        |
 +================+====================================================+
+| borough        | A borough                                          |
++----------------+----------------------------------------------------+
 | city           | A city.                                            |
 +----------------+----------------------------------------------------+
 | city-council   | A specific seat/jurisdiction for a city, town, or  |
