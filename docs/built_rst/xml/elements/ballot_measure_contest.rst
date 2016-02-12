@@ -61,8 +61,7 @@ summary statements on each side. Extends :ref:`multi-xml-contest-base`.
    :linenos:
 
    <BallotMeasureContest id="bmc30001">
-      <BallotSelectionId>bms30001a</BallotSelectionId>
-      <BallotSelectionId>bms30001b</BallotSelectionId>
+      <BallotSelectionIds>bms30001a bms30001b</BallotSelectionIds>
       <BallotTitle>
          <Text language="en">State of the State</Text>
          <Text language="es">Estado del Estado.</Text>
