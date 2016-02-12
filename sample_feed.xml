@@ -1686,6 +1686,15 @@
        The precincts which tie it all together. These link ballot styles,
        electoral districts, localities, and polling locations.
     -->
+  <Precinct id="pre00000">
+    <BallotStyleId>bs00000</BallotStyleId>
+    <ElectoralDistrictIds>ed60129 ed60311 ed60081</ElectoralDistrictIds>
+    <IsMailOnly>false</IsMailOnly>
+    <LocalityId>loc70001</LocalityId>
+    <Name>0000 - COUNTY-WIDE EARLY VOTING CENTER</Name>
+    <Number>0000</Number>
+    <PollingLocationIds>pl00000</PollingLocationIds>
+  </Precinct>
   <Precinct id="pre99999">
     <BallotStyleId>bs00000</BallotStyleId>
     <ElectoralDistrictIds>ed60129 ed60311 ed60081</ElectoralDistrictIds>
@@ -1976,6 +1985,13 @@
   </Precinct>
 
   <!-- Street segments -->
+  <StreetSegment id="ss000000">
+    <City>Charlottesville</City>
+    <IncludesAllStreets>true</IncludesAllStreets>
+    <OddEvenBoth>both</OddEvenBoth>
+    <PrecinctId>pre00000</PrecinctId>
+    <State>VA</State>
+  </StreetSegment>
   <StreetSegment id="ss999999">
     <City>Charlottesville</City>
     <IncludesAllAddresses>true</IncludesAllAddresses>

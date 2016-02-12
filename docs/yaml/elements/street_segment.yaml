@@ -46,12 +46,17 @@ tags:
     be ignored. The value of **OddEvenBoth** must be *both*.
   error_then: =must-ignore
   type: xs:boolean
+- _name: IncludesAllStreets
+  description: Specifies if the segment covers every street in this city. If this
+    is *true*, then the values of **OddEvenBoth**, **StartHouseNumber**, **EndHouseNumber**,
+    **StreetName**, and **Zip** should be ignored.
+  error_then: =must-ignore
+  type: xs:boolean
 - _name: OddEvenBoth
   description: Specifies whether the odd side of the street (in terms of house numbers),
     the even side, or both are in included in the street segment.
   error: If the field is not present or invalid, the implementation is required to
     ignore the StreetSegment containing it.
-  required: true
   type: OebEnum
 - _name: PrecinctId
   description: References the :ref:`$$$-precinct` that contains the entire street
@@ -62,22 +67,25 @@ tags:
 - _name: StartHouseNumber
   description: The house number at which the street segment starts. This value is
     necessary for the street segment to make any sense. Unless **IncludesAllAddresses**
-    is true, this value must be less than or equal to **EndHouseNumber**. If **IncludesAllAddresses**
-    is true, this value is ignored.
-  error: Unless **IncludesAllAddresses** is true, if the field is not present or invalid,
-    the implementation is required to ignore the StreetSegment element containing
-    it. If the **StartHouseNumber** is greater than the **EndHouseNumber**, the implementation
-    should ignore the element containing them.
+    or **IncludesAllStreets** are true, this value must be less than or equal to **EndHouseNumber**.
+    If **IncludesAllAddresses** or **IncludesAllStreets** are true, this value is
+    ignored.
+  error: Unless **IncludesAllAddresses** or **IncludesAllStreets** are true, if the
+    field is not present or invalid, the implementation is required to ignore the
+    StreetSegment element containing it. If the **StartHouseNumber** is greater than
+    the **EndHouseNumber**, the implementation should ignore the element containing
+    them.
   type: xs:integer
 - _name: EndHouseNumber
   description: The house number at which the street segment ends. This value is necessary
-    for the street segment to make any sense. Unless **IncludesAllAddresses** is true,
-    it must be greater than or equal to **StartHouseNumber**. If **IncludesAllAddresses**
-    is true, this value is ignored.
-  error: Unless **IncludesAllAddresses** is true, if the field is not present or invalid,
-    the implementation is required to ignore the StreetSegment element containing
-    it. If the **EndHouseNumber** is less than the **StartHouseNumber**, the implementation
-    should ignore the element containing it.
+    for the street segment to make any sense. Unless **IncludesAllAddresses** or **IncludesAllStreets**
+    are true, it must be greater than or equal to **StartHouseNumber**. If **IncludesAllAddresses**
+    or **IncludesAllStreets** are true, this value is ignored.
+  error: Unless **IncludesAllAddresses** or **IncludesAllStreets** are true, if the
+    field is not present or invalid, the implementation is required to ignore the
+    StreetSegment element containing it. If the **EndHouseNumber** is less than the
+    **StartHouseNumber**, the implementation should ignore the element containing
+    it.
   type: xs:integer
 - _name: State
   description: Specifies the two-letter state abbreviation of the address.
@@ -96,7 +104,6 @@ tags:
     St NE" are acceptable for the address "100 E Capitol St NE"), however this is
     not preferred. Preferred is street name alone (e.g. "Capitol").
   error_then: =must-ignore
-  required: true
   type: xs:string
 - _name: StreetSuffix
   description: Represents the abbreviated, non-directional suffix to the street name.
@@ -106,7 +113,7 @@ tags:
 - _name: UnitNumber
   description: The apartment/unit number for a street segment. If this value is present
     then **StartHouseNumber** must be equal to **EndHouseNumber**. This field cannot
-    be used if **IncludesAllAddresses** is true.
+    be used if **IncludesAllAddresses** or **IncludesAllStreets** are true.
   error_then: =must-ignore
   repeating: true
   type: xs:string
@@ -115,5 +122,4 @@ tags:
     it may include a hyphen ('-'). It is required as it helps with geocoding, which
     is crucial for distributors.
   error_then: =must-ignore
-  required: true
   type: xs:string
