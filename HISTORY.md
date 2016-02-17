@@ -17,7 +17,7 @@ This document includes release notes for the [VIP Spec][vip] for versions
   * Make `TermType` in `Term` optional
   * Add "borough" to `DistrictType`
 * Support for city-level wildcarding
-  * Issue [#299](https://github.com/votinginfoproject/vip-specification/issues/299)
+  * Issue [#289](https://github.com/votinginfoproject/vip-specification/issues/289)
 
 ### Other Changes
 * Clarify documentation surrounding element use
