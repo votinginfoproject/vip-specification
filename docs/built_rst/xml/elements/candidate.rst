@@ -52,10 +52,6 @@ Candidate object may be used.
 |                     |                                                 |              |              | (e.g. filed, qualified, etc...).         | then the implementation is required to   |
 |                     |                                                 |              |              |                                          | ignore it.                               |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| SequenceOrder       | ``xs:integer``                                  | Optional     | Single       | The order in which the candidate can be  | If the field is invalid or not present,  |
-|                     |                                                 |              |              | listed on the ballot or in results.      | then the implementation is required to   |
-|                     |                                                 |              |              |                                          | ignore it.                               |
-+---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:

@@ -37,6 +37,7 @@
 
   <xs:simpleType name="DistrictType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="borough" />
       <xs:enumeration value="city" />
       <xs:enumeration value="city-council" />
       <xs:enumeration value="congressional" />
@@ -178,6 +179,9 @@
   </xs:complexType>
 
   <xs:complexType name="BallotSelectionBase" abstract="true">
+    <xs:sequence>
+      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
+    </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
@@ -201,7 +205,6 @@
       <xs:element name="PersonId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="PostElectionStatus" type="CandidatePostElectionStatus" minOccurs="0" />
       <xs:element name="PreElectionStatus" type="CandidatePreElectionStatus" minOccurs="0" />
-      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -212,7 +215,7 @@
         <xs:sequence>
           <xs:element name="NumberElected" type="xs:integer" minOccurs="0" />
           <xs:element name="OfficeIds" type="xs:IDREFS" minOccurs="0" />
-          <xs:element name="PrimaryPartyId" type="xs:IDREF" minOccurs="0" />
+          <xs:element name="PrimaryPartyIds" type="xs:IDREFS" minOccurs="0" />
           <xs:element name="VotesAllowed" type="xs:integer" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
@@ -395,7 +398,7 @@
     -->
   <xs:complexType name="InternationalizedText">
     <xs:sequence>
-      <xs:element name="Text" type="LanguageString" minOccurs="1" maxOccurs="unbounded" />
+      <xs:element name="Text" type="LanguageString" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -413,9 +416,9 @@
 
   <xs:complexType name="LatLng">
     <xs:sequence>
-      <xs:element name="Latitude" type="xs:float" minOccurs="1" maxOccurs="1" />
-      <xs:element name="Longitude" type="xs:float" minOccurs="1" maxOccurs="1" />
-      <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Latitude" type="xs:float" maxOccurs="1" />
+      <xs:element name="Longitude" type="xs:float" maxOccurs="1" />
+      <xs:element name="Source" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -447,7 +450,7 @@
           <xs:sequence>
             <xs:element name="StartDate" type="xs:date" minOccurs="0" />
             <xs:element name="EndDate" type="xs:date" minOccurs="0" />
-            <xs:element name="Type" type="OfficeTermType" />
+            <xs:element name="Type" type="OfficeTermType" minOccurs="0" />
           </xs:sequence>
           <xs:attribute name="label" type="xs:string" />
         </xs:complexType>
@@ -497,6 +500,7 @@
       <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" />
       <xs:element name="FirstName" type="xs:string" minOccurs="0" />
       <xs:element name="FullName" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="Gender" type="xs:string" minOccurs="0" />
       <xs:element name="LastName" type="xs:string" minOccurs="0" />
       <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Nickname" type="xs:string" minOccurs="0" />

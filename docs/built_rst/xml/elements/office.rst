@@ -54,7 +54,7 @@ Term
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===================================+==============+==============+==========================================+==========================================+
-| Type         | :ref:`multi-xml-office-term-type` | **Required** | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
+| Type         | :ref:`multi-xml-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
 |              |                                   |              |              | :ref:`multi-xml-office-term-type` for    | the implementation is required to ignore |
 |              |                                   |              |              | valid values).                           | the ``Office`` element containing it.    |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

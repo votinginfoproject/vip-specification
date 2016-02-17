@@ -4,3 +4,8 @@ description: |-
   :ref:`$$$-ballot-measure-selection`,
   :ref:`$$$-candidate-selection`, and :ref:`$$$-party-selection`.
   Besides an id attribute, it has no additional fields.
+tags:
+- _name: SequenceOrder
+  description: The order in which a selection can be listed on the ballot or in results.
+  error_then: =must-ignore
+  type: xs:integer

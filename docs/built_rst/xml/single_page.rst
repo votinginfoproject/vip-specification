@@ -67,10 +67,6 @@ Candidate object may be used.
 |                     |                                                  |              |              | (e.g. filed, qualified, etc...).         | then the implementation is required to   |
 |                     |                                                  |              |              |                                          | ignore it.                               |
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| SequenceOrder       | ``xs:integer``                                   | Optional     | Single       | The order in which the candidate can be  | If the field is invalid or not present,  |
-|                     |                                                  |              |              | listed on the ballot or in results.      | then the implementation is required to   |
-|                     |                                                  |              |              |                                          | ignore it.                               |
-+---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:
@@ -93,6 +89,14 @@ A base model for all ballot selection types:
 :ref:`single-xml-ballot-measure-selection`,
 :ref:`single-xml-candidate-selection`, and :ref:`single-xml-party-selection`.
 Besides an id attribute, it has no additional fields.
+
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============+================+==============+==============+==========================================+==========================================+
+| SequenceOrder | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
+|               |                |              |              | listed on the ballot or in results.      | then the implementation is required to   |
+|               |                |              |              |                                          | ignore it.                               |
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-party-selection:
@@ -475,7 +479,7 @@ Term
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+====================================+==============+==============+==========================================+==========================================+
-| Type         | :ref:`single-xml-office-term-type` | **Required** | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
+| Type         | :ref:`single-xml-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
 |              |                                    |              |              | :ref:`single-xml-office-term-type` for   | the implementation is required to ignore |
 |              |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -637,37 +641,37 @@ CandidateContest
 CandidateContest extends :ref:`single-xml-contest-base` and represents a contest among
 candidates.
 
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag            | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
-+================+================+==============+==============+==========================================+==========================================+
-| NumberElected  | ``xs:integer`` | Optional     | Single       | Number of candidates that are elected in | If the field is invalid or not present,  |
-|                |                |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
-|                |                |              |              |                                          | ignore it.                               |
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeIds      | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                |                |              |              | :ref:`single-xml-office` elements, if    | then the implementation is required to   |
-|                |                |              |              | available, which give additional         | ignore it.                               |
-|                |                |              |              | information about the offices. **Note:** |                                          |
-|                |                |              |              | the order of the office IDs **must** be  |                                          |
-|                |                |              |              | in the same order as the candidates      |                                          |
-|                |                |              |              | listed in `BallotSelectionIds`. E.g., if |                                          |
-|                |                |              |              | the various `BallotSelectionIds`         |                                          |
-|                |                |              |              | reference                                |                                          |
-|                |                |              |              | :ref:`single-xml-candidate-selection`    |                                          |
-|                |                |              |              | elements which reference the candidate   |                                          |
-|                |                |              |              | for President first and Vice-President   |                                          |
-|                |                |              |              | second, the `OfficeIds` should reference |                                          |
-|                |                |              |              | the office of President first and the    |                                          |
-|                |                |              |              | office of Vice-President second.         |                                          |
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrimaryPartyId | ``xs:IDREF``   | Optional     | Single       | References a :ref:`single-xml-party`     | If the field is invalid or not present,  |
-|                |                |              |              | element, if the contest is related to a  | then the implementation is required to   |
-|                |                |              |              | particular party.                        | ignore it.                               |
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VotesAllowed   | ``xs:integer`` | Optional     | Single       | Maximum number of votes/write-ins per    | If the field is invalid or not present,  |
-|                |                |              |              | voter in this contest.                   | then the implementation is required to   |
-|                |                |              |              |                                          | ignore it.                               |
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
++-----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag             | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++=================+================+==============+==============+==========================================+==========================================+
+| NumberElected   | ``xs:integer`` | Optional     | Single       | Number of candidates that are elected in | If the field is invalid or not present,  |
+|                 |                |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
+|                 |                |              |              |                                          | ignore it.                               |
++-----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OfficeIds       | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
+|                 |                |              |              | :ref:`single-xml-office` elements, if    | then the implementation is required to   |
+|                 |                |              |              | available, which give additional         | ignore it.                               |
+|                 |                |              |              | information about the offices. **Note:** |                                          |
+|                 |                |              |              | the order of the office IDs **must** be  |                                          |
+|                 |                |              |              | in the same order as the candidates      |                                          |
+|                 |                |              |              | listed in `BallotSelectionIds`. E.g., if |                                          |
+|                 |                |              |              | the various `BallotSelectionIds`         |                                          |
+|                 |                |              |              | reference                                |                                          |
+|                 |                |              |              | :ref:`single-xml-candidate-selection`    |                                          |
+|                 |                |              |              | elements which reference the candidate   |                                          |
+|                 |                |              |              | for President first and Vice-President   |                                          |
+|                 |                |              |              | second, the `OfficeIds` should reference |                                          |
+|                 |                |              |              | the office of President first and the    |                                          |
+|                 |                |              |              | office of Vice-President second.         |                                          |
++-----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| PrimaryPartyIds | ``xs:IDREFS``  | Optional     | Single       | References :ref:`single-xml-party`       | If the field is invalid or not present,  |
+|                 |                |              |              | elements, if the contest is related to a | then the implementation is required to   |
+|                 |                |              |              | particular party.                        | ignore it.                               |
++-----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VotesAllowed    | ``xs:integer`` | Optional     | Single       | Maximum number of votes/write-ins per    | If the field is invalid or not present,  |
+|                 |                |              |              | voter in this contest.                   | then the implementation is required to   |
+|                 |                |              |              |                                          | ignore it.                               |
++-----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:
@@ -1643,7 +1647,7 @@ A container for the contests/measures on the ballot.
 Party
 ~~~~~
 
-This element describes a political party and the metadata associated with them. These can also include "dummy" parties to indicate a type of contest (e.g., a Voter Nominated :ref:`single-xml-candidate-contest` can use the **PrimaryPartyId** field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
+This element describes a political party and the metadata associated with them. These can also include "dummy" parties to indicate a type of contest (e.g., a Voter Nominated :ref:`single-xml-candidate-contest` can use the **PrimaryPartyIds** field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
 
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -1726,6 +1730,10 @@ or elected official. These elements reference ``Person``:
 |                    |                                          |              |              | :ref:`single-xml-internationalized-text` | required to ignore it.                   |
 |                    |                                          |              |              | because it sometimes appears on ballots  |                                          |
 |                    |                                          |              |              | in multiple languages).                  |                                          |
++--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Gender             | ``xs:string``                            | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
+|                    |                                          |              |              |                                          | then the implementation is required to   |
+|                    |                                          |              |              |                                          | ignore it.                               |
 +--------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LastName           | ``xs:string``                            | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
 |                    |                                          |              |              |                                          | then the implementation is required to   |
@@ -1977,6 +1985,8 @@ state, so please use the definition which best matches your local meaning.
 +----------------+----------------------------------------------------+
 | Tag            | Description                                        |
 +================+====================================================+
+| borough        | A borough                                          |
++----------------+----------------------------------------------------+
 | city           | A city.                                            |
 +----------------+----------------------------------------------------+
 | city-council   | A specific seat/jurisdiction for a city, town, or  |

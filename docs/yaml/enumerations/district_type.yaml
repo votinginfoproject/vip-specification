@@ -10,6 +10,8 @@ post: |-
   .. _town: http://en.wikipedia.org/wiki/Town#United_States
   .. _`Wikipedia article`: http://en.wikipedia.org/wiki/Town#United_States
 tags:
+- _name: borough
+  description: A borough
 - _name: city
   description: A city.
 - _name: city-council

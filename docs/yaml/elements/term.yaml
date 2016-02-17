@@ -20,7 +20,6 @@ tags:
     for valid values).
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``Office`` element containing it.
-  required: true
   type: OfficeTermType
 - _name: StartDate
   description: Specifies the start date for the current term of the office.

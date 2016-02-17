@@ -3,7 +3,7 @@ _sub_types:
 - HtmlColorString
 description: This element describes a political party and the metadata associated
   with them. These can also include "dummy" parties to indicate a type of contest
-  (e.g., a Voter Nominated :ref:`$$$-candidate-contest` can use the **PrimaryPartyId**
+  (e.g., a Voter Nominated :ref:`$$$-candidate-contest` can use the **PrimaryPartyIds**
   field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
 tags:
 - _name: Abbreviation

@@ -59,8 +59,3 @@ tags:
   description: Registration status of the candidate (e.g. filed, qualified, etc...).
   error_then: =must-ignore
   type: CandidatePreElectionStatus
-- _name: SequenceOrder
-  description: The order in which the candidate can be listed on the ballot or in
-    results.
-  error_then: =must-ignore
-  type: xs:integer
