@@ -6,15 +6,27 @@ This document includes release notes for the [VIP Spec][vip] for versions
 ## Version 5.1
 
 ### Spec Changes
-* Use `xs:IDREFS` instead of `xs:IDREF maxOccurs="unbounded"`.
-  * The [NIST][nist_spec] also moved to `xs:IDREFS`
-  * This was also causing some issues with Java code generation.
+* Convergence with the released version of the [NIST][nist_spec] election
+  results reporting spec.
   * Issue [#298](https://github.com/votinginfoproject/vip-specification/issues/298)
+  * Use `xs:IDREFS` instead of `xs:IDREF maxOccurs="unbounded"`
+    * This was also causing some issues with Java code generation
+  * Move Move `SequenceOrder` from `Candidate` to `BallotSelectionBase`
+  * Update `CandidateContest` to support multiple `PrimaryPartyIds`
+  * Add `Gender` to `Person`
+  * Make `TermType` in `Term` optional
+  * Add "borough" to `DistrictType`
+* Support for city-level wildcarding
+  * Issue [#289](https://github.com/votinginfoproject/vip-specification/issues/289)
 
 ### Other Changes
-* Updated sample feed to include use of multiple offices on a single
-  `CandidateSelection`
-  * President and Vice-President [PR
+* Clarify documentation surrounding element use
+  * Issue [#291](https://github.com/votinginfoproject/vip-specification/issues/291)
+* Updated sample feed
+  * Describe support for party affiliations in open primary elections
+    * Issue [#268](https://github.com/votinginfoproject/vip-specification/issues/268)
+  * Include use of multiple offices on a single `CandidateSelection`
+    * President and Vice-President [PR
   #303](https://github.com/votinginfoproject/vip-specification/pull/303)
 
 ## Version 5.0
