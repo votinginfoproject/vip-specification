@@ -3,7 +3,12 @@ HoursOpen
 
 A structured way of describing the days and hours that a place such as a
 :doc:`Office <office>` or :doc:`PollingLocation <polling_location>` is open, or
-that an event such as an :doc:`Election <election>` is happening.
+that an event such as an :doc:`Election <election>` is happening.  The range
+of days indicated by the StartDate and EndDate in each :doc:`Schedule <schedule>`
+element should not overlap with peer :doc:`Schedule <schedule>` elements.  For
+example it is invalid to specify a schedule from 10/01/2016 to 10/31/2016 and also 
+specify a schedule from 10/10/2016 to 10/11/2016 within the same 
+:doc:`HoursOpen <hours_open>` element.
 
 .. include:: ../../tables/elements/hours_open.rst
 
