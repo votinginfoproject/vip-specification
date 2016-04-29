@@ -7,7 +7,12 @@ HoursOpen
 
 A structured way of describing the days and hours that a place such as a
 :ref:`multi-xml-office` or :ref:`multi-xml-polling-location` is open, or
-that an event such as an :ref:`multi-xml-election` is happening.
+that an event such as an :ref:`multi-xml-election` is happening. The range of days
+indicated by the `StartDate` and `EndDate` in each `Schedule`_ element
+should not overlap with peer `Schedule`_ elements. For example, it is
+invalid to specify a schedule from 10/01/2016 to 10/31/2016 and also
+specify a schedule from 10/10/2016 to 10/11/2016 within the same `HoursOpen`
+element.
 
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
