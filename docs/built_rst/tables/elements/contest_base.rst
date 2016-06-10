@@ -49,9 +49,11 @@
 |                         |                                         |              |              | BallotTitle should be used for this      | it.                                      |
 |                         |                                         |              |              | purpose).                                |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| SequenceOrder           | ``xs:integer``                          | Optional     | Single       | Order in which the candidates are listed | If the field is invalid or not present,  |
-|                         |                                         |              |              | on the ballot.                           | then the implementation should ignore    |
-|                         |                                         |              |              |                                          | it.                                      |
+| SequenceOrder           | ``xs:integer``                          | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
+|                         |                                         |              |              | on the ballot. This is the default       | then the implementation should ignore    |
+|                         |                                         |              |              | ordering, and can be overrides by data   | it.                                      |
+|                         |                                         |              |              | in a :ref:`multi-xml-ballot-style`       |                                          |
+|                         |                                         |              |              | element.                                 |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | VoteVariation           | :ref:`multi-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
 |                         |                                         |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |

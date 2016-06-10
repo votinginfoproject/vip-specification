@@ -49,7 +49,8 @@ tags:
   error_then: =should-ignore
   type: xs:string
 - _name: SequenceOrder
-  description: Order in which the candidates are listed on the ballot.
+  description: Order in which the contests are listed on the ballot. This is the default
+    ordering, and can be overrides by data in a :ref:`$$$-ballot-style` element.
   error_then: =should-ignore
   type: xs:integer
 - _name: VoteVariation

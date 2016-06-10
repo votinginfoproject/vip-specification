@@ -3,9 +3,10 @@ description: |-
   A base model for all ballot selection types:
   :ref:`$$$-ballot-measure-selection`,
   :ref:`$$$-candidate-selection`, and :ref:`$$$-party-selection`.
-  Besides an id attribute, it has no additional fields.
 tags:
 - _name: SequenceOrder
   description: The order in which a selection can be listed on the ballot or in results.
+    This is the default ordering, and can be overridden by `OrderedBallotSlectionIds`
+    in :ref:`$$$-ordered-contest`.
   error_then: =must-ignore
   type: xs:integer
