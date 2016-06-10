@@ -31,8 +31,8 @@ order. Exceptions are noted below.
 For the data itself, the special characters &, <, and > need to be encoded as &amp;, &lt;, and &gt;,
 respectively.
 
-.. _sample xml file: https://github.com/votinginfoproject/vip-specification/blob/vip5/sample_feed.xml
-.. _xsd file: https://github.com/votinginfoproject/vip-specification/blob/vip5/vip_spec.xsd
+.. _sample xml file: https://github.com/votinginfoproject/vip-specification/blob/release/sample_feed.xml
+.. _xsd file: https://github.com/votinginfoproject/vip-specification/blob/release/vip_spec.xsd
 
 
 .. _naming-convention:
