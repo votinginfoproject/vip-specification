@@ -832,6 +832,8 @@
       <Phone>202-456-1111</Phone>
       <Phone annotation="TDD">202-456-6213</Phone>
       <Uri>http://www.whitehouse.gov</Uri>
+      <Uri annotation="facebook">https://www.facebook.com/WhiteHouse</Uri>
+      <Uri annotation="twitter">https://twitter.com/WhiteHouse</Uri>
     </ContactInformation>
     <FirstName>Barack</FirstName>
     <LastName>Obama</LastName>

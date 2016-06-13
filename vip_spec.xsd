@@ -149,6 +149,17 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <!--
+      AnnotatedURI: a type representing a URI with a purpose specified.
+    -->
+  <xs:complexType name="AnnotatedURI">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute name="annotation" type="ShortString" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:complexType name="BallotMeasureContest">
     <xs:complexContent>
       <xs:extension base="ContestBase">
@@ -249,7 +260,7 @@
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="xs:string" minOccurs="0" />
       <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Uri" type="AnnotatedURI" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
