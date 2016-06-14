@@ -3,6 +3,18 @@
 This document includes release notes for the [VIP Spec][vip] for versions
 5.1 and later.
 
+## Version 5.1.1
+
+### Spec Changes
+* Added a backwards-compatible `AnnotatedURI` type to allow publishers to
+  specify metadata about a `ContactInformation.Uri`
+  * Issue [#317](https://github.com/votinginfoproject/vip-specification/issues/317)
+
+### Other Changes
+* Created a [release
+  branch](https://github.com/votinginfoproject/vip-specification/tree/release)
+  as a stable tag for the current release.
+
 ## Version 5.1
 
 ### Spec Changes
