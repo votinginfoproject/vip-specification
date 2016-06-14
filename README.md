@@ -5,9 +5,12 @@ related elements. Please see the
 [documentation](http://vip-specification.readthedocs.org/en/latest/).
 
 The current version of the spec is defined in the file named `vip_spec.xsd`.
-For versions of the spec prior to 5.0, see the state of the repository
-tagged ["v3-archive"][archive_tag].  For a downloadable version of these
-earlier versions, see the ["v3-archive" release][archive_release].
+For versions of the spec prior to the current version, see the [releases
+page][releases_page]. Previous releases include:
+
+* 5.1 [(Archive)][v5_1_archive_release] [(Tree)][v5_1_archive_tag]
+* 5.0 [(Archive)][v5_0_archive_release] [(Tree)][v5_0_archive_tag]
+* 3.x [(Archive)][v3_archive_release] [(Tree)][v3_archive_tag]
 
 For release notes, see the [`HISTORY.md`](HISTORY.md) file.
 
@@ -17,5 +20,10 @@ available under a [Creative Commons-Attribution license, version
 [CREDITS file](CREDITS.md).
 
 
-[archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v3-archive
-[archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v3-archive
+[releases_page]: https://github.com/votinginfoproject/vip-specification/releases
+[v5_1_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.1-archive
+[v5_1_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.1-archive
+[v5_0_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.0-archive
+[v5_0_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.0-archive
+[v3_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v3-archive
+[v3_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v3-archive
