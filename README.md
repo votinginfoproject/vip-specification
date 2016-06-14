@@ -21,9 +21,9 @@ available under a [Creative Commons-Attribution license, version
 
 
 [releases_page]: https://github.com/votinginfoproject/vip-specification/releases
-[v5_1_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.1-archive
-[v5_1_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.1-archive
-[v5_0_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.0-archive
-[v5_0_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.0-archive
+[v5_1_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.1-release
+[v5_1_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.1-release
+[v5_0_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.0-release
+[v5_0_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.0-release
 [v3_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v3-archive
 [v3_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v3-archive
