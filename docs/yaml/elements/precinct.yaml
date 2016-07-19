@@ -67,11 +67,11 @@ tags:
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrecinctSplitName
-  description: If this field is empty, then this `Precinct` object represents a full precinct.
-    If this field is present, then this `Precinct` object represents one portion of a split
-    precinct. Each `Precinct` object that represents one portion of a split precinct **must**
-    have the same `Name` value, but different `PrecinctSplitName` values. See the
-    `sample_feed.xml` file for examples.
+  description: If this field is empty, then this `Precinct` object represents a full
+    precinct. If this field is present, then this `Precinct` object represents one
+    portion of a split precinct. Each `Precinct` object that represents one portion
+    of a split precinct **must** have the same `Name` value, but different `PrecinctSplitName`
+    values. See the `sample_feed.xml` file for examples.
   error_then: =must-ignore
   type: xs:string
 - _name: Ward
