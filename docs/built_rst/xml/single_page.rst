@@ -20,8 +20,9 @@ Elements
 Candidate
 ~~~~~~~~~
 
-The Candidate object represents a candidate in a contest. If a candidate is running in multiple contests, the same
-Candidate object may be used.
+The Candidate object represents a candidate in a contest. If a candidate is
+running in multiple contests, each contest **must** have its own Candidate
+object. Candidate objects may **not** be reused between Contests.
 
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                        | Required?    | Repeats?     | Description                              | Error Handling                           |
