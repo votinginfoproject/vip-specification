@@ -28,10 +28,9 @@ tags:
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictIds
-  description: Links to an :ref:`$$$-electoral-district` (e.g., congressional district,
-    state house district, school board district) to which the precinct belongs. **Highly
-    Recommended** if candidate information is to be provided. Multiple allowed and
-    recommended to specify the geography of multiple electoral districts.
+  description: Links to the :ref:`$$$-electoral-district`s (e.g., congressional district,
+    state house district, school board district) to which the entire precinct/precinct
+    split belongs. **Highly Recommended** if candidate information is to be provided.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: ExternalIdentifiers

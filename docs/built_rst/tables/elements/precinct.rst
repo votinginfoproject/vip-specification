@@ -8,15 +8,13 @@
 |                      |                                       |              |              | person who lives in this precinct will   | ignore it.                               |
 |                      |                                       |              |              | vote.                                    |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictIds | ``xs:IDREFS``                         | Optional     | Single       | Links to an                              | If the field is invalid or not present,  |
-|                      |                                       |              |              | :ref:`multi-xml-electoral-district`      | then the implementation is required to   |
+| ElectoralDistrictIds | ``xs:IDREFS``                         | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
+|                      |                                       |              |              | :ref:`multi-xml-electoral-district`s     | then the implementation is required to   |
 |                      |                                       |              |              | (e.g., congressional district, state     | ignore it.                               |
 |                      |                                       |              |              | house district, school board district)   |                                          |
-|                      |                                       |              |              | to which the precinct belongs. **Highly  |                                          |
-|                      |                                       |              |              | Recommended** if candidate information   |                                          |
-|                      |                                       |              |              | is to be provided. Multiple allowed and  |                                          |
-|                      |                                       |              |              | recommended to specify the geography of  |                                          |
-|                      |                                       |              |              | multiple electoral districts.            |                                          |
+|                      |                                       |              |              | to which the entire precinct/precinct    |                                          |
+|                      |                                       |              |              | split belongs. **Highly Recommended** if |                                          |
+|                      |                                       |              |              | candidate information is to be provided. |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers  | :ref:`multi-xml-external-identifiers` | Optional     | Single       | Other identifier for the precinct that   | If the element is invalid or not         |
 |                      |                                       |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
