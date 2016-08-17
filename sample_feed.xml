@@ -219,6 +219,13 @@
       <Text language="en">Party Preference: None</Text>
     </Name>
   </Party>
+  <Party id="par0007">
+    <Abbreviation>SSP</Abbreviation>
+    <IsWriteIn>true</IsWriteIn>
+    <Name>
+      <Text language="en">Slightly Silly Party</Text>
+    </Name>
+  </Party>
 
   <!-- The various electoral districts for which there are offices/contests in this election. -->
   <ElectoralDistrict id="ed60129">
@@ -589,7 +596,7 @@
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20262">
-    <BallotSelectionIds>cs10079 cs10080</BallotSelectionIds>
+    <BallotSelectionIds>cs10079 cs10080 cs10081</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Member Board of Supervisors</Text>
     </BallotTitle>
@@ -932,7 +939,7 @@
     <FirstName>Robert</FirstName>
     <LastName>Sarvis</LastName>
     <MiddleName>C.</MiddleName>
-    <PartyId>par0002</PartyId>
+    <PartyId>par0006</PartyId>
   </Person>
   <CandidateSelection id="cs10963">
     <CandidateIds>can10963</CandidateIds>
@@ -1210,6 +1217,27 @@
     <MiddleName>L.</MiddleName>
     <Nickname>Cindi</Nickname>
     <PartyId>par0001</PartyId>
+  </Person>
+  <CandidateSelection id="cs10081">
+    <CandidateIds>can10081</CandidateIds>
+  </CandidateSelection>
+  <Candidate id="can10081">
+    <BallotName>
+      <Text language="en">Kevin Phillips-Bong</Text>
+    </BallotName>
+    <PartyId>par0007</PartyId>
+    <PersonId>per10081</PersonId>
+  </Candidate>
+  <Person id="per10081">
+    <ContactInformation label="ci10081">
+      <AddressLine>4 Hanover House</AddressLine>
+      <AddressLine>14 Hanover Square</AddressLine>
+      <AddressLine>London W1S 1HP</AddressLine>
+      <Uri>http://www.montypython.com</Uri>
+    </ContactInformation>
+    <FirstName>Kevin</FirstName>
+    <LastName>Phillips-Bong</LastName>
+    <PartyId>par0007</PartyId>
   </Person>
   <CandidateSelection id="cs10075">
     <CandidateIds>can10075</CandidateIds>

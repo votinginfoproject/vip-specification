@@ -1667,6 +1667,15 @@ This element describes a political party and the metadata associated with them. 
 |                     |                                          |              |              | to other related data sets (e.g. a       | present, then the implementation is      |
 |                     |                                          |              |              | campaign finance system, etc).           | required to ignore it.                   |
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsWriteIn           | ``xs:boolean``                           | Optional     | Single       | Signals if this political party is one   | If the field is invalid or not present,  |
+|                     |                                          |              |              | that is officially recognized by a       | then the implementation is required to   |
+|                     |                                          |              |              | local, state, or federal organization,   | ignore it.                               |
+|                     |                                          |              |              | or is a "write-in" in jurisdictions      |                                          |
+|                     |                                          |              |              | which allow candidates to free-form      |                                          |
+|                     |                                          |              |              | enter their political affiliation. If    |                                          |
+|                     |                                          |              |              | this field is not present then it is     |                                          |
+|                     |                                          |              |              | assumed to be false.                     |                                          |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LogoUri             | ``xs:anyURI``                            | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
 |                     |                                          |              |              | displays.                                | then the implementation is required to   |
 |                     |                                          |              |              |                                          | ignore it.                               |
