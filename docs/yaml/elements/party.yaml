@@ -20,6 +20,13 @@ tags:
     a campaign finance system, etc).
   error_then: =must-ignore
   type: ExternalIdentifiers
+- _name: IsWriteIn
+  description: Signals if this political party is one that is officially recognized
+    by a local, state, or federal organization, or is a "write-in" in jurisdictions
+    which allow candidates to free-form enter their political affiliation. If this
+    field is not present then it is assumed to be false.
+  error_then: =must-ignore
+  type: xs:boolean
 - _name: LogoUri
   description: Web address of a logo to use in displays.
   error_then: =must-ignore
