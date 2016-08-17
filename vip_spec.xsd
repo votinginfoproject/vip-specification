@@ -538,6 +538,7 @@
       <xs:element name="IsDropBox" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="IsEarlyVoting" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="PhotoUri" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />

@@ -40,6 +40,10 @@
 |                  |                                         |              |              | this polling location.                   | present, then the implementation is      |
 |                  |                                         |              |              |                                          | required to ignore it.                   |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name             | ``xs:string``                           | Optional     | Single       | Name of the polling location.            | If the field is invalid or not present,  |
+|                  |                                         |              |              |                                          | then the implementation is required to   |
+|                  |                                         |              |              |                                          | ignore it.                               |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PhotoUri         | ``xs:anyURI``                           | Optional     | Single       | Contains a link to an image of the       | If the field is invalid or not present,  |
 |                  |                                         |              |              | polling location.                        | then the implementation is required to   |
 |                  |                                         |              |              |                                          | ignore it.                               |

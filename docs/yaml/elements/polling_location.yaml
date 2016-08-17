@@ -38,6 +38,10 @@ tags:
   description: Specifies the latitude and longitude of this polling location.
   error_then: =must-ignore
   type: LatLng
+- _name: Name
+  description: Name of the polling location.
+  error_then: =must-ignore
+  type: xs:string
 - _name: PhotoUri
   description: Contains a link to an image of the polling location.
   error_then: =must-ignore
