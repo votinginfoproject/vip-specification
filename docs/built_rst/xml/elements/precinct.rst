@@ -20,19 +20,13 @@ non-required fields is fine).
 |                      |                                       |              |              | person who lives in this precinct will   | ignore it.                               |
 |                      |                                       |              |              | vote.                                    |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictIds | ``xs:IDREFS``                         | Optional     | Single       | Links to an                              | If the field is invalid or not present,  |
-|                      |                                       |              |              | :ref:`multi-xml-electoral-district`      | then the implementation is required to   |
+| ElectoralDistrictIds | ``xs:IDREFS``                         | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
+|                      |                                       |              |              | :ref:`multi-xml-electoral-district`s     | then the implementation is required to   |
 |                      |                                       |              |              | (e.g., congressional district, state     | ignore it.                               |
 |                      |                                       |              |              | house district, school board district)   |                                          |
-|                      |                                       |              |              | to which the precinct belongs. **Highly  |                                          |
-|                      |                                       |              |              | Recommended** if candidate information   |                                          |
-|                      |                                       |              |              | is to be provided. Multiple allowed and  |                                          |
-|                      |                                       |              |              | recommended to specify the geography of  |                                          |
-|                      |                                       |              |              | multiple electoral districts. If an      |                                          |
-|                      |                                       |              |              | electoral district splits a precinct,    |                                          |
-|                      |                                       |              |              | use the `PrecinctSplitName` object and   |                                          |
-|                      |                                       |              |              | do not specify that particular electoral |                                          |
-|                      |                                       |              |              | district in this object.                 |                                          |
+|                      |                                       |              |              | to which the entire precinct/precinct    |                                          |
+|                      |                                       |              |              | split belongs. **Highly Recommended** if |                                          |
+|                      |                                       |              |              | candidate information is to be provided. |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers  | :ref:`multi-xml-external-identifiers` | Optional     | Single       | Other identifier for the precinct that   | If the element is invalid or not         |
 |                      |                                       |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
@@ -60,9 +54,17 @@ non-required fields is fine).
 |                      |                                       |              |              | :ref:`multi-xml-polling-location`        | then the implementation is required to   |
 |                      |                                       |              |              | object(s).                               | ignore it.                               |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctSplitName    | ``xs:string``                         | Optional     | Single       | Refers to name of the associated         | If the field is invalid or not present,  |
-|                      |                                       |              |              | precinct split.                          | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
+| PrecinctSplitName    | ``xs:string``                         | Optional     | Single       | If this field is empty, then this        | If the field is invalid or not present,  |
+|                      |                                       |              |              | `Precinct` object represents a full      | then the implementation is required to   |
+|                      |                                       |              |              | precinct. If this field is present, then | ignore it.                               |
+|                      |                                       |              |              | this `Precinct` object represents one    |                                          |
+|                      |                                       |              |              | portion of a split precinct. Each        |                                          |
+|                      |                                       |              |              | `Precinct` object that represents one    |                                          |
+|                      |                                       |              |              | portion of a split precinct **must**     |                                          |
+|                      |                                       |              |              | have the same `Name` value, but          |                                          |
+|                      |                                       |              |              | different `PrecinctSplitName` values.    |                                          |
+|                      |                                       |              |              | See the `sample_feed.xml` file for       |                                          |
+|                      |                                       |              |              | examples.                                |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Ward                 | ``xs:string``                         | Optional     | Single       | Specifies the ward the precinct is       | If the field is invalid or not present,  |
 |                      |                                       |              |              | contained within.                        | then the implementation is required to   |

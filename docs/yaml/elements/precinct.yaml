@@ -28,12 +28,9 @@ tags:
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictIds
-  description: Links to an :ref:`$$$-electoral-district` (e.g., congressional district,
-    state house district, school board district) to which the precinct belongs. **Highly
-    Recommended** if candidate information is to be provided. Multiple allowed and
-    recommended to specify the geography of multiple electoral districts. If an electoral
-    district splits a precinct, use the `PrecinctSplitName` object and do not specify
-    that particular electoral district in this object.
+  description: Links to the :ref:`$$$-electoral-district`s (e.g., congressional district,
+    state house district, school board district) to which the entire precinct/precinct
+    split belongs. **Highly Recommended** if candidate information is to be provided.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: ExternalIdentifiers
@@ -69,7 +66,11 @@ tags:
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrecinctSplitName
-  description: Refers to name of the associated precinct split.
+  description: If this field is empty, then this `Precinct` object represents a full
+    precinct. If this field is present, then this `Precinct` object represents one
+    portion of a split precinct. Each `Precinct` object that represents one portion
+    of a split precinct **must** have the same `Name` value, but different `PrecinctSplitName`
+    values. See the `sample_feed.xml` file for examples.
   error_then: =must-ignore
   type: xs:string
 - _name: Ward
