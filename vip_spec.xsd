@@ -441,7 +441,7 @@
       <xs:element name="Name" type="xs:string" />
       <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="StateId" type="xs:IDREF" />
-      <xs:element name="Type" type="DistrictType" />
+      <xs:element name="Type" type="DistrictType" minOccurs="0" />
       <xs:element name="OtherType" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
