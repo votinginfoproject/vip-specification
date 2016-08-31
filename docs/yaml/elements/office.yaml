@@ -11,6 +11,10 @@ tags:
   error_then: =must-ignore
   repeating: true
   type: ContactInformation
+- _name: Description
+  description: A brief description of the office and its purpose.
+  error_then: =must-ignore
+  type: InternationalizedText
 - _name: ElectoralDistrictId
   description: Links to the :ref:`$$$-electoral-district` element associated with
     the office.

@@ -442,6 +442,10 @@ School Board, et al).
 |                       |                                          |              |              | the office and/or individual holding the | present, then the implementation is      |
 |                       |                                          |              |              | office.                                  | required to ignore it.                   |
 +-----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Description           | :ref:`single-xml-internationalized-text` | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
+|                       |                                          |              |              | its purpose.                             | present, then the implementation is      |
+|                       |                                          |              |              |                                          | required to ignore it.                   |
++-----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId   | ``xs:IDREF``                             | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
 |                       |                                          |              |              | :ref:`single-xml-electoral-district`     | the implementation is required to ignore |
 |                       |                                          |              |              | element associated with the office.      | the ``Office`` element containing it.    |
