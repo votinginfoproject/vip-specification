@@ -35,6 +35,10 @@ tags:
   description: Represents the individual's date of birth.
   error_then: =must-ignore
   type: xs:date
+- _name: ExternalIdentifiers
+  description: Identifiers for this person.
+  error_then: =must-ignore
+  type: ExternalIdentifiers
 - _name: FirstName
   description: Represents an individual's first name.
   error_then: =must-ignore
