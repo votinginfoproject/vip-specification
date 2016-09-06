@@ -831,11 +831,6 @@
     <BallotName>
       <Text language="en">Barack H. Obama</Text>
     </BallotName>
-    <FileDate>2015-06-01</FileDate>
-    <PartyId>par0003</PartyId>
-    <PersonId>per10861a</PersonId>
-  </Candidate>
-  <Person id="per10861a">
     <ContactInformation label="ci10861a">
       <AddressLine>1600 Pennsylvania Ave</AddressLine>
       <AddressLine>Washington, DC 20006</AddressLine>
@@ -846,6 +841,11 @@
       <Uri annotation="facebook">https://www.facebook.com/WhiteHouse</Uri>
       <Uri annotation="twitter">https://twitter.com/WhiteHouse</Uri>
     </ContactInformation>
+    <FileDate>2015-06-01</FileDate>
+    <PartyId>par0003</PartyId>
+    <PersonId>per10861a</PersonId>
+  </Candidate>
+  <Person id="per10861a">
     <ExternalIdentifiers>
       <ExternalIdentifier>
         <Type>other</Type>
