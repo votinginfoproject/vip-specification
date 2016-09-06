@@ -450,6 +450,7 @@
   <xs:complexType name="Office">
     <xs:sequence>
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
       <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="FilingDeadline" type="xs:date" minOccurs="0" />

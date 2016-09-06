@@ -360,6 +360,10 @@
     </Term>
   </Office>
   <Office id="off20006">
+    <Description>
+      <Text language="en">The Supreme Court of Virginia is the highest court in the Commonwealth of Virginia. It primarily hears direct appeals in civil cases from the trial-level city and county circuit courts, as well as the criminal law, family law and administrative law cases that are initially appealed to the Court of Appeals of Virginia.</Text>
+      <Text language="es">El Tribunal Supremo de Virginia es el más alto tribunal en el estado de Virginia. Se oye principalmente apelaciones directas en casos civiles de los tribunales de la ciudad de primera instancia y de circuito del condado, así como el derecho penal, derecho de familia y derecho administrativo que se apelan inicialmente a la Corte de Apelaciones de Virginia.</Text>
+    </Description>
     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
     <FilingDeadline>2013-01-01</FilingDeadline>
     <IsPartisan>false</IsPartisan>
