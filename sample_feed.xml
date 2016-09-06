@@ -842,6 +842,13 @@
       <Uri annotation="facebook">https://www.facebook.com/WhiteHouse</Uri>
       <Uri annotation="twitter">https://twitter.com/WhiteHouse</Uri>
     </ContactInformation>
+    <ExternalIdentifiers>
+      <ExternalIdentifier>
+        <Type>other</Type>
+        <OtherType>imdb</OtherType>
+        <Value>nm1682433</Value>
+      </ExternalIdentifier>
+    </ExternalIdentifiers>
     <FirstName>Barack</FirstName>
     <LastName>Obama</LastName>
     <MiddleName>H.</MiddleName>
