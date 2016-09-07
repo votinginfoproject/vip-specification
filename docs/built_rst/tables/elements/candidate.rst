@@ -8,6 +8,11 @@
 |                     |                                                 |              |              | "Ken T. Cuccinelli II").                 | required to ignore the Candidate element |
 |                     |                                                 |              |              |                                          | containing it.                           |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ContactInformation  | :ref:`multi-xml-contact-information`            | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
+|                     |                                                 |              |              | for this Candidate and/or their campaign | present, then the implementation is      |
+|                     |                                                 |              |              | (see                                     | required to ignore it.                   |
+|                     |                                                 |              |              | :ref:`multi-xml-contact-information`).   |                                          |
++---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ExternalIdentifiers | :ref:`multi-xml-external-identifiers`           | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
 |                     |                                                 |              |              | links to another source of information   | present, then the implementation is      |
 |                     |                                                 |              |              | (e.g. a campaign committee ID that links | required to ignore it.                   |

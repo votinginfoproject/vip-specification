@@ -22,6 +22,11 @@ tags:
     to ignore the Candidate element containing it.
   required: true
   type: InternationalizedText
+- _name: ContactInformation
+  description: Contact and physical address information for this Candidate and/or
+    their campaign (see :ref:`$$$-contact-information`).
+  error_then: =must-ignore
+  type: ContactInformation
 - _name: ExternalIdentifiers
   description: Another identifier for a candidate that links to another source of
     information (e.g. a campaign committee ID that links to a campaign finance system).
