@@ -1243,6 +1243,31 @@ non-required fields is fine).
       <Number>0203</Number>
       <PollingLocationIds>pl81274</PollingLocationIds>
    </Precinct>
+   <!--
+     Precinct split. Name and PollingLocationIds are the same but
+     PrecinctSplitName is present, the ElectoralDistrictIds are different,
+     and the BallotStyleId is different.
+   -->
+   <Precinct id="pre90348sp0000">
+     <BallotStyleId>bs00002</BallotStyleId>
+     <ElectoralDistrictIds>ed60129 ed60054 ed60150</ElectoralDistrictIds>
+     <IsMailOnly>false</IsMailOnly>
+     <LocalityId>loc70001</LocalityId>
+     <Name>201 - JACK JOUETT</Name>
+     <Number>0201</Number>
+     <PollingLocationIds>pl00000 pl81273 pl81662</PollingLocationIds>
+     <PrecinctSplitName>0000</PrecinctSplitName>
+   </Precinct>
+   <Precinct id="pre90348sp0001">
+     <BallotStyleId>bs00015</BallotStyleId>
+     <ElectoralDistrictIds>ed60129 ed60054 ed60267</ElectoralDistrictIds>
+     <IsMailOnly>false</IsMailOnly>
+     <LocalityId>loc70001</LocalityId>
+     <Name>201 - JACK JOUETT</Name>
+     <Number>0201</Number>
+     <PollingLocationIds>pl00000 pl81273 pl81662</PollingLocationIds>
+     <PrecinctSplitName>0001</PrecinctSplitName>
+   </Precinct>
 
 
 .. _single-xml-lat-lng:
