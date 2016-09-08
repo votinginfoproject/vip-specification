@@ -3,6 +3,23 @@
 This document includes release notes for the [VIP Spec][vip] for versions
 5.1 and later.
 
+## Version 5.1.2
+
+### Spec Changes
+* Add a `Name` element to the PollingLocation object
+  * PR [#317](https://github.com/votinginfoproject/vip-specification/pull/334)
+* Make `LocalityType` optional
+  * Issue [#337](https://github.com/votinginfoproject/vip-specification/issues/337)
+* Several optional extensions to [NIST][nist_spec] objects
+  * Add `IsWriteIn` to `Party`
+    * Issue [#332](https://github.com/votinginfoproject/vip-specification/issues/332)
+  * Add `ExternalIdentifiers` to `Person`
+    * Issue [#340](https://github.com/votinginfoproject/vip-specification/issues/340)
+  * Add `Description` to `Office`
+    * Issue [#338](https://github.com/votinginfoproject/vip-specification/issues/338)
+  * Add `ContactInformation` to `Candidate`
+    * Issue [#331](https://github.com/votinginfoproject/vip-specification/issues/331)
+
 ## Version 5.1.1
 
 ### Spec Changes
