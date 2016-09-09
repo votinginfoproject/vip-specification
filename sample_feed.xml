@@ -527,7 +527,7 @@
     <VotesAllowed>1</VotesAllowed>
   </CandidateContest>
   <CandidateContest id="cc20004">
-    <BallotSelectionIds>cs10961 cs10962 cs10963</BallotSelectionIds>
+    <BallotSelectionIds>cs10966 cs10967</BallotSelectionIds>
     <BallotTitle>
       <Text language="en">Lieutenant Governor of Virginia</Text>
     </BallotTitle>
