@@ -40,13 +40,32 @@ respectively.
 Naming convention
 ~~~~~~~~~~~~~~~~~
 
-The file containing the VIP feed should be named
-vipFeed-[FIPS code for state or county]-[election year]-[election month]-[election day].xml. If the
-file is zipped, the file extensions of .zip or .xml.zip are also acceptable.
+The file containing the VIP feed should be named using the following convention:
 
-For instance, vipFeed-19-2012-11-06.zip denotes Iowa's (the FIPS code for IA is 19) feed for the
-Nov 6, 2012 election.
+.. code-block:: none
 
+   vipfeed-${FIPS}-${ELECTION_DATE}-${STATE}[-${LOCAL}].{xml|zip}
+
+An explanation of each of the segments of the file naming convention above are as follows:
+
+- ``${FIPS}`` - The `FIPS code`_ for the jurisdiction.
+- ``${ELECTION_DATE}`` - The date of the election in `ISO 8601`_ format.
+- ``${STATE}`` - The full state name (e.g. Alaska, Arkansas, etc...) and not the abbreviation. If
+  there are spaces in the state name, they should be substituted with underscores (e.g. New York ->
+  New_York).
+- ``${LOCAL}`` (optional) - This additional identifier should be used if the file contains data
+  from a specific jurisdiction. As with ``${STATE}`` above, all spaces should be substituted with
+  underscores. For example, if the data contained in the file only covers Maricopa County, AZ for
+  the November 6, 2012 election, the file name would be
+  ``vipfeed-04013-2012-11-06-Arizona-Maricopa_County.xml``.
+- ``{xml|zip}`` - If the file is an uncompressed XML document, the extension should be ``.xml.`` If
+  the file is zipped, the file extension should end with ``.zip``.
+
+For a final example, ``vipfeed-19-2012-11-06-Iowa.zip`` denotes Iowa's (**NB:** the FIPS code
+for IA is 19) feed for the Nov 6, 2012 election that has been compressed.
+
+.. _FIPS code: https://en.wikipedia.org/wiki/FIPS_county_code
+.. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
 
 .. _best-practices:
 
