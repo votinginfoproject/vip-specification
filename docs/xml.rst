@@ -40,6 +40,11 @@ respectively.
 Naming convention
 ~~~~~~~~~~~~~~~~~
 
+While many of the Voting Information Project's data processes are managed by software,
+the quality of the entire system relies on human intervention, especially for error reporting
+and quality control. For this reason, VIP files should follow a naming convention that
+describes the contents of each individual feed file in an accessible way.
+
 The file containing the VIP feed should be named using the following convention:
 
 .. code-block:: none
