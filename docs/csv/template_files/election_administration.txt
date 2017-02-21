@@ -1,0 +1,8 @@
+absentee_uri,Specifies the web address for information on absentee voting.
+am_i_registered_uri,Specifies the web address for information on whether an individual is registered.
+elections_uri,Specifies web address the administration’s website.
+registration_uri,Specifies web address for information on registering to vote.
+rules_uri,Specifies a URI for the election rules and laws (if any) for the jurisdiction of the administration.
+what_is_on_my_ballot_uri,Specifies web address for information on what is on an individual’s ballot.
+where_do_i_vote_uri,The Specifies web address for information on where an individual votes based on their address.
+id

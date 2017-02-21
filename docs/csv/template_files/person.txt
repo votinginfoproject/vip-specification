@@ -1,0 +1,12 @@
+date_of_birth,Represents the individual’s date of birth.
+first_name,Represents an individual’s first name.
+gender,
+last_name,Represents an individual’s last name.
+middle_name,Represents any number of names between an individual’s first and last names (e.g. John Ronald Reuel Tolkien).
+nickname,Represents an individual’s nickname.
+party_id,Refers to the associated Party.
+prefix,Specifies a prefix associated with a person (e.g. Dr.).
+profession,Specifies a person’s profession.
+suffix,Specifies a suffix associated with a person (e.g. Jr.).
+title,A title associated with a person.
+id

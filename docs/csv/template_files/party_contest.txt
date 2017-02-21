@@ -1,0 +1,15 @@
+abbreviation,An abbreviation for the contest.
+ballot_selection_ids,References a particular BallotSelection.
+ballot_sub_title,Subtitle of the contest as it appears on the ballot.
+ballot_title,Title of the contest as it appears on the ballot.
+electoral_district_id,References an ElectoralDistrict element that represents the geographical scope of the contest.
+electorate_specification,Specifies any changes to the eligible electorate for this contest past the usual “all registered voters” electorate.
+external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by IdentifierType.
+external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
+external_identifier_value,Specifies the identifier.
+has_rotation,Indicates whether the selections in the contest are rotated.
+name,Name of the contest not necessarily how it appears on the ballot.
+sequence_order,Order in which the candidates are listed on the ballot.
+vote_variation,Vote variation associated with the contest.
+other_vote_variation,The name of the variation can be specified here.
+id

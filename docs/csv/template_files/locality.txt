@@ -1,0 +1,10 @@
+election_administration_id,Links to the locality’s election administration object.
+external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by <link to IdentifierType>
+external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
+external_identifier_value,Specifies the identifier.
+name,Specifies the name of a locality.
+polling_location_ids,Specifies a link to the locality’s polling locations.
+state_id,References the locality’s state.
+type,Defines the kind of locality.
+other_type,Allows for defining a type of locality that falls outside the options listed in DistrictType.
+id

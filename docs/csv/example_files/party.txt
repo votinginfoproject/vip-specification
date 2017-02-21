@@ -1,2 +1,1 @@
-abbreviation,color,external_identifiers,logo_uri,name,id
-REP,e91d0e,,,Republican,par0001
+abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,logo_uri,name,id

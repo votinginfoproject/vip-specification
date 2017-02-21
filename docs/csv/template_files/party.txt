@@ -1,0 +1,8 @@
+abbreviation,An abbreviation for the party name.
+color,The preferred display color for the party for use in maps and other displays.
+external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by IdentifierType.
+external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
+external_identifier_value,Specifies the identifier.
+logo_uri,Web address of a logo to use in displays.
+name,The name of the party.
+id

@@ -1,2 +1,1 @@
-name,type,number,external_identifiers,other_type,id
-Commonwealth of Virginia,state,,"ocd-id:ocd-division/country:us/state:va;fips:51",,ed60129
+id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,number,type,other_type

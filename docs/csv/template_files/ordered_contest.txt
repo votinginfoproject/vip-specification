@@ -1,0 +1,3 @@
+contest_id,Links to elements that extend contest_base.
+ordered_ballot_selection_ids,Links to elements that extend ballot selection.
+id

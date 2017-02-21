@@ -1,0 +1,15 @@
+address_line_1,Street name and number
+address_line_2,Additional address identifier
+address_line_3,City and State Zip
+email,An email address for the contact.
+fax,A fax line for the contact.
+hours,Contains the hours the location is open. This is a free form text field.
+hours_open_id,References a schedule record. 
+latitude,Latitude coordinate
+longitude,Longitude coordinate
+latlng_source,Geocoding source
+name,The name of the location or contact.
+phone,A phone number for the contact.
+uri,An informational URI for the contact or location.
+parent_id,
+id

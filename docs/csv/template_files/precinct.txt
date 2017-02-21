@@ -1,0 +1,13 @@
+ballot_style_id,Links to the ballot style.
+electoral_district_ids,Links to an electoral district.
+external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by <link to IdentifierType>
+external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
+external_identifier_value,Specifies the identifier.
+is_mail_only,Determines if the precinct runs mail-only elections.
+locality_id,Links to the locality that comprises the precinct.
+name,Specifies the precinct’s name (or number if no name exists).
+number,Specifies the precinct’s number.
+polling_location_ids,Specifies a link to the precinct’s polling location object.
+precinct_split_name,Refers to name of the associated precinct split.
+ward,Specifies the ward the precinct is contained within.
+id
