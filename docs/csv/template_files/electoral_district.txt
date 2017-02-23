@@ -1,4 +1,3 @@
-id,
 external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by <link to IdentifierType>
 external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
 external_identifier_value,Specifies the identifier.
@@ -6,3 +5,4 @@ name,Specifies the electoral area’s name.
 number,Specifies the district number of the district.
 type,Specifies the type of electoral area.
 other_type
+id

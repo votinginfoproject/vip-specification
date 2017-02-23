@@ -1,5 +1,5 @@
-id,
 sequence_order,
 candidate_ids,References a candidate element. 
 endorsement_party_ids,References a Party element which signifies one or more endorsing parties for the candidate(s).
 is_write_in,Signifies if the particular ballot selection allows for write-in candidates. 
+id
