@@ -1,3 +1,4 @@
+id,
 abbreviation,An abbreviation for a contest.
 ballot_selection_ids,References a set of ballot selections. 
 ballot_sub_title,Subtitle of the contest as it appears on the ballot.
@@ -23,4 +24,3 @@ type,Specifies the particular type of ballot measure.
 other_type,Allows for cataloging a new BallotMeasureType option.
 candidate_id,Id of the candidate up for retention.
 office_id,Office of the retention.
-id

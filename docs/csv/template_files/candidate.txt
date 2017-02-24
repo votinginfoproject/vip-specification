@@ -1,3 +1,4 @@
+id,
 ballot_name,The candidate’s name as it will be displayed on the official ballot.
 external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by <link to IdentifierType>
 external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
@@ -9,4 +10,3 @@ party_id,Reference to a party element with additional information about the cand
 person_id,Reference to a person element with additional information about the candidate.
 post_election_status,Final status of the candidate 
 pre_election_status,Registration status of the candidate 
-id

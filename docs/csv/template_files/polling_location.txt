@@ -1,3 +1,4 @@
+id,
 name,Name of the polling place.
 address_line,Represents the various parts of an address to a polling location.
 directions,Specifies further instructions for locating the polling location.
@@ -9,4 +10,3 @@ is_early_voting,Indicates if this polling location is an early vote site.
 latitude,The latitude of the polling location.
 longitude,The longitude of the polling location.
 latlng_source,The system used to perform the lookup from location name to lat/lng. 
-id

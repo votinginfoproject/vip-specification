@@ -1,3 +1,4 @@
+id,
 abbreviation,An abbreviation for the contest.
 ballot_selection_ids,References a particular BallotSelection.
 ballot_sub_title,Subtitle of the contest as it appears on the ballot.
@@ -12,4 +13,3 @@ name,Name of the contest not necessarily how it appears on the ballot.
 sequence_order,Order in which the candidates are listed on the ballot.
 vote_variation,Vote variation associated with the contest.
 other_vote_variation,The name of the variation can be specified here.
-id

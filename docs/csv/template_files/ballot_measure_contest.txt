@@ -1,3 +1,4 @@
+id,
 abbreviation,An abbreviation for the Ballot Contest
 ballot_measure_selection_ids,References the relevant selection object
 ballot_sub_title,Subtitle of the Ballot item
@@ -20,4 +21,3 @@ pro_statement,Specifies a statement in favor of the referendum.
 summary_text,Specifies a short summary of the referendum that is on the ballot below the title but above the text.
 type,Specifies the particular type of ballot measure. 
 other_type,Allows for cataloging a new
-id

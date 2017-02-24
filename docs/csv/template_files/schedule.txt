@@ -1,3 +1,4 @@
+id,
 start_time,The date at which this collection of start and end times and options begin.
 end_time,The date at which this collection of start and end times and options end.
 is_only_by_appointment,If true the place is only open during the specified time window with an appointment.
@@ -6,4 +7,3 @@ is_subject_to_change,If true the place should be open during the specified time 
 start_date,The date at which this collection of start and end times and options begin.
 end_date,The date at which this collection of start and end times and options end.
 hours_open_id,References a block of hours. 
-id

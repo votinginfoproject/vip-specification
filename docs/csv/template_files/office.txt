@@ -1,3 +1,4 @@
+id,
 electoral_district_id,Links to the electoral_district element associated with the office.
 external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by <link to IdentifierType>
 external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
@@ -9,4 +10,3 @@ office_holder_person_ids,Links to the Person element(s) that hold additional inf
 term_type,Specifies the type of office term
 term_start_date,Specifies the start date for the current term of the office.
 term_end_date,Specifies the end date for the current term of the office.
-id

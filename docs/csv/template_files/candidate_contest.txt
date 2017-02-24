@@ -1,3 +1,4 @@
+id,
 abbreviation,An abbreviation for the contest.
 candidate_selection_ids,References a particular candidate_selection which could be of any selection type that extends 
 ballot_sub_title,Subtitle of the contest as it appears on the ballot.
@@ -16,4 +17,3 @@ number_elected,Number of candidates that are elected in the contest (i.e. â€œNâ€
 office_ids,References an Office element which gives additional information about the office.
 primary_party_ids,References a party element if the contest is related to a particular party.
 votes_allowed,Maximum number of votes/write-ins per voter in this contest.
-id

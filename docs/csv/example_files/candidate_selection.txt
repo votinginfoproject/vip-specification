@@ -1,1 +1,1 @@
-sequence_order,candidate_ids,endorsement_party_ids,is_write_in,id
+id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in

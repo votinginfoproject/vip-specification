@@ -1,3 +1,4 @@
+id,
 address_line_1,Street name and number
 address_line_2,Additional address identifier
 address_line_3,City and State Zip
@@ -11,5 +12,4 @@ latlng_source,Geocoding source
 name,The name of the location or contact.
 phone,A phone number for the contact.
 uri,An informational URI for the contact or location.
-parent_id,
-id
+parent_id,References election_administration record.

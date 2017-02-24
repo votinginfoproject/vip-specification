@@ -1,1 +1,1 @@
-image_uri,ordered_contest_ids,party_ids,id
+id,image_uri,ordered_contest_ids,party_ids

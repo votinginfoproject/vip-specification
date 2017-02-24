@@ -1,3 +1,4 @@
+id,
 date_time,Specifies the date and time of the feed production. 
 description,Specifies both the nature of the organization providing the data and what data is in the feed.
 name,Specifies the name of the organization that is providing the information.
@@ -5,4 +6,3 @@ organization_uri,Specifies a URI to the home page of the organization publishing
 terms_of_use_uri,Specifies the website where the Terms of Use for the information in this file can be found.
 vip_id,Specifies the ID of the organization. VIP uses FIPS codes for this ID.
 version,Specifies the version of the data
-id

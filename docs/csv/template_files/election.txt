@@ -1,3 +1,4 @@
+id,
 date,Specifies when the election is being held. The Date is considered to be in the timezone local to the state holding the election.
 name,The name for the election.
 election_type,Specifies the highest controlling authority for election.
@@ -11,4 +12,3 @@ has_election_day_registration,Specifies if a voter can register on the same day 
 registration_deadline,Specifies the last day to register for the election with the possible exception of Election Day registration.
 absentee_request_deadline,Specifies the last day to request an absentee ballot.
 hours_open_id,References a schedule record.
-id

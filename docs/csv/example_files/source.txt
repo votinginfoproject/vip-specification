@@ -1,1 +1,1 @@
-date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version,id
+id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version
