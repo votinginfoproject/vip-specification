@@ -1,11 +1,11 @@
-locality.txt
-============
+locality.txt  
+===============
 
-The locality.txt file represents the jurisdictions below the :ref:`single-xml-state` (e.g. county).
+The Locality object represents the jurisdiction below the State (e.g. county).
 
-.. include:: ../../built_rst/tables/elements/locality.rst
-
-.. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+.. csv-table:: locality
+	:file: ../../csv/template_files/locality.txt
+	:header: "CSV Element", "Description"
 
 .. literalinclude:: ../../csv/example_files/locality.txt
    :linenos:

@@ -1,0 +1,1 @@
+id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in

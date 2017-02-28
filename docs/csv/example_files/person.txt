@@ -1,2 +1,1 @@
-contact_information_id,date_of_birth,first_name,last_name,middle_name,nickname,party_id,prefix,possession,suffix,title,id
-ci60002,,RICHARD,WASHBURNE,J,JAKE,,,,,General Registrar Physical,per50001
+id,date_of_birth,first_name,gender,last_name,middle_name,nickname,party_id,prefix,profession,suffix,title

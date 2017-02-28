@@ -1,2 +1,1 @@
-contact_information_id,electoral_district_id,external_identifiers,filing_deadline,is_partisan,name,office_holder_person_id,term_type,term_start_date,term_end_date,id
-,ed60129,,2013-01-01,false,Governor,,full-term,,,off0000
+id,electoral_district_id,external_identifier_type,external_identifier_othertype,external_identifier_value,filing_deadline,is_partisan,name,office_holder_person_ids,term_type,term_start_date,term_end_date

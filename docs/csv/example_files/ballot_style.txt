@@ -1,7 +1,1 @@
-image_uri,ordered_contest_id,party_id,id
-,oc20003,,bs00000
-,oc20004,,bs00000
-,oc20005,,bs00000
-,oc20025,,bs00000
-,oc20355,,bs00000
-,oc20449,,bs00000
+id,image_uri,ordered_contest_ids,party_ids

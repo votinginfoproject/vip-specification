@@ -1,0 +1,26 @@
+id,
+abbreviation,An abbreviation for a contest.
+ballot_selection_ids,References a set of ballot selections. 
+ballot_sub_title,Subtitle of the contest as it appears on the ballot.
+ballot_title,Title of the contest.
+electoral_district_id,References an electoral_district element.
+electorate_specification,Specifies any changes to the eligible electorate for this contest past the usual “all registered voters” electorate. 
+external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by IdentifierType.
+external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
+external_identifier_value,Specifies the identifier.
+has_rotation,Indicates whether the selections in the contest are rotated.
+name,Name of the contest.
+sequence_order,Order in which the contests on listed on the ballot.
+vote_variation,Vote variation associated with the contest.
+other_vote_variation,The name of the variation. 
+con_statement,Specifies a statement in opposition to the referendum. It does not necessarily appear on the ballot.
+effect_of_abstain,Specifies what effect abstaining (i.e. not voting) on this proposition will have.
+full_text,Specifies the full text of the referendum as it appears on the ballot.
+info_uri,Specifies a URI that links to additional information about the referendum.
+passage_threshold,Specifies the threshold of votes that the referendum needs in order to pass. The default is a simple majority.
+pro_statement,Specifies a statement in favor of the referendum. It does not necessarily appear on the ballot.
+summary_text,Specifies a short summary of the referendum that is on the ballot.
+type,Specifies the particular type of ballot measure. 
+other_type,Allows for cataloging a new BallotMeasureType option.
+candidate_id,Id of the candidate up for retention.
+office_id,Office of the retention.
