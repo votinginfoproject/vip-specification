@@ -1,1 +1,3 @@
 id,abbreviation,ballot_selection_ids,ballot_sub_title,ballot_title,electoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation
+con001,SE-1,"bs001 bs002”,,Governor of Virginia,ed001,all registered voters,fips,,23,false,Gov,,,
+con002,SE-2,"bs001 bs002”,,Lieutenant Governor of Virgnia,ed002,all registered voters,fips,,23,false,Lt Gov,,,
