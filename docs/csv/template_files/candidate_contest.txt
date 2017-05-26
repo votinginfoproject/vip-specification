@@ -1,6 +1,6 @@
 id,
 abbreviation,An abbreviation for the contest.
-candidate_selection_ids,References a particular candidate_selection which could be of any selection type that extends 
+ballot_selection_ids,References a particular candidate_selection which could be of any selection type that extends 
 ballot_sub_title,Subtitle of the contest as it appears on the ballot.
 ballot_title,Title of the contest as it appears on the ballot.
 electoral_district_id,References an electoral_district element that represents the geographical scope of the contest.
