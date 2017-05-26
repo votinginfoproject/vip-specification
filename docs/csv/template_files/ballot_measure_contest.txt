@@ -1,6 +1,6 @@
 id,
 abbreviation,An abbreviation for the Ballot Contest
-ballot_measure_selection_ids,References the relevant selection object
+ballot_selection_ids,References the relevant selection object
 ballot_sub_title,Subtitle of the Ballot item
 ballot_title,Title of the Ballot item
 electoral_district_id,References the relevant electoral district
