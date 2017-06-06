@@ -1,7 +1,7 @@
 ballot_style.txt  
 ==========================
  
-A container for the contests/measures on the ballot.
+A container for the contests/measures on the ballot. Use ballot_style to display an image of the sample ballot (via the URI). 
 
 .. _include:: ../../built_rst/tables/elements/ballot_style.rst
 

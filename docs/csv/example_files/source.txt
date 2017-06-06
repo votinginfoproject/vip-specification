@@ -1,2 +1,2 @@
 id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version
-source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,"State Board of Elections, Commonwealth of Virginia",http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
+source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,State Board of Elections, Commonwealth of Virginia,http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
