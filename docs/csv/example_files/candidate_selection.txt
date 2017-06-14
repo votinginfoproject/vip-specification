@@ -1,1 +1,4 @@
 id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in
+cs001,3,can004,par01,false
+cs002,2,can001 can002,par03 par02,false
+cs003,1,can003,par02 par03,true
