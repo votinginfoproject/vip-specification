@@ -1,1 +1,1 @@
-id,election_official_person_id,parent_id
+id,election_official_person_id,election_administration_id
