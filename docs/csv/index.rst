@@ -20,6 +20,7 @@ Required files:
 	- election.txt
 	- source.txt
 	- state.txt 
+	- department.txt
 
 Files to serve polling locations:
 	- election_administration.txt
