@@ -10,7 +10,7 @@ external_identifier_othertype,Allows for cataloging an ExternalIdentifier type t
 external_identifier_value,Specifies the identifier.
 has_rotation,Indicates whether the selections in the contest are rotated.
 name,Name of the contest (not necessarily how it appears on the ballot)
-sequence_order,Order in which the candidates are listed on the ballot.
+sequence_order,Order in which the contests are listed on the ballot.
 vote_variation,Vote variation associated with the contest.
 other_vote_variation,
 number_elected,Number of candidates that are elected in the contest (i.e. “N” of N-of-M).
