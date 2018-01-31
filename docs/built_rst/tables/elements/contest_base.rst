@@ -20,9 +20,9 @@
 |                         |                                         |              |              | the ballot.                              | present, then the implementation should  |
 |                         |                                         |              |              |                                          | ignore it.                               |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictId     | ``xs:IDREF``                            | Optional     | Single       | References an                            | If the field is invalid or not present,  |
-|                         |                                         |              |              | :ref:`multi-xml-electoral-district`      | then the implementation should ignore    |
-|                         |                                         |              |              | element that represents the geographical | it.                                      |
+| ElectoralDistrictId     | ``xs:IDREF``                            | **Required** | Single       | References an                            | If the field is invalid, then the        |
+|                         |                                         |              |              | :ref:`multi-xml-electoral-district`      | implementation should ignore it.         |
+|                         |                                         |              |              | element that represents the geographical |                                          |
 |                         |                                         |              |              | scope of the contest.                    |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
