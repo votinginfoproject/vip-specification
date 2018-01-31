@@ -41,11 +41,3 @@ CSV Documentation
    :maxdepth: 2
 
    csv/index
-
-Guides
------------------
-
-.. toctree::
-	:maxdepth: 2
-
-	guides/index
