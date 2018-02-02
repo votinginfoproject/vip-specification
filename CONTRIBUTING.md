@@ -34,14 +34,9 @@ Discussion."
     2. if working on a documentation bug/feature, the documentation must build with Sphinx with no
        errors (_**NB:** see [Installing Sphinx](#installing-sphinx) below_).
 3. Once it's done and tested, create a pull request to move it into the current working branch.
-4. At that point, some discussion might happen. In order to get approval for the pull request, you
-   will need approval from two people, including one representative from Pew and one representative
-   from Google (Pew and Google employees still need two approvers and cannot self-approve, but it
-   is not required that the second approver be from the organization of the PR author). However it
-   is important to note that other members have substantial technical and election background as
-   well, so please take all feedback to heart, regardless of the source.
+4. Some feedback might be necessary in order to approve a PR. Many members of this repository have substantial technical and election   backgrounds, so please take all feedback to heart, regardless of the source.  In order to get approval for the pull request, you will need approval from two people, including one representative from Pew and one representative from Google.  Pew and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
     1. Google approvers: @jdmgoogle
-    2. Pew approvers: @lbirdpew; @afsmythe
+    2. Pew approvers: @lbirdpew; @afsmythe; @MariaBianchi
 5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged
    into the current working branch by the developer who created the pull-request.
 6. Delete the feature/bug branch.
