@@ -1,2 +1,5 @@
-ballot_name,external_identifiers,file_date,is_incumbent,is_top_ticket,party_id,person_id,post_election_status,pre_election_status,sequence_order,contest_id,id
-Ken T. Cuccinelli II,,,,,par0001,per10961,,,,cc20003,can10961
+id,ballot_name,external_identifier_type,external_identifier_othertype,external_identifier_value,file_date,is_incumbent,is_top_ticket,party_id,person_id,post_election_status,pre_election_status
+can001,Jude Fawley,,,,2016-12-01,true,false,par01,per50001,,filed
+can002,Arabella Donn,,,,2016-12-01,false,false,par02,per50002,,qualified
+can003,John Coltrane,,,,2016-09-23,false,false,par02,per50003,,qualified
+can004,Miles Davis,,,,2016-05-26,false,false,par01,per50004,,qualified

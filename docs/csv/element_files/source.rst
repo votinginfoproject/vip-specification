@@ -1,13 +1,11 @@
-source.txt
-==========
+source.txt  
+=============
 
-The source.txt file represents the organization that is publishing the information. This object is
-the only required object in the feed file, and only one source object is allowed to be present. For 
-CSV files, source.txt is required to specify the version of the specification, either 3.0 or 5.0.
+The Source object represents the organization that is publishing the information. This object is the only required object in the feed file, and only one source object is allowed to be present.
 
-.. include:: ../../built_rst/tables/elements/source.rst
-
-.. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
+.. csv-table:: source
+	:file: ../../csv/template_files/source.txt
+	:header: "CSV Element", "Description"
 
 .. literalinclude:: ../../csv/example_files/source.txt
    :linenos:

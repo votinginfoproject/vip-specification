@@ -1,0 +1,14 @@
+id,
+date,Specifies when the election is being held. The Date is considered to be in the timezone local to the state holding the election.
+name,The name for the election.
+election_type,Specifies the highest controlling authority for election.
+state_id,Specifies a link to the State element where the election is being held.
+is_statewide,Indicates whether the election is statewide.
+registration_info,Specifies information about registration for this election either as text or a URI.
+absentee_ballot_info,Specifies information about requesting absentee ballots either as text or a URI
+results_uri,Contains a URI where results for the election may be found
+polling_hours,Contains the hours (in local time) that Election Day polling locations are open.
+has_election_day_registration,Specifies if a voter can register on the same day of the election (i.e. the last day of the election). 
+registration_deadline,Specifies the last day to register for the election with the possible exception of Election Day registration.
+absentee_request_deadline,Specifies the last day to request an absentee ballot.
+hours_open_id,References a schedule record.

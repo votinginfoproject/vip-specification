@@ -1,17 +1,11 @@
-party.txt
-=========
+party.txt  
+==============
 
-This file describes political parties and the metadata associated with them.
+This element describes a political party and the metadata associated with them. These can also include “dummy” parties to indicate a type of contest (e.g., a Voter Nominated CandidateContest can use the PrimaryPartyIds field and a dummy Party object to indicate that the contest is a “Top-Two” primary).
 
-.. include:: ../../built_rst/tables/elements/party.rst
-
-HtmlColorString
----------------
-
-A restricted string pattern for a six-character hex code representing an HTML
-color string. The pattern is:
-
-``[0-9a-f]{6}``
+.. csv-table:: party
+	:file: ../../csv/template_files/party.txt
+	:header: "CSV Element", "Description"
 
 .. literalinclude:: ../../csv/example_files/party.txt
    :linenos:

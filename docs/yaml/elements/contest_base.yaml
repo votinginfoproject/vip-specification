@@ -26,6 +26,7 @@ tags:
   description: References an :ref:`$$$-electoral-district` element that represents
     the geographical scope of the contest.
   error_then: =should-ignore
+  required: true
   type: xs:IDREF
 - _name: ElectorateSpecification
   description: Specifies any changes to the eligible electorate for this contest past

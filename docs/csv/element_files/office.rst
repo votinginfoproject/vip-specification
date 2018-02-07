@@ -1,15 +1,11 @@
-office.txt
-==========
+office.txt   
+============
 
-Office represents the office associated with a contest or district (e.g. Alderman, Mayor,
-School Board, et al).
+Office represents the office associated with a contest or district (e.g. Alderman, Mayor, School Board, et al).
 
-.. include:: ../../built_rst/tables/elements/office.rst
-
-Term
-----
-
-.. include:: ../../built_rst/tables/elements/term.rst
+.. csv-table:: office
+	:file: ../../csv/template_files/office.txt
+	:header: "CSV Element", "Description"
 
 .. literalinclude:: ../../csv/example_files/office.txt
    :linenos:

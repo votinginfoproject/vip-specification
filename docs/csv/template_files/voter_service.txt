@@ -1,0 +1,6 @@
+id,
+description,Long description of the services available.
+election_official_person_id,The authority for a particular voter service. References a person element.
+type,The type of voter service.
+other_type,OtherType allows for cataloging another type of voter service.
+department_id,References an election_administration element. 

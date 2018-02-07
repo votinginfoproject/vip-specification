@@ -1,0 +1,3 @@
+id,
+sequence_order,Sequence of party selection
+party_ids,One or more Party IDs which collectively represent a ballot selection.

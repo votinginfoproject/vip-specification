@@ -14,12 +14,34 @@ The CSV files contain election information, with files containing links between 
 is compiled into an XML feed that represents the data according to the XML specification. See
 the `sample xml file`_ and `xsd file`_ for more details.
 
-Becoming familiar with the XML requirements can help you better understand the CSV specifications. The only
-required top-level XML tags are the :ref:`single-xml-source` object and the :ref:`single-xml-election` object,
-each of which must be present exactly once. This means that the corresponding
-CSV files, :doc:`Source <element_files/source>` and :ref:`single-xml-election`, must contain
-only 1 record. All other element file records can exist an unlimited number of times, or not included at
-all; order of CSV records does not matter.
+Certain files are required to serve different types of information. Below is a listing of which files are required for different VIP data sets. 
+
+Required files:
+	- election.txt
+	- source.txt
+	- state.txt 
+	- department.txt
+
+Files to serve polling locations:
+	- election_administration.txt
+	- department.txt
+	- locality.txt 
+	- polling_location.txt
+	- precinct.txt
+	- street_segment.txt
+
+Files to serve candidate contests:
+	- candidate.txt
+	- candidate_contest.txt
+	- candidate_selection.txt
+	- office.txt
+
+Files to serve referenda and ballot measures:
+	- ballot_measure_contest.txt 
+	- ballot_measure_selection.txt
+
+Files to serve retention contests:
+	- retention_contest.txt
 
 CSV files must be comma-delimited, UTF-8 .txt files, named according to the specification. The id attribute
 for the state object should be the state's FIPS number. The id attributes are not required to remain constant
@@ -47,11 +69,3 @@ Element Files
 
 .. _enumerations:
 
-Enumerations
-------------
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-
-   enumerations/*

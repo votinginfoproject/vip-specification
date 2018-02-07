@@ -1,0 +1,3 @@
+id,sequence_order,selection
+bms001,1,Proposition A
+bms002,2,Proposition B

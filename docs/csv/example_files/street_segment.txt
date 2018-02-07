@@ -1,3 +1,3 @@
-start_house_number,end_house_number,odd_even_both,includes_all_addresses,unit_number,street_direction,street_name,street_suffix,address_direction,city,state,zip,precinct_id,id
-1,201,both,,,,MISTY MOUNTAIN,RD,GREENWOOD,VA,22943,pre92145,ss309904
-,,both,yes,,,CHAPEL HILL,RD,Charlottesville,VA,22901,pre99999,ss999999
+id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,state,street_direction,street_name,street_suffix,unit_number,zip
+ss000001,N,Washington,false,false,odd,pre90113,101,199,DC,NW,Delaware,St,,20001
+ss000002,S,Washington,true,false,both,pre90112,,,DC,SE,Wisconsin,Ave,,20002

@@ -40,8 +40,8 @@ Discussion."
    is not required that the second approver be from the organization of the PR author). However it
    is important to note that other members have substantial technical and election background as
    well, so please take all feedback to heart, regardless of the source.
-    1. Google approvers: @jdmgoogle @jktomer
-    2. Pew approvers: @pstenbjorn (official Pew proxy)
+    1. Google approvers: @jdmgoogle
+    2. Pew approvers: @lbirdpew; @afsmythe
 5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged
    into the current working branch by the developer who created the pull-request.
 6. Delete the feature/bug branch.

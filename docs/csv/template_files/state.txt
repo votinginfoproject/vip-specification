@@ -1,0 +1,7 @@
+id,
+election_administration_id,Links to the state’s election administration object.
+external_identifier_type,Specifies the type of identifier. Must be one of the valid types as defined by IdentifierType.
+external_identifier_othertype,Allows for cataloging an ExternalIdentifier type that falls outside the options listed in IdentifierType. Type should be set to “other” when using this field.
+external_identifier_value,Specifies the identifier.
+name,Specifiers the name of a state.
+polling_location_ids,Specifies a link to the state’s polling locations. 
