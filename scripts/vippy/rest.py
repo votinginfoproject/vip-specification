@@ -33,7 +33,6 @@ XML_ELEMENT_COLUMNS = [
 
 CSV_ELEMENT_COLUMNS = [
     (TAG_KEY_CSV_HEADER_NAME, 'Tag', MIN_COLUMN_WIDTH),
-    #(TAG_KEY_EXTENDS, 'Extends', MIN_COLUMN_WIDTH),
     (TAG_KEY_CSV_TYPE, 'Data Type', MIN_COLUMN_WIDTH),
     (TAG_KEY_REQUIRED, 'Required?', MIN_COLUMN_WIDTH),
     (TAG_KEY_REPEATING, 'Repeats?', MIN_COLUMN_WIDTH),
@@ -90,12 +89,7 @@ def make_table_formatter(all_types, data_type, prefix):
     formatter = TableFormatter(all_types=all_types, headers=headers, keys=keys,
                            widths=widths, cell_values=cell_values, prefix=prefix)
     return formatter
-    # for type_doc in [XML_ELEMENT_COLUMNS,CSV_ELEMENT_COLUMNS]:
-    #     column_infos, cell_values = get_type_info(is_enum, type_doc)
-    #     keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
-    #     formatter = TableFormatter(all_types=all_types, headers=headers, keys=keys,
-    #                            widths=widths, cell_values=cell_values, prefix=prefix)
-    #     return formatter
+
 
 
 def make_table(all_types, data_type, prefix):
@@ -199,6 +193,11 @@ def make_type_rest(all_types, data_type, header_char, prefix):
         # Separate types with an additional line.
         rest = add_rest_section(rest, sub_rest, prefix=prefix, sep="\n\n")
 
+    for extend_name in data_type.extends:
+        extend = common.get_type(type_map, extend_name)
+        extend_rest = make_type_rest(all_types, extend, header_char=header_char, prefix = prefix)
+        rest = add_rest_section(rest,extend_rest,prefix = prefix, sep="\n\n")
+
     if not rest.endswith("\n"):
         rest += "\n"
 
@@ -210,6 +209,9 @@ def update_rest_file(all_types, data_type, prefix):
     type_name = data_type.name
     if data_type.is_sub_type:
         _log.debug("skipping rest file for sub-type: {0}".format(type_name))
+        return
+    if data_type.is_extends:
+        _log.debug("skipping rest file for extended class: {0}".format(type_name))
         return
 
     #rest_path = data_type.rest_path
@@ -254,7 +256,8 @@ def update_rest_file_single_page(all_types,mode):
         label = "{0}-{1}".format(prefix, title.lower())
         rest += make_rest_header(title, label=label, header_char="-")
         for data_type in data_types:
-            if data_type.is_sub_type:
+            if data_type.is_sub_type and data_type.is_extends:
+            #if data_type.is_sub_type:
                 continue
             new_rest = make_type_rest(all_types, data_type, header_char="~", prefix=prefix)
             rest = add_rest_section(rest, new_rest, prefix=prefix, sep="\n\n")
