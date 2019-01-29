@@ -7,7 +7,8 @@ import textwrap
 from vippy import common
 from vippy.common import (TAG_KEY_NAME, TAG_KEY_TYPE, TAG_KEY_REQUIRED,
                           TAG_KEY_REPEATING, TAG_KEY_DESCRIPTION,
-                          TAG_KEY_ERROR_HANDLE)
+                          TAG_KEY_ERROR_HANDLE, TAG_KEY_EXTENDS, TAG_KEY_CSV_TYPE,
+                          TAG_KEY_CSV_HEADER_NAME)
 
 
 _log = logging.getLogger()
@@ -21,9 +22,19 @@ REST_HEADER = """\
 """
 
 # The reST table columns for an element.
-ELEMENT_COLUMNS = [
+XML_ELEMENT_COLUMNS = [
     (TAG_KEY_NAME, 'Tag', MIN_COLUMN_WIDTH),
     (TAG_KEY_TYPE, 'Data Type', MIN_COLUMN_WIDTH),
+    (TAG_KEY_REQUIRED, 'Required?', MIN_COLUMN_WIDTH),
+    (TAG_KEY_REPEATING, 'Repeats?', MIN_COLUMN_WIDTH),
+    (TAG_KEY_DESCRIPTION, 'Description', 40),
+    (TAG_KEY_ERROR_HANDLE, 'Error Handling', 40),
+]
+
+CSV_ELEMENT_COLUMNS = [
+    (TAG_KEY_CSV_HEADER_NAME, 'Tag', MIN_COLUMN_WIDTH),
+    #(TAG_KEY_EXTENDS, 'Extends', MIN_COLUMN_WIDTH),
+    (TAG_KEY_CSV_TYPE, 'Data Type', MIN_COLUMN_WIDTH),
     (TAG_KEY_REQUIRED, 'Required?', MIN_COLUMN_WIDTH),
     (TAG_KEY_REPEATING, 'Repeats?', MIN_COLUMN_WIDTH),
     (TAG_KEY_DESCRIPTION, 'Description', 40),
@@ -56,26 +67,35 @@ ELEMENT_CELL_VALUES = {
 ENUMERATION_CELL_VALUES = {}
 
 
-def get_type_info(is_enum):
+def get_type_info(is_enum, prefix):
     # Sanity-check to make sure this function is being used correctly.
     assert type(is_enum) == bool
     if is_enum:
         column_infos = ENUMERATION_COLUMNS
         cell_values = ENUMERATION_CELL_VALUES
     else:
-        # Otherwise, it is an element.
-        column_infos = ELEMENT_COLUMNS
+        # Otherwise, it is an element. Check for "mode" using prefix split on '-'
+        if prefix.split('-')[-1] == "xml":
+            column_infos = XML_ELEMENT_COLUMNS
+        elif prefix.split('-')[-1] == "csv":
+            column_infos = CSV_ELEMENT_COLUMNS
         cell_values = ELEMENT_CELL_VALUES
     return column_infos, cell_values
 
 
 def make_table_formatter(all_types, data_type, prefix):
     is_enum = data_type.is_enum
-    column_infos, cell_values = get_type_info(is_enum)
+    column_infos, cell_values = get_type_info(is_enum, prefix)
     keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
     formatter = TableFormatter(all_types=all_types, headers=headers, keys=keys,
-                               widths=widths, cell_values=cell_values, prefix=prefix)
+                           widths=widths, cell_values=cell_values, prefix=prefix)
     return formatter
+    # for type_doc in [XML_ELEMENT_COLUMNS,CSV_ELEMENT_COLUMNS]:
+    #     column_infos, cell_values = get_type_info(is_enum, type_doc)
+    #     keys, headers, widths = ([c[i] for c in column_infos] for i in range(3))
+    #     formatter = TableFormatter(all_types=all_types, headers=headers, keys=keys,
+    #                            widths=widths, cell_values=cell_values, prefix=prefix)
+    #     return formatter
 
 
 def make_table(all_types, data_type, prefix):
@@ -146,7 +166,10 @@ def make_type_rest(all_types, data_type, header_char, prefix):
       prefix: the label prefix (e.g. "single-xml" or "multi-xml").
     """
     type_map = all_types.type_map
-    type_name = data_type.name
+    if prefix.split('-')[-1] == 'csv':
+        type_name = data_type.csv_name
+    else:
+        type_name = data_type.name
     ref_label = "{0}-{1}".format(prefix, data_type.spinal_name)
     rest = make_rest_header(type_name, label=ref_label, header_char=header_char)
 
@@ -160,9 +183,14 @@ def make_type_rest(all_types, data_type, header_char, prefix):
         table_rest = make_table(type_map, data_type, prefix=prefix)
         rest = add_rest_section(rest, table_rest, prefix=prefix)
 
-    post = yaml_data.get('post')
-    if post:
-        rest = add_rest_section(rest, post, prefix=prefix)
+    if prefix.split('-')[-1] == 'xml':
+        post = yaml_data.get('post')
+        if post:
+            rest = add_rest_section(rest, post, prefix=prefix)
+    elif prefix.split('-')[-1] == 'csv':
+        post = yaml_data.get('csv-post')
+        if post:
+            rest = add_rest_section(rest, post, prefix=prefix)
 
     header_char = get_next_header_char(header_char)
     for sub_type_name in data_type.sub_types:
@@ -184,22 +212,33 @@ def update_rest_file(all_types, data_type, prefix):
         _log.debug("skipping rest file for sub-type: {0}".format(type_name))
         return
 
-    rest_path = data_type.rest_path
-    _log.debug("updating: {0}".format(rest_path))
+    #rest_path = data_type.rest_path
+    rest_path_xml = data_type.rest_path_xml
+    #print(rest_path_xml)
+    rest_path_csv = data_type.rest_path_csv
+    #print(rest_path_csv)
 
     rest = make_type_rest(all_types, data_type, header_char="=", prefix=prefix)
 
     # Make sure the file ends in a single newline.
     rest = rest.strip() + "\n"
 
-    write_rest_file(rest_path, rest)
+    #write_rest_file(rest_path_xml, rest)
+    if prefix.split('-')[-1] == "xml":
+        write_rest_file(rest_path_xml, rest)
+    else:
+        write_rest_file(rest_path_csv, rest)
 
 
-def update_rest_file_single_page(all_types):
-    prefix = "single-xml"
-    path = os.path.join(common.XML_DIR, "single_page.rst")
+def update_rest_file_single_page(all_types,mode):
+    prefix = "single-{}".format(mode)
+    if mode == "xml":
+        path = os.path.join(common.XML_DIR, "single_page.rst")
+        rest = make_rest_header("XML Elements & Enumerations (Single Page)", label=prefix, header_char="=")
+    elif mode == "csv":
+        path = os.path.join(common.CSV_DIR, "single_page.rst")
+        rest = make_rest_header("CSV Elements & Enumerations (Single Page)", label=prefix, header_char="=")
     _log.debug("updating single-page rest file: {0}".format(path))
-    rest = make_rest_header("XML Elements & Enumerations (Single Page)", label=prefix, header_char="=")
     rest += textwrap.dedent("""\
 
     .. contents::
@@ -227,22 +266,26 @@ def update_rest_files(type_name=None):
     """
     Update auto-generated reST files.
     """
-    prefix = "multi-xml"
-    all_types = common.get_all_types()
-    type_map = all_types.type_map
+    for mode in ['csv','xml']:
+        #print("**** In Single Mode {}".format(mode))
+        prefix = "multi-{}".format(mode)
+        all_types = common.get_all_types()
+        type_map = all_types.type_map
 
-    if type_name is None:
-        type_names = sorted(type_map.keys())
-    else:
-        type_names = [type_name]
+        if type_name is None:
+            type_names = sorted(type_map.keys())
+        else:
+            type_names = [type_name]
 
-    update_rest_file_single_page(all_types)
+        update_rest_file_single_page(all_types, mode)
 
-    for type_name in type_names:
-        _log.debug("updating rest files for type: {0}".format(type_name))
-        data_type = common.get_type(type_map, type_name)
-        update_table_file(type_map, data_type, prefix=prefix)
-        update_rest_file(all_types, data_type, prefix=prefix)
+    for mode in ['csv','xml']:
+        prefix = "multi-{}".format(mode)
+        for type_name in type_names:
+            _log.debug("updating rest files for type: {0}".format(type_name))
+            data_type = common.get_type(type_map, type_name)
+            update_table_file(type_map, data_type, prefix=prefix)
+            update_rest_file(all_types, data_type, prefix=prefix)
 
 
 def analyze_types():
@@ -293,7 +336,7 @@ class TableFormatter(object):
         """
         Return the text to put in the cell of a reST table.
         """
-        if key == TAG_KEY_TYPE:
+        if key in [TAG_KEY_TYPE, TAG_KEY_CSV_TYPE]:
             type_name = tag_data[key]
             if type_name in self.type_map:
                 # Then the cell value is a type name.

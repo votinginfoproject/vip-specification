@@ -13,6 +13,7 @@ AUTO_GENERATED_DIR = 'docs/built_rst'
 YAML_DIR = 'docs/yaml'
 TABLES_DIR = os.path.join(AUTO_GENERATED_DIR, 'tables')
 XML_DIR = os.path.join(AUTO_GENERATED_DIR, 'xml')
+CSV_DIR = os.path.join(AUTO_GENERATED_DIR, 'csv')
 
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
@@ -25,6 +26,10 @@ TAG_KEY_ERROR_HANDLE = 'error_handling'
 TAG_KEY_ERROR_BASE = 'error'
 TAG_KEY_ERROR_THEN = 'error_then'
 TAG_KEY_ERROR_EXTRA = 'error_extra'
+TAG_KEY_EXTENDS = 'extends'
+TAG_KEY_CSV_TYPE = 'csv-type'
+TAG_KEY_CSV_HEADER_NAME = 'csv-header-name'
+
 
 DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
@@ -348,6 +353,14 @@ class DataType(object):
         return self.data['_name']
 
     @property
+    def csv_name(self):
+        return self.data['csv-header-name']
+
+    @property
+    def csv_type(self):
+        return self.data['csv-type']
+
+    @property
     def spinal_name(self):
         return self.snake_name.replace("_", "-")
 
@@ -367,7 +380,12 @@ class DataType(object):
         return self.get_rest_path(TABLES_DIR)
 
     @property
-    def rest_path(self):
+    def rest_path_csv(self):
+        """Return a path relative to the repo root."""
+        return self.get_rest_path(CSV_DIR)
+
+    @property
+    def rest_path_xml(self):
         """Return a path relative to the repo root."""
         return self.get_rest_path(XML_DIR)
 
