@@ -162,6 +162,7 @@ class AllTypes:
         self.elements = []
         self.enumerations = []
         self.sub_types = set()
+        self.extends = set()
         self.type_map = type_map
 
 
@@ -185,9 +186,14 @@ def get_all_types():
 
     for data_type in types_map.values():
         sub_types = data_type.sub_types
+        extends = data_type.extends
         for sub_type in sub_types:
             data_type = types_map[sub_type]
             data_type.is_sub_type = True
+        for extend in extends:
+            data_type = types_map[extend]
+            data_type.is_extends = True
+
 
     return all_types
 
@@ -340,6 +346,7 @@ class DataType(object):
         self.data = data
         self.is_enum = is_enum
         self.is_sub_type = False
+        self.is_extends = False
         self.rel_path = rel_path
         self.snake_name = snake_name
         self.yaml = yaml
@@ -367,6 +374,10 @@ class DataType(object):
     @property
     def sub_types(self):
         return self.data.get('_sub_types', [])
+
+    @property
+    def extends(self):
+        return self.data.get('extends', [])
 
     @property
     def tags(self):
