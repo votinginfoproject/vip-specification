@@ -1,7 +1,13 @@
 _name: BallotMeasureSelection
 csv-header-name: ballot_measure_selection
-csv-post: ".. code-block:: csv \n    :linenos:      \n\n    id,sequence_order,selection\n\
-  \    bms001,1,Proposition A\n    bms002,2,Proposition B"
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,sequence_order,selection
+      bms001,1,Proposition A
+      bms002,2,Proposition B
 description: |-
   Represents the possible selection (e.g. yes/no, recall/do not recall, et al) for a
   :ref:`$$$-ballot-measure-contest` that would appear on the ballot.
