@@ -33,8 +33,8 @@ TAG_KEY_CSV_HEADER_NAME = 'csv-header-name'
 
 DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
-    TAG_KEY_REPEATING: False,
-}
+    TAG_KEY_REPEATING: False
+    }
 
 _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 

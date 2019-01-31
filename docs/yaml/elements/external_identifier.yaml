@@ -1,4 +1,5 @@
 _name: ExternalIdentifier
+csv-header-name: external_identifier
 post: |-
   .. code-block:: xml
      :linenos:
@@ -25,6 +26,8 @@ post: |-
      </ExternalIdentifiers>
 tags:
 - _name: Type
+  csv-header-name: type
+  csv-type: identifier_type
   description: Specifies the type of identifier. Must be one of the valid types as
     defined by :ref:`$$$-identifier-type`.
   error: If the field is invalid or not present, the implementation is required to
@@ -32,12 +35,16 @@ tags:
   required: true
   type: IdentifierType
 - _name: OtherType
+  csv-header-name: other_type
+  csv-type: xs:string
   description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
     the options listed in :ref:`$$$-identifier-type`. ``Type`` should be set to "other"
     when using this field.
   error_then: =must-ignore
   type: xs:string
 - _name: Value
+  csv-header-name: value
+  csv-type: xs:string
   description: Specifies the identifier.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``ElectionIdentifier`` containing it.

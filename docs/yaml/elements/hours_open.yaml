@@ -1,8 +1,7 @@
 _name: HoursOpen
 _sub_types:
 - Schedule
-- Hours
-- TimeWithZone
+csv-header-name: hours_open
 description: |-
   A structured way of describing the days and hours that a place such as a
   :ref:`$$$-office` or :ref:`$$$-polling-location` is open, or
@@ -14,6 +13,8 @@ description: |-
   element.
 tags:
 - _name: Schedule
+  csv-header-name: schedule
+  csv-type: Schedule
   description: Defines a block of days and hours that a place will be open.
   error: At least one valid `Schedule`_ must be present for ``HoursOpen`` to be valid.
     If no valid `Schedule`_ is present, the implementation is required to ignore the

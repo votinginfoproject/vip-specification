@@ -1,4 +1,14 @@
 _name: State
+_sub_types:
+- ExternalIdentifiers
+csv-header-name: state
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,election_administration_id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,polling_location_ids
+      st51,ea123,ocd-id,,ocd-division/country:us/state:va,Virginia,
 description: |-
   The State object includes state-wide election information. The ID attribute is
   recommended to be the state's FIPS code, along with the prefix "st".
@@ -20,20 +30,28 @@ post: |-
      </State>
 tags:
 - _name: ElectionAdministrationId
+  csv-header-name: election_administration_id
+  csv-type: xs:IDREF
   description: Links to the state's election administration object.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ExternalIdentifiers
+  csv-header-name: external_identifiers
+  csv-type: ExternalIdentifiers
   description: Other identifier for the state that relates to another dataset (e.g.
     `OCD-ID`_).
   error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: Specifiers the name of a state, such as Alabama.
   error_then: =must-ignore
   required: true
   type: xs:string
 - _name: PollingLocationIds
+  csv-header-name: polling_location_ids
+  csv-type: xs:IDREFS
   description: Specifies a link to the state's :ref:`polling locations <$$$-polling-location>`.
     If early vote centers or ballot drop locations are state-wide (e.g., anyone in
     the state can use them), they can be specified here, but you are encouraged to

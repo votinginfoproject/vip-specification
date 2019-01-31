@@ -1,4 +1,5 @@
 _name: RetentionContest
+csv-header-name: retention_contest
 description: |-
   ``RetentionContest`` extends :ref:`$$$-ballot-measure-contest` and represents a
   contest where a candidate is retained in a position (e.g. a judge).
@@ -19,12 +20,16 @@ post: |-
      </RetentionContest>
 tags:
 - _name: CandidateId
+  csv-header-name: candidate_id
+  csv-type: xs:IDREF
   description: Links to the :ref:`$$$-candidate` being retained.
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``RetentionContest`` element containing it.
   required: true
   type: xs:IDREF
 - _name: OfficeId
+  csv-header-name: office_id
+  csv-type: xs:IDREF
   description: Links to the information about the office.
   error_then: =must-ignore
   type: xs:IDREF

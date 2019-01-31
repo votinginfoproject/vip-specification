@@ -1,4 +1,5 @@
 _name: IdentifierType
+csv-header-name: identifier_type
 post: |-
   .. _states: http://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code
   .. _counties: http://en.wikipedia.org/wiki/FIPS_county_code

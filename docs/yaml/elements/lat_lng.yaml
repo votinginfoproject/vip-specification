@@ -1,4 +1,5 @@
 _name: LatLng
+csv-header-name: lat_long
 description: |-
   The latitude and longitude of a polling location in `WGS 84`_ format. Both
   latitude and longitude values are measured in decimal degrees.
@@ -21,16 +22,22 @@ post: |-
      </PollingLocation>
 tags:
 - _name: Latitude
+  csv-header-name: latitude
+  csv-type: xs:float
   description: The latitude of the polling location.
   error_then: =must-ignore
   required: true
   type: xs:float
 - _name: Longitude
+  csv-header-name: longitude
+  csv-type: xs:float
   description: The longitude of the polling location.
   error_then: =must-ignore
   required: true
   type: xs:float
 - _name: Source
+  csv-header-name: latlng_source
+  csv-type: xs:string
   description: The system used to perform the lookup from location name to lat/lng.
     For example, this could be the name of a geocoding service.
   error_then: =must-ignore

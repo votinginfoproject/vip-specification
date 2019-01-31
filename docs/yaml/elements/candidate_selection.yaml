@@ -1,7 +1,19 @@
 _name: CandidateSelection
+csv-header-name: candiate_selection
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in
+      cs001,3,can004,par01,false
+      cs002,2,can001 can002,par03 par02,false
+      cs003,1,can003,par02 par03,true
 description: |-
   CandidateSelection extends :ref:`$$$-ballot-selection-base` and represents a
   ballot selection for a candidate contest.
+extends:
+- BallotSelectionBase
 post: |-
   .. code-block:: xml
      :linenos:
@@ -12,17 +24,25 @@ post: |-
      </CandidateSelection>
 tags:
 - _name: CandidateIds
+  csv-header-name: candidate_ids
+  csv-type: xs:IDREFS
   description: References a set of :ref:`$$$-candidate` elements. The number of candidates
     that can be references is unbounded in cases where the ballot selection is for
     a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
   error_then: =must-ignore
+  repeats: true
   type: xs:IDREFS
 - _name: EndorsementPartyIds
+  csv-header-name: endorsement_party_ids
+  csv-type: xs:IDREFS
   description: References a set of :ref:`$$$-party` elements, which signifies one
     or more endorsing parties for the candidate(s).
   error_then: =must-ignore
+  repeats: true
   type: xs:IDREFS
 - _name: IsWriteIn
+  csv-header-name: is_write_in
+  csv-type: xs:boolean
   description: Signifies if the particular ballot selection allows for write-in candidates.
     If true, one or more write-in candidates are allowed for this contest.
   error_then: =must-ignore

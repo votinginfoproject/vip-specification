@@ -1,4 +1,5 @@
 _name: BallotMeasureType
+csv-header-name: ballot_measure_type
 description: |-
   A list of the various types of ballot measures. States may have different legal
   definitions of each type; Wikipedia_ has more details about each type.  These
