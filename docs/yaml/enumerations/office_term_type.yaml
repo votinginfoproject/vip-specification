@@ -1,4 +1,5 @@
 _name: OfficeTermType
+csv-header-name: office_term_type
 tags:
 - _name: full-term
   description: This election is for an office for which the existing term has been

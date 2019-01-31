@@ -1,4 +1,14 @@
 _name: Precinct
+csv-header-name: precinct
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,ward
+      pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,5
+      pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,6
+      pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,7
 description: |-
   The Precinct object represents a precinct, which is contained within a Locality. While the id
   attribute does not have to be static across feeds for one election, the combination of
@@ -48,49 +58,67 @@ post: |-
      </Precinct>
 tags:
 - _name: BallotStyleId
+  csv-header-name: ballot_style_id
+  csv-type: xs:IDREF
   description: Links to the :ref:`$$$-ballot-style`, which a person who lives in this
     precinct will vote.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictIds
+  csv-header-name: electoral_district_ids
+  csv-type: xs:IDREFS
   description: Links to the :ref:`$$$-electoral-district`s (e.g., congressional district,
     state house district, school board district) to which the entire precinct/precinct
     split belongs. **Highly Recommended** if candidate information is to be provided.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: ExternalIdentifiers
+  csv-header-name: external_identifiers
+  csv-type: ExternalIdentifiers
   description: Other identifier for the precinct that relates to another dataset (e.g.
     `OCD-ID`_).
   error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: IsMailOnly
+  csv-header-name: is_mail_only
+  csv-type: xs:boolean
   description: Determines if the precinct runs mail-only elections.
   error: If the field is missing or invalid, the implementation is required to assume
     `IsMailOnly` is false.
   type: xs:boolean
 - _name: LocalityId
+  csv-header-name: locality_id
+  csv-type: xs:IDREF
   description: Links to the :ref:`$$$-locality` that comprises the precinct.
   error: If the field is invalid or not present, the implementation is required to
     ignore the precinct element containing it.
   required: true
   type: xs:IDREF
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: Specifies the precinct's name (or number if no name exists).
   error: If the field is invalid or not present, the implementation is required to
     ignore the precinct element containing it.
   required: true
   type: xs:string
 - _name: Number
+  csv-header-name: number
+  csv-type: xs:string
   description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
     are legal). Should be used if the `Name` field is populated by a name and not
     a number.
   error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationIds
+  csv-header-name: polling_location_ids
+  csv-type: xs:IDREFS
   description: Specifies a link to the precinct's :ref:`$$$-polling-location` object(s).
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrecinctSplitName
+  csv-header-name: precinct_split_name
+  csv-type: xs:string
   description: If this field is empty, then this `Precinct` object represents a full
     precinct. If this field is present, then this `Precinct` object represents one
     portion of a split precinct. Each `Precinct` object that represents one portion
@@ -99,6 +127,8 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: Ward
+  csv-header-name: ward
+  csv-type: xs:string
   description: Specifies the ward the precinct is contained within.
   error_then: =must-ignore
   type: xs:string

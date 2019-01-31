@@ -1,4 +1,5 @@
 _name: Term
+csv-header-name: term
 post: |-
   .. code-block:: xml
      :linenos:
@@ -16,16 +17,22 @@ post: |-
      </Office>
 tags:
 - _name: Type
+  csv-header-name: type
+  csv-type: OfficeTermType
   description: Specifies the type of office term (see :ref:`$$$-office-term-type`
     for valid values).
   error: If the field is invalid or not present, the implementation is required to
     ignore the ``Office`` element containing it.
   type: OfficeTermType
 - _name: StartDate
+  csv-header-name: start_date
+  csv-type: xs:date
   description: Specifies the start date for the current term of the office.
   error_then: =must-ignore
   type: xs:date
 - _name: EndDate
+  csv-header-name: end_date
+  csv-type: xs:date
   description: Specifies the end date for the current term of the office.
   error_then: =must-ignore
   type: xs:date

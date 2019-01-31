@@ -1,10 +1,11 @@
 _name: HtmlColorString
+csv-header-name: html_color_string
 description: |-
   A restricted string pattern for a six-character hex code representing an HTML
   color string. The pattern is:
 
   ``[0-9a-f]{6}``
-
+post: |-
   .. code-block:: xml
      :linenos:
 

@@ -145,11 +145,13 @@ def make_rest_header(title, label, header_char):
 
 
 def get_next_header_char(char):
+    ## make_rest triggered a KeyError: '%'. Not sure why...
     mapping = {
         "=": "-",
         "-": "~",
         "~": "^",
         "^": "%",
+        "%": "^"
     }
     return mapping[char]
 

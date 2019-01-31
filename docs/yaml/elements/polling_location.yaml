@@ -1,9 +1,26 @@
 _name: PollingLocation
+csv-header-name: polling_location
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,name,address_line,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
+      poll001,ALBERMARLE HIGH SCHOOL","2775 Hydraulic Rd Charlottesville, VA 22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
+      poll002,Public Library, Main St Denver,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
+      poll003,Historic Society,,wheelchair entrance,7am-8pm,www.picture.com,,false,true,,,
+      poll004,Community Center,,behind the big oak tree,7am-8pm,www.picture.com,,false,true,,,
 description: The PollingLocation object represents a site where voters cast or drop
   off ballots.
+extends:
+- LatLng
 tags:
 - _name: AddressLine
-  description: Represents the various parts of an address to a polling location.
+  csv-header-name: address_line
+  csv-type: xs:string
+  description: Represents the various parts of an address to a polling location. For
+    CSV implementations, repeating ``address_line`` columns should be incremented,
+    e.g. address_line1, address_line2, address_line3.
   error: At least one valid ``AddressLine`` must be present for ``PollingLocation``
     to be valid. If no valid ``AddressLine`` is present, the implementation is required
     to ignore the ``PollingLocation`` element containing it.
@@ -11,10 +28,14 @@ tags:
   required: true
   type: xs:string
 - _name: Directions
+  csv-header-name: directions
+  csv-type: xs:string
   description: Specifies further instructions for locating the polling location.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Hours **[deprecated]**
+  csv-header-name: hours
+  csv-type: xs:string
   description: Contains the hours (in local time) that the polling location is open
     (**NB:** this element is deprecated in favor of the more structured :ref:`$$$-hours-open`
     element. It is strongly encouraged that data providers move toward contributing
@@ -22,27 +43,39 @@ tags:
   error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
+  csv-header-name: hours_open_id
+  csv-type: xs:IDREF
   description: Links to an :ref:`$$$-hours-open` element, which is a schedule of dates
     and hours during which the polling location is available.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: IsDropBox
+  csv-header-name: is_drop_box
+  csv-type: xs:boolean
   description: Indicates if this polling location is a drop box.
   error_then: =must-ignore
   type: xs:boolean
 - _name: IsEarlyVoting
+  csv-header-name: is_early_voting
+  csv-type: xs:boolean
   description: Indicates if this polling location is an early vote site.
   error_then: =must-ignore
   type: xs:boolean
 - _name: LatLng
+  csv-header-name: lat_lng
+  csv-type: LatLng
   description: Specifies the latitude and longitude of this polling location.
   error_then: =must-ignore
   type: LatLng
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: Name of the polling location.
   error_then: =must-ignore
   type: xs:string
 - _name: PhotoUri
+  csv-header-name: photo_uri
+  csv-type: xs:string
   description: Contains a link to an image of the polling location.
   error_then: =must-ignore
   type: xs:anyURI
