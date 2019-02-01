@@ -68,7 +68,7 @@ describing whether or not appointments are necessary or possible.
 .. _multi-xml-hours:
 
 Hours
------
+~~~~~
 
 The open and close time for this place. All times must be fully specified,
 including a timezone offset from UTC.
@@ -89,7 +89,7 @@ including a timezone offset from UTC.
 .. _multi-xml-time-with-zone:
 
 TimeWithZone
-------------
+^^^^^^^^^^^^
 
 A string pattern restricting the value to a time with an included offset from
 UTC. The pattern is
