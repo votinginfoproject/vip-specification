@@ -65,6 +65,135 @@ recommended to be the state's FIPS code, along with the prefix "st".
    </State>
 
 
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
+.. _single-xml-term:
+
+Term
+~~~~
+
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+====================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
+|              |                                    |              |              | :ref:`single-xml-office-term-type` for   | the implementation is required to ignore |
+|              |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| StartDate    | ``xs:date``                        | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
+|              |                                    |              |              | term of the office.                      | then the implementation is required to   |
+|              |                                    |              |              |                                          | ignore it.                               |
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| EndDate      | ``xs:date``                        | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
+|              |                                    |              |              | term of the office.                      | then the implementation is required to   |
+|              |                                    |              |              |                                          | ignore it.                               |
++--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <Office id="off0000">
+     <ElectoralDistrictId>ed60129</ElectoralDistrictId>
+     <FilingDeadline>2013-01-01</FilingDeadline>
+     <IsPartisan>false</IsPartisan>
+     <Name>
+       <Text language="en">Governor</Text>
+     </Name>
+     <Term>
+       <Type>full-term</Type>
+     </Term>
+   </Office>
+
+
 .. _single-xml-office:
 
 Office
@@ -150,6 +279,158 @@ Term
        <Type>full-term</Type>
      </Term>
    </Office>
+
+
+.. _single-xml-contact-information:
+
+ContactInformation
+^^^^^^^^^^^^^^^^^^
+
+For defining contact information about objects such as persons, boards of authorities,
+organizations, etc. ContactInformation is always a sub-element of another object (e.g.
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
+``label``, which allows the feed to refer back to the original label for the information
+(e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
+
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==================+==========================================+==============+==============+==========================================+==========================================+
+| AddressLine      | ``xs:string``                            | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
+|                  |                                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  |                                          |              |              | locating this entity.                    | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Email            | ``xs:string``                            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Fax              | ``xs:string``                            | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
+| **[deprecated]** |                                          |              |              | the location is open *(NB: this element  | present, then the implementation is      |
+|                  |                                          |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+|                  |                                          |              |              | structured :ref:`single-xml-hours-open`  |                                          |
+|                  |                                          |              |              | element. It is strongly encouraged that  |                                          |
+|                  |                                          |              |              | data providers move toward contributing  |                                          |
+|                  |                                          |              |              | hours in this format)*.                  |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                          |              |              | which lists the hours of operation for a | ignore it.                               |
+|                  |                                          |              |              | location.                                |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng           | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                  |                                          |              |              | this entity.                             | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Phone            | ``xs:string``                            | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
+|                  |                                          |              |              | location.                                | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. _single-xml-name-address-line-usage:
+
+``Name`` and ``AddressLine`` Usage Note
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Name`` and ``AddressLine`` fields should be chosen so that a display
+or mailing address can be constructed programmatically by joining the
+``Name`` and ``AddressLine`` fields together.  For example, for the
+following address::
+
+    Department of Elections
+    1 Dr. Carlton B. Goodlett Place, Room 48
+    San Francisco, CA 94102
+
+The name could be "Department of Elections" and the first address line
+could be "1 Dr. Carlton B. Goodlett Place, Room 48."
+
+However, VIP does not yet support the representation of mailing addresses
+whose "name" portion spans more than one line, for example::
+
+    California Secretary of State
+    Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+For addresses like the above, we recommend choosing a name like, "California
+Secretary of State, Elections Division" with "1500 11th Street" as the
+first address line. This would result in a programmatically constructed
+address like the following::
+
+    California Secretary of State, Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+.. code-block:: xml
+   :linenos:
+
+   <ContactInformation label="ci10861a">
+      <AddressLine>1600 Pennsylvania Ave</AddressLine>
+      <AddressLine>Washington, DC 20006</AddressLine>
+      <Email>president@whitehouse.gov</Email>
+      <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
+      <Uri>http://www.whitehouse.gov</Uri>
+   </ContactInformation>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+%%%%%%%%%%%%%%%%%%%%%
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-election:
@@ -254,6 +535,50 @@ with one Election object.
    </Election>
 
 
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-xml-ballot-selection-base:
 
 BallotSelectionBase
@@ -334,6 +659,50 @@ the only required object in the feed file, and only one source object is allowed
       <VipId>51</VipId>
       <Version>5.0</Version>
    </Source>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-ballot-measure-contest:
@@ -425,6 +794,173 @@ summary statements on each side. Extends :ref:`single-xml-contest-base`.
 .. _single-xml-contest-base:
 
 ContestBase
+^^^^^^^^^^^
+
+A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
+:ref:`single-xml-candidate-contest`, :ref:`single-xml-party-contest`,
+and :ref:`single-xml-retention-contest` (NB: the latter because it extends
+:ref:`single-xml-ballot-measure-contest`).
+
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                     | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=========================+==========================================+==============+==============+==========================================+==========================================+
+| Abbreviation            | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                         |                                          |              |              |                                          | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSelectionIds      | ``xs:IDREFS``                            | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
+|                         |                                          |              |              | which could be of any selection type     | then the implementation should ignore    |
+|                         |                                          |              |              | that extends                             | it.                                      |
+|                         |                                          |              |              | :ref:`single-xml-ballot-selection-base`. |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSubTitle          | :ref:`single-xml-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotTitle             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
+|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | scope of the contest.                    |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
+|                         |                                          |              |              | electorate for this contest past the     | present, then the implementation should  |
+|                         |                                          |              |              | usual, "all registered voters"           | ignore it.                               |
+|                         |                                          |              |              | electorate. This subtag will most often  |                                          |
+|                         |                                          |              |              | be used for primaries and local          |                                          |
+|                         |                                          |              |              | elections. In primaries, voters may have |                                          |
+|                         |                                          |              |              | to be registered as a specific party to  |                                          |
+|                         |                                          |              |              | vote, or there may be special rules for  |                                          |
+|                         |                                          |              |              | which ballot a voter can pull. In some   |                                          |
+|                         |                                          |              |              | local elections, non-citizens can vote.  |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ExternalIdentifiers     | :ref:`single-xml-external-identifiers`   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
+|                         |                                          |              |              | links to another source of information.  | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HasRotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
+|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
+|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+|                         |                                          |              |              | purpose).                                |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
+|                         |                                          |              |              | on the ballot. This is the default       | then the implementation should ignore    |
+|                         |                                          |              |              | ordering, and can be overrides by data   | it.                                      |
+|                         |                                          |              |              | in a :ref:`single-xml-ballot-style`      |                                          |
+|                         |                                          |              |              | element.                                 |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VoteVariation           | :ref:`single-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherVoteVariation      | ``xs:string``                            | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
+|                         |                                          |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
+|                         |                                          |              |              | variation can be specified here.         | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+%%%%%%%%%%%%%%%%%%%
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+^^^^^^^^^^^^^^^^^^
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
+.. _single-xml-contest-base:
+
+ContestBase
 ~~~~~~~~~~~
 
 A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
@@ -497,6 +1033,147 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
+.. _single-xml-time-with-zone:
+
+TimeWithZone
+~~~~~~~~~~~~
+
+A string pattern restricting the value to a time with an included offset from
+UTC. The pattern is
+
+``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))``
+
+.. code-block:: xml
+   :linenos:
+
+   <HoursOpen id="hours0001">
+     <Schedule>
+       <Hours>
+         <StartTime>06:00:00-05:00</StartTime>
+         <EndTime>12:00:00-05:00</EndTime>
+       </Hours>
+       <Hours>
+         <StartTime>13:00:00-05:00</StartTime>
+         <EndTime>19:00:00-05:00</EndTime>
+       </Hours>
+       <StartDate>2013-11-05</StartDate>
+       <EndDate>2013-11-05</EndDate>
+     </Schedule>
+   </HoursOpen>
+
+
+.. _single-xml-language-string:
+
+LanguageString
+~~~~~~~~~~~~~~
+
+``LanguageString`` extends xs:string and can contain text from any language. ``LanguageString``
+has one required attribute, ``language``, that must contain the 2-character `language code`_ for the
+type of language ``LanguageString`` contains.
+
+.. _`language code`: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+
+.. code-block:: xml
+   :linenos:
+
+   <BallotTitle>
+      <Text language="en">Retention of Supreme Court Justice</Text>
+      <Text language="es">La retención de juez de la Corte Suprema</Text>
+   </BallotTitle>
+
+
 .. _single-xml-ballot-style:
 
 BallotStyle
@@ -512,7 +1189,7 @@ A container for the contests/measures on the ballot.
 |                   |               |              |              |                                          | ignore it.                               |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OrderedContestIds | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                   |               |              |              | :ref:`single-xml-ordered-contest`s       | then the implementation is required to   |
+|                   |               |              |              | :ref:`single-xml-ordered-contest`        | then the implementation is required to   |
 |                   |               |              |              |                                          | ignore it.                               |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyIds          | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
@@ -526,6 +1203,57 @@ A container for the contests/measures on the ballot.
    <BallotStyle id="bs00000">
       <OrderedContestIds>oc20003 oc20004 oc20005 oc20025 oc20355 oc20449</OrderedContestIds>
    </BallotStyle>
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+~~~~~~~~~~~~~~~~~~
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
 
 
 .. _single-xml-person:
@@ -631,6 +1359,294 @@ or elected official. These elements reference ``Person``:
    </Person>
 
 
+.. _single-xml-contact-information:
+
+ContactInformation
+^^^^^^^^^^^^^^^^^^
+
+For defining contact information about objects such as persons, boards of authorities,
+organizations, etc. ContactInformation is always a sub-element of another object (e.g.
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
+``label``, which allows the feed to refer back to the original label for the information
+(e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
+
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==================+==========================================+==============+==============+==========================================+==========================================+
+| AddressLine      | ``xs:string``                            | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
+|                  |                                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  |                                          |              |              | locating this entity.                    | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Email            | ``xs:string``                            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Fax              | ``xs:string``                            | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
+| **[deprecated]** |                                          |              |              | the location is open *(NB: this element  | present, then the implementation is      |
+|                  |                                          |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+|                  |                                          |              |              | structured :ref:`single-xml-hours-open`  |                                          |
+|                  |                                          |              |              | element. It is strongly encouraged that  |                                          |
+|                  |                                          |              |              | data providers move toward contributing  |                                          |
+|                  |                                          |              |              | hours in this format)*.                  |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                          |              |              | which lists the hours of operation for a | ignore it.                               |
+|                  |                                          |              |              | location.                                |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng           | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                  |                                          |              |              | this entity.                             | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Phone            | ``xs:string``                            | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
+|                  |                                          |              |              | location.                                | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. _single-xml-name-address-line-usage:
+
+``Name`` and ``AddressLine`` Usage Note
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Name`` and ``AddressLine`` fields should be chosen so that a display
+or mailing address can be constructed programmatically by joining the
+``Name`` and ``AddressLine`` fields together.  For example, for the
+following address::
+
+    Department of Elections
+    1 Dr. Carlton B. Goodlett Place, Room 48
+    San Francisco, CA 94102
+
+The name could be "Department of Elections" and the first address line
+could be "1 Dr. Carlton B. Goodlett Place, Room 48."
+
+However, VIP does not yet support the representation of mailing addresses
+whose "name" portion spans more than one line, for example::
+
+    California Secretary of State
+    Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+For addresses like the above, we recommend choosing a name like, "California
+Secretary of State, Elections Division" with "1500 11th Street" as the
+first address line. This would result in a programmatically constructed
+address like the following::
+
+    California Secretary of State, Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+.. code-block:: xml
+   :linenos:
+
+   <ContactInformation label="ci10861a">
+      <AddressLine>1600 Pennsylvania Ave</AddressLine>
+      <AddressLine>Washington, DC 20006</AddressLine>
+      <Email>president@whitehouse.gov</Email>
+      <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
+      <Uri>http://www.whitehouse.gov</Uri>
+   </ContactInformation>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+%%%%%%%%%%%%%%%%%%%%%
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-xml-external-identifiers:
 
 ExternalIdentifiers
@@ -721,6 +1737,101 @@ ExternalIdentifier
          <Value>99063</Value>
       </ExternalIdentifier>
    </ExternalIdentifiers>
+
+
+.. _single-xml-voter-service:
+
+VoterService
+~~~~~~~~~~~~
+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| ContactInformation       | :ref:`single-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
+|                          |                                          |              |              | service.                                 | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Description              | :ref:`single-xml-internationalized-text` | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
+|                          |                                          |              |              | available.                               | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectionOfficialPersonId | ``xs:IDREF``                             | Optional     | Single       | The :ref:`authority <single-xml-person>` | If the field is invalid or not present,  |
+|                          |                                          |              |              | for a particular voter service.          | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Type                     | :ref:`single-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
+|                          |                                          |              |              | <single-xml-voter-service-type>`.        | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType                | ``xs:string``                            | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
+|                          |                                          |              |              | cataloging another type of voter         | then the implementation is required to   |
+|                          |                                          |              |              | service.                                 | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ElectionAdministration id="ea40133">
+      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
+      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
+      <Department>
+        <ContactInformation label="ci60000">
+          <AddressLine>Washington Building First Floor</AddressLine>
+          <AddressLine>1100 Bank Street</AddressLine>
+          <AddressLine>Richmond, VA 23219</AddressLine>
+          <Name>State Board of Elections</Name>
+        </ContactInformation>
+      </Department>
+      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
+      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
+      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
+      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
+   </ElectionAdministration>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-contact-information:
@@ -831,6 +1942,50 @@ address like the following::
    </ContactInformation>
 
 
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-xml-candidate-selection:
 
 CandidateSelection
@@ -869,6 +2024,26 @@ ballot selection for a candidate contest.
       <CandidateIds>can10861a can10861b</CandidateIds>
       <EndorsementPartyIds>par0001</EndorsementPartyIds>
    </CandidateSelection>
+
+
+.. _single-xml-ballot-selection-base:
+
+BallotSelectionBase
+^^^^^^^^^^^^^^^^^^^
+
+A base model for all ballot selection types:
+:ref:`single-xml-ballot-measure-selection`,
+:ref:`single-xml-candidate-selection`, and :ref:`single-xml-party-selection`.
+
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============+================+==============+==============+==========================================+==========================================+
+| SequenceOrder | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
+|               |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
+|               |                |              |              | is the default ordering, and can be      | ignore it.                               |
+|               |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
+|               |                |              |              | in :ref:`single-xml-ordered-contest`.    |                                          |
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-lat-lng:
@@ -983,6 +2158,98 @@ object. Candidate objects may **not** be reused between Contests.
    </Candidate>
 
 
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
 .. _single-xml-polling-location:
 
 PollingLocation
@@ -994,11 +2261,11 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 | Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+==========================================+==============+==============+==========================================+==========================================+
 | AddressLine      | ``xs:string``                            | **Required** | Repeats      | Represents the various parts of an       | At least one valid ``AddressLine`` must  |
-|                  |                                          |              |              | address to a polling location.           | be present for ``PollingLocation`` to be |
-|                  |                                          |              |              |                                          | valid. If no valid ``AddressLine`` is    |
-|                  |                                          |              |              |                                          | present, the implementation is required  |
-|                  |                                          |              |              |                                          | to ignore the ``PollingLocation``        |
-|                  |                                          |              |              |                                          | element containing it.                   |
+|                  |                                          |              |              | address to a polling location. For CSV   | be present for ``PollingLocation`` to be |
+|                  |                                          |              |              | implementations, repeating               | valid. If no valid ``AddressLine`` is    |
+|                  |                                          |              |              | ``address_line`` columns should be       | present, the implementation is required  |
+|                  |                                          |              |              | incremented, e.g. address_line1,         | to ignore the ``PollingLocation``        |
+|                  |                                          |              |              | address_line2, address_line3.            | element containing it.                   |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
 |                  |                                          |              |              | locating the polling location.           | present, then the implementation is      |
@@ -1038,6 +2305,47 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                  |                                          |              |              | polling location.                        | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-lat-lng:
+
+LatLng
+^^^^^^
+
+The latitude and longitude of a polling location in `WGS 84`_ format. Both
+latitude and longitude values are measured in decimal degrees.
+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| Latitude     | ``xs:float``  | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
+|              |               |              |              |                                          | implementation is required to ignore it. |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Longitude    | ``xs:float``  | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
+|              |               |              |              |                                          | implementation is required to ignore it. |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Source       | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
+|              |               |              |              | from location name to lat/lng. For       | then the implementation is required to   |
+|              |               |              |              | example, this could be the name of a     | ignore it.                               |
+|              |               |              |              | geocoding service.                       |                                          |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
+
+.. code-block:: xml
+   :linenos:
+
+   <PollingLocation id="pl81274">
+      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
+      <AddressLine>2775 Hydraulic Rd</AddressLine>
+      <AddressLine>Charlottesville, VA 229018917</AddressLine>
+      <HoursOpenId>hours0001</HoursOpenId>
+      <LatLng>
+        <Latitude>38.0754627</Latitude>
+        <Longitude>-78.5014875</Longitude>
+        <Source>Google Maps</Source>
+      </LatLng>
+   </PollingLocation>
 
 
 .. _single-xml-locality:
@@ -1101,6 +2409,482 @@ The Locality object represents the jurisdiction below the :ref:`single-xml-state
      <StateId>st51</StateId>
      <Type>county</Type>
    </Locality>
+
+
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
+.. _single-xml-department:
+
+Department
+~~~~~~~~~~
+
++--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+=======================================+==============+==============+==========================================+==========================================+
+| ContactInformation       | :ref:`single-xml-contact-information` | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
+|                          |                                       |              |              | for the election administration body     | present, then the implementation is      |
+|                          |                                       |              |              | (see                                     | required to ignore it.                   |
+|                          |                                       |              |              | :ref:`single-xml-contact-information`).  |                                          |
++--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectionOfficialPersonId | ``xs:IDREF``                          | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
+|                          |                                       |              |              | election administration office. The      | then the implementation is required to   |
+|                          |                                       |              |              | specified person should be the           | ignore it.                               |
+|                          |                                       |              |              | :ref:`election official                  |                                          |
+|                          |                                       |              |              | <single-xml-person>`.                    |                                          |
++--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VoterService             | :ref:`single-xml-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
+|                          |                                       |              |              | contact individual available to voters.  | present, then the implementation is      |
+|                          |                                       |              |              |                                          | required to ignore it.                   |
++--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-voter-service:
+
+VoterService
+^^^^^^^^^^^^
+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| ContactInformation       | :ref:`single-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
+|                          |                                          |              |              | service.                                 | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Description              | :ref:`single-xml-internationalized-text` | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
+|                          |                                          |              |              | available.                               | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectionOfficialPersonId | ``xs:IDREF``                             | Optional     | Single       | The :ref:`authority <single-xml-person>` | If the field is invalid or not present,  |
+|                          |                                          |              |              | for a particular voter service.          | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Type                     | :ref:`single-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
+|                          |                                          |              |              | <single-xml-voter-service-type>`.        | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType                | ``xs:string``                            | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
+|                          |                                          |              |              | cataloging another type of voter         | then the implementation is required to   |
+|                          |                                          |              |              | service.                                 | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ElectionAdministration id="ea40133">
+      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
+      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
+      <Department>
+        <ContactInformation label="ci60000">
+          <AddressLine>Washington Building First Floor</AddressLine>
+          <AddressLine>1100 Bank Street</AddressLine>
+          <AddressLine>Richmond, VA 23219</AddressLine>
+          <Name>State Board of Elections</Name>
+        </ContactInformation>
+      </Department>
+      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
+      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
+      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
+      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
+   </ElectionAdministration>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+%%%%%%%%%%%%%%%%%%%%%
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-contact-information:
+
+ContactInformation
+^^^^^^^^^^^^^^^^^^
+
+For defining contact information about objects such as persons, boards of authorities,
+organizations, etc. ContactInformation is always a sub-element of another object (e.g.
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
+``label``, which allows the feed to refer back to the original label for the information
+(e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
+
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==================+==========================================+==============+==============+==========================================+==========================================+
+| AddressLine      | ``xs:string``                            | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
+|                  |                                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  |                                          |              |              | locating this entity.                    | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Email            | ``xs:string``                            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Fax              | ``xs:string``                            | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
+| **[deprecated]** |                                          |              |              | the location is open *(NB: this element  | present, then the implementation is      |
+|                  |                                          |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+|                  |                                          |              |              | structured :ref:`single-xml-hours-open`  |                                          |
+|                  |                                          |              |              | element. It is strongly encouraged that  |                                          |
+|                  |                                          |              |              | data providers move toward contributing  |                                          |
+|                  |                                          |              |              | hours in this format)*.                  |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                          |              |              | which lists the hours of operation for a | ignore it.                               |
+|                  |                                          |              |              | location.                                |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng           | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                  |                                          |              |              | this entity.                             | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Phone            | ``xs:string``                            | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
+|                  |                                          |              |              | location.                                | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. _single-xml-name-address-line-usage:
+
+``Name`` and ``AddressLine`` Usage Note
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Name`` and ``AddressLine`` fields should be chosen so that a display
+or mailing address can be constructed programmatically by joining the
+``Name`` and ``AddressLine`` fields together.  For example, for the
+following address::
+
+    Department of Elections
+    1 Dr. Carlton B. Goodlett Place, Room 48
+    San Francisco, CA 94102
+
+The name could be "Department of Elections" and the first address line
+could be "1 Dr. Carlton B. Goodlett Place, Room 48."
+
+However, VIP does not yet support the representation of mailing addresses
+whose "name" portion spans more than one line, for example::
+
+    California Secretary of State
+    Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+For addresses like the above, we recommend choosing a name like, "California
+Secretary of State, Elections Division" with "1500 11th Street" as the
+first address line. This would result in a programmatically constructed
+address like the following::
+
+    California Secretary of State, Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+.. code-block:: xml
+   :linenos:
+
+   <ContactInformation label="ci10861a">
+      <AddressLine>1600 Pennsylvania Ave</AddressLine>
+      <AddressLine>Washington, DC 20006</AddressLine>
+      <Email>president@whitehouse.gov</Email>
+      <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
+      <Uri>http://www.whitehouse.gov</Uri>
+   </ContactInformation>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+%%%%%%%%%%%%%%%%%%%%%
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-html-color-string:
+
+HtmlColorString
+~~~~~~~~~~~~~~~
+
+A restricted string pattern for a six-character hex code representing an HTML
+color string. The pattern is:
+
+``[0-9a-f]{6}``
+
+.. code-block:: xml
+   :linenos:
+
+   <Party id="par0001">
+     <Abbreviation>REP</Abbreviation>
+     <Color>e91d0e</Color>
+     <Name>
+       <Text language="en">Republican</Text>
+     </Name>
+   </Party>
+
+
+.. _single-xml-schedule:
+
+Schedule
+~~~~~~~~
+
+A sub-portion of the schedule. This describes a range of days, along with one or
+more set of open and close times for those days, as well as the options
+describing whether or not appointments are necessary or possible.
+
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                 | Data Type               | Required?    | Repeats?     | Description                              | Error Handling                           |
++=====================+=========================+==============+==============+==========================================+==========================================+
+| Hours               | :ref:`single-xml-hours` | Optional     | Repeats      | Blocks of hours in the date range in     | If the element is invalid or not         |
+|                     |                         |              |              | which the place is open.                 | present, then the implementation is      |
+|                     |                         |              |              |                                          | required to ignore it.                   |
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsOnlyByAppointment | ``xs:boolean``          | Optional     | Single       | If true, the place is only open during   | If the field is invalid or not present,  |
+|                     |                         |              |              | the specified time window with an        | then the implementation is required to   |
+|                     |                         |              |              | appointment.                             | ignore it.                               |
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsOrByAppointment   | ``xs:boolean``          | Optional     | Single       | If true, the place is open during the    | If the field is invalid or not present,  |
+|                     |                         |              |              | hours specified time window and may also | then the implementation is required to   |
+|                     |                         |              |              | be open with an appointment.             | ignore it.                               |
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsSubjectToChange   | ``xs:boolean``          | Optional     | Single       | If true, the place should be open during | If the field is invalid or not present,  |
+|                     |                         |              |              | the specified time window, but may be    | then the implementation is required to   |
+|                     |                         |              |              | subject to change. People should contact | ignore it.                               |
+|                     |                         |              |              | prior to arrival to confirm hours are    |                                          |
+|                     |                         |              |              | still accurate.                          |                                          |
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| StartDate           | ``xs:date``             | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
+|                     |                         |              |              | start and end times and options begin.   | then the implementation is required to   |
+|                     |                         |              |              |                                          | ignore it.                               |
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| EndDate             | ``xs:date``             | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
+|                     |                         |              |              | start and end times and options end.     | then the implementation is required to   |
+|                     |                         |              |              |                                          | ignore it.                               |
++---------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-hours:
+
+Hours
+^^^^^
+
+The open and close time for this place. All times must be fully specified,
+including a timezone offset from UTC.
+
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==================================+==============+==============+==========================================+==========================================+
+| StartTime    | :ref:`single-xml-time-with-zone` | Optional     | Single       | The time at which this place opens.      | If the element is invalid or not         |
+|              |                                  |              |              |                                          | present, then the implementation is      |
+|              |                                  |              |              |                                          | required to ignore it.                   |
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| EndTime      | :ref:`single-xml-time-with-zone` | Optional     | Single       | The time at which this place closes.     | If the element is invalid or not         |
+|              |                                  |              |              |                                          | present, then the implementation is      |
+|              |                                  |              |              |                                          | required to ignore it.                   |
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-time-with-zone:
+
+TimeWithZone
+%%%%%%%%%%%%
+
+A string pattern restricting the value to a time with an included offset from
+UTC. The pattern is
+
+``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))``
+
+.. code-block:: xml
+   :linenos:
+
+   <HoursOpen id="hours0001">
+     <Schedule>
+       <Hours>
+         <StartTime>06:00:00-05:00</StartTime>
+         <EndTime>12:00:00-05:00</EndTime>
+       </Hours>
+       <Hours>
+         <StartTime>13:00:00-05:00</StartTime>
+         <EndTime>19:00:00-05:00</EndTime>
+       </Hours>
+       <StartDate>2013-11-05</StartDate>
+       <EndDate>2013-11-05</EndDate>
+     </Schedule>
+   </HoursOpen>
 
 
 .. _single-xml-precinct:
@@ -1263,6 +3047,173 @@ selections are allowed, or party-list contests (although these are more common
 outside of the United States).
 
 
+.. _single-xml-contest-base:
+
+ContestBase
+^^^^^^^^^^^
+
+A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
+:ref:`single-xml-candidate-contest`, :ref:`single-xml-party-contest`,
+and :ref:`single-xml-retention-contest` (NB: the latter because it extends
+:ref:`single-xml-ballot-measure-contest`).
+
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                     | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=========================+==========================================+==============+==============+==========================================+==========================================+
+| Abbreviation            | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                         |                                          |              |              |                                          | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSelectionIds      | ``xs:IDREFS``                            | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
+|                         |                                          |              |              | which could be of any selection type     | then the implementation should ignore    |
+|                         |                                          |              |              | that extends                             | it.                                      |
+|                         |                                          |              |              | :ref:`single-xml-ballot-selection-base`. |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSubTitle          | :ref:`single-xml-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotTitle             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
+|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | scope of the contest.                    |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
+|                         |                                          |              |              | electorate for this contest past the     | present, then the implementation should  |
+|                         |                                          |              |              | usual, "all registered voters"           | ignore it.                               |
+|                         |                                          |              |              | electorate. This subtag will most often  |                                          |
+|                         |                                          |              |              | be used for primaries and local          |                                          |
+|                         |                                          |              |              | elections. In primaries, voters may have |                                          |
+|                         |                                          |              |              | to be registered as a specific party to  |                                          |
+|                         |                                          |              |              | vote, or there may be special rules for  |                                          |
+|                         |                                          |              |              | which ballot a voter can pull. In some   |                                          |
+|                         |                                          |              |              | local elections, non-citizens can vote.  |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ExternalIdentifiers     | :ref:`single-xml-external-identifiers`   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
+|                         |                                          |              |              | links to another source of information.  | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HasRotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
+|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
+|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+|                         |                                          |              |              | purpose).                                |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
+|                         |                                          |              |              | on the ballot. This is the default       | then the implementation should ignore    |
+|                         |                                          |              |              | ordering, and can be overrides by data   | it.                                      |
+|                         |                                          |              |              | in a :ref:`single-xml-ballot-style`      |                                          |
+|                         |                                          |              |              | element.                                 |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VoteVariation           | :ref:`single-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherVoteVariation      | ``xs:string``                            | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
+|                         |                                          |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
+|                         |                                          |              |              | variation can be specified here.         | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+%%%%%%%%%%%%%%%%%%%
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+^^^^^^^^^^^^^^^^^^
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
 .. _single-xml-election-administration:
 
 ElectionAdministration
@@ -1340,6 +3291,253 @@ Department
 .. _single-xml-voter-service:
 
 VoterService
+%%%%%%%%%%%%
+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| ContactInformation       | :ref:`single-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
+|                          |                                          |              |              | service.                                 | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Description              | :ref:`single-xml-internationalized-text` | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
+|                          |                                          |              |              | available.                               | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectionOfficialPersonId | ``xs:IDREF``                             | Optional     | Single       | The :ref:`authority <single-xml-person>` | If the field is invalid or not present,  |
+|                          |                                          |              |              | for a particular voter service.          | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Type                     | :ref:`single-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
+|                          |                                          |              |              | <single-xml-voter-service-type>`.        | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType                | ``xs:string``                            | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
+|                          |                                          |              |              | cataloging another type of voter         | then the implementation is required to   |
+|                          |                                          |              |              | service.                                 | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ElectionAdministration id="ea40133">
+      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
+      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
+      <Department>
+        <ContactInformation label="ci60000">
+          <AddressLine>Washington Building First Floor</AddressLine>
+          <AddressLine>1100 Bank Street</AddressLine>
+          <AddressLine>Richmond, VA 23219</AddressLine>
+          <Name>State Board of Elections</Name>
+        </ContactInformation>
+      </Department>
+      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
+      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
+      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
+      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
+   </ElectionAdministration>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-contact-information:
+
+ContactInformation
+%%%%%%%%%%%%%%%%%%
+
+For defining contact information about objects such as persons, boards of authorities,
+organizations, etc. ContactInformation is always a sub-element of another object (e.g.
+:ref:`single-xml-election-administration`, :ref:`single-xml-office`,
+:ref:`single-xml-person`, :ref:`single-xml-source`). ContactInformation has an optional attribute
+``label``, which allows the feed to refer back to the original label for the information
+(e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
+
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==================+==========================================+==============+==============+==========================================+==========================================+
+| AddressLine      | ``xs:string``                            | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
+|                  |                                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                  |                                          |              |              | locating this entity.                    | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Email            | ``xs:string``                            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Fax              | ``xs:string``                            | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
+| **[deprecated]** |                                          |              |              | the location is open *(NB: this element  | present, then the implementation is      |
+|                  |                                          |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+|                  |                                          |              |              | structured :ref:`single-xml-hours-open`  |                                          |
+|                  |                                          |              |              | element. It is strongly encouraged that  |                                          |
+|                  |                                          |              |              | data providers move toward contributing  |                                          |
+|                  |                                          |              |              | hours in this format)*.                  |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`single-xml-hours-open` element,    | then the implementation is required to   |
+|                  |                                          |              |              | which lists the hours of operation for a | ignore it.                               |
+|                  |                                          |              |              | location.                                |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng           | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                  |                                          |              |              | this entity.                             | present, then the implementation is      |
+|                  |                                          |              |              |                                          | required to ignore it.                   |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name             | ``xs:string``                            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
+|                  |                                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
+|                  |                                          |              |              | <single-xml-name-address-line-usage>`    | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Phone            | ``xs:string``                            | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
+|                  |                                          |              |              |                                          | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
+|                  |                                          |              |              | location.                                | then the implementation is required to   |
+|                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. _single-xml-name-address-line-usage:
+
+``Name`` and ``AddressLine`` Usage Note
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Name`` and ``AddressLine`` fields should be chosen so that a display
+or mailing address can be constructed programmatically by joining the
+``Name`` and ``AddressLine`` fields together.  For example, for the
+following address::
+
+    Department of Elections
+    1 Dr. Carlton B. Goodlett Place, Room 48
+    San Francisco, CA 94102
+
+The name could be "Department of Elections" and the first address line
+could be "1 Dr. Carlton B. Goodlett Place, Room 48."
+
+However, VIP does not yet support the representation of mailing addresses
+whose "name" portion spans more than one line, for example::
+
+    California Secretary of State
+    Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+For addresses like the above, we recommend choosing a name like, "California
+Secretary of State, Elections Division" with "1500 11th Street" as the
+first address line. This would result in a programmatically constructed
+address like the following::
+
+    California Secretary of State, Elections Division
+    1500 11th Street
+    Sacramento, CA 95814
+
+.. code-block:: xml
+   :linenos:
+
+   <ContactInformation label="ci10861a">
+      <AddressLine>1600 Pennsylvania Ave</AddressLine>
+      <AddressLine>Washington, DC 20006</AddressLine>
+      <Email>president@whitehouse.gov</Email>
+      <Phone>202-456-1111</Phone>
+      <Phone annotation="TDD">202-456-6213</Phone>
+      <Uri>http://www.whitehouse.gov</Uri>
+   </ContactInformation>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-voter-service:
+
+VoterService
 ^^^^^^^^^^^^
 
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -1386,6 +3584,100 @@ VoterService
       <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
       <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
    </ElectionAdministration>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+%%%%%%%%%%%%%%%%%%%%%
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-hours:
+
+Hours
+~~~~~
+
+The open and close time for this place. All times must be fully specified,
+including a timezone offset from UTC.
+
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==================================+==============+==============+==========================================+==========================================+
+| StartTime    | :ref:`single-xml-time-with-zone` | Optional     | Single       | The time at which this place opens.      | If the element is invalid or not         |
+|              |                                  |              |              |                                          | present, then the implementation is      |
+|              |                                  |              |              |                                          | required to ignore it.                   |
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| EndTime      | :ref:`single-xml-time-with-zone` | Optional     | Single       | The time at which this place closes.     | If the element is invalid or not         |
+|              |                                  |              |              |                                          | present, then the implementation is      |
+|              |                                  |              |              |                                          | required to ignore it.                   |
++--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-time-with-zone:
+
+TimeWithZone
+^^^^^^^^^^^^
+
+A string pattern restricting the value to a time with an included offset from
+UTC. The pattern is
+
+``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))``
+
+.. code-block:: xml
+   :linenos:
+
+   <HoursOpen id="hours0001">
+     <Schedule>
+       <Hours>
+         <StartTime>06:00:00-05:00</StartTime>
+         <EndTime>12:00:00-05:00</EndTime>
+       </Hours>
+       <Hours>
+         <StartTime>13:00:00-05:00</StartTime>
+         <EndTime>19:00:00-05:00</EndTime>
+       </Hours>
+       <StartDate>2013-11-05</StartDate>
+       <EndDate>2013-11-05</EndDate>
+     </Schedule>
+   </HoursOpen>
 
 
 .. _single-xml-retention-contest:
@@ -1611,6 +3903,173 @@ candidates.
    </CandidateContest>
 
 
+.. _single-xml-contest-base:
+
+ContestBase
+^^^^^^^^^^^
+
+A base model for all Contest types: :ref:`single-xml-ballot-measure-contest`,
+:ref:`single-xml-candidate-contest`, :ref:`single-xml-party-contest`,
+and :ref:`single-xml-retention-contest` (NB: the latter because it extends
+:ref:`single-xml-ballot-measure-contest`).
+
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                     | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=========================+==========================================+==============+==============+==========================================+==========================================+
+| Abbreviation            | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                         |                                          |              |              |                                          | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSelectionIds      | ``xs:IDREFS``                            | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
+|                         |                                          |              |              | which could be of any selection type     | then the implementation should ignore    |
+|                         |                                          |              |              | that extends                             | it.                                      |
+|                         |                                          |              |              | :ref:`single-xml-ballot-selection-base`. |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotSubTitle          | :ref:`single-xml-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| BallotTitle             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                         |                                          |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
+|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | scope of the contest.                    |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
+|                         |                                          |              |              | electorate for this contest past the     | present, then the implementation should  |
+|                         |                                          |              |              | usual, "all registered voters"           | ignore it.                               |
+|                         |                                          |              |              | electorate. This subtag will most often  |                                          |
+|                         |                                          |              |              | be used for primaries and local          |                                          |
+|                         |                                          |              |              | elections. In primaries, voters may have |                                          |
+|                         |                                          |              |              | to be registered as a specific party to  |                                          |
+|                         |                                          |              |              | vote, or there may be special rules for  |                                          |
+|                         |                                          |              |              | which ballot a voter can pull. In some   |                                          |
+|                         |                                          |              |              | local elections, non-citizens can vote.  |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ExternalIdentifiers     | :ref:`single-xml-external-identifiers`   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
+|                         |                                          |              |              | links to another source of information.  | present, then the implementation should  |
+|                         |                                          |              |              |                                          | ignore it.                               |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HasRotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
+|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
+|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+|                         |                                          |              |              | purpose).                                |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
+|                         |                                          |              |              | on the ballot. This is the default       | then the implementation should ignore    |
+|                         |                                          |              |              | ordering, and can be overrides by data   | it.                                      |
+|                         |                                          |              |              | in a :ref:`single-xml-ballot-style`      |                                          |
+|                         |                                          |              |              | element.                                 |                                          |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VoteVariation           | :ref:`single-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                         |                                          |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
+|                         |                                          |              |              |                                          | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherVoteVariation      | ``xs:string``                            | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
+|                         |                                          |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
+|                         |                                          |              |              | variation can be specified here.         | it.                                      |
++-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+%%%%%%%%%%%%%%%%%%%
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+^^^^^^^^^^^^^^^^^^
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
 .. _single-xml-party:
 
 Party
@@ -1674,6 +4133,142 @@ color string. The pattern is:
    </Party>
 
 
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
+.. _single-xml-internationalized-text:
+
+InternationalizedText
+^^^^^^^^^^^^^^^^^^^^^
+
+``InternationalizedText`` allows for support of multiple languages for a string.
+``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
+back to the original label for the information (e.g. if the contact information came from a
+CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* Any element that extends :ref:`single-xml-ballot-selection-base`
+
+* :ref:`single-xml-candidate`
+
+* :ref:`single-xml-contact-information`
+
+* :ref:`single-xml-election`
+
+* :ref:`single-xml-election-administration`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-person`
+
+* :ref:`single-xml-polling-location`
+
+* :ref:`single-xml-source`
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Text         | :ref:`single-xml-language-string` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
+|              |                                   |              |              | particular string of text.               | present for ``InternationalizedText`` to |
+|              |                                   |              |              |                                          | be valid. If no valid ``Text`` is        |
+|              |                                   |              |              |                                          | present, the implementation is required  |
+|              |                                   |              |              |                                          | to ignore the ``InternationalizedText``  |
+|              |                                   |              |              |                                          | element.                                 |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-xml-internationalized-text:
 
 InternationalizedText
@@ -1718,26 +4313,6 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-xml-language-string:
-
-LanguageString
-^^^^^^^^^^^^^^
-
-``LanguageString`` extends xs:string and can contain text from any language. ``LanguageString``
-has one required attribute, ``language``, that must contain the 2-character `language code`_ for the
-type of language ``LanguageString`` contains.
-
-.. _`language code`: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-
-.. code-block:: xml
-   :linenos:
-
-   <BallotTitle>
-      <Text language="en">Retention of Supreme Court Justice</Text>
-      <Text language="es">La retención de juez de la Corte Suprema</Text>
-   </BallotTitle>
-
-
 .. _single-xml-ballot-measure-selection:
 
 BallotMeasureSelection
@@ -1771,6 +4346,26 @@ BallotMeasureSelection extends :ref:`single-xml-ballot-selection-base`.
          <Text language="es">No</Text>
       </Selection>
    </BallotMeasureSelection>
+
+
+.. _single-xml-ballot-selection-base:
+
+BallotSelectionBase
+^^^^^^^^^^^^^^^^^^^
+
+A base model for all ballot selection types:
+:ref:`single-xml-ballot-measure-selection`,
+:ref:`single-xml-candidate-selection`, and :ref:`single-xml-party-selection`.
+
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============+================+==============+==============+==========================================+==========================================+
+| SequenceOrder | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
+|               |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
+|               |                |              |              | is the default ordering, and can be      | ignore it.                               |
+|               |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
+|               |                |              |              | in :ref:`single-xml-ordered-contest`.    |                                          |
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-hours-open:
@@ -1841,7 +4436,7 @@ describing whether or not appointments are necessary or possible.
 .. _single-xml-hours:
 
 Hours
-^^^^^
+%%%%%
 
 The open and close time for this place. All times must be fully specified,
 including a timezone offset from UTC.
@@ -1949,6 +4544,98 @@ which precincts link to the ``ElectoralDistrict``.
    </ElectoralDistrict>
 
 
+.. _single-xml-external-identifiers:
+
+ExternalIdentifiers
+^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
+candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
+greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
+found on the objects that support them:
+
+* :ref:`single-xml-candidate`
+
+* Any element that extends :ref:`single-xml-contest-base`
+
+* :ref:`single-xml-electoral-district`
+
+* :ref:`single-xml-locality`
+
+* :ref:`single-xml-office`
+
+* :ref:`single-xml-party`
+
+* :ref:`single-xml-precinct`
+
+* :ref:`single-xml-state`
+
+.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
+
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+=======================================+==============+==============+==========================================+==========================================+
+| ExternalIdentifier | :ref:`single-xml-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
+|                    |                                       |              |              | identifier it is (see                    | must be present for                      |
+|                    |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
+|                    |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
+|                    |                                       |              |              |                                          | present, the implementation is required  |
+|                    |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
+|                    |                                       |              |              |                                          | element.                                 |
++--------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-external-identifier:
+
+ExternalIdentifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| Type         | :ref:`single-xml-identifier-type` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
+|              |                                   |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType    | ``xs:string``                     | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
+|              |                                   |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
+|              |                                   |              |              | outside the options listed in            | ignore it.                               |
+|              |                                   |              |              | :ref:`single-xml-identifier-type`.       |                                          |
+|              |                                   |              |              | ``Type`` should be set to "other" when   |                                          |
+|              |                                   |              |              | using this field.                        |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ElectionIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ExternalIdentifiers>
+      <ExternalIdentifier>
+         <Type>ocd-id</Type>
+         <Value>ocd-division/country:us/state:nc/county:durham</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>FIPS</Type>
+         <Value>37063</Value>
+      </ExternalIdentifier>
+      <ExternalIdentifier>
+         <Type>OTHER</Type>
+         <OtherType>GNIS</OtherType>
+         <Value>1008550</Value>
+      </ExternalIdentifier>
+      <external_identifer>
+         <Type>OTHER</Type>
+         <OtherType>census</OtherType>
+         <Value>99063</Value>
+      </ExternalIdentifier>
+   </ExternalIdentifiers>
+
+
 .. _single-xml-party-selection:
 
 PartySelection
@@ -1965,6 +4652,26 @@ support contests in which the selections can be groups of one or more parties.
 |              |               |              |              | selection.                               | implementation is required to ignore the |
 |              |               |              |              |                                          | PartySelection containing it.            |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-ballot-selection-base:
+
+BallotSelectionBase
+^^^^^^^^^^^^^^^^^^^
+
+A base model for all ballot selection types:
+:ref:`single-xml-ballot-measure-selection`,
+:ref:`single-xml-candidate-selection`, and :ref:`single-xml-party-selection`.
+
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============+================+==============+==============+==========================================+==========================================+
+| SequenceOrder | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
+|               |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
+|               |                |              |              | is the default ordering, and can be      | ignore it.                               |
+|               |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
+|               |                |              |              | in :ref:`single-xml-ordered-contest`.    |                                          |
++---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-enumerations:

@@ -8,7 +8,7 @@
 |                   |               |              |              |                                          | ignore it.                               |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OrderedContestIds | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                   |               |              |              | :ref:`multi-xml-ordered-contest`s        | then the implementation is required to   |
+|                   |               |              |              | :ref:`multi-xml-ordered-contest`         | then the implementation is required to   |
 |                   |               |              |              |                                          | ignore it.                               |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PartyIds          | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
