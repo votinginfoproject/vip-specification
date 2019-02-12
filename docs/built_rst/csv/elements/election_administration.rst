@@ -127,11 +127,11 @@ voter_service
 
 
     id,description,election_official_person_id,type,other_type,department_id
-    vs01,A service we provide,per50002,overseas-voting,,dep01
-    vs00,Elections notifications,per50002,voter-registration,,dep02
+    vs01,A service we provide,per50002,other,overseas-voting,dep01
+    vs00,Elections notifications,per50002,other,voter-registration,dep02
     vs02,Pencil sharpening,per50002,other,office-help,dep03
-    vs03,Guided hike to polling place,per50002,polling-places,,dep03
-    vs04,Bike messenger ballot delivery,per50002,absentee-ballots,,dep03
+    vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+    vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
 .. _multi-csv-internationalized-text:
@@ -326,11 +326,11 @@ voter_service
 
 
     id,description,election_official_person_id,type,other_type,department_id
-    vs01,A service we provide,per50002,overseas-voting,,dep01
-    vs00,Elections notifications,per50002,voter-registration,,dep02
+    vs01,A service we provide,per50002,other,overseas-voting,dep01
+    vs00,Elections notifications,per50002,other,voter-registration,dep02
     vs02,Pencil sharpening,per50002,other,office-help,dep03
-    vs03,Guided hike to polling place,per50002,polling-places,,dep03
-    vs04,Bike messenger ballot delivery,per50002,absentee-ballots,,dep03
+    vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+    vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
 .. _multi-csv-internationalized-text:

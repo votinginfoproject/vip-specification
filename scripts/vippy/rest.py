@@ -216,18 +216,14 @@ def update_rest_file(all_types, data_type, prefix):
         _log.debug("skipping rest file for extended class: {0}".format(type_name))
         return
 
-    #rest_path = data_type.rest_path
     rest_path_xml = data_type.rest_path_xml
-    #print(rest_path_xml)
     rest_path_csv = data_type.rest_path_csv
-    #print(rest_path_csv)
-
     rest = make_type_rest(all_types, data_type, header_char="=", prefix=prefix)
 
     # Make sure the file ends in a single newline.
     rest = rest.strip() + "\n"
 
-    #write_rest_file(rest_path_xml, rest)
+    #Write rest file for both XML and CSV modes
     if prefix.split('-')[-1] == "xml":
         write_rest_file(rest_path_xml, rest)
     else:
@@ -259,7 +255,6 @@ def update_rest_file_single_page(all_types,mode):
         rest += make_rest_header(title, label=label, header_char="-")
         for data_type in data_types:
             if data_type.is_sub_type and data_type.is_extends:
-            #if data_type.is_sub_type:
                 continue
             new_rest = make_type_rest(all_types, data_type, header_char="~", prefix=prefix)
             rest = add_rest_section(rest, new_rest, prefix=prefix, sep="\n\n")
@@ -272,7 +267,6 @@ def update_rest_files(type_name=None):
     Update auto-generated reST files.
     """
     for mode in ['csv','xml']:
-        #print("**** In Single Mode {}".format(mode))
         prefix = "multi-{}".format(mode)
         all_types = common.get_all_types()
         type_map = all_types.type_map

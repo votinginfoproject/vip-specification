@@ -23,18 +23,18 @@ post: |-
 tags:
 - _name: Latitude
   csv-header-name: latitude
-  csv-type: xs:float
+  csv-type: xs:double
   description: The latitude of the polling location.
   error_then: =must-ignore
   required: true
-  type: xs:float
+  type: xs:double
 - _name: Longitude
   csv-header-name: longitude
-  csv-type: xs:float
+  csv-type: xs:double
   description: The longitude of the polling location.
   error_then: =must-ignore
   required: true
-  type: xs:float
+  type: xs:double
 - _name: Source
   csv-header-name: latlng_source
   csv-type: xs:string
