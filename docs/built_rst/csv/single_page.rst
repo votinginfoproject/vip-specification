@@ -1473,11 +1473,11 @@ voter_service
 
 
     id,description,election_official_person_id,type,other_type,department_id
-    vs01,A service we provide,per50002,overseas-voting,,dep01
-    vs00,Elections notifications,per50002,voter-registration,,dep02
+    vs01,A service we provide,per50002,other,overseas-voting,dep01
+    vs00,Elections notifications,per50002,other,voter-registration,dep02
     vs02,Pencil sharpening,per50002,other,office-help,dep03
-    vs03,Guided hike to polling place,per50002,polling-places,,dep03
-    vs04,Bike messenger ballot delivery,per50002,absentee-ballots,,dep03
+    vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+    vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
 .. _single-csv-internationalized-text:
@@ -1710,10 +1710,10 @@ latitude and longitude values are measured in decimal degrees.
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag           | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===============+===============+==============+==============+==========================================+==========================================+
-| latitude      | ``xs:float``  | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
+| latitude      | ``xs:double`` | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
 |               |               |              |              |                                          | implementation is required to ignore it. |
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| longitude     | ``xs:float``  | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
+| longitude     | ``xs:double`` | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
 |               |               |              |              |                                          | implementation is required to ignore it. |
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | latlng_source | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
@@ -1939,10 +1939,10 @@ latitude and longitude values are measured in decimal degrees.
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag           | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===============+===============+==============+==============+==========================================+==========================================+
-| latitude      | ``xs:float``  | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
+| latitude      | ``xs:double`` | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
 |               |               |              |              |                                          | implementation is required to ignore it. |
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| longitude     | ``xs:float``  | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
+| longitude     | ``xs:double`` | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
 |               |               |              |              |                                          | implementation is required to ignore it. |
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | latlng_source | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
@@ -2142,11 +2142,11 @@ voter_service
 
 
     id,description,election_official_person_id,type,other_type,department_id
-    vs01,A service we provide,per50002,overseas-voting,,dep01
-    vs00,Elections notifications,per50002,voter-registration,,dep02
+    vs01,A service we provide,per50002,other,overseas-voting,dep01
+    vs00,Elections notifications,per50002,other,voter-registration,dep02
     vs02,Pencil sharpening,per50002,other,office-help,dep03
-    vs03,Guided hike to polling place,per50002,polling-places,,dep03
-    vs04,Bike messenger ballot delivery,per50002,absentee-ballots,,dep03
+    vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+    vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
 .. _single-csv-internationalized-text:
@@ -2823,11 +2823,11 @@ voter_service
 
 
     id,description,election_official_person_id,type,other_type,department_id
-    vs01,A service we provide,per50002,overseas-voting,,dep01
-    vs00,Elections notifications,per50002,voter-registration,,dep02
+    vs01,A service we provide,per50002,other,overseas-voting,dep01
+    vs00,Elections notifications,per50002,other,voter-registration,dep02
     vs02,Pencil sharpening,per50002,other,office-help,dep03
-    vs03,Guided hike to polling place,per50002,polling-places,,dep03
-    vs04,Bike messenger ballot delivery,per50002,absentee-ballots,,dep03
+    vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+    vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
 .. _single-csv-internationalized-text:
@@ -3022,11 +3022,11 @@ voter_service
 
 
     id,description,election_official_person_id,type,other_type,department_id
-    vs01,A service we provide,per50002,overseas-voting,,dep01
-    vs00,Elections notifications,per50002,voter-registration,,dep02
+    vs01,A service we provide,per50002,other,overseas-voting,dep01
+    vs00,Elections notifications,per50002,other,voter-registration,dep02
     vs02,Pencil sharpening,per50002,other,office-help,dep03
-    vs03,Guided hike to polling place,per50002,polling-places,,dep03
-    vs04,Bike messenger ballot delivery,per50002,absentee-ballots,,dep03
+    vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+    vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
 .. _single-csv-internationalized-text:
@@ -3686,8 +3686,9 @@ BallotMeasureSelection extends :ref:`single-csv-ballot-selection-base`.
 |              |               |              |              |                                          | containing it.                           |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. code-block:: csv 
-    :linenos:      
+.. code-block:: csv-table
+   :linenos:
+
 
     id,sequence_order,selection
     bms001,1,Proposition A

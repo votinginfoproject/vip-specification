@@ -78,10 +78,10 @@ latitude and longitude values are measured in decimal degrees.
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag           | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===============+===============+==============+==============+==========================================+==========================================+
-| latitude      | ``xs:float``  | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
+| latitude      | ``xs:double`` | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
 |               |               |              |              |                                          | implementation is required to ignore it. |
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| longitude     | ``xs:float``  | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
+| longitude     | ``xs:double`` | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
 |               |               |              |              |                                          | implementation is required to ignore it. |
 +---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | latlng_source | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |

@@ -18,8 +18,9 @@ BallotMeasureSelection extends :ref:`multi-csv-ballot-selection-base`.
 |              |               |              |              |                                          | containing it.                           |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. code-block:: csv 
-    :linenos:      
+.. code-block:: csv-table
+   :linenos:
+
 
     id,sequence_order,selection
     bms001,1,Proposition A
