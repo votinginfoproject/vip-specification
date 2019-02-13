@@ -428,8 +428,8 @@
 
   <xs:complexType name="LatLng">
     <xs:sequence>
-      <xs:element name="Latitude" type="xs:float" maxOccurs="1" />
-      <xs:element name="Longitude" type="xs:float" maxOccurs="1" />
+      <xs:element name="Latitude" type="xs:double" maxOccurs="1" />
+      <xs:element name="Longitude" type="xs:double" maxOccurs="1" />
       <xs:element name="Source" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
