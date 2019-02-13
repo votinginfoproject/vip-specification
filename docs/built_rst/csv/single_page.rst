@@ -1974,7 +1974,7 @@ The Locality object represents the jurisdiction below the :ref:`single-csv-state
 |                            |                                        |              |              |                                           | the implementation is required to ignore |
 |                            |                                        |              |              |                                           | the Locality element containing it.      |
 +----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| polling_location_ids       | ``xs:IDREF``                           | Optional     | Single       | Specifies a link to a set of the          | If the field is invalid or not present,  |
+| polling_location_ids       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to a set of the          | If the field is invalid or not present,  |
 |                            |                                        |              |              | locality's :ref:`polling locations        | the implementation is required to ignore |
 |                            |                                        |              |              | <single-csv-polling-location>`s. If early | it. However, the implementation should   |
 |                            |                                        |              |              | vote centers or ballot drop locations are | still check to see if there are any      |

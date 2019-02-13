@@ -54,7 +54,7 @@ tags:
   type: xs:string
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
-  csv-type: xs:IDREF
+  csv-type: xs:IDREFS
   description: Specifies a link to a set of the locality's :ref:`polling locations
     <$$$-polling-location>`s. If early vote centers or ballot drop locations are locality-wide,
     they should be specified here.
