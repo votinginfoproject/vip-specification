@@ -1,8 +1,6 @@
 _name: Person
 _sub_types:
 - ContactInformation
-- ExternalIdentifiers
-- InternationalizedText
 csv-header-name: person
 csv-post: |-
   .. code-block:: csv-table

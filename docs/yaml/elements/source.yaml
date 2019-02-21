@@ -1,6 +1,4 @@
 _name: Source
-_sub_types:
-- InternationalizedText
 csv-header-name: source
 csv-post: |-
   .. code-block:: csv-table

@@ -27,6 +27,8 @@ description: |-
   * :ref:`$$$-polling-location`
 
   * :ref:`$$$-source`
+
+  NOTE: Internationalized Text is not currently supported for CSV submissions. 
 tags:
 - _name: Text
   csv-header-name: text

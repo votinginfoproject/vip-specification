@@ -1,6 +1,4 @@
 _name: Locality
-_sub_types:
-- ExternalIdentifiers
 csv-header-name: locality
 csv-post: |-
   .. code-block:: csv-table

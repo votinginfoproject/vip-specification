@@ -1,6 +1,4 @@
 _name: ContestBase
-_sub_types:
-- ExternalIdentifiers
 csv-header-name: contest_base
 description: |-
   A base model for all Contest types: :ref:`$$$-ballot-measure-contest`,

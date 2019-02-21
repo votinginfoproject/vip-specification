@@ -1,6 +1,4 @@
 _name: ExternalIdentifiers
-_sub_types:
-- ExternalIdentifier
 csv-header-name: external_identifiers
 description: |-
   The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
