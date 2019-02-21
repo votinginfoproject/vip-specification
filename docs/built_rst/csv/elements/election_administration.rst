@@ -134,50 +134,6 @@ voter_service
     vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
-.. _multi-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`multi-csv-contest-base`
-
-* Any element that extends :ref:`multi-csv-ballot-selection-base`
-
-* :ref:`multi-csv-candidate`
-
-* :ref:`multi-csv-contact-information`
-
-* :ref:`multi-csv-election`
-
-* :ref:`multi-csv-election-administration`
-
-* :ref:`multi-csv-office`
-
-* :ref:`multi-csv-party`
-
-* :ref:`multi-csv-person`
-
-* :ref:`multi-csv-polling-location`
-
-* :ref:`multi-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _multi-csv-contact-information:
 
 contact_information
@@ -248,50 +204,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
     ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
 
 
-.. _multi-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`multi-csv-contest-base`
-
-* Any element that extends :ref:`multi-csv-ballot-selection-base`
-
-* :ref:`multi-csv-candidate`
-
-* :ref:`multi-csv-contact-information`
-
-* :ref:`multi-csv-election`
-
-* :ref:`multi-csv-election-administration`
-
-* :ref:`multi-csv-office`
-
-* :ref:`multi-csv-party`
-
-* :ref:`multi-csv-person`
-
-* :ref:`multi-csv-polling-location`
-
-* :ref:`multi-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _multi-csv-voter-service:
 
 voter_service
@@ -331,47 +243,3 @@ voter_service
     vs02,Pencil sharpening,per50002,other,office-help,dep03
     vs03,Guided hike to polling place,per50002,other,polling-places,dep03
     vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
-
-
-.. _multi-csv-internationalized-text:
-
-internationalized_text
-~~~~~~~~~~~~~~~~~~~~~~
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`multi-csv-contest-base`
-
-* Any element that extends :ref:`multi-csv-ballot-selection-base`
-
-* :ref:`multi-csv-candidate`
-
-* :ref:`multi-csv-contact-information`
-
-* :ref:`multi-csv-election`
-
-* :ref:`multi-csv-election-administration`
-
-* :ref:`multi-csv-office`
-
-* :ref:`multi-csv-party`
-
-* :ref:`multi-csv-person`
-
-* :ref:`multi-csv-polling-location`
-
-* :ref:`multi-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+

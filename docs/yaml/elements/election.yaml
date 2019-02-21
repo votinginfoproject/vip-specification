@@ -1,6 +1,4 @@
 _name: Election
-_sub_types:
-- InternationalizedText
 csv-header-name: election
 csv-post: |-
   .. code-block:: csv-table

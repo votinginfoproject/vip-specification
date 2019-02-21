@@ -1,6 +1,4 @@
 _name: State
-_sub_types:
-- ExternalIdentifiers
 csv-header-name: state
 csv-post: |-
   .. code-block:: csv-table

@@ -1,6 +1,4 @@
 _name: ContactInformation
-_sub_types:
-- InternationalizedText
 csv-header-name: contact_information
 csv-post: |-
   .. code-block:: csv-table

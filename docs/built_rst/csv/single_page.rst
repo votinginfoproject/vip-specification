@@ -56,74 +56,6 @@ recommended to be the state's FIPS code, along with the prefix "st".
     st51,ea123,ocd-id,,ocd-division/country:us/state:va,Virginia,
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-term:
 
 term
@@ -297,50 +229,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
     ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
 
 
-.. _single-csv-internationalized-text:
-
-internationalized_text
-%%%%%%%%%%%%%%%%%%%%%%
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-election:
 
 election
@@ -429,50 +317,6 @@ with one Election object.
     e001,10-08-2016,Best Hot Dog,State,st51,true,www.registrationinfo.com,You can vote absentee,http://hotdogcontest.gov/results,Noon to 3p.m.,true,10/08/2016,,ho002
 
 
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-ballot-selection-base:
 
 ballot_selection_base
@@ -544,50 +388,6 @@ the only required object in the feed file, and only one source object is allowed
 
     id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version
     source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,"State Board of Elections, Commonwealth of Virginia",http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-ballot-measure-contest:
@@ -730,74 +530,6 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-%%%%%%%%%%%%%%%%%%%%
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-^^^^^^^^^^^^^^^^^^^
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-contest-base:
 
 contest_base
@@ -871,74 +603,6 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
 |                          |                                  |              |              | variation can be specified here.         | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-time-with-zone:
@@ -1215,162 +879,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
     ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
 
 
-.. _single-csv-internationalized-text:
-
-internationalized_text
-%%%%%%%%%%%%%%%%%%%%%%
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-external-identifiers:
 
 external_identifiers
@@ -1412,33 +920,6 @@ found on the objects that support them:
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-csv-external-identifier:
-
-external_identifier
-^^^^^^^^^^^^^^^^^^^
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-voter-service:
 
 voter_service
@@ -1478,50 +959,6 @@ voter_service
     vs02,Pencil sharpening,per50002,other,office-help,dep03
     vs03,Guided hike to polling place,per50002,other,polling-places,dep03
     vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-contact-information:
@@ -1592,50 +1029,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
     id,address_line_1,address_line_2,address_line_3,directions,email,fax,hours,hours_open_id,latitude,longitude,latlng_source,name,phone,uri,parent_id
     ci0827,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,off001
     ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-candidate-selection:
@@ -1793,74 +1186,6 @@ object. Candidate objects may **not** be reused between Contests.
     can004,Miles Davis,,,,2016-05-26,false,false,par01,per50004,,qualified
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-polling-location:
 
 polling_location
@@ -2005,74 +1330,6 @@ The Locality object represents the jurisdiction below the :ref:`single-csv-state
     loc002,ea345,,,,Locality #2,,st51,other,unique type
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-department:
 
 department
@@ -2149,50 +1406,6 @@ voter_service
     vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
-.. _single-csv-internationalized-text:
-
-internationalized_text
-%%%%%%%%%%%%%%%%%%%%%%
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-contact-information:
 
 contact_information
@@ -2261,50 +1474,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
     id,address_line_1,address_line_2,address_line_3,directions,email,fax,hours,hours_open_id,latitude,longitude,latlng_source,name,phone,uri,parent_id
     ci0827,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,off001
     ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-%%%%%%%%%%%%%%%%%%%%%%
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-html-color-string:
@@ -2628,74 +1797,6 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-%%%%%%%%%%%%%%%%%%%%
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-^^^^^^^^^^^^^^^^^^^
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-election-administration:
 
 election_administration
@@ -2830,50 +1931,6 @@ voter_service
     vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 
 
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-contact-information:
 
 contact_information
@@ -2944,50 +2001,6 @@ organizations, etc. ContactInformation is always a sub-element of another object
     ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
 
 
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-voter-service:
 
 voter_service
@@ -3027,50 +2040,6 @@ voter_service
     vs02,Pencil sharpening,per50002,other,office-help,dep03
     vs03,Guided hike to polling place,per50002,other,polling-places,dep03
     vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-%%%%%%%%%%%%%%%%%%%%%%
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-hours:
@@ -3382,74 +2351,6 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-%%%%%%%%%%%%%%%%%%%%
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-^^^^^^^^^^^^^^^^^^^
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-party:
 
 party
@@ -3512,118 +2413,6 @@ color string. The pattern is:
 ``[0-9a-f]{6}``
 
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-internationalized-text:
-
-internationalized_text
-^^^^^^^^^^^^^^^^^^^^^^
-
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* Any element that extends :ref:`single-csv-ballot-selection-base`
-
-* :ref:`single-csv-candidate`
-
-* :ref:`single-csv-contact-information`
-
-* :ref:`single-csv-election`
-
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-person`
-
-* :ref:`single-csv-polling-location`
-
-* :ref:`single-csv-source`
-
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| text         | ``xs:string`` | **Required** | Repeats      | Contains the translations of a           | At least one valid ``Text`` must be      |
-|              |               |              |              | particular string of text.               | present for ``InternationalizedText`` to |
-|              |               |              |              |                                          | be valid. If no valid ``Text`` is        |
-|              |               |              |              |                                          | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the ``InternationalizedText``  |
-|              |               |              |              |                                          | element.                                 |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-internationalized-text:
 
 internationalized_text
@@ -3655,6 +2444,8 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 * :ref:`single-csv-polling-location`
 
 * :ref:`single-csv-source`
+
+NOTE: Internationalized Text is not currently supported for CSV submissions. 
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -3886,74 +2677,6 @@ which precincts link to the ``ElectoralDistrict``.
     id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,number,type,other_type
     ed001,ocd-id,,ocd-division/country:us/state:ny/borough:brooklyn,Brooklyn,1,borough,
     ed002,other,community-board,4,CB 4,2,other,community-board
-
-
-.. _single-csv-external-identifiers:
-
-external_identifiers
-^^^^^^^^^^^^^^^^^^^^
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-external-identifier:
-
-external_identifier
-%%%%%%%%%%%%%%%%%%%
-
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-party-selection:

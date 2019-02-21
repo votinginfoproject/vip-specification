@@ -1,6 +1,4 @@
 _name: VoterService
-_sub_types:
-- InternationalizedText
 csv-header-name: voter_service
 csv-post: |-
   .. code-block:: csv-table

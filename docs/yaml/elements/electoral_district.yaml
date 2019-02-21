@@ -1,6 +1,4 @@
 _name: ElectoralDistrict
-_sub_types:
-- ExternalIdentifiers
 csv-header-name: electoral_district
 csv-post: |-
   .. code-block:: csv-table
