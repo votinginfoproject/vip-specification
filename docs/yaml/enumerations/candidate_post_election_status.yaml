@@ -1,4 +1,5 @@
 _name: CandidatePostElectionStatus
+csv-header-name: candidate_post_election_status
 tags:
 - _name: advanced-to-runoff
   description: For contests in which the top *N* candidates advance to the next round.

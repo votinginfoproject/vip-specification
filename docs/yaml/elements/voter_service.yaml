@@ -1,4 +1,16 @@
 _name: VoterService
+csv-header-name: voter_service
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,description,election_official_person_id,type,other_type,department_id
+      vs01,A service we provide,per50002,other,overseas-voting,dep01
+      vs00,Elections notifications,per50002,other,voter-registration,dep02
+      vs02,Pencil sharpening,per50002,other,office-help,dep03
+      vs03,Guided hike to polling place,per50002,other,polling-places,dep03
+      vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
 post: |-
   .. code-block:: xml
      :linenos:
@@ -22,22 +34,32 @@ post: |-
      </ElectionAdministration>
 tags:
 - _name: ContactInformation
+  csv-header-name: contact_information
+  csv-type: ContactInformation
   description: The contact for a particular voter service.
   error_then: =must-ignore
   type: ContactInformation
 - _name: Description
+  csv-header-name: description
+  csv-type: xs:string
   description: Long description of the services available.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: ElectionOfficialPersonId
+  csv-header-name: election_official_person_id
+  csv-type: xs:IDREF
   description: The :ref:`authority <$$$-person>` for a particular voter service.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Type
+  csv-header-name: type
+  csv-type: VoterServiceType
   description: The type of :ref:`voter service <$$$-voter-service-type>`.
   error_then: =must-ignore
   type: VoterServiceType
 - _name: OtherType
+  csv-header-name: other_type
+  csv-type: xs:string
   description: If Type is "other", OtherType allows for cataloging another type of
     voter service.
   error_then: =must-ignore

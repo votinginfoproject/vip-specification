@@ -1,26 +1,45 @@
 _name: Party
 _sub_types:
 - HtmlColorString
+csv-header-name: party
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,logo_uri,name
+      par01,REP,ff0000,,,,http://example.com/elephant.png,Republican
+      par02,DEM,0000ff,,,,http://example.com/donkey.png,Democrat
+      par03,GRN,efefef,,,,http://example.com/tree.png,Green
+      par04,WFP,ee99aa,,,,http://example.com/worker.png,Working Families Party
 description: This element describes a political party and the metadata associated
   with them. These can also include "dummy" parties to indicate a type of contest
   (e.g., a Voter Nominated :ref:`$$$-candidate-contest` can use the **PrimaryPartyIds**
   field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
 tags:
 - _name: Abbreviation
+  csv-header-name: abbreviation
+  csv-type: xs:string
   description: An abbreviation for the party name.
   error_then: =must-ignore
   type: xs:string
 - _name: Color
+  csv-header-name: color
+  csv-type: HtmlColorString
   description: The preferred display color for the party, for use in maps and other
     displays.
   error_then: =must-ignore
   type: HtmlColorString
 - _name: ExternalIdentifiers
+  csv-header-name: external_identifiers
+  csv-type: ExternalIdentifiers
   description: Other identifiers that link this party to other related data sets (e.g.
     a campaign finance system, etc).
   error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: IsWriteIn
+  csv-header-name: is_write_in
+  csv-type: xs:boolean
   description: Signals if this political party is one that is officially recognized
     by a local, state, or federal organization, or is a "write-in" in jurisdictions
     which allow candidates to free-form enter their political affiliation. If this
@@ -28,10 +47,14 @@ tags:
   error_then: =must-ignore
   type: xs:boolean
 - _name: LogoUri
+  csv-header-name: logo_uri
+  csv-type: xs:anyURI
   description: Web address of a logo to use in displays.
   error_then: =must-ignore
   type: xs:anyURI
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: The name of the party.
   error_then: =must-ignore
   type: InternationalizedText

@@ -1,4 +1,13 @@
 _name: StreetSegment
+csv-header-name: street_segment
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,state,street_direction,street_name,street_suffix,unit_number,zip
+      ss000001,N,Washington,false,false,odd,pre90113,101,199,DC,NW,Delaware,St,,20001
+      ss000002,S,Washington,true,false,both,pre90112,,,DC,SE,Wisconsin,Ave,,20002
 description: |-
   A Street Segment objection represents a portion of a street and the links to the precinct that this
   geography (i.e., segment) is contained within. The start address house number must be less than the
@@ -31,40 +40,54 @@ post: |-
      </StreetSegment>
 tags:
 - _name: AddressDirection
+  csv-header-name: address_direction
+  csv-type: xs:string
   description: Specifies the (inter-)cardinal direction of the entire address. An
     example is "NE" for the address "100 E Capitol St NE."
   error_then: =must-ignore
   type: xs:string
 - _name: City
+  csv-header-name: city
+  csv-type: xs:string
   description: The city specifies the city or town of the address.
   error_then: =must-ignore
   required: true
   type: xs:string
 - _name: IncludesAllAddresses
+  csv-header-name: includes_all_addresses
+  csv-type: xs:boolean
   description: Specifies if the segment covers every address on this street. If this
     is *true*, then the values of **StartHouseNumber** and **EndHouseNumber** should
     be ignored. The value of **OddEvenBoth** must be *both*.
   error_then: =must-ignore
   type: xs:boolean
 - _name: IncludesAllStreets
+  csv-header-name: includes_all_streets
+  csv-type: xs:boolean
   description: Specifies if the segment covers every street in this city. If this
     is *true*, then the values of **OddEvenBoth**, **StartHouseNumber**, **EndHouseNumber**,
     **StreetName**, and **Zip** should be ignored.
   error_then: =must-ignore
   type: xs:boolean
 - _name: OddEvenBoth
+  csv-header-name: odd_even_both
+  csv-type: OebEnum
   description: Specifies whether the odd side of the street (in terms of house numbers),
     the even side, or both are in included in the street segment.
   error: If the field is not present or invalid, the implementation is required to
     ignore the StreetSegment containing it.
   type: OebEnum
 - _name: PrecinctId
+  csv-header-name: precinct_id
+  csv-type: xs:IDREF
   description: References the :ref:`$$$-precinct` that contains the entire street
     segment.
   error: If the field is not present or invalid, the implementation is required to
     ignore the StreetSegment element containing it.
   type: xs:IDREF
 - _name: StartHouseNumber
+  csv-header-name: start_house_number
+  csv-type: xs:IDREF
   description: The house number at which the street segment starts. This value is
     necessary for the street segment to make any sense. Unless **IncludesAllAddresses**
     or **IncludesAllStreets** are true, this value must be less than or equal to **EndHouseNumber**.
@@ -77,6 +100,8 @@ tags:
     them.
   type: xs:integer
 - _name: EndHouseNumber
+  csv-header-name: end_house_number
+  csv-type: xs:integer
   description: The house number at which the street segment ends. This value is necessary
     for the street segment to make any sense. Unless **IncludesAllAddresses** or **IncludesAllStreets**
     are true, it must be greater than or equal to **StartHouseNumber**. If **IncludesAllAddresses**
@@ -88,16 +113,22 @@ tags:
     it.
   type: xs:integer
 - _name: State
+  csv-header-name: state
+  csv-type: xs:string
   description: Specifies the two-letter state abbreviation of the address.
   error_then: =must-ignore
   required: true
   type: xs:string
 - _name: StreetDirection
+  csv-header-name: street_direction
+  csv-type: xs:string
   description: Specifies the (inter-)cardinal direction of the street address (e.g.,
     the "E" in "100 E Capitol St NE").
   error_then: =must-ignore
   type: xs:string
 - _name: StreetName
+  csv-header-name: street_name
+  csv-type: xs:string
   description: Represents the name of the street for the address. A special wildcard,
     "*", denotes every street in the given city/town. It optionally may contain street
     direction, street suffix or address direction (e.g., both "Capitol" and "E Capitol
@@ -106,11 +137,15 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: StreetSuffix
+  csv-header-name: street_suffix
+  csv-type: xs:string
   description: Represents the abbreviated, non-directional suffix to the street name.
     An example is "St" for the address "100 E Capitol St NE."
   error_then: =must-ignore
   type: xs:string
 - _name: UnitNumber
+  csv-header-name: unit_number
+  csv-type: xs:string
   description: The apartment/unit number for a street segment. If this value is present
     then **StartHouseNumber** must be equal to **EndHouseNumber**. This field cannot
     be used if **IncludesAllAddresses** or **IncludesAllStreets** are true.
@@ -118,6 +153,8 @@ tags:
   repeating: true
   type: xs:string
 - _name: Zip
+  csv-header-name: zip
+  csv-type: xs:string
   description: Specifies the zip code of the address. It may be 5 or 9 digits, and
     it may include a hyphen ('-'). It is required as it helps with geocoding, which
     is crucial for distributors.

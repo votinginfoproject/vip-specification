@@ -1,16 +1,36 @@
 _name: Department
+_sub_types:
+- VoterService
+- ContactInformation
+csv-header-name: department
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,election_official_person_id,election_administration_id
+      dep01,per50002,ea123
+      dep02,per50002,ea345
+      dep03,per50002,ea625
+      dep04,per50002,ea625
 tags:
 - _name: ContactInformation
+  csv-header-name: contact_information
+  csv-type: ContactInformation
   description: Contact and physical address information for the election administration
     body (see :ref:`$$$-contact-information`).
   error_then: =must-ignore
   type: ContactInformation
 - _name: ElectionOfficialPersonId
+  csv-header-name: election_official_person_id
+  csv-type: xs:IDREF
   description: The individual to contact at the election administration office. The
     specified person should be the :ref:`election official <$$$-person>`.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: VoterService
+  csv-header-name: voter_service
+  csv-type: VoterService
   description: The types of services and appropriate contact individual available
     to voters.
   error_then: =must-ignore

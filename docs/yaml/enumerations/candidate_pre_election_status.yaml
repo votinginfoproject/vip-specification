@@ -1,4 +1,5 @@
 _name: CandidatePreElectionStatus
+csv-header-name: candidate_pre_election_status
 tags:
 - _name: filed
   description: The candidate has filed for office but not yet been qualified.

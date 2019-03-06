@@ -1,4 +1,5 @@
 _name: LanguageString
+csv-header-name: language_string
 description: |-
   ``LanguageString`` extends xs:string and can contain text from any language. ``LanguageString``
   has one required attribute, ``language``, that must contain the 2-character `language code`_ for the

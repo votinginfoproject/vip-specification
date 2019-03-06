@@ -1,4 +1,5 @@
 _name: VoteVariation
+csv-header-name: vote_variation
 description: |-
   Note that the descriptions below describe what the enumeration names
   stand for in the context of the VIP spec, rather than provide general

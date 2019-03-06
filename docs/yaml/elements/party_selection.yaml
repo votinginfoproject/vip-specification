@@ -1,9 +1,23 @@
 _name: PartySelection
+csv-header-name: party_selection
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,sequence_order,party_ids
+      ps001,1,par01 par04
+      ps002,2,par02
+      ps003,3,par03
 description: |-
   This element extends :ref:`$$$-ballot-selection-base` to
   support contests in which the selections can be groups of one or more parties.
+extends:
+- BallotSelectionBase
 tags:
 - _name: PartyIds
+  csv-header-name: party_ids
+  csv-type: xs:IDREFS
   description: One or more :ref:`$$$-party` IDs which collectively represent a ballot
     selection.
   error: If one or more parties referenced are invalid or not present, the implementation

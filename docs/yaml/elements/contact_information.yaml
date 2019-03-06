@@ -1,4 +1,13 @@
 _name: ContactInformation
+csv-header-name: contact_information
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,address_line_1,address_line_2,address_line_3,directions,email,fax,hours,hours_open_id,latitude,longitude,latlng_source,name,phone,uri,parent_id
+      ci0827,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,off001
+      ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
 description: |-
   For defining contact information about objects such as persons, boards of authorities,
   organizations, etc. ContactInformation is always a sub-element of another object (e.g.
@@ -54,26 +63,36 @@ post: |-
      </ContactInformation>
 tags:
 - _name: AddressLine
+  csv-header-name: address_line
+  csv-type: xs:string
   description: The "location" portion of a mailing address. :ref:`See usage note.
     <$$$-name-address-line-usage>`
   error_then: =must-ignore
   repeating: true
   type: xs:string
 - _name: Directions
+  csv-header-name: directions
+  csv-type: xs:string
   description: Specifies further instructions for locating this entity.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Email
+  csv-header-name: email
+  csv-type: xs:string
   description: An email address for the contact.
   error_then: =must-ignore
   repeating: true
   type: xs:string
 - _name: Fax
+  csv-header-name: fax
+  csv-type: xs:string
   description: A fax line for the contact.
   error_then: =must-ignore
   repeating: true
   type: xs:string
 - _name: Hours **[deprecated]**
+  csv-header-name: hours
+  csv-type: xs:string
   description: 'Contains the hours (in local time) that the location is open *(NB:
     this element is deprecated in favor of the more structured :ref:`$$$-hours-open`
     element. It is strongly encouraged that data providers move toward contributing
@@ -81,24 +100,34 @@ tags:
   error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
+  csv-header-name: hours_open_id
+  csv-type: xs:IDREF
   description: References an :ref:`$$$-hours-open` element, which lists the hours
     of operation for a location.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: LatLng
+  csv-header-name: lat_long
+  csv-type: LatLng
   description: Specifies the latitude and longitude of this entity.
   error_then: =must-ignore
   type: LatLng
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: The name of the location or contact. :ref:`See usage note. <$$$-name-address-line-usage>`
   error_then: =must-ignore
   type: xs:string
 - _name: Phone
+  csv-header-name: phone
+  csv-type: xs:string
   description: A phone number for the contact.
   error_then: =must-ignore
   repeating: true
   type: xs:string
 - _name: Uri
+  csv-header-name: uri
+  csv-type: xs:anyURI
   description: An informational URI for the contact or location.
   error_then: =must-ignore
   repeating: true

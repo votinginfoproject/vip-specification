@@ -1,7 +1,18 @@
 _name: CandidateContest
+csv-header-name: candidate_contest
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,abbreviation,ballot_selection_ids,ballot_sub_title,ballot_title,electoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation,number_elected,office_ids,primary_party_ids,votes_allowed
+      cancon001,SE-1,bs001 bs002,,Governor of Virginia,ed001,all registered voters,fips,,49,true,Governor,1,,,1,off001,par01,1
+      cancon002,SE-2,bs003 bs004,,Lieutenant Governor of Virginia,ed001,all registered voters,fips,,49,true,Lt Governor,2,,,1,off002,par01,1
 description: |-
   CandidateContest extends :ref:`$$$-contest-base` and represents a contest among
   candidates.
+extends:
+- ContestBase
 post: |-
   .. code-block:: xml
      :linenos:
@@ -19,10 +30,14 @@ post: |-
      </CandidateContest>
 tags:
 - _name: NumberElected
+  csv-header-name: number_elected
+  csv-type: xs:integer
   description: Number of candidates that are elected in the contest (i.e. "N" of N-of-M).
   error_then: =must-ignore
   type: xs:integer
 - _name: OfficeIds
+  csv-header-name: office_ids
+  csv-type: xs:IDREFS
   description: References a set of :ref:`$$$-office` elements, if available, which
     give additional information about the offices. **Note:** the order of the office
     IDs **must** be in the same order as the candidates listed in `BallotSelectionIds`.
@@ -33,11 +48,15 @@ tags:
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrimaryPartyIds
+  csv-header-name: primary_party_ids
+  csv-type: xs:IDREFS
   description: References :ref:`$$$-party` elements, if the contest is related to
     a particular party.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: VotesAllowed
+  csv-header-name: votes_allowed
+  csv-type: xs:integer
   description: Maximum number of votes/write-ins per voter in this contest.
   error_then: =must-ignore
   type: xs:integer

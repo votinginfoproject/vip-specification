@@ -1,4 +1,12 @@
 _name: Source
+csv-header-name: source
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version
+      source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,"State Board of Elections, Commonwealth of Virginia",http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
 description: |-
   The Source object represents the organization that is publishing the information. This object is
   the only required object in the feed file, and only one source object is allowed to be present.
@@ -20,41 +28,57 @@ post: |-
      </Source>
 tags:
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: Specifies the name of the organization that is providing the information.
   required: true
   type: xs:string
 - _name: VipId
+  csv-header-name: vip_id
+  csv-type: xs:string
   description: Specifies the ID of the organization. VIP uses FIPS_ codes for this
     ID.
   required: true
   type: xs:string
 - _name: DateTime
+  csv-header-name: date_time
+  csv-type: xs:dateTime
   description: Specifies the date and time of the feed production. The date/time is
     considered to be in the timezone local to the organization.
   error_then: =must-ignore
   required: true
   type: xs:dateTime
 - _name: Description
+  csv-header-name: description
+  csv-type: xs:string
   description: Specifies both the nature of the organization providing the data and
     what data is in the feed.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: OrganizationUri
+  csv-header-name: organization_uri
+  csv-type: xs:string
   description: Specifies a URI to the home page of the organization publishing the
     data.
   error_then: =must-ignore
   type: xs:string
 - _name: FeedContactId
+  csv-header-name: feed_contact_id
+  csv-type: xs:IDREF
   description: Reference to the :ref:`$$$-person` who will respond to inquiries about
     the information contained within the file.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: TouUri
+  csv-header-name: terms_of_use_uri
+  csv-type: xs:anyURI
   description: Specifies the website where the Terms of Use for the information in
     this file can be found.
   error_then: =must-ignore
   type: xs:anyURI
 - _name: Version
+  csv-header-name: version
+  csv-type: xs:string
   description: Specifies the version of the data
   error_then: =must-ignore
   required: true

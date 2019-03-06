@@ -1,4 +1,5 @@
 _name: TimeWithZone
+csv-header-name: time_with_zone
 description: |-
   A string pattern restricting the value to a time with an included offset from
   UTC. The pattern is

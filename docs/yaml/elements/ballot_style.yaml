@@ -1,4 +1,13 @@
 _name: BallotStyle
+csv-header-name: ballot_style
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,image_uri,ordered_contest_ids,party_ids
+      bs00010,http://i.giphy.com/26BoCh3PgT8ai45ji.gif,oc2025,par02
+      bs00011,http://i.giphy.com/3oEjHYDWEICgEpAOjK.gif,oc3000 oc2025,par01
 description: A container for the contests/measures on the ballot.
 post: |-
   .. code-block:: xml
@@ -9,14 +18,20 @@ post: |-
      </BallotStyle>
 tags:
 - _name: ImageUri
+  csv-header-name: image_uri
+  csv-type: xs:anyURI
   description: Specifies a URI that returns an image of the sample ballot.
   error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestIds
-  description: Reference to a set of :ref:`$$$-ordered-contest`s
+  csv-header-name: ordered_contests_ids
+  csv-type: xs:IDREFS
+  description: Reference to a set of :ref:`$$$-ordered-contest`
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PartyIds
+  csv-header-name: party_ids
+  csv-type: xs:IDREFS
   description: Reference to a set of :ref:`$$$-party`s.
   error_then: =must-ignore
   type: xs:IDREFS
