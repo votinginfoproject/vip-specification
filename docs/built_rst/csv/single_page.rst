@@ -509,9 +509,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -584,9 +584,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -1776,9 +1776,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2330,9 +2330,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |

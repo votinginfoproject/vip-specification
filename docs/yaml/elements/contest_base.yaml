@@ -67,6 +67,7 @@ tags:
   description: 'Name of the contest, not necessarily how it appears on the ballot
     (NB: BallotTitle should be used for this purpose).'
   error_then: =should-ignore
+  required: true
   type: xs:string
 - _name: SequenceOrder
   csv-header-name: sequence_order
