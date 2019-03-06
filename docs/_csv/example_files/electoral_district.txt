@@ -1,0 +1,3 @@
+id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,number,type,other_type
+ed001,ocd-id,,ocd-division/country:us/state:ny/borough:brooklyn,Brooklyn,1,borough,
+ed002,other,community-board,4,CB 4,2,other,community-board

@@ -1,0 +1,5 @@
+id,name,address_line,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
+poll001,ALBERMARLE HIGH SCHOOL","2775 Hydraulic Rd Charlottesville, VA 22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
+poll002,Public Library, Main St Denver,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
+poll003,Historic Society,,wheelchair entrance,7am-8pm,www.picture.com,,false,true,,,
+poll004,Community Center,,behind the big oak tree,7am-8pm,www.picture.com,,false,true,,,
