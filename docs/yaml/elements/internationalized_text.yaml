@@ -1,6 +1,5 @@
 _name: InternationalizedText
-_sub_types:
-- LanguageString
+csv-header-name: internationalized_text
 description: |-
   ``InternationalizedText`` allows for support of multiple languages for a string.
   ``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
@@ -28,8 +27,12 @@ description: |-
   * :ref:`$$$-polling-location`
 
   * :ref:`$$$-source`
+
+  NOTE: Internationalized Text is not currently supported for CSV submissions. 
 tags:
 - _name: Text
+  csv-header-name: text
+  csv-type: xs:string
   description: Contains the translations of a particular string of text.
   error: At least one valid ``Text`` must be present for ``InternationalizedText``
     to be valid. If no valid ``Text`` is present, the implementation is required to

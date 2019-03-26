@@ -40,4 +40,4 @@ CSV Documentation
 .. toctree::
    :maxdepth: 2
 
-   csv/index
+   csv

@@ -1,6 +1,5 @@
 _name: ExternalIdentifiers
-_sub_types:
-- ExternalIdentifier
+csv-header-name: external_identifiers
 description: |-
   The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
   candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
@@ -26,6 +25,8 @@ description: |-
   .. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 tags:
 - _name: ExternalIdentifier
+  csv-header-name: external_identifier
+  csv-type: ExternalIdentifier
   description: Defines the identifier and the type of identifier it is (see `ExternalIdentifier`_
     for complete information).
   error: At least one valid `ExternalIdentifier`_ must be present for ``ExternalIdentifiers``

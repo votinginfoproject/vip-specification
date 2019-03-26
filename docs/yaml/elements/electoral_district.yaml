@@ -1,4 +1,13 @@
 _name: ElectoralDistrict
+csv-header-name: electoral_district
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,number,type,other_type
+      ed001,ocd-id,,ocd-division/country:us/state:ny/borough:brooklyn,Brooklyn,1,borough,
+      ed002,other,community-board,4,CB 4,2,other,community-board
 description: |-
   The ``ElectoralDistrict`` object represents the geographic area in which contests are held. Examples
   of ``ElectoralDistrict`` include: "the state of Maryland", "Virginia's 5th Congressional District",
@@ -26,16 +35,22 @@ post: |-
      </ElectoralDistrict>
 tags:
 - _name: ExternalIdentifiers
+  csv-header-name: external_identifiers
+  csv-type: ExternalIdentifiers
   description: Other identifiers that link to external datasets (e.g. `OCD-IDs`_)
   error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: Name
+  csv-header-name: name
+  csv-type: xs:string
   description: Specifies the electoral area's name.
   error: If the field is invalid or not present, then the implementation is required
     to ignore the ``ElectoralDistrict`` object containing it.
   required: true
   type: xs:string
 - _name: Number
+  csv-header-name: number
+  csv-type: xs:integer
   description: Specifies the district number of the district (e.g. 34, in the case
     of the 34th State Senate District). If a number is not applicable, instead of
     leaving the field blank, leave this field out of the object; empty strings are
@@ -43,12 +58,16 @@ tags:
   error_then: =must-ignore
   type: xs:integer
 - _name: Type
+  csv-header-name: type
+  csv-type: DistrictType
   description: Specifies the type of electoral area.
   error: If the field is invalid or not present, then the implementation is required
     to ignore the ``ElectoralDistrict`` object containing it.
   required: true
   type: DistrictType
 - _name: OtherType
+  csv-header-name: other_type
+  csv-type: xs:string
   description: Allows for cataloging a new :ref:`$$$-district-type` option when ``Type``
     is specified as "other".
   error_then: =must-ignore

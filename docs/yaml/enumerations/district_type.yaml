@@ -1,4 +1,5 @@
 _name: DistrictType
+csv-header-name: district_type
 description: |-
   Enumeration describing the set of possible jurisdiction and district types.
   Please use the enumeration value which most accurately reflects the type of
