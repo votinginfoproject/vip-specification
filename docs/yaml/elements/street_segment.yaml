@@ -87,7 +87,7 @@ tags:
   type: xs:IDREF
 - _name: StartHouseNumber
   csv-header-name: start_house_number
-  csv-type: xs:IDREF
+  csv-type: xs:integer
   description: The house number at which the street segment starts. This value is
     necessary for the street segment to make any sense. Unless **IncludesAllAddresses**
     or **IncludesAllStreets** are true, this value must be less than or equal to **EndHouseNumber**.
