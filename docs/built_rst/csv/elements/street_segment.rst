@@ -45,7 +45,7 @@ are equal.
 |                        |                           |              |              | that contains the entire street segment. | the implementation is required to ignore |
 |                        |                           |              |              |                                          | the StreetSegment element containing it. |
 +------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_house_number     | ``xs:IDREF``              | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
+| start_house_number     | ``xs:integer``            | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                        |                           |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
 |                        |                           |              |              | for the street segment to make any       | field is not present or invalid, the     |
 |                        |                           |              |              | sense. Unless **IncludesAllAddresses**   | implementation is required to ignore the |
