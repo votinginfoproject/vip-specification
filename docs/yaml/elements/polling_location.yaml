@@ -18,7 +18,7 @@ tags:
 - _name: AddressLine
   csv-header-name: address_line
   csv-type: xs:string
-  description: Represents the various parts of an address to a polling location. 
+  description: Represents the various parts of an address to a polling location.
   error: At least one valid ``AddressLine`` must be present for ``PollingLocation``
     to be valid. If no valid ``AddressLine`` is present, the implementation is required
     to ignore the ``PollingLocation`` element containing it.
