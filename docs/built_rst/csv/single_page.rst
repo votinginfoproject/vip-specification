@@ -509,9 +509,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -584,9 +584,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -1197,11 +1197,11 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 | Tag             | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=================+===========================+==============+==============+==========================================+==========================================+
 | address_line    | ``xs:string``             | **Required** | Repeats      | Represents the various parts of an       | At least one valid ``AddressLine`` must  |
-|                 |                           |              |              | address to a polling location. For CSV   | be present for ``PollingLocation`` to be |
-|                 |                           |              |              | implementations, repeating               | valid. If no valid ``AddressLine`` is    |
-|                 |                           |              |              | ``address_line`` columns should be       | present, the implementation is required  |
-|                 |                           |              |              | incremented, e.g. address_line1,         | to ignore the ``PollingLocation``        |
-|                 |                           |              |              | address_line2, address_line3.            | element containing it.                   |
+|                 |                           |              |              | address to a polling location.           | be present for ``PollingLocation`` to be |
+|                 |                           |              |              |                                          | valid. If no valid ``AddressLine`` is    |
+|                 |                           |              |              |                                          | present, the implementation is required  |
+|                 |                           |              |              |                                          | to ignore the ``PollingLocation``        |
+|                 |                           |              |              |                                          | element containing it.                   |
 +-----------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | directions      | ``xs:string``             | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
 |                 |                           |              |              | locating the polling location.           | present, then the implementation is      |
@@ -1776,9 +1776,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2159,7 +2159,7 @@ are equal.
 |                        |                            |              |              | :ref:`single-csv-precinct` that contains | the implementation is required to ignore |
 |                        |                            |              |              | the entire street segment.               | the StreetSegment element containing it. |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_house_number     | ``xs:IDREF``               | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
+| start_house_number     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                        |                            |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
 |                        |                            |              |              | for the street segment to make any       | field is not present or invalid, the     |
 |                        |                            |              |              | sense. Unless **IncludesAllAddresses**   | implementation is required to ignore the |
@@ -2330,9 +2330,9 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                  |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                  |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2422,30 +2422,18 @@ internationalized_text
 ``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
 back to the original label for the information (e.g. if the contact information came from a
 CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
 * Any element that extends :ref:`single-csv-contest-base`
-
 * Any element that extends :ref:`single-csv-ballot-selection-base`
-
 * :ref:`single-csv-candidate`
-
 * :ref:`single-csv-contact-information`
-
 * :ref:`single-csv-election`
-
 * :ref:`single-csv-election-administration`
-
 * :ref:`single-csv-office`
-
 * :ref:`single-csv-party`
-
 * :ref:`single-csv-person`
-
 * :ref:`single-csv-polling-location`
-
 * :ref:`single-csv-source`
-
-NOTE: Internationalized Text is not currently supported for CSV submissions. 
+NOTE: Internationalized Text is not currently supported for CSV submissions. "
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |

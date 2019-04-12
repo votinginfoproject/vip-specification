@@ -621,9 +621,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                         |                                          |              |              | BallotTitle should be used for this      |                                          |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -696,9 +696,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                         |                                          |              |              | BallotTitle should be used for this      |                                          |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -1442,11 +1442,11 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 | Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+==========================================+==============+==============+==========================================+==========================================+
 | AddressLine      | ``xs:string``                            | **Required** | Repeats      | Represents the various parts of an       | At least one valid ``AddressLine`` must  |
-|                  |                                          |              |              | address to a polling location. For CSV   | be present for ``PollingLocation`` to be |
-|                  |                                          |              |              | implementations, repeating               | valid. If no valid ``AddressLine`` is    |
-|                  |                                          |              |              | ``address_line`` columns should be       | present, the implementation is required  |
-|                  |                                          |              |              | incremented, e.g. address_line1,         | to ignore the ``PollingLocation``        |
-|                  |                                          |              |              | address_line2, address_line3.            | element containing it.                   |
+|                  |                                          |              |              | address to a polling location.           | be present for ``PollingLocation`` to be |
+|                  |                                          |              |              |                                          | valid. If no valid ``AddressLine`` is    |
+|                  |                                          |              |              |                                          | present, the implementation is required  |
+|                  |                                          |              |              |                                          | to ignore the ``PollingLocation``        |
+|                  |                                          |              |              |                                          | element containing it.                   |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
 |                  |                                          |              |              | locating the polling location.           | present, then the implementation is      |
@@ -2102,9 +2102,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                         |                                          |              |              | BallotTitle should be used for this      |                                          |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2734,9 +2734,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                         |                                          |              |              | BallotTitle should be used for this      |                                          |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2827,30 +2827,18 @@ InternationalizedText
 ``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
 back to the original label for the information (e.g. if the contact information came from a
 CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
 * Any element that extends :ref:`single-xml-contest-base`
-
 * Any element that extends :ref:`single-xml-ballot-selection-base`
-
 * :ref:`single-xml-candidate`
-
 * :ref:`single-xml-contact-information`
-
 * :ref:`single-xml-election`
-
 * :ref:`single-xml-election-administration`
-
 * :ref:`single-xml-office`
-
 * :ref:`single-xml-party`
-
 * :ref:`single-xml-person`
-
 * :ref:`single-xml-polling-location`
-
 * :ref:`single-xml-source`
-
-NOTE: Internationalized Text is not currently supported for CSV submissions. 
+NOTE: Internationalized Text is not currently supported for CSV submissions. "
 
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |

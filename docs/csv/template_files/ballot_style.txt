@@ -1,4 +1,0 @@
-id,
-image_uri,Specifies a URI that returns an image of the sample ballot.
-ordered_contest_ids,Reference to an ordered contest object
-party_ids,Reference to a party object.

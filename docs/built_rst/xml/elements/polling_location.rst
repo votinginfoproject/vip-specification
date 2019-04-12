@@ -11,11 +11,11 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 | Tag              | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+=========================================+==============+==============+==========================================+==========================================+
 | AddressLine      | ``xs:string``                           | **Required** | Repeats      | Represents the various parts of an       | At least one valid ``AddressLine`` must  |
-|                  |                                         |              |              | address to a polling location. For CSV   | be present for ``PollingLocation`` to be |
-|                  |                                         |              |              | implementations, repeating               | valid. If no valid ``AddressLine`` is    |
-|                  |                                         |              |              | ``address_line`` columns should be       | present, the implementation is required  |
-|                  |                                         |              |              | incremented, e.g. address_line1,         | to ignore the ``PollingLocation``        |
-|                  |                                         |              |              | address_line2, address_line3.            | element containing it.                   |
+|                  |                                         |              |              | address to a polling location.           | be present for ``PollingLocation`` to be |
+|                  |                                         |              |              |                                          | valid. If no valid ``AddressLine`` is    |
+|                  |                                         |              |              |                                          | present, the implementation is required  |
+|                  |                                         |              |              |                                          | to ignore the ``PollingLocation``        |
+|                  |                                         |              |              |                                          | element containing it.                   |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Directions       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
 |                  |                                         |              |              | locating the polling location.           | present, then the implementation is      |

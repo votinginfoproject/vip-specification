@@ -1,9 +1,0 @@
-id,
-start_time,The date at which this collection of start and end times and options begin.
-end_time,The date at which this collection of start and end times and options end.
-is_only_by_appointment,If true the place is only open during the specified time window with an appointment.
-is_or_by_appointment,If true the place is open during the hours specified time window and may also be open with an appointment.
-is_subject_to_change,If true the place should be open during the specified time window but may be subject to change. People should contact prior to arrival to confirm hours are still accurate.
-start_date,The date at which this collection of start and end times and options begin.
-end_date,The date at which this collection of start and end times and options end.
-hours_open_id,References a block of hours. 
