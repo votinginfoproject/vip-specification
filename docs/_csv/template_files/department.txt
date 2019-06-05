@@ -1,3 +1,0 @@
-id,
-election_official_person_id,The individual to contact at the election administration office. The specified person should be the election official.
-election_administration_id,Should reference an election_administration record
