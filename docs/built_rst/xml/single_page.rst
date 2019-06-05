@@ -2823,34 +2823,31 @@ color string. The pattern is:
 InternationalizedText
 ~~~~~~~~~~~~~~~~~~~~~
 
-``InternationalizedText`` allows for support of multiple languages for a string.
-``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
-back to the original label for the information (e.g. if the contact information came from a
-CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
+``InternationalizedText`` allows for support of multiple languages for a string. ``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer back to the original label for the information (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in: 
 
 * Any element that extends :ref:`single-xml-contest-base`
 
-* Any element that extends :ref:`single-xml-ballot-selection-base`
+* Any element that extends :ref:`single-xml-ballot-selection-base` 
 
 * :ref:`single-xml-candidate`
 
-* :ref:`single-xml-contact-information`
+* :ref:`single-xml-contact-information` 
 
-* :ref:`single-xml-election`
+* :ref:`single-xml-election` 
 
 * :ref:`single-xml-election-administration`
 
-* :ref:`single-xml-office`
+* :ref:`single-xml-office` 
 
-* :ref:`single-xml-party`
+* :ref:`single-xml-party` 
 
-* :ref:`single-xml-person`
+* :ref:`single-xml-person` 
 
 * :ref:`single-xml-polling-location`
 
-* :ref:`single-xml-source`
+* :ref:`single-xml-source` 
 
-NOTE: Internationalized Text is not currently supported for CSV submissions. 
+NOTE: ``InternationalizedText`` is not currently supported for VIP feeds in the CSV format.
 
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
