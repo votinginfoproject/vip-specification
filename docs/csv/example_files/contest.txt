@@ -1,2 +1,0 @@
-abbreviation,ballot_selection_id,ballot_sub_title,ballot_title,electoral_district_id,electorate_specification,external_identifiers,has_rotation,name,sequence_order,vote_variation,other_vote_variation,number_elected,primary_party_id,votes_allowed,office_id,id
-,cs10961,,Governor of Virginia,ed60129,,,,Governor,,,,1,,1,off0000,cc20003

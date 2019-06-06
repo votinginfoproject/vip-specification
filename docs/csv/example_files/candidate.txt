@@ -1,2 +1,0 @@
-ballot_name,external_identifiers,file_date,is_incumbent,is_top_ticket,party_id,person_id,post_election_status,pre_election_status,sequence_order,contest_id,id
-Ken T. Cuccinelli II,,,,,par0001,per10961,,,,cc20003,can10961

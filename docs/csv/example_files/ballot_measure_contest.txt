@@ -1,2 +1,0 @@
-con_statement,effect_of_abstain,full_text,info_uri,passage_threshold,pro_statement,summary_text,type,other_type,id
-This is no good.,Nothing will happen.,,,,Everything will be great.,,referendum,,,,bmc30001

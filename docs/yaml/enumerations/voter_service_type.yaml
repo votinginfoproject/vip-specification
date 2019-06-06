@@ -1,4 +1,5 @@
 _name: VoterServiceType
+csv-header-name: voter_service_type
 tags:
 - _name: absentee-ballots
   description: This department handles the dispatch, tracking, and return of absentee

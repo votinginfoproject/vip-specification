@@ -1,4 +1,0 @@
-name,number,locality_id,ward,is_mail_only,external_identifiers,precinct_split_name,ballot_style_id,electoral_district_id,polling_location_id,id
-203 - GEORGETOWN,0203,loc70001,,false,,,bs00010,ed60129,pl81274,pre90111
-203 - GEORGETOWN,0203,loc70001,,false,,,bs00010,ed60311,pl81274,pre90111
-203 - GEORGETOWN,0203,loc70001,,false,,,bs00010,ed60054,pl81274,pre90111

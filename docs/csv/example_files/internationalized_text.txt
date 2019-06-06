@@ -1,4 +1,0 @@
-identifier,text,language_string,language,id
-ele30000,election_type,"General",en,it00001
-ele30000,election_type,"Generales",es,it00002
-ele30000,name,"General",en,it00003

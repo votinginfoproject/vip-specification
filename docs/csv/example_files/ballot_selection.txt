@@ -1,5 +1,0 @@
-id,:ref:`single-xml-ballot-measure-contest`_id,:ref:`single-xml-ballot-measure-contest`_selection_id,text,candidate_id,endorsement_party_id,is_write_in
-bms30001a,bms30001,bms30001at,Yes,,,,
-bms30001b,bms30001,bms30001bt,No,,,,
-cs10861,,,,can10861a,par0001,
-cs10861,,,,can10861b,par0001,

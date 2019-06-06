@@ -1,2 +1,0 @@
-name,election_administration_id,external_identifiers,polling_location_id,id
-Virginia,ea40133,"ocd-id:ocd-division/country:us/state:va",,st51

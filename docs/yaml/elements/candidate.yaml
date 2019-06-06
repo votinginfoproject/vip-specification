@@ -1,4 +1,15 @@
 _name: Candidate
+csv-header-name: candidate
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,ballot_name,external_identifier_type,external_identifier_othertype,external_identifier_value,file_date,is_incumbent,is_top_ticket,party_id,person_id,post_election_status,pre_election_status
+      can001,Jude Fawley,,,,2016-12-01,true,false,par01,per50001,,filed
+      can002,Arabella Donn,,,,2016-12-01,false,false,par02,per50002,,qualified
+      can003,John Coltrane,,,,2016-09-23,false,false,par02,per50003,,qualified
+      can004,Miles Davis,,,,2016-05-26,false,false,par01,per50004,,qualified
 description: |-
   The Candidate object represents a candidate in a contest. If a candidate is
   running in multiple contests, each contest **must** have its own Candidate
@@ -16,6 +27,8 @@ post: |-
      </Candidate>
 tags:
 - _name: BallotName
+  csv-header-name: ballot_name
+  csv-type: xs:string
   description: The candidate's name as it will be displayed on the official ballot
     (e.g. "Ken T. Cuccinelli II").
   error: If the element is invalid or not present, then the implementation is required
@@ -23,45 +36,63 @@ tags:
   required: true
   type: InternationalizedText
 - _name: ContactInformation
+  csv-header-name: contact_information
+  csv-type: xs:string
   description: Contact and physical address information for this Candidate and/or
     their campaign (see :ref:`$$$-contact-information`).
   error_then: =must-ignore
   type: ContactInformation
 - _name: ExternalIdentifiers
+  csv-header-name: external_identifiers
+  csv-type: ExternalIdentifiers
   description: Another identifier for a candidate that links to another source of
     information (e.g. a campaign committee ID that links to a campaign finance system).
   error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: FileDate
+  csv-header-name: file_date
+  csv-type: xs:date
   description: Date when the candidate filed for the contest.
   error_then: =must-ignore
   type: xs:date
 - _name: IsIncumbent
+  csv-header-name: is_incumbent
+  csv-type: xs:boolean
   description: Indicates whether the candidate is the incumbent for the office associated
     with the contest.
   error_then: =must-ignore
   type: xs:boolean
 - _name: IsTopTicket
+  csv-header-name: is_top_ticket
+  csv-type: xs:boolean
   description: Indicates whether the candidate is the top of a ticket that includes
     multiple candidates.
   error_then: =must-ignore
   type: xs:boolean
 - _name: PartyId
+  csv-header-name: party_id
+  csv-type: xs:IDREF
   description: Reference to a :ref:`$$$-party` element with additional information
     about the candidate's affiliated party. This is the party affiliation that is
     intended to be presented as part of ballot information.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: PersonId
+  csv-header-name: person_id
+  csv-type: xs:IDREF
   description: Reference to a :ref:`$$$-person` element with additional information
     about the candidate.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: PostElectionStatus
+  csv-header-name: post_election_status
+  csv-type: CandidatePostElectionStatus
   description: Final status of the candidate (e.g. winner, withdrawn, etc...).
   error_then: =must-ignore
   type: CandidatePostElectionStatus
 - _name: PreElectionStatus
+  csv-header-name: pre_election_status
+  csv-type: CandidatePreElectionStatus
   description: Registration status of the candidate (e.g. filed, qualified, etc...).
   error_then: =must-ignore
   type: CandidatePreElectionStatus

@@ -1,8 +1,19 @@
 _name: BallotMeasureSelection
+csv-header-name: ballot_measure_selection
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+
+      id,sequence_order,selection
+      bms001,1,Proposition A
+      bms002,2,Proposition B
 description: |-
   Represents the possible selection (e.g. yes/no, recall/do not recall, et al) for a
   :ref:`$$$-ballot-measure-contest` that would appear on the ballot.
   BallotMeasureSelection extends :ref:`$$$-ballot-selection-base`.
+extends:
+- BallotSelectionBase
 post: |-
   .. code-block:: xml
      :linenos:
@@ -21,6 +32,8 @@ post: |-
      </BallotMeasureSelection>
 tags:
 - _name: Selection
+  csv-header-name: selection
+  csv-type: xs:string
   description: Selection text for a :ref:`$$$-ballot-measure-contest`
   error: If the element is invalid or not present, the implementation is required
     to ignore the BallotMeasureSelection containing it.

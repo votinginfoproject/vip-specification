@@ -13,6 +13,7 @@ AUTO_GENERATED_DIR = 'docs/built_rst'
 YAML_DIR = 'docs/yaml'
 TABLES_DIR = os.path.join(AUTO_GENERATED_DIR, 'tables')
 XML_DIR = os.path.join(AUTO_GENERATED_DIR, 'xml')
+CSV_DIR = os.path.join(AUTO_GENERATED_DIR, 'csv')
 
 TAG_KEY_NAME = '_name'
 TAG_KEY_TYPE = 'type'
@@ -25,11 +26,15 @@ TAG_KEY_ERROR_HANDLE = 'error_handling'
 TAG_KEY_ERROR_BASE = 'error'
 TAG_KEY_ERROR_THEN = 'error_then'
 TAG_KEY_ERROR_EXTRA = 'error_extra'
+TAG_KEY_EXTENDS = 'extends'
+TAG_KEY_CSV_TYPE = 'csv-type'
+TAG_KEY_CSV_HEADER_NAME = 'csv-header-name'
+
 
 DEFAULT_TAG_VALUES = {
     TAG_KEY_REQUIRED: False,
-    TAG_KEY_REPEATING: False,
-}
+    TAG_KEY_REPEATING: False
+    }
 
 _ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
 
@@ -157,6 +162,7 @@ class AllTypes:
         self.elements = []
         self.enumerations = []
         self.sub_types = set()
+        self.extends = set()
         self.type_map = type_map
 
 
@@ -180,9 +186,14 @@ def get_all_types():
 
     for data_type in types_map.values():
         sub_types = data_type.sub_types
+        extends = data_type.extends
         for sub_type in sub_types:
             data_type = types_map[sub_type]
             data_type.is_sub_type = True
+        for extend in extends:
+            data_type = types_map[extend]
+            data_type.is_extends = True
+
 
     return all_types
 
@@ -335,6 +346,7 @@ class DataType(object):
         self.data = data
         self.is_enum = is_enum
         self.is_sub_type = False
+        self.is_extends = False
         self.rel_path = rel_path
         self.snake_name = snake_name
         self.yaml = yaml
@@ -348,12 +360,24 @@ class DataType(object):
         return self.data['_name']
 
     @property
+    def csv_name(self):
+        return self.data['csv-header-name']
+
+    @property
+    def csv_type(self):
+        return self.data['csv-type']
+
+    @property
     def spinal_name(self):
         return self.snake_name.replace("_", "-")
 
     @property
     def sub_types(self):
         return self.data.get('_sub_types', [])
+
+    @property
+    def extends(self):
+        return self.data.get('extends', [])
 
     @property
     def tags(self):
@@ -367,7 +391,12 @@ class DataType(object):
         return self.get_rest_path(TABLES_DIR)
 
     @property
-    def rest_path(self):
+    def rest_path_csv(self):
+        """Return a path relative to the repo root."""
+        return self.get_rest_path(CSV_DIR)
+
+    @property
+    def rest_path_xml(self):
         """Return a path relative to the repo root."""
         return self.get_rest_path(XML_DIR)
 
