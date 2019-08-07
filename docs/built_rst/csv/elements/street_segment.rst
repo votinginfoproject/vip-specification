@@ -67,6 +67,14 @@ are equal.
 |                        |                           |              |              | **IncludesAllStreets** are true, this    |                                          |
 |                        |                           |              |              | value is ignored.                        |                                          |
 +------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| house_number_prefix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is not present of invalid,  |
+|                        |                           |              |              | letters or slashes (e.g., 'B' in 'B22    | the implementation is required to ignore |
+|                        |                           |              |              | Main St')                                | it.                                      |
++------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| house_number_suffix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is not present of invalid,  |
+|                        |                           |              |              | letters or slashes (e.g., 1/2 in '22 1/2 | the implementation is required to ignore |
+|                        |                           |              |              | Main St')                                | it.                                      |
++------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | state                  | ``xs:string``             | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
 |                        |                           |              |              | abbreviation of the address.             | implementation is required to ignore it. |
 +------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
