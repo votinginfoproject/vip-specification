@@ -112,6 +112,22 @@ tags:
     **StartHouseNumber**, the implementation should ignore the element containing
     it.
   type: xs:integer
+- _name: HouseNumberPrefix
+  csv-header-name: house_number_prefix
+  csv-type: xs:string
+  description: Part of a street address. It may contain letters or slashes (e.g.,
+    'B' in 'B22 Main St')
+  error: If the field is not present of invalid, the implementation is required to
+    ignore it.
+  type: xs:string
+- _name: HouseNumberSuffix
+  csv-header-name: house_number_suffix
+  csv-type: xs:string
+  description: Part of a street address. It may contain letters or slashes (e.g.,
+    1/2 in '22 1/2 Main St')
+  error: If the field is not present of invalid, the implementation is required to
+    ignore it.
+  type: xs:string
 - _name: State
   csv-header-name: state
   csv-type: xs:string
