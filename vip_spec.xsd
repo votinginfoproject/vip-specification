@@ -595,6 +595,8 @@
       <xs:element name="PrecinctId" type="xs:IDREF" />
       <xs:element name="StartHouseNumber" type="xs:integer" minOccurs="0" />
       <xs:element name="EndHouseNumber" type="xs:integer" minOccurs="0" />
+      <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
+      <xs:element name="HouseNumberSuffix" type="xs:string" minOccurs="0" />
       <xs:element name="State" type="xs:string" />
       <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
       <xs:element name="StreetName" type="xs:string" minOccurs="0"/>
