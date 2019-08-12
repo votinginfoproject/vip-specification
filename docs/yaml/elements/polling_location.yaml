@@ -14,16 +14,28 @@ description: The PollingLocation object represents a site where voters cast or d
   off ballots.
 extends:
 - LatLng
+- SimpleAddressType
 tags:
+- _name: StructuredAddress
+  csv-header-name: :ref:`$$$-simple-address-type`
+  csv-type: hold
+  description: Represents the various structured parts of an address to a polling
+    location.
+  error: One of AddressStructured and AddressLine should be present for a given Polling
+    Location. If none is present, the implementation is required to ignore the ``PollingLocation``
+    element containing it.
+  repeating: false
+  required: false
+  type: SimpleAddressType
 - _name: AddressLine
   csv-header-name: address_line
   csv-type: xs:string
   description: Represents the various parts of an address to a polling location.
-  error: At least one valid ``AddressLine`` must be present for ``PollingLocation``
-    to be valid. If no valid ``AddressLine`` is present, the implementation is required
-    to ignore the ``PollingLocation`` element containing it.
+  error: One of AddressStructured and AddressLine should be present for a given Polling
+    Location. If none is present, the implementation is required to ignore the ``PollingLocation``
+    element containing it.
   repeating: true
-  required: true
+  required: false
   type: xs:string
 - _name: Directions
   csv-header-name: directions
