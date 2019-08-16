@@ -288,6 +288,8 @@
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="AmIRegisteredUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="BallotTrackingUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="BallotProvisionalTrackingUri" type="xs:anyURI" minOccurs="0" />
       <!-- A locality may have more than one department with each handling different services. -->
       <xs:element name="Department" maxOccurs="unbounded">
         <xs:complexType>
