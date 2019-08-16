@@ -1342,23 +1342,6 @@ latitude and longitude values are measured in decimal degrees.
 |              |               |              |              | geocoding service.                       |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
-
-.. code-block:: xml
-   :linenos:
-
-   <PollingLocation id="pl81274">
-      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
-      <AddressLine>2775 Hydraulic Rd</AddressLine>
-      <AddressLine>Charlottesville, VA 229018917</AddressLine>
-      <HoursOpenId>hours0001</HoursOpenId>
-      <LatLng>
-        <Latitude>38.0754627</Latitude>
-        <Longitude>-78.5014875</Longitude>
-        <Source>Google Maps</Source>
-      </LatLng>
-   </PollingLocation>
-
 
 .. _single-xml-candidate:
 
@@ -1441,6 +1424,11 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 +-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+==========================================+==============+==============+==========================================+==========================================+
+| Alias             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies the term used to describe the  | If the element is invalid or not         |
+|                   |                                          |              |              | particular voting location. Examples may | present, then the implementation is      |
+|                   |                                          |              |              | include "VSPC" used by Colorado or "Mail | required to ignore it.                   |
+|                   |                                          |              |              | in absentee".                            |                                          |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StructuredAddress | :ref:`single-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
 |                   |                                          |              |              | of an address to a polling location.     | should be present for a given Polling    |
 |                   |                                          |              |              |                                          | Location. If none is present, the        |
@@ -1494,6 +1482,40 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                   |                                          |              |              |                                          | ignore it.                               |
 +-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
+.. code-block:: xml
+    :linenos:
+
+    <PollingLocation id="pl00000">
+      <AddressLine>2775 Hydraulic Rd Charlottesville, VA 22901</AddressLine>
+      <HoursOpenId>hours0002</HoursOpenId>
+      <IsDropBox>true</IsDropBox>
+      <IsEarlyVoting>true</IsEarlyVoting>
+      <LatLng>
+        <Latitude>38.009939</Latitude>
+        <Longitude>-78.506204</Longitude>
+      </LatLng>
+      <Name>ALBERMARLE HIGH SCHOOL</Name>
+    </PollingLocation>
+
+    <!-- Or: -->
+
+    <PollingLocation id="pl00000">
+      <StructuredAddress>
+        <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
+        <Line1>2775 Hydraulic Rd</Line1>
+        <City>CHARLOTTESVILLE</City>
+        <State>VA</State>
+        <Zip>22901</Zip>
+      </StructuredAddress>
+      <HoursOpenId>hours0002</HoursOpenId>
+      <IsDropBox>true</IsDropBox>
+      <IsEarlyVoting>true</IsEarlyVoting>
+        <LatLng>
+          <Latitude>38.009939</Latitude>
+          <Longitude>-78.506204</Longitude>
+      </LatLng>
+    </PollingLocation>
+
 
 .. _single-xml-lat-lng:
 
@@ -1517,23 +1539,6 @@ latitude and longitude values are measured in decimal degrees.
 |              |               |              |              | example, this could be the name of a     | ignore it.                               |
 |              |               |              |              | geocoding service.                       |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
-
-.. code-block:: xml
-   :linenos:
-
-   <PollingLocation id="pl81274">
-      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
-      <AddressLine>2775 Hydraulic Rd</AddressLine>
-      <AddressLine>Charlottesville, VA 229018917</AddressLine>
-      <HoursOpenId>hours0001</HoursOpenId>
-      <LatLng>
-        <Latitude>38.0754627</Latitude>
-        <Longitude>-78.5014875</Longitude>
-        <Source>Google Maps</Source>
-      </LatLng>
-   </PollingLocation>
 
 
 .. _single-xml-simple-address-type:

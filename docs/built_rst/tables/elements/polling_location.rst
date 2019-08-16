@@ -3,6 +3,11 @@
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+=========================================+==============+==============+==========================================+==========================================+
+| Alias             | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the term used to describe the  | If the element is invalid or not         |
+|                   |                                         |              |              | particular voting location. Examples may | present, then the implementation is      |
+|                   |                                         |              |              | include "VSPC" used by Colorado or "Mail | required to ignore it.                   |
+|                   |                                         |              |              | in absentee".                            |                                          |
++-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StructuredAddress | :ref:`multi-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
 |                   |                                         |              |              | of an address to a polling location.     | should be present for a given Polling    |
 |                   |                                         |              |              |                                          | Location. If none is present, the        |
