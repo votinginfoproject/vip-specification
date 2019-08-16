@@ -530,9 +530,12 @@
 
   <xs:complexType name="PollingLocation">
     <xs:sequence>
+      <xs:element name="Alias" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!-- It is intentional that an address is required. -->
-      <xs:element name="StructuredAddress" type="SimpleAddressType" minOccurs="0" />
-      <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      <xs:choice>
+        <xs:element name="StructuredAddress" type="SimpleAddressType"/>
+        <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      </xs:choice>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
            Note: The "Hours" element is being deprecated and will be removed
