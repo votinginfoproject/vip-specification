@@ -1805,52 +1805,61 @@ election_administration
 The Election Administration represents an institution for serving a locality's (or state's) election
 functions.
 
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type                    | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+==============================+==============+==============+==========================================+==========================================+
-| absentee_uri         | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for            | If the field is invalid or not present,  |
-|                      |                              |              |              | information on absentee voting.          | then the implementation is required to   |
-|                      |                              |              |              |                                          | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| am_i_registered_uri  | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for            | If the field is invalid or not present,  |
-|                      |                              |              |              | information on whether an individual is  | then the implementation is required to   |
-|                      |                              |              |              | registered.                              | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| department           | :ref:`single-csv-department` | **Required** | Repeats      | Describes the administrative body for a  | There must be at least one valid         |
-|                      |                              |              |              | particular voter service.                | `Department` in each                     |
-|                      |                              |              |              |                                          | `ElectionAdministration` element. If no  |
-|                      |                              |              |              |                                          | valid `Department` objects are present,  |
-|                      |                              |              |              |                                          | the implementation is required to ignore |
-|                      |                              |              |              |                                          | the `ElectionAdministration` object that |
-|                      |                              |              |              |                                          | contains it/them.                        |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| elections_uri        | ``xs:anyURI``                | Optional     | Single       | Specifies web address the                | If the field is invalid or not present,  |
-|                      |                              |              |              | administration's website.                | then the implementation is required to   |
-|                      |                              |              |              |                                          | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| registration_uri     | ``xs:anyURI``                | Optional     | Single       | Specifies web address for information on | If the field is invalid or not present,  |
-|                      |                              |              |              | registering to vote.                     | then the implementation is required to   |
-|                      |                              |              |              |                                          | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| rules_uri            | ``xs:anyURI``                | Optional     | Single       | Specifies a URI for the election rules   | If the field is invalid or not present,  |
-|                      |                              |              |              | and laws (if any) for the jurisdiction   | then the implementation is required to   |
-|                      |                              |              |              | of the administration.                   | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| what_is_on_my_ballot | ``xs:anyURI``                | Optional     | Single       | Specifies web address for information on | If the field is invalid or not present,  |
-|                      |                              |              |              | what is on an individual's ballot.       | then the implementation is required to   |
-|                      |                              |              |              |                                          | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| where_do_i_vote_uri  | ``xs:anyURI``                | Optional     | Single       | The Specifies web address for            | If the field is invalid or not present,  |
-|                      |                              |              |              | information on where an individual votes | then the implementation is required to   |
-|                      |                              |              |              | based on their address.                  | ignore it.                               |
-+----------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| Tag                             | Data Type                    | Required?    | Repeats?     | Description                                                 | Error Handling                           |
++=================================+==============================+==============+==============+=============================================================+==========================================+
+| absentee_uri                    | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for information on absentee       | If the field is invalid or not present,  |
+|                                 |                              |              |              | voting.                                                     | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| am_i_registered_uri             | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for information on whether an     | If the field is invalid or not present,  |
+|                                 |                              |              |              | individual is registered.                                   | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| ballot_tracking_uri             | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
+|                                 |                              |              |              | ballot cast by mail                                         | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| ballot_tracking_provisional_uri | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
+|                                 |                              |              |              | provisional ballot. To support EAC guidelines for           | then the implementation is required to   |
+|                                 |                              |              |              | "Processing Provisional Ballots"                            | ignore it.                               |
+|                                 |                              |              |              | (https://www.eac.gov/research-and-data/provisional-voting/) |                                          |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| department                      | :ref:`single-csv-department` | **Required** | Repeats      | Describes the administrative body for a particular voter    | There must be at least one valid         |
+|                                 |                              |              |              | service.                                                    | `Department` in each                     |
+|                                 |                              |              |              |                                                             | `ElectionAdministration` element. If no  |
+|                                 |                              |              |              |                                                             | valid `Department` objects are present,  |
+|                                 |                              |              |              |                                                             | the implementation is required to ignore |
+|                                 |                              |              |              |                                                             | the `ElectionAdministration` object that |
+|                                 |                              |              |              |                                                             | contains it/them.                        |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| elections_uri                   | ``xs:anyURI``                | Optional     | Single       | Specifies web address the administration's website.         | If the field is invalid or not present,  |
+|                                 |                              |              |              |                                                             | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| registration_uri                | ``xs:anyURI``                | Optional     | Single       | Specifies web address for information on registering to     | If the field is invalid or not present,  |
+|                                 |                              |              |              | vote.                                                       | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| rules_uri                       | ``xs:anyURI``                | Optional     | Single       | Specifies a URI for the election rules and laws (if any)    | If the field is invalid or not present,  |
+|                                 |                              |              |              | for the jurisdiction of the administration.                 | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| what_is_on_my_ballot            | ``xs:anyURI``                | Optional     | Single       | Specifies web address for information on what is on an      | If the field is invalid or not present,  |
+|                                 |                              |              |              | individual's ballot.                                        | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| where_do_i_vote_uri             | ``xs:anyURI``                | Optional     | Single       | The Specifies web address for information on where an       | If the field is invalid or not present,  |
+|                                 |                              |              |              | individual votes based on their address.                    | then the implementation is required to   |
+|                                 |                              |              |              |                                                             | ignore it.                               |
++---------------------------------+------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
 
-    id,absentee_uri,am_i_registered_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
-    ea123,https://example.com/absentee,https://example.com/am-i-registered,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
+    id,absentee_uri,am_i_registered_uri,ballot_tracking_uri,ballot_tracking_provisional_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
+    ea123,https://example.com/absentee,https://example.com/am-i-registered,https://www.vote.virginia.gov/,https://www.vote.virginia.gov/,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
     ea345,https://example.com/absentee2,https://example.com/am-i-registered2,https://example.com/elections2,https://example.com/registration2,https://example.com/rules2,https://example.com/what-is-on-my-ballot2,https://example.com/where-do-i-vote2
     ea625,https://example.com/absentee3,https://example.com/am-i-registered3,https://example.com/elections3,https://example.com/registration3,https://example.com/rules3,https://example.com/what-is-on-my-ballot3,https://example.com/where-do-i-vote3
 
