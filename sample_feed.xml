@@ -76,6 +76,8 @@
   <ElectionAdministration id="ea40133">
     <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
     <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
+    <BallotTrackingUri>https://www.vote.virginia.gov/</BallotTrackingUri>
+    <BallotProvisionalTrackingUri>https://www.vote.virginia.gov/</BallotProvisionalTrackingUri>
     <Department>
       <ContactInformation label="ci60000">
         <AddressLine>Washington Building First Floor</AddressLine>
@@ -1722,6 +1724,25 @@
     </LatLng>
     <Name>MILLER CENTER</Name>
   </PollingLocation>
+  <PollingLocation id="pl00001">
+    <Alias>
+      <Text language="en">In person absentee</Text>
+    </Alias>
+    <StructuredAddress>
+      <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
+      <Line1>2775 Hydraulic Rd</Line1>
+      <City>CHARLOTTESVILLE</City>
+      <State>VA</State>
+      <Zip>22901</Zip>
+    </StructuredAddress>
+    <HoursOpenId>hours0002</HoursOpenId>
+    <IsDropBox>true</IsDropBox>
+    <IsEarlyVoting>true</IsEarlyVoting>
+    <LatLng>
+      <Latitude>38.009939</Latitude>
+      <Longitude>-78.506204</Longitude>
+    </LatLng>
+  </PollingLocation>
 
   <!--
        The precincts which tie it all together. These link ballot styles,
@@ -2148,6 +2169,19 @@
     <PrecinctId>pre90994sp0000</PrecinctId>
     <StartHouseNumber>1</StartHouseNumber>
     <EndHouseNumber>31</EndHouseNumber>
+    <State>VA</State>
+    <StreetName>VINCENNES</StreetName>
+    <StreetSuffix>CT</StreetSuffix>
+    <Zip>22911</Zip>
+  </StreetSegment>
+  <StreetSegment id="ss315263">
+    <City>CHARLOTTESVILLE</City>
+    <OddEvenBoth>both</OddEvenBoth>
+    <PrecinctId>pre90994sp0000</PrecinctId>
+    <StartHouseNumber>1</StartHouseNumber>
+    <EndHouseNumber>1</EndHouseNumber>
+    <HouseNumberPrefix>E</HouseNumberPrefix>
+    <HouseNumberSuffix>SW</HouseNumberSuffix>
     <State>VA</State>
     <StreetName>VINCENNES</StreetName>
     <StreetSuffix>CT</StreetSuffix>
