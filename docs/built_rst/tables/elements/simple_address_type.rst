@@ -7,7 +7,7 @@
 |              |               |              |              | structured address.                      | then the implementation is required to   |
 |              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Line1        | ``xs:string`` | Optional     | Single       | The address line for a structured        | If no ``Line1`` is provided, the         |
+| Line1        | ``xs:string`` | **Required** | Single       | The address line for a structured        | If no ``Line1`` is provided, the         |
 |              |               |              |              | address. Should include the street       | implementation should ignore the         |
 |              |               |              |              | number, stree name, and any prefix and   | ``SimpleAddressType``.                   |
 |              |               |              |              | suffix.                                  |                                          |
@@ -20,15 +20,15 @@
 |              |               |              |              |                                          | then the implementation is required to   |
 |              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| City         | ``xs:string`` | Optional     | Single       | TBD                                      | If no ``City`` is not provided, the      |
+| City         | ``xs:string`` | **Required** | Single       | TBD                                      | If no ``City`` is not provided, the      |
 |              |               |              |              |                                          | implementation should ignore the         |
 |              |               |              |              |                                          | ``SimpleAddressType``.                   |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| State        | ``xs:string`` | Optional     | Single       | TBD                                      | If no ``State`` is not provided, the     |
+| State        | ``xs:string`` | **Required** | Single       | TBD                                      | If no ``State`` is not provided, the     |
 |              |               |              |              |                                          | implementation should ignore the         |
 |              |               |              |              |                                          | ``SimpleAddressType``.                   |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Zip          | ``xs:string`` | Optional     | Single       | TBD                                      | If no ``Zip`` is not provided, the       |
+| Zip          | ``xs:string`` | **Required** | Single       | TBD                                      | If no ``Zip`` is not provided, the       |
 |              |               |              |              |                                          | implementation should ignore the         |
 |              |               |              |              |                                          | ``SimpleAddressType``.                   |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
