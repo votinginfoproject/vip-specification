@@ -17,6 +17,7 @@ tags:
     number, stree name, and any prefix and suffix.
   error: If no ``Line1`` is provided, the implementation should ignore the ``SimpleAddressType``.
   repreating: false
+  required: true
   type: xs:string
 - _name: Line2
   csv-header-name: structured_line_2
@@ -39,16 +40,19 @@ tags:
   csv-type: xs:string
   description: TBD
   error: If no ``City`` is not provided, the implementation should ignore the ``SimpleAddressType``.
+  required: true
   type: xs:string
 - _name: State
   csv-header-name: structured_state
   csv-type: xs:string
   description: TBD
   error: If no ``State`` is not provided, the implementation should ignore the ``SimpleAddressType``.
+  required: true
   type: xs:string
 - _name: Zip
   csv-header-name: structured_zip
   csv-type: xs:string
   description: TBD
   error: If no ``Zip`` is not provided, the implementation should ignore the ``SimpleAddressType``.
+  required: true
   type: xs:string
