@@ -2684,7 +2684,7 @@ candidates.
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>
       <Name>Governor</Name>
       <NumberElected>1</NumberElected>
-      <OfficeId>off0000</OfficeId>
+      <OfficeIds>off0000</OfficeId>
       <VotesAllowed>1</VotesAllowed>
    </CandidateContest>
 
