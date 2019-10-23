@@ -32,13 +32,13 @@ post: |-
      </PollingLocation>
      <!-- Or: -->
      <PollingLocation id="pl00000">
-        <StructuredAddress>
+        <AddressStructured>
            <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
            <Line1>2775 Hydraulic Rd</Line1>
            <City>CHARLOTTESVILLE</City>
            <State>VA</State>
            <Zip>22901</Zip>
-        </StructuredAddress>
+        </AddressStructured>
         <HoursOpenId>hours0002</HoursOpenId>
         <IsDropBox>true</IsDropBox>
         <IsEarlyVoting>true</IsEarlyVoting>
@@ -48,7 +48,7 @@ post: |-
         </LatLng>
      </PollingLocation>
 tags:
-- _name: StructuredAddress
+- _name: AddressStructured
   csv-header-name: :ref:`$$$-simple-address-type`
   csv-type: hold
   description: Represents the various structured parts of an address to a polling
