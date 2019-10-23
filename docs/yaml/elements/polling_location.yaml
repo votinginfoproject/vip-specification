@@ -19,35 +19,34 @@ post: |-
   .. code-block:: xml
      :linenos:
 
-
      <PollingLocation id="pl00000">
-      <AddressLine>2775 Hydraulic Rd Charlottesville, VA 22901</AddressLine>
-      <HoursOpenId>hours0002</HoursOpenId>
-      <IsDropBox>true</IsDropBox>
-      <IsEarlyVoting>true</IsEarlyVoting>
-      <LatLng>
-        <Latitude>38.009939</Latitude>
-        <Longitude>-78.506204</Longitude>
-      </LatLng>
-      <Name>ALBERMARLE HIGH SCHOOL</Name>
-    </PollingLocation>
-    <!-- Or: -->
-    <PollingLocation id="pl00000">
-      <StructuredAddress>
-        <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
-        <Line1>2775 Hydraulic Rd</Line1>
-        <City>CHARLOTTESVILLE</City>
-        <State>VA</State>
-        <Zip>22901</Zip>
-      </StructuredAddress>
-      <HoursOpenId>hours0002</HoursOpenId>
-      <IsDropBox>true</IsDropBox>
-      <IsEarlyVoting>true</IsEarlyVoting>
+        <AddressLine>2775 Hydraulic Rd Charlottesville, VA 22901</AddressLine>
+        <HoursOpenId>hours0002</HoursOpenId>
+        <IsDropBox>true</IsDropBox>
+        <IsEarlyVoting>true</IsEarlyVoting>
         <LatLng>
-          <Latitude>38.009939</Latitude>
-          <Longitude>-78.506204</Longitude>
-      </LatLng>
-    </PollingLocation>
+           <Latitude>38.009939</Latitude>
+           <Longitude>-78.506204</Longitude>
+        </LatLng>
+        <Name>ALBERMARLE HIGH SCHOOL</Name>
+     </PollingLocation>
+     <!-- Or: -->
+     <PollingLocation id="pl00000">
+        <StructuredAddress>
+           <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
+           <Line1>2775 Hydraulic Rd</Line1>
+           <City>CHARLOTTESVILLE</City>
+           <State>VA</State>
+           <Zip>22901</Zip>
+        </StructuredAddress>
+        <HoursOpenId>hours0002</HoursOpenId>
+        <IsDropBox>true</IsDropBox>
+        <IsEarlyVoting>true</IsEarlyVoting>
+        <LatLng>
+           <Latitude>38.009939</Latitude>
+           <Longitude>-78.506204</Longitude>
+        </LatLng>
+     </PollingLocation>
 tags:
 - _name: StructuredAddress
   csv-header-name: :ref:`$$$-simple-address-type`
