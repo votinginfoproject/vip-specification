@@ -1424,7 +1424,7 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 +-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+==========================================+==============+==============+==========================================+==========================================+
-| StructuredAddress | :ref:`single-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
+| AddressStructured | :ref:`single-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
 |                   |                                          |              |              | of an address to a polling location.     | should be present for a given Polling    |
 |                   |                                          |              |              |                                          | Location. If none is present, the        |
 |                   |                                          |              |              |                                          | implementation is required to ignore the |
@@ -1493,13 +1493,13 @@ The PollingLocation object represents a site where voters cast or drop off ballo
    </PollingLocation>
    <!-- Or: -->
    <PollingLocation id="pl00000">
-      <StructuredAddress>
+      <AddressStructured>
          <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
          <Line1>2775 Hydraulic Rd</Line1>
          <City>CHARLOTTESVILLE</City>
          <State>VA</State>
          <Zip>22901</Zip>
-      </StructuredAddress>
+      </AddressStructured>
       <HoursOpenId>hours0002</HoursOpenId>
       <IsDropBox>true</IsDropBox>
       <IsEarlyVoting>true</IsEarlyVoting>

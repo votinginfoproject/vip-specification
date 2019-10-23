@@ -3,7 +3,7 @@
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+=========================================+==============+==============+==========================================+==========================================+
-| StructuredAddress | :ref:`multi-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
+| AddressStructured | :ref:`multi-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
 |                   |                                         |              |              | of an address to a polling location.     | should be present for a given Polling    |
 |                   |                                         |              |              |                                          | Location. If none is present, the        |
 |                   |                                         |              |              |                                          | implementation is required to ignore the |
