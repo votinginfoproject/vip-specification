@@ -10,7 +10,7 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 +--------------------------------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                                  | Data Type                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +======================================+==========================+==============+==============+==========================================+==========================================+
-| :ref:`multi-csv-simple-address-type` | ``hold``                 | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
+| :ref:`multi-csv-simple-address-type` | ``simple-address-type``  | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
 |                                      |                          |              |              | of an address to a polling location.     | should be present for a given Polling    |
 |                                      |                          |              |              |                                          | Location. If none is present, the        |
 |                                      |                          |              |              |                                          | implementation is required to ignore the |
@@ -68,10 +68,8 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 
 
     id,name,address_line,structured_location_name,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
-    poll001,ALBERMARLE HIGH SCHOOL","2775 Hydraulic Rd Charlottesville, VA 22901,ALBERMARLE HIGH SCHOOL,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
-    poll002,Public Library, Main St Denver,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
-    poll003,Historic Society,,wheelchair entrance,7am-8pm,www.picture.com,,false,true,,,
-    poll004,Community Center,,behind the big oak tree,7am-8pm,www.picture.com,,false,true,,,
+    poll001,,,ALBERMARLE HIGH SCHOOL,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
+    poll002,Public Library,Main St Denver CO,,,,,,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
 
 
 .. _multi-csv-lat-lng:
