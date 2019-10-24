@@ -5,7 +5,7 @@ csv-post: |-
      :linenos:
 
 
-      id,name,address_line,structured_location_name,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
+      id,name,alias,address_line,structured_location_name,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
       poll001,,,ALBERMARLE HIGH SCHOOL,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
       poll002,Public Library,Main St Denver CO,,,,,,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
 description: The PollingLocation object represents a site where voters cast or drop
@@ -30,6 +30,9 @@ post: |-
      </PollingLocation>
      <!-- Or: -->
      <PollingLocation id="pl00000">
+        <Alias>
+          <Text language="en">Vote Center</Text>
+        </Alias>
         <AddressStructured>
            <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
            <Line1>2775 Hydraulic Rd</Line1>
@@ -67,6 +70,13 @@ tags:
   repeating: true
   required: false
   type: xs:string
+- _name: Alias
+  csv-header-name: alias
+  csv-type: xs:string
+  description: Specifies the term used to describe the particular voting location.
+    Examples may include "VSPC", "Mail in absentee", "Vote Center" and others.
+  error_then: =must-ignore
+  type: InternationalizedText
 - _name: Directions
   csv-header-name: directions
   csv-type: xs:string

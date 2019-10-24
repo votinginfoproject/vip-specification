@@ -535,6 +535,7 @@
         <xs:element name="AddressStructured" type="SimpleAddressType"/>
         <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
       </xs:choice>
+      <xs:element name="Alias" type="InternationalizedText" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
            Note: The "Hours" element is being deprecated and will be removed
