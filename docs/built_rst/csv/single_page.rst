@@ -1210,6 +1210,11 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 |                                       |                           |              |              |                                          | ``PollingLocation`` element containing   |
 |                                       |                           |              |              |                                          | it.                                      |
 +---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| alias                                 | ``xs:string``             | Optional     | Single       | Specifies the term used to describe the  | If the element is invalid or not         |
+|                                       |                           |              |              | particular voting location. Examples may | present, then the implementation is      |
+|                                       |                           |              |              | include "VSPC", "Mail in absentee",      | required to ignore it.                   |
+|                                       |                           |              |              | "Vote Center" and others.                |                                          |
++---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | directions                            | ``xs:string``             | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
 |                                       |                           |              |              | locating the polling location.           | present, then the implementation is      |
 |                                       |                           |              |              |                                          | required to ignore it.                   |
@@ -1253,7 +1258,7 @@ The PollingLocation object represents a site where voters cast or drop off ballo
    :linenos:
 
 
-    id,name,address_line,structured_location_name,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
+    id,name,alias,address_line,structured_location_name,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
     poll001,,,ALBERMARLE HIGH SCHOOL,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
     poll002,Public Library,Main St Denver CO,,,,,,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
 
