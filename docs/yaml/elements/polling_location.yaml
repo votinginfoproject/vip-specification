@@ -51,9 +51,9 @@ tags:
   csv-type: simple-address-type
   description: Represents the various structured parts of an address to a polling
     location.
-  error: One of AddressStructured and AddressLine should be present for a given Polling
-    Location. If none is present, the implementation is required to ignore the ``PollingLocation``
-    element containing it.
+  error: One of **AddressStructured** and **AddressLine** should be present for a
+    given Polling Location. If none is present, the implementation is required to
+    ignore the ``PollingLocation`` element containing it.
   repeating: false
   required: false
   type: SimpleAddressType
