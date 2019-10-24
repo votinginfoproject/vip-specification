@@ -3,12 +3,12 @@
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+=========================================+==============+==============+==========================================+==========================================+
-| AddressStructured | :ref:`multi-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of AddressStructured and AddressLine |
-|                   |                                         |              |              | of an address to a polling location.     | should be present for a given Polling    |
-|                   |                                         |              |              |                                          | Location. If none is present, the        |
-|                   |                                         |              |              |                                          | implementation is required to ignore the |
-|                   |                                         |              |              |                                          | ``PollingLocation`` element containing   |
-|                   |                                         |              |              |                                          | it.                                      |
+| AddressStructured | :ref:`multi-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of **AddressStructured** and         |
+|                   |                                         |              |              | of an address to a polling location.     | **AddressLine** should be present for a  |
+|                   |                                         |              |              |                                          | given Polling Location. If none is       |
+|                   |                                         |              |              |                                          | present, the implementation is required  |
+|                   |                                         |              |              |                                          | to ignore the ``PollingLocation``        |
+|                   |                                         |              |              |                                          | element containing it.                   |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | AddressLine       | ``xs:string``                           | Optional     | Repeats      | Represents the various parts of an       | One of AddressStructured and AddressLine |
 |                   |                                         |              |              | address to a polling location.           | should be present for a given Polling    |
