@@ -6,8 +6,9 @@ csv-post: |-
 
 
       id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,house_number_prefix,house_number_suffix,state,street_direction,street_name,street_suffix,unit_number,zip
-      ss000001,N,Washington,false,false,odd,pre90113,101,199,DC,NW,,,Delaware,St,,20001
-      ss000002,S,Washington,true,false,both,pre90112,,,DC,SE,,,Wisconsin,Ave,,20002
+      ss000001,N,Washington,false,false,odd,pre90113,101,199,,,DC,NW,Delaware,St,,20001
+      ss000002,S,Washington,true,false,both,pre90112,,,,,DC,SE,Wisconsin,Ave,,20002
+      ss000003,N,Washington,false,false,even,pre90113,100,100,A,1/2,DC,NW,Delaware,St,,20001
 description: |-
   A Street Segment objection represents a portion of a street and the links to the precinct that this
   geography (i.e., segment) is contained within. The start address house number must be less than the
@@ -132,8 +133,7 @@ tags:
     'B' in 'B22 Main St'). If this value is present then **StartHouseNumber** must
     be equal to **EndHouseNumber**. This field cannot be used if **IncludesAllAddresses**
     or **IncludesAllStreets** are true.
-  error: If the field is not present of invalid, the implementation is required to
-    ignore it.
+  error_then: =must-ignore
   type: xs:string
 - _name: HouseNumberSuffix
   csv-header-name: house_number_suffix
@@ -142,8 +142,7 @@ tags:
     1/2 in '22 1/2 Main St'). If this value is present then **StartHouseNumber** must
     be equal to **EndHouseNumber**. This field cannot be used if **IncludesAllAddresses**
     or **IncludesAllStreets** are true.
-  error: If the field is not present of invalid, the implementation is required to
-    ignore it.
+  error_then: =must-ignore
   type: xs:string
 - _name: State
   csv-header-name: state
