@@ -2,14 +2,6 @@ _name: SimpleAddressType
 csv-header-name: simple_address_type
 description: A ``SimpleAddressType`` represents a structured address.
 tags:
-- _name: LocationName
-  csv-header-name: structured_location_name
-  csv-type: xs:string
-  description: The name of the building a part of the structured address.
-  error_then: =must-ignore
-  repeating: false
-  required: false
-  type: xs:string
 - _name: Line1
   csv-header-name: structured_line_1
   csv-type: xs:string
@@ -19,40 +11,24 @@ tags:
   repreating: false
   required: true
   type: xs:string
-- _name: Line2
-  csv-header-name: structured_line_2
-  csv-type: xs:string
-  description: TBD
-  error_then: =must-ignore
-  repeating: false
-  required: false
-  type: xs:string
-- _name: Line3
-  csv-header-name: structured_line_3
-  csv-type: xs:string
-  description: TBD
-  error_then: =must-ignore
-  repeating: false
-  required: false
-  type: xs:string
 - _name: City
   csv-header-name: structured_city
   csv-type: xs:string
-  description: TBD
+  description: The City value of a structured address.
   error: If ``City`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   required: true
   type: xs:string
 - _name: State
   csv-header-name: structured_state
   csv-type: xs:string
-  description: TBD
+  description: The State value of a structured address.
   error: If ``State`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   required: true
   type: xs:string
 - _name: Zip
   csv-header-name: structured_zip
   csv-type: xs:string
-  description: TBD
+  description: The ZIP code of a structured address.
   error: If ``Zip`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   required: true
   type: xs:string
