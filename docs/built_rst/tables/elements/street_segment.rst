@@ -57,17 +57,17 @@
 |                      |                           |              |              | **IncludesAllStreets** are true, this    |                                          |
 |                      |                           |              |              | value is ignored.                        |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HouseNumberPrefix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is not present of invalid,  |
-|                      |                           |              |              | letters or slashes (e.g., 'B' in 'B22    | the implementation is required to ignore |
-|                      |                           |              |              | Main St'). If this value is present then | it.                                      |
+| HouseNumberPrefix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
+|                      |                           |              |              | letters or slashes (e.g., 'B' in 'B22    | then the implementation is required to   |
+|                      |                           |              |              | Main St'). If this value is present then | ignore it.                               |
 |                      |                           |              |              | **StartHouseNumber** must be equal to    |                                          |
 |                      |                           |              |              | **EndHouseNumber**. This field cannot be |                                          |
 |                      |                           |              |              | used if **IncludesAllAddresses** or      |                                          |
 |                      |                           |              |              | **IncludesAllStreets** are true.         |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HouseNumberSuffix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is not present of invalid,  |
-|                      |                           |              |              | letters or slashes (e.g., 1/2 in '22 1/2 | the implementation is required to ignore |
-|                      |                           |              |              | Main St'). If this value is present then | it.                                      |
+| HouseNumberSuffix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
+|                      |                           |              |              | letters or slashes (e.g., 1/2 in '22 1/2 | then the implementation is required to   |
+|                      |                           |              |              | Main St'). If this value is present then | ignore it.                               |
 |                      |                           |              |              | **StartHouseNumber** must be equal to    |                                          |
 |                      |                           |              |              | **EndHouseNumber**. This field cannot be |                                          |
 |                      |                           |              |              | used if **IncludesAllAddresses** or      |                                          |
