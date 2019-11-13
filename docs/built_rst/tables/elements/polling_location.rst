@@ -17,11 +17,6 @@
 |                   |                                         |              |              |                                          | ``PollingLocation`` element containing   |
 |                   |                                         |              |              |                                          | it.                                      |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Alias             | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the term used to describe the  | If the element is invalid or not         |
-|                   |                                         |              |              | particular voting location. Examples may | present, then the implementation is      |
-|                   |                                         |              |              | include "VSPC", "Mail in absentee",      | required to ignore it.                   |
-|                   |                                         |              |              | "Vote Center" and others.                |                                          |
-+-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Directions        | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
 |                   |                                         |              |              | locating the polling location.           | present, then the implementation is      |
 |                   |                                         |              |              |                                          | required to ignore it.                   |
