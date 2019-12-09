@@ -1484,7 +1484,6 @@
   <!-- The polling locations in this jurisdiction. -->
   <PollingLocation id="pl00000">
     <AddressStructured>
-       <LocationName>ALBERMARLE HIGH SCHOOL</LocationName>
        <Line1>2775 Hydraulic Rd</Line1>
       <City>CHARLOTTESVILLE</City>
       <State>VA</State>
