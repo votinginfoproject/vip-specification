@@ -2026,6 +2026,19 @@
   </Precinct>
 
   <!-- Street segments -->
+   <StreetSegment id = "ss1">
+      <City>GREENWOOD</City>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre92145</PrecinctId>
+      <StartHouseNumber>1</StartHouseNumber>
+      <EndHouseNumber>1</EndHouseNumber>
+      <HouseNumberPrefix>B</HouseNumberPrefix>
+      <HouseNumberSuffix>1/2</HouseNumberSuffix>
+      <State>VA</State>
+      <StreetName>MISTY MOUNTAIN</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22943</Zip>
+   </StreetSegment>
   <StreetSegment id="ss000000">
     <City>Charlottesville</City>
     <IncludesAllStreets>true</IncludesAllStreets>
