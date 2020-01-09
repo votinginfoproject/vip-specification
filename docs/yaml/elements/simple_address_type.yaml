@@ -11,6 +11,20 @@ tags:
   repreating: false
   required: true
   type: xs:string
+- _name: Line2
+  csv-header-name: structured_line_2
+  csv-type: xs:string
+  description: Additional field for an address
+  error: If no ``Line2`` is provided, the implementation should ignore it.
+  repreating: false
+  type: xs:string
+- _name: Line3
+  csv-header-name: structured_line_3
+  csv-type: xs:string
+  description: Additional field for an address
+  error: If no ``Line3`` is provided, the implementation should ignore it.
+  repreating: false
+  type: xs:string
 - _name: City
   csv-header-name: structured_city
   csv-type: xs:string
@@ -30,5 +44,4 @@ tags:
   csv-type: xs:string
   description: The ZIP code of a structured address.
   error: If ``Zip`` is not provided, the implementation should ignore the ``SimpleAddressType``.
-  required: true
   type: xs:string
