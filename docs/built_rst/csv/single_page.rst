@@ -1297,6 +1297,12 @@ A ``SimpleAddressType`` represents a structured address.
 |                   |               |              |              | number, street name, and any prefix and  | ``SimpleAddressType``.                   |
 |                   |               |              |              | suffix.                                  |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| structured_line_2 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line2`` is provided, the         |
+|                   |               |              |              |                                          | implementation should ignore it.         |
++-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| structured_line_3 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line3`` is provided, the         |
+|                   |               |              |              |                                          | implementation should ignore it.         |
++-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | structured_city   | ``xs:string`` | **Required** | Single       | The City value of a structured address.  | If ``City`` is not provided, the         |
 |                   |               |              |              |                                          | implementation should ignore the         |
 |                   |               |              |              |                                          | ``SimpleAddressType``.                   |
@@ -1305,7 +1311,7 @@ A ``SimpleAddressType`` represents a structured address.
 |                   |               |              |              |                                          | implementation should ignore the         |
 |                   |               |              |              |                                          | ``SimpleAddressType``.                   |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_zip    | ``xs:string`` | **Required** | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
+| structured_zip    | ``xs:string`` | Optional     | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
 |                   |               |              |              |                                          | implementation should ignore the         |
 |                   |               |              |              |                                          | ``SimpleAddressType``.                   |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -2763,6 +2769,12 @@ A ``SimpleAddressType`` represents a structured address.
 |                   |               |              |              | number, street name, and any prefix and  | ``SimpleAddressType``.                   |
 |                   |               |              |              | suffix.                                  |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| structured_line_2 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line2`` is provided, the         |
+|                   |               |              |              |                                          | implementation should ignore it.         |
++-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| structured_line_3 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line3`` is provided, the         |
+|                   |               |              |              |                                          | implementation should ignore it.         |
++-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | structured_city   | ``xs:string`` | **Required** | Single       | The City value of a structured address.  | If ``City`` is not provided, the         |
 |                   |               |              |              |                                          | implementation should ignore the         |
 |                   |               |              |              |                                          | ``SimpleAddressType``.                   |
@@ -2771,7 +2783,7 @@ A ``SimpleAddressType`` represents a structured address.
 |                   |               |              |              |                                          | implementation should ignore the         |
 |                   |               |              |              |                                          | ``SimpleAddressType``.                   |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_zip    | ``xs:string`` | **Required** | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
+| structured_zip    | ``xs:string`` | Optional     | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
 |                   |               |              |              |                                          | implementation should ignore the         |
 |                   |               |              |              |                                          | ``SimpleAddressType``.                   |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
