@@ -581,9 +581,11 @@
   <xs:complexType name="SimpleAddressType">
     <xs:sequence>
       <xs:element name="Line1" type="xs:string"/>
+      <xs:element name="Line2" type="xs:string" minOccurs="0" />
+      <xs:element name="Line3" type="xs:string" minOccurs="0" />
       <xs:element name="City" type="xs:string"/>
       <xs:element name="State" type="xs:string"/>
-      <xs:element name="Zip" type="xs:string"/>
+      <xs:element name="Zip" type="xs:string" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
 
