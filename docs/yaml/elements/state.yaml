@@ -44,7 +44,6 @@ tags:
   csv-header-name: name
   csv-type: xs:string
   description: Specifiers the name of a state, such as Alabama.
-  error_then: =must-ignore
   required: true
   type: xs:string
 - _name: PollingLocationIds
