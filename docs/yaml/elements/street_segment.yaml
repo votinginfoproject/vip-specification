@@ -50,7 +50,6 @@ tags:
   csv-header-name: city
   csv-type: xs:string
   description: The city specifies the city or town of the address.
-  error_then: =must-ignore
   required: true
   type: xs:string
 - _name: IncludesAllAddresses
@@ -82,8 +81,7 @@ tags:
   csv-type: xs:IDREF
   description: References the :ref:`$$$-precinct` that contains the entire street
     segment.
-  error: If the field is not present or invalid, the implementation is required to
-    ignore the StreetSegment element containing it.
+  required: true
   type: xs:IDREF
 - _name: StartHouseNumber
   csv-header-name: start_house_number
@@ -116,7 +114,6 @@ tags:
   csv-header-name: state
   csv-type: xs:string
   description: Specifies the two-letter state abbreviation of the address.
-  error_then: =must-ignore
   required: true
   type: xs:string
 - _name: StreetDirection
