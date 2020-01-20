@@ -1372,10 +1372,9 @@ object. Candidate objects may **not** be reused between Contests.
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                        | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+==================================================+==============+==============+==========================================+==========================================+
-| BallotName          | :ref:`single-xml-internationalized-text`         | **Required** | Single       | The candidate's name as it will be       | If the element is invalid or not         |
-|                     |                                                  |              |              | displayed on the official ballot (e.g.   | present, then the implementation is      |
-|                     |                                                  |              |              | "Ken T. Cuccinelli II").                 | required to ignore the Candidate element |
-|                     |                                                  |              |              |                                          | containing it.                           |
+| BallotName          | :ref:`single-xml-internationalized-text`         | **Required** | Single       | The candidate's name as it will be       | If the element is invalid, then the      |
+|                     |                                                  |              |              | displayed on the official ballot (e.g.   | implementation is required to ignore the |
+|                     |                                                  |              |              | "Ken T. Cuccinelli II").                 | ``Candidate`` element containing it.     |
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ContactInformation  | :ref:`single-xml-contact-information`            | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
 |                     |                                                  |              |              | for this Candidate and/or their campaign | present, then the implementation is      |
