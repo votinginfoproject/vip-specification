@@ -2134,7 +2134,8 @@ are equal.
 |                        |                            |              |              | NE."                                     |                                          |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | city                   | ``xs:string``              | **Required** | Single       | The city specifies the city or town of   | If the field is invalid, then the        |
-|                        |                            |              |              | the address.                             | implementation is required to ignore it. |
+|                        |                            |              |              | the address.                             | implementation is required to ignore the |
+|                        |                            |              |              |                                          | ``StreetSegment`` element containing it. |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | includes_all_addresses | ``xs:boolean``             | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
 |                        |                            |              |              | address on this street. If this is       | then the implementation is required to   |
@@ -2156,9 +2157,9 @@ are equal.
 |                        |                            |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
 |                        |                            |              |              | the street segment.                      |                                          |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| precinct_id            | ``xs:IDREF``               | Optional     | Single       | References the                           | If the field is not present or invalid,  |
-|                        |                            |              |              | :ref:`single-csv-precinct` that contains | the implementation is required to ignore |
-|                        |                            |              |              | the entire street segment.               | the StreetSegment element containing it. |
+| precinct_id            | ``xs:IDREF``               | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                        |                            |              |              | :ref:`single-csv-precinct` that contains | implementation is required to ignore the |
+|                        |                            |              |              | the entire street segment.               | ``StreetSegment`` element containing it. |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | start_house_number     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                        |                            |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
@@ -2183,7 +2184,8 @@ are equal.
 |                        |                            |              |              | value is ignored.                        |                                          |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | state                  | ``xs:string``              | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
-|                        |                            |              |              | abbreviation of the address.             | implementation is required to ignore it. |
+|                        |                            |              |              | abbreviation of the address.             | implementation is required to ignore the |
+|                        |                            |              |              |                                          | ``StreetSegment`` element containing it. |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | street_direction       | ``xs:string``              | Optional     | Single       | Specifies the (inter-)cardinal direction | If the field is invalid or not present,  |
 |                        |                            |              |              | of the street address (e.g., the "E" in  | then the implementation is required to   |
