@@ -35,7 +35,8 @@ recommended to be the state's FIPS code, along with the prefix "st".
 |                          |                                        |              |              | `OCD-ID`_).                              | required to ignore it.                   |
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | ``xs:string``                          | **Required** | Single       | Specifiers the name of a state, such as  | If the field is invalid, then the        |
-|                          |                                        |              |              | Alabama.                                 | implementation is required to ignore it. |
+|                          |                                        |              |              | Alabama.                                 | implementation is required to ignore the |
+|                          |                                        |              |              |                                          | ``State`` element containing it.         |
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                                        |              |              | :ref:`polling locations                  | then the implementation is required to   |
