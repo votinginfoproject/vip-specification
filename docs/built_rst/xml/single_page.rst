@@ -113,9 +113,9 @@ School Board, et al).
 +-----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+==========================================+==============+==============+==========================================+==========================================+
-| ContactInformation    | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Specifies the contact information for    | If the element is invalid or not         |
-|                       |                                          |              |              | the office and/or individual holding the | present, then the implementation is      |
-|                       |                                          |              |              | office.                                  | required to ignore it.                   |
+| ContactInformation    | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Links to the                             | If the element is invalid or not         |
+|                       |                                          |              |              | :ref:`single-xml-contact-information`    | present, then the implementation is      |
+|                       |                                          |              |              | element associated with the office.      | required to ignore it.                   |
 +-----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Description           | :ref:`single-xml-internationalized-text` | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
 |                       |                                          |              |              | its purpose.                             | present, then the implementation is      |
@@ -865,8 +865,8 @@ or elected official. These elements reference ``Person``:
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+==========================================+==============+==============+==========================================+==========================================+
-| ContactInformation  | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Specifies contact information for the    | If the element is invalid or not         |
-|                     |                                          |              |              | person.                                  | present, then the implementation is      |
+| ContactInformation  | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Refers to the associated                 | If the element is invalid or not         |
+|                     |                                          |              |              | :ref:`single-xml-contact-information`.   | present, then the implementation is      |
 |                     |                                          |              |              |                                          | required to ignore it.                   |
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | DateOfBirth         | ``xs:date``                              | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |

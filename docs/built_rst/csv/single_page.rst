@@ -61,21 +61,21 @@ recommended to be the state's FIPS code, along with the prefix "st".
 term
 ~~~~
 
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+====================================+==============+==============+==========================================+==========================================+
-| type         | :ref:`single-csv-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              |                                    |              |              | :ref:`single-csv-office-term-type` for   | the implementation is required to ignore |
-|              |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_date   | ``xs:date``                        | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
-|              |                                    |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                    |              |              |                                          | ignore it.                               |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| end_date     | ``xs:date``                        | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
-|              |                                    |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                    |              |              |                                          | ignore it.                               |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag             | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
++=================+====================================+==============+==============+==========================================+==========================================+
+| term_type       | :ref:`single-csv-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
+|                 |                                    |              |              | :ref:`single-csv-office-term-type` for   | the implementation is required to ignore |
+|                 |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| term_start_date | ``xs:date``                        | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
+|                 |                                    |              |              | term of the office.                      | then the implementation is required to   |
+|                 |                                    |              |              |                                          | ignore it.                               |
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| term_end_date   | ``xs:date``                        | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
+|                 |                                    |              |              | term of the office.                      | then the implementation is required to   |
+|                 |                                    |              |              |                                          | ignore it.                               |
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-office:
@@ -86,46 +86,46 @@ office
 ``Office`` represents the office associated with a contest or district (e.g. Alderman, Mayor,
 School Board, et al).
 
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+=======================================+==============+==============+==========================================+==========================================+
-| contact_information      | :ref:`single-csv-contact-information` | Optional     | Repeats      | Specifies the contact information for    | If the element is invalid or not         |
-|                          |                                       |              |              | the office and/or individual holding the | present, then the implementation is      |
-|                          |                                       |              |              | office.                                  | required to ignore it.                   |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| description              | ``xs:string``                         | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
-|                          |                                       |              |              | its purpose.                             | present, then the implementation is      |
-|                          |                                       |              |              |                                          | required to ignore it.                   |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                          | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
-|                          |                                       |              |              | :ref:`single-csv-electoral-district`     | the implementation is required to ignore |
-|                          |                                       |              |              | element associated with the office.      | the ``Office`` element containing it.    |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:IDREF``                          | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
-|                          |                                       |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
-|                          |                                       |              |              | finance systems, OCD IDs, et al.).       | required to ignore it.                   |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| filing_deadline          | ``xs:date``                           | Optional     | Single       | Specifies the date and time when a       | If the field is invalid or not present,  |
-|                          |                                       |              |              | candidate must have filed for the        | then the implementation is required to   |
-|                          |                                       |              |              | contest for the office.                  | ignore it.                               |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_partisan              | ``xs:boolean``                        | Optional     | Single       | Indicates whether the office is          | If the field is invalid or not present,  |
-|                          |                                       |              |              | partisan.                                | then the implementation is required to   |
-|                          |                                       |              |              |                                          | ignore it.                               |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                         | **Required** | Single       | The name of the office.                  | If the field is invalid or not present,  |
-|                          |                                       |              |              |                                          | the implementation is required to ignore |
-|                          |                                       |              |              |                                          | the ``Office`` element containing it.    |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| office_holder_person_ids | ``xs:IDREFS``                         | Optional     | Single       | Links to the :ref:`single-csv-person`    | If the field is invalid or not present,  |
-|                          |                                       |              |              | element(s) that hold additional          | then the implementation is required to   |
-|                          |                                       |              |              | information about the current office     | ignore it.                               |
-|                          |                                       |              |              | holder(s).                               |                                          |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| term                     | :ref:`single-csv-term`                | Optional     | Single       | Defines the term the office can be held. | If the element is invalid or not         |
-|                          |                                       |              |              |                                          | present, then the implementation is      |
-|                          |                                       |              |              |                                          | required to ignore it.                   |
-+--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type              | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+========================+==============+==============+==========================================+==========================================+
+| contact_information_id   | ``xs:IDREF``           | Optional     | Repeats      | Links to the                             | If the element is invalid or not         |
+|                          |                        |              |              | :ref:`single-csv-contact-information`    | present, then the implementation is      |
+|                          |                        |              |              | element associated with the office.      | required to ignore it.                   |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| description              | ``xs:string``          | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
+|                          |                        |              |              | its purpose.                             | present, then the implementation is      |
+|                          |                        |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``           | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
+|                          |                        |              |              | :ref:`single-csv-electoral-district`     | the implementation is required to ignore |
+|                          |                        |              |              | element associated with the office.      | the ``Office`` element containing it.    |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifiers     | ``xs:IDREF``           | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
+|                          |                        |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
+|                          |                        |              |              | finance systems, OCD IDs, et al.).       | required to ignore it.                   |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| filing_deadline          | ``xs:date``            | Optional     | Single       | Specifies the date and time when a       | If the field is invalid or not present,  |
+|                          |                        |              |              | candidate must have filed for the        | then the implementation is required to   |
+|                          |                        |              |              | contest for the office.                  | ignore it.                               |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_partisan              | ``xs:boolean``         | Optional     | Single       | Indicates whether the office is          | If the field is invalid or not present,  |
+|                          |                        |              |              | partisan.                                | then the implementation is required to   |
+|                          |                        |              |              |                                          | ignore it.                               |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | ``xs:string``          | **Required** | Single       | The name of the office.                  | If the field is invalid or not present,  |
+|                          |                        |              |              |                                          | the implementation is required to ignore |
+|                          |                        |              |              |                                          | the ``Office`` element containing it.    |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| office_holder_person_ids | ``xs:IDREFS``          | Optional     | Single       | Links to the :ref:`single-csv-person`    | If the field is invalid or not present,  |
+|                          |                        |              |              | element(s) that hold additional          | then the implementation is required to   |
+|                          |                        |              |              | information about the current office     | ignore it.                               |
+|                          |                        |              |              | holder(s).                               |                                          |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| term                     | :ref:`single-csv-term` | Optional     | Single       | Defines the term the office can be held. | If the element is invalid or not         |
+|                          |                        |              |              |                                          | present, then the implementation is      |
+|                          |                        |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
@@ -142,21 +142,21 @@ School Board, et al).
 term
 ^^^^
 
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+====================================+==============+==============+==========================================+==========================================+
-| type         | :ref:`single-csv-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              |                                    |              |              | :ref:`single-csv-office-term-type` for   | the implementation is required to ignore |
-|              |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_date   | ``xs:date``                        | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
-|              |                                    |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                    |              |              |                                          | ignore it.                               |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| end_date     | ``xs:date``                        | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
-|              |                                    |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                    |              |              |                                          | ignore it.                               |
-+--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag             | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
++=================+====================================+==============+==============+==========================================+==========================================+
+| term_type       | :ref:`single-csv-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
+|                 |                                    |              |              | :ref:`single-csv-office-term-type` for   | the implementation is required to ignore |
+|                 |                                    |              |              | valid values).                           | the ``Office`` element containing it.    |
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| term_start_date | ``xs:date``                        | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
+|                 |                                    |              |              | term of the office.                      | then the implementation is required to   |
+|                 |                                    |              |              |                                          | ignore it.                               |
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| term_end_date   | ``xs:date``                        | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
+|                 |                                    |              |              | term of the office.                      | then the implementation is required to   |
+|                 |                                    |              |              |                                          | ignore it.                               |
++-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-contact-information:
@@ -727,76 +727,76 @@ or elected official. These elements reference ``Person``:
 
 * :ref:`single-csv-office`
 
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+========================================+==============+==============+==========================================+==========================================+
-| contact_information  | :ref:`single-csv-contact-information`  | Optional     | Repeats      | Specifies contact information for the    | If the element is invalid or not         |
-|                      |                                        |              |              | person.                                  | present, then the implementation is      |
-|                      |                                        |              |              |                                          | required to ignore it.                   |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| date_of_birth        | ``xs:date``                            | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
-|                      |                                        |              |              | birth.                                   | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers | :ref:`single-csv-external-identifiers` | Optional     | Single       | Identifiers for this person.             | If the element is invalid or not         |
-|                      |                                        |              |              |                                          | present, then the implementation is      |
-|                      |                                        |              |              |                                          | required to ignore it.                   |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| first_name           | ``xs:string``                          | Optional     | Single       | Represents an individual's first name.   | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| full_name            | ``xs:string``                          | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
-|                      |                                        |              |              | this information is                      | present, then the implementation is      |
-|                      |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
-|                      |                                        |              |              | because it sometimes appears on ballots  |                                          |
-|                      |                                        |              |              | in multiple languages).                  |                                          |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| gender               | ``xs:string``                          | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| last_name            | ``xs:string``                          | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| middle_name          | ``xs:string``                          | Optional     | Repeats      | Represents any number of names between   | If the field is invalid or not present,  |
-|                      |                                        |              |              | an individual's first and last names     | then the implementation is required to   |
-|                      |                                        |              |              | (e.g. John **Ronald Reuel** Tolkien).    | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| nickname             | ``xs:string``                          | Optional     | Single       | Represents an individual's nickname.     | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_id             | ``xs:IDREF``                           | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
-|                      |                                        |              |              | :ref:`single-csv-party`. This            | then the implementation is required to   |
-|                      |                                        |              |              | information is intended to be used by    | ignore it.                               |
-|                      |                                        |              |              | feed consumers to help them disambiguate |                                          |
-|                      |                                        |              |              | the person's identity, but not to be     |                                          |
-|                      |                                        |              |              | presented as part of any ballot          |                                          |
-|                      |                                        |              |              | information. For that see                |                                          |
-|                      |                                        |              |              | :ref:`single-csv-candidate` **PartyId**. |                                          |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| prefix               | ``xs:string``                          | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
-|                      |                                        |              |              | person (e.g. Dr.).                       | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| profession           | ``xs:string``                          | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
-|                      |                                        |              |              | this information is                      | present, then the implementation is      |
-|                      |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
-|                      |                                        |              |              | because it sometimes appears on ballots  |                                          |
-|                      |                                        |              |              | in multiple languages).                  |                                          |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| suffix               | ``xs:string``                          | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
-|                      |                                        |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| title                | ``xs:string``                          | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
-|                      |                                        |              |              | (**NB:** this information is             | present, then the implementation is      |
-|                      |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
-|                      |                                        |              |              | because it sometimes appears on ballots  |                                          |
-|                      |                                        |              |              | in multiple languages).                  |                                          |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                    | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
++========================+========================================+==============+==============+==========================================+==========================================+
+| contact_information_id | ``xs:IDREF``                           | Optional     | Repeats      | Refers to the associated                 | If the element is invalid or not         |
+|                        |                                        |              |              | :ref:`single-csv-contact-information`.   | present, then the implementation is      |
+|                        |                                        |              |              |                                          | required to ignore it.                   |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| date_of_birth          | ``xs:date``                            | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
+|                        |                                        |              |              | birth.                                   | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifiers   | :ref:`single-csv-external-identifiers` | Optional     | Single       | Identifiers for this person.             | If the element is invalid or not         |
+|                        |                                        |              |              |                                          | present, then the implementation is      |
+|                        |                                        |              |              |                                          | required to ignore it.                   |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| first_name             | ``xs:string``                          | Optional     | Single       | Represents an individual's first name.   | If the field is invalid or not present,  |
+|                        |                                        |              |              |                                          | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| full_name              | ``xs:string``                          | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
+|                        |                                        |              |              | this information is                      | present, then the implementation is      |
+|                        |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
+|                        |                                        |              |              | because it sometimes appears on ballots  |                                          |
+|                        |                                        |              |              | in multiple languages).                  |                                          |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| gender                 | ``xs:string``                          | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
+|                        |                                        |              |              |                                          | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| last_name              | ``xs:string``                          | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
+|                        |                                        |              |              |                                          | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| middle_name            | ``xs:string``                          | Optional     | Repeats      | Represents any number of names between   | If the field is invalid or not present,  |
+|                        |                                        |              |              | an individual's first and last names     | then the implementation is required to   |
+|                        |                                        |              |              | (e.g. John **Ronald Reuel** Tolkien).    | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| nickname               | ``xs:string``                          | Optional     | Single       | Represents an individual's nickname.     | If the field is invalid or not present,  |
+|                        |                                        |              |              |                                          | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| party_id               | ``xs:IDREF``                           | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
+|                        |                                        |              |              | :ref:`single-csv-party`. This            | then the implementation is required to   |
+|                        |                                        |              |              | information is intended to be used by    | ignore it.                               |
+|                        |                                        |              |              | feed consumers to help them disambiguate |                                          |
+|                        |                                        |              |              | the person's identity, but not to be     |                                          |
+|                        |                                        |              |              | presented as part of any ballot          |                                          |
+|                        |                                        |              |              | information. For that see                |                                          |
+|                        |                                        |              |              | :ref:`single-csv-candidate` **PartyId**. |                                          |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| prefix                 | ``xs:string``                          | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
+|                        |                                        |              |              | person (e.g. Dr.).                       | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| profession             | ``xs:string``                          | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
+|                        |                                        |              |              | this information is                      | present, then the implementation is      |
+|                        |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
+|                        |                                        |              |              | because it sometimes appears on ballots  |                                          |
+|                        |                                        |              |              | in multiple languages).                  |                                          |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| suffix                 | ``xs:string``                          | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
+|                        |                                        |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
+|                        |                                        |              |              |                                          | ignore it.                               |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| title                  | ``xs:string``                          | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
+|                        |                                        |              |              | (**NB:** this information is             | present, then the implementation is      |
+|                        |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
+|                        |                                        |              |              | because it sometimes appears on ballots  |                                          |
+|                        |                                        |              |              | in multiple languages).                  |                                          |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
