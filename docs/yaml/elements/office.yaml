@@ -17,10 +17,10 @@ description: |-
   School Board, et al).
 tags:
 - _name: ContactInformation
-  csv-header-name: contact_information
-  csv-type: ContactInformation
-  description: Specifies the contact information for the office and/or individual
-    holding the office.
+  csv-header-name: contact_information_id
+  csv-type: xs:IDREF
+  description: Links to the :ref:`$$$-contact-information` element associated with
+    the office.
   error_then: =must-ignore
   repeating: true
   type: ContactInformation
