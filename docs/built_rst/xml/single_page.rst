@@ -427,42 +427,42 @@ Source
 The Source object represents the organization that is publishing the information. This object is
 the only required object in the feed file, and only one source object is allowed to be present.
 
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag             | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=================+==========================================+==============+==============+==========================================+==========================================+
-| Name            | ``xs:string``                            | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
-|                 |                                          |              |              | that is providing the information.       | implementation is required to ignore the |
-|                 |                                          |              |              |                                          | ``Source`` element containing it.        |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VipId           | ``xs:string``                            | **Required** | Single       | Specifies the ID of the organization.    | If the field is invalid, then the        |
-|                 |                                          |              |              | VIP uses FIPS_ codes for this ID.        | implementation is required to ignore the |
-|                 |                                          |              |              |                                          | ``Source`` element containing it.        |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| DateTime        | ``xs:dateTime``                          | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
-|                 |                                          |              |              | production. The date/time is considered  | implementation is required to ignore it. |
-|                 |                                          |              |              | to be in the timezone local to the       |                                          |
-|                 |                                          |              |              | organization.                            |                                          |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description     | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
-|                 |                                          |              |              | organization providing the data and what | present, then the implementation is      |
-|                 |                                          |              |              | data is in the feed.                     | required to ignore it.                   |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OrganizationUri | ``xs:string``                            | Optional     | Single       | Specifies a URI to the home page of the  | If the field is invalid or not present,  |
-|                 |                                          |              |              | organization publishing the data.        | then the implementation is required to   |
-|                 |                                          |              |              |                                          | ignore it.                               |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FeedContactId   | ``xs:IDREF``                             | Optional     | Single       | Reference to the                         | If the field is invalid or not present,  |
-|                 |                                          |              |              | :ref:`single-xml-person` who will        | then the implementation is required to   |
-|                 |                                          |              |              | respond to inquiries about the           | ignore it.                               |
-|                 |                                          |              |              | information contained within the file.   |                                          |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| TouUri          | ``xs:anyURI``                            | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
-|                 |                                          |              |              | Use for the information in this file can | then the implementation is required to   |
-|                 |                                          |              |              | be found.                                | ignore it.                               |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Version         | ``xs:string``                            | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
-|                 |                                          |              |              |                                          | implementation is required to ignore it. |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                    | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++========================+==========================================+==============+==============+==========================================+==========================================+
+| Name                   | ``xs:string``                            | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
+|                        |                                          |              |              | that is providing the information.       | implementation is required to ignore the |
+|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VipId                  | ``xs:string``                            | **Required** | Single       | Specifies the ID of the organization.    | If the field is invalid, then the        |
+|                        |                                          |              |              | VIP uses FIPS_ codes for this ID.        | implementation is required to ignore the |
+|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| DateTime               | ``xs:dateTime``                          | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
+|                        |                                          |              |              | production. The date/time is considered  | implementation is required to ignore it. |
+|                        |                                          |              |              | to be in the timezone local to the       |                                          |
+|                        |                                          |              |              | organization.                            |                                          |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Description            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
+|                        |                                          |              |              | organization providing the data and what | present, then the implementation is      |
+|                        |                                          |              |              | data is in the feed.                     | required to ignore it.                   |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OrganizationUri        | ``xs:string``                            | Optional     | Single       | Specifies a URI to the home page of the  | If the field is invalid or not present,  |
+|                        |                                          |              |              | organization publishing the data.        | then the implementation is required to   |
+|                        |                                          |              |              |                                          | ignore it.                               |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| FeedContactInformation | :ref:`single-xml-contact-information`    | Optional     | Single       | Reference to the                         | If the element is invalid or not         |
+|                        |                                          |              |              | :ref:`single-xml-person` who will        | present, then the implementation is      |
+|                        |                                          |              |              | respond to inquiries about the           | required to ignore it.                   |
+|                        |                                          |              |              | information contained within the file.   |                                          |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| TouUri                 | ``xs:anyURI``                            | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
+|                        |                                          |              |              | Use for the information in this file can | then the implementation is required to   |
+|                        |                                          |              |              | be found.                                | ignore it.                               |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Version                | ``xs:string``                            | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
+|                        |                                          |              |              |                                          | implementation is required to ignore it. |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
 

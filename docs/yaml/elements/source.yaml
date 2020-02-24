@@ -62,13 +62,13 @@ tags:
     data.
   error_then: =must-ignore
   type: xs:string
-- _name: FeedContactId
-  csv-header-name: feed_contact_id
+- _name: FeedContactInformation
+  csv-header-name: feed_contact_information_id
   csv-type: xs:IDREF
   description: Reference to the :ref:`$$$-person` who will respond to inquiries about
     the information contained within the file.
   error_then: =must-ignore
-  type: xs:IDREF
+  type: ContactInformation
 - _name: TouUri
   csv-header-name: terms_of_use_uri
   csv-type: xs:anyURI
