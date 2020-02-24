@@ -63,8 +63,8 @@ tags:
   error_then: =must-ignore
   type: xs:string
 - _name: FeedContactInformation
-  csv-header-name: feed_contact_information
-  csv-type: ContactInformation
+  csv-header-name: feed_contact_information_id
+  csv-type: xs:IDREF
   description: Reference to the :ref:`$$$-person` who will respond to inquiries about
     the information contained within the file.
   error_then: =must-ignore
