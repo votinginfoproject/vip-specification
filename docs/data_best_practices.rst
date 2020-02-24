@@ -1,13 +1,61 @@
-XML Data Best Practices
+Data Best Practices
 =======================
 
-Following is a series of best practice for data collection and XML file creation and suggestions about best practices of
-formatting data within your VIP XML file.
+Following is a series of best practice for data collection and file creation and suggestions about best practices of
+formatting data within your VIP XML and CSV file.
+
+.. _naming-convention:
+
+Naming convention
+-----------------
+
+While many of the Voting Information Project's data processes are managed by software,
+the quality of the entire system relies on human intervention, especially for error reporting
+and quality control. For this reason, VIP files should follow a naming convention that
+describes the contents of each individual feed file in an accessible way.
+
+The file containing the VIP feed should be named using the following convention:
+
+.. code-block:: none
+
+   vipfeed-${FIPS}-${ELECTION_DATE}-${STATE}[-${LOCAL}].{xml|zip}
+
+An explanation of each of the segments of the file naming convention above are as follows:
+
+- ``${FIPS}`` - The `FIPS code`_ for the jurisdiction.
+- ``${ELECTION_DATE}`` - The date of the election in `ISO 8601`_ format.
+- ``${STATE}`` - The full state name (e.g. Alaska, Arkansas, etc...) and not the abbreviation. If
+  there are spaces in the state name, they should be substituted with underscores (e.g. New York ->
+  New_York).
+- ``${LOCAL}`` (optional) - This additional identifier should be used if the file contains data
+  from a specific jurisdiction. As with ``${STATE}`` above, all spaces should be substituted with
+  underscores. For example, if the data contained in the file only covers Maricopa County, AZ for
+  the November 6, 2012 election, the file name would be
+  ``vipfeed-04013-2012-11-06-Arizona-Maricopa_County.xml``.
+- ``{xml|zip}`` - If the file is an uncompressed XML document, the extension should be ``.xml.`` If
+  the file is zipped, the file extension should end with ``.zip``.
+
+For a final example, ``vipfeed-19-2012-11-06-Iowa.zip`` denotes Iowa's (**NB:** the FIPS code
+for IA is 19) feed for the Nov 6, 2012 election that has been compressed.
+
+.. _FIPS code: https://en.wikipedia.org/wiki/FIPS_county_code
+.. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
+
+
+
 
 Element Identifiers
 -------------------
 
-Most elements within the VIP feed require unique identifiers, ``xs:ID`` data types, and in order to maintain uniqueness
+Most elements within the VIP feed require unique identifiers, `xs:ID`_ data types. Conformance to ``xs:ID`` requires 
+the identifying record to:
+  - begin with a letter or underscore
+  - only contain letters, digits, hyphens and periods
+  - be unique across the VIP data set
+
+  .. _xs:ID: http://www.datypic.com/sc/xsd/t-xsd_ID.html
+
+In order to maintain uniqueness
 and provide context for the identifiers, the best practice is to use `Hungarian-Style`_ notation for identifiers.
 
 ID values should follow Hungarian-Style notation, were the identifier prefix implicitly names the data element.  Below
@@ -69,7 +117,7 @@ is a list of preferred prefixes by element (e.g. par00001 for a ``Party`` ``id``
 
 File Structure
 --------------
-All XML files should be encoded UFT-8 and line breaks should be LF (``\n``) as opposed to CR LF (``\r\n``).
+All XML and CSV files should be encoded UFT-8 and line breaks should be LF (``\n``) as opposed to CR LF (``\r\n``).
 
 For consistency across files and to aid human readability all indentation of elements should be an indent of two spaces
 and tabs should not be used.  Each child node of an element should also be indented an additional two spaces.
