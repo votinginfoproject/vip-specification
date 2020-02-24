@@ -533,7 +533,10 @@
   <xs:complexType name="PollingLocation">
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
-      <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      <xs:choice>
+        <xs:element name="AddressStructured" type="SimpleAddressType"/>
+        <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      </xs:choice>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
            Note: The "Hours" element is being deprecated and will be removed
@@ -575,6 +578,17 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SimpleAddressType">
+    <xs:sequence>
+      <xs:element name="Line1" type="xs:string"/>
+      <xs:element name="Line2" type="xs:string" minOccurs="0" />
+      <xs:element name="Line3" type="xs:string" minOccurs="0" />
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="Zip" type="xs:string" minOccurs="0" />
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="State">
