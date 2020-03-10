@@ -11,9 +11,9 @@
 |                          |                                       |              |              | links to another dataset (e.g.           | present, then the implementation is      |
 |                          |                                       |              |              | `OCD-ID`_)                               | required to ignore it.                   |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                     | ``xs:string``                         | **Required** | Single       | Specifies the name of a locality.        | If the field is not present or invalid,  |
-|                          |                                       |              |              |                                          | the implementation is required to ignore |
-|                          |                                       |              |              |                                          | the Locality element containing it.      |
+| Name                     | ``xs:string``                         | **Required** | Single       | Specifies the name of a locality.        | If the field is invalid, then the        |
+|                          |                                       |              |              |                                          | implementation is required to ignore the |
+|                          |                                       |              |              |                                          | ``Locality`` element containing it.      |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                         | Optional     | Single       | Specifies a link to a set of the         | If the field is invalid or not present,  |
 |                          |                                       |              |              | locality's :ref:`polling locations       | the implementation is required to ignore |
@@ -22,9 +22,9 @@
 |                          |                                       |              |              | are locality-wide, they should be        | polling locations associated with this   |
 |                          |                                       |              |              | specified here.                          | locality's state.                        |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StateId                  | ``xs:IDREF``                          | **Required** | Single       | References the locality's                | If the field is invalid or not present,  |
-|                          |                                       |              |              | :ref:`multi-xml-state`.                  | the implementation is required to ignore |
-|                          |                                       |              |              |                                          | the Locality element containing.         |
+| StateId                  | ``xs:IDREF``                          | **Required** | Single       | References the locality's                | If the field is invalid, then the        |
+|                          |                                       |              |              | :ref:`multi-xml-state`.                  | implementation is required to ignore the |
+|                          |                                       |              |              |                                          | ``Locality`` element containing it.      |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Type                     | :ref:`multi-xml-district-type`        | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
 |                          |                                       |              |              | county, town, et al.), which is one of   | then the implementation is required to   |

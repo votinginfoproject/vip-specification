@@ -46,8 +46,6 @@ tags:
   csv-header-name: name
   csv-type: xs:string
   description: Specifies the name of a locality.
-  error: If the field is not present or invalid, the implementation is required to
-    ignore the Locality element containing it.
   required: true
   type: xs:string
 - _name: PollingLocationIds
@@ -64,8 +62,6 @@ tags:
   csv-header-name: state_id
   csv-type: xs:IDREF
   description: References the locality's :ref:`$$$-state`.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the Locality element containing.
   required: true
   type: xs:IDREF
 - _name: Type

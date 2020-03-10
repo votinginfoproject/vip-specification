@@ -45,7 +45,6 @@ tags:
   csv-type: xs:dateTime
   description: Specifies the date and time of the feed production. The date/time is
     considered to be in the timezone local to the organization.
-  error_then: =must-ignore
   required: true
   type: xs:dateTime
 - _name: Description
@@ -80,6 +79,5 @@ tags:
   csv-header-name: version
   csv-type: xs:string
   description: Specifies the version of the data
-  error_then: =must-ignore
   required: true
   type: xs:string
