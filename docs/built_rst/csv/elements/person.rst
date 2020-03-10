@@ -14,76 +14,76 @@ or elected official. These elements reference ``Person``:
 
 * :ref:`multi-csv-office`
 
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+=======================================+==============+==============+==========================================+==========================================+
-| contact_information  | :ref:`multi-csv-contact-information`  | Optional     | Repeats      | Specifies contact information for the    | If the element is invalid or not         |
-|                      |                                       |              |              | person.                                  | present, then the implementation is      |
-|                      |                                       |              |              |                                          | required to ignore it.                   |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| date_of_birth        | ``xs:date``                           | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
-|                      |                                       |              |              | birth.                                   | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers | :ref:`multi-csv-external-identifiers` | Optional     | Single       | Identifiers for this person.             | If the element is invalid or not         |
-|                      |                                       |              |              |                                          | present, then the implementation is      |
-|                      |                                       |              |              |                                          | required to ignore it.                   |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| first_name           | ``xs:string``                         | Optional     | Single       | Represents an individual's first name.   | If the field is invalid or not present,  |
-|                      |                                       |              |              |                                          | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| full_name            | ``xs:string``                         | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
-|                      |                                       |              |              | this information is                      | present, then the implementation is      |
-|                      |                                       |              |              | :ref:`multi-csv-internationalized-text`  | required to ignore it.                   |
-|                      |                                       |              |              | because it sometimes appears on ballots  |                                          |
-|                      |                                       |              |              | in multiple languages).                  |                                          |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| gender               | ``xs:string``                         | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
-|                      |                                       |              |              |                                          | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| last_name            | ``xs:string``                         | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
-|                      |                                       |              |              |                                          | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| middle_name          | ``xs:string``                         | Optional     | Repeats      | Represents any number of names between   | If the field is invalid or not present,  |
-|                      |                                       |              |              | an individual's first and last names     | then the implementation is required to   |
-|                      |                                       |              |              | (e.g. John **Ronald Reuel** Tolkien).    | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| nickname             | ``xs:string``                         | Optional     | Single       | Represents an individual's nickname.     | If the field is invalid or not present,  |
-|                      |                                       |              |              |                                          | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_id             | ``xs:IDREF``                          | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
-|                      |                                       |              |              | :ref:`multi-csv-party`. This information | then the implementation is required to   |
-|                      |                                       |              |              | is intended to be used by feed consumers | ignore it.                               |
-|                      |                                       |              |              | to help them disambiguate the person's   |                                          |
-|                      |                                       |              |              | identity, but not to be presented as     |                                          |
-|                      |                                       |              |              | part of any ballot information. For that |                                          |
-|                      |                                       |              |              | see :ref:`multi-csv-candidate`           |                                          |
-|                      |                                       |              |              | **PartyId**.                             |                                          |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| prefix               | ``xs:string``                         | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
-|                      |                                       |              |              | person (e.g. Dr.).                       | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| profession           | ``xs:string``                         | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
-|                      |                                       |              |              | this information is                      | present, then the implementation is      |
-|                      |                                       |              |              | :ref:`multi-csv-internationalized-text`  | required to ignore it.                   |
-|                      |                                       |              |              | because it sometimes appears on ballots  |                                          |
-|                      |                                       |              |              | in multiple languages).                  |                                          |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| suffix               | ``xs:string``                         | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
-|                      |                                       |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| title                | ``xs:string``                         | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
-|                      |                                       |              |              | (**NB:** this information is             | present, then the implementation is      |
-|                      |                                       |              |              | :ref:`multi-csv-internationalized-text`  | required to ignore it.                   |
-|                      |                                       |              |              | because it sometimes appears on ballots  |                                          |
-|                      |                                       |              |              | in multiple languages).                  |                                          |
-+----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                    | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++========================+=======================================+==============+==============+==========================================+==========================================+
+| contact_information_id | ``xs:IDREF``                          | Optional     | Repeats      | Refers to the associated                 | If the element is invalid or not         |
+|                        |                                       |              |              | :ref:`multi-csv-contact-information`.    | present, then the implementation is      |
+|                        |                                       |              |              |                                          | required to ignore it.                   |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| date_of_birth          | ``xs:date``                           | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
+|                        |                                       |              |              | birth.                                   | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifiers   | :ref:`multi-csv-external-identifiers` | Optional     | Single       | Identifiers for this person.             | If the element is invalid or not         |
+|                        |                                       |              |              |                                          | present, then the implementation is      |
+|                        |                                       |              |              |                                          | required to ignore it.                   |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| first_name             | ``xs:string``                         | Optional     | Single       | Represents an individual's first name.   | If the field is invalid or not present,  |
+|                        |                                       |              |              |                                          | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| full_name              | ``xs:string``                         | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
+|                        |                                       |              |              | this information is                      | present, then the implementation is      |
+|                        |                                       |              |              | :ref:`multi-csv-internationalized-text`  | required to ignore it.                   |
+|                        |                                       |              |              | because it sometimes appears on ballots  |                                          |
+|                        |                                       |              |              | in multiple languages).                  |                                          |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| gender                 | ``xs:string``                         | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
+|                        |                                       |              |              |                                          | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| last_name              | ``xs:string``                         | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
+|                        |                                       |              |              |                                          | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| middle_name            | ``xs:string``                         | Optional     | Repeats      | Represents any number of names between   | If the field is invalid or not present,  |
+|                        |                                       |              |              | an individual's first and last names     | then the implementation is required to   |
+|                        |                                       |              |              | (e.g. John **Ronald Reuel** Tolkien).    | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| nickname               | ``xs:string``                         | Optional     | Single       | Represents an individual's nickname.     | If the field is invalid or not present,  |
+|                        |                                       |              |              |                                          | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| party_id               | ``xs:IDREF``                          | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
+|                        |                                       |              |              | :ref:`multi-csv-party`. This information | then the implementation is required to   |
+|                        |                                       |              |              | is intended to be used by feed consumers | ignore it.                               |
+|                        |                                       |              |              | to help them disambiguate the person's   |                                          |
+|                        |                                       |              |              | identity, but not to be presented as     |                                          |
+|                        |                                       |              |              | part of any ballot information. For that |                                          |
+|                        |                                       |              |              | see :ref:`multi-csv-candidate`           |                                          |
+|                        |                                       |              |              | **PartyId**.                             |                                          |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| prefix                 | ``xs:string``                         | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
+|                        |                                       |              |              | person (e.g. Dr.).                       | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| profession             | ``xs:string``                         | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
+|                        |                                       |              |              | this information is                      | present, then the implementation is      |
+|                        |                                       |              |              | :ref:`multi-csv-internationalized-text`  | required to ignore it.                   |
+|                        |                                       |              |              | because it sometimes appears on ballots  |                                          |
+|                        |                                       |              |              | in multiple languages).                  |                                          |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| suffix                 | ``xs:string``                         | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
+|                        |                                       |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| title                  | ``xs:string``                         | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
+|                        |                                       |              |              | (**NB:** this information is             | present, then the implementation is      |
+|                        |                                       |              |              | :ref:`multi-csv-internationalized-text`  | required to ignore it.                   |
+|                        |                                       |              |              | because it sometimes appears on ballots  |                                          |
+|                        |                                       |              |              | in multiple languages).                  |                                          |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:

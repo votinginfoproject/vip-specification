@@ -1483,8 +1483,12 @@
 
   <!-- The polling locations in this jurisdiction. -->
   <PollingLocation id="pl00000">
-    <AddressLine>1600 5TH STREET</AddressLine>
-    <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
+    <AddressStructured>
+       <Line1>2775 Hydraulic Rd</Line1>
+      <City>CHARLOTTESVILLE</City>
+      <State>VA</State>
+     <Zip>22901</Zip>
+    </AddressStructured>
     <HoursOpenId>hours0002</HoursOpenId>
     <IsDropBox>true</IsDropBox>
     <IsEarlyVoting>true</IsEarlyVoting>
@@ -1492,7 +1496,6 @@
       <Latitude>38.009939</Latitude>
       <Longitude>-78.506204</Longitude>
     </LatLng>
-    <Name>DEPARTMENT OF VOTER REGISTRATION AND ELECTIONS</Name>
   </PollingLocation>
   <PollingLocation id="pl81273">
     <AddressLine>2775 Hydraulic Rd</AddressLine>
@@ -2026,6 +2029,19 @@
   </Precinct>
 
   <!-- Street segments -->
+   <StreetSegment id = "ss1">
+      <City>GREENWOOD</City>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre92145</PrecinctId>
+      <StartHouseNumber>1</StartHouseNumber>
+      <EndHouseNumber>1</EndHouseNumber>
+      <HouseNumberPrefix>B</HouseNumberPrefix>
+      <HouseNumberSuffix>1/2</HouseNumberSuffix>
+      <State>VA</State>
+      <StreetName>MISTY MOUNTAIN</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22943</Zip>
+   </StreetSegment>
   <StreetSegment id="ss000000">
     <City>Charlottesville</City>
     <IncludesAllStreets>true</IncludesAllStreets>

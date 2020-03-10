@@ -11,27 +11,6 @@ csv-post: |-
       vs02,Pencil sharpening,per50002,other,office-help,dep03
       vs03,Guided hike to polling place,per50002,other,polling-places,dep03
       vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
-post: |-
-  .. code-block:: xml
-     :linenos:
-
-     <ElectionAdministration id="ea40133">
-        <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
-        <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
-        <Department>
-          <ContactInformation label="ci60000">
-            <AddressLine>Washington Building First Floor</AddressLine>
-            <AddressLine>1100 Bank Street</AddressLine>
-            <AddressLine>Richmond, VA 23219</AddressLine>
-            <Name>State Board of Elections</Name>
-          </ContactInformation>
-        </Department>
-        <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
-        <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
-        <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
-        <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
-        <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
-     </ElectionAdministration>
 tags:
 - _name: ContactInformation
   csv-header-name: contact_information

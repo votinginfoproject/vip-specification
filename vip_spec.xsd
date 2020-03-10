@@ -288,6 +288,8 @@
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="AmIRegisteredUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="BallotTrackingUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="BallotProvisionalTrackingUri" type="xs:anyURI" minOccurs="0" />
       <!-- A locality may have more than one department with each handling different services. -->
       <xs:element name="Department" maxOccurs="unbounded">
         <xs:complexType>
@@ -531,7 +533,10 @@
   <xs:complexType name="PollingLocation">
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
-      <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      <xs:choice>
+        <xs:element name="AddressStructured" type="SimpleAddressType"/>
+        <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      </xs:choice>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
            Note: The "Hours" element is being deprecated and will be removed
@@ -575,6 +580,17 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="SimpleAddressType">
+    <xs:sequence>
+      <xs:element name="Line1" type="xs:string"/>
+      <xs:element name="Line2" type="xs:string" minOccurs="0" />
+      <xs:element name="Line3" type="xs:string" minOccurs="0" />
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="Zip" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="State">
     <xs:sequence>
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
@@ -595,6 +611,8 @@
       <xs:element name="PrecinctId" type="xs:IDREF" />
       <xs:element name="StartHouseNumber" type="xs:integer" minOccurs="0" />
       <xs:element name="EndHouseNumber" type="xs:integer" minOccurs="0" />
+      <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
+      <xs:element name="HouseNumberSuffix" type="xs:string" minOccurs="0" />
       <xs:element name="State" type="xs:string" />
       <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
       <xs:element name="StreetName" type="xs:string" minOccurs="0"/>

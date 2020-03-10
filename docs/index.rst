@@ -41,3 +41,11 @@ CSV Documentation
    :maxdepth: 2
 
    csv
+
+Best Practices
+-----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   data_best_practices

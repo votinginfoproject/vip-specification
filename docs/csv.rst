@@ -47,9 +47,7 @@ CSV files must be comma-delimited, UTF-8 .txt files, named according to the spec
 for the state object should be the state's FIPS number. The id attributes are not required to remain constant
 for the same piece of semantic data across multiple productions of the feed (e.g. candidate Michael Smith,
 running for dogcatcher in Iowa, is not required to have the same candidate id attribute each time the state
-of Iowa publishes data). Please see our XML :doc:`Best Practices <../xml_data_best_practices>`
-document when creating IDs and labels for your elements.
-
+of Iowa publishes data). 
 
 Elements & Enumerations
 -----------------------
