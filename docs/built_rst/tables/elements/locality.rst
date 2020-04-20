@@ -11,9 +11,25 @@
 |                          |                                       |              |              | links to another dataset (e.g.           | present, then the implementation is      |
 |                          |                                       |              |              | `OCD-ID`_)                               | required to ignore it.                   |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+<<<<<<< HEAD
 | Name                     | ``xs:string``                         | **Required** | Single       | Specifies the name of a locality.        | If the field is invalid, then the        |
 |                          |                                       |              |              |                                          | implementation is required to ignore the |
 |                          |                                       |              |              |                                          | ``Locality`` element containing it.      |
+=======
+| IsMailOnly               | ``xs:boolean``                        | Optional     | Single       | Determines if the locality runs          | If the field is missing or invalid, the  |
+|                          |                                       |              |              | mail-only elections. If this is true,    | implementation is required to assume     |
+|                          |                                       |              |              | then all precincts a part of the         | `IsMailOnly` is false.                   |
+|                          |                                       |              |              | locality will also run mail-only         |                                          |
+|                          |                                       |              |              | elections. Drop boxes may be used in     |                                          |
+|                          |                                       |              |              | addition to this flag using a            |                                          |
+|                          |                                       |              |              | :ref:`polling location                   |                                          |
+|                          |                                       |              |              | <multi-xml-polling-location>` record     |                                          |
+|                          |                                       |              |              | configured as a Drop Box.                |                                          |
++--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name                     | ``xs:string``                         | **Required** | Single       | Specifies the name of a locality.        | If the field is not present or invalid,  |
+|                          |                                       |              |              |                                          | the implementation is required to ignore |
+|                          |                                       |              |              |                                          | the Locality element containing it.      |
+>>>>>>> 191cfa7... Updating RST files, adding IsMailOnly field to Locality
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                         | Optional     | Single       | Specifies a link to a set of the         | If the field is invalid or not present,  |
 |                          |                                       |              |              | locality's :ref:`polling locations       | the implementation is required to ignore |
