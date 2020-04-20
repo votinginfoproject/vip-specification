@@ -72,6 +72,20 @@
     <Type>county</Type>
   </Locality>
 
+  <Locality id="loc70002">
+    <ElectionAdministrationId>ea40001</ElectionAdministrationId>
+    <ExternalIdentifiers>
+      <ExternalIdentifier>
+        <Type>ocd-id</Type>
+        <Value>ocd-division/country:us/state:va/county:fairfax</Value>
+      </ExternalIdentifier>
+    </ExternalIdentifiers>
+    <IsMailOnly>true</IsMailOnly>
+    <Name>Fairfax COUNTY</Name>
+    <StateId>st51</StateId>
+    <Type>county</Type>
+  </Locality>
+
   <!-- Information about the election administration organizations for various jurisdictions. -->
   <ElectionAdministration id="ea40133">
     <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
