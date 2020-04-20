@@ -439,7 +439,7 @@
     <xs:sequence>
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
-      <xs:element name="Name" type="xs:string" />
+      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="StateId" type="xs:IDREF" />
       <xs:element name="Type" type="DistrictType" minOccurs="0" />
