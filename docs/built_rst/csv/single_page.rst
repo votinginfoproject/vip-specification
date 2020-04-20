@@ -358,8 +358,8 @@ the only required object in the feed file, and only one source object is allowed
 |                             |                 |              |              |                                          | ``Source`` element containing it.        |
 +-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | date_time                   | ``xs:dateTime`` | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
-|                             |                 |              |              | production. The date/time is considered  | implementation is required to ignore it. |
-|                             |                 |              |              | to be in the timezone local to the       |                                          |
+|                             |                 |              |              | production. The date/time is considered  | implementation is required to ignore the |
+|                             |                 |              |              | to be in the timezone local to the       | ``Source`` element containing it.        |
 |                             |                 |              |              | organization.                            |                                          |
 +-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | description                 | ``xs:string``   | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
@@ -380,7 +380,8 @@ the only required object in the feed file, and only one source object is allowed
 |                             |                 |              |              | be found.                                | ignore it.                               |
 +-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | version                     | ``xs:string``   | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
-|                             |                 |              |              |                                          | implementation is required to ignore it. |
+|                             |                 |              |              |                                          | implementation is required to ignore the |
+|                             |                 |              |              |                                          | ``Source`` element containing it.        |
 +-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
@@ -1335,11 +1336,6 @@ The Locality object represents the jurisdiction below the :ref:`single-csv-state
 |                            |                                        |              |              | links to another dataset (e.g. `OCD-ID`_) | present, then the implementation is      |
 |                            |                                        |              |              |                                           | required to ignore it.                   |
 +----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-<<<<<<< HEAD
-| name                       | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is invalid, then the        |
-|                            |                                        |              |              |                                           | implementation is required to ignore the |
-|                            |                                        |              |              |                                           | ``Locality`` element containing it.      |
-=======
 | is_mail_only               | ``xs:boolean``                         | Optional     | Single       | Determines if the locality runs mail-only | If the field is missing or invalid, the  |
 |                            |                                        |              |              | elections. If this is true, then all      | implementation is required to assume     |
 |                            |                                        |              |              | precincts a part of the locality will     | `IsMailOnly` is false.                   |
@@ -1349,10 +1345,9 @@ The Locality object represents the jurisdiction below the :ref:`single-csv-state
 |                            |                                        |              |              | <single-csv-polling-location>` record     |                                          |
 |                            |                                        |              |              | configured as a Drop Box.                 |                                          |
 +----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| name                       | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is not present or invalid,  |
-|                            |                                        |              |              |                                           | the implementation is required to ignore |
-|                            |                                        |              |              |                                           | the Locality element containing it.      |
->>>>>>> 191cfa7... Updating RST files, adding IsMailOnly field to Locality
+| name                       | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is invalid, then the        |
+|                            |                                        |              |              |                                           | implementation is required to ignore the |
+|                            |                                        |              |              |                                           | ``Locality`` element containing it.      |
 +----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
 | polling_location_ids       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to a set of the          | If the field is invalid or not present,  |
 |                            |                                        |              |              | locality's :ref:`polling locations        | the implementation is required to ignore |
