@@ -1,0 +1,16 @@
+_name: ElectionNotice
+csv-header-name: election_notice
+description: 'The ElectionNotice description. '
+tags:
+- _name: NoticeText
+  csv-header-name: election_notice_text
+  csv-type: xs:string
+  description: Text for the Election Notice.
+  required: true
+  type: InternationalizedText
+- _name: NoticeUri
+  csv-header-name: election_notice_uri
+  csv-type: xs:string
+  description: Optional URL for additional information related to the Election Notice.
+  error_then: =must-ignore
+  type: xs:anyURI
