@@ -343,6 +343,13 @@
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
+  <xs:complexType name="ElectionNotice">
+    <xs:sequence>
+      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="1" />
+      <xs:element name="NoticeUri" type="xs:anyURI" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="ExternalIdentifiers">
     <xs:sequence>
       <xs:element name="ExternalIdentifier" maxOccurs="unbounded">
@@ -442,6 +449,7 @@
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Name" type="xs:string" />
       <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="StateId" type="xs:IDREF" />
       <xs:element name="Type" type="DistrictType" minOccurs="0" />
@@ -653,6 +661,7 @@
               <xs:element name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0" />
               <xs:element name="Date" type="xs:date" />
               <xs:element name="ElectionType" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="ElectionNotice" type="ElectionNotice" minOccurs = "0" />
               <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
               <xs:element name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
               <xs:element name="IsStatewide" type="xs:boolean" minOccurs="0" />
