@@ -8,6 +8,11 @@
 |                            |                                         |              |              | the timezone local to the state holding  | ``Election`` element containing it.      |
 |                            |                                         |              |              | the election.                            |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectionNotice             | :ref:`multi-xml-election-notice`        | Optional     | Single       | Allows for the publication of            | If the element is invalid or not         |
+|                            |                                         |              |              | information related to election notices, | present, then the implementation is      |
+|                            |                                         |              |              | including those attributed to natural    | required to ignore it.                   |
+|                            |                                         |              |              | disasters and other unforseen events.    |                                          |
++----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionType               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
 |                            |                                         |              |              | authority for election (e.g., federal,   | present, then the implementation is      |
 |                            |                                         |              |              | state, county, city, town, etc.)         | required to ignore it.                   |

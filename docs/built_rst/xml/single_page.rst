@@ -318,6 +318,11 @@ with one Election object.
 |                            |                                          |              |              | the timezone local to the state holding  | ``Election`` element containing it.      |
 |                            |                                          |              |              | the election.                            |                                          |
 +----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ElectionNotice             | :ref:`single-xml-election-notice`        | Optional     | Single       | Allows for the publication of            | If the element is invalid or not         |
+|                            |                                          |              |              | information related to election notices, | present, then the implementation is      |
+|                            |                                          |              |              | including those attributed to natural    | required to ignore it.                   |
+|                            |                                          |              |              | disasters and other unforseen events.    |                                          |
++----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectionType               | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
 |                            |                                          |              |              | authority for election (e.g., federal,   | present, then the implementation is      |
 |                            |                                          |              |              | state, county, city, town, etc.)         | required to ignore it.                   |
@@ -384,6 +389,12 @@ with one Election object.
    <Election id="ele30000">
      <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
      <Date>2013-11-05</Date>
+     <ElectionNotice>
+       <NoticeText>
+          <Text language="en">There are some last minute changes for this election. For additional information see the accompanying URL</Text>
+       </NoticeText>
+       <NoticeUri>https://someelectionnotice.gov</NoticeUri>
+     </ElectionNotice>
      <ElectionType>
        <Text language="en">General</Text>
        <Text language="es">Generales</Text>
@@ -398,6 +409,27 @@ with one Election object.
      <ResultsUri>http://www.sbe.virginia.gov/ElectionResults.html</ResultsUri>
      <StateId>st51</StateId>
    </Election>
+
+
+.. _single-xml-election-notice:
+
+ElectionNotice
+^^^^^^^^^^^^^^
+
+The ElectionNotice description. 
+
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==========================================+==============+==============+==========================================+==========================================+
+| NoticeText   | :ref:`single-xml-internationalized-text` | **Required** | Single       | Text for the Election Notice.            | If the element is invalid, then the      |
+|              |                                          |              |              |                                          | implementation is required to ignore the |
+|              |                                          |              |              |                                          | ``ElectionNotice`` element containing    |
+|              |                                          |              |              |                                          | it.                                      |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| NoticeUri    | ``xs:anyURI``                            | Optional     | Single       | Optional URL for additional information  | If the field is invalid or not present,  |
+|              |                                          |              |              | related to the Election Notice.          | then the implementation is required to   |
+|              |                                          |              |              |                                          | ignore it.                               |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-ballot-selection-base:
@@ -440,8 +472,8 @@ the only required object in the feed file, and only one source object is allowed
 |                        |                                          |              |              |                                          | ``Source`` element containing it.        |
 +------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | DateTime               | ``xs:dateTime``                          | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
-|                        |                                          |              |              | production. The date/time is considered  | implementation is required to ignore it. |
-|                        |                                          |              |              | to be in the timezone local to the       |                                          |
+|                        |                                          |              |              | production. The date/time is considered  | implementation is required to ignore the |
+|                        |                                          |              |              | to be in the timezone local to the       | ``Source`` element containing it.        |
 |                        |                                          |              |              | organization.                            |                                          |
 +------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Description            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
@@ -462,7 +494,8 @@ the only required object in the feed file, and only one source object is allowed
 |                        |                                          |              |              | be found.                                | ignore it.                               |
 +------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Version                | ``xs:string``                            | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
-|                        |                                          |              |              |                                          | implementation is required to ignore it. |
+|                        |                                          |              |              |                                          | implementation is required to ignore the |
+|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
 +------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
@@ -1566,11 +1599,6 @@ The Locality object represents the jurisdiction below the :ref:`single-xml-state
 |                          |                                        |              |              | links to another dataset (e.g. `OCD-ID`_) | present, then the implementation is      |
 |                          |                                        |              |              |                                           | required to ignore it.                   |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-<<<<<<< HEAD
-| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is invalid, then the        |
-|                          |                                        |              |              |                                           | implementation is required to ignore the |
-|                          |                                        |              |              |                                           | ``Locality`` element containing it.      |
-=======
 | IsMailOnly               | ``xs:boolean``                         | Optional     | Single       | Determines if the locality runs mail-only | If the field is missing or invalid, the  |
 |                          |                                        |              |              | elections. If this is true, then all      | implementation is required to assume     |
 |                          |                                        |              |              | precincts a part of the locality will     | `IsMailOnly` is false.                   |
@@ -1580,10 +1608,9 @@ The Locality object represents the jurisdiction below the :ref:`single-xml-state
 |                          |                                        |              |              | <single-xml-polling-location>` record     |                                          |
 |                          |                                        |              |              | configured as a Drop Box.                 |                                          |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is not present or invalid,  |
-|                          |                                        |              |              |                                           | the implementation is required to ignore |
-|                          |                                        |              |              |                                           | the Locality element containing it.      |
->>>>>>> 191cfa7... Updating RST files, adding IsMailOnly field to Locality
+| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is invalid, then the        |
+|                          |                                        |              |              |                                           | implementation is required to ignore the |
+|                          |                                        |              |              |                                           | ``Locality`` element containing it.      |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to a set of the          | If the field is invalid or not present,  |
 |                          |                                        |              |              | locality's :ref:`polling locations        | the implementation is required to ignore |
@@ -2459,6 +2486,27 @@ UTC. The pattern is
        <EndDate>2013-11-05</EndDate>
      </Schedule>
    </HoursOpen>
+
+
+.. _single-xml-election-notice:
+
+ElectionNotice
+~~~~~~~~~~~~~~
+
+The ElectionNotice description. 
+
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==========================================+==============+==============+==========================================+==========================================+
+| NoticeText   | :ref:`single-xml-internationalized-text` | **Required** | Single       | Text for the Election Notice.            | If the element is invalid, then the      |
+|              |                                          |              |              |                                          | implementation is required to ignore the |
+|              |                                          |              |              |                                          | ``ElectionNotice`` element containing    |
+|              |                                          |              |              |                                          | it.                                      |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| NoticeUri    | ``xs:anyURI``                            | Optional     | Single       | Optional URL for additional information  | If the field is invalid or not present,  |
+|              |                                          |              |              | related to the Election Notice.          | then the implementation is required to   |
+|              |                                          |              |              |                                          | ignore it.                               |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-retention-contest:
