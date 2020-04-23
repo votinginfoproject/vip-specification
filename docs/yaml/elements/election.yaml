@@ -5,8 +5,8 @@ csv-post: |-
      :linenos:
 
 
-      id,date,name,election_type,state_id,is_statewide,registration_info,absentee_ballot_info,results_uri,polling_hours,has_election_day_registration,registration_deadline,absentee_request_deadline,hours_open_id
-      e001,10-08-2016,Best Hot Dog,State,st51,true,www.registrationinfo.com,You can vote absentee,http://hotdogcontest.gov/results,Noon to 3p.m.,true,10/08/2016,,ho002
+      id,date,name,election_type,election_notice_text,election_notice_uri,state_id,is_statewide,registration_info,absentee_ballot_info,results_uri,polling_hours,has_election_day_registration,registration_deadline,absentee_request_deadline,hours_open_id
+      e001,10-08-2016,Best Hot Dog,State,There are some last minute changes for this election. For additional information see the accompanying URL,https://someelectionnotice.gov,st51,true,www.registrationinfo.com,You can vote absentee,http://hotdogcontest.gov/results,Noon to 3p.m.,true,10/08/2016,,ho002
 description: |-
   The Election object represents an Election Day, which usually consists of many individual contests
   and/or referenda. A feed must contain **exactly one** Election object. All relationships in the
@@ -14,6 +14,8 @@ description: |-
   the Election specified by this object. It is permissible, and recommended, to combine unrelated
   contests (e.g., a special election and a general election) that occur on the same day into one feed
   with one Election object.
+extends:
+- ElectionNotice
 post: |-
   .. code-block:: xml
      :linenos:
@@ -21,6 +23,12 @@ post: |-
      <Election id="ele30000">
        <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
        <Date>2013-11-05</Date>
+       <ElectionNotice>
+         <NoticeText>
+            <Text language="en">There are some last minute changes for this election. For additional information see the accompanying URL</Text>
+         </NoticeText>
+         <NoticeUri>https://someelectionnotice.gov</NoticeUri>
+       </ElectionNotice>
        <ElectionType>
          <Text language="en">General</Text>
          <Text language="es">Generales</Text>
@@ -43,6 +51,13 @@ tags:
     to be in the timezone local to the state holding the election.
   required: true
   type: xs:date
+- _name: ElectionNotice
+  csv-header-name: election_notice
+  csv-type: ElectionNotice
+  description: Allows for the publication of information related to election notices,
+    including those attributed to natural disasters and other unforseen events.
+  error_then: =must-ignore
+  type: ElectionNotice
 - _name: ElectionType
   csv-header-name: election_type
   csv-type: xs:string
