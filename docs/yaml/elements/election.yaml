@@ -55,7 +55,7 @@ tags:
   csv-header-name: election_notice
   csv-type: ElectionNotice
   description: Allows for the publication of information related to election notices,
-    including those attributed to natural disasters and other unforseen events.
+    including those attributed to natural disasters and other unforeseen events.
   error_then: =must-ignore
   type: ElectionNotice
 - _name: ElectionType
