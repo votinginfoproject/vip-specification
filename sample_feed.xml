@@ -27,6 +27,12 @@
   <Election id="ele30000">
     <AbsenteeRequestDeadline>2013-10-30</AbsenteeRequestDeadline>
     <Date>2013-11-05</Date>
+    <ElectionNotice>
+         <NoticeText>
+            <Text language="en">There are some last minute changes for this election. For additional information see the accompanying URL</Text>
+         </NoticeText>
+         <NoticeUri>https://someelectionnotice.gov</NoticeUri>
+       </ElectionNotice>
     <ElectionType>
       <Text language="en">General</Text>
       <Text language="es">Generales</Text>
