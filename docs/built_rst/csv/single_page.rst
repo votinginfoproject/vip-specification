@@ -253,7 +253,7 @@ with one Election object.
 | election_notice               | :ref:`single-csv-election-notice` | Optional     | Single       | Allows for the publication of            | If the element is invalid or not         |
 |                               |                                   |              |              | information related to election notices, | present, then the implementation is      |
 |                               |                                   |              |              | including those attributed to natural    | required to ignore it.                   |
-|                               |                                   |              |              | disasters and other unforseen events.    |                                          |
+|                               |                                   |              |              | disasters and other unforeseen events.   |                                          |
 +-------------------------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | election_type                 | ``xs:string``                     | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
 |                               |                                   |              |              | authority for election (e.g., federal,   | present, then the implementation is      |
