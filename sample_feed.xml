@@ -116,6 +116,12 @@
       </ContactInformation>
       <ElectionOfficialPersonId>per50001</ElectionOfficialPersonId>
     </Department>
+    <ElectionNotice>
+      <NoticeText>
+        <Text language="en">This is an emergency notification for this election.</Text>
+      </NoticeText>
+      <NoticeURI>https://www.yadayada.gov</NoticeURI>
+    </ElectionNotice>
     <ElectionsUri>http://www.albemarle.org/registrar</ElectionsUri>
     <RegistrationUri>http://www.vote.virginia.gov</RegistrationUri>
     <RulesUri>http://www.vote.virginia.gov</RulesUri>
