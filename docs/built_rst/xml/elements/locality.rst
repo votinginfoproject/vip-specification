@@ -18,6 +18,16 @@ The Locality object represents the jurisdiction below the :ref:`multi-xml-state`
 |                          |                                       |              |              | links to another dataset (e.g.           | present, then the implementation is      |
 |                          |                                       |              |              | `OCD-ID`_)                               | required to ignore it.                   |
 +--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsMailOnly               | ``xs:boolean``                        | Optional     | Single       | Determines if the locality runs          | If the field is missing or invalid, the  |
+|                          |                                       |              |              | mail-only elections. If this is true,    | implementation is required to assume     |
+|                          |                                       |              |              | then all precincts a part of the         | `IsMailOnly` is false.                   |
+|                          |                                       |              |              | locality will also run mail-only         |                                          |
+|                          |                                       |              |              | elections. Drop boxes may be used in     |                                          |
+|                          |                                       |              |              | addition to this flag using a            |                                          |
+|                          |                                       |              |              | :ref:`polling location                   |                                          |
+|                          |                                       |              |              | <multi-xml-polling-location>` record     |                                          |
+|                          |                                       |              |              | configured as a Drop Box.                |                                          |
++--------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | ``xs:string``                         | **Required** | Single       | Specifies the name of a locality.        | If the field is invalid, then the        |
 |                          |                                       |              |              |                                          | implementation is required to ignore the |
 |                          |                                       |              |              |                                          | ``Locality`` element containing it.      |
@@ -57,6 +67,7 @@ The Locality object represents the jurisdiction below the :ref:`multi-xml-state`
          <Value>ocd-division/country:us/state:va/county:albemarle</Value>
        </ExternalIdentifier>
      </ExternalIdentifiers>
+     <IsMailOnly>true</IsMailOnly>
      <Name>ALBEMARLE COUNTY</Name>
      <StateId>st51</StateId>
      <Type>county</Type>
