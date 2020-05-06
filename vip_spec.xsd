@@ -284,6 +284,13 @@
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
+  <xs:complexType name="ElectionNotice">
+    <xs:sequence>
+      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="1" />
+      <xs:element name="NoticeUri" type="xs:anyURI" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="xs:anyURI" minOccurs="0" />
@@ -323,6 +330,7 @@
           <xs:attribute name="label" type="xs:string" />
         </xs:complexType>
       </xs:element>
+      <xs:element name="ElectionNotice" type="ElectionNotice" minOccurs="0" />
       <xs:element name="ElectionsUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="RegistrationUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="RulesUri" type="xs:anyURI" minOccurs="0" />
