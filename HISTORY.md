@@ -8,8 +8,8 @@ This document includes release notes for the [VIP Spec][vip] for versions
 ### Spec Changes
 * [Issue #400 - Add `IsMailOnly` to Locality object](https://github.com/votinginfoproject/vip-specification/issues/400)
   * PR [#403](https://github.com/votinginfoproject/vip-specification/pull/403)
-* [Issue #401 - Add `ElectionNotice` to Election object](https://github.com/votinginfoproject/vip-specification/issues/401)
-  * PR [#404](https://github.com/votinginfoproject/vip-specification/pull/404)
+* [Issue #401 - Add `ElectionNotice` to ElectionAdministration object](https://github.com/votinginfoproject/vip-specification/issues/401)
+  * PR [#406](https://github.com/votinginfoproject/vip-specification/pull/406)
 * [Issue #367 - Add ballot tracking URLs to ElectionAdministration object](https://github.com/votinginfoproject/vip-specification/issues/367)
   * PR [#389](https://github.com/votinginfoproject/vip-specification/pull/389)
 * [Issue #162 - restore `HouseNumberSuffix` and `HouseNumberPrefix` to StreetSegment](https://github.com/votinginfoproject/vip-specification/issues/162)
