@@ -717,7 +717,7 @@
         <xs:element name="StreetSegment" type="StreetSegment" />
 
       </xs:choice>
-      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.1" />
+      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.2" />
     </xs:complexType>
   </xs:element>
 </xs:schema>
