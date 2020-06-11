@@ -11,7 +11,7 @@ Getting Started
 ---------------
 
 The actual election information specifies collections of elements, some containing links between
-each other. The entire set of tags must be encapsulated in a root object named vip_object. See the
+each other. The entire set of tags must be encapsulated in a root object named VipObject. See the
 `sample xml file`_ and `xsd file`_ for more details.
 
 Each top-level tag is a container for other fields, described in their own section. The only required
