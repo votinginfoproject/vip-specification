@@ -36,7 +36,6 @@ tags:
   csv-type: xs:IDREF
   description: References an :ref:`$$$-electoral-district` element that represents
     the geographical scope of the contest.
-  error_then: =should-ignore
   required: true
   type: xs:IDREF
 - _name: ElectorateSpecification
@@ -66,7 +65,7 @@ tags:
   csv-type: xs:string
   description: 'Name of the contest, not necessarily how it appears on the ballot
     (NB: BallotTitle should be used for this purpose).'
-  error_then: =should-ignore
+  required: true
   type: xs:string
 - _name: SequenceOrder
   csv-header-name: sequence_order

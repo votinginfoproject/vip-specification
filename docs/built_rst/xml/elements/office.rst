@@ -11,9 +11,9 @@ School Board, et al).
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+=========================================+==============+==============+==========================================+==========================================+
-| ContactInformation    | :ref:`multi-xml-contact-information`    | Optional     | Repeats      | Specifies the contact information for    | If the element is invalid or not         |
-|                       |                                         |              |              | the office and/or individual holding the | present, then the implementation is      |
-|                       |                                         |              |              | office.                                  | required to ignore it.                   |
+| ContactInformation    | :ref:`multi-xml-contact-information`    | Optional     | Repeats      | Links to the                             | If the element is invalid or not         |
+|                       |                                         |              |              | :ref:`multi-xml-contact-information`     | present, then the implementation is      |
+|                       |                                         |              |              | element associated with the office.      | required to ignore it.                   |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Description           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
 |                       |                                         |              |              | its purpose.                             | present, then the implementation is      |

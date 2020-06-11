@@ -45,7 +45,6 @@ tags:
   csv-type: xs:dateTime
   description: Specifies the date and time of the feed production. The date/time is
     considered to be in the timezone local to the organization.
-  error_then: =must-ignore
   required: true
   type: xs:dateTime
 - _name: Description
@@ -62,13 +61,13 @@ tags:
     data.
   error_then: =must-ignore
   type: xs:string
-- _name: FeedContactId
-  csv-header-name: feed_contact_id
+- _name: FeedContactInformation
+  csv-header-name: feed_contact_information_id
   csv-type: xs:IDREF
   description: Reference to the :ref:`$$$-person` who will respond to inquiries about
     the information contained within the file.
   error_then: =must-ignore
-  type: xs:IDREF
+  type: ContactInformation
 - _name: TouUri
   csv-header-name: terms_of_use_uri
   csv-type: xs:anyURI
@@ -80,6 +79,5 @@ tags:
   csv-header-name: version
   csv-type: xs:string
   description: Specifies the version of the data
-  error_then: =must-ignore
   required: true
   type: xs:string

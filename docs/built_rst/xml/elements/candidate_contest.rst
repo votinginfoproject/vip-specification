@@ -87,8 +87,8 @@ and :ref:`multi-xml-retention-contest` (NB: the latter because it extends
 |                         |                                         |              |              |                                          | ignore it.                               |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId     | ``xs:IDREF``                            | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                         |                                         |              |              | :ref:`multi-xml-electoral-district`      | implementation should ignore it.         |
-|                         |                                         |              |              | element that represents the geographical |                                          |
+|                         |                                         |              |              | :ref:`multi-xml-electoral-district`      | implementation is required to ignore the |
+|                         |                                         |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
 |                         |                                         |              |              | scope of the contest.                    |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -110,9 +110,9 @@ and :ref:`multi-xml-retention-contest` (NB: the latter because it extends
 |                         |                                         |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                         |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                           | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                         |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                         |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                           | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                         |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
+|                         |                                         |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
 |                         |                                         |              |              | purpose).                                |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                          | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |

@@ -1,6 +1,0 @@
-id,sequence_order
-bs001,1
-bs002,2
-bs003,3
-bs004,6
-bs005,5

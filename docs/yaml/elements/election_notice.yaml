@@ -1,0 +1,16 @@
+_name: ElectionNotice
+csv-header-name: election_notice
+tags:
+- _name: NoticeText
+  csv-header-name: election_notice_text
+  csv-type: xs:string
+  description: The last minute or emergency notification text should be placed here.
+  required: true
+  type: InternationalizedText
+- _name: NoticeUri
+  csv-header-name: election_notice_uri
+  csv-type: xs:string
+  description: Optional URL for additional information related to the last minute
+    or emergency notification.
+  error_then: =must-ignore
+  type: xs:anyURI

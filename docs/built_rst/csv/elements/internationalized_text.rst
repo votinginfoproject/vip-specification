@@ -9,29 +9,17 @@ internationalized_text
 ``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
 back to the original label for the information (e.g. if the contact information came from a
 CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
 * Any element that extends :ref:`multi-csv-contest-base`
-
 * Any element that extends :ref:`multi-csv-ballot-selection-base`
-
 * :ref:`multi-csv-candidate`
-
 * :ref:`multi-csv-contact-information`
-
 * :ref:`multi-csv-election`
-
 * :ref:`multi-csv-election-administration`
-
 * :ref:`multi-csv-office`
-
 * :ref:`multi-csv-party`
-
 * :ref:`multi-csv-person`
-
 * :ref:`multi-csv-polling-location`
-
 * :ref:`multi-csv-source`
-
 NOTE: Internationalized Text is not currently supported for CSV submissions. 
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+

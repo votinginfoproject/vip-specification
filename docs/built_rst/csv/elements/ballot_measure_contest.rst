@@ -61,7 +61,7 @@ summary statements on each side. Extends :ref:`multi-csv-contest-base`.
    :linenos:
 
 
-    id,abbreviation,Contest,ballot_selection_ids,ballot_sub_title,ballot_title,elecoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation,con_statement,effect_of_abstain,full_text,info_uri,passage_threshold,pro_statement,summary_text,type,other_type
+    id,abbreviation,ballot_selection_ids,ballot_sub_title,ballot_title,elecoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation,con_statement,effect_of_abstain,full_text,info_uri,passage_threshold,pro_statement,summary_text,type,other_type
     bmc0001,HB2,bs001 bs002 bs003,Raising levy for School Bond,School Bond Issue,ed001,all registered voters,,54,false,School Bond,42,majority,,This is no good.,No effect,A measure to do raise funds for etc etc,www.ballotmeasure.com,two-thirds,Everything will be great.,It’s a referendum about school funding,referendum,
 
 
@@ -96,8 +96,8 @@ and :ref:`multi-csv-retention-contest` (NB: the latter because it extends
 |                          |                                 |              |              |                                          | ignore it.                               |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electoral_district_id    | ``xs:IDREF``                    | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                 |              |              | :ref:`multi-csv-electoral-district`      | implementation should ignore it.         |
-|                          |                                 |              |              | element that represents the geographical |                                          |
+|                          |                                 |              |              | :ref:`multi-csv-electoral-district`      | implementation is required to ignore the |
+|                          |                                 |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
 |                          |                                 |              |              | scope of the contest.                    |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electorate_specification | ``xs:string``                   | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -119,9 +119,9 @@ and :ref:`multi-csv-retention-contest` (NB: the latter because it extends
 |                          |                                 |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                          |                                 |              |              |                                          | it.                                      |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                   | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                          |                                 |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                          |                                 |              |              | BallotTitle should be used for this      | it.                                      |
+| name                     | ``xs:string``                   | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                          |                                 |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
+|                          |                                 |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
 |                          |                                 |              |              | purpose).                                |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                  | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |

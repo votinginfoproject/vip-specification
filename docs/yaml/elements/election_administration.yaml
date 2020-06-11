@@ -1,20 +1,49 @@
 _name: ElectionAdministration
 _sub_types:
 - Department
+- ElectionNotice
 - VoterService
 csv-header-name: election_administration
 csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
-      id,absentee_uri,am_i_registered_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
-      ea123,https://example.com/absentee,https://example.com/am-i-registered,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
-      ea345,https://example.com/absentee2,https://example.com/am-i-registered2,https://example.com/elections2,https://example.com/registration2,https://example.com/rules2,https://example.com/what-is-on-my-ballot2,https://example.com/where-do-i-vote2
-      ea625,https://example.com/absentee3,https://example.com/am-i-registered3,https://example.com/elections3,https://example.com/registration3,https://example.com/rules3,https://example.com/what-is-on-my-ballot3,https://example.com/where-do-i-vote3
+      id,absentee_uri,am_i_registered_uri,ballot_tracking_uri,ballot_tracking_provisional_uri,election_notice_text,election_notice_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
+      ea123,https://example.com/absentee,https://example.com/am-i-registered,https://www.vote.virginia.gov/,https://www.vote.virginia.gov/,This is an emergency notification for this election.,https://www.yadayada.gov,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
+      ea345,https://example.com/absentee2,https://example.com/am-i-registered2,https://example.com/elections2,https://example.com/registration2,,,https://example.com/rules2,https://example.com/what-is-on-my-ballot2,https://example.com/where-do-i-vote2
+      ea625,https://example.com/absentee3,https://example.com/am-i-registered3,https://example.com/elections3,https://example.com/registration3,This is an emergency notification for this election.,,https://example.com/rules3,https://example.com/what-is-on-my-ballot3,https://example.com/where-do-i-vote3
 description: |-
   The Election Administration represents an institution for serving a locality's (or state's) election
   functions.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <ElectionAdministration id="ea40133">
+        <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
+        <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
+        <BallotTrackingUri>https://www.vote.virginia.gov/</BallotTrackingUri>
+        <BallotProvisionalTrackingUri>https://www.vote.virginia.gov/</BallotProvisionalTrackingUri>
+        <Department>
+          <ContactInformation label="ci60000">
+            <AddressLine>Washington Building First Floor</AddressLine>
+            <AddressLine>1100 Bank Street</AddressLine>
+            <AddressLine>Richmond, VA 23219</AddressLine>
+            <Name>State Board of Elections</Name>
+          </ContactInformation>
+        </Department>
+        <ElectionNotice>
+          <NoticeText>
+            <Text language="en">This is an emergency notification for this election.</Text>
+          </NoticeText>
+          <NoticeURI>https://www.yadayada.gov</NoticeURI>
+        </ElectionNotice>
+        <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
+        <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+        <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
+        <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
+        <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
+     </ElectionAdministration>
 tags:
 - _name: AbsenteeUri
   csv-header-name: absentee_uri
@@ -29,6 +58,20 @@ tags:
     is registered.
   error_then: =must-ignore
   type: xs:anyURI
+- _name: BallotTrackingUri
+  csv-header-name: ballot_tracking_uri
+  csv-type: xs:anyURI
+  description: Specifies the web address for tracking information for a ballot cast
+    by mail
+  error_then: =must-ignore
+  type: xs:anyURI
+- _name: BallotProvisionalTrackingUri
+  csv-header-name: ballot_tracking_provisional_uri
+  csv-type: xs:anyURI
+  description: Specifies the web address for tracking information for a provisional
+    ballot. To support EAC guidelines for "Processing Provisional Ballots" (https://www.eac.gov/research-and-data/provisional-voting/)
+  error_then: =must-ignore
+  type: xs:anyURI
 - _name: Department
   csv-header-name: department
   csv-type: Department
@@ -39,6 +82,13 @@ tags:
   repeating: true
   required: true
   type: Department
+- _name: ElectionNotice
+  csv-header-name: election_notice
+  csv-type: ElectionNotice
+  description: A place for election administrators to post last minute and emergency
+    notifications pertaining to the election.
+  error_then: =must-ignore
+  type: ElectionNotice
 - _name: ElectionsUri
   csv-header-name: elections_uri
   csv-type: xs:anyURI

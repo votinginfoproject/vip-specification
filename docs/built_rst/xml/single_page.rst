@@ -35,7 +35,8 @@ recommended to be the state's FIPS code, along with the prefix "st".
 |                          |                                        |              |              | `OCD-ID`_).                              | required to ignore it.                   |
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | ``xs:string``                          | **Required** | Single       | Specifiers the name of a state, such as  | If the field is invalid, then the        |
-|                          |                                        |              |              | Alabama.                                 | implementation is required to ignore it. |
+|                          |                                        |              |              | Alabama.                                 | implementation is required to ignore the |
+|                          |                                        |              |              |                                          | ``State`` element containing it.         |
 +--------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
 |                          |                                        |              |              | :ref:`polling locations                  | then the implementation is required to   |
@@ -113,9 +114,9 @@ School Board, et al).
 +-----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+==========================================+==============+==============+==========================================+==========================================+
-| ContactInformation    | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Specifies the contact information for    | If the element is invalid or not         |
-|                       |                                          |              |              | the office and/or individual holding the | present, then the implementation is      |
-|                       |                                          |              |              | office.                                  | required to ignore it.                   |
+| ContactInformation    | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Links to the                             | If the element is invalid or not         |
+|                       |                                          |              |              | :ref:`single-xml-contact-information`    | present, then the implementation is      |
+|                       |                                          |              |              | element associated with the office.      | required to ignore it.                   |
 +-----------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Description           | :ref:`single-xml-internationalized-text` | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
 |                       |                                          |              |              | its purpose.                             | present, then the implementation is      |
@@ -303,7 +304,7 @@ Election
 ~~~~~~~~
 
 The Election object represents an Election Day, which usually consists of many individual contests
-and/or referenda. A feed must contain **exactly one** Election object. All relationships in the
+and/or referenda. A feed may **not** contain multiple Election objects. All relationships in the
 feed (e.g., street segment to precinct to polling location) are assumed to relate only to
 the Election specified by this object. It is permissible, and recommended, to combine unrelated
 contests (e.g., a special election and a general election) that occur on the same day into one feed
@@ -427,42 +428,43 @@ Source
 The Source object represents the organization that is publishing the information. This object is
 the only required object in the feed file, and only one source object is allowed to be present.
 
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag             | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=================+==========================================+==============+==============+==========================================+==========================================+
-| Name            | ``xs:string``                            | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
-|                 |                                          |              |              | that is providing the information.       | implementation is required to ignore the |
-|                 |                                          |              |              |                                          | ``Source`` element containing it.        |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VipId           | ``xs:string``                            | **Required** | Single       | Specifies the ID of the organization.    | If the field is invalid, then the        |
-|                 |                                          |              |              | VIP uses FIPS_ codes for this ID.        | implementation is required to ignore the |
-|                 |                                          |              |              |                                          | ``Source`` element containing it.        |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| DateTime        | ``xs:dateTime``                          | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
-|                 |                                          |              |              | production. The date/time is considered  | implementation is required to ignore it. |
-|                 |                                          |              |              | to be in the timezone local to the       |                                          |
-|                 |                                          |              |              | organization.                            |                                          |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description     | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
-|                 |                                          |              |              | organization providing the data and what | present, then the implementation is      |
-|                 |                                          |              |              | data is in the feed.                     | required to ignore it.                   |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OrganizationUri | ``xs:string``                            | Optional     | Single       | Specifies a URI to the home page of the  | If the field is invalid or not present,  |
-|                 |                                          |              |              | organization publishing the data.        | then the implementation is required to   |
-|                 |                                          |              |              |                                          | ignore it.                               |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FeedContactId   | ``xs:IDREF``                             | Optional     | Single       | Reference to the                         | If the field is invalid or not present,  |
-|                 |                                          |              |              | :ref:`single-xml-person` who will        | then the implementation is required to   |
-|                 |                                          |              |              | respond to inquiries about the           | ignore it.                               |
-|                 |                                          |              |              | information contained within the file.   |                                          |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| TouUri          | ``xs:anyURI``                            | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
-|                 |                                          |              |              | Use for the information in this file can | then the implementation is required to   |
-|                 |                                          |              |              | be found.                                | ignore it.                               |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Version         | ``xs:string``                            | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
-|                 |                                          |              |              |                                          | implementation is required to ignore it. |
-+-----------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                    | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++========================+==========================================+==============+==============+==========================================+==========================================+
+| Name                   | ``xs:string``                            | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
+|                        |                                          |              |              | that is providing the information.       | implementation is required to ignore the |
+|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| VipId                  | ``xs:string``                            | **Required** | Single       | Specifies the ID of the organization.    | If the field is invalid, then the        |
+|                        |                                          |              |              | VIP uses FIPS_ codes for this ID.        | implementation is required to ignore the |
+|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| DateTime               | ``xs:dateTime``                          | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
+|                        |                                          |              |              | production. The date/time is considered  | implementation is required to ignore the |
+|                        |                                          |              |              | to be in the timezone local to the       | ``Source`` element containing it.        |
+|                        |                                          |              |              | organization.                            |                                          |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Description            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
+|                        |                                          |              |              | organization providing the data and what | present, then the implementation is      |
+|                        |                                          |              |              | data is in the feed.                     | required to ignore it.                   |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OrganizationUri        | ``xs:string``                            | Optional     | Single       | Specifies a URI to the home page of the  | If the field is invalid or not present,  |
+|                        |                                          |              |              | organization publishing the data.        | then the implementation is required to   |
+|                        |                                          |              |              |                                          | ignore it.                               |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| FeedContactInformation | :ref:`single-xml-contact-information`    | Optional     | Single       | Reference to the                         | If the element is invalid or not         |
+|                        |                                          |              |              | :ref:`single-xml-person` who will        | present, then the implementation is      |
+|                        |                                          |              |              | respond to inquiries about the           | required to ignore it.                   |
+|                        |                                          |              |              | information contained within the file.   |                                          |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| TouUri                 | ``xs:anyURI``                            | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
+|                        |                                          |              |              | Use for the information in this file can | then the implementation is required to   |
+|                        |                                          |              |              | be found.                                | ignore it.                               |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Version                | ``xs:string``                            | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
+|                        |                                          |              |              |                                          | implementation is required to ignore the |
+|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
++------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
 
@@ -598,8 +600,8 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              |                                          | ignore it.                               |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
-|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation is required to ignore the |
+|                         |                                          |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | scope of the contest.                    |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -621,9 +623,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
+|                         |                                          |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -673,8 +675,8 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              |                                          | ignore it.                               |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
-|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation is required to ignore the |
+|                         |                                          |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | scope of the contest.                    |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -696,9 +698,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
+|                         |                                          |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -865,8 +867,8 @@ or elected official. These elements reference ``Person``:
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+==========================================+==============+==============+==========================================+==========================================+
-| ContactInformation  | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Specifies contact information for the    | If the element is invalid or not         |
-|                     |                                          |              |              | person.                                  | present, then the implementation is      |
+| ContactInformation  | :ref:`single-xml-contact-information`    | Optional     | Repeats      | Refers to the associated                 | If the element is invalid or not         |
+|                     |                                          |              |              | :ref:`single-xml-contact-information`.   | present, then the implementation is      |
 |                     |                                          |              |              |                                          | required to ignore it.                   |
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | DateOfBirth         | ``xs:date``                              | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
@@ -1129,27 +1131,6 @@ VoterService
 |                          |                                          |              |              | service.                                 | ignore it.                               |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. code-block:: xml
-   :linenos:
-
-   <ElectionAdministration id="ea40133">
-      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
-      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
-      <Department>
-        <ContactInformation label="ci60000">
-          <AddressLine>Washington Building First Floor</AddressLine>
-          <AddressLine>1100 Bank Street</AddressLine>
-          <AddressLine>Richmond, VA 23219</AddressLine>
-          <Name>State Board of Elections</Name>
-        </ContactInformation>
-      </Department>
-      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
-      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
-      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
-      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
-      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
-   </ElectionAdministration>
-
 
 .. _single-xml-contact-information:
 
@@ -1342,23 +1323,6 @@ latitude and longitude values are measured in decimal degrees.
 |              |               |              |              | geocoding service.                       |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
-
-.. code-block:: xml
-   :linenos:
-
-   <PollingLocation id="pl81274">
-      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
-      <AddressLine>2775 Hydraulic Rd</AddressLine>
-      <AddressLine>Charlottesville, VA 229018917</AddressLine>
-      <HoursOpenId>hours0001</HoursOpenId>
-      <LatLng>
-        <Latitude>38.0754627</Latitude>
-        <Longitude>-78.5014875</Longitude>
-        <Source>Google Maps</Source>
-      </LatLng>
-   </PollingLocation>
-
 
 .. _single-xml-candidate:
 
@@ -1372,10 +1336,9 @@ object. Candidate objects may **not** be reused between Contests.
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                        | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+==================================================+==============+==============+==========================================+==========================================+
-| BallotName          | :ref:`single-xml-internationalized-text`         | **Required** | Single       | The candidate's name as it will be       | If the element is invalid or not         |
-|                     |                                                  |              |              | displayed on the official ballot (e.g.   | present, then the implementation is      |
-|                     |                                                  |              |              | "Ken T. Cuccinelli II").                 | required to ignore the Candidate element |
-|                     |                                                  |              |              |                                          | containing it.                           |
+| BallotName          | :ref:`single-xml-internationalized-text`         | **Required** | Single       | The candidate's name as it will be       | If the element is invalid, then the      |
+|                     |                                                  |              |              | displayed on the official ballot (e.g.   | implementation is required to ignore the |
+|                     |                                                  |              |              | "Ken T. Cuccinelli II").                 | ``Candidate`` element containing it.     |
 +---------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ContactInformation  | :ref:`single-xml-contact-information`            | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
 |                     |                                                  |              |              | for this Candidate and/or their campaign | present, then the implementation is      |
@@ -1438,54 +1401,93 @@ PollingLocation
 
 The PollingLocation object represents a site where voters cast or drop off ballots.
 
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag              | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==================+==========================================+==============+==============+==========================================+==========================================+
-| AddressLine      | ``xs:string``                            | **Required** | Repeats      | Represents the various parts of an       | At least one valid ``AddressLine`` must  |
-|                  |                                          |              |              | address to a polling location. For CSV   | be present for ``PollingLocation`` to be |
-|                  |                                          |              |              | implementations, repeating               | valid. If no valid ``AddressLine`` is    |
-|                  |                                          |              |              | ``address_line`` columns should be       | present, the implementation is required  |
-|                  |                                          |              |              | incremented, e.g. address_line1,         | to ignore the ``PollingLocation``        |
-|                  |                                          |              |              | address_line2, address_line3.            | element containing it.                   |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Directions       | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
-|                  |                                          |              |              | locating the polling location.           | present, then the implementation is      |
-|                  |                                          |              |              |                                          | required to ignore it.                   |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Hours            | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-| **[deprecated]** |                                          |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
-|                  |                                          |              |              | this element is deprecated in favor of   | required to ignore it.                   |
-|                  |                                          |              |              | the more structured                      |                                          |
-|                  |                                          |              |              | :ref:`single-xml-hours-open` element. It |                                          |
-|                  |                                          |              |              | is strongly encouraged that data         |                                          |
-|                  |                                          |              |              | providers move toward contributing hours |                                          |
-|                  |                                          |              |              | in this format).                         |                                          |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                             | Optional     | Single       | Links to an :ref:`single-xml-hours-open` | If the field is invalid or not present,  |
-|                  |                                          |              |              | element, which is a schedule of dates    | then the implementation is required to   |
-|                  |                                          |              |              | and hours during which the polling       | ignore it.                               |
-|                  |                                          |              |              | location is available.                   |                                          |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsDropBox        | ``xs:boolean``                           | Optional     | Single       | Indicates if this polling location is a  | If the field is invalid or not present,  |
-|                  |                                          |              |              | drop box.                                | then the implementation is required to   |
-|                  |                                          |              |              |                                          | ignore it.                               |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsEarlyVoting    | ``xs:boolean``                           | Optional     | Single       | Indicates if this polling location is an | If the field is invalid or not present,  |
-|                  |                                          |              |              | early vote site.                         | then the implementation is required to   |
-|                  |                                          |              |              |                                          | ignore it.                               |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LatLng           | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
-|                  |                                          |              |              | this polling location.                   | present, then the implementation is      |
-|                  |                                          |              |              |                                          | required to ignore it.                   |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name             | ``xs:string``                            | Optional     | Single       | Name of the polling location.            | If the field is invalid or not present,  |
-|                  |                                          |              |              |                                          | then the implementation is required to   |
-|                  |                                          |              |              |                                          | ignore it.                               |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PhotoUri         | ``xs:anyURI``                            | Optional     | Single       | Contains a link to an image of the       | If the field is invalid or not present,  |
-|                  |                                          |              |              | polling location.                        | then the implementation is required to   |
-|                  |                                          |              |              |                                          | ignore it.                               |
-+------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag               | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++===================+==========================================+==============+==============+==========================================+==========================================+
+| AddressStructured | :ref:`single-xml-simple-address-type`    | Optional     | Single       | Represents the various structured parts  | One of **AddressStructured** and         |
+|                   |                                          |              |              | of an address to a polling location.     | **AddressLine** should be present for a  |
+|                   |                                          |              |              |                                          | given Polling Location. If none is       |
+|                   |                                          |              |              |                                          | present, the implementation is required  |
+|                   |                                          |              |              |                                          | to ignore the ``PollingLocation``        |
+|                   |                                          |              |              |                                          | element containing it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| AddressLine       | ``xs:string``                            | Optional     | Repeats      | Represents the various parts of an       | One of AddressStructured and AddressLine |
+|                   |                                          |              |              | address to a polling location.           | should be present for a given Polling    |
+|                   |                                          |              |              |                                          | Location. If none is present, the        |
+|                   |                                          |              |              |                                          | implementation is required to ignore the |
+|                   |                                          |              |              |                                          | ``PollingLocation`` element containing   |
+|                   |                                          |              |              |                                          | it.                                      |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Directions        | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
+|                   |                                          |              |              | locating the polling location.           | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Hours             | :ref:`single-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
+| **[deprecated]**  |                                          |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
+|                   |                                          |              |              | this element is deprecated in favor of   | required to ignore it.                   |
+|                   |                                          |              |              | the more structured                      |                                          |
+|                   |                                          |              |              | :ref:`single-xml-hours-open` element. It |                                          |
+|                   |                                          |              |              | is strongly encouraged that data         |                                          |
+|                   |                                          |              |              | providers move toward contributing hours |                                          |
+|                   |                                          |              |              | in this format).                         |                                          |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HoursOpenId       | ``xs:IDREF``                             | Optional     | Single       | Links to an :ref:`single-xml-hours-open` | If the field is invalid or not present,  |
+|                   |                                          |              |              | element, which is a schedule of dates    | then the implementation is required to   |
+|                   |                                          |              |              | and hours during which the polling       | ignore it.                               |
+|                   |                                          |              |              | location is available.                   |                                          |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsDropBox         | ``xs:boolean``                           | Optional     | Single       | Indicates if this polling location is a  | If the field is invalid or not present,  |
+|                   |                                          |              |              | drop box.                                | then the implementation is required to   |
+|                   |                                          |              |              |                                          | ignore it.                               |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| IsEarlyVoting     | ``xs:boolean``                           | Optional     | Single       | Indicates if this polling location is an | If the field is invalid or not present,  |
+|                   |                                          |              |              | early vote site.                         | then the implementation is required to   |
+|                   |                                          |              |              |                                          | ignore it.                               |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LatLng            | :ref:`single-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
+|                   |                                          |              |              | this polling location.                   | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name              | ``xs:string``                            | Optional     | Single       | Name of the polling location.            | If the field is invalid or not present,  |
+|                   |                                          |              |              |                                          | then the implementation is required to   |
+|                   |                                          |              |              |                                          | ignore it.                               |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| PhotoUri          | ``xs:anyURI``                            | Optional     | Single       | Contains a link to an image of the       | If the field is invalid or not present,  |
+|                   |                                          |              |              | polling location.                        | then the implementation is required to   |
+|                   |                                          |              |              |                                          | ignore it.                               |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <PollingLocation id="pl00000">
+      <AddressLine>2775 Hydraulic Rd Charlottesville, VA 22901</AddressLine>
+      <HoursOpenId>hours0002</HoursOpenId>
+      <IsDropBox>true</IsDropBox>
+      <IsEarlyVoting>true</IsEarlyVoting>
+      <LatLng>
+         <Latitude>38.009939</Latitude>
+         <Longitude>-78.506204</Longitude>
+      </LatLng>
+      <Name>ALBERMARLE HIGH SCHOOL</Name>
+   </PollingLocation>
+   <!-- Or: -->
+   <PollingLocation id="pl00000">
+      <AddressStructured>
+         <Line1>2775 Hydraulic Rd</Line1>
+         <City>CHARLOTTESVILLE</City>
+         <State>VA</State>
+         <Zip>22901</Zip>
+      </AddressStructured>
+      <HoursOpenId>hours0002</HoursOpenId>
+      <IsDropBox>true</IsDropBox>
+      <IsEarlyVoting>true</IsEarlyVoting>
+      <LatLng>
+         <Latitude>38.009939</Latitude>
+         <Longitude>-78.506204</Longitude>
+      </LatLng>
+      <Name>ALBERMARLE HIGH SCHOOL</Name>
+   </PollingLocation>
 
 
 .. _single-xml-lat-lng:
@@ -1511,22 +1513,40 @@ latitude and longitude values are measured in decimal degrees.
 |              |               |              |              | geocoding service.                       |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. _`WGS 84`: http://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84
 
-.. code-block:: xml
-   :linenos:
+.. _single-xml-simple-address-type:
 
-   <PollingLocation id="pl81274">
-      <AddressLine>ALBEMARLE HIGH SCHOOL</AddressLine>
-      <AddressLine>2775 Hydraulic Rd</AddressLine>
-      <AddressLine>Charlottesville, VA 229018917</AddressLine>
-      <HoursOpenId>hours0001</HoursOpenId>
-      <LatLng>
-        <Latitude>38.0754627</Latitude>
-        <Longitude>-78.5014875</Longitude>
-        <Source>Google Maps</Source>
-      </LatLng>
-   </PollingLocation>
+SimpleAddressType
+^^^^^^^^^^^^^^^^^
+
+A ``SimpleAddressType`` represents a structured address.
+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| Line1        | ``xs:string`` | **Required** | Single       | The address line for a structured        | If no ``Line1`` is provided, the         |
+|              |               |              |              | address. Should include the street       | implementation should ignore the         |
+|              |               |              |              | number, street name, and any prefix and  | ``SimpleAddressType``.                   |
+|              |               |              |              | suffix.                                  |                                          |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Line2        | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line2`` is provided, the         |
+|              |               |              |              |                                          | implementation should ignore it.         |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Line3        | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line3`` is provided, the         |
+|              |               |              |              |                                          | implementation should ignore it.         |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| City         | ``xs:string`` | **Required** | Single       | The City value of a structured address.  | If ``City`` is not provided, the         |
+|              |               |              |              |                                          | implementation should ignore the         |
+|              |               |              |              |                                          | ``SimpleAddressType``.                   |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| State        | ``xs:string`` | **Required** | Single       | The State value of a structured address. | If ``State`` is not provided, the        |
+|              |               |              |              |                                          | implementation should ignore the         |
+|              |               |              |              |                                          | ``SimpleAddressType``.                   |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Zip          | ``xs:string`` | Optional     | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
+|              |               |              |              |                                          | implementation should ignore the         |
+|              |               |              |              |                                          | ``SimpleAddressType``.                   |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-locality:
@@ -1547,9 +1567,18 @@ The Locality object represents the jurisdiction below the :ref:`single-xml-state
 |                          |                                        |              |              | links to another dataset (e.g. `OCD-ID`_) | present, then the implementation is      |
 |                          |                                        |              |              |                                           | required to ignore it.                   |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is not present or invalid,  |
-|                          |                                        |              |              |                                           | the implementation is required to ignore |
-|                          |                                        |              |              |                                           | the Locality element containing it.      |
+| IsMailOnly               | ``xs:boolean``                         | Optional     | Single       | Determines if the locality runs mail-only | If the field is missing or invalid, the  |
+|                          |                                        |              |              | elections. If this is true, then all      | implementation is required to assume     |
+|                          |                                        |              |              | precincts a part of the locality will     | `IsMailOnly` is false.                   |
+|                          |                                        |              |              | also run mail-only elections. Drop boxes  |                                          |
+|                          |                                        |              |              | may be used in addition to this flag      |                                          |
+|                          |                                        |              |              | using a :ref:`polling location            |                                          |
+|                          |                                        |              |              | <single-xml-polling-location>` record     |                                          |
+|                          |                                        |              |              | configured as a Drop Box.                 |                                          |
++--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+| Name                     | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is invalid, then the        |
+|                          |                                        |              |              |                                           | implementation is required to ignore the |
+|                          |                                        |              |              |                                           | ``Locality`` element containing it.      |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to a set of the          | If the field is invalid or not present,  |
 |                          |                                        |              |              | locality's :ref:`polling locations        | the implementation is required to ignore |
@@ -1558,9 +1587,9 @@ The Locality object represents the jurisdiction below the :ref:`single-xml-state
 |                          |                                        |              |              | locality-wide, they should be specified   | polling locations associated with this   |
 |                          |                                        |              |              | here.                                     | locality's state.                        |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| StateId                  | ``xs:IDREF``                           | **Required** | Single       | References the locality's                 | If the field is invalid or not present,  |
-|                          |                                        |              |              | :ref:`single-xml-state`.                  | the implementation is required to ignore |
-|                          |                                        |              |              |                                           | the Locality element containing.         |
+| StateId                  | ``xs:IDREF``                           | **Required** | Single       | References the locality's                 | If the field is invalid, then the        |
+|                          |                                        |              |              | :ref:`single-xml-state`.                  | implementation is required to ignore the |
+|                          |                                        |              |              |                                           | ``Locality`` element containing it.      |
 +--------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
 | Type                     | :ref:`single-xml-district-type`        | Optional     | Single       | Defines the kind of locality (e.g.        | If the field is invalid or not present,  |
 |                          |                                        |              |              | county, town, et al.), which is one of    | then the implementation is required to   |
@@ -1586,6 +1615,7 @@ The Locality object represents the jurisdiction below the :ref:`single-xml-state
          <Value>ocd-division/country:us/state:va/county:albemarle</Value>
        </ExternalIdentifier>
      </ExternalIdentifiers>
+     <IsMailOnly>true</IsMailOnly>
      <Name>ALBEMARLE COUNTY</Name>
      <StateId>st51</StateId>
      <Type>county</Type>
@@ -1645,27 +1675,6 @@ VoterService
 |                          |                                          |              |              | cataloging another type of voter         | then the implementation is required to   |
 |                          |                                          |              |              | service.                                 | ignore it.                               |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-   <ElectionAdministration id="ea40133">
-      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
-      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
-      <Department>
-        <ContactInformation label="ci60000">
-          <AddressLine>Washington Building First Floor</AddressLine>
-          <AddressLine>1100 Bank Street</AddressLine>
-          <AddressLine>Richmond, VA 23219</AddressLine>
-          <Name>State Board of Elections</Name>
-        </ContactInformation>
-      </Department>
-      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
-      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
-      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
-      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
-      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
-   </ElectionAdministration>
 
 
 .. _single-xml-contact-information:
@@ -1924,13 +1933,13 @@ non-required fields is fine).
 |                      |                                        |              |              | mail-only elections.                     | implementation is required to assume     |
 |                      |                                        |              |              |                                          | `IsMailOnly` is false.                   |
 +----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LocalityId           | ``xs:IDREF``                           | **Required** | Single       | Links to the :ref:`single-xml-locality`  | If the field is invalid or not present,  |
-|                      |                                        |              |              | that comprises the precinct.             | the implementation is required to ignore |
-|                      |                                        |              |              |                                          | the precinct element containing it.      |
+| LocalityId           | ``xs:IDREF``                           | **Required** | Single       | Links to the :ref:`single-xml-locality`  | If the field is invalid, then the        |
+|                      |                                        |              |              | that comprises the precinct.             | implementation is required to ignore the |
+|                      |                                        |              |              |                                          | ``Precinct`` element containing it.      |
 +----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                 | ``xs:string``                          | **Required** | Single       | Specifies the precinct's name (or number | If the field is invalid or not present,  |
-|                      |                                        |              |              | if no name exists).                      | the implementation is required to ignore |
-|                      |                                        |              |              |                                          | the precinct element containing it.      |
+| Name                 | ``xs:string``                          | **Required** | Single       | Specifies the precinct's name (or number | If the field is invalid, then the        |
+|                      |                                        |              |              | if no name exists).                      | implementation is required to ignore the |
+|                      |                                        |              |              |                                          | ``Precinct`` element containing it.      |
 +----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Number               | ``xs:string``                          | Optional     | Single       | Specifies the precinct's number (e.g.,   | If the field is invalid or not present,  |
 |                      |                                        |              |              | 32 or 32A -- alpha characters are        | then the implementation is required to   |
@@ -2079,8 +2088,8 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              |                                          | ignore it.                               |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
-|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation is required to ignore the |
+|                         |                                          |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | scope of the contest.                    |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -2102,9 +2111,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
+|                         |                                          |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2131,45 +2140,87 @@ ElectionAdministration
 The Election Administration represents an institution for serving a locality's (or state's) election
 functions.
 
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                    | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+==============================+==============+==============+==========================================+==========================================+
-| AbsenteeUri         | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for            | If the field is invalid or not present,  |
-|                     |                              |              |              | information on absentee voting.          | then the implementation is required to   |
-|                     |                              |              |              |                                          | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AmIRegisteredUri    | ``xs:anyURI``                | Optional     | Single       | Specifies the web address for            | If the field is invalid or not present,  |
-|                     |                              |              |              | information on whether an individual is  | then the implementation is required to   |
-|                     |                              |              |              | registered.                              | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Department          | :ref:`single-xml-department` | **Required** | Repeats      | Describes the administrative body for a  | There must be at least one valid         |
-|                     |                              |              |              | particular voter service.                | `Department` in each                     |
-|                     |                              |              |              |                                          | `ElectionAdministration` element. If no  |
-|                     |                              |              |              |                                          | valid `Department` objects are present,  |
-|                     |                              |              |              |                                          | the implementation is required to ignore |
-|                     |                              |              |              |                                          | the `ElectionAdministration` object that |
-|                     |                              |              |              |                                          | contains it/them.                        |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionsUri        | ``xs:anyURI``                | Optional     | Single       | Specifies web address the                | If the field is invalid or not present,  |
-|                     |                              |              |              | administration's website.                | then the implementation is required to   |
-|                     |                              |              |              |                                          | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RegistrationUri     | ``xs:anyURI``                | Optional     | Single       | Specifies web address for information on | If the field is invalid or not present,  |
-|                     |                              |              |              | registering to vote.                     | then the implementation is required to   |
-|                     |                              |              |              |                                          | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RulesUri            | ``xs:anyURI``                | Optional     | Single       | Specifies a URI for the election rules   | If the field is invalid or not present,  |
-|                     |                              |              |              | and laws (if any) for the jurisdiction   | then the implementation is required to   |
-|                     |                              |              |              | of the administration.                   | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| WhatIsOnMyBallotUri | ``xs:anyURI``                | Optional     | Single       | Specifies web address for information on | If the field is invalid or not present,  |
-|                     |                              |              |              | what is on an individual's ballot.       | then the implementation is required to   |
-|                     |                              |              |              |                                          | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| WhereDoIVoteUri     | ``xs:anyURI``                | Optional     | Single       | The Specifies web address for            | If the field is invalid or not present,  |
-|                     |                              |              |              | information on where an individual votes | then the implementation is required to   |
-|                     |                              |              |              | based on their address.                  | ignore it.                               |
-+---------------------+------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| Tag                          | Data Type                         | Required?    | Repeats?     | Description                                                 | Error Handling                           |
++==============================+===================================+==============+==============+=============================================================+==========================================+
+| AbsenteeUri                  | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for information on absentee       | If the field is invalid or not present,  |
+|                              |                                   |              |              | voting.                                                     | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| AmIRegisteredUri             | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for information on whether an     | If the field is invalid or not present,  |
+|                              |                                   |              |              | individual is registered.                                   | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| BallotTrackingUri            | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
+|                              |                                   |              |              | ballot cast by mail                                         | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| BallotProvisionalTrackingUri | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
+|                              |                                   |              |              | provisional ballot. To support EAC guidelines for           | then the implementation is required to   |
+|                              |                                   |              |              | "Processing Provisional Ballots"                            | ignore it.                               |
+|                              |                                   |              |              | (https://www.eac.gov/research-and-data/provisional-voting/) |                                          |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| Department                   | :ref:`single-xml-department`      | **Required** | Repeats      | Describes the administrative body for a particular voter    | There must be at least one valid         |
+|                              |                                   |              |              | service.                                                    | `Department` in each                     |
+|                              |                                   |              |              |                                                             | `ElectionAdministration` element. If no  |
+|                              |                                   |              |              |                                                             | valid `Department` objects are present,  |
+|                              |                                   |              |              |                                                             | the implementation is required to ignore |
+|                              |                                   |              |              |                                                             | the `ElectionAdministration` object that |
+|                              |                                   |              |              |                                                             | contains it/them.                        |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| ElectionNotice               | :ref:`single-xml-election-notice` | Optional     | Single       | A place for election administrators to post last minute and | If the element is invalid or not         |
+|                              |                                   |              |              | emergency notifications pertaining to the election.         | present, then the implementation is      |
+|                              |                                   |              |              |                                                             | required to ignore it.                   |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| ElectionsUri                 | ``xs:anyURI``                     | Optional     | Single       | Specifies web address the administration's website.         | If the field is invalid or not present,  |
+|                              |                                   |              |              |                                                             | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| RegistrationUri              | ``xs:anyURI``                     | Optional     | Single       | Specifies web address for information on registering to     | If the field is invalid or not present,  |
+|                              |                                   |              |              | vote.                                                       | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| RulesUri                     | ``xs:anyURI``                     | Optional     | Single       | Specifies a URI for the election rules and laws (if any)    | If the field is invalid or not present,  |
+|                              |                                   |              |              | for the jurisdiction of the administration.                 | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| WhatIsOnMyBallotUri          | ``xs:anyURI``                     | Optional     | Single       | Specifies web address for information on what is on an      | If the field is invalid or not present,  |
+|                              |                                   |              |              | individual's ballot.                                        | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+| WhereDoIVoteUri              | ``xs:anyURI``                     | Optional     | Single       | The Specifies web address for information on where an       | If the field is invalid or not present,  |
+|                              |                                   |              |              | individual votes based on their address.                    | then the implementation is required to   |
+|                              |                                   |              |              |                                                             | ignore it.                               |
++------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <ElectionAdministration id="ea40133">
+      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
+      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
+      <BallotTrackingUri>https://www.vote.virginia.gov/</BallotTrackingUri>
+      <BallotProvisionalTrackingUri>https://www.vote.virginia.gov/</BallotProvisionalTrackingUri>
+      <Department>
+        <ContactInformation label="ci60000">
+          <AddressLine>Washington Building First Floor</AddressLine>
+          <AddressLine>1100 Bank Street</AddressLine>
+          <AddressLine>Richmond, VA 23219</AddressLine>
+          <Name>State Board of Elections</Name>
+        </ContactInformation>
+      </Department>
+      <ElectionNotice>
+        <NoticeText>
+          <Text language="en">This is an emergency notification for this election.</Text>
+        </NoticeText>
+        <NoticeURI>https://www.yadayada.gov</NoticeURI>
+      </ElectionNotice>
+      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
+      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
+      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
+      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
+   </ElectionAdministration>
 
 
 .. _single-xml-department:
@@ -2225,27 +2276,6 @@ VoterService
 |                          |                                          |              |              | cataloging another type of voter         | then the implementation is required to   |
 |                          |                                          |              |              | service.                                 | ignore it.                               |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-   <ElectionAdministration id="ea40133">
-      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
-      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
-      <Department>
-        <ContactInformation label="ci60000">
-          <AddressLine>Washington Building First Floor</AddressLine>
-          <AddressLine>1100 Bank Street</AddressLine>
-          <AddressLine>Richmond, VA 23219</AddressLine>
-          <Name>State Board of Elections</Name>
-        </ContactInformation>
-      </Department>
-      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
-      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
-      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
-      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
-      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
-   </ElectionAdministration>
 
 
 .. _single-xml-contact-information:
@@ -2356,6 +2386,25 @@ address like the following::
    </ContactInformation>
 
 
+.. _single-xml-election-notice:
+
+ElectionNotice
+^^^^^^^^^^^^^^
+
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==========================================+==============+==============+==========================================+==========================================+
+| NoticeText   | :ref:`single-xml-internationalized-text` | **Required** | Single       | The last minute or emergency             | If the element is invalid, then the      |
+|              |                                          |              |              | notification text should be placed here. | implementation is required to ignore the |
+|              |                                          |              |              |                                          | ``ElectionNotice`` element containing    |
+|              |                                          |              |              |                                          | it.                                      |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| NoticeUri    | ``xs:anyURI``                            | Optional     | Single       | Optional URL for additional information  | If the field is invalid or not present,  |
+|              |                                          |              |              | related to the last minute or emergency  | then the implementation is required to   |
+|              |                                          |              |              | notification.                            | ignore it.                               |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-xml-voter-service:
 
 VoterService
@@ -2384,27 +2433,6 @@ VoterService
 |                          |                                          |              |              | cataloging another type of voter         | then the implementation is required to   |
 |                          |                                          |              |              | service.                                 | ignore it.                               |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-   <ElectionAdministration id="ea40133">
-      <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
-      <AmIRegisteredUri>https://www.vote.virginia.gov/</AmIRegisteredUri>
-      <Department>
-        <ContactInformation label="ci60000">
-          <AddressLine>Washington Building First Floor</AddressLine>
-          <AddressLine>1100 Bank Street</AddressLine>
-          <AddressLine>Richmond, VA 23219</AddressLine>
-          <Name>State Board of Elections</Name>
-        </ContactInformation>
-      </Department>
-      <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
-      <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
-      <RulesUri>http://www.sbe.virginia.gov/</RulesUri>
-      <WhatIsOnMyBallotUri>https://www.vote.virginia.gov/</WhatIsOnMyBallotUri>
-      <WhereDoIVoteUri>https://www.vote.virginia.gov/</WhereDoIVoteUri>
-   </ElectionAdministration>
 
 
 .. _single-xml-hours:
@@ -2455,6 +2483,25 @@ UTC. The pattern is
        <EndDate>2013-11-05</EndDate>
      </Schedule>
    </HoursOpen>
+
+
+.. _single-xml-election-notice:
+
+ElectionNotice
+~~~~~~~~~~~~~~
+
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==========================================+==============+==============+==========================================+==========================================+
+| NoticeText   | :ref:`single-xml-internationalized-text` | **Required** | Single       | The last minute or emergency             | If the element is invalid, then the      |
+|              |                                          |              |              | notification text should be placed here. | implementation is required to ignore the |
+|              |                                          |              |              |                                          | ``ElectionNotice`` element containing    |
+|              |                                          |              |              |                                          | it.                                      |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| NoticeUri    | ``xs:anyURI``                            | Optional     | Single       | Optional URL for additional information  | If the field is invalid or not present,  |
+|              |                                          |              |              | related to the last minute or emergency  | then the implementation is required to   |
+|              |                                          |              |              | notification.                            | ignore it.                               |
++--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-retention-contest:
@@ -2513,7 +2560,8 @@ are equal.
 |                      |                            |              |              | NE."                                     |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | City                 | ``xs:string``              | **Required** | Single       | The city specifies the city or town of   | If the field is invalid, then the        |
-|                      |                            |              |              | the address.                             | implementation is required to ignore it. |
+|                      |                            |              |              | the address.                             | implementation is required to ignore the |
+|                      |                            |              |              |                                          | ``StreetSegment`` element containing it. |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IncludesAllAddresses | ``xs:boolean``             | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
 |                      |                            |              |              | address on this street. If this is       | then the implementation is required to   |
@@ -2535,9 +2583,9 @@ are equal.
 |                      |                            |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
 |                      |                            |              |              | the street segment.                      |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctId           | ``xs:IDREF``               | Optional     | Single       | References the                           | If the field is not present or invalid,  |
-|                      |                            |              |              | :ref:`single-xml-precinct` that contains | the implementation is required to ignore |
-|                      |                            |              |              | the entire street segment.               | the StreetSegment element containing it. |
+| PrecinctId           | ``xs:IDREF``               | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                      |                            |              |              | :ref:`single-xml-precinct` that contains | implementation is required to ignore the |
+|                      |                            |              |              | the entire street segment.               | ``StreetSegment`` element containing it. |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartHouseNumber     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                      |                            |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
@@ -2561,8 +2609,25 @@ are equal.
 |                      |                            |              |              | **IncludesAllStreets** are true, this    |                                          |
 |                      |                            |              |              | value is ignored.                        |                                          |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HouseNumberPrefix    | ``xs:string``              | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
+|                      |                            |              |              | letters or slashes (e.g., 'B' in 'B22    | then the implementation is required to   |
+|                      |                            |              |              | Main St'). If this value is present then | ignore it.                               |
+|                      |                            |              |              | **StartHouseNumber** must be equal to    |                                          |
+|                      |                            |              |              | **EndHouseNumber**. This field cannot be |                                          |
+|                      |                            |              |              | used if **IncludesAllAddresses** or      |                                          |
+|                      |                            |              |              | **IncludesAllStreets** are true.         |                                          |
++----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HouseNumberSuffix    | ``xs:string``              | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
+|                      |                            |              |              | letters or slashes (e.g., 1/2 in '22 1/2 | then the implementation is required to   |
+|                      |                            |              |              | Main St'). If this value is present then | ignore it.                               |
+|                      |                            |              |              | **StartHouseNumber** must be equal to    |                                          |
+|                      |                            |              |              | **EndHouseNumber**. This field cannot be |                                          |
+|                      |                            |              |              | used if **IncludesAllAddresses** or      |                                          |
+|                      |                            |              |              | **IncludesAllStreets** are true.         |                                          |
++----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | State                | ``xs:string``              | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
-|                      |                            |              |              | abbreviation of the address.             | implementation is required to ignore it. |
+|                      |                            |              |              | abbreviation of the address.             | implementation is required to ignore the |
+|                      |                            |              |              |                                          | ``StreetSegment`` element containing it. |
 +----------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StreetDirection      | ``xs:string``              | Optional     | Single       | Specifies the (inter-)cardinal direction | If the field is invalid or not present,  |
 |                      |                            |              |              | of the street address (e.g., the "E" in  | then the implementation is required to   |
@@ -2617,6 +2682,19 @@ are equal.
       <PrecinctId>pre92145</PrecinctId>
       <StartHouseNumber>1</StartHouseNumber>
       <EndHouseNumber>201</EndHouseNumber>
+      <State>VA</State>
+      <StreetName>MISTY MOUNTAIN</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22943</Zip>
+   </StreetSegment>
+   <StreetSegment id = "ss1"
+      <City>GREENWOOD</City>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre92145</PrecinctId>
+      <StartHouseNumber>1</StartHouseNumber>
+      <EndHouseNumber>1</EndHouseNumber>
+      <HouseNumberPrefix>B</HouseNumberPrefix>
+      <HouseNumberSuffix>1/2</HouseNumberSuffix>
       <State>VA</State>
       <StreetName>MISTY MOUNTAIN</StreetName>
       <StreetSuffix>RD</StreetSuffix>
@@ -2711,8 +2789,8 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              |                                          | ignore it.                               |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectoralDistrictId     | ``xs:IDREF``                             | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation should ignore it.         |
-|                         |                                          |              |              | element that represents the geographical |                                          |
+|                         |                                          |              |              | :ref:`single-xml-electoral-district`     | implementation is required to ignore the |
+|                         |                                          |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | scope of the contest.                    |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ElectorateSpecification | :ref:`single-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -2734,9 +2812,9 @@ and :ref:`single-xml-retention-contest` (NB: the latter because it extends
 |                         |                                          |              |              | contest are rotated.                     | then the implementation should ignore    |
 |                         |                                          |              |              |                                          | it.                                      |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                            | Optional     | Single       | Name of the contest, not necessarily how | If the field is invalid or not present,  |
-|                         |                                          |              |              | it appears on the ballot (NB:            | then the implementation should ignore    |
-|                         |                                          |              |              | BallotTitle should be used for this      | it.                                      |
+| Name                    | ``xs:string``                            | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
+|                         |                                          |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
+|                         |                                          |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
 |                         |                                          |              |              | purpose).                                |                                          |
 +-------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | SequenceOrder           | ``xs:integer``                           | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -2827,29 +2905,17 @@ InternationalizedText
 ``InternationalizedText`` has an optional attribute ``label``, which allows the feed to refer
 back to the original label for the information (e.g. if the contact information came from a
 CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can be seen in:
-
 * Any element that extends :ref:`single-xml-contest-base`
-
 * Any element that extends :ref:`single-xml-ballot-selection-base`
-
 * :ref:`single-xml-candidate`
-
 * :ref:`single-xml-contact-information`
-
 * :ref:`single-xml-election`
-
 * :ref:`single-xml-election-administration`
-
 * :ref:`single-xml-office`
-
 * :ref:`single-xml-party`
-
 * :ref:`single-xml-person`
-
 * :ref:`single-xml-polling-location`
-
 * :ref:`single-xml-source`
-
 NOTE: Internationalized Text is not currently supported for CSV submissions. 
 
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -3131,6 +3197,41 @@ A base model for all ballot selection types:
 |               |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
 |               |                |              |              | in :ref:`single-xml-ordered-contest`.    |                                          |
 +---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-xml-simple-address-type:
+
+SimpleAddressType
+~~~~~~~~~~~~~~~~~
+
+A ``SimpleAddressType`` represents a structured address.
+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| Line1        | ``xs:string`` | **Required** | Single       | The address line for a structured        | If no ``Line1`` is provided, the         |
+|              |               |              |              | address. Should include the street       | implementation should ignore the         |
+|              |               |              |              | number, street name, and any prefix and  | ``SimpleAddressType``.                   |
+|              |               |              |              | suffix.                                  |                                          |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Line2        | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line2`` is provided, the         |
+|              |               |              |              |                                          | implementation should ignore it.         |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Line3        | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line3`` is provided, the         |
+|              |               |              |              |                                          | implementation should ignore it.         |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| City         | ``xs:string`` | **Required** | Single       | The City value of a structured address.  | If ``City`` is not provided, the         |
+|              |               |              |              |                                          | implementation should ignore the         |
+|              |               |              |              |                                          | ``SimpleAddressType``.                   |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| State        | ``xs:string`` | **Required** | Single       | The State value of a structured address. | If ``State`` is not provided, the        |
+|              |               |              |              |                                          | implementation should ignore the         |
+|              |               |              |              |                                          | ``SimpleAddressType``.                   |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Zip          | ``xs:string`` | Optional     | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
+|              |               |              |              |                                          | implementation should ignore the         |
+|              |               |              |              |                                          | ``SimpleAddressType``.                   |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-enumerations:

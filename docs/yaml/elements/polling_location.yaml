@@ -5,27 +5,67 @@ csv-post: |-
      :linenos:
 
 
-      id,name,address_line,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
-      poll001,ALBERMARLE HIGH SCHOOL","2775 Hydraulic Rd Charlottesville, VA 22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
-      poll002,Public Library, Main St Denver,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
-      poll003,Historic Society,,wheelchair entrance,7am-8pm,www.picture.com,,false,true,,,
-      poll004,Community Center,,behind the big oak tree,7am-8pm,www.picture.com,,false,true,,,
+      id,name,address_line,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
+      poll001,ALBERMARLE HIGH SCHOOL,,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
+      poll002,Public Library,Main St Denver CO,,,,,,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
 description: The PollingLocation object represents a site where voters cast or drop
   off ballots.
 extends:
 - LatLng
+- SimpleAddressType
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <PollingLocation id="pl00000">
+        <AddressLine>2775 Hydraulic Rd Charlottesville, VA 22901</AddressLine>
+        <HoursOpenId>hours0002</HoursOpenId>
+        <IsDropBox>true</IsDropBox>
+        <IsEarlyVoting>true</IsEarlyVoting>
+        <LatLng>
+           <Latitude>38.009939</Latitude>
+           <Longitude>-78.506204</Longitude>
+        </LatLng>
+        <Name>ALBERMARLE HIGH SCHOOL</Name>
+     </PollingLocation>
+     <!-- Or: -->
+     <PollingLocation id="pl00000">
+        <AddressStructured>
+           <Line1>2775 Hydraulic Rd</Line1>
+           <City>CHARLOTTESVILLE</City>
+           <State>VA</State>
+           <Zip>22901</Zip>
+        </AddressStructured>
+        <HoursOpenId>hours0002</HoursOpenId>
+        <IsDropBox>true</IsDropBox>
+        <IsEarlyVoting>true</IsEarlyVoting>
+        <LatLng>
+           <Latitude>38.009939</Latitude>
+           <Longitude>-78.506204</Longitude>
+        </LatLng>
+        <Name>ALBERMARLE HIGH SCHOOL</Name>
+     </PollingLocation>
 tags:
+- _name: AddressStructured
+  csv-header-name: :ref:`$$$-simple-address-type`
+  csv-type: simple-address-type
+  description: Represents the various structured parts of an address to a polling
+    location.
+  error: One of **AddressStructured** and **AddressLine** should be present for a
+    given Polling Location. If none is present, the implementation is required to
+    ignore the ``PollingLocation`` element containing it.
+  repeating: false
+  required: false
+  type: SimpleAddressType
 - _name: AddressLine
   csv-header-name: address_line
   csv-type: xs:string
-  description: Represents the various parts of an address to a polling location. For
-    CSV implementations, repeating ``address_line`` columns should be incremented,
-    e.g. address_line1, address_line2, address_line3.
-  error: At least one valid ``AddressLine`` must be present for ``PollingLocation``
-    to be valid. If no valid ``AddressLine`` is present, the implementation is required
-    to ignore the ``PollingLocation`` element containing it.
+  description: Represents the various parts of an address to a polling location.
+  error: One of AddressStructured and AddressLine should be present for a given Polling
+    Location. If none is present, the implementation is required to ignore the ``PollingLocation``
+    element containing it.
   repeating: true
-  required: true
+  required: false
   type: xs:string
 - _name: Directions
   csv-header-name: directions

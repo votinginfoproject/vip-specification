@@ -72,6 +72,20 @@
     <Type>county</Type>
   </Locality>
 
+  <Locality id="loc70002">
+    <ElectionAdministrationId>ea40001</ElectionAdministrationId>
+    <ExternalIdentifiers>
+      <ExternalIdentifier>
+        <Type>ocd-id</Type>
+        <Value>ocd-division/country:us/state:va/county:fairfax</Value>
+      </ExternalIdentifier>
+    </ExternalIdentifiers>
+    <IsMailOnly>true</IsMailOnly>
+    <Name>Fairfax COUNTY</Name>
+    <StateId>st51</StateId>
+    <Type>county</Type>
+  </Locality>
+
   <!-- Information about the election administration organizations for various jurisdictions. -->
   <ElectionAdministration id="ea40133">
     <AbsenteeUri>http://www.sbe.virginia.gov/absenteevoting.html</AbsenteeUri>
@@ -102,6 +116,12 @@
       </ContactInformation>
       <ElectionOfficialPersonId>per50001</ElectionOfficialPersonId>
     </Department>
+    <ElectionNotice>
+      <NoticeText>
+        <Text language="en">This is an emergency notification for this election.</Text>
+      </NoticeText>
+      <NoticeURI>https://www.yadayada.gov</NoticeURI>
+    </ElectionNotice>
     <ElectionsUri>http://www.albemarle.org/registrar</ElectionsUri>
     <RegistrationUri>http://www.vote.virginia.gov</RegistrationUri>
     <RulesUri>http://www.vote.virginia.gov</RulesUri>
@@ -1483,8 +1503,12 @@
 
   <!-- The polling locations in this jurisdiction. -->
   <PollingLocation id="pl00000">
-    <AddressLine>1600 5TH STREET</AddressLine>
-    <AddressLine>CHARLOTTESVILLE, VA 22902</AddressLine>
+    <AddressStructured>
+       <Line1>2775 Hydraulic Rd</Line1>
+      <City>CHARLOTTESVILLE</City>
+      <State>VA</State>
+     <Zip>22901</Zip>
+    </AddressStructured>
     <HoursOpenId>hours0002</HoursOpenId>
     <IsDropBox>true</IsDropBox>
     <IsEarlyVoting>true</IsEarlyVoting>
@@ -1492,7 +1516,6 @@
       <Latitude>38.009939</Latitude>
       <Longitude>-78.506204</Longitude>
     </LatLng>
-    <Name>DEPARTMENT OF VOTER REGISTRATION AND ELECTIONS</Name>
   </PollingLocation>
   <PollingLocation id="pl81273">
     <AddressLine>2775 Hydraulic Rd</AddressLine>
@@ -2026,6 +2049,19 @@
   </Precinct>
 
   <!-- Street segments -->
+   <StreetSegment id = "ss1">
+      <City>GREENWOOD</City>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre92145</PrecinctId>
+      <StartHouseNumber>1</StartHouseNumber>
+      <EndHouseNumber>1</EndHouseNumber>
+      <HouseNumberPrefix>B</HouseNumberPrefix>
+      <HouseNumberSuffix>1/2</HouseNumberSuffix>
+      <State>VA</State>
+      <StreetName>MISTY MOUNTAIN</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22943</Zip>
+   </StreetSegment>
   <StreetSegment id="ss000000">
     <City>Charlottesville</City>
     <IncludesAllStreets>true</IncludesAllStreets>
