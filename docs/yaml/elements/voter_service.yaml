@@ -4,7 +4,6 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
       id,description,election_official_person_id,type,other_type,department_id
       vs01,A service we provide,per50002,other,overseas-voting,dep01
       vs00,Elections notifications,per50002,other,voter-registration,dep02
