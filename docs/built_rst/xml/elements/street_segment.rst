@@ -19,7 +19,8 @@ are equal.
 |                      |                           |              |              | NE."                                     |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | City                 | ``xs:string``             | **Required** | Single       | The city specifies the city or town of   | If the field is invalid, then the        |
-|                      |                           |              |              | the address.                             | implementation is required to ignore it. |
+|                      |                           |              |              | the address.                             | implementation is required to ignore the |
+|                      |                           |              |              |                                          | ``StreetSegment`` element containing it. |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IncludesAllAddresses | ``xs:boolean``            | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
 |                      |                           |              |              | address on this street. If this is       | then the implementation is required to   |
@@ -41,9 +42,9 @@ are equal.
 |                      |                           |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
 |                      |                           |              |              | the street segment.                      |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctId           | ``xs:IDREF``              | Optional     | Single       | References the :ref:`multi-xml-precinct` | If the field is not present or invalid,  |
-|                      |                           |              |              | that contains the entire street segment. | the implementation is required to ignore |
-|                      |                           |              |              |                                          | the StreetSegment element containing it. |
+| PrecinctId           | ``xs:IDREF``              | **Required** | Single       | References the :ref:`multi-xml-precinct` | If the field is invalid, then the        |
+|                      |                           |              |              | that contains the entire street segment. | implementation is required to ignore the |
+|                      |                           |              |              |                                          | ``StreetSegment`` element containing it. |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StartHouseNumber     | ``xs:integer``            | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                      |                           |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
@@ -67,8 +68,25 @@ are equal.
 |                      |                           |              |              | **IncludesAllStreets** are true, this    |                                          |
 |                      |                           |              |              | value is ignored.                        |                                          |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HouseNumberPrefix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
+|                      |                           |              |              | letters or slashes (e.g., 'B' in 'B22    | then the implementation is required to   |
+|                      |                           |              |              | Main St'). If this value is present then | ignore it.                               |
+|                      |                           |              |              | **StartHouseNumber** must be equal to    |                                          |
+|                      |                           |              |              | **EndHouseNumber**. This field cannot be |                                          |
+|                      |                           |              |              | used if **IncludesAllAddresses** or      |                                          |
+|                      |                           |              |              | **IncludesAllStreets** are true.         |                                          |
++----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| HouseNumberSuffix    | ``xs:string``             | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
+|                      |                           |              |              | letters or slashes (e.g., 1/2 in '22 1/2 | then the implementation is required to   |
+|                      |                           |              |              | Main St'). If this value is present then | ignore it.                               |
+|                      |                           |              |              | **StartHouseNumber** must be equal to    |                                          |
+|                      |                           |              |              | **EndHouseNumber**. This field cannot be |                                          |
+|                      |                           |              |              | used if **IncludesAllAddresses** or      |                                          |
+|                      |                           |              |              | **IncludesAllStreets** are true.         |                                          |
++----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | State                | ``xs:string``             | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
-|                      |                           |              |              | abbreviation of the address.             | implementation is required to ignore it. |
+|                      |                           |              |              | abbreviation of the address.             | implementation is required to ignore the |
+|                      |                           |              |              |                                          | ``StreetSegment`` element containing it. |
 +----------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | StreetDirection      | ``xs:string``             | Optional     | Single       | Specifies the (inter-)cardinal direction | If the field is invalid or not present,  |
 |                      |                           |              |              | of the street address (e.g., the "E" in  | then the implementation is required to   |
@@ -123,6 +141,19 @@ are equal.
       <PrecinctId>pre92145</PrecinctId>
       <StartHouseNumber>1</StartHouseNumber>
       <EndHouseNumber>201</EndHouseNumber>
+      <State>VA</State>
+      <StreetName>MISTY MOUNTAIN</StreetName>
+      <StreetSuffix>RD</StreetSuffix>
+      <Zip>22943</Zip>
+   </StreetSegment>
+   <StreetSegment id = "ss1"
+      <City>GREENWOOD</City>
+      <OddEvenBoth>both</OddEvenBoth>
+      <PrecinctId>pre92145</PrecinctId>
+      <StartHouseNumber>1</StartHouseNumber>
+      <EndHouseNumber>1</EndHouseNumber>
+      <HouseNumberPrefix>B</HouseNumberPrefix>
+      <HouseNumberSuffix>1/2</HouseNumberSuffix>
       <State>VA</State>
       <StreetName>MISTY MOUNTAIN</StreetName>
       <StreetSuffix>RD</StreetSuffix>

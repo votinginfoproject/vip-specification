@@ -3,8 +3,8 @@
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+=========================================+==============+==============+==========================================+==========================================+
-| ContactInformation  | :ref:`multi-xml-contact-information`    | Optional     | Repeats      | Specifies contact information for the    | If the element is invalid or not         |
-|                     |                                         |              |              | person.                                  | present, then the implementation is      |
+| ContactInformation  | :ref:`multi-xml-contact-information`    | Optional     | Repeats      | Refers to the associated                 | If the element is invalid or not         |
+|                     |                                         |              |              | :ref:`multi-xml-contact-information`.    | present, then the implementation is      |
 |                     |                                         |              |              |                                          | required to ignore it.                   |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | DateOfBirth         | ``xs:date``                             | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |

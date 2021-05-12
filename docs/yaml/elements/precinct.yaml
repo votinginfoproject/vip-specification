@@ -90,16 +90,12 @@ tags:
   csv-header-name: locality_id
   csv-type: xs:IDREF
   description: Links to the :ref:`$$$-locality` that comprises the precinct.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the precinct element containing it.
   required: true
   type: xs:IDREF
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
   description: Specifies the precinct's name (or number if no name exists).
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the precinct element containing it.
   required: true
   type: xs:string
 - _name: Number

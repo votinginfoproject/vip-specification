@@ -3,6 +3,26 @@
 This document includes release notes for the [VIP Spec][vip] for versions
 5.1 and later.
 
+## Version 5.2
+
+### Spec Changes
+* [Issue #400 - Add `IsMailOnly` to Locality object](https://github.com/votinginfoproject/vip-specification/issues/400)
+  * PR [#403](https://github.com/votinginfoproject/vip-specification/pull/403)
+* [Issue #401 - Add `ElectionNotice` to ElectionAdministration object](https://github.com/votinginfoproject/vip-specification/issues/401)
+  * PR [#406](https://github.com/votinginfoproject/vip-specification/pull/406)
+* [Issue #367 - Add ballot tracking URLs to ElectionAdministration object](https://github.com/votinginfoproject/vip-specification/issues/367)
+  * PR [#389](https://github.com/votinginfoproject/vip-specification/pull/389)
+* [Issue #162 - restore `HouseNumberSuffix` and `HouseNumberPrefix` to StreetSegment](https://github.com/votinginfoproject/vip-specification/issues/162)
+  * PR [#388](https://github.com/votinginfoproject/vip-specification/pull/388)
+* [Issue #351 - Add `StructuredAddress` to PollingLocation object](https://github.com/votinginfoproject/vip-specification/issues/351)
+  * PR [#387](https://github.com/votinginfoproject/vip-specification/pull/387)
+
+### Other Changes
+* [Issue #324 - YAML files become one true source for XML and CSV documentation](https://github.com/votinginfoproject/vip-specification/issues/324)
+  * PR [#376](https://github.com/votinginfoproject/vip-specification/pull/376)
+* [Issue #366 - Improve Best Practice documentation](https://github.com/votinginfoproject/vip-specification/issues/366)
+  * PR [#393](https://github.com/votinginfoproject/vip-specification/pull/393)
+
 ## Version 5.1.2
 
 ### Spec Changes

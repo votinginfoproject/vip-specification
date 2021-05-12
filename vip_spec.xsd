@@ -284,10 +284,19 @@
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
+  <xs:complexType name="ElectionNotice">
+    <xs:sequence>
+      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="1" />
+      <xs:element name="NoticeUri" type="xs:anyURI" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="AmIRegisteredUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="BallotTrackingUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="BallotProvisionalTrackingUri" type="xs:anyURI" minOccurs="0" />
       <!-- A locality may have more than one department with each handling different services. -->
       <xs:element name="Department" maxOccurs="unbounded">
         <xs:complexType>
@@ -321,6 +330,7 @@
           <xs:attribute name="label" type="xs:string" />
         </xs:complexType>
       </xs:element>
+      <xs:element name="ElectionNotice" type="ElectionNotice" minOccurs="0" />
       <xs:element name="ElectionsUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="RegistrationUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="RulesUri" type="xs:anyURI" minOccurs="0" />
@@ -428,8 +438,8 @@
 
   <xs:complexType name="LatLng">
     <xs:sequence>
-      <xs:element name="Latitude" type="xs:float" maxOccurs="1" />
-      <xs:element name="Longitude" type="xs:float" maxOccurs="1" />
+      <xs:element name="Latitude" type="xs:double" maxOccurs="1" />
+      <xs:element name="Longitude" type="xs:double" maxOccurs="1" />
       <xs:element name="Source" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
@@ -439,6 +449,7 @@
     <xs:sequence>
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
+      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="Name" type="xs:string" />
       <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="StateId" type="xs:IDREF" />
@@ -531,7 +542,10 @@
   <xs:complexType name="PollingLocation">
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
-      <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      <xs:choice>
+        <xs:element name="AddressStructured" type="SimpleAddressType"/>
+        <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
+      </xs:choice>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
            Note: The "Hours" element is being deprecated and will be removed
@@ -575,6 +589,17 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="SimpleAddressType">
+    <xs:sequence>
+      <xs:element name="Line1" type="xs:string"/>
+      <xs:element name="Line2" type="xs:string" minOccurs="0" />
+      <xs:element name="Line3" type="xs:string" minOccurs="0" />
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="Zip" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="State">
     <xs:sequence>
       <xs:element name="ElectionAdministrationId" type="xs:IDREF" minOccurs="0" />
@@ -595,6 +620,8 @@
       <xs:element name="PrecinctId" type="xs:IDREF" />
       <xs:element name="StartHouseNumber" type="xs:integer" minOccurs="0" />
       <xs:element name="EndHouseNumber" type="xs:integer" minOccurs="0" />
+      <xs:element name="HouseNumberPrefix" type="xs:string" minOccurs="0" />
+      <xs:element name="HouseNumberSuffix" type="xs:string" minOccurs="0" />
       <xs:element name="State" type="xs:string" />
       <xs:element name="StreetDirection" type="xs:string" minOccurs="0" />
       <xs:element name="StreetName" type="xs:string" minOccurs="0"/>
@@ -699,7 +726,7 @@
         <xs:element name="StreetSegment" type="StreetSegment" />
 
       </xs:choice>
-      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.1" />
+      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.2" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

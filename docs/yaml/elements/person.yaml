@@ -40,9 +40,9 @@ post: |-
      </Person>
 tags:
 - _name: ContactInformation
-  csv-header-name: contact_information
-  csv-type: ContactInformation
-  description: Specifies contact information for the person.
+  csv-header-name: contact_information_id
+  csv-type: xs:IDREF
+  description: Refers to the associated :ref:`$$$-contact-information`.
   error_then: =must-ignore
   repeating: true
   type: ContactInformation
