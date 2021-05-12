@@ -4,7 +4,6 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
       id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,house_number_prefix,house_number_suffix,state,street_direction,street_name,street_suffix,unit_number,zip
       ss000001,N,Washington,false,false,odd,pre90113,101,199,,,DC,NW,Delaware,St,,20001
       ss000002,S,Washington,true,false,both,pre90112,,,,,DC,SE,Wisconsin,Ave,,20002

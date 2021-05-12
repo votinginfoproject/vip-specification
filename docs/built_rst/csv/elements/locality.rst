@@ -57,7 +57,6 @@ The Locality object represents the jurisdiction below the :ref:`multi-csv-state`
 .. code-block:: csv-table
    :linenos:
 
-
     id,election_administration_id,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,name,polling_location_ids,state_id,type,other_type
     loc001,ea123,ocd-id,,ocd-division/country:us/state:co/county:denver,true,Locality #1,poll001 poll002,st51,city,
     loc002,ea345,,,,,Locality #2,,st51,other,unique type

@@ -452,7 +452,6 @@ summary statements on each side. Extends :ref:`single-csv-contest-base`.
 .. code-block:: csv-table
    :linenos:
 
-
     id,abbreviation,ballot_selection_ids,ballot_sub_title,ballot_title,elecoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation,con_statement,effect_of_abstain,full_text,info_uri,passage_threshold,pro_statement,summary_text,type,other_type
     bmc0001,HB2,bs001 bs002 bs003,Raising levy for School Bond,School Bond Issue,ed001,all registered voters,,54,false,School Bond,42,majority,,This is no good.,No effect,A measure to do raise funds for etc etc,www.ballotmeasure.com,two-thirds,Everything will be great.,It’s a referendum about school funding,referendum,
 
@@ -488,8 +487,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | ignore it.                               |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation should ignore it.         |
+|                          |                                  |              |              | element that represents the geographical |                                          |
 |                          |                                  |              |              | scope of the contest.                    |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -512,8 +511,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -563,8 +562,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | ignore it.                               |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation should ignore it.         |
+|                          |                                  |              |              | element that represents the geographical |                                          |
 |                          |                                  |              |              | scope of the contest.                    |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -587,8 +586,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -1253,7 +1252,6 @@ The PollingLocation object represents a site where voters cast or drop off ballo
 .. code-block:: csv-table
    :linenos:
 
-
     id,name,address_line,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
     poll001,ALBERMARLE HIGH SCHOOL,,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
     poll002,Public Library,Main St Denver CO,,,,,,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
@@ -1373,7 +1371,6 @@ The Locality object represents the jurisdiction below the :ref:`single-csv-state
 
 .. code-block:: csv-table
    :linenos:
-
 
     id,election_administration_id,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,name,polling_location_ids,state_id,type,other_type
     loc001,ea123,ocd-id,,ocd-division/country:us/state:co/county:denver,true,Locality #1,poll001 poll002,st51,city,
@@ -1803,8 +1800,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | ignore it.                               |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation should ignore it.         |
+|                          |                                  |              |              | element that represents the geographical |                                          |
 |                          |                                  |              |              | scope of the contest.                    |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -1827,8 +1824,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
@@ -1910,7 +1907,6 @@ functions.
 
 .. code-block:: csv-table
    :linenos:
-
 
     id,absentee_uri,am_i_registered_uri,ballot_tracking_uri,ballot_tracking_provisional_uri,election_notice_text,election_notice_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
     ea123,https://example.com/absentee,https://example.com/am-i-registered,https://www.vote.virginia.gov/,https://www.vote.virginia.gov/,This is an emergency notification for this election.,https://www.yadayada.gov,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
@@ -2340,7 +2336,6 @@ are equal.
 .. code-block:: csv-table
    :linenos:
 
-
     id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,house_number_prefix,house_number_suffix,state,street_direction,street_name,street_suffix,unit_number,zip
     ss000001,N,Washington,false,false,odd,pre90113,101,199,,,DC,NW,Delaware,St,,20001
     ss000002,S,Washington,true,false,both,pre90112,,,,,DC,SE,Wisconsin,Ave,,20002
@@ -2427,8 +2422,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | ignore it.                               |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation should ignore it.         |
+|                          |                                  |              |              | element that represents the geographical |                                          |
 |                          |                                  |              |              | scope of the contest.                    |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
@@ -2451,8 +2446,8 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              |                                          | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
+|                          |                                  |              |              | it appears on the ballot (NB:            | implementation should ignore it.         |
+|                          |                                  |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                  |              |              | purpose).                                |                                          |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |

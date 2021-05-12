@@ -5,7 +5,7 @@
      https://github.com/votinginfoproject/vip-specification
      for history and more infor.
   -->
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="5.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="5.1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- Enumeration types. -->
   <xs:simpleType name="BallotMeasureType">
