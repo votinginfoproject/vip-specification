@@ -534,6 +534,7 @@
       <xs:element name="Color" type="HtmlColorString" minOccurs="0" />
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="IsWriteIn" type="xs:boolean" minOccurs="0" />
+      <xs:element name="LeaderPersonIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="LogoUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="Name" type="InternationalizedText" />
     </xs:sequence>
