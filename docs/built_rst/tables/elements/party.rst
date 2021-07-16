@@ -24,6 +24,10 @@
 |                     |                                         |              |              | this field is not present then it is     |                                          |
 |                     |                                         |              |              | assumed to be false.                     |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LeaderPersonIds     | ``xs:IDREFS``                           | Optional     | Single       | A reference of :ref:`multi-xml-person`   | If the field is invalid or not present,  |
+|                     |                                         |              |              | elements which are leaders of the        | then the implementation is required to   |
+|                     |                                         |              |              | `Party`.                                 | ignore it.                               |
++---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LogoUri             | ``xs:anyURI``                           | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
 |                     |                                         |              |              | displays.                                | then the implementation is required to   |
 |                     |                                         |              |              |                                          | ignore it.                               |

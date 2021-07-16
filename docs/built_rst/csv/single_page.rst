@@ -2502,6 +2502,10 @@ This element describes a political party and the metadata associated with them. 
 |                      |                                        |              |              | this field is not present then it is     |                                          |
 |                      |                                        |              |              | assumed to be false.                     |                                          |
 +----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| leader_person_ids    | ``xs:IDREFS``                          | Optional     | Single       | A reference of :ref:`single-csv-person`  | If the field is invalid or not present,  |
+|                      |                                        |              |              | elements which are leaders of the        | then the implementation is required to   |
+|                      |                                        |              |              | `Party`.                                 | ignore it.                               |
++----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | logo_uri             | ``xs:anyURI``                          | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
 |                      |                                        |              |              | displays.                                | then the implementation is required to   |
 |                      |                                        |              |              |                                          | ignore it.                               |
@@ -2515,11 +2519,11 @@ This element describes a political party and the metadata associated with them. 
    :linenos:
 
 
-    id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,logo_uri,name
-    par01,REP,ff0000,,,,http://example.com/elephant.png,Republican
-    par02,DEM,0000ff,,,,http://example.com/donkey.png,Democrat
-    par03,GRN,efefef,,,,http://example.com/tree.png,Green
-    par04,WFP,ee99aa,,,,http://example.com/worker.png,Working Families Party
+    id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,is_write_in,leader_person_ids,logo_uri,name
+    par01,REP,ff0000,,,,true,,http://example.com/elephant.png,Republican
+    par02,DEM,0000ff,,,,false,per01,http://example.com/donkey.png,Democrat
+    par03,GRN,efefef,,,,,,http://example.com/tree.png,Green
+    par04,WFP,ee99aa,,,,,,http://example.com/worker.png,Working Families Party
 
 
 .. _single-csv-html-color-string:

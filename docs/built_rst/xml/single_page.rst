@@ -1795,17 +1795,6 @@ color string. The pattern is:
 
 ``[0-9a-f]{6}``
 
-.. code-block:: xml
-   :linenos:
-
-   <Party id="par0001">
-     <Abbreviation>REP</Abbreviation>
-     <Color>e91d0e</Color>
-     <Name>
-       <Text language="en">Republican</Text>
-     </Name>
-   </Party>
-
 
 .. _single-xml-schedule:
 
@@ -2864,6 +2853,10 @@ This element describes a political party and the metadata associated with them. 
 |                     |                                          |              |              | this field is not present then it is     |                                          |
 |                     |                                          |              |              | assumed to be false.                     |                                          |
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| LeaderPersonIds     | ``xs:IDREFS``                            | Optional     | Single       | A reference of :ref:`single-xml-person`  | If the field is invalid or not present,  |
+|                     |                                          |              |              | elements which are leaders of the        | then the implementation is required to   |
+|                     |                                          |              |              | `Party`.                                 | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | LogoUri             | ``xs:anyURI``                            | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
 |                     |                                          |              |              | displays.                                | then the implementation is required to   |
 |                     |                                          |              |              |                                          | ignore it.                               |
@@ -2872,6 +2865,19 @@ This element describes a political party and the metadata associated with them. 
 |                     |                                          |              |              |                                          | present, then the implementation is      |
 |                     |                                          |              |              |                                          | required to ignore it.                   |
 +---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: xml
+   :linenos:
+
+   <Party id="par0001">
+     <Abbreviation>REP</Abbreviation>
+     <Color>e91d0e</Color>
+     <IsWriteIn>false</IsWriteIn>
+     <LeaderPersonIds>per01</LeaderPersonIds>
+     <Name>
+       <Text language="en">Republican</Text>
+     </Name>
+   </Party>
 
 
 .. _single-xml-html-color-string:
@@ -2883,17 +2889,6 @@ A restricted string pattern for a six-character hex code representing an HTML
 color string. The pattern is:
 
 ``[0-9a-f]{6}``
-
-.. code-block:: xml
-   :linenos:
-
-   <Party id="par0001">
-     <Abbreviation>REP</Abbreviation>
-     <Color>e91d0e</Color>
-     <Name>
-       <Text language="en">Republican</Text>
-     </Name>
-   </Party>
 
 
 .. _single-xml-internationalized-text:
