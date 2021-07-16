@@ -3,6 +3,16 @@
 This document includes release notes for the [VIP Spec][vip] for versions
 5.1 and later.
 
+## Version 6.0
+
+### Spec Changes
+* [Issue #412 - Support geospatial data for modeling electoral district boundaries](https://github.com/votinginfoproject/vip-specification/issues/412)
+* [Issue #364 - Add LeaderPersonIds to Party](https://github.com/votinginfoproject/vip-specification/issues/364)
+
+### Other Changes
+* [Issue #297 - Links to projects implementing this specification](https://github.com/votinginfoproject/vip-specification/issues/297)
+* [Issue #279 - Improve comments in python YAML code](https://github.com/votinginfoproject/vip-specification/issues/279)
+
 ## Version 5.2
 
 ### Spec Changes
