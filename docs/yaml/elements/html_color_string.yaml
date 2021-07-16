@@ -5,14 +5,3 @@ description: |-
   color string. The pattern is:
 
   ``[0-9a-f]{6}``
-post: |-
-  .. code-block:: xml
-     :linenos:
-
-     <Party id="par0001">
-       <Abbreviation>REP</Abbreviation>
-       <Color>e91d0e</Color>
-       <Name>
-         <Text language="en">Republican</Text>
-       </Name>
-     </Party>
