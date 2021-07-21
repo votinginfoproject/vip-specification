@@ -1,0 +1,7 @@
+_name: ChecksumAlgorithm
+csv-header-name: checksum_algorithm
+tags:
+- _name: sha-256
+  description: 256-bit cryptographic hash algorithm of the SHA-2 family
+- _name: sha-512
+  description: 512-bit cryptographic hash algorithm of the SHA-2 family

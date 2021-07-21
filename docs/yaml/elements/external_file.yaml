@@ -1,0 +1,35 @@
+_name: ExternalFile
+csv-header-name: external_file
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+      id,filename,checksum_id
+      ef1,precinct_shapes.zip,ch1
+description: "The ``ExternalFile`` object holds a reference to a file external to\
+  \ the feed itself. \nExternal files are packaged along with the VIP feed into a\
+  \ single, archived file. "
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <ExternalFile id="ef1">
+        <Filename>precinct_shapes.zip</Filename>
+        <Checksum>
+          <Algorithm>sha-256</Algorithm>
+          <Value>65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e</Value>
+        </Checksum>
+     </State>
+tags:
+- _name: Filename
+  csv-header-name: filename
+  csv-type: xs:string
+  description: The name of the external file.
+  required: true
+  type: xs:string
+- _name: Checksum
+  csv-header-name: checksum_id
+  csv-type: xs:IDREF
+  description: The cryptographic checksum of the referenced external file.
+  required: true
+  type: Checksum

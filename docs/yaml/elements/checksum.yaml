@@ -1,0 +1,32 @@
+_name: Checksum
+csv-header-name: checksum
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+      id,algorithm,value
+      ch1,sha-256,65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e
+description: |-
+  The ``Checksum`` object contains information about a cryptographic checksum, including
+  the raw checksum value and the cryptographic hash algorithm used to compute it.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+      <Checksum>
+        <Algorithm>sha-256</Algorithm>
+        <Value>65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e</Value>
+      </Checksum>
+tags:
+- _name: Algorithm
+  csv-header-name: algorithm
+  csv-type: ChecksumAlgorithm
+  description: The cryptographic hash algorithm used to compute the checksum value.
+  required: true
+  type: ChecksumAlgorithm
+- _name: Value
+  csv-header-name: value
+  csv-type: xs:string
+  description: The raw cryptographic checksum value.
+  required: true
+  type: xs:string
