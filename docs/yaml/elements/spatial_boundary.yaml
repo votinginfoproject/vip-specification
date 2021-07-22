@@ -1,4 +1,6 @@
 _name: SpatialBoundary
+_sub_types:
+- ExternalGeospatialFeature
 csv-header-name: spatial_boundary
 csv-post: |-
   .. code-block:: csv-table

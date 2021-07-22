@@ -1,4 +1,6 @@
 _name: ExternalFile
+_sub_types:
+- Checksum
 csv-header-name: external_file
 csv-post: |-
   .. code-block:: csv-table
