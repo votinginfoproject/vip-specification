@@ -54,6 +54,16 @@
 |                      |                                       |              |              | See the `sample_feed.xml` file for       |                                          |
 |                      |                                       |              |              | examples.                                |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SpatialBoundary      | :ref:`multi-xml-spatial-boundary`     | Optional     | Single       | Defines the spatial boundary of the      | If the element is invalid or not         |
+|                      |                                       |              |              | precinct. All voter addresses contained  | present, then the implementation is      |
+|                      |                                       |              |              | within this boundary are assigned to the | required to ignore it.                   |
+|                      |                                       |              |              | precinct. If a voter address also maps   |                                          |
+|                      |                                       |              |              | to a :doc:`StreetSegment                 |                                          |
+|                      |                                       |              |              | <street_segment>`, then the precinct     |                                          |
+|                      |                                       |              |              | assignment from the StreetSegment will   |                                          |
+|                      |                                       |              |              | be preferred over the assignment from    |                                          |
+|                      |                                       |              |              | the spatial boundary.                    |                                          |
++----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Ward                 | ``xs:string``                         | Optional     | Single       | Specifies the ward the precinct is       | If the field is invalid or not present,  |
 |                      |                                       |              |              | contained within.                        | then the implementation is required to   |
 |                      |                                       |              |              |                                          | ignore it.                               |
