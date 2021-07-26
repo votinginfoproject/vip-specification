@@ -94,7 +94,9 @@ tags:
   csv-header-name: precinct_id
   csv-type: xs:IDREF
   description: References the :ref:`$$$-precinct` that contains the entire street
-    segment.
+    segment. If a precinct has a :ref:`$$$-spatial-boundary` which also contains the
+    entire street segment, then the precinct assignment from the segment will be preferred
+    over the assignment defined by the spatial boundary.
   required: true
   type: xs:IDREF
 - _name: StartHouseNumber
