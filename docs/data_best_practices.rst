@@ -204,7 +204,7 @@ are available, this capability is intended to be straightforward and
 lightweight to integrate with existing GIS tooling.
 
 Assigning Voters to Precincts
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Voter precincts are the atomic unit of electoral districts in the
 U.S., and provide the mechanism by which voters are mapped to their
@@ -233,7 +233,7 @@ in a VIP feed:
       should be the preferred approach whenever possible.
 
 Providing both street segments and precinct shapes
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are some cases where precinct boundaries alone are not sufficient
 to accurately map all voters to their precinct. For example, if a
@@ -258,7 +258,7 @@ assignment from the segment will supersede a precinct assignment given
 by containment with a precinct shape.
 
 Exporting and packaging geospatial files with a VIP feed
---------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Geospatial data files are provided in a native geospatial format. Each
 geospatial file should adhere to standard industry conventions and
@@ -359,7 +359,7 @@ format.
 +----------------------+----------------------+----------------------+
 
 Referencing specific shapes within a geospatial data file
----------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Geospatial data files will usually contain many shapes. For example,
 depending on how the source shape data is managed, it may be easiest to
@@ -404,7 +404,7 @@ ShapeIdentifier should be parsable as an integer.
 +----------------------+----------------------+----------------------+
 
 External file checksums
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Geospatial data is provided in the form of supplemental files external
 to the VIP feed itself. Since this effectively divides the full set of
@@ -427,7 +427,7 @@ external geospatial data file has not changed, then the consumer could
 omit having to reprocess the geospatial aspects of the feed.
 
 Requirements for precinct shapes
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following are practical requirements when defining precinct
 boundaries with geospatial shapes.
