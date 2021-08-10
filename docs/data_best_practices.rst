@@ -203,6 +203,16 @@ the boundary of voter precincts. In places where voter precinct shapes
 are available, this capability is intended to be straightforward and
 lightweight to integrate with existing GIS tooling.
 
+Geodetic Datum
+~~~~~~~~~~~~~~
+
+VIP exclusively uses the 84 revision of the World Geodetic System (WGS
+84) as the geodetic reference system by which geospatial coordinates
+are defined. This applies to geospatial coordinates provided within the
+VIP feed itself (e.g. PollingLocation.LatLng) as well as coordinates
+provides in an external geospatial file.
+
+
 Assigning Voters to Precincts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -429,19 +439,25 @@ omit having to reprocess the geospatial aspects of the feed.
 Requirements for precinct shapes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following are practical requirements when defining precinct
-boundaries with geospatial shapes.
+The following are practical requirements when defining the spatial
+boundary of a Precinct element (whether a precinct or precinct
+split) with geospatial shapes.
 
 -  The resolution of a polygon for a precinct shape can be as coarse or
    fine as needed, so long as the shape accurately represents the
    boundary of the precinct.
 
--  No two precinct shapes should overlap.
+-  No two shapes should overlap.
 
--  All precicnt polygons must form a closed loop. That is, the polygon
-   should start and end from the same point.
+-  All polygons must form a closed loop. That is, the polygon should
+   start and end from the same point.
 
--  The border of a precinct polygon must not intersect itself.
+-  The border of a polygon must not intersect itself.
+
+-  The spatial boundary of a Precinct is defined by a single geospatial
+   feature. That feature, however, may contain one or more discrete
+   and non-overlapping polygons as necessary to define the full extent of
+   the boundary.
 
 -  ShapeIdentifier must be a valid, existing reference in the external
    file.
