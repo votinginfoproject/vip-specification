@@ -210,7 +210,7 @@ VIP exclusively uses the 84 revision of the World Geodetic System (WGS
 84) as the geodetic reference system by which geospatial coordinates
 are defined. This applies to geospatial coordinates provided within the
 VIP feed itself (e.g. PollingLocation.LatLng) as well as coordinates
-provides in an external geospatial file.
+provided in an external geospatial file.
 
 
 Assigning Voters to Precincts
