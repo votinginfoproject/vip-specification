@@ -372,4 +372,5 @@ epub_exclude_files = ['search.html']
 
 # Inject a custom stylesheet into the Read the Docs theme
 def setup(app):
-  app.add_stylesheet("theme_overrides.css")
+    #https://github.com/sphinx-doc/sphinx/issues/7747
+  app.add_css_file("theme_overrides.css")
