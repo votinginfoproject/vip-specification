@@ -1,0 +1,20 @@
+_name: FeatureAttribute
+csv-header-name: feature_attribute
+description: The description for FeatureAttribute
+tags:
+- _name: Name
+  csv-header-name: name
+  csv-type: xs:string
+  description: This field should list the appropriate column header from the geospatial
+    attribute table.
+  repeating: true
+  required: true
+  type: xs:string
+- _name: Value
+  csv-header-name: value
+  csv-type: xs:string
+  description: This field should list the appropriate value from the geospatial attribute
+    table, per the column header name.
+  repeating: true
+  required: true
+  type: xs:string

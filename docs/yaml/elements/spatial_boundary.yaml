@@ -18,7 +18,12 @@ post: |-
         <ExternalGeospatialFeature>
           <ExternalFileId>ef1</ExternalFileId>
           <FileFormat>shp</FileFormat>
-          <ShapeIdentifier>3</ShapeIdentifier>
+          <FeatureIdentifier>
+            <FeatureAttribute>
+              <Name>attribute-column-name</Name>
+              <Value>attribute-column-value</Value>
+            </FeatureAttribute>
+          </FeatureIdentifier>
         </ExternalGeospatialFeature>
       </SpatialBoundary>
 tags:

@@ -42,7 +42,20 @@ post: |-
           <ExternalGeospatialFeature>
             <ExternalFileId>ef1</ExternalFileId>
             <FileFormat>shp</FileFormat>
-            <ShapeIdentifier>3</ShapeIdentifier>
+            <FeatureIdentifier>
+              <FeatureAttribute>
+                <Name>county-fips</Name>
+                <Value>66</Value>
+              </FeatureAttribute>
+              <FeatureAttribute>
+                <Name>precinct-name</Name>
+                <Value>abc</Value>
+              </FeatureAttribute>
+              <FeatureAttribute>
+                <Name>precinct-split-number</Name>
+                <Value>123</Value>
+              </FeatureAttribute>
+            </FeatureIdentifier>
           </ExternalGeospatialFeature>
         </SpatialBoundary>
      </Precinct>

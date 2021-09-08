@@ -1,4 +1,6 @@
 _name: ExternalGeospatialFeature
+_sub_types:
+- FeatureAttribute
 csv-header-name: external_geospatial_feature
 csv-post: |-
   .. code-block:: csv-table
@@ -8,17 +10,6 @@ csv-post: |-
       egf1,ef1,shp,0 7 9
 description: The ``ExternalGeospatialFeature`` object contains a reference to a geospatial
   feature (one or more shapes) contained in a separate file external to the VIP feed.
-post: |-
-  .. code-block:: xml
-     :linenos:
-
-      <ExternalGeospatialFeature>
-        <ExternalFileId>ef1</ExternalFileId>
-        <FileFormat>shp</FileFormat>
-        <ShapeIdentifier>0</ShapeIdentifier>
-        <ShapeIdentifier>7</ShapeIdentifier>
-        <ShapeIdentifier>9</ShapeIdentifier>
-      </ExternalGeospatialFeature>
 tags:
 - _name: ExternalFileId
   csv-header-name: external_file_id
@@ -33,14 +24,12 @@ tags:
   description: The format of the geospatial file.
   required: true
   type: GeospatialFormat
-- _name: ShapeIdentifier
-  csv-header-name: shape_identifiers
+- _name: FeatureIdentifier
+  csv-header-name: feature_identifiers
   csv-type: xs:string
-  description: Identifiers indicating which specific shape(s) to use from the geospatial
-    file. These refer to identifiers within the referenced external file. This is
-    a repeated field in the XML specification, but a scalar field in the CSV specification.
-    If more than one identifier is required with the CSV specifiation, multiple values
-    can be provided by delimited by space.
-  repeating: true
+  description: Identifing attributes indicating which specific shape(s) to use from
+    the geospatial file. These refer to identifiers within the referenced external
+    file.
+  repeating: false
   required: true
-  type: xs:string
+  type: FeatureAttribute
