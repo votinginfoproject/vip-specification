@@ -51,11 +51,3 @@ the raw checksum value and the cryptographic hash algorithm used to compute it.
 |              |                                     |              |              |                                          | implementation is required to ignore the |
 |              |                                     |              |              |                                          | ``Checksum`` element containing it.      |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: xml
-   :linenos:
-
-    <Checksum>
-      <Algorithm>sha-256</Algorithm>
-      <Value>65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e</Value>
-    </Checksum>

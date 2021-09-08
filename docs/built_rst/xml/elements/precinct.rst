@@ -104,7 +104,20 @@ is assigned to that precinct.
         <ExternalGeospatialFeature>
           <ExternalFileId>ef1</ExternalFileId>
           <FileFormat>shp</FileFormat>
-          <ShapeIdentifier>3</ShapeIdentifier>
+          <FeatureIdentifier>
+            <FeatureAttribute>
+              <Name>county-fips</Name>
+              <Value>66</Value>
+            </FeatureAttribute>
+            <FeatureAttribute>
+              <Name>precinct-name</Name>
+              <Value>abc</Value>
+            </FeatureAttribute>
+            <FeatureAttribute>
+              <Name>precinct-split-number</Name>
+              <Value>123</Value>
+            </FeatureAttribute>
+          </FeatureIdentifier>
         </ExternalGeospatialFeature>
       </SpatialBoundary>
    </Precinct>
@@ -158,7 +171,12 @@ The ``SpatialBoundary`` object defines a boundary in space. This boundary is usu
       <ExternalGeospatialFeature>
         <ExternalFileId>ef1</ExternalFileId>
         <FileFormat>shp</FileFormat>
-        <ShapeIdentifier>3</ShapeIdentifier>
+        <FeatureIdentifier>
+          <FeatureAttribute>
+            <Name>attribute-column-name</Name>
+            <Value>attribute-column-value</Value>
+          </FeatureAttribute>
+        </FeatureIdentifier>
       </ExternalGeospatialFeature>
     </SpatialBoundary>
 
@@ -170,38 +188,44 @@ ExternalGeospatialFeature
 
 The ``ExternalGeospatialFeature`` object contains a reference to a geospatial feature (one or more shapes) contained in a separate file external to the VIP feed.
 
-+-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag             | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=================+====================================+==============+==============+==========================================+==========================================+
-| ExternalFileId  | ``xs:IDREF``                       | **Required** | Single       | Links to the                             | If the field is invalid, then the        |
-|                 |                                    |              |              | :ref:`multi-xml-external-file`           | implementation is required to ignore the |
-|                 |                                    |              |              | containing the geospatial shape(s) that  | ``ExternalGeospatialFeature`` element    |
-|                 |                                    |              |              | define the feature's boundary.           | containing it.                           |
-+-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FileFormat      | :ref:`multi-xml-geospatial-format` | **Required** | Single       | The format of the geospatial file.       | If the field is invalid, then the        |
-|                 |                                    |              |              |                                          | implementation is required to ignore the |
-|                 |                                    |              |              |                                          | ``ExternalGeospatialFeature`` element    |
-|                 |                                    |              |              |                                          | containing it.                           |
-+-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ShapeIdentifier | ``xs:string``                      | **Required** | Repeats      | Identifiers indicating which specific    | If the field is invalid, then the        |
-|                 |                                    |              |              | shape(s) to use from the geospatial      | implementation is required to ignore the |
-|                 |                                    |              |              | file. These refer to identifiers within  | ``ExternalGeospatialFeature`` element    |
-|                 |                                    |              |              | the referenced external file. This is a  | containing it.                           |
-|                 |                                    |              |              | repeated field in the XML specification, |                                          |
-|                 |                                    |              |              | but a scalar field in the CSV            |                                          |
-|                 |                                    |              |              | specification. If more than one          |                                          |
-|                 |                                    |              |              | identifier is required with the CSV      |                                          |
-|                 |                                    |              |              | specifiation, multiple values can be     |                                          |
-|                 |                                    |              |              | provided by delimited by space.          |                                          |
-+-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++-------------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag               | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
++===================+====================================+==============+==============+==========================================+==========================================+
+| ExternalFileId    | ``xs:IDREF``                       | **Required** | Single       | Links to the                             | If the field is invalid, then the        |
+|                   |                                    |              |              | :ref:`multi-xml-external-file`           | implementation is required to ignore the |
+|                   |                                    |              |              | containing the geospatial shape(s) that  | ``ExternalGeospatialFeature`` element    |
+|                   |                                    |              |              | define the feature's boundary.           | containing it.                           |
++-------------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| FileFormat        | :ref:`multi-xml-geospatial-format` | **Required** | Single       | The format of the geospatial file.       | If the field is invalid, then the        |
+|                   |                                    |              |              |                                          | implementation is required to ignore the |
+|                   |                                    |              |              |                                          | ``ExternalGeospatialFeature`` element    |
+|                   |                                    |              |              |                                          | containing it.                           |
++-------------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| FeatureIdentifier | :ref:`multi-xml-feature-attribute` | **Required** | Single       | Identifing attributes indicating which   | If the element is invalid, then the      |
+|                   |                                    |              |              | specific shape(s) to use from the        | implementation is required to ignore the |
+|                   |                                    |              |              | geospatial file. These refer to          | ``ExternalGeospatialFeature`` element    |
+|                   |                                    |              |              | identifiers within the referenced        | containing it.                           |
+|                   |                                    |              |              | external file.                           |                                          |
++-------------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
-.. code-block:: xml
-   :linenos:
 
-    <ExternalGeospatialFeature>
-      <ExternalFileId>ef1</ExternalFileId>
-      <FileFormat>shp</FileFormat>
-      <ShapeIdentifier>0</ShapeIdentifier>
-      <ShapeIdentifier>7</ShapeIdentifier>
-      <ShapeIdentifier>9</ShapeIdentifier>
-    </ExternalGeospatialFeature>
+.. _multi-xml-feature-attribute:
+
+FeatureAttribute
+^^^^^^^^^^^^^^^^
+
+The description for FeatureAttribute
+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| Name         | ``xs:string`` | **Required** | Repeats      | This field should list the appropriate   | If the field is invalid, then the        |
+|              |               |              |              | column header from the geospatial        | implementation is required to ignore the |
+|              |               |              |              | attribute table.                         | ``FeatureAttribute`` element containing  |
+|              |               |              |              |                                          | it.                                      |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Value        | ``xs:string`` | **Required** | Repeats      | This field should list the appropriate   | If the field is invalid, then the        |
+|              |               |              |              | value from the geospatial attribute      | implementation is required to ignore the |
+|              |               |              |              | table, per the column header name.       | ``FeatureAttribute`` element containing  |
+|              |               |              |              |                                          | it.                                      |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
