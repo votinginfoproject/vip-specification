@@ -1,0 +1,9 @@
+_name: FeatureIdentifier
+csv-header-name: feature_identifier
+tags:
+- _name: Index
+  csv-header-name: index
+  csv-type: xs:string
+  description: The index value for the shapefile feature.
+  required: true
+  type: xs:string

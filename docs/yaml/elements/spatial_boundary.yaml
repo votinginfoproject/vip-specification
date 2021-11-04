@@ -18,11 +18,13 @@ post: |-
         <ExternalGeospatialFeature>
           <ExternalFileId>ef1</ExternalFileId>
           <FileFormat>shp</FileFormat>
-          <ShapeIdentifier>3</ShapeIdentifier>
+          <FeatureIdentifier>
+            <Index>3</Index>
+          </FeatureIdentifier>
         </ExternalGeospatialFeature>
       </SpatialBoundary>
 tags:
-- _name: ExternalGeospatialFeature
+- _name: ExternalGeospatialFeatures
   csv-header-name: external_geospatial_feature_id
   csv-type: xs:IDREF
   description: The spatial boundary defined by a geospatial feature that is external
