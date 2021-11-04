@@ -24,7 +24,7 @@ post: |-
         </ExternalGeospatialFeature>
       </SpatialBoundary>
 tags:
-- _name: ExternalGeospatialFeatures
+- _name: ExternalGeospatialFeature
   csv-header-name: external_geospatial_feature_id
   csv-type: xs:IDREF
   description: The spatial boundary defined by a geospatial feature that is external
