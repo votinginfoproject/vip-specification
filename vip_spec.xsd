@@ -374,7 +374,7 @@
   <xs:complexType name="ExternalFile">
     <xs:sequence>
       <xs:element name="FileName" type="xs:string" minOccurs="1" />
-      <xs:element name="Checksum" type="CheckSum" minOccurs="1" />
+      <xs:element name="Checksum" type="Checksum" minOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -383,12 +383,13 @@
     <xs:sequence>
       <xs:element name="ExternalFileId" type="xs:IDREF" minOccurs="1" />
       <xs:element name="FileFormat" type="GeospatialFormat" minOccurs="1" />
-      <xs:element name="FeatureIdentifier" minOccurs="1" maxOccurs="unbounded" />
+      <xs:element name="FeatureIdentifier" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="Index" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -780,7 +781,7 @@
         <xs:element name="StreetSegment" type="StreetSegment" />
 
       </xs:choice>
-      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="5.2" />
+      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="6.0" />
     </xs:complexType>
   </xs:element>
 </xs:schema>
