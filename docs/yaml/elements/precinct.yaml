@@ -42,7 +42,7 @@ post: |-
           <ExternalGeospatialFeature>
             <ExternalFileId>ef1</ExternalFileId>
             <FileFormat>shp</FileFormat>
-            <FeatureIndentifier>
+            <FeatureIdentifier>
                 <Index>3</Index>
             </FeatureIdentifier>
           </ExternalGeospatialFeature>
