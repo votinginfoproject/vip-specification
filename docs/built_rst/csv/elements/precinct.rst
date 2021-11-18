@@ -167,8 +167,7 @@ feature_identifier
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| index        | ``xs:string`` | **Required** | Single       | The index value for the shapefile        | If the field is invalid, then the        |
-|              |               |              |              | feature.                                 | implementation is required to ignore the |
-|              |               |              |              |                                          | ``FeatureIdentifier`` element containing |
-|              |               |              |              |                                          | it.                                      |
+| index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |               |              |              | feature.                                 | then the implementation is required to   |
+|              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+

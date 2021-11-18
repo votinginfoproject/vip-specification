@@ -104,7 +104,7 @@ is assigned to that precinct.
         <ExternalGeospatialFeature>
           <ExternalFileId>ef1</ExternalFileId>
           <FileFormat>shp</FileFormat>
-          <FeatureIndentifier>
+          <FeatureIdentifier>
               <Index>3</Index>
           </FeatureIdentifier>
         </ExternalGeospatialFeature>
@@ -144,14 +144,14 @@ SpatialBoundary
 
 The ``SpatialBoundary`` object defines a boundary in space. This boundary is usually defined by one or more discrete, closed polygonal shapes.
 
-+----------------------------+----------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                        | Data Type                                    | Required?    | Repeats?     | Description                              | Error Handling                           |
-+============================+==============================================+==============+==============+==========================================+==========================================+
-| ExternalGeospatialFeatures | :ref:`multi-xml-external-geospatial-feature` | **Required** | Single       | The spatial boundary defined by a        | If the element is invalid, then the      |
-|                            |                                              |              |              | geospatial feature that is external to   | implementation is required to ignore the |
-|                            |                                              |              |              | the VIP feed.                            | ``SpatialBoundary`` element containing   |
-|                            |                                              |              |              |                                          | it.                                      |
-+----------------------------+----------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++---------------------------+----------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                       | Data Type                                    | Required?    | Repeats?     | Description                              | Error Handling                           |
++===========================+==============================================+==============+==============+==========================================+==========================================+
+| ExternalGeospatialFeature | :ref:`multi-xml-external-geospatial-feature` | **Required** | Single       | The spatial boundary defined by a        | If the element is invalid, then the      |
+|                           |                                              |              |              | geospatial feature that is external to   | implementation is required to ignore the |
+|                           |                                              |              |              | the VIP feed.                            | ``SpatialBoundary`` element containing   |
+|                           |                                              |              |              |                                          | it.                                      |
++---------------------------+----------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:
@@ -208,8 +208,7 @@ FeatureIdentifier
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| Index        | ``xs:string`` | **Required** | Single       | The index value for the shapefile        | If the field is invalid, then the        |
-|              |               |              |              | feature.                                 | implementation is required to ignore the |
-|              |               |              |              |                                          | ``FeatureIdentifier`` element containing |
-|              |               |              |              |                                          | it.                                      |
+| Index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |               |              |              | feature.                                 | then the implementation is required to   |
+|              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
