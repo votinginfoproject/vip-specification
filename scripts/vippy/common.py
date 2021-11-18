@@ -119,8 +119,9 @@ def configure_yaml():
 
 
 def read_yaml(path):
+    #https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
     with open(path) as f:
-        data = yaml.load(f)
+        data = yaml.load(f, Loader=yaml.FullLoader)
     return data
 
 
