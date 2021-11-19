@@ -83,13 +83,13 @@ The ``ExternalGeospatialFeature`` object contains a reference to a geospatial fe
 FeatureIdentifier
 %%%%%%%%%%%%%%%%%
 
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| Index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |               |              |              | feature.                                 | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| Index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-state:
@@ -912,13 +912,13 @@ The ``ExternalGeospatialFeature`` object contains a reference to a geospatial fe
 FeatureIdentifier
 ^^^^^^^^^^^^^^^^^
 
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| Index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |               |              |              | feature.                                 | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| Index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-ballot-style:
@@ -2305,13 +2305,13 @@ The ``ExternalGeospatialFeature`` object contains a reference to a geospatial fe
 FeatureIdentifier
 ^^^^^^^^^^^^^^^^^
 
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| Index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |               |              |              | feature.                                 | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| Index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-ordered-contest:
@@ -2814,13 +2814,13 @@ ElectionNotice
 FeatureIdentifier
 ~~~~~~~~~~~~~~~~~
 
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| Index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |               |              |              | feature.                                 | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| Index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-xml-retention-contest:
