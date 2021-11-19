@@ -18,7 +18,9 @@ post: |-
         <ExternalGeospatialFeature>
           <ExternalFileId>ef1</ExternalFileId>
           <FileFormat>shp</FileFormat>
-          <ShapeIdentifier>3</ShapeIdentifier>
+          <FeatureIdentifier>
+            <Index>3</Index>
+          </FeatureIdentifier>
         </ExternalGeospatialFeature>
       </SpatialBoundary>
 tags:
