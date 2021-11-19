@@ -164,10 +164,10 @@ The ``ExternalGeospatialFeature`` object contains a reference to a geospatial fe
 feature_identifier
 ^^^^^^^^^^^^^^^^^^
 
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+===============+==============+==============+==========================================+==========================================+
-| index        | ``xs:string`` | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |               |              |              | feature.                                 | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
-+--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
