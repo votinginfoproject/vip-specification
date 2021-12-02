@@ -1,7 +1,7 @@
 # VIP Release Notes
 
 This document includes release notes for the [VIP Spec][vip] for versions
-5.1 and later.
+6.0 and later.
 
 ## Version 6.0
 
