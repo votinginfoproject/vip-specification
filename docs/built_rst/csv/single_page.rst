@@ -1089,7 +1089,7 @@ External files are packaged along with the VIP feed into a single, archived file
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| filename     | ``xs:anyURI`` | **Required** | Single       | The name of the external file.           | If the field is invalid, then the        |
+| file_uri     | ``xs:anyURI`` | **Required** | Single       | The name of the external file.           | If the field is invalid, then the        |
 |              |               |              |              |                                          | implementation is required to ignore the |
 |              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -1101,7 +1101,7 @@ External files are packaged along with the VIP feed into a single, archived file
 .. code-block:: csv-table
    :linenos:
 
-    id,filename,checksum_id
+    id,file_uri,checksum_id
     ef1,precinct_shapes.zip,ch1
 
 
