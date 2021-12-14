@@ -3,7 +3,7 @@
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===========================+==============+==============+==========================================+==========================================+
-| Filename     | ``xs:string``             | **Required** | Single       | The name of the external file.           | If the field is invalid, then the        |
+| Filename     | ``xs:anyURI``             | **Required** | Single       | The name of the external file.           | If the field is invalid, then the        |
 |              |                           |              |              |                                          | implementation is required to ignore the |
 |              |                           |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
