@@ -25,10 +25,10 @@ post: |-
 tags:
 - _name: Filename
   csv-header-name: filename
-  csv-type: xs:string
+  csv-type: xs:anyURI
   description: The name of the external file.
   required: true
-  type: xs:string
+  type: xs:anyURI
 - _name: Checksum
   csv-header-name: checksum_id
   csv-type: xs:IDREF
