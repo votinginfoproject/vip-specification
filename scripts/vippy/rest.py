@@ -253,7 +253,8 @@ def update_rest_file_single_page(all_types,mode):
         rest += "\n\n"
         label = "{0}-{1}".format(prefix, title.lower())
         rest += make_rest_header(title, label=label, header_char="-")
-        for data_type in data_types:
+        sorted_data_types = sorted(data_types, key=lambda dt: dt.csv_name if mode == "csv" else dt.name)
+        for data_type in sorted_data_types:
             if data_type.is_sub_type and data_type.is_extends:
                 continue
             new_rest = make_type_rest(all_types, data_type, header_char="~", prefix=prefix)
@@ -267,18 +268,15 @@ def update_rest_files(type_name=None):
     Update auto-generated reST files.
     """
     for mode in ['csv','xml']:
-        prefix = "multi-{}".format(mode)
         all_types = common.get_all_types()
+        update_rest_file_single_page(all_types, mode)
+        
         type_map = all_types.type_map
-
         if type_name is None:
             type_names = sorted(type_map.keys())
         else:
             type_names = [type_name]
 
-        update_rest_file_single_page(all_types, mode)
-
-    for mode in ['csv','xml']:
         prefix = "multi-{}".format(mode)
         for type_name in type_names:
             _log.debug("updating rest files for type: {0}".format(type_name))
