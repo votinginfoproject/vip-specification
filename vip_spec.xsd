@@ -373,7 +373,7 @@
 
   <xs:complexType name="ExternalFile">
     <xs:sequence>
-      <xs:element name="FileName" type="xs:string" minOccurs="1" />
+      <xs:element name="FileUri" type="xs:anyURI" minOccurs="1" />
       <xs:element name="Checksum" type="Checksum" minOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
