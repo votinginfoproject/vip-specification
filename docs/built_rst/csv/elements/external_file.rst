@@ -11,7 +11,7 @@ External files are packaged along with the VIP feed into a single, archived file
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| file_uri     | ``xs:anyURI`` | **Required** | Single       | The name of the external file.           | If the field is invalid, then the        |
+| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
 |              |               |              |              |                                          | implementation is required to ignore the |
 |              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
