@@ -3,7 +3,7 @@
      Working version of VIP schema based on 5.0 for comments.
      See
      https://github.com/votinginfoproject/vip-specification
-     for history and more infor.
+     for history and more information.
   -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="6.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
