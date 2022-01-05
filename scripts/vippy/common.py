@@ -11,7 +11,6 @@ _log = logging.getLogger()
 
 AUTO_GENERATED_DIR = 'docs/built_rst'
 YAML_DIR = 'docs/yaml'
-TABLES_DIR = os.path.join(AUTO_GENERATED_DIR, 'tables')
 XML_DIR = os.path.join(AUTO_GENERATED_DIR, 'xml')
 CSV_DIR = os.path.join(AUTO_GENERATED_DIR, 'csv')
 
