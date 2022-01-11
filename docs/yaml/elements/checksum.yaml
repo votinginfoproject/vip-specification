@@ -27,6 +27,7 @@ tags:
 - _name: Value
   csv-header-name: value
   csv-type: xs:string
-  description: The raw cryptographic checksum value.
+  description: The raw cryptographic checksum value encoded as a non-delimited, lowercase
+    hexadecimal string.
   required: true
   type: xs:string

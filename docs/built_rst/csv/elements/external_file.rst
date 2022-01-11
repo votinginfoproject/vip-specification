@@ -42,9 +42,9 @@ the raw checksum value and the cryptographic hash algorithm used to compute it.
 |              |                                     |              |              | compute the checksum value.              | implementation is required to ignore the |
 |              |                                     |              |              |                                          | ``Checksum`` element containing it.      |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``                       | **Required** | Single       | The raw cryptographic checksum value.    | If the field is invalid, then the        |
-|              |                                     |              |              |                                          | implementation is required to ignore the |
-|              |                                     |              |              |                                          | ``Checksum`` element containing it.      |
+| value        | ``xs:string``                       | **Required** | Single       | The raw cryptographic checksum value     | If the field is invalid, then the        |
+|              |                                     |              |              | encoded as a non-delimited, lowercase    | implementation is required to ignore the |
+|              |                                     |              |              | hexadecimal string.                      | ``Checksum`` element containing it.      |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
