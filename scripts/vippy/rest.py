@@ -316,9 +316,6 @@ def update_rest_files(type_name=None):
             _log.debug("updating rest files for type: {0}".format(type_name))
             data_type = common.get_type(type_map, type_name)
             update_rest_file(all_types, data_type, prefix=prefix)
-            # if mode == "xml":
-            #     # The table file is not mode-specific, so only update it once (using the XML case)
-            #     update_table_file(type_map, data_type, prefix=prefix)
 
 
 def analyze_types():
