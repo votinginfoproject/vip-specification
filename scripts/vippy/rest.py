@@ -263,7 +263,7 @@ def update_rest_file_single_page(all_types,mode):
     write_rest_file(path, rest)
 
 
-def update_rest_files(type_name=None):
+def update_rest_files(override_type_name=None):
     """
     Update auto-generated reST files.
     """
@@ -272,10 +272,10 @@ def update_rest_files(type_name=None):
         update_rest_file_single_page(all_types, mode)
         
         type_map = all_types.type_map
-        if type_name is None:
+        if override_type_name is None:
             type_names = sorted(type_map.keys())
         else:
-            type_names = [type_name]
+            type_names = [override_type_name]
 
         prefix = "multi-{}".format(mode)
         for type_name in type_names:
