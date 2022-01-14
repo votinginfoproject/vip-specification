@@ -8,6 +8,7 @@ The current version of the spec is defined in the file named `vip_spec.xsd`.
 For versions of the spec prior to the current version, see the [releases
 page][releases_page]. Previous releases include:
 
+* 6.0 [(Archive)][v6_0_archive_release] [(Tree)][v6_0_archive_tag]
 * 5.2 [(Archive)][v5_2_archive_release] [(Tree)][v5_2_archive_tag]
 * 5.1 [(Archive)][v5_1_archive_release] [(Tree)][v5_1_archive_tag]
 * 5.0 [(Archive)][v5_0_archive_release] [(Tree)][v5_0_archive_tag]
@@ -22,6 +23,8 @@ available under a [Creative Commons-Attribution license, version
 
 
 [releases_page]: https://github.com/votinginfoproject/vip-specification/releases
+[v6_0_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v6.0-release
+[v6_0_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v6.0-release
 [v5_2_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.2-release
 [v5_2_archive_tag]: https://github.com/votinginfoproject/vip-specification/tree/v5.2-release
 [v5_1_archive_release]: https://github.com/votinginfoproject/vip-specification/releases/tag/v5.1-release
