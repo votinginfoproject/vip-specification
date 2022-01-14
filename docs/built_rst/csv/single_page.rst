@@ -508,6 +508,33 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
+.. _single-csv-checksum:
+
+checksum
+~~~~~~~~
+
+The ``Checksum`` object contains information about a cryptographic checksum, including
+the raw checksum value and the cryptographic hash algorithm used to compute it.
+
++--------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+======================================+==============+==============+==========================================+==========================================+
+| algorithm    | :ref:`single-csv-checksum-algorithm` | **Required** | Single       | The cryptographic hash algorithm used to | If the field is invalid, then the        |
+|              |                                      |              |              | compute the checksum value.              | implementation is required to ignore the |
+|              |                                      |              |              |                                          | ``Checksum`` element containing it.      |
++--------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| value        | ``xs:string``                        | **Required** | Single       | The raw cryptographic checksum value     | If the field is invalid, then the        |
+|              |                                      |              |              | encoded as a non-delimited, lowercase    | implementation is required to ignore the |
+|              |                                      |              |              | hexadecimal string.                      | ``Checksum`` element containing it.      |
++--------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,algorithm,value
+    ch1,sha-256,65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e
+
+
 .. _single-csv-contact-information:
 
 contact_information
@@ -1231,6 +1258,113 @@ which precincts link to the ``ElectoralDistrict``.
     ed002,other,community-board,4,CB 4,2,other,community-board
 
 
+.. _single-csv-external-file:
+
+external_file
+~~~~~~~~~~~~~
+
+The ``ExternalFile`` object holds a reference to a file external to the feed itself. 
+External files are packaged along with the VIP feed into a single, archived file. 
+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
+|              |               |              |              |                                          | implementation is required to ignore the |
+|              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| checksum_id  | ``xs:IDREF``  | **Required** | Single       | The cryptographic checksum of the        | If the element is invalid, then the      |
+|              |               |              |              | referenced external file.                | implementation is required to ignore the |
+|              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,file_uri,checksum_id
+    ef1,precinct_shapes.zip,ch1
+
+
+.. _single-csv-checksum:
+
+checksum
+^^^^^^^^
+
+The ``Checksum`` object contains information about a cryptographic checksum, including
+the raw checksum value and the cryptographic hash algorithm used to compute it.
+
++--------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+======================================+==============+==============+==========================================+==========================================+
+| algorithm    | :ref:`single-csv-checksum-algorithm` | **Required** | Single       | The cryptographic hash algorithm used to | If the field is invalid, then the        |
+|              |                                      |              |              | compute the checksum value.              | implementation is required to ignore the |
+|              |                                      |              |              |                                          | ``Checksum`` element containing it.      |
++--------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| value        | ``xs:string``                        | **Required** | Single       | The raw cryptographic checksum value     | If the field is invalid, then the        |
+|              |                                      |              |              | encoded as a non-delimited, lowercase    | implementation is required to ignore the |
+|              |                                      |              |              | hexadecimal string.                      | ``Checksum`` element containing it.      |
++--------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,algorithm,value
+    ch1,sha-256,65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e
+
+
+.. _single-csv-external-geospatial-feature:
+
+external_geospatial_feature
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``ExternalGeospatialFeature`` object contains a reference to a geospatial feature (one or more shapes) contained in a separate file external to the VIP feed.
+
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+======================================+==============+==============+==========================================+==========================================+
+| external_file_id   | ``xs:IDREF``                         | **Required** | Single       | Links to the                             | If the field is invalid, then the        |
+|                    |                                      |              |              | :ref:`single-csv-external-file`          | implementation is required to ignore the |
+|                    |                                      |              |              | containing the geospatial shape(s) that  | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              | define the feature's boundary.           | containing it.                           |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| file_format        | :ref:`single-csv-geospatial-format`  | **Required** | Single       | The format of the geospatial file.       | If the field is invalid, then the        |
+|                    |                                      |              |              |                                          | implementation is required to ignore the |
+|                    |                                      |              |              |                                          | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              |                                          | containing it.                           |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| feature_identifier | :ref:`single-csv-feature-identifier` | **Required** | Repeats      | Identifiers indicating which specific    | If the element is invalid, then the      |
+|                    |                                      |              |              | shape(s) to use from the geospatial      | implementation is required to ignore the |
+|                    |                                      |              |              | file. These refer to identifiers within  | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              | the referenced external file. This is a  | containing it.                           |
+|                    |                                      |              |              | repeated field in the XML specification, |                                          |
+|                    |                                      |              |              | but a scalar field in the CSV            |                                          |
+|                    |                                      |              |              | specification. If more than one          |                                          |
+|                    |                                      |              |              | identifier is required with the CSV      |                                          |
+|                    |                                      |              |              | specifiation, multiple values can be     |                                          |
+|                    |                                      |              |              | provided by delimited by space.          |                                          |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,external_file_id,file_format,shape_identifiers
+    egf1,ef1,shp,0 7 9
+
+
+.. _single-csv-feature-identifier:
+
+feature_identifier
+^^^^^^^^^^^^^^^^^^
+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-csv-external-identifier:
 
 external_identifier
@@ -1297,6 +1431,20 @@ found on the objects that support them:
 |                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
 |                     |                                       |              |              |                                          | element.                                 |
 +---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-csv-feature-identifier:
+
+feature_identifier
+~~~~~~~~~~~~~~~~~~
+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-hours:
@@ -1447,7 +1595,7 @@ including a timezone offset from UTC.
 .. _single-csv-time-with-zone:
 
 time_with_zone
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 A string pattern restricting the value to a time with an included offset from
 UTC. The pattern is
@@ -1504,7 +1652,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 * :ref:`single-csv-person`
 * :ref:`single-csv-polling-location`
 * :ref:`single-csv-source`
-NOTE: Internationalized Text is not currently supported for CSV submissions. 
+NOTE: Internationalized Text is not currently supported for CSV submissions. "
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
@@ -1843,6 +1991,10 @@ This element describes a political party and the metadata associated with them. 
 |                      |                                        |              |              | this field is not present then it is     |                                          |
 |                      |                                        |              |              | assumed to be false.                     |                                          |
 +----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| leader_person_ids    | ``xs:IDREFS``                          | Optional     | Single       | A reference of :ref:`single-csv-person`  | If the field is invalid or not present,  |
+|                      |                                        |              |              | elements which are leaders of the        | then the implementation is required to   |
+|                      |                                        |              |              | `Party`.                                 | ignore it.                               |
++----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | logo_uri             | ``xs:anyURI``                          | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
 |                      |                                        |              |              | displays.                                | then the implementation is required to   |
 |                      |                                        |              |              |                                          | ignore it.                               |
@@ -1856,11 +2008,11 @@ This element describes a political party and the metadata associated with them. 
    :linenos:
 
 
-    id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,logo_uri,name
-    par01,REP,ff0000,,,,http://example.com/elephant.png,Republican
-    par02,DEM,0000ff,,,,http://example.com/donkey.png,Democrat
-    par03,GRN,efefef,,,,http://example.com/tree.png,Green
-    par04,WFP,ee99aa,,,,http://example.com/worker.png,Working Families Party
+    id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,is_write_in,leader_person_ids,logo_uri,name
+    par01,REP,ff0000,,,,true,,http://example.com/elephant.png,Republican
+    par02,DEM,0000ff,,,,false,per01,http://example.com/donkey.png,Democrat
+    par03,GRN,efefef,,,,,,http://example.com/tree.png,Green
+    par04,WFP,ee99aa,,,,,,http://example.com/worker.png,Working Families Party
 
 
 .. _single-csv-html-color-string:
@@ -2323,6 +2475,12 @@ attribute does not have to be static across feeds for one election, the combinat
 feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
 non-required fields is fine).
 
+Voters can be assigned to a precinct in two ways. A voter location modeled by :doc:`StreetSegment <street_segment>`
+is assigned to a precinct by :doc:`StreetSegment.PrecinctId <street_segment>`.
+Alternatively, a precinct's spatial boundary can be modeled with :doc:`Precinct.SpatialBoundary  <precinct>`.
+Any registered voter address contained within the spatial boundary of the precinct
+is assigned to that precinct.
+
 +------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                    | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
 +========================+========================================+==============+==============+==========================================+==========================================+
@@ -2377,6 +2535,16 @@ non-required fields is fine).
 |                        |                                        |              |              | See the `sample_feed.xml` file for       |                                          |
 |                        |                                        |              |              | examples.                                |                                          |
 +------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| spatial_boundary_id    | ``xs:IDREF``                           | Optional     | Single       | Defines the spatial boundary of the      | If the element is invalid or not         |
+|                        |                                        |              |              | precinct. All voter addresses contained  | present, then the implementation is      |
+|                        |                                        |              |              | within this boundary are assigned to the | required to ignore it.                   |
+|                        |                                        |              |              | precinct. If a voter address also maps   |                                          |
+|                        |                                        |              |              | to a :doc:`StreetSegment                 |                                          |
+|                        |                                        |              |              | <street_segment>`, then the precinct     |                                          |
+|                        |                                        |              |              | assignment from the StreetSegment will   |                                          |
+|                        |                                        |              |              | be preferred over the assignment from    |                                          |
+|                        |                                        |              |              | the spatial boundary.                    |                                          |
++------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ward                   | ``xs:string``                          | Optional     | Single       | Specifies the ward the precinct is       | If the field is invalid or not present,  |
 |                        |                                        |              |              | contained within.                        | then the implementation is required to   |
 |                        |                                        |              |              |                                          | ignore it.                               |
@@ -2386,10 +2554,86 @@ non-required fields is fine).
    :linenos:
 
 
-    id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,ward
-    pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,5
-    pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,6
-    pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,7
+    id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,spatial_boundary_id,ward
+    pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,sb1,,5
+    pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,,6
+    pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,sb1,7
+
+
+.. _single-csv-spatial-boundary:
+
+spatial_boundary
+^^^^^^^^^^^^^^^^
+
+The ``SpatialBoundary`` object defines a boundary in space. This boundary is usually defined by one or more discrete, closed polygonal shapes.
+
++--------------------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                            | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++================================+==============+==============+==============+==========================================+==========================================+
+| external_geospatial_feature_id | ``xs:IDREF`` | **Required** | Single       | The spatial boundary defined by a        | If the element is invalid, then the      |
+|                                |              |              |              | geospatial feature that is external to   | implementation is required to ignore the |
+|                                |              |              |              | the VIP feed.                            | ``SpatialBoundary`` element containing   |
+|                                |              |              |              |                                          | it.                                      |
++--------------------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,external_geospatial_feature_id
+    sb1,egf1
+
+
+.. _single-csv-external-geospatial-feature:
+
+external_geospatial_feature
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The ``ExternalGeospatialFeature`` object contains a reference to a geospatial feature (one or more shapes) contained in a separate file external to the VIP feed.
+
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+======================================+==============+==============+==========================================+==========================================+
+| external_file_id   | ``xs:IDREF``                         | **Required** | Single       | Links to the                             | If the field is invalid, then the        |
+|                    |                                      |              |              | :ref:`single-csv-external-file`          | implementation is required to ignore the |
+|                    |                                      |              |              | containing the geospatial shape(s) that  | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              | define the feature's boundary.           | containing it.                           |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| file_format        | :ref:`single-csv-geospatial-format`  | **Required** | Single       | The format of the geospatial file.       | If the field is invalid, then the        |
+|                    |                                      |              |              |                                          | implementation is required to ignore the |
+|                    |                                      |              |              |                                          | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              |                                          | containing it.                           |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| feature_identifier | :ref:`single-csv-feature-identifier` | **Required** | Repeats      | Identifiers indicating which specific    | If the element is invalid, then the      |
+|                    |                                      |              |              | shape(s) to use from the geospatial      | implementation is required to ignore the |
+|                    |                                      |              |              | file. These refer to identifiers within  | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              | the referenced external file. This is a  | containing it.                           |
+|                    |                                      |              |              | repeated field in the XML specification, |                                          |
+|                    |                                      |              |              | but a scalar field in the CSV            |                                          |
+|                    |                                      |              |              | specification. If more than one          |                                          |
+|                    |                                      |              |              | identifier is required with the CSV      |                                          |
+|                    |                                      |              |              | specifiation, multiple values can be     |                                          |
+|                    |                                      |              |              | provided by delimited by space.          |                                          |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,external_file_id,file_format,shape_identifiers
+    egf1,ef1,shp,0 7 9
+
+
+.. _single-csv-feature-identifier:
+
+feature_identifier
+^^^^^^^^^^^^^^^^^^
+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-retention-contest:
@@ -2602,6 +2846,82 @@ the only required object in the feed file, and only one source object is allowed
     source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,"State Board of Elections, Commonwealth of Virginia",http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
 
 
+.. _single-csv-spatial-boundary:
+
+spatial_boundary
+~~~~~~~~~~~~~~~~
+
+The ``SpatialBoundary`` object defines a boundary in space. This boundary is usually defined by one or more discrete, closed polygonal shapes.
+
++--------------------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                            | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++================================+==============+==============+==============+==========================================+==========================================+
+| external_geospatial_feature_id | ``xs:IDREF`` | **Required** | Single       | The spatial boundary defined by a        | If the element is invalid, then the      |
+|                                |              |              |              | geospatial feature that is external to   | implementation is required to ignore the |
+|                                |              |              |              | the VIP feed.                            | ``SpatialBoundary`` element containing   |
+|                                |              |              |              |                                          | it.                                      |
++--------------------------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,external_geospatial_feature_id
+    sb1,egf1
+
+
+.. _single-csv-external-geospatial-feature:
+
+external_geospatial_feature
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``ExternalGeospatialFeature`` object contains a reference to a geospatial feature (one or more shapes) contained in a separate file external to the VIP feed.
+
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
++====================+======================================+==============+==============+==========================================+==========================================+
+| external_file_id   | ``xs:IDREF``                         | **Required** | Single       | Links to the                             | If the field is invalid, then the        |
+|                    |                                      |              |              | :ref:`single-csv-external-file`          | implementation is required to ignore the |
+|                    |                                      |              |              | containing the geospatial shape(s) that  | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              | define the feature's boundary.           | containing it.                           |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| file_format        | :ref:`single-csv-geospatial-format`  | **Required** | Single       | The format of the geospatial file.       | If the field is invalid, then the        |
+|                    |                                      |              |              |                                          | implementation is required to ignore the |
+|                    |                                      |              |              |                                          | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              |                                          | containing it.                           |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| feature_identifier | :ref:`single-csv-feature-identifier` | **Required** | Repeats      | Identifiers indicating which specific    | If the element is invalid, then the      |
+|                    |                                      |              |              | shape(s) to use from the geospatial      | implementation is required to ignore the |
+|                    |                                      |              |              | file. These refer to identifiers within  | ``ExternalGeospatialFeature`` element    |
+|                    |                                      |              |              | the referenced external file. This is a  | containing it.                           |
+|                    |                                      |              |              | repeated field in the XML specification, |                                          |
+|                    |                                      |              |              | but a scalar field in the CSV            |                                          |
+|                    |                                      |              |              | specification. If more than one          |                                          |
+|                    |                                      |              |              | identifier is required with the CSV      |                                          |
+|                    |                                      |              |              | specifiation, multiple values can be     |                                          |
+|                    |                                      |              |              | provided by delimited by space.          |                                          |
++--------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+    id,external_file_id,file_format,shape_identifiers
+    egf1,ef1,shp,0 7 9
+
+
+.. _single-csv-feature-identifier:
+
+feature_identifier
+%%%%%%%%%%%%%%%%%%
+
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+==============+==============+==============+==========================================+==========================================+
+| index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
+|              |              |              |              | feature.                                 | then the implementation is required to   |
+|              |              |              |              |                                          | ignore it.                               |
++--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
 .. _single-csv-state:
 
 state
@@ -2688,7 +3008,13 @@ are equal.
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | precinct_id            | ``xs:IDREF``               | **Required** | Single       | References the                           | If the field is invalid, then the        |
 |                        |                            |              |              | :ref:`single-csv-precinct` that contains | implementation is required to ignore the |
-|                        |                            |              |              | the entire street segment.               | ``StreetSegment`` element containing it. |
+|                        |                            |              |              | the entire street segment. If a precinct | ``StreetSegment`` element containing it. |
+|                        |                            |              |              | has a :ref:`single-csv-spatial-boundary` |                                          |
+|                        |                            |              |              | which also contains the entire street    |                                          |
+|                        |                            |              |              | segment, then the precinct assignment    |                                          |
+|                        |                            |              |              | from the segment will be preferred over  |                                          |
+|                        |                            |              |              | the assignment defined by the spatial    |                                          |
+|                        |                            |              |              | boundary.                                |                                          |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | start_house_number     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                        |                            |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
@@ -2947,6 +3273,22 @@ candidate_pre_election_status
 +--------------+----------------------------------------------------+
 
 
+.. _single-csv-checksum-algorithm:
+
+checksum_algorithm
+~~~~~~~~~~~~~~~~~~
+
++--------------+----------------------------------------------------+
+| Tag          | Description                                        |
++==============+====================================================+
+| sha-256      | 256-bit cryptographic hash algorithm of the SHA-2  |
+|              | family                                             |
++--------------+----------------------------------------------------+
+| sha-512      | 512-bit cryptographic hash algorithm of the SHA-2  |
+|              | family                                             |
++--------------+----------------------------------------------------+
+
+
 .. _single-csv-district-type:
 
 district_type
@@ -3010,6 +3352,21 @@ state, so please use the definition which best matches your local meaning.
 | other          | Any district not described above. Use the          |
 |                | *OtherType* field to describe it.                  |
 +----------------+----------------------------------------------------+
+
+
+.. _single-csv-geospatial-format:
+
+geospatial_format
+~~~~~~~~~~~~~~~~~
+
+Geospatial file formats that are supported by the VIP specification.
+
++--------------+---------------------------------------------------------------------------+
+| Tag          | Description                                                               |
++==============+===========================================================================+
+| shp          | ESRI Shapefile (`reference                                                |
+|              | <https://www.loc.gov/preservation/digital/formats/fdd/fdd000280.shtml>`_) |
++--------------+---------------------------------------------------------------------------+
 
 
 .. _single-csv-identifier-type:

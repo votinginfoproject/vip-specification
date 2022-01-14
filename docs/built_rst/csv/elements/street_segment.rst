@@ -44,7 +44,13 @@ are equal.
 +------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | precinct_id            | ``xs:IDREF``              | **Required** | Single       | References the :ref:`multi-csv-precinct` | If the field is invalid, then the        |
 |                        |                           |              |              | that contains the entire street segment. | implementation is required to ignore the |
-|                        |                           |              |              |                                          | ``StreetSegment`` element containing it. |
+|                        |                           |              |              | If a precinct has a                      | ``StreetSegment`` element containing it. |
+|                        |                           |              |              | :ref:`multi-csv-spatial-boundary` which  |                                          |
+|                        |                           |              |              | also contains the entire street segment, |                                          |
+|                        |                           |              |              | then the precinct assignment from the    |                                          |
+|                        |                           |              |              | segment will be preferred over the       |                                          |
+|                        |                           |              |              | assignment defined by the spatial        |                                          |
+|                        |                           |              |              | boundary.                                |                                          |
 +------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | start_house_number     | ``xs:integer``            | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
 |                        |                           |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |

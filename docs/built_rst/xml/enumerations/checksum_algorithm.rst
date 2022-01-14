@@ -1,11 +1,16 @@
 .. This file is auto-generated.  Do not edit it by hand!
 
+.. _multi-xml-checksum-algorithm:
+
+ChecksumAlgorithm
+=================
+
 +--------------+----------------------------------------------------+
 | Tag          | Description                                        |
 +==============+====================================================+
-| both         | Both even and odd addresses within the range.      |
+| sha-256      | 256-bit cryptographic hash algorithm of the SHA-2  |
+|              | family                                             |
 +--------------+----------------------------------------------------+
-| even         | Only even-numbered addresses within the range.     |
-+--------------+----------------------------------------------------+
-| odd          | Only odd-numbered addresses within the range.      |
+| sha-512      | 512-bit cryptographic hash algorithm of the SHA-2  |
+|              | family                                             |
 +--------------+----------------------------------------------------+

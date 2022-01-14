@@ -1,0 +1,6 @@
+_name: GeospatialFormat
+csv-header-name: geospatial_format
+description: Geospatial file formats that are supported by the VIP specification.
+tags:
+- _name: shp
+  description: ESRI Shapefile (`reference <https://www.loc.gov/preservation/digital/formats/fdd/fdd000280.shtml>`_)

@@ -192,3 +192,275 @@ In all fields the characters ``<``, ``>``, and ``&`` should be encoded ``&lt;``,
 .. _Open Civic Data Division Identifier: https://github.com/opencivicdata/ocd-division-ids
 
 
+Geospatial Data
+---------------
+
+The following sections provide guidance and best practices on using
+geospatial data with a VIP feed. Geospatial data represents the
+geographic modeling of a shape on the Earth’s surface (i.e. a polygon on
+a map), and within the context of a VIP feed is primarily used to model
+the boundary of voter precincts. In places where voter precinct shapes
+are available, this capability is intended to be straightforward and
+lightweight to integrate with existing GIS tooling.
+
+Geodetic Datum
+~~~~~~~~~~~~~~
+
+VIP exclusively uses the 84 revision of the World Geodetic System (WGS
+84) as the geodetic reference system by which geospatial coordinates
+are defined. This applies to geospatial coordinates provided within the
+VIP feed itself (e.g. PollingLocation.LatLng) as well as coordinates
+provided in an external geospatial file.
+
+
+Assigning Voters to Precincts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Voter precincts are the atomic unit of electoral districts in the
+U.S., and provide the mechanism by which voters are mapped to their
+polling places, ballot information and more. It is critical that voter
+locations are mapped to the correct precinct in a VIP feed in order to
+provide the most accurate and reliable voting information.
+
+There are two mechanisms by which voters can be assigned to precincts
+in a VIP feed:
+
+1. **Street segments**
+      A voter address that maps to a street segment is assigned to the
+      precinct given by StreetSegment.PrecinctId. This is the
+      traditional approach of assigning voters to precincts that has
+      been in use since the beginning of the VIP specification.
+
+2. **Containment within a precinct boundary**
+      A geocoded voter address that is contained within the geographic
+      boundary of a precinct is considered assigned to that precinct.
+      The geographic boundary of each precinct is defined by
+      Precinct.SpatialBoundary. This is a newer approach of assigning
+      voters to precincts that was supported starting with version 6.0
+      of the VIP specification. Compared to the approach of using
+      street segments, geospatial data offers a far more accurate and
+      reliable solution to mapping voters to precincts, and thus
+      should be the preferred approach whenever possible.
+
+Providing both street segments and precinct shapes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are some cases where precinct boundaries alone are not sufficient
+to accurately map all voters to their precinct. For example, if a
+precinct boundary divides an apartment building, there is no way to
+distinguish the correct precinct for voters that live in this building
+using a two-dimensional shape on a map.
+
+To mitigate this limitation of geospatial data, it is possible to
+provide **both** street segments and precinct shapes in the same VIP
+feed. If a voter’s location is determined to map to a street segment
+*and* is also contained within a precinct shape, the precinct assignment
+from the street segment will be preferred.
+
+Using the above example where a precinct boundary runs through an
+apartment building, this scenario could be handled by providing street
+segments in the VIP feed, in addition to precinct shapes, to specify the
+mapping of apartment numbers to precinct. For N apartments in the
+building, there could be N street segments provided in the feed, each
+with a distinct StreetSegment.UnitNumber and precinct assignment. If a
+voter address maps to one of these street segments, the precinct
+assignment from the segment will supersede a precinct assignment given
+by containment with a precinct shape.
+
+Exporting and packaging geospatial files with a VIP feed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Geospatial data files are provided in a native geospatial format. Each
+geospatial file should adhere to standard industry conventions and
+requirements of the corresponding GeospatialFormat. In most cases, these
+files will be exported directly from a GIS tool or an Election
+Management System and delivered alongside a VIP feed.
+
+All referenced external files need to be packaged with the VIP feed
+file, and archived together within a single ZIP file. The following is
+an example of the file structure for the case of an XML feed file that
+includes ESRI shapefiles.
+
+**Example file structure:**
+
+-  vipfeed-19-2012-11-06-Arizona.zip
+
+   -  vipfeed-19-2012-11-06-Arizona.xml
+
+   -  precinct_shapes1.zip
+
+      - precinct_shapes1.shp
+   
+      - precinct_shapes1.shx
+   
+      - precinct_shapes1.dbf
+
+   -  precinct_shapes2.zip
+
+      - precinct_shapes2.shp
+  
+      - precinct_shapes2.shx
+   
+      - precinct_shapes2.dbf
+
+The expected file type and structure of each individual geospatial file
+will depend on the GeospatialFormat being used. The external file
+referenced from the VIP feed may be a flat file, but it could also be a
+ZIP file containing multiple relevant files, as the geospatial format
+requires. The following provides geospatial data file requirements by
+format.
+
+**Expected file type and structure by Geospatial Format:**
+
++----------------------+----------------------+----------------------+
+| **GeospatialFormat** | **Expected file      | **Description**      |
+|                      | type**               |                      |
++======================+======================+======================+
+| shp (ESRI shapefile) | .zip                 | The referenced       |
+|                      |                      | external file should |
+|                      |                      | be a ZIP archive     |
+|                      |                      | containing, at a     |
+|                      |                      | minimum, all files   |
+|                      |                      | required by the      |
+|                      |                      | `ESRI Shapefile      |
+|                      |                      | f                    |
+|                      |                      | ormat <https://www.l |
+|                      |                      | oc.gov/preservation/ |
+|                      |                      | digital/formats/fdd/ |
+|                      |                      | fdd000280.shtml>`__. |
+|                      |                      | The filename         |
+|                      |                      | referenced from the  |
+|                      |                      | VIP feed should be   |
+|                      |                      | the name of the ZIP  |
+|                      |                      | archive for the      |
+|                      |                      | shapefile. Required  |
+|                      |                      | files within the     |
+|                      |                      | archive include a    |
+|                      |                      | main *.shp* geometry |
+|                      |                      | file, a *.shx* index |
+|                      |                      | file, and a *.dbf*   |
+|                      |                      | attributes file.     |
+|                      |                      | Other optional files |
+|                      |                      | as part of the ESRI  |
+|                      |                      | Shapefile            |
+|                      |                      | specification are    |
+|                      |                      | permitted, but may   |
+|                      |                      | be ignored.          |
+|                      |                      |                      |
+|                      |                      | Individual files     |
+|                      |                      | within the shapefile |
+|                      |                      | archive are          |
+|                      |                      | identified by file   |
+|                      |                      | extension. For       |
+|                      |                      | example, the main    |
+|                      |                      | geometry file is     |
+|                      |                      | identified by the    |
+|                      |                      | file within the      |
+|                      |                      | archive with a       |
+|                      |                      | .\ *shp* file        |
+|                      |                      | extension,           |
+|                      |                      | regardless of the    |
+|                      |                      | file name. It is     |
+|                      |                      | therefore required   |
+|                      |                      | that there is only   |
+|                      |                      | one file per         |
+|                      |                      | expected file type   |
+|                      |                      | within the archive.  |
++----------------------+----------------------+----------------------+
+
+Referencing specific shapes within a geospatial data file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Geospatial data files will usually contain many shapes. For example,
+depending on how the source shape data is managed, it may be easiest to
+export a single file containing all precinct shapes represented in the
+VIP feed. A precinct boundary is modeled in the feed as a reference to
+the external geospatial data file, but in most cases only one or a few
+shapes contained in that file are relevant to the precinct.
+
+The specific shape(s) within the external file that comprise the spatial
+boundary of the geometric feature are captured by the field
+**ExternalGeospatialFeature.ShapeIdentifier**. ShapeIdentifier is a
+repeated string field, but the expected value will depend on the
+geospatial format of the external file. For example, an integer type is
+expected when using the ESRI shapefile format, so the string value of
+ShapeIdentifier should be parsable as an integer.
+
+**Expected type of ShapeIdentifier by GeospatialFormat:**
+
++----------------------+----------------------+----------------------+
+| **GeospatialFormat** | **ShapeIdentifier    | **Description**      |
+|                      | expected type**      |                      |
++======================+======================+======================+
+| shp (ESRI shapefile) | 32-bit integer       | ShapeIdentifier      |
+|                      |                      | should be parsable   |
+|                      |                      | as a 32-bit integer. |
+|                      |                      | Geometric features   |
+|                      |                      | in an ESRI shapefile |
+|                      |                      | are ordered in       |
+|                      |                      | sequence, and the    |
+|                      |                      | ShapeIdentifier      |
+|                      |                      | value corresponds to |
+|                      |                      | the zero-based index |
+|                      |                      | of a record within   |
+|                      |                      | the file. For        |
+|                      |                      | example, a           |
+|                      |                      | ShapeIdentifier      |
+|                      |                      | value of “35” is a   |
+|                      |                      | reference to the     |
+|                      |                      | 36th sequential      |
+|                      |                      | record in the        |
+|                      |                      | shapefile.           |
++----------------------+----------------------+----------------------+
+
+External file checksums
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Geospatial data is provided in the form of supplemental files external
+to the VIP feed itself. Since this effectively divides the full set of
+information of the feed across multiple files, it’s essential that
+references between files be reliable. This is ensured by verifiable
+cryptographic checksums.
+
+Each external file reference includes the name of the file and its
+checksum. A checksum includes both the raw cryptographic hash of the
+file's contents, as well as information about which cryptographic
+algorithm was used to compute the value. A consumer of a VIP feed should
+be able to compute a checksum value of an external file using the same
+algorithm and independently verify it matches the checksum value in the
+feed.
+
+It’s worth noting that having a file checksum also introduces an
+opportunity for consumers of the data to optimize their processing of
+it. If the contents of a VIP feed are updated, but the checksum for an
+external geospatial data file has not changed, then the consumer could
+omit having to reprocess the geospatial aspects of the feed.
+
+Requirements for precinct shapes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following are practical requirements when defining the spatial
+boundary of a Precinct element (whether a precinct or precinct
+split) with geospatial shapes.
+
+-  The resolution of a polygon for a precinct shape can be as coarse or
+   fine as needed, so long as the shape accurately represents the
+   boundary of the precinct.
+
+-  No two shapes should overlap.
+
+-  All polygons must form a closed loop. That is, the polygon should
+   start and end from the same point.
+
+-  The border of a polygon must not intersect itself.
+
+-  The spatial boundary of a Precinct is defined by a single geospatial
+   feature. That feature, however, may contain one or more discrete
+   and non-overlapping polygons as necessary to define the full extent of
+   the boundary.
+
+-  ShapeIdentifier must be a valid, existing reference in the external
+   file.
+
+-  ShapeIdentifier must have an expected type according to the table
+   above.

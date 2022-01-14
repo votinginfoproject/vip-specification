@@ -1,14 +1,16 @@
 _name: Precinct
+_sub_types:
+- SpatialBoundary
 csv-header-name: precinct
 csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
 
-      id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,ward
-      pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,5
-      pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,6
-      pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,7
+      id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,spatial_boundary_id,ward
+      pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,sb1,,5
+      pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,,6
+      pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,sb1,7
 description: |-
   The Precinct object represents a precinct, which is contained within a Locality. While the id
   attribute does not have to be static across feeds for one election, the combination of
@@ -16,6 +18,12 @@ description: |-
   :ref:`Precinct.Name <$$$-precinct>`, and :ref:`Precinct.Number <$$$-precinct>` should remain constant across
   feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
   non-required fields is fine).
+
+  Voters can be assigned to a precinct in two ways. A voter location modeled by :doc:`StreetSegment <street_segment>`
+  is assigned to a precinct by :doc:`StreetSegment.PrecinctId <street_segment>`.
+  Alternatively, a precinct's spatial boundary can be modeled with :doc:`Precinct.SpatialBoundary  <precinct>`.
+  Any registered voter address contained within the spatial boundary of the precinct
+  is assigned to that precinct.
 post: |-
   .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
 
@@ -30,6 +38,15 @@ post: |-
         <Name>203 - GEORGETOWN</Name>
         <Number>0203</Number>
         <PollingLocationIds>pl81274</PollingLocationIds>
+        <SpatialBoundary>
+          <ExternalGeospatialFeature>
+            <ExternalFileId>ef1</ExternalFileId>
+            <FileFormat>shp</FileFormat>
+            <FeatureIdentifier>
+                <Index>3</Index>
+            </FeatureIdentifier>
+          </ExternalGeospatialFeature>
+        </SpatialBoundary>
      </Precinct>
      <!--
        Precinct split. Name and PollingLocationIds are the same but
@@ -122,6 +139,15 @@ tags:
     values. See the `sample_feed.xml` file for examples.
   error_then: =must-ignore
   type: xs:string
+- _name: SpatialBoundary
+  csv-header-name: spatial_boundary_id
+  csv-type: xs:IDREF
+  description: Defines the spatial boundary of the precinct. All voter addresses contained
+    within this boundary are assigned to the precinct. If a voter address also maps
+    to a :doc:`StreetSegment <street_segment>`, then the precinct assignment from
+    the StreetSegment will be preferred over the assignment from the spatial boundary.
+  error_then: =must-ignore
+  type: SpatialBoundary
 - _name: Ward
   csv-header-name: ward
   csv-type: xs:string

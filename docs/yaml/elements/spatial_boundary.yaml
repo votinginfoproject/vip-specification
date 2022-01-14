@@ -1,0 +1,33 @@
+_name: SpatialBoundary
+_sub_types:
+- ExternalGeospatialFeature
+csv-header-name: spatial_boundary
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+      id,external_geospatial_feature_id
+      sb1,egf1
+description: The ``SpatialBoundary`` object defines a boundary in space. This boundary
+  is usually defined by one or more discrete, closed polygonal shapes.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+      <SpatialBoundary>
+        <ExternalGeospatialFeature>
+          <ExternalFileId>ef1</ExternalFileId>
+          <FileFormat>shp</FileFormat>
+          <FeatureIdentifier>
+            <Index>3</Index>
+          </FeatureIdentifier>
+        </ExternalGeospatialFeature>
+      </SpatialBoundary>
+tags:
+- _name: ExternalGeospatialFeature
+  csv-header-name: external_geospatial_feature_id
+  csv-type: xs:IDREF
+  description: The spatial boundary defined by a geospatial feature that is external
+    to the VIP feed.
+  required: true
+  type: ExternalGeospatialFeature
