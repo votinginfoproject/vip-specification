@@ -20,7 +20,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 * :ref:`multi-xml-person`
 * :ref:`multi-xml-polling-location`
 * :ref:`multi-xml-source`
-NOTE: Internationalized Text is not currently supported for CSV submissions. "
+NOTE: Internationalized Text is not currently supported for CSV submissions. 
 
 +--------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |

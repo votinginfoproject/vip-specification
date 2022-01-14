@@ -18,7 +18,7 @@ officials.
 
 To see a changelog of all of the updates, please see `the GitHub repository`_.
 
-.. _`the GitHub repository`: https://github.com/votinginfoproject/vip-specification/blob/release/HISTORY.md
+.. _`the GitHub repository`: https://github.com/votinginfoproject/vip-specification/blob/master/HISTORY.md
 
 .. _vip-publishers:
 Publishers of VIP data

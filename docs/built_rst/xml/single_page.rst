@@ -1756,7 +1756,7 @@ including a timezone offset from UTC.
 .. _single-xml-time-with-zone:
 
 TimeWithZone
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 A string pattern restricting the value to a time with an included offset from
 UTC. The pattern is

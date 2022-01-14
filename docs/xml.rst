@@ -11,7 +11,7 @@ Getting Started
 ---------------
 
 The actual election information specifies collections of elements, some containing links between
-each other. The entire set of tags must be encapsulated in a root object named vip_object. See the
+each other. The entire set of tags must be encapsulated in a root object named VipObject. See the
 `sample xml file`_ and `xsd file`_ for more details.
 
 Each top-level tag is a container for other fields, described in their own section. The only required
@@ -31,8 +31,8 @@ order. Exceptions are noted below.
 For the data itself, the special characters &, <, and > need to be encoded as &amp;, &lt;, and &gt;,
 respectively.
 
-.. _sample xml file: https://github.com/votinginfoproject/vip-specification/blob/release/sample_feed.xml
-.. _xsd file: https://github.com/votinginfoproject/vip-specification/blob/release/vip_spec.xsd
+.. _sample xml file: https://github.com/votinginfoproject/vip-specification/blob/master/sample_feed.xml
+.. _xsd file: https://github.com/votinginfoproject/vip-specification/blob/master/vip_spec.xsd
 
 
 Elements & Enumerations

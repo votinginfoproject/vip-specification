@@ -978,7 +978,6 @@ functions.
 .. code-block:: csv-table
    :linenos:
 
-
     id,absentee_uri,am_i_registered_uri,ballot_tracking_uri,ballot_tracking_provisional_uri,election_notice_text,election_notice_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
     ea123,https://example.com/absentee,https://example.com/am-i-registered,https://www.vote.virginia.gov/,https://www.vote.virginia.gov/,This is an emergency notification for this election.,https://www.yadayada.gov,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
     ea345,https://example.com/absentee2,https://example.com/am-i-registered2,https://example.com/elections2,https://example.com/registration2,,,https://example.com/rules2,https://example.com/what-is-on-my-ballot2,https://example.com/where-do-i-vote2
@@ -1596,7 +1595,7 @@ including a timezone offset from UTC.
 .. _single-csv-time-with-zone:
 
 time_with_zone
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 A string pattern restricting the value to a time with an included offset from
 UTC. The pattern is
