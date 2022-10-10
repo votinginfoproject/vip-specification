@@ -36,7 +36,7 @@
 
 
 <!-- Root Element -->
-<xs:element name="VipDeltas" attribute="VipEid" attribute="VipNid">
+<xs:element name="VipDeltas" >
      <xs:complexType>
           <xs:choice maxOccurs="unbounded">
                <xs:element name="ExternalFile" type="ExternalFile" minOccurs="1" maxOccurs="1" />
@@ -48,8 +48,10 @@
                     <xs:element name="DateOfChange" type="xs:datetime" minOccurs="1" maxOccurs="1" />
                </xs:simpleType>
           </xs:choice>
+          <xs:attribute name="VipEid" type="xs:string" />
+          <xs:attribute name="VipNid" type="xs:string" />
      </xs:complexType>
 </xs:element>
 
-
+</xs:schema>
 
