@@ -39,6 +39,7 @@
 <xs:element name="VipDeltas" >
      <xs:complexType>
           <xs:choice maxOccurs="unbounded">
+               <!-- Reference the compressed file containing the VipObject file for relevent deltas -->
                <xs:element name="ExternalFile" type="ExternalFile" minOccurs="1" maxOccurs="1" />
 
                <xs:simpleType name="VipDelta">
@@ -46,8 +47,14 @@
                     <xs:element name="VipRecordId" minOccurs="1" maxOccurs="1" />
                     <xs:element name="VipDeltaType" type="VipDeltaType" minOccurs="1" maxOccurs="1" />
                     <xs:element name="DateOfChange" type="xs:datetime" minOccurs="1" maxOccurs="1" />
+                    <!-- For Optool -->
+                    <!-- <..> -->
+
+                    <!-- Attributes of the VipDelta record -->
+                    <xs:attribute name="id" type="xs:id" use="required" />
                </xs:simpleType>
           </xs:choice>
+          <!-- Attributes of the VipDeltas root element -->
           <xs:attribute name="VipEid" type="xs:string" />
           <xs:attribute name="VipNid" type="xs:string" />
      </xs:complexType>
