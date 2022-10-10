@@ -2,4 +2,54 @@
 <!--
      Working version of VIP Delta Specification
   -->
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="6.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="ExternalFile">
+    <xs:sequence>
+      <xs:element name="FileUri" type="xs:anyURI" minOccurs="1" />
+      <xs:element name="Checksum" type="Checksum" minOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="Checksum">
+    <xs:sequence>
+      <xs:element name="Algorithm" type="ChecksumAlgorithm" minOccurs="1" />
+      <xs:element name="Value" type="xs:string" minOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ChecksumAlgorithm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sha-512" />
+      <xs:enumeration value="sha-256" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VipDeltaType">
+     <xs:restriction base="xs:string">
+          <xs:enumeration value="update" />
+          <xs:enumeration value="block" />
+     </xs:restriction>
+  </xs:simpleType>
+
+
+
+<!-- Root Element -->
+<xs:element name="VipDeltas" attribute="VipEid" attribute="VipNid">
+     <xs:complexType>
+          <xs:choice maxOccurs="unbounded">
+               <xs:element name="ExternalFile" type="ExternalFile" minOccurs="1" maxOccurs="1" />
+
+               <xs:simpleType name="VipDelta">
+                    <!-- For blocklist -->
+                    <xs:element name="VipRecordId" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="VipDeltaType" type="VipDeltaType" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="DateOfChange" type="xs:datetime" minOccurs="1" maxOccurs="1" />
+               </xs:simpleType>
+          </xs:choice>
+     </xs:complexType>
+</xs:element>
+
+
+
