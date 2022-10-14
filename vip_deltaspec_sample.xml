@@ -1,0 +1,15 @@
+<VipDeltas VipEid="1000" VipNid="2000">
+	<ExternalFile id="abc123">
+		<FileUri>vipfeed_fipscode_statename_electiondate.zip</FileUri>
+		<Checksum>
+			<Algorithm>sha-512</Algorithm>
+			<Value>123abc</Value>
+		</Checksum>
+	</ExternalFile>
+
+	<VipDelta id="delta_id">
+		<VipRecordId>pl1234</VipRecordId>
+		<VipDeltaType>block</VipDeltaType>
+		<DateOfChange>2022-11-07T00:00:00</DateOfChange>
+	</VipDelta>
+</VipDeltas>
