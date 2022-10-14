@@ -28,8 +28,8 @@
 
   <xs:simpleType name="VipDeltaType">
      <xs:restriction base="xs:string">
-          <xs:enumeration value="update" />
-          <xs:enumeration value="block" />
+          <xs:enumeration value="optool" />
+          <xs:enumeration value="blocklist" />
      </xs:restriction>
   </xs:simpleType>
 
@@ -40,7 +40,7 @@
       <xs:element name="VipDeltaType" type="VipDeltaType" minOccurs="1" maxOccurs="1" />
       <xs:element name="DateOfChange" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
       <!-- For Optool -->
-      <!-- <..> -->
+      <xs:element name="NewRecord" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>

@@ -9,7 +9,16 @@
 
 	<VipDelta id="delta_id">
 		<VipRecordId>pl1234</VipRecordId>
-		<VipDeltaType>block</VipDeltaType>
+		<VipDeltaType>blocklist</VipDeltaType>
 		<DateOfChange>2022-11-07T00:00:00</DateOfChange>
+	</VipDelta>
+	<VipDelta id="delta_id_optool">
+		<VipRecordId>pl1235</VipRecordId>
+		<VipDeltaType>optool</VipDeltaType>
+		<DateOfChange>2022-11-07T00:00:00</DateOfChange>
+		<NewRecord>
+          <Name>PS 31 Elementary School</Name>
+          <Zip>11104</Zip>
+      	</NewRecord>
 	</VipDelta>
 </VipDeltas>
