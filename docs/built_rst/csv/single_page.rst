@@ -254,67 +254,6 @@ A container for the contests/measures on the ballot.
     bs00011,http://i.giphy.com/3oEjHYDWEICgEpAOjK.gif,oc3000 oc2025,par01
 
 
-.. _single-csv-candidate-selection:
-
-candiate_selection
-~~~~~~~~~~~~~~~~~~
-
-CandidateSelection extends :ref:`single-csv-ballot-selection-base` and represents a
-ballot selection for a candidate contest.
-
-+-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                   | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=======================+================+==============+==============+==========================================+==========================================+
-| candidate_ids         | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                       |                |              |              | :ref:`single-csv-candidate` elements.    | then the implementation is required to   |
-|                       |                |              |              | The number of candidates that can be     | ignore it.                               |
-|                       |                |              |              | references is unbounded in cases where   |                                          |
-|                       |                |              |              | the ballot selection is for a ticket     |                                          |
-|                       |                |              |              | (e.g. "President/Vice President",        |                                          |
-|                       |                |              |              | "Governor/Lt Governor").                 |                                          |
-+-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                       |                |              |              | :ref:`single-csv-party` elements, which  | then the implementation is required to   |
-|                       |                |              |              | signifies one or more endorsing parties  | ignore it.                               |
-|                       |                |              |              | for the candidate(s).                    |                                          |
-+-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_write_in           | ``xs:boolean`` | Optional     | Single       | Signifies if the particular ballot       | If the field is invalid or not present,  |
-|                       |                |              |              | selection allows for write-in            | then the implementation is required to   |
-|                       |                |              |              | candidates. If true, one or more         | ignore it.                               |
-|                       |                |              |              | write-in candidates are allowed for this |                                          |
-|                       |                |              |              | contest.                                 |                                          |
-+-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: csv-table
-   :linenos:
-
-
-    id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in
-    cs001,3,can004,par01,false
-    cs002,2,can001 can002,par03 par02,false
-    cs003,1,can003,par02 par03,true
-
-
-.. _single-csv-ballot-selection-base:
-
-ballot_selection_base
-^^^^^^^^^^^^^^^^^^^^^
-
-A base model for all ballot selection types:
-:ref:`single-csv-ballot-measure-selection`,
-:ref:`single-csv-candidate-selection`, and :ref:`single-csv-party-selection`.
-
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag            | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
-+================+================+==============+==============+==========================================+==========================================+
-| sequence_order | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
-|                |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
-|                |                |              |              | is the default ordering, and can be      | ignore it.                               |
-|                |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
-|                |                |              |              | in :ref:`single-csv-ordered-contest`.    |                                          |
-+----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
 .. _single-csv-candidate:
 
 candidate
@@ -506,6 +445,67 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 |                          |                                  |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
 |                          |                                  |              |              | variation can be specified here.         | it.                                      |
 +--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+
+.. _single-csv-candidate-selection:
+
+candidate_selection
+~~~~~~~~~~~~~~~~~~~
+
+CandidateSelection extends :ref:`single-csv-ballot-selection-base` and represents a
+ballot selection for a candidate contest.
+
++-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                   | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++=======================+================+==============+==============+==========================================+==========================================+
+| candidate_ids         | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
+|                       |                |              |              | :ref:`single-csv-candidate` elements.    | then the implementation is required to   |
+|                       |                |              |              | The number of candidates that can be     | ignore it.                               |
+|                       |                |              |              | references is unbounded in cases where   |                                          |
+|                       |                |              |              | the ballot selection is for a ticket     |                                          |
+|                       |                |              |              | (e.g. "President/Vice President",        |                                          |
+|                       |                |              |              | "Governor/Lt Governor").                 |                                          |
++-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
+|                       |                |              |              | :ref:`single-csv-party` elements, which  | then the implementation is required to   |
+|                       |                |              |              | signifies one or more endorsing parties  | ignore it.                               |
+|                       |                |              |              | for the candidate(s).                    |                                          |
++-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_write_in           | ``xs:boolean`` | Optional     | Single       | Signifies if the particular ballot       | If the field is invalid or not present,  |
+|                       |                |              |              | selection allows for write-in            | then the implementation is required to   |
+|                       |                |              |              | candidates. If true, one or more         | ignore it.                               |
+|                       |                |              |              | write-in candidates are allowed for this |                                          |
+|                       |                |              |              | contest.                                 |                                          |
++-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+
+.. code-block:: csv-table
+   :linenos:
+
+
+    id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in
+    cs001,3,can004,par01,false
+    cs002,2,can001 can002,par03 par02,false
+    cs003,1,can003,par02 par03,true
+
+
+.. _single-csv-ballot-selection-base:
+
+ballot_selection_base
+^^^^^^^^^^^^^^^^^^^^^
+
+A base model for all ballot selection types:
+:ref:`single-csv-ballot-measure-selection`,
+:ref:`single-csv-candidate-selection`, and :ref:`single-csv-party-selection`.
+
++----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag            | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
++================+================+==============+==============+==========================================+==========================================+
+| sequence_order | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
+|                |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
+|                |                |              |              | is the default ordering, and can be      | ignore it.                               |
+|                |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
+|                |                |              |              | in :ref:`single-csv-ordered-contest`.    |                                          |
++----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-checksum:
@@ -1595,7 +1595,7 @@ including a timezone offset from UTC.
 .. _single-csv-time-with-zone:
 
 time_with_zone
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 A string pattern restricting the value to a time with an included offset from
 UTC. The pattern is
@@ -1652,7 +1652,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 * :ref:`single-csv-person`
 * :ref:`single-csv-polling-location`
 * :ref:`single-csv-source`
-NOTE: Internationalized Text is not currently supported for CSV submissions. "
+NOTE: Internationalized Text is not currently supported for CSV submissions. 
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |

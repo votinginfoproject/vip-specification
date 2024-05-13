@@ -1756,7 +1756,7 @@ including a timezone offset from UTC.
 .. _single-xml-time-with-zone:
 
 TimeWithZone
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 A string pattern restricting the value to a time with an included offset from
 UTC. The pattern is
@@ -1813,7 +1813,7 @@ CSV, ``label`` may refer to a row ID). Examples of ``InternationalizedText`` can
 * :ref:`single-xml-person`
 * :ref:`single-xml-polling-location`
 * :ref:`single-xml-source`
-NOTE: Internationalized Text is not currently supported for CSV submissions. "
+NOTE: Internationalized Text is not currently supported for CSV submissions. 
 
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
