@@ -79,5 +79,5 @@ tags:
   csv-header-name: version
   csv-type: xs:string
   description: Specifies the version of the data
-  required: true
+  error_then: =must-ignore
   type: xs:string

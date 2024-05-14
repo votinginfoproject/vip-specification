@@ -3152,9 +3152,9 @@ the only required object in the feed file, and only one source object is allowed
 |                        |                                          |              |              | Use for the information in this file can | then the implementation is required to   |
 |                        |                                          |              |              | be found.                                | ignore it.                               |
 +------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Version                | ``xs:string``                            | **Required** | Single       | Specifies the version of the data        | If the field is invalid, then the        |
-|                        |                                          |              |              |                                          | implementation is required to ignore the |
-|                        |                                          |              |              |                                          | ``Source`` element containing it.        |
+| Version                | ``xs:string``                            | Optional     | Single       | Specifies the version of the data        | If the field is invalid or not present,  |
+|                        |                                          |              |              |                                          | then the implementation is required to   |
+|                        |                                          |              |              |                                          | ignore it.                               |
 +------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
