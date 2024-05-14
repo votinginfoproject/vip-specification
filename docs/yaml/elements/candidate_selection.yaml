@@ -1,5 +1,5 @@
 _name: CandidateSelection
-csv-header-name: candiate_selection
+csv-header-name: candidate_selection
 csv-post: |-
   .. code-block:: csv-table
      :linenos:

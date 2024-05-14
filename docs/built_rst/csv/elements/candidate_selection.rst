@@ -2,8 +2,8 @@
 
 .. _multi-csv-candidate-selection:
 
-candiate_selection
-==================
+candidate_selection
+===================
 
 CandidateSelection extends :ref:`multi-csv-ballot-selection-base` and represents a
 ballot selection for a candidate contest.
