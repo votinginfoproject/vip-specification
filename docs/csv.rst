@@ -19,8 +19,7 @@ Certain files are required to serve different types of information. Below is a l
 Required files:
 	- election.txt
 	- source.txt
-	- state.txt 
-	- department.txt
+	- state.txt
 
 Files to serve polling locations:
 	- election_administration.txt
