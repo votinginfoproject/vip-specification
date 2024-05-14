@@ -132,3 +132,11 @@ tags:
   error_then: =must-ignore
   repeating: true
   type: xs:anyURI
+- _name: ParentId
+  csv-header-name: parent_id
+  csv-type: xs:IDREF
+  description: References a record in any of the following elements - source, department,
+    voter_service, candidate, person, or office.
+  error_then: =must-ignore
+  repeating: false
+  type: xs:IDREF

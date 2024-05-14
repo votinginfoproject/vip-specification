@@ -632,6 +632,11 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                          |              |              | location.                                | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ParentId         | ``xs:IDREF``                             | Optional     | Single       | References a record in any of the        | If the field is invalid or not present,  |
+|                  |                                          |              |              | following elements - source, department, | then the implementation is required to   |
+|                  |                                          |              |              | voter_service, candidate, person, or     | ignore it.                               |
+|                  |                                          |              |              | office.                                  |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _single-xml-name-address-line-usage:
 
@@ -869,6 +874,11 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
 |                  |                                          |              |              | location.                                | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ParentId         | ``xs:IDREF``                             | Optional     | Single       | References a record in any of the        | If the field is invalid or not present,  |
+|                  |                                          |              |              | following elements - source, department, | then the implementation is required to   |
+|                  |                                          |              |              | voter_service, candidate, person, or     | ignore it.                               |
+|                  |                                          |              |              | office.                                  |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _single-xml-name-address-line-usage:
@@ -1225,6 +1235,11 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
 |                  |                                          |              |              | location.                                | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ParentId         | ``xs:IDREF``                             | Optional     | Single       | References a record in any of the        | If the field is invalid or not present,  |
+|                  |                                          |              |              | following elements - source, department, | then the implementation is required to   |
+|                  |                                          |              |              | voter_service, candidate, person, or     | ignore it.                               |
+|                  |                                          |              |              | office.                                  |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _single-xml-name-address-line-usage:
@@ -2091,6 +2106,11 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |                  |                                          |              |              | location.                                | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ParentId         | ``xs:IDREF``                             | Optional     | Single       | References a record in any of the        | If the field is invalid or not present,  |
+|                  |                                          |              |              | following elements - source, department, | then the implementation is required to   |
+|                  |                                          |              |              | voter_service, candidate, person, or     | ignore it.                               |
+|                  |                                          |              |              | office.                                  |                                          |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _single-xml-name-address-line-usage:
 
@@ -2531,6 +2551,11 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | Uri              | ``xs:anyURI``                            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
 |                  |                                          |              |              | location.                                | then the implementation is required to   |
 |                  |                                          |              |              |                                          | ignore it.                               |
++------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ParentId         | ``xs:IDREF``                             | Optional     | Single       | References a record in any of the        | If the field is invalid or not present,  |
+|                  |                                          |              |              | following elements - source, department, | then the implementation is required to   |
+|                  |                                          |              |              | voter_service, candidate, person, or     | ignore it.                               |
+|                  |                                          |              |              | office.                                  |                                          |
 +------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _single-xml-name-address-line-usage:
