@@ -942,13 +942,9 @@ functions.
 |                                 |                                   |              |              | "Processing Provisional Ballots"                            | ignore it.                               |
 |                                 |                                   |              |              | (https://www.eac.gov/research-and-data/provisional-voting/) |                                          |
 +---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| department                      | :ref:`single-csv-department`      | **Required** | Repeats      | Describes the administrative body for a particular voter    | There must be at least one valid         |
-|                                 |                                   |              |              | service.                                                    | `Department` in each                     |
-|                                 |                                   |              |              |                                                             | `ElectionAdministration` element. If no  |
-|                                 |                                   |              |              |                                                             | valid `Department` objects are present,  |
-|                                 |                                   |              |              |                                                             | the implementation is required to ignore |
-|                                 |                                   |              |              |                                                             | the `ElectionAdministration` object that |
-|                                 |                                   |              |              |                                                             | contains it/them.                        |
+| department                      | :ref:`single-csv-department`      | Optional     | Repeats      | Describes the administrative body for a particular voter    | If the element is invalid or not         |
+|                                 |                                   |              |              | service.                                                    | present, then the implementation is      |
+|                                 |                                   |              |              |                                                             | required to ignore it.                   |
 +---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
 | election_notice                 | :ref:`single-csv-election-notice` | Optional     | Single       | A place for election administrators to post last minute and | If the element is invalid or not         |
 |                                 |                                   |              |              | emergency notifications pertaining to the election.         | present, then the implementation is      |

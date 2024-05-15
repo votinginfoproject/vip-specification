@@ -76,11 +76,8 @@ tags:
   csv-header-name: department
   csv-type: Department
   description: Describes the administrative body for a particular voter service.
-  error: There must be at least one valid `Department` in each `ElectionAdministration`
-    element. If no valid `Department` objects are present, the implementation is required
-    to ignore the `ElectionAdministration` object that contains it/them.
+  error_then: =must-ignore
   repeating: true
-  required: true
   type: Department
 - _name: ElectionNotice
   csv-header-name: election_notice
