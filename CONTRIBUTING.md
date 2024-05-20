@@ -37,7 +37,7 @@ Discussion."
 3. Once it's done and tested, create a pull request to move it into the current working branch.
 4. Some feedback might be necessary in order to approve a PR. Many members of this repository have substantial technical and election   backgrounds, so please take all feedback to heart, regardless of the source.  In order to get approval for the pull request, you will need approval from two people, including one representative from Democracy Works and one representative from Google.  Democracy Works and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
     1. Google approvers: @jdmgoogle
-    2. Democracy Works approvers: @afsmythe; @sarahberlin
+    2. Democracy Works approvers: @danny-pease, @jennifertlovell, @aditi-dmworks, @jones-liam-j, @mpechter 
 5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged
    into the current working branch by the developer who created the pull-request.
 6. Delete the feature/bug branch.
@@ -71,7 +71,7 @@ easy to edit by hand.  The YAML files are stored in the
 
 This section explains how to set up your local development environment for
 contributing. First, [install Python][python_download]. **You must use Python
-3.4 or higher.**
+3.10 or higher.**
 
 We also recommend setting up a virtual environment for the repo (e.g. using
 [virtualenv][virtualenv]) prior to installing dependencies.
