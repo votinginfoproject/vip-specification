@@ -1,0 +1,2 @@
+sphinx-autobuild==2024.2.4
+sphinx-rtd-theme==2.0.0
