@@ -595,6 +595,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |               |                           |              |              | location.                                | then the implementation is required to   |
 |               |                           |              |              |                                          | ignore it.                               |
 +---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| parent_id     | ``xs:IDREF``              | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
+|               |                           |              |              | department, voter_service, candidate,    | then the implementation is required to   |
+|               |                           |              |              | person, or office.                       | ignore it.                               |
++---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
@@ -815,6 +819,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | uri           | ``xs:anyURI``             | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
 |               |                           |              |              | location.                                | then the implementation is required to   |
 |               |                           |              |              |                                          | ignore it.                               |
++---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| parent_id     | ``xs:IDREF``              | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
+|               |                           |              |              | department, voter_service, candidate,    | then the implementation is required to   |
+|               |                           |              |              | person, or office.                       | ignore it.                               |
 +---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
@@ -1115,6 +1123,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | uri           | ``xs:anyURI``             | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
 |               |                           |              |              | location.                                | then the implementation is required to   |
 |               |                           |              |              |                                          | ignore it.                               |
++---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| parent_id     | ``xs:IDREF``              | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
+|               |                           |              |              | department, voter_service, candidate,    | then the implementation is required to   |
+|               |                           |              |              | person, or office.                       | ignore it.                               |
 +---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
@@ -1909,6 +1921,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 |               |                           |              |              | location.                                | then the implementation is required to   |
 |               |                           |              |              |                                          | ignore it.                               |
 +---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| parent_id     | ``xs:IDREF``              | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
+|               |                           |              |              | department, voter_service, candidate,    | then the implementation is required to   |
+|               |                           |              |              | person, or office.                       | ignore it.                               |
++---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
@@ -2317,6 +2333,10 @@ organizations, etc. ContactInformation is always a sub-element of another object
 | uri           | ``xs:anyURI``             | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
 |               |                           |              |              | location.                                | then the implementation is required to   |
 |               |                           |              |              |                                          | ignore it.                               |
++---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| parent_id     | ``xs:IDREF``              | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
+|               |                           |              |              | department, voter_service, candidate,    | then the implementation is required to   |
+|               |                           |              |              | person, or office.                       | ignore it.                               |
 +---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
