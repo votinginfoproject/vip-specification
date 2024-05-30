@@ -369,6 +369,10 @@ class DataType(object):
         return self.data["csv-type"]
 
     @property
+    def skip_element_on(self):
+        return self.data.get("skip_element_on", "")
+
+    @property
     def spinal_name(self):
         return self.snake_name.replace("_", "-")
 
