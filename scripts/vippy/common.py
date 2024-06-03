@@ -9,40 +9,38 @@ import yaml
 
 _log = logging.getLogger()
 
-AUTO_GENERATED_DIR = 'docs/built_rst'
-YAML_DIR = 'docs/yaml'
-XML_DIR = os.path.join(AUTO_GENERATED_DIR, 'xml')
-CSV_DIR = os.path.join(AUTO_GENERATED_DIR, 'csv')
+AUTO_GENERATED_DIR = "docs/built_rst"
+YAML_DIR = "docs/yaml"
+XML_DIR = os.path.join(AUTO_GENERATED_DIR, "xml")
+CSV_DIR = os.path.join(AUTO_GENERATED_DIR, "csv")
 
-TAG_KEY_NAME = '_name'
-TAG_KEY_TYPE = 'type'
-TAG_KEY_REQUIRED = 'required'
-TAG_KEY_REPEATING = 'repeating'
-TAG_KEY_DESCRIPTION = 'description'
+TAG_KEY_NAME = "_name"
+TAG_KEY_TYPE = "type"
+TAG_KEY_REQUIRED = "required"
+TAG_KEY_REPEATING = "repeating"
+TAG_KEY_DESCRIPTION = "description"
 # The error_handling key corresponds to the aggregate error-handling tag
 # value and does not correspond to a literal key-value in the YAML data.
-TAG_KEY_ERROR_HANDLE = 'error_handling'
-TAG_KEY_ERROR_BASE = 'error'
-TAG_KEY_ERROR_THEN = 'error_then'
-TAG_KEY_ERROR_EXTRA = 'error_extra'
-TAG_KEY_EXTENDS = 'extends'
-TAG_KEY_CSV_TYPE = 'csv-type'
-TAG_KEY_CSV_HEADER_NAME = 'csv-header-name'
+TAG_KEY_ERROR_HANDLE = "error_handling"
+TAG_KEY_ERROR_BASE = "error"
+TAG_KEY_ERROR_THEN = "error_then"
+TAG_KEY_ERROR_EXTRA = "error_extra"
+TAG_KEY_EXTENDS = "extends"
+TAG_KEY_CSV_TYPE = "csv-type"
+TAG_KEY_CSV_HEADER_NAME = "csv-header-name"
 
 
-DEFAULT_TAG_VALUES = {
-    TAG_KEY_REQUIRED: False,
-    TAG_KEY_REPEATING: False
-    }
+DEFAULT_TAG_VALUES = {TAG_KEY_REQUIRED: False, TAG_KEY_REPEATING: False}
 
-_ERROR_FORMAT_STRING = ("the implementation {action} ignore {ignore}.")
+_ERROR_FORMAT_STRING = "the implementation {action} ignore {ignore}."
 
-_ERROR_THEN_FORMAT_REQUIRED = _ERROR_FORMAT_STRING.format(action='is required to',
-                                    ignore='the ``{containing_type}`` element containing it')
+_ERROR_THEN_FORMAT_REQUIRED = _ERROR_FORMAT_STRING.format(
+    action="is required to", ignore="the ``{containing_type}`` element containing it"
+)
 
 _ERROR_THENS = {
-    '=must-ignore': _ERROR_FORMAT_STRING.format(action='is required to', ignore='it'),
-    '=should-ignore': _ERROR_FORMAT_STRING.format(action='should', ignore='it'),
+    "=must-ignore": _ERROR_FORMAT_STRING.format(action="is required to", ignore="it"),
+    "=should-ignore": _ERROR_FORMAT_STRING.format(action="should", ignore="it"),
 }
 
 
@@ -56,7 +54,7 @@ def reverse_map(mapping):
 
 
 def read_file(path):
-    with open(path, encoding='utf-8') as f:
+    with open(path, encoding="utf-8") as f:
         text = f.read()
     return text
 
@@ -78,7 +76,7 @@ def detect_change(path):
 def write_file(path, text):
     """Write to a file, and return whether the file changed."""
     with detect_change(path):
-        with open(path, mode='w', encoding='utf-8') as f:
+        with open(path, mode="w", encoding="utf-8") as f:
             f.write(text)
 
 
@@ -109,8 +107,8 @@ def _yaml_str_representer(dumper, data):
         string.
       short: This is a one-line string.
     """
-    style = '|' if '\n' in data else None
-    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
+    style = "|" if "\n" in data else None
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style=style)
 
 
 def configure_yaml():
@@ -118,21 +116,22 @@ def configure_yaml():
 
 
 def read_yaml(path):
-    #https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
+    # https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
     with open(path) as f:
         data = yaml.load(f, Loader=yaml.FullLoader)
     return data
 
 
 def yaml_dump(*args):
-    return yaml.dump(*args, default_flow_style=False, allow_unicode=True,
-                     default_style=None)
+    return yaml.dump(
+        *args, default_flow_style=False, allow_unicode=True, default_style=None
+    )
 
 
 def write_yaml(data, path):
     """Write a YAML file, and return whether the file changed."""
     with detect_change(path):
-        with open(path, "w", encoding='utf-8') as f:
+        with open(path, "w", encoding="utf-8") as f:
             yaml_dump(data, f)
 
 
@@ -151,7 +150,6 @@ def read_type(parent_dir, rel_path):
 
 
 class AllTypes:
-
     def __init__(self, type_map):
         """
         Arguments:
@@ -173,7 +171,7 @@ def get_all_types():
     parent_dir = YAML_DIR
     types_map = {}
     all_types = AllTypes(types_map)
-    rel_paths = get_all_files(parent_dir, ext='.yaml')
+    rel_paths = get_all_files(parent_dir, ext=".yaml")
     for rel_path in rel_paths:
         data_type = read_type(parent_dir, rel_path)
         type_name = data_type.name
@@ -193,7 +191,6 @@ def get_all_types():
         for extend in extends:
             data_type = types_map[extend]
             data_type.is_extends = True
-
 
     return all_types
 
@@ -228,17 +225,17 @@ def get_simple_tag_value(tag_data, key):
 
 
 def make_error_if(all_types, tag_data):
-    noun = 'field' if is_tag_field(all_types, tag_data) else 'element'
+    noun = "field" if is_tag_field(all_types, tag_data) else "element"
     required = get_simple_tag_value(tag_data, TAG_KEY_REQUIRED)
-    condition = 'invalid' if required else 'invalid or not present'
+    condition = "invalid" if required else "invalid or not present"
 
     return "the {noun} is {condition},".format(noun=noun, condition=condition)
 
 
 def make_error_if_then(all_types, tag_data, error_then):
-    if error_then.startswith('='):
+    if error_then.startswith("="):
         error_then_format = _ERROR_THENS[error_then]
-        containing_type = tag_data['containing_type']
+        containing_type = tag_data["containing_type"]
         error_then = error_then_format.format(containing_type=containing_type)
     error_if = make_error_if(all_types, tag_data)
     error = "If {0} then {1}".format(error_if, error_then)
@@ -249,9 +246,11 @@ def make_error_if_then(all_types, tag_data, error_then):
 def make_error_default(all_types, tag_data):
     required = get_simple_tag_value(tag_data, TAG_KEY_REQUIRED)
     if not required:
-        raise Exception('we have not defined a default "error" value for '
-                        "tags that are not required.\n"
-                        "tag data:\n{0}".format(pformat(tag_data)))
+        raise Exception(
+            'we have not defined a default "error" value for '
+            "tags that are not required.\n"
+            "tag data:\n{0}".format(pformat(tag_data))
+        )
     error_then = _ERROR_THEN_FORMAT_REQUIRED.format(**tag_data)
     error = make_error_if_then(all_types, tag_data, error_then)
     return error
@@ -317,7 +316,6 @@ def get_tag_value(all_types, tag_data, key):
 
 
 class DataType(object):
-
     @classmethod
     def from_yaml(cls, type_yaml, rel_path):
         """
@@ -332,15 +330,17 @@ class DataType(object):
         file_name = os.path.basename(rel_path)
         snake_name, ext = os.path.splitext(file_name)
 
-        type_name = type_yaml['_name']
+        type_name = type_yaml["_name"]
         type_data = copy.deepcopy(type_yaml)
-        tags = type_data.get('tags', [])
+        tags = type_data.get("tags", [])
         for tag in tags:
-            tag['containing_type'] = type_name
+            tag["containing_type"] = type_name
 
-        is_enum = 'enumerations' in rel_path
+        is_enum = "enumerations" in rel_path
 
-        return cls(type_yaml, type_data, rel_path, snake_name=snake_name, is_enum=is_enum)
+        return cls(
+            type_yaml, type_data, rel_path, snake_name=snake_name, is_enum=is_enum
+        )
 
     def __init__(self, yaml, data, rel_path, snake_name, is_enum):
         self.data = data
@@ -352,20 +352,21 @@ class DataType(object):
         self.yaml = yaml
 
     def __repr__(self):
-        return ("<DataType object (name={0!r}, rel_path={1!r})>"
-                .format(self.name, self.rel_path))
+        return "<DataType object (name={0!r}, rel_path={1!r})>".format(
+            self.name, self.rel_path
+        )
 
     @property
     def name(self):
-        return self.data['_name']
+        return self.data["_name"]
 
     @property
     def csv_name(self):
-        return self.data['csv-header-name']
+        return self.data["csv-header-name"]
 
     @property
     def csv_type(self):
-        return self.data['csv-type']
+        return self.data["csv-type"]
 
     @property
     def spinal_name(self):
@@ -373,15 +374,15 @@ class DataType(object):
 
     @property
     def sub_types(self):
-        return self.data.get('_sub_types', [])
+        return self.data.get("_sub_types", [])
 
     @property
     def extends(self):
-        return self.data.get('extends', [])
+        return self.data.get("extends", [])
 
     @property
     def tags(self):
-        return self.data.get('tags')
+        return self.data.get("tags")
 
     @property
     def table_path(self):
