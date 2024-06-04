@@ -1568,6 +1568,9 @@ describing whether or not appointments are necessary or possible.
 |                        |                         |              |              | start and end times and options end.     | then the implementation is required to   |
 |                        |                         |              |              |                                          | ignore it.                               |
 +------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| hours_open_id          | ``xs:IDREF``            | **Required** | Single       | A reference to the associated hours_open | If the field is invalid, then the        |
+|                        |                         |              |              | element.                                 | implementation is required to ignore it. |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
@@ -2711,6 +2714,9 @@ describing whether or not appointments are necessary or possible.
 | end_date               | ``xs:date``             | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
 |                        |                         |              |              | start and end times and options end.     | then the implementation is required to   |
 |                        |                         |              |              |                                          | ignore it.                               |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| hours_open_id          | ``xs:IDREF``            | **Required** | Single       | A reference to the associated hours_open | If the field is invalid, then the        |
+|                        |                         |              |              | element.                                 | implementation is required to ignore it. |
 +------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

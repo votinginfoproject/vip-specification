@@ -59,3 +59,11 @@ tags:
     end.
   error_then: =must-ignore
   type: xs:date
+- _name: HoursOpenId
+  csv-header-name: hours_open_id
+  csv-type: xs:IDREF
+  description: A reference to the associated hours_open element.
+  error_then: =must-ignore
+  required: true
+  skip_on: xml
+  type: xs:IDREF
