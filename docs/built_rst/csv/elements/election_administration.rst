@@ -74,11 +74,6 @@ department
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                         | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=============================+======================================+==============+==============+==========================================+==========================================+
-| contact_information         | :ref:`multi-csv-contact-information` | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
-|                             |                                      |              |              | for the election administration body     | present, then the implementation is      |
-|                             |                                      |              |              | (see                                     | required to ignore it.                   |
-|                             |                                      |              |              | :ref:`multi-csv-contact-information`).   |                                          |
-+-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | election_official_person_id | ``xs:IDREF``                         | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
 |                             |                                      |              |              | election administration office. The      | then the implementation is required to   |
 |                             |                                      |              |              | specified person should be the           | ignore it.                               |
@@ -109,10 +104,6 @@ voter_service
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                         | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=============================+======================================+==============+==============+==========================================+==========================================+
-| contact_information         | :ref:`multi-csv-contact-information` | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
-|                             |                                      |              |              | service.                                 | present, then the implementation is      |
-|                             |                                      |              |              |                                          | required to ignore it.                   |
-+-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | description                 | ``xs:string``                        | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
 |                             |                                      |              |              | available.                               | present, then the implementation is      |
 |                             |                                      |              |              |                                          | required to ignore it.                   |
@@ -243,10 +234,6 @@ voter_service
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                         | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=============================+======================================+==============+==============+==========================================+==========================================+
-| contact_information         | :ref:`multi-csv-contact-information` | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
-|                             |                                      |              |              | service.                                 | present, then the implementation is      |
-|                             |                                      |              |              |                                          | required to ignore it.                   |
-+-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | description                 | ``xs:string``                        | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
 |                             |                                      |              |              | available.                               | present, then the implementation is      |
 |                             |                                      |              |              |                                          | required to ignore it.                   |

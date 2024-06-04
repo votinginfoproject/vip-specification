@@ -11,10 +11,6 @@ School Board, et al).
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                      | Data Type             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+=======================+==============+==============+==========================================+==========================================+
-| contact_information_id   | ``xs:IDREF``          | Optional     | Repeats      | Links to the                             | If the element is invalid or not         |
-|                          |                       |              |              | :ref:`multi-csv-contact-information`     | present, then the implementation is      |
-|                          |                       |              |              | element associated with the office.      | required to ignore it.                   |
-+--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | description              | ``xs:string``         | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
 |                          |                       |              |              | its purpose.                             | present, then the implementation is      |
 |                          |                       |              |              |                                          | required to ignore it.                   |

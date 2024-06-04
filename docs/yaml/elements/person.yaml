@@ -45,6 +45,7 @@ tags:
   description: Refers to the associated :ref:`$$$-contact-information`.
   error_then: =must-ignore
   repeating: true
+  skip_on: csv
   type: ContactInformation
 - _name: DateOfBirth
   csv-header-name: date_of_birth

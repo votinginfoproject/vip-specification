@@ -17,10 +17,6 @@ or elected official. These elements reference ``Person``:
 +------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                    | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +========================+=======================================+==============+==============+==========================================+==========================================+
-| contact_information_id | ``xs:IDREF``                          | Optional     | Repeats      | Refers to the associated                 | If the element is invalid or not         |
-|                        |                                       |              |              | :ref:`multi-csv-contact-information`.    | present, then the implementation is      |
-|                        |                                       |              |              |                                          | required to ignore it.                   |
-+------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | date_of_birth          | ``xs:date``                           | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
 |                        |                                       |              |              | birth.                                   | then the implementation is required to   |
 |                        |                                       |              |              |                                          | ignore it.                               |
