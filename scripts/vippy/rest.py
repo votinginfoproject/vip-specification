@@ -305,6 +305,8 @@ def update_rest_file_single_page(all_types, mode):
             data_types, key=lambda dt: dt.csv_name if mode == "csv" else dt.name
         )
         for data_type in sorted_data_types:
+            if mode == data_type.skip_element_on:
+                continue
             if data_type.is_sub_type and data_type.is_extends:
                 continue
             new_rest = make_type_rest(all_types, data_type, "~", prefix, mode)
@@ -329,8 +331,10 @@ def update_rest_files(override_type_name=None):
 
         prefix = "multi-{}".format(mode)
         for type_name in type_names:
-            _log.debug("updating rest files for type: {0}".format(type_name))
             data_type = common.get_type(type_map, type_name)
+            if mode == data_type.skip_element_on:
+                continue
+            _log.debug("updating rest files for type: {0}".format(type_name))
             update_rest_file(all_types, data_type, prefix, mode)
 
 
