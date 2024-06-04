@@ -106,7 +106,7 @@ tags:
   error_then: =must-ignore
   type: xs:anyURI
 - _name: WhatIsOnMyBallotUri
-  csv-header-name: what_is_on_my_ballot
+  csv-header-name: what_is_on_my_ballot_uri
   csv-type: xs:anyURI
   description: Specifies web address for information on what is on an individual's
     ballot.

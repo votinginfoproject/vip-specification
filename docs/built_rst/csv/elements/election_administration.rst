@@ -48,7 +48,7 @@ functions.
 |                                 |                                  |              |              | for the jurisdiction of the administration.                 | then the implementation is required to   |
 |                                 |                                  |              |              |                                                             | ignore it.                               |
 +---------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| what_is_on_my_ballot            | ``xs:anyURI``                    | Optional     | Single       | Specifies web address for information on what is on an      | If the field is invalid or not present,  |
+| what_is_on_my_ballot_uri        | ``xs:anyURI``                    | Optional     | Single       | Specifies web address for information on what is on an      | If the field is invalid or not present,  |
 |                                 |                                  |              |              | individual's ballot.                                        | then the implementation is required to   |
 |                                 |                                  |              |              |                                                             | ignore it.                               |
 +---------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
