@@ -23,6 +23,7 @@ tags:
     the office.
   error_then: =must-ignore
   repeating: true
+  skip_on: csv
   type: ContactInformation
 - _name: Description
   csv-header-name: description

@@ -17,6 +17,7 @@ tags:
   csv-type: ContactInformation
   description: The contact for a particular voter service.
   error_then: =must-ignore
+  skip_on: csv
   type: ContactInformation
 - _name: Description
   csv-header-name: description
