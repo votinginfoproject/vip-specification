@@ -697,6 +697,10 @@ department
 |                             |                                       |              |              | contact individual available to voters.  | present, then the implementation is      |
 |                             |                                       |              |              |                                          | required to ignore it.                   |
 +-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| election_administration_id  | ``xs:IDREF``                          | Optional     | Single       | The election administration that the     | If the field is invalid or not present,  |
+|                             |                                       |              |              | department is a part of.                 | then the implementation is required to   |
+|                             |                                       |              |              |                                          | ignore it.                               |
++-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
@@ -936,10 +940,6 @@ functions.
 |                                 |                                   |              |              | "Processing Provisional Ballots"                            | ignore it.                               |
 |                                 |                                   |              |              | (https://www.eac.gov/research-and-data/provisional-voting/) |                                          |
 +---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| department                      | :ref:`single-csv-department`      | Optional     | Repeats      | Describes the administrative body for a particular voter    | If the element is invalid or not         |
-|                                 |                                   |              |              | service.                                                    | present, then the implementation is      |
-|                                 |                                   |              |              |                                                             | required to ignore it.                   |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
 | election_notice                 | :ref:`single-csv-election-notice` | Optional     | Single       | A place for election administrators to post last minute and | If the element is invalid or not         |
 |                                 |                                   |              |              | emergency notifications pertaining to the election.         | present, then the implementation is      |
 |                                 |                                   |              |              |                                                             | required to ignore it.                   |
@@ -991,6 +991,10 @@ department
 | voter_service               | :ref:`single-csv-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
 |                             |                                       |              |              | contact individual available to voters.  | present, then the implementation is      |
 |                             |                                       |              |              |                                          | required to ignore it.                   |
++-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| election_administration_id  | ``xs:IDREF``                          | Optional     | Single       | The election administration that the     | If the field is invalid or not present,  |
+|                             |                                       |              |              | department is a part of.                 | then the implementation is required to   |
+|                             |                                       |              |              |                                          | ignore it.                               |
 +-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

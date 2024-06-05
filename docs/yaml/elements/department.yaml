@@ -37,3 +37,10 @@ tags:
   error_then: =must-ignore
   repeating: true
   type: VoterService
+- _name: ElectionAdministrationId
+  csv-header-name: election_administration_id
+  csv-type: xs:IDREF
+  description: The election administration that the department is a part of.
+  error_then: =must-ignore
+  skip_on: xml
+  type: xs:IDREF

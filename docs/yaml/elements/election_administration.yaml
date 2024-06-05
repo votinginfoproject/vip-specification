@@ -78,6 +78,7 @@ tags:
   description: Describes the administrative body for a particular voter service.
   error_then: =must-ignore
   repeating: true
+  skip_on: csv
   type: Department
 - _name: ElectionNotice
   csv-header-name: election_notice
