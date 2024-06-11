@@ -34,12 +34,11 @@ Discussion."
     2. if working on a documentation bug/feature, the documentation must build with Sphinx with no
        errors (_**NB:** see [Installing Sphinx](#installing-sphinx) below_).
         1. Best practice is to provide separate commits for updates to the YAML files and the auto generated RST files. 
-3. Once it's done and tested, create a pull request to move it into the current working branch.
-4. Some feedback might be necessary in order to approve a PR. Many members of this repository have substantial technical and election   backgrounds, so please take all feedback to heart, regardless of the source.  In order to get approval for the pull request, you will need approval from two people, including one representative from Democracy Works and one representative from Google.  Democracy Works and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
-
-5. When it's reviewed and accepted by the team within a reasonable timeframe (TBD), it's merged
-   into the current working branch by the developer who created the pull-request.
-6. Delete the feature/bug branch.
+3. Once it's done and tested, create a pull request.
+4. Some changes might be necessary for a PR to be approved. In order to get approval for the pull request, you will need approval from two people, including one representative from Democracy Works and one representative from Google.  Democracy Works and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
+5. When it's reviewed and accepted by the team, it's merged
+   into the current working branch by the developer who created the PR.
+6. Finally, delete the feature/bug branch.
 
 At any one point in time ("feature/" and "bug/" temporary branches aside), there should only be a
 dev branch (called 'vip5' in the vip-specification's case, but it may change to simply 'dev' in the
@@ -86,26 +85,6 @@ $ pip install Sphinx PyYAML sphinx_rtd_theme
 ([Sphinx](http://sphinx-doc.org) is for building the documentation.)
 
 
-## Building the Documentation
-
-To build the documentation:
-
-```sh
-$ cd /path/to/vip-specification/docs/
-$ make html
-```
-
-To see changes to the documentation as the files are edited, use the
-following command:
-
-```sh
-$ sphinx-autobuild . _build/html
-```
-
-Once the above command is executed, open a browser and view
-[http://127.0.0.1:8000](http://127.0.0.1:8000) to see the documentation.
-
-
 ## Updating the Documentation
 
 To update the documentation, edit the YAML files by hand as needed.
@@ -115,16 +94,27 @@ from the YAML files.
 Then, normalize the YAML files and update the reST files:
 
 ```sh
-$ python scripts/vip.py norm_yaml
-$ python scripts/vip.py make_rest
+$ cd /path/to/vip-specification/docs/
+$ make rst
 ```
 
-After this, you will want to build the documentation as described above.
+After this, you will want to build the documentation:
+
+## Building the Documentation as HTML
+
+To build the documentation:
+
+```sh
+$ cd /path/to/vip-specification/docs/
+$ make html
+```
+
+Once the above command is executed, open a browser and view
+[http://127.0.0.1:8000](http://127.0.0.1:8000) to see the documentation.
 
 When submitting a PR, changes to both the YAML files and the updated reST
-files should be checked in.  This lets people reviewing your pull request
-check to see how the reST files will be affected by your patch.
-However, do not check in the generated HTML files.
+files should be checked in. When the build completes, these files will automatically be
+replaces, but checing them in lets reviewers see the changes you've made.
 
 For help using the Python script above:
 

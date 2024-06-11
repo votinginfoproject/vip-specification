@@ -49,12 +49,21 @@ help:
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 
 clean:
-	rm -rf $(BUILDDIR)/*
+	@rm -rf $(BUILDDIR)/*
 
-html:
+clean_rst: clean
+	@rm -rf built_rst/csv/elements*
+	@rm -rf built_rst/xml/elements*
+
+rst: clean_rst
+	@cd .. && python scripts/vip.py norm_yaml
+	@cd .. && python scripts/vip.py make_rest
+
+html: rst
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+	@sphinx-autobuild . _build/html
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
