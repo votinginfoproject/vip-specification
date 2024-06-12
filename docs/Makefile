@@ -23,7 +23,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  html       to make standalone HTML files"
+	@echo "  dev        to make standalone HTML files"
 	@echo "  dirhtml    to make HTML files named index.html in directories"
 	@echo "  singlehtml to make a single large HTML file"
 	@echo "  pickle     to make pickle files"
@@ -48,13 +48,22 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 
-clean:
-	rm -rf $(BUILDDIR)/*
+clean: clean_rst
+	@rm -rf $(BUILDDIR)/*
 
-html:
+clean_rst:
+	@rm -rf built_rst/csv/elements*
+	@rm -rf built_rst/xml/elements*
+
+rst: clean_rst
+	@cd .. && python scripts/vip.py norm_yaml
+	@cd .. && python scripts/vip.py make_rest
+
+dev: rst
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+	@sphinx-autobuild . _build/html
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
