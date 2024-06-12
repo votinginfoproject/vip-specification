@@ -33,7 +33,7 @@ Discussion."
            installed, please run `jing vip_spec.xsd sample_feed.xml`
     2. if working on a documentation bug/feature, the documentation must build with Sphinx with no
        errors (_**NB:** see [Installing Sphinx](#installing-sphinx) below_).
-        1. Best practice is to provide separate commits for updates to the YAML files and the auto generated RST files. 
+        1. Best practice is to provide separate commits for updates to the YAML files and the auto generated RST files.
 3. Once it's done and tested, create a pull request.
 4. Some changes might be necessary for a PR to be approved. In order to get approval for the pull request, you will need approval from two people, including one representative from Democracy Works and one representative from Google.  Democracy Works and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
 5. When it's reviewed and accepted by the team, it's merged
@@ -106,7 +106,7 @@ To build the documentation:
 
 ```sh
 $ cd /path/to/vip-specification/docs/
-$ make html
+$ make dev
 ```
 
 Once the above command is executed, open a browser and view
