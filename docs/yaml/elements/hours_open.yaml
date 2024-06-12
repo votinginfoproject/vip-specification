@@ -11,6 +11,7 @@ description: |-
   invalid to specify a schedule from 10/01/2016 to 10/31/2016 and also
   specify a schedule from 10/10/2016 to 10/11/2016 within the same `HoursOpen`
   element.
+skip_element_on: csv
 tags:
 - _name: Schedule
   csv-header-name: schedule

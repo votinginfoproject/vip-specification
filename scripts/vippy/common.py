@@ -186,11 +186,11 @@ def get_all_types():
         sub_types = data_type.sub_types
         extends = data_type.extends
         for sub_type in sub_types:
-            data_type = types_map[sub_type]
-            data_type.is_sub_type = True
+            sub_data_type = types_map[sub_type]
+            sub_data_type.is_sub_type = True
         for extend in extends:
-            data_type = types_map[extend]
-            data_type.is_extends = True
+            extended_data_type = types_map[extend]
+            extended_data_type.is_extends = True
 
     return all_types
 
@@ -371,6 +371,10 @@ class DataType(object):
     @property
     def skip_element_on(self):
         return self.data.get("skip_element_on", "")
+
+    @property
+    def primary_type_on(self):
+        return self.data.get("primary_type_on", "")
 
     @property
     def spinal_name(self):

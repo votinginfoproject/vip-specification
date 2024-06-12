@@ -221,6 +221,8 @@ def make_type_rest(all_types, data_type, header_char, prefix, mode):
     header_char = get_next_header_char(header_char)
     for sub_type_name in data_type.sub_types:
         sub_type = common.get_type(type_map, sub_type_name)
+        if sub_type.skip_element_on == mode:
+            continue
         sub_rest = make_type_rest(all_types, sub_type, header_char, prefix, mode)
         # Separate types with an additional line.
         rest = add_rest_section(rest, sub_rest, prefix=prefix, sep="\n\n")
@@ -246,7 +248,7 @@ def update_rest_file(all_types, data_type, prefix, mode):
     """
     type_map = all_types.type_map
     type_name = data_type.name
-    if data_type.is_sub_type:
+    if data_type.is_sub_type and data_type.primary_type_on != mode:
         _log.debug("skipping rest file for sub-type: {0}".format(type_name))
         return
     if data_type.is_extends:
@@ -307,7 +309,11 @@ def update_rest_file_single_page(all_types, mode):
         for data_type in sorted_data_types:
             if mode == data_type.skip_element_on:
                 continue
-            if data_type.is_sub_type and data_type.is_extends:
+            if (
+                data_type.is_sub_type
+                and data_type.is_extends
+                and data_type.primary_type_on != mode
+            ):
                 continue
             new_rest = make_type_rest(all_types, data_type, "~", prefix, mode)
             rest = add_rest_section(rest, new_rest, prefix=prefix, sep="\n\n")

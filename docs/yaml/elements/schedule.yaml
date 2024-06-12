@@ -15,6 +15,7 @@ description: |-
   A sub-portion of the schedule. This describes a range of days, along with one or
   more set of open and close times for those days, as well as the options
   describing whether or not appointments are necessary or possible.
+primary_type_on: csv
 tags:
 - _name: Hours
   csv-header-name: hours
@@ -22,6 +23,7 @@ tags:
   description: Blocks of hours in the date range in which the place is open.
   error_then: =must-ignore
   repeating: true
+  skip_on: csv
   type: Hours
 - _name: IsOnlyByAppointment
   csv-header-name: is_only_by_appointment
