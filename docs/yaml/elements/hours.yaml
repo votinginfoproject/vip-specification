@@ -5,6 +5,7 @@ csv-header-name: hours
 description: |-
   The open and close time for this place. All times must be fully specified,
   including a timezone offset from UTC.
+skip_element_on: csv
 tags:
 - _name: StartTime
   csv-header-name: start_time
