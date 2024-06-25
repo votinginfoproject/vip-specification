@@ -377,6 +377,10 @@ class DataType(object):
         return self.data.get("primary_type_on", "")
 
     @property
+    def is_base(self):
+        return self.data.get("is_base", False)
+
+    @property
     def spinal_name(self):
         return self.snake_name.replace("_", "-")
 
