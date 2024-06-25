@@ -13,6 +13,7 @@ csv-post: |-
       dep02,per50002,ea345
       dep03,per50002,ea625
       dep04,per50002,ea625
+primary_type_on: csv
 tags:
 - _name: ContactInformation
   csv-header-name: contact_information

@@ -221,6 +221,8 @@ def make_type_rest(all_types, data_type, header_char, prefix, mode):
     header_char = get_next_header_char(header_char)
     for sub_type_name in data_type.sub_types:
         sub_type = common.get_type(type_map, sub_type_name)
+        if mode == "csv":
+            continue
         if sub_type.skip_element_on == mode:
             continue
         sub_rest = make_type_rest(all_types, sub_type, header_char, prefix, mode)
