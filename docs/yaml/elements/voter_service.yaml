@@ -11,6 +11,7 @@ csv-post: |-
       vs02,Pencil sharpening,per50002,other,office-help,dep03
       vs03,Guided hike to polling place,per50002,other,polling-places,dep03
       vs04,Bike messenger ballot delivery,per50002,other,absentee-ballots,dep03
+primary_type_on: csv
 tags:
 - _name: ContactInformation
   csv-header-name: contact_information
