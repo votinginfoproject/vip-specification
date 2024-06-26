@@ -53,14 +53,3 @@ This element describes a political party and the metadata associated with them. 
     par02,DEM,0000ff,,,,false,per01,http://example.com/donkey.png,Democrat
     par03,GRN,efefef,,,,,,http://example.com/tree.png,Green
     par04,WFP,ee99aa,,,,,,http://example.com/worker.png,Working Families Party
-
-
-.. _multi-csv-html-color-string:
-
-html_color_string
------------------
-
-A restricted string pattern for a six-character hex code representing an HTML
-color string. The pattern is:
-
-``[0-9a-f]{6}``
