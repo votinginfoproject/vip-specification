@@ -56,7 +56,6 @@ tags:
     ignore the ``PollingLocation`` element containing it.
   repeating: false
   required: false
-  skip_on: csv
   type: SimpleAddressType
 - _name: AddressLine
   csv-header-name: address_line
@@ -107,7 +106,6 @@ tags:
   csv-type: LatLng
   description: Specifies the latitude and longitude of this polling location.
   error_then: =must-ignore
-  skip_on: csv
   type: LatLng
 - _name: Name
   csv-header-name: name
