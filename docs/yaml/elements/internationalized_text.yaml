@@ -10,6 +10,7 @@ description: "``InternationalizedText`` allows for support of multiple languages
   * :ref:`$$$-election-administration`\n* :ref:`$$$-office`\n* :ref:`$$$-party`\n\
   * :ref:`$$$-person`\n* :ref:`$$$-polling-location`\n* :ref:`$$$-source`\nNOTE: Internationalized\
   \ Text is not currently supported for CSV submissions. "
+skip_element_on: csv
 tags:
 - _name: Text
   csv-header-name: text
