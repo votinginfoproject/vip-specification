@@ -4,7 +4,7 @@ description: |-
   A base model for all ballot selection types:
   :ref:`$$$-ballot-measure-selection`,
   :ref:`$$$-candidate-selection`, and :ref:`$$$-party-selection`.
-is_base: True
+is_base: true
 tags:
 - _name: SequenceOrder
   csv-header-name: sequence_order

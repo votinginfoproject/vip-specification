@@ -5,7 +5,7 @@ description: |-
   :ref:`$$$-candidate-contest`, :ref:`$$$-party-contest`,
   and :ref:`$$$-retention-contest` (NB: the latter because it extends
   :ref:`$$$-ballot-measure-contest`).
-is_base: True
+is_base: true
 tags:
 - _name: Abbreviation
   csv-header-name: abbreviation

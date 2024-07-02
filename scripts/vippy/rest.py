@@ -231,6 +231,8 @@ def make_type_rest(all_types, data_type, header_char, prefix, mode):
 
     for extend_name in data_type.extends:
         extend = common.get_type(type_map, extend_name)
+        # if not extend.is_base and mode == "csv":
+        #     continue
         extend_rest = make_type_rest(all_types, extend, header_char, prefix, mode)
         rest = add_rest_section(rest, extend_rest, prefix=prefix, sep="\n\n")
 
