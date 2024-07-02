@@ -39,9 +39,8 @@ This element describes a political party and the metadata associated with them. 
 |                      |                                       |              |              | displays.                                | then the implementation is required to   |
 |                      |                                       |              |              |                                          | ignore it.                               |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                 | ``xs:string``                         | Optional     | Single       | The name of the party.                   | If the element is invalid or not         |
-|                      |                                       |              |              |                                          | present, then the implementation is      |
-|                      |                                       |              |              |                                          | required to ignore it.                   |
+| name                 | ``xs:string``                         | **Required** | Single       | The name of the party.                   | If the element is invalid, then the      |
+|                      |                                       |              |              |                                          | implementation is required to ignore it. |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
