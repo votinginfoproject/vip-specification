@@ -14,3 +14,4 @@ description: |-
         <Text language="en">Retention of Supreme Court Justice</Text>
         <Text language="es">La retención de juez de la Corte Suprema</Text>
      </BallotTitle>
+skip_element_on: csv
