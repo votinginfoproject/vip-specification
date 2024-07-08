@@ -77,4 +77,5 @@ tags:
   csv-type: xs:string
   description: The name of the party.
   error_then: =must-ignore
+  required: true
   type: InternationalizedText
