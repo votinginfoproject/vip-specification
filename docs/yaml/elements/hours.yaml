@@ -1,21 +1,22 @@
 _name: Hours
 _sub_types:
-- TimeWithZone
+- TimeWithoutZone
 csv-header-name: hours
 description: |-
   The open and close time for this place. All times must be fully specified,
-  including a timezone offset from UTC.
+  but do not include the time zone.  The time zone is assumed to be specified
+  in a containing element (e.g. `Schedule`).
 skip_element_on: csv
 tags:
 - _name: StartTime
   csv-header-name: start_time
-  csv-type: TimeWithZone
+  csv-type: TimeWithoutZone
   description: The time at which this place opens.
   error_then: =must-ignore
-  type: TimeWithZone
+  type: TimeWithoutZone
 - _name: EndTime
   csv-header-name: end_time
-  csv-type: TimeWithZone
+  csv-type: TimeWithoutZone
   description: The time at which this place closes.
   error_then: =must-ignore
-  type: TimeWithZone
+  type: TimeWithoutZone
