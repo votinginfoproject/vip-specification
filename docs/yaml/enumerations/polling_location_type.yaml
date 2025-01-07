@@ -1,0 +1,10 @@
+_name: PollingLocationType
+csv-header-name: polling_location_type
+description: A list of the various types of polling locations.
+tags:
+- _name: day-of
+  description: A location for in-person voting on election day.
+- _name: early
+  description: A location for in-person voting before election day.
+- _name: drop-off
+  description: A location for dropping off a completed early or absentee ballot.  This includes both staffed locations and ballot drop boxex.
