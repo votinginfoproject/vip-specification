@@ -18,18 +18,6 @@ post: |-
      :linenos:
 
      <PollingLocation id="pl00000">
-        <AddressLine>2775 Hydraulic Rd Charlottesville, VA 22901</AddressLine>
-        <HoursOpenId>hours0002</HoursOpenId>
-        <IsDropBox>true</IsDropBox>
-        <IsEarlyVoting>true</IsEarlyVoting>
-        <LatLng>
-           <Latitude>38.009939</Latitude>
-           <Longitude>-78.506204</Longitude>
-        </LatLng>
-        <Name>ALBERMARLE HIGH SCHOOL</Name>
-     </PollingLocation>
-     <!-- Or: -->
-     <PollingLocation id="pl00000">
         <AddressStructured>
            <Line1>2775 Hydraulic Rd</Line1>
            <City>CHARLOTTESVILLE</City>
@@ -51,23 +39,21 @@ tags:
   csv-type: simple-address-type
   description: Represents the various structured parts of an address to a polling
     location.
-  error: One of **AddressStructured** and **AddressLine** should be present for a
-    given Polling Location. If none is present, the implementation is required to
+  error: **AddressStructured** should be present for a given Polling Location.
+    If none is present, the implementation is required to
     ignore the ``PollingLocation`` element containing it.
   repeating: false
-  required: false
+  required: true
   skip_on: csv
   type: SimpleAddressType
-- _name: AddressLine
-  csv-header-name: address_line
-  csv-type: xs:string
-  description: Represents the various parts of an address to a polling location.
-  error: One of AddressStructured and AddressLine should be present for a given Polling
-    Location. If none is present, the implementation is required to ignore the ``PollingLocation``
-    element containing it.
+- _name: PlaceId
+  csv-header-name: :ref:`$$$-place-id`
+  csv-type: place-id
+  description: A place ID from a particular geocoding or mapping provider for this location.
   repeating: true
   required: false
-  type: xs:string
+  skip_on: csv
+  type: PlaceId
 - _name: Directions
   csv-header-name: directions
   csv-type: xs:string
@@ -90,18 +76,12 @@ tags:
     and hours during which the polling location is available.
   error_then: =must-ignore
   type: xs:IDREF
-- _name: IsDropBox
-  csv-header-name: is_drop_box
-  csv-type: xs:boolean
-  description: Indicates if this polling location is a drop box.
-  error_then: =must-ignore
-  type: xs:boolean
-- _name: IsEarlyVoting
-  csv-header-name: is_early_voting
-  csv-type: xs:boolean
-  description: Indicates if this polling location is an early vote site.
-  error_then: =must-ignore
-  type: xs:boolean
+- _name: PollingLocationType
+  csv-header-name: polling_location_type
+  csv-type: polling_location_type
+  description: Whether this polling location is for day-of, in-person early, or drop-off/drop-box voting.
+  error_then: =must_ignore
+  type: PollingLocationType
 - _name: LatLng
   csv-header-name: lat_lng
   csv-type: LatLng
