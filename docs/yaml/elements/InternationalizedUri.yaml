@@ -1,0 +1,15 @@
+_name: InternationalizedUri
+csv-header-name: internationalized_uri
+description: "``InternationalizedUri`` allows for URIs pointing to the same information in different languages.\n\nNOTE: InternationalizedUri is not currently supported for CSV submissions."
+skip_element_on: csv
+tags:
+- _name: URI
+  csv-header-name: uri
+  csv-type: xs:anyURI
+  description: Contains the translations of a particular string of text.
+  error: At least one valid ``uri`` must be present for ``InternationalizedUri``
+    to be valid. If no valid ``Uri`` is present, the implementation is required to
+    ignore the ``InternationalizedUri`` element.
+  repeating: true
+  required: true
+  type: LanguageUri
