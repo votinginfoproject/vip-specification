@@ -45,7 +45,7 @@ tags:
   csv-type: xs:string
   description: Specifiers the name of a state, such as Alabama.
   required: true
-  type: xs:string
+  type: InternationalizedText
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
   csv-type: xs:IDREFS
