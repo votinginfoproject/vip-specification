@@ -22,7 +22,7 @@ tags:
   csv-type: xs:anyURI
   description: Specifies a URI that returns an image of the sample ballot.
   error_then: =must-ignore
-  type: xs:anyURI
+  type: InternationalizedUri
 - _name: OrderedContestIds
   csv-header-name: ordered_contests_ids
   csv-type: xs:IDREFS
