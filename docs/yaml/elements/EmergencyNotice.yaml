@@ -1,0 +1,25 @@
+_name: EmergencyNotice
+csv-header-name: emergency_notice
+tags:
+- _name: NoticeText
+  csv-header-name: election_notice_text
+  csv-type: xs:string
+  description: The last minute or emergency notification text should be placed here.  This is not intended for general, informational messages.
+  required: true
+  type: InternationalizedText
+- _name: NoticeUri
+  csv-header-name: election_notice_uri
+  csv-type: InternationalizedUri
+  description: Optional URL for additional information related to the last minute
+    or emergency notification.
+  error_then: =must-ignore
+  type: InternationalizedUri
+- _name: AppliesTo
+  csv-header-name: applies-to
+  skip_element_on: csv
+  description: If specified, the contexts in which this emergency notice applies.
+    Users should ignore emergency notices that do not contain an `AppliesTo` that they support.
+    If no `AppliesTo` is specified, this is assumed to be a general notification and users may
+    determine whether to show it in their context.  Public APIs such as the Civic Info API should
+    always transmit election notices that have no `AppliesTo` specified.
+    
