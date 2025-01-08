@@ -1,8 +1,24 @@
 _name: PlaceId
 csv-header-name: place_id
 description: |-
-  A place ID that refers to a specific entity by a given data provider.
-error_then: Consumers of VIP data should ignore place IDs from data providers they do not support.
+  A place ID that refers to a specific entity by a given data provider.  The data provider and ID are free-form to support arbitrary
+  providers, but the following providers/formats should be respected as defined, or else ignored.  This element is not supported in CSV format.
+
+  .. _`dataProvider`: The data provider for this ID.  Required.
+
+  .. _`sortOrder`: The numeric sorting order of this place ID relative to other place IDs when selecting which supported place ID to use.
+    Fractional sort orders like 1.5 are permitted.
+    If unspecified, the default sort order is 1.
+    Lower sort orders should be preferred over higher sort orders, and any accompanying address should be assumed to have sort order 0.
+    Use a negative sort order to prioritize a place ID over the address.
+
+  .. code-block:: xml
+    <PlaceId dataProvider="GoogleMaps">ABCDEFG</PlaceId> <!-- Google Maps Place Id -->
+    <PlaceId dataProvider="PlusCode:XXX">ABCD+1234</PlaceId> <!-- Plus Code as determined by data provider XXX. -->
+    <PlaceId dataProvider="LatLong:XXX">1.23,4.56</PlaceId> <!-- Latitude/Longitude in decimal format as determined by data provider XXX. -->
+    
+error: Consumers of VIP data should ignore place IDs from data providers they do not support.
+skip_element_on: csv
 tags:
 - _name: Id
   csv-header-name: id
@@ -10,15 +26,3 @@ tags:
   description: A place ID that can be understood by the specified data provider.  For instance, Google Maps Place ID''s are arbitrary strings like `ChIJgUbEo8cfqokR5lP9_Wh_DaM`.
   error_then: =must_ignore
   type: xs:string
-- _name: DataProvider
-  csv-header-name: data_provider
-  csv-type: xs:string
-  description: The data provider for the place ID.  For example (`GoogleMaps`)[https://developers.google.com/maps/documentation/places/web-service/place-id or (`PlusCode`)[https://maps.google.com/pluscodes/].
-  error_then: =must_ignore
-  type: xs:string
-- _name: SortOrder
-  csv-header-name: sort_order
-  csv-type: xs:number
-  description: The sorting order of this place ID relative to other place IDs when selecting which supported place ID to use.  Lower sort orders should be preferred over higher sort orders, and any accompanying address should be assumed to have sort order 0.  Use a negative sort order to prioritize a place ID over the address.
-  error_then: A missing `SortOrder` is assumed to have the `1`.
-  type: xs:number
