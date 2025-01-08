@@ -1,6 +1,8 @@
 _name: SimpleAddressType
 csv-header-name: simple_address_type
-description: A ``SimpleAddressType`` represents a structured address.
+description: A ``SimpleAddressType`` represents a structured address.  It has one optional attribute, ``language``, that must contain the 2-character `language code` for the
+  language it contains.  If not specified, it is assumed to be `en`.
+
 tags:
 - _name: Line1
   csv-header-name: structured_line_1
@@ -32,16 +34,24 @@ tags:
   error: If ``City`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   required: true
   type: xs:string
-- _name: State
-  csv-header-name: structured_state
+- _name: Region
+  csv-header-name: structured_region
   csv-type: xs:string
-  description: The State value of a structured address.
-  error: If ``State`` is not provided, the implementation should ignore the ``SimpleAddressType``.
-  required: true
+  description: The Region value of a structured address.  This is country-dependent.  For example, for US addresses, it is the state; for Canadian addresses it is the province.
+  error: If ``State`` is not provided but is required for the address''s country, the implementation may ignore the ``SimpleAddressType``.
+  required: false
   type: xs:string
-- _name: Zip
-  csv-header-name: structured_zip
+- _name: PostalCode
+  csv-header-name: structured_postal_code
   csv-type: xs:string
-  description: The ZIP code of a structured address.
-  error: If ``Zip`` is not provided, the implementation should ignore the ``SimpleAddressType``.
+  description: The postal code code of a structured address.  In the US, this is the zip code.
+  error: If ``Zip`` is not provided but is required for the address''s country, the implementation may ignore the ``SimpleAddressType``.
+  required: false
+  type: xs:string
+- _name: Country
+  csv-header-name: structured_country
+  csv-type: xs:string
+  description: The Country value of a structured address.
+  error: If ``Country`` is not provided, the implementation may ignore the ``SimpleAddressType``.
+  required: true
   type: xs:string
