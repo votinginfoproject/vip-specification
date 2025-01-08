@@ -37,11 +37,12 @@ tags:
   csv-header-name: :ref:`$$$-simple-address-type`
   csv-type: simple-address-type
   description: Represents the various structured parts of an address to a polling
-    location.
+    location.  If multiple addresses are provided, each one must have a different language attribute.
+    All addresses are considered equally authoritative.  Multiple addresses are supported in XML format only; CSV files must have exactly one address.
   error: **AddressStructured** should be present for a given Polling Location.
-    If none is present, the implementation is required to
-    ignore the ``PollingLocation`` element containing it.
-  repeating: false
+    If none is present, the implementation is required to ignore the ``PollingLocation`` element containing it.
+    If more than one **AddressStructured** exists with the same language code, the implementation is required to ignore the ``PollingLocation`` element containing it.
+  repeating: true
   required: true
   skip_on: csv
   type: SimpleAddressType
@@ -91,9 +92,10 @@ tags:
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
-  description: Name of the polling location.
+  description: Name of the polling location.  There must be at least one `Name` provided, and at most one per language code.
+  required: true
   error_then: =must-ignore
-  type: xs:string
+  type: InternationalizedText
 - _name: PhotoUri
   csv-header-name: photo_uri
   csv-type: xs:string
