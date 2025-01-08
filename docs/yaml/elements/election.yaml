@@ -90,7 +90,7 @@ tags:
   csv-type: xs:anyURI
   description: Contains a URI where results for the election may be found
   error_then: =must-ignore
-  type: xs:anyURI
+  type: InternationalizedUri
 - _name: PollingHours **[deprecated]**
   csv-header-name: polling_hours
   csv-type: xs:string
