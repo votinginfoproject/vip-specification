@@ -58,7 +58,7 @@ tags:
   csv-type: xs:string
   description: Specifies the name of a locality.
   required: true
-  type: xs:string
+  type: InternationalizedText
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
   csv-type: xs:IDREFS
