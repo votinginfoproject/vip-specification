@@ -35,7 +35,7 @@ tags:
   csv-type: xs:string
   description: An abbreviation for the party name.
   error_then: =must-ignore
-  type: xs:string
+  type: InternationalizedText
 - _name: Color
   csv-header-name: color
   csv-type: HtmlColorString
