@@ -82,11 +82,11 @@ tags:
   type: Department
 - _name: ElectionNotice
   csv-header-name: election_notice
-  csv-type: ElectionNotice
+  csv-type: EmergencyNotice
   description: A place for election administrators to post last minute and emergency
     notifications pertaining to the election.
   error_then: =must-ignore
-  type: ElectionNotice
+  type: EmergencyNotice
 - _name: ElectionsUri
   csv-header-name: elections_uri
   csv-type: xs:anyURI
