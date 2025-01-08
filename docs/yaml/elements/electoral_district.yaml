@@ -47,7 +47,7 @@ tags:
   error: If the field is invalid or not present, then the implementation is required
     to ignore the ``ElectoralDistrict`` object containing it.
   required: true
-  type: xs:string
+  type: InternatinalizedText
 - _name: Number
   csv-header-name: number
   csv-type: xs:integer
