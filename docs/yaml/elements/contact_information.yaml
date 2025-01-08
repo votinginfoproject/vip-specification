@@ -63,14 +63,18 @@ post: |-
      </ContactInformation>
 primary_type_on: csv
 tags:
-- _name: AddressLine
-  csv-header-name: address_line
-  csv-type: xs:string
-  description: The "location" portion of a mailing address. :ref:`See usage note.
-    <$$$-name-address-line-usage>`
-  error_then: =must-ignore
+- _name: AddressStructured
+  csv-header-name: :ref:`$$$-simple-address-type`
+  csv-type: simple-address-type
+  description: Represents the various structured parts of an address to a polling
+    location.  If multiple addresses are provided, each one must have a different language attribute.
+    All addresses are considered equally authoritative.  Multiple addresses are supported in XML format only; CSV files must have exactly one address.
+  error: **AddressStructured** should be present for a given Contact Information.
+    If none is present, the implementation is required to ignore the ``ContactInformation`` element containing it.
+    If more than one **AddressStructured** exists with the same language code, the implementation is required to ignore the ``ContactInformation`` element containing it.
   repeating: true
-  type: xs:string
+  required: true
+  type: SimpleAddressType
 - _name: Directions
   csv-header-name: directions
   csv-type: xs:string
@@ -80,17 +84,17 @@ tags:
 - _name: Email
   csv-header-name: email
   csv-type: xs:string
-  description: An email address for the contact.
+  description: An email address for the contact.  Multiple languages may be provided if there are distinct e-mail addresses for communicating in different languages.
   error_then: =must-ignore
   repeating: true
-  type: xs:string
+  type: InternationalizedText
 - _name: Fax
   csv-header-name: fax
   csv-type: xs:string
-  description: A fax line for the contact.
+  description: A fax line for the contact.  Multiple languages may be provided if there are distinct numbers for communicating in different languages.
   error_then: =must-ignore
   repeating: true
-  type: xs:string
+  type: InternationalizedText
 - _name: Hours **[deprecated]**
   csv-header-name: hours
   csv-type: xs:string
@@ -132,7 +136,7 @@ tags:
   description: An informational URI for the contact or location.
   error_then: =must-ignore
   repeating: true
-  type: xs:anyURI
+  type: InternationalizedUri
 - _name: ParentId
   csv-header-name: parent_id
   csv-type: xs:IDREF
