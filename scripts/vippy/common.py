@@ -1,11 +1,10 @@
 from contextlib import contextmanager
+from pprint import pformat, pprint
 import copy
 import logging
 import os.path
-from pprint import pformat, pprint
-
 import yaml
-
+from vippy.error_handler import get_complete_error_statement
 
 _log = logging.getLogger()
 
@@ -13,35 +12,15 @@ AUTO_GENERATED_DIR = "docs/built_rst"
 YAML_DIR = "docs/yaml"
 XML_DIR = os.path.join(AUTO_GENERATED_DIR, "xml")
 CSV_DIR = os.path.join(AUTO_GENERATED_DIR, "csv")
-
-TAG_KEY_NAME = "_name"
-TAG_KEY_TYPE = "type"
 TAG_KEY_REQUIRED = "required"
+TAG_KEY_TYPE = "type"
+TAG_KEY_ERROR_HANDLING = "error_handling"
+TAG_KEY_NAME = "_name"
 TAG_KEY_REPEATING = "repeating"
 TAG_KEY_DESCRIPTION = "description"
-# The error_handling key corresponds to the aggregate error-handling tag
-# value and does not correspond to a literal key-value in the YAML data.
-TAG_KEY_ERROR_HANDLE = "error_handling"
-TAG_KEY_ERROR_BASE = "error"
-TAG_KEY_ERROR_THEN = "error_then"
-TAG_KEY_ERROR_EXTRA = "error_extra"
 TAG_KEY_EXTENDS = "extends"
 TAG_KEY_CSV_TYPE = "csv-type"
 TAG_KEY_CSV_HEADER_NAME = "csv-header-name"
-
-
-DEFAULT_TAG_VALUES = {TAG_KEY_REQUIRED: False, TAG_KEY_REPEATING: False}
-
-_ERROR_FORMAT_STRING = "the implementation {action} ignore {ignore}."
-
-_ERROR_THEN_FORMAT_REQUIRED = _ERROR_FORMAT_STRING.format(
-    action="is required to", ignore="the ``{containing_type}`` element containing it"
-)
-
-_ERROR_THENS = {
-    "=must-ignore": _ERROR_FORMAT_STRING.format(action="is required to", ignore="it"),
-    "=should-ignore": _ERROR_FORMAT_STRING.format(action="should", ignore="it"),
-}
 
 
 def reverse_map(mapping):
@@ -205,112 +184,25 @@ def get_type(all_types, type_name):
     return data_type
 
 
-def is_tag_field(all_types, tag_data):
-    type_name = tag_data[TAG_KEY_TYPE]
-    try:
-        data_type = all_types[type_name]
-    except KeyError:
-        # Then we assume it is a simple type like "xs:string" or "TimeWithZone".
-        return True
-    return data_type.is_enum
-
-
 def get_simple_tag_value(tag_data, key):
     """This works for everything except for the error values."""
-    try:
-        value = tag_data[key]
-    except KeyError:
-        value = DEFAULT_TAG_VALUES[key]
-    return value
-
-
-def make_error_if(all_types, tag_data):
-    noun = "field" if is_tag_field(all_types, tag_data) else "element"
-    required = get_simple_tag_value(tag_data, TAG_KEY_REQUIRED)
-    condition = "invalid" if required else "invalid or not present"
-
-    return "the {noun} is {condition},".format(noun=noun, condition=condition)
-
-
-def make_error_if_then(all_types, tag_data, error_then):
-    if error_then.startswith("="):
-        error_then_format = _ERROR_THENS[error_then]
-        containing_type = tag_data["containing_type"]
-        error_then = error_then_format.format(containing_type=containing_type)
-    error_if = make_error_if(all_types, tag_data)
-    error = "If {0} then {1}".format(error_if, error_then)
-
-    return error
-
-
-def make_error_default(all_types, tag_data):
-    required = get_simple_tag_value(tag_data, TAG_KEY_REQUIRED)
-    if not required:
-        raise Exception(
-            'we have not defined a default "error" value for '
-            "tags that are not required.\n"
-            "tag data:\n{0}".format(pformat(tag_data))
-        )
-    error_then = _ERROR_THEN_FORMAT_REQUIRED.format(**tag_data)
-    error = make_error_if_then(all_types, tag_data, error_then)
-    return error
-
-
-def make_error_base(all_types, tag_data):
-    try:
-        error = tag_data[TAG_KEY_ERROR_BASE]
-    except KeyError:
-        error = make_error_default(all_types, tag_data)
-    return error
-
-
-def make_error_initial(all_types, tag_data):
-    try:
-        error_then = tag_data[TAG_KEY_ERROR_THEN]
-    except KeyError:
-        error = make_error_base(all_types, tag_data)
+    if key not in tag_data and key in ["required", "repeating"]:
+        return False
+    elif key in tag_data:
+        return tag_data[key]
     else:
-        error = make_error_if_then(all_types, tag_data, error_then)
-
-    return error
-
-
-def get_error_handling_value(all_types, tag_data):
-    """
-    Here is a description in human terms of how this value is calculated:
-
-    1. If the "error_then" YAML value is present, then construct the
-       standard "If ... then ..." phrase using our template.
-    2. If "error_then" is not present, then use the "error" value.
-    3. TODO (finish this description)
-    4. Lastly, if the "error_extra" YAML value is present, then add it
-       to the end of the string we have built so far from the previous
-       steps.
-
-    """
-    error = make_error_initial(all_types, tag_data)
-    try:
-        error_extra = tag_data[TAG_KEY_ERROR_EXTRA]
-    except KeyError:
-        pass
-    else:
-        error += " " + error_extra
-
-    return error
+        raise KeyError(key + " not found in tag_data.")
 
 
 def get_tag_value(all_types, tag_data, key):
     """
     Return the "pre-conversion" value to put in a cell of a reST table.
     """
-    try:
-        if key == TAG_KEY_ERROR_HANDLE:
-            # We use extra logic to derive the error-handling value.
-            value = get_error_handling_value(all_types, tag_data)
-        else:
-            value = get_simple_tag_value(tag_data, key)
-    except Exception:
-        raise Exception("tag_data: {0}".format(pformat(tag_data)))
+    if key == "error_handling":
+        is_required = get_simple_tag_value(tag_data, "required")
+        value = get_complete_error_statement(all_types, tag_data, is_required)
+    else:
+        value = get_simple_tag_value(tag_data, key)
 
     return value
 

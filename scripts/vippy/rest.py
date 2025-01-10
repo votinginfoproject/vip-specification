@@ -11,8 +11,7 @@ from vippy.common import (
     TAG_KEY_REQUIRED,
     TAG_KEY_REPEATING,
     TAG_KEY_DESCRIPTION,
-    TAG_KEY_ERROR_HANDLE,
-    TAG_KEY_EXTENDS,
+    TAG_KEY_ERROR_HANDLING,
     TAG_KEY_CSV_TYPE,
     TAG_KEY_CSV_HEADER_NAME,
 )
@@ -35,7 +34,7 @@ XML_ELEMENT_COLUMNS = [
     (TAG_KEY_REQUIRED, "Required?", MIN_COLUMN_WIDTH),
     (TAG_KEY_REPEATING, "Repeats?", MIN_COLUMN_WIDTH),
     (TAG_KEY_DESCRIPTION, "Description", 40),
-    (TAG_KEY_ERROR_HANDLE, "Error Handling", 40),
+    (TAG_KEY_ERROR_HANDLING, "Error Handling", 40),
 ]
 
 CSV_ELEMENT_COLUMNS = [
@@ -44,7 +43,7 @@ CSV_ELEMENT_COLUMNS = [
     (TAG_KEY_REQUIRED, "Required?", MIN_COLUMN_WIDTH),
     (TAG_KEY_REPEATING, "Repeats?", MIN_COLUMN_WIDTH),
     (TAG_KEY_DESCRIPTION, "Description", 40),
-    (TAG_KEY_ERROR_HANDLE, "Error Handling", 40),
+    (TAG_KEY_ERROR_HANDLING, "Error Handling", 40),
 ]
 
 # The reST table columns for an enumeration.

@@ -6,11 +6,6 @@ To have their data published via VIP, their data must conform to this specificat
 means that they are structuring exports from existing election management systems (e.g. voter 
 registration systems and vote tabulation systems).
 
-This specification's main users are states and local jurisdictions in the United States. 
-To have their data published via VIP, their data must conform to this specification. This 
-means that they are structuring exports from existing election management systems (e.g. voter 
-registration systems and vote tabulation systems).
-
 While the following information shouldn't be considered hard-and-fast rules, they should be
 considered more than guidelines. As with anything in this repository, if you'd like to request a
 changes to this process, please fill out an issue and file it under the milestone "Up for

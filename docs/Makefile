@@ -82,8 +82,13 @@ build: rst
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+run_tests:
+	@source ./.venv/bin/activate && \
+    export PYTHONPATH="$(REPO_PATH)" && \
+	cd .. && python3 -m pytest test
 preview:
-	@sphinx-autobuild . _build/html
+	@source ./.venv/bin/activate && \
+	sphinx-autobuild . _build/html
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
