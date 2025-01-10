@@ -1,5 +1,10 @@
 # Contributing to the VIP Specification
-Thanks for considering contributing to the Voting Information Project.
+Thank you for considering a contribution to the Voting Information Project.
+
+The main users of the specification are states and local jurisdictions in the United States. 
+To have their data published via VIP, their data must conform to this specification. This 
+means that they are structuring exports from existing election management systems (e.g. voter 
+registration systems and vote tabulation systems).
 
 This specification's main users are states and local jurisdictions in the United States. 
 To have their data published via VIP, their data must conform to this specification. This 
@@ -13,10 +18,9 @@ Discussion."
 
 ## Creating Issues
 
-* Like many open source projects, we strongly urge you to search through the existing issues before
-  creating a new one.
+* Please search through the existing issues before creating a new one.
 * Please include as many details as possible.
-    * If you can include an example of how you think a new model should work, all the better.
+    * If you can include an example of how you think a new model should work, please do.
 * All issues should be filed under the milestone "Up for Discussion" until the team moves it under
   a particular release or other related issue-management action.
 
@@ -58,24 +62,15 @@ to auto-generate the HTML that is viewable by the public.
 
 **Thus to update the documentation, you must edit the YAML files and re-generate the RST and HTML files.**
 
-## Dev Environment
+## Setting up your Environment
 
-First, [install Python][python_download]. **You must use Python
-3.10 or higher.**
-
-We also recommend setting up a virtual environment for the repo (e.g. using
-[virtualenv][virtualenv]) prior to installing dependencies.
-
-Use [`pip`][pip] to install dependencies, which comes with Python 3.4+
-(and is installed automatically when creating a virtual environment).
-Open a terminal window and run:
+Use the command `make install` to create a virtual environment 
+with all required packages:
 
 ```sh
-$ pip install Sphinx PyYAML sphinx_rtd_theme
+$ cd /[PATH]/[TO]/[VIP-SPEC]/docs/
+$ make install
 ```
-
-([Sphinx](http://sphinx-doc.org) is for building the documentation.)
-
 
 ## Updating the Documentation
 
@@ -83,22 +78,24 @@ To update the documentation, edit the YAML files.
 Do not edit the reST or HTML files by hand since they are auto-generated
 from the YAML files.
 
-Then, by using the `make dev` target, the following actions will be performed:
+Then, by using the `make build` target, the following actions will be performed:
 
  - The YAML files will be normalized. 
  - The reST files will be re-generated based on the YAML files.
  - The HTML files will be re-generated based on the RST files.
 
 ```sh
-$ cd /path/to/vip-specification/docs/
-$ make dev
+$ cd /[PATH]/[TO]/[VIP-SPEC]/docs/
+$ make build
 ```
 
-Once the above command is executed, open a browser and view
-[http://127.0.0.1:8000](http://127.0.0.1:8000) to see the updated documentation.
+Note: it is essential that you  complete this build process so that 
+the reST and HTML reflect your updates.
 
-It is essential that you not only edit the YAML files, but also complete this build process
-so that the reST and HTML reflect your updates.
+Once the new HTML has been generated, run `make preview` and open a browser to
+[http://127.0.0.1:8000](http://127.0.0.1:8000) to preview the updated documentation.
+
+## Troubleshooting
 
 For help using the Python script above:
 
