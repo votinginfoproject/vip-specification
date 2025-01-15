@@ -1,6 +1,11 @@
 # Contributing to the VIP Specification
 Thanks for considering contributing to the Voting Information Project.
 
+This specification's main users are states and local jurisdictions in the United States. 
+To have their data published via VIP, their data must conform to this specification. This 
+means that they are structuring exports from existing election management systems (e.g. voter 
+registration systems and vote tabulation systems).
+
 While the following information shouldn't be considered hard-and-fast rules, they should be
 considered more than guidelines. As with anything in this repository, if you'd like to request a
 changes to this process, please fill out an issue and file it under the milestone "Up for
@@ -11,9 +16,6 @@ Discussion."
 * Like many open source projects, we strongly urge you to search through the existing issues before
   creating a new one.
 * Please include as many details as possible.
-    * Note that this specification's user base are the states and jurisdictions and its primary use
-      case is to export structured election data out of the existing election management systems
-      (e.g. voter registration systems, vote tabulation systems, et al).
     * If you can include an example of how you think a new model should work, all the better.
 * All issues should be filed under the milestone "Up for Discussion" until the team moves it under
   a particular release or other related issue-management action.
@@ -33,11 +35,11 @@ Discussion."
            installed, please run `jing vip_spec.xsd sample_feed.xml`
     2. if working on a documentation bug/feature, the documentation must build with Sphinx with no
        errors (_**NB:** see [Installing Sphinx](#installing-sphinx) below_).
-        1. Best practice is to provide separate commits for updates to the YAML files and the auto generated RST files.
+    3. Please ensure that, when updating the documentation, all reST and HTML files have been re-generated (see below for more details).
 3. Once it's done and tested, create a pull request.
-4. Some changes might be necessary for a PR to be approved. In order to get approval for the pull request, you will need approval from two people, including one representative from Democracy Works and one representative from Google.  Democracy Works and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
-5. When it's reviewed and accepted by the team, it's merged
-   into the current working branch by the developer who created the PR.
+4. Some changes might be necessary for a PR to be approved. To get final approval for the PR, you will need approval from two people, including one representative from Democracy Works and one representative from Google. Democracy Works and Google employees still require two approvers and cannot self-approve, but it is not required that either approver on the PR be from the same organization as the PR author. 
+5. When it's reviewed and accepted by the team, the PR's author should merge the change
+   into the main branch.
 6. Finally, delete the feature/bug branch.
 
 At any one point in time ("feature/" and "bug/" temporary branches aside), there should only be a
@@ -48,27 +50,17 @@ future), a stable branch (called 'master' in most cases), and, if necessary, a d
 
 ## Documentation Format
 
-VIP writes its documentation in a format called [reStructuredText][reST]
-(aka reST).  reST is a markup language used mainly for documentation.
-VIP chose reST because of its enhanced formatting capabilities.
-For example, reST supports tables.
+VIP writes its documentation in [YAML][YAML] format
+(specifically [YAML version 1.1][YAML_1.1]). The YAML files are stored in the
+[`docs/yaml`](docs/yaml) directory. This is then auto-generated into a markup language
+called [reStructuredText][reST] (aka reST). Finally, the reST files are used 
+to auto-generate the HTML that is viewable by the public.
 
-The documentation that VIP exposes to the public is in HTML.  VIP generates
-its HTML documentation from the reST files automatically using a process
-called "building" the documentation.  Instructions for building are below.
-
-One problem with reST is that tables in reST are hard to edit and maintain
-by hand.  For this reason, VIP stores the tabular documentation data in
-separate files in an open data format called [YAML][YAML]
-(specifically [YAML version 1.1][YAML_1.1]). YAML files are human-readable and
-easy to edit by hand.  The YAML files are stored in the
-[`docs/yaml`](docs/yaml) directory.
-
+**Thus to update the documentation, you must edit the YAML files and re-generate the RST and HTML files.**
 
 ## Dev Environment
 
-This section explains how to set up your local development environment for
-contributing. First, [install Python][python_download]. **You must use Python
+First, [install Python][python_download]. **You must use Python
 3.10 or higher.**
 
 We also recommend setting up a virtual environment for the repo (e.g. using
@@ -87,22 +79,15 @@ $ pip install Sphinx PyYAML sphinx_rtd_theme
 
 ## Updating the Documentation
 
-To update the documentation, edit the YAML files by hand as needed.
-Do not edit the reST files by hand since they are generated automatically
+To update the documentation, edit the YAML files.
+Do not edit the reST or HTML files by hand since they are auto-generated
 from the YAML files.
 
-Then, normalize the YAML files and update the reST files:
+Then, by using the `make dev` target, the following actions will be performed:
 
-```sh
-$ cd /path/to/vip-specification/docs/
-$ make rst
-```
-
-After this, you will want to build the documentation:
-
-## Building the Documentation as HTML
-
-To build the documentation:
+ - The YAML files will be normalized. 
+ - The reST files will be re-generated based on the YAML files.
+ - The HTML files will be re-generated based on the RST files.
 
 ```sh
 $ cd /path/to/vip-specification/docs/
@@ -110,11 +95,10 @@ $ make dev
 ```
 
 Once the above command is executed, open a browser and view
-[http://127.0.0.1:8000](http://127.0.0.1:8000) to see the documentation.
+[http://127.0.0.1:8000](http://127.0.0.1:8000) to see the updated documentation.
 
-When submitting a PR, changes to both the YAML files and the updated reST
-files should be checked in. When the build completes, these files will automatically be
-replaces, but checing them in lets reviewers see the changes you've made.
+It is essential that you not only edit the YAML files, but also complete this build process
+so that the reST and HTML reflect your updates.
 
 For help using the Python script above:
 
