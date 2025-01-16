@@ -25,8 +25,7 @@ For each element, there are a few key sections to be aware of:
 4. **Extensions** - Some elements add unique fields to a pre-defined base of fields.
 5. **Skip Element Designation** - Some elements should be skipped for the CSV documentation.
 6. **Sub Types** - Defines elements that are subsumed under another.
-7. **Primary Type Designation** - An override for sub-types.
-8. **Tags** - Used for displaying tables for each field and associated information
+7. **Tags** - Used for displaying tables for each field and associated information
 
 More detailed explanations are below.
 
@@ -129,16 +128,6 @@ _sub_types:
 - ElectionNotice
 - VoterService
 ```
-
-## Primary Type Designation
-
-To define an element as a primary type overrides the sub-type designation
-in a given format, either CSV or XML.
-
-Since CSV doesn't have nested elements, this is useful behavior.
-
-```primary_type_on: csv```
-
 
 ## Skip Element Designation
 

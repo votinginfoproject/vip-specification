@@ -61,7 +61,6 @@ post: |-
         <Phone annotation="TDD">202-456-6213</Phone>
         <Uri>http://www.whitehouse.gov</Uri>
      </ContactInformation>
-primary_type_on: csv
 tags:
 - _name: AddressLine
   csv-header-name: address_line

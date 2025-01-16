@@ -239,6 +239,25 @@ def make_type_rest(all_types, data_type, header_char, prefix, mode):
     return rest
 
 
+def needs_individual_rst_file(data_type, mode: str, type_name: str) -> bool:
+    """
+    Since some types are nested or appended to others, those types should not have their own rest file.
+    Arguments:
+        data_type: the type of the Element or Enumeration.
+        mode: csv or xml.
+        type_name: the name of the type.
+    """
+
+    if data_type.is_sub_type and mode == "xml":
+        _log.debug(f"skipping rest file for sub-type: {type_name}")
+        return False
+    elif data_type.is_extends:
+        _log.debug(f"skipping rest file for extended class: {type_name}")
+        return False
+
+    return True
+
+
 def update_rest_file(all_types, data_type, prefix, mode):
     """
     Updates a rest object.
@@ -247,13 +266,9 @@ def update_rest_file(all_types, data_type, prefix, mode):
         data_type: the type of the Element or Enumeration.
         prefix: the label prefix (e.g. "single-xml" or "multi-csv").
     """
-    type_map = all_types.type_map
     type_name = data_type.name
-    if data_type.is_sub_type and data_type.primary_type_on != mode:
-        _log.debug("skipping rest file for sub-type: {0}".format(type_name))
-        return
-    if data_type.is_extends:
-        _log.debug("skipping rest file for extended class: {0}".format(type_name))
+
+    if not needs_individual_rst_file(data_type, mode, type_name):
         return
 
     rest_path_xml = data_type.rest_path_xml
@@ -310,11 +325,7 @@ def update_rest_file_single_page(all_types, mode):
         for data_type in sorted_data_types:
             if mode == data_type.skip_element_on:
                 continue
-            if (
-                data_type.is_sub_type
-                and data_type.is_extends
-                and data_type.primary_type_on != mode
-            ):
+            if data_type.is_sub_type and data_type.is_extends and mode != "csv":
                 continue
             new_rest = make_type_rest(all_types, data_type, "~", prefix, mode)
             rest = add_rest_section(rest, new_rest, prefix=prefix, sep="\n\n")

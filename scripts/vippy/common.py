@@ -265,10 +265,6 @@ class DataType(object):
         return self.data.get("skip_element_on", "")
 
     @property
-    def primary_type_on(self):
-        return self.data.get("primary_type_on", "")
-
-    @property
     def spinal_name(self):
         return self.snake_name.replace("_", "-")
 
