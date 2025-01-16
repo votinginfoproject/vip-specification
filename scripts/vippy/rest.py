@@ -239,6 +239,19 @@ def make_type_rest(all_types, data_type, header_char, prefix, mode):
     return rest
 
 
+def should_have_individual_rest_file(data_type, mode: str, type_name: str) -> bool:
+    """
+    Returns True if the data type should have an individual rest file.
+    """
+    if data_type.is_sub_type and data_type.primary_type_on != mode:
+        _log.debug(f"skipping rest file for sub-type: {type_name}")
+        return False
+    elif data_type.is_extends:
+        _log.debug(f"skipping rest file for extended class: {type_name}")
+        return False
+    return True
+
+
 def update_rest_file(all_types, data_type, prefix, mode):
     """
     Updates a rest object.
@@ -247,13 +260,8 @@ def update_rest_file(all_types, data_type, prefix, mode):
         data_type: the type of the Element or Enumeration.
         prefix: the label prefix (e.g. "single-xml" or "multi-csv").
     """
-    type_map = all_types.type_map
     type_name = data_type.name
-    if data_type.is_sub_type and data_type.primary_type_on != mode:
-        _log.debug("skipping rest file for sub-type: {0}".format(type_name))
-        return
-    if data_type.is_extends:
-        _log.debug("skipping rest file for extended class: {0}".format(type_name))
+    if not should_have_individual_rest_file(data_type, mode, type_name):
         return
 
     rest_path_xml = data_type.rest_path_xml
@@ -270,6 +278,22 @@ def update_rest_file(all_types, data_type, prefix, mode):
         write_rest_file(rest_path_xml, rest)
     else:
         write_rest_file(rest_path_csv, rest)
+
+
+def should_be_added_to_single_page(data_type, mode: str) -> bool:
+    """
+    Returns True if the data type should be added to the single-page rest file.
+    """
+    if mode == data_type.skip_element_on:
+        return False
+    elif (
+        data_type.is_sub_type
+        and data_type.is_extends
+        and data_type.primary_type_on != mode
+    ):
+        return False
+
+    return True
 
 
 def update_rest_file_single_page(all_types, mode):
@@ -308,13 +332,7 @@ def update_rest_file_single_page(all_types, mode):
             data_types, key=lambda dt: dt.csv_name if mode == "csv" else dt.name
         )
         for data_type in sorted_data_types:
-            if mode == data_type.skip_element_on:
-                continue
-            if (
-                data_type.is_sub_type
-                and data_type.is_extends
-                and data_type.primary_type_on != mode
-            ):
+            if not should_be_added_to_single_page(data_type, mode):
                 continue
             new_rest = make_type_rest(all_types, data_type, "~", prefix, mode)
             rest = add_rest_section(rest, new_rest, prefix=prefix, sep="\n\n")
