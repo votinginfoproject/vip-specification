@@ -246,7 +246,7 @@ def should_have_individual_rest_file(data_type, mode: str, type_name: str) -> bo
     if data_type.is_sub_type and data_type.primary_type_on != mode:
         _log.debug(f"skipping rest file for sub-type: {type_name}")
         return False
-    if data_type.is_extends:
+    elif data_type.is_extends:
         _log.debug(f"skipping rest file for extended class: {type_name}")
         return False
     return True
