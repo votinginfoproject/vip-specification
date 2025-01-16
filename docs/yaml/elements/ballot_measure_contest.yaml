@@ -46,26 +46,22 @@ tags:
   csv-type: xs:string
   description: Specifies a statement in opposition to the referendum. It does not
     necessarily appear on the ballot.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: EffectOfAbstain
   csv-header-name: effect_of_abstain
   csv-type: xs:string
   description: Specifies what effect abstaining (i.e. not voting) on this proposition
     will have (i.e. whether abstaining is considered a vote against it).
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: FullText
   csv-header-name: full_text
   csv-type: xs:string
   description: Specifies the full text of the referendum as it appears on the ballot.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: InfoUri
   csv-header-name: info_uri
   csv-type: xs:anyURI
   description: Specifies a URI that links to additional information about the referendum.
-  error_then: =must-ignore
   type: xs:anyURI
 - _name: PassageThreshold
   csv-header-name: passage_threshold
@@ -75,33 +71,28 @@ tags:
     thresholds are "three-fifths" and "two-thirds". If there are `competing initiatives`_,
     information about their effect on the passage of the BallotMeasureContest would
     go here.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: ProStatement
   csv-header-name: pro_statement
   csv-type: xs:string
   description: Specifies a statement in favor of the referendum. It does not necessarily
     appear on the ballot.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: SummaryText
   csv-header-name: summary_text
   csv-type: xs:string
   description: Specifies a short summary of the referendum that is on the ballot,
     below the title, but above the text.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: Type
   csv-header-name: type
   csv-type: xs:string
   description: Specifies the particular type of ballot measure. Must be one of the
     valid :ref:`$$$-ballot-measure-type` options.
-  error_then: =must-ignore
   type: BallotMeasureType
 - _name: OtherType
   csv-header-name: other_type
   csv-type: xs:string
   description: Allows for cataloging a new :ref:`$$$-ballot-measure-type` option,
     when Type is specified as "other."
-  error_then: =must-ignore
   type: xs:string

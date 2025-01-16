@@ -11,38 +11,32 @@ School Board, et al).
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                      | Data Type             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+=======================+==============+==============+==========================================+==========================================+
-| description              | ``xs:string``         | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
-|                          |                       |              |              | its purpose.                             | present, then the implementation is      |
-|                          |                       |              |              |                                          | required to ignore it.                   |
+| description              | ``xs:string``         | Optional     | Single       | A brief description of the office and    |                                          |
+|                          |                       |              |              | its purpose.                             |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``          | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
-|                          |                       |              |              | :ref:`multi-csv-electoral-district`      | the implementation is required to ignore |
-|                          |                       |              |              | element associated with the office.      | the ``Office`` element containing it.    |
+| electoral_district_id    | ``xs:IDREF``          | **Required** | Single       | Links to the                             |                                          |
+|                          |                       |              |              | :ref:`multi-csv-electoral-district`      |                                          |
+|                          |                       |              |              | element associated with the office.      |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:IDREF``          | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
-|                          |                       |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
-|                          |                       |              |              | finance systems, OCD IDs, et al.).       | required to ignore it.                   |
+| external_identifiers     | ``xs:IDREF``          | Optional     | Single       | Other identifiers that link this office  |                                          |
+|                          |                       |              |              | to other related datasets (e.g. campaign |                                          |
+|                          |                       |              |              | finance systems, OCD IDs, et al.).       |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| filing_deadline          | ``xs:date``           | Optional     | Single       | Specifies the date and time when a       | If the field is invalid or not present,  |
-|                          |                       |              |              | candidate must have filed for the        | then the implementation is required to   |
-|                          |                       |              |              | contest for the office.                  | ignore it.                               |
+| filing_deadline          | ``xs:date``           | Optional     | Single       | Specifies the date and time when a       |                                          |
+|                          |                       |              |              | candidate must have filed for the        |                                          |
+|                          |                       |              |              | contest for the office.                  |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_partisan              | ``xs:boolean``        | Optional     | Single       | Indicates whether the office is          | If the field is invalid or not present,  |
-|                          |                       |              |              | partisan.                                | then the implementation is required to   |
-|                          |                       |              |              |                                          | ignore it.                               |
+| is_partisan              | ``xs:boolean``        | Optional     | Single       | Indicates whether the office is          |                                          |
+|                          |                       |              |              | partisan.                                |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``         | **Required** | Single       | The name of the office.                  | If the field is invalid or not present,  |
-|                          |                       |              |              |                                          | the implementation is required to ignore |
-|                          |                       |              |              |                                          | the ``Office`` element containing it.    |
+| name                     | ``xs:string``         | **Required** | Single       | The name of the office.                  |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| office_holder_person_ids | ``xs:IDREFS``         | Optional     | Single       | Links to the :ref:`multi-csv-person`     | If the field is invalid or not present,  |
-|                          |                       |              |              | element(s) that hold additional          | then the implementation is required to   |
-|                          |                       |              |              | information about the current office     | ignore it.                               |
+| office_holder_person_ids | ``xs:IDREFS``         | Optional     | Single       | Links to the :ref:`multi-csv-person`     |                                          |
+|                          |                       |              |              | element(s) that hold additional          |                                          |
+|                          |                       |              |              | information about the current office     |                                          |
 |                          |                       |              |              | holder(s).                               |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| term                     | :ref:`multi-csv-term` | Optional     | Single       | Defines the term the office can be held. | If the element is invalid or not         |
-|                          |                       |              |              |                                          | present, then the implementation is      |
-|                          |                       |              |              |                                          | required to ignore it.                   |
+| term                     | :ref:`multi-csv-term` | Optional     | Single       | Defines the term the office can be held. |                                          |
 +--------------------------+-----------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

@@ -52,32 +52,27 @@ tags:
   csv-type: xs:string
   description: Specifies both the nature of the organization providing the data and
     what data is in the feed.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: OrganizationUri
   csv-header-name: organization_uri
   csv-type: xs:string
   description: Specifies a URI to the home page of the organization publishing the
     data.
-  error_then: =must-ignore
   type: xs:string
 - _name: FeedContactInformation
   csv-header-name: feed_contact_information_id
   csv-type: xs:IDREF
   description: Reference to the :ref:`$$$-person` who will respond to inquiries about
     the information contained within the file.
-  error_then: =must-ignore
   type: ContactInformation
 - _name: TouUri
   csv-header-name: terms_of_use_uri
   csv-type: xs:anyURI
   description: Specifies the website where the Terms of Use for the information in
     this file can be found.
-  error_then: =must-ignore
   type: xs:anyURI
 - _name: Version
   csv-header-name: version
   csv-type: xs:string
   description: Specifies the version of the data
-  error_then: =must-ignore
   type: xs:string

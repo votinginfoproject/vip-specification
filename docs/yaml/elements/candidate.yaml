@@ -38,7 +38,6 @@ tags:
   csv-type: xs:string
   description: Contact and physical address information for this Candidate and/or
     their campaign (see :ref:`$$$-contact-information`).
-  error_then: =must-ignore
   skip_on: csv
   type: ContactInformation
 - _name: ExternalIdentifiers
@@ -46,27 +45,23 @@ tags:
   csv-type: ExternalIdentifiers
   description: Another identifier for a candidate that links to another source of
     information (e.g. a campaign committee ID that links to a campaign finance system).
-  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: FileDate
   csv-header-name: file_date
   csv-type: xs:date
   description: Date when the candidate filed for the contest.
-  error_then: =must-ignore
   type: xs:date
 - _name: IsIncumbent
   csv-header-name: is_incumbent
   csv-type: xs:boolean
   description: Indicates whether the candidate is the incumbent for the office associated
     with the contest.
-  error_then: =must-ignore
   type: xs:boolean
 - _name: IsTopTicket
   csv-header-name: is_top_ticket
   csv-type: xs:boolean
   description: Indicates whether the candidate is the top of a ticket that includes
     multiple candidates.
-  error_then: =must-ignore
   type: xs:boolean
 - _name: PartyId
   csv-header-name: party_id
@@ -74,24 +69,20 @@ tags:
   description: Reference to a :ref:`$$$-party` element with additional information
     about the candidate's affiliated party. This is the party affiliation that is
     intended to be presented as part of ballot information.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: PersonId
   csv-header-name: person_id
   csv-type: xs:IDREF
   description: Reference to a :ref:`$$$-person` element with additional information
     about the candidate.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: PostElectionStatus
   csv-header-name: post_election_status
   csv-type: CandidatePostElectionStatus
   description: Final status of the candidate (e.g. winner, withdrawn, etc...).
-  error_then: =must-ignore
   type: CandidatePostElectionStatus
 - _name: PreElectionStatus
   csv-header-name: pre_election_status
   csv-type: CandidatePreElectionStatus
   description: Registration status of the candidate (e.g. filed, qualified, etc...).
-  error_then: =must-ignore
   type: CandidatePreElectionStatus

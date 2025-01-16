@@ -10,17 +10,14 @@ A container for the contests/measures on the ballot.
 +----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                  | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +======================+===============+==============+==============+==========================================+==========================================+
-| image_uri            | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that returns an image of | If the field is invalid or not present,  |
-|                      |               |              |              | the sample ballot.                       | then the implementation is required to   |
-|                      |               |              |              |                                          | ignore it.                               |
+| image_uri            | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that returns an image of |                                          |
+|                      |               |              |              | the sample ballot.                       |                                          |
 +----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ordered_contests_ids | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                      |               |              |              | :ref:`multi-csv-ordered-contest`         | then the implementation is required to   |
-|                      |               |              |              |                                          | ignore it.                               |
+| ordered_contests_ids | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    |                                          |
+|                      |               |              |              | :ref:`multi-csv-ordered-contest`         |                                          |
 +----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_ids            | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                      |               |              |              | :ref:`multi-csv-party`s.                 | then the implementation is required to   |
-|                      |               |              |              |                                          | ignore it.                               |
+| party_ids            | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    |                                          |
+|                      |               |              |              | :ref:`multi-csv-party`s.                 |                                          |
 +----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

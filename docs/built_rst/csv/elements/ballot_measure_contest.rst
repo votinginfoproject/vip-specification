@@ -11,26 +11,24 @@ summary statements on each side. Extends :ref:`multi-csv-contest-base`.
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+===============+==============+==============+==========================================+==========================================+
-| con_statement     | ``xs:string`` | Optional     | Single       | Specifies a statement in opposition to   | If the element is invalid or not         |
-|                   |               |              |              | the referendum. It does not necessarily  | present, then the implementation is      |
-|                   |               |              |              | appear on the ballot.                    | required to ignore it.                   |
+| con_statement     | ``xs:string`` | Optional     | Single       | Specifies a statement in opposition to   |                                          |
+|                   |               |              |              | the referendum. It does not necessarily  |                                          |
+|                   |               |              |              | appear on the ballot.                    |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| effect_of_abstain | ``xs:string`` | Optional     | Single       | Specifies what effect abstaining (i.e.   | If the element is invalid or not         |
-|                   |               |              |              | not voting) on this proposition will     | present, then the implementation is      |
-|                   |               |              |              | have (i.e. whether abstaining is         | required to ignore it.                   |
+| effect_of_abstain | ``xs:string`` | Optional     | Single       | Specifies what effect abstaining (i.e.   |                                          |
+|                   |               |              |              | not voting) on this proposition will     |                                          |
+|                   |               |              |              | have (i.e. whether abstaining is         |                                          |
 |                   |               |              |              | considered a vote against it).           |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| full_text         | ``xs:string`` | Optional     | Single       | Specifies the full text of the           | If the element is invalid or not         |
-|                   |               |              |              | referendum as it appears on the ballot.  | present, then the implementation is      |
-|                   |               |              |              |                                          | required to ignore it.                   |
+| full_text         | ``xs:string`` | Optional     | Single       | Specifies the full text of the           |                                          |
+|                   |               |              |              | referendum as it appears on the ballot.  |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| info_uri          | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that links to additional | If the field is invalid or not present,  |
-|                   |               |              |              | information about the referendum.        | then the implementation is required to   |
-|                   |               |              |              |                                          | ignore it.                               |
+| info_uri          | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that links to additional |                                          |
+|                   |               |              |              | information about the referendum.        |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| passage_threshold | ``xs:string`` | Optional     | Single       | Specifies the threshold of votes that    | If the element is invalid or not         |
-|                   |               |              |              | the referendum needs in order to pass.   | present, then the implementation is      |
-|                   |               |              |              | The default is a simple majority (i.e.   | required to ignore it.                   |
+| passage_threshold | ``xs:string`` | Optional     | Single       | Specifies the threshold of votes that    |                                          |
+|                   |               |              |              | the referendum needs in order to pass.   |                                          |
+|                   |               |              |              | The default is a simple majority (i.e.   |                                          |
 |                   |               |              |              | 50% plus one vote). Other common         |                                          |
 |                   |               |              |              | thresholds are "three-fifths" and        |                                          |
 |                   |               |              |              | "two-thirds". If there are `competing    |                                          |
@@ -38,22 +36,22 @@ summary statements on each side. Extends :ref:`multi-csv-contest-base`.
 |                   |               |              |              | effect on the passage of the             |                                          |
 |                   |               |              |              | BallotMeasureContest would go here.      |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| pro_statement     | ``xs:string`` | Optional     | Single       | Specifies a statement in favor of the    | If the element is invalid or not         |
-|                   |               |              |              | referendum. It does not necessarily      | present, then the implementation is      |
-|                   |               |              |              | appear on the ballot.                    | required to ignore it.                   |
+| pro_statement     | ``xs:string`` | Optional     | Single       | Specifies a statement in favor of the    |                                          |
+|                   |               |              |              | referendum. It does not necessarily      |                                          |
+|                   |               |              |              | appear on the ballot.                    |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| summary_text      | ``xs:string`` | Optional     | Single       | Specifies a short summary of the         | If the element is invalid or not         |
-|                   |               |              |              | referendum that is on the ballot, below  | present, then the implementation is      |
-|                   |               |              |              | the title, but above the text.           | required to ignore it.                   |
+| summary_text      | ``xs:string`` | Optional     | Single       | Specifies a short summary of the         |                                          |
+|                   |               |              |              | referendum that is on the ballot, below  |                                          |
+|                   |               |              |              | the title, but above the text.           |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| type              | ``xs:string`` | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
-|                   |               |              |              | measure. Must be one of the valid        | then the implementation is required to   |
-|                   |               |              |              | :ref:`multi-csv-ballot-measure-type`     | ignore it.                               |
+| type              | ``xs:string`` | Optional     | Single       | Specifies the particular type of ballot  |                                          |
+|                   |               |              |              | measure. Must be one of the valid        |                                          |
+|                   |               |              |              | :ref:`multi-csv-ballot-measure-type`     |                                          |
 |                   |               |              |              | options.                                 |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type        | ``xs:string`` | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                   |               |              |              | :ref:`multi-csv-ballot-measure-type`     | then the implementation is required to   |
-|                   |               |              |              | option, when Type is specified as        | ignore it.                               |
+| other_type        | ``xs:string`` | Optional     | Single       | Allows for cataloging a new              |                                          |
+|                   |               |              |              | :ref:`multi-csv-ballot-measure-type`     |                                          |
+|                   |               |              |              | option, when Type is specified as        |                                          |
 |                   |               |              |              | "other."                                 |                                          |
 +-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
@@ -78,31 +76,27 @@ and :ref:`multi-csv-retention-contest` (NB: the latter because it extends
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                      | Data Type                       | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+=================================+==============+==============+==========================================+==========================================+
-| abbreviation             | ``xs:string``                   | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                          |                                 |              |              |                                          | then the implementation should ignore    |
-|                          |                                 |              |              |                                          | it.                                      |
+| abbreviation             | ``xs:string``                   | Optional     | Single       | An abbreviation for the contest.         |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_selection_ids     | ``xs:IDREFS``                   | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                          |                                 |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                          |                                 |              |              | that extends                             | it.                                      |
+| ballot_selection_ids     | ``xs:IDREFS``                   | Optional     | Single       | References a set of BallotSelections,    |                                          |
+|                          |                                 |              |              | which could be of any selection type     |                                          |
+|                          |                                 |              |              | that extends                             |                                          |
 |                          |                                 |              |              | :ref:`multi-csv-ballot-selection-base`.  |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_sub_title         | ``xs:string``                   | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                          |                                 |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                 |              |              |                                          | ignore it.                               |
+| ballot_sub_title         | ``xs:string``                   | Optional     | Single       | Subtitle of the contest as it appears on |                                          |
+|                          |                                 |              |              | the ballot.                              |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_title             | ``xs:string``                   | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                          |                                 |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                 |              |              |                                          | ignore it.                               |
+| ballot_title             | ``xs:string``                   | Optional     | Single       | Title of the contest as it appears on    |                                          |
+|                          |                                 |              |              | the ballot.                              |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                    | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                 |              |              | :ref:`multi-csv-electoral-district`      | implementation is required to ignore the |
-|                          |                                 |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
+| electoral_district_id    | ``xs:IDREF``                    | **Required** | Single       | References an                            |                                          |
+|                          |                                 |              |              | :ref:`multi-csv-electoral-district`      |                                          |
+|                          |                                 |              |              | element that represents the geographical |                                          |
 |                          |                                 |              |              | scope of the contest.                    |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | ``xs:string``                   | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                          |                                 |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                          |                                 |              |              | usual, "all registered voters"           | ignore it.                               |
+| electorate_specification | ``xs:string``                   | Optional     | Single       | Specifies any changes to the eligible    |                                          |
+|                          |                                 |              |              | electorate for this contest past the     |                                          |
+|                          |                                 |              |              | usual, "all registered voters"           |                                          |
 |                          |                                 |              |              | electorate. This subtag will most often  |                                          |
 |                          |                                 |              |              | be used for primaries and local          |                                          |
 |                          |                                 |              |              | elections. In primaries, voters may have |                                          |
@@ -111,30 +105,27 @@ and :ref:`multi-csv-retention-contest` (NB: the latter because it extends
 |                          |                                 |              |              | which ballot a voter can pull. In some   |                                          |
 |                          |                                 |              |              | local elections, non-citizens can vote.  |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:string``                   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                          |                                 |              |              | links to another source of information.  | present, then the implementation should  |
-|                          |                                 |              |              |                                          | ignore it.                               |
+| external_identifiers     | ``xs:string``                   | Optional     | Single       | Other identifiers for a contest that     |                                          |
+|                          |                                 |              |              | links to another source of information.  |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_rotation             | ``xs:boolean``                  | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                          |                                 |              |              | contest are rotated.                     | then the implementation should ignore    |
-|                          |                                 |              |              |                                          | it.                                      |
+| has_rotation             | ``xs:boolean``                  | Optional     | Single       | Indicates whether the selections in the  |                                          |
+|                          |                                 |              |              | contest are rotated.                     |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                   | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                 |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                 |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
+| name                     | ``xs:string``                   | **Required** | Single       | Name of the contest, not necessarily how |                                          |
+|                          |                                 |              |              | it appears on the ballot (NB:            |                                          |
+|                          |                                 |              |              | BallotTitle should be used for this      |                                          |
 |                          |                                 |              |              | purpose).                                |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| sequence_order           | ``xs:integer``                  | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                          |                                 |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                          |                                 |              |              | ordering, and can be overrides by data   | it.                                      |
+| sequence_order           | ``xs:integer``                  | Optional     | Single       | Order in which the contests are listed   |                                          |
+|                          |                                 |              |              | on the ballot. This is the default       |                                          |
+|                          |                                 |              |              | ordering, and can be overrides by data   |                                          |
 |                          |                                 |              |              | in a :ref:`multi-csv-ballot-style`       |                                          |
 |                          |                                 |              |              | element.                                 |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`multi-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                          |                                 |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
-|                          |                                 |              |              |                                          | it.                                      |
+| vote_variation           | :ref:`multi-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       |                                          |
+|                          |                                 |              |              | contest (e.g. n-of-m, majority, et al).  |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_vote_variation     | ``other_vote_variation``        | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                          |                                 |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                          |                                 |              |              | variation can be specified here.         | it.                                      |
+| other_vote_variation     | ``other_vote_variation``        | Optional     | Single       | If "other" is selected as the            |                                          |
+|                          |                                 |              |              | **VoteVariation**, the name of the       |                                          |
+|                          |                                 |              |              | variation can be specified here.         |                                          |
 +--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

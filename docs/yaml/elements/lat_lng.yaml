@@ -8,14 +8,12 @@ tags:
   csv-header-name: latitude
   csv-type: xs:double
   description: The latitude of the polling location.
-  error_then: =must-ignore
   required: true
   type: xs:double
 - _name: Longitude
   csv-header-name: longitude
   csv-type: xs:double
   description: The longitude of the polling location.
-  error_then: =must-ignore
   required: true
   type: xs:double
 - _name: Source
@@ -23,5 +21,4 @@ tags:
   csv-type: xs:string
   description: The system used to perform the lookup from location name to lat/lng.
     For example, this could be the name of a geocoding service.
-  error_then: =must-ignore
   type: xs:string

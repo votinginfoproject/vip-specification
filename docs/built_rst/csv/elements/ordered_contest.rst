@@ -13,9 +13,8 @@ ballot in the proper order.
 +------------------------------+--------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
 | Tag                          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                                  |
 +==============================+==============+==============+==============+==========================================+=================================================+
-| contest_id                   | ``xs:IDREF`` | **Required** | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
-|                              |              |              |              | :ref:`multi-csv-contest-base`.           | implementation is required to ignore the        |
-|                              |              |              |              |                                          | ``OrderedContest`` element containing it.       |
+| contest_id                   | ``xs:IDREF`` | **Required** | Single       | Links to elements that extend            |                                                 |
+|                              |              |              |              | :ref:`multi-csv-contest-base`.           |                                                 |
 +------------------------------+--------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
 | ordered_ballot_selection_ids | ``IDREFS``   | Optional     | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
 |                              |              |              |              | :ref:`multi-csv-ballot-selection-base`.  | implementation is required to ignore it. If an  |

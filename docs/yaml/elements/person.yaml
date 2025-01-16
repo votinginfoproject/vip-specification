@@ -43,7 +43,6 @@ tags:
   csv-header-name: contact_information_id
   csv-type: xs:IDREF
   description: Refers to the associated :ref:`$$$-contact-information`.
-  error_then: =must-ignore
   repeating: true
   skip_on: csv
   type: ContactInformation
@@ -51,52 +50,44 @@ tags:
   csv-header-name: date_of_birth
   csv-type: xs:date
   description: Represents the individual's date of birth.
-  error_then: =must-ignore
   type: xs:date
 - _name: ExternalIdentifiers
   csv-header-name: external_identifiers
   csv-type: ExternalIdentifiers
   description: Identifiers for this person.
-  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: FirstName
   csv-header-name: first_name
   csv-type: xs:string
   description: Represents an individual's first name.
-  error_then: =must-ignore
   type: xs:string
 - _name: FullName
   csv-header-name: full_name
   csv-type: xs:string
   description: Specifies a person's full name (**NB:** this information is :ref:`$$$-internationalized-text`
     because it sometimes appears on ballots in multiple languages).
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: Gender
   csv-header-name: gender
   csv-type: xs:string
   description: Specifies a person's gender.
-  error_then: =must-ignore
   type: xs:string
 - _name: LastName
   csv-header-name: last_name
   csv-type: xs:string
   description: Represents an individual's last name.
-  error_then: =must-ignore
   type: xs:string
 - _name: MiddleName
   csv-header-name: middle_name
   csv-type: xs:string
   description: Represents any number of names between an individual's first and last
     names (e.g. John **Ronald Reuel** Tolkien).
-  error_then: =must-ignore
   repeating: true
   type: xs:string
 - _name: Nickname
   csv-header-name: nickname
   csv-type: xs:string
   description: Represents an individual's nickname.
-  error_then: =must-ignore
   type: xs:string
 - _name: PartyId
   csv-header-name: party_id
@@ -105,31 +96,26 @@ tags:
     to be used by feed consumers to help them disambiguate the person's identity,
     but not to be presented as part of any ballot information. For that see :ref:`$$$-candidate`
     **PartyId**.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: Prefix
   csv-header-name: prefix
   csv-type: xs:string
   description: Specifies a prefix associated with a person (e.g. Dr.).
-  error_then: =must-ignore
   type: xs:string
 - _name: Profession
   csv-header-name: profession
   csv-type: xs:string
   description: Specifies a person's profession (**NB:** this information is :ref:`$$$-internationalized-text`
     because it sometimes appears on ballots in multiple languages).
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: Suffix
   csv-header-name: suffix
   csv-type: xs:string
   description: Specifies a suffix associated with a person (e.g. Jr.).
-  error_then: =must-ignore
   type: xs:string
 - _name: Title
   csv-header-name: title
   csv-type: xs:string
   description: A title associated with a person (**NB:** this information is :ref:`$$$-internationalized-text`
     because it sometimes appears on ballots in multiple languages).
-  error_then: =must-ignore
   type: InternationalizedText

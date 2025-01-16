@@ -8,19 +8,17 @@ department
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                         | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=============================+======================================+==============+==============+==========================================+==========================================+
-| election_official_person_id | ``xs:IDREF``                         | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
-|                             |                                      |              |              | election administration office. The      | then the implementation is required to   |
-|                             |                                      |              |              | specified person should be the           | ignore it.                               |
+| election_official_person_id | ``xs:IDREF``                         | Optional     | Single       | The individual to contact at the         |                                          |
+|                             |                                      |              |              | election administration office. The      |                                          |
+|                             |                                      |              |              | specified person should be the           |                                          |
 |                             |                                      |              |              | :ref:`election official                  |                                          |
 |                             |                                      |              |              | <multi-csv-person>`.                     |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| voter_service               | :ref:`multi-csv-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
-|                             |                                      |              |              | contact individual available to voters.  | present, then the implementation is      |
-|                             |                                      |              |              |                                          | required to ignore it.                   |
+| voter_service               | :ref:`multi-csv-voter-service`       | Optional     | Repeats      | The types of services and appropriate    |                                          |
+|                             |                                      |              |              | contact individual available to voters.  |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| election_administration_id  | ``xs:IDREF``                         | Optional     | Single       | The election administration that the     | If the field is invalid or not present,  |
-|                             |                                      |              |              | department is a part of.                 | then the implementation is required to   |
-|                             |                                      |              |              |                                          | ignore it.                               |
+| election_administration_id  | ``xs:IDREF``                         | Optional     | Single       | The election administration that the     |                                          |
+|                             |                                      |              |              | department is a part of.                 |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

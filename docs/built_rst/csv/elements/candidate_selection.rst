@@ -11,22 +11,22 @@ ballot selection for a candidate contest.
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+================+==============+==============+==========================================+==========================================+
-| candidate_ids         | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                       |                |              |              | :ref:`multi-csv-candidate` elements. The | then the implementation is required to   |
-|                       |                |              |              | number of candidates that can be         | ignore it.                               |
+| candidate_ids         | ``xs:IDREFS``  | Optional     | Single       | References a set of                      |                                          |
+|                       |                |              |              | :ref:`multi-csv-candidate` elements. The |                                          |
+|                       |                |              |              | number of candidates that can be         |                                          |
 |                       |                |              |              | references is unbounded in cases where   |                                          |
 |                       |                |              |              | the ballot selection is for a ticket     |                                          |
 |                       |                |              |              | (e.g. "President/Vice President",        |                                          |
 |                       |                |              |              | "Governor/Lt Governor").                 |                                          |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                       |                |              |              | :ref:`multi-csv-party` elements, which   | then the implementation is required to   |
-|                       |                |              |              | signifies one or more endorsing parties  | ignore it.                               |
+| endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References a set of                      |                                          |
+|                       |                |              |              | :ref:`multi-csv-party` elements, which   |                                          |
+|                       |                |              |              | signifies one or more endorsing parties  |                                          |
 |                       |                |              |              | for the candidate(s).                    |                                          |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_write_in           | ``xs:boolean`` | Optional     | Single       | Signifies if the particular ballot       | If the field is invalid or not present,  |
-|                       |                |              |              | selection allows for write-in            | then the implementation is required to   |
-|                       |                |              |              | candidates. If true, one or more         | ignore it.                               |
+| is_write_in           | ``xs:boolean`` | Optional     | Single       | Signifies if the particular ballot       |                                          |
+|                       |                |              |              | selection allows for write-in            |                                          |
+|                       |                |              |              | candidates. If true, one or more         |                                          |
 |                       |                |              |              | write-in candidates are allowed for this |                                          |
 |                       |                |              |              | contest.                                 |                                          |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -53,9 +53,9 @@ A base model for all ballot selection types:
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag            | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +================+================+==============+==============+==========================================+==========================================+
-| sequence_order | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
-|                |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
-|                |                |              |              | is the default ordering, and can be      | ignore it.                               |
+| sequence_order | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    |                                          |
+|                |                |              |              | listed on the ballot or in results. This |                                          |
+|                |                |              |              | is the default ordering, and can be      |                                          |
 |                |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
 |                |                |              |              | in :ref:`multi-csv-ordered-contest`.     |                                          |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+

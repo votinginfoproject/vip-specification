@@ -12,5 +12,4 @@ tags:
   csv-type: xs:string
   description: Optional URL for additional information related to the last minute
     or emergency notification.
-  error_then: =must-ignore
   type: xs:anyURI

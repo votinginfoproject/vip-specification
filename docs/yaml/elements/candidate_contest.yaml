@@ -33,7 +33,6 @@ tags:
   csv-header-name: number_elected
   csv-type: xs:integer
   description: Number of candidates that are elected in the contest (i.e. "N" of N-of-M).
-  error_then: =must-ignore
   type: xs:integer
 - _name: OfficeIds
   csv-header-name: office_ids
@@ -45,18 +44,15 @@ tags:
     elements which reference the candidate for President first and Vice-President
     second, the `OfficeIds` should reference the office of President first and the
     office of Vice-President second.
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrimaryPartyIds
   csv-header-name: primary_party_ids
   csv-type: xs:IDREFS
   description: References :ref:`$$$-party` elements, if the contest is related to
     a particular party.
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: VotesAllowed
   csv-header-name: votes_allowed
   csv-type: xs:integer
   description: Maximum number of votes/write-ins per voter in this contest.
-  error_then: =must-ignore
   type: xs:integer

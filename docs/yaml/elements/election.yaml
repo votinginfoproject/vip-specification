@@ -48,7 +48,6 @@ tags:
   csv-type: xs:string
   description: Specifies the highest controlling authority for election (e.g., federal,
     state, county, city, town, etc.)
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: StateId
   csv-header-name: state_id
@@ -69,27 +68,23 @@ tags:
   csv-type: xs:string
   description: The name for the election (**NB:** while optional, this element is
     highly recommended).
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: RegistrationInfo
   csv-header-name: registration_info
   csv-type: xs:string
   description: Specifies information about registration for this election either as
     text or a URI.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: AbsenteeBallotInfo
   csv-header-name: absentee_ballot_info
   csv-type: xs:string
   description: Specifies information about requesting absentee ballots either as text
     or a URI
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: ResultsUri
   csv-header-name: results_uri
   csv-type: xs:anyURI
   description: Contains a URI where results for the election may be found
-  error_then: =must-ignore
   type: xs:anyURI
 - _name: PollingHours **[deprecated]**
   csv-header-name: polling_hours
@@ -100,32 +95,28 @@ tags:
     is deprecated in favor of the more structured :ref:`$$$-hours-open` element. It
     is strongly encouraged that data providers move toward contributing hours in this
     format)*.'
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: HoursOpenId
   csv-header-name: hours_open_ids
   csv-type: xs:IDREF
   description: References the :ref:`$$$-hours-open` element, which lists the hours
     of operation for polling locations.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: HasElectionDayRegistration
   csv-header-name: has_election_day_registration
   csv-type: xs:boolean
   description: Specifies if a voter can register on the same day of the election (i.e.,
     the last day of the election). Valid items are "yes" and "no".
-  error_then: =must-ignore
   type: xs:boolean
 - _name: RegistrationDeadline
   csv-header-name: registration_deadline
   csv-type: xs:date
   description: Specifies the last day to register for the election with the possible
     exception of Election Day registration.
-  error_then: =must-ignore
   type: xs:date
 - _name: AbsenteeRequestDeadline
   csv-header-name: absentee_request_deadline
   csv-type: xs:date
   description: Specifies the last day to request an absentee ballot.
-  error_then: =must-ignore
+  
   type: xs:date

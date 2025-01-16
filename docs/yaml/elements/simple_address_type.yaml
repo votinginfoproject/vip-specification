@@ -7,7 +7,6 @@ tags:
   csv-type: xs:string
   description: The address line for a structured address. Should include the street
     number, street name, and any prefix and suffix.
-  error: If no ``Line1`` is provided, the implementation should ignore the ``SimpleAddressType``.
   repreating: false
   required: true
   type: xs:string
@@ -15,33 +14,28 @@ tags:
   csv-header-name: structured_line_2
   csv-type: xs:string
   description: Additional field for an address
-  error: If no ``Line2`` is provided, the implementation should ignore it.
   repreating: false
   type: xs:string
 - _name: Line3
   csv-header-name: structured_line_3
   csv-type: xs:string
   description: Additional field for an address
-  error: If no ``Line3`` is provided, the implementation should ignore it.
   repreating: false
   type: xs:string
 - _name: City
   csv-header-name: structured_city
   csv-type: xs:string
   description: The City value of a structured address.
-  error: If ``City`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   required: true
   type: xs:string
 - _name: State
   csv-header-name: structured_state
   csv-type: xs:string
   description: The State value of a structured address.
-  error: If ``State`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   required: true
   type: xs:string
 - _name: Zip
   csv-header-name: structured_zip
   csv-type: xs:string
   description: The ZIP code of a structured address.
-  error: If ``Zip`` is not provided, the implementation should ignore the ``SimpleAddressType``.
   type: xs:string

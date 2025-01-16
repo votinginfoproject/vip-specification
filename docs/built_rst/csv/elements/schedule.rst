@@ -12,30 +12,28 @@ describing whether or not appointments are necessary or possible.
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                    | Data Type              | Required?    | Repeats?     | Description                              | Error Handling                           |
 +========================+========================+==============+==============+==========================================+==========================================+
-| is_only_by_appointment | ``xs:boolean``         | Optional     | Single       | If true, the place is only open during   | If the field is invalid or not present,  |
-|                        |                        |              |              | the specified time window with an        | then the implementation is required to   |
-|                        |                        |              |              | appointment.                             | ignore it.                               |
+| is_only_by_appointment | ``xs:boolean``         | Optional     | Single       | If true, the place is only open during   |                                          |
+|                        |                        |              |              | the specified time window with an        |                                          |
+|                        |                        |              |              | appointment.                             |                                          |
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_or_by_appointment   | ``xs:boolean``         | Optional     | Single       | If true, the place is open during the    | If the field is invalid or not present,  |
-|                        |                        |              |              | hours specified time window and may also | then the implementation is required to   |
-|                        |                        |              |              | be open with an appointment.             | ignore it.                               |
+| is_or_by_appointment   | ``xs:boolean``         | Optional     | Single       | If true, the place is open during the    |                                          |
+|                        |                        |              |              | hours specified time window and may also |                                          |
+|                        |                        |              |              | be open with an appointment.             |                                          |
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_subject_to_change   | ``xs:boolean``         | Optional     | Single       | If true, the place should be open during | If the field is invalid or not present,  |
-|                        |                        |              |              | the specified time window, but may be    | then the implementation is required to   |
-|                        |                        |              |              | subject to change. People should contact | ignore it.                               |
+| is_subject_to_change   | ``xs:boolean``         | Optional     | Single       | If true, the place should be open during |                                          |
+|                        |                        |              |              | the specified time window, but may be    |                                          |
+|                        |                        |              |              | subject to change. People should contact |                                          |
 |                        |                        |              |              | prior to arrival to confirm hours are    |                                          |
 |                        |                        |              |              | still accurate.                          |                                          |
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_date             | ``xs:date``            | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                        |                        |              |              | start and end times and options begin.   | then the implementation is required to   |
-|                        |                        |              |              |                                          | ignore it.                               |
+| start_date             | ``xs:date``            | Optional     | Single       | The date at which this collection of     |                                          |
+|                        |                        |              |              | start and end times and options begin.   |                                          |
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| end_date               | ``xs:date``            | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                        |                        |              |              | start and end times and options end.     | then the implementation is required to   |
-|                        |                        |              |              |                                          | ignore it.                               |
+| end_date               | ``xs:date``            | Optional     | Single       | The date at which this collection of     |                                          |
+|                        |                        |              |              | start and end times and options end.     |                                          |
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_id          | ``xs:IDREF``           | **Required** | Single       | A reference to the associated hours_open | If the field is invalid, then the        |
-|                        |                        |              |              | element.                                 | implementation is required to ignore it. |
+| hours_open_id          | ``xs:IDREF``           | **Required** | Single       | A reference to the associated hours_open |                                          |
+|                        |                        |              |              | element.                                 |                                          |
 +------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

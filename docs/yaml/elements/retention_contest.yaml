@@ -23,13 +23,10 @@ tags:
   csv-header-name: candidate_id
   csv-type: xs:IDREF
   description: Links to the :ref:`$$$-candidate` being retained.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``RetentionContest`` element containing it.
   required: true
   type: xs:IDREF
 - _name: OfficeId
   csv-header-name: office_id
   csv-type: xs:IDREF
   description: Links to the information about the office.
-  error_then: =must-ignore
   type: xs:IDREF

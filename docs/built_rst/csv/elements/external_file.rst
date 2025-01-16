@@ -11,13 +11,10 @@ External files are packaged along with the VIP feed into a single, archived file
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
-|              |               |              |              |                                          | implementation is required to ignore the |
-|              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
+| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI of the external file.            |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| checksum_id  | ``xs:IDREF``  | **Required** | Single       | The cryptographic checksum of the        | If the element is invalid, then the      |
-|              |               |              |              | referenced external file.                | implementation is required to ignore the |
-|              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
+| checksum_id  | ``xs:IDREF``  | **Required** | Single       | The cryptographic checksum of the        |                                          |
+|              |               |              |              | referenced external file.                |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

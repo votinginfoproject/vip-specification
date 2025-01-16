@@ -168,13 +168,13 @@ tags:
   csv-header-name: start_time
   csv-type: TimeWithZone
   description: The time at which this place opens.
-  error_then: =must-ignore
+  
   type: TimeWithZone
 - _name: EndTime
   csv-header-name: end_time
   csv-type: TimeWithZone
   description: The time at which this place closes.
-  error_then: =must-ignore
+  
   type: TimeWithZone
 ```
 
@@ -201,25 +201,15 @@ The type describes the data type for the tag. Can indicate a sub-element (in XML
 If a tag has `required: true`, the `Required` field will reflect that.
 If it is absent, that field will default to `Optional`.
 
-If a tag is required, its error handling will be slightly different, as detailed below.
-
 ### Error Behavior
 
-In most cases, the error behavior is designated with the label `error-then`. The value
-for this label should be one of two policies, either `must-ignore` or `should-ignore`.
-
-These indicate the severity of missing or invalid data for this field. The scripts
-will auto-generate the error statement from the policy automatically. The policies are designated like this:
-
-`error_then: =must-ignore`
-
-If a tag is required, the `error-then` is not needed; it will receive a default
-policy. This can be overridden as needed by adding an `error-then` policy.
-
-If desired, a custom policy can be added with the label `error`. This policy would then
+If needed, a custom message about error handling can be added with the label `error`. This policy would then
 be included precisely as entered in the YAML:
 
 `error: [insert custom, hardcoded error behavior here]`
+
+This is useful when an item becomes required when certain criteria are met (e.g. `StartHouseNumber`), or when the absence
+of a value would result in a default value being assumed.
 
 ### Skip On
 

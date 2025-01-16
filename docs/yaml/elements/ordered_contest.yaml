@@ -26,8 +26,6 @@ tags:
   csv-header-name: contest_id
   csv-type: xs:IDREF
   description: Links to elements that extend :ref:`$$$-contest-base`.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``OrderedContest`` element containing it.
   required: true
   type: xs:IDREF
 - _name: OrderedBallotSelectionIds

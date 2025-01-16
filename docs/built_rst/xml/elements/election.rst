@@ -15,42 +15,39 @@ with one Election object.
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                        | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +============================+=========================================+==============+==============+==========================================+==========================================+
-| Date                       | ``xs:date``                             | **Required** | Single       | Specifies when the election is being     | If the field is invalid, then the        |
-|                            |                                         |              |              | held. The `Date` is considered to be in  | implementation is required to ignore the |
-|                            |                                         |              |              | the timezone local to the state holding  | ``Election`` element containing it.      |
+| Date                       | ``xs:date``                             | **Required** | Single       | Specifies when the election is being     |                                          |
+|                            |                                         |              |              | held. The `Date` is considered to be in  |                                          |
+|                            |                                         |              |              | the timezone local to the state holding  |                                          |
 |                            |                                         |              |              | the election.                            |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionType               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
-|                            |                                         |              |              | authority for election (e.g., federal,   | present, then the implementation is      |
-|                            |                                         |              |              | state, county, city, town, etc.)         | required to ignore it.                   |
+| ElectionType               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the highest controlling        |                                          |
+|                            |                                         |              |              | authority for election (e.g., federal,   |                                          |
+|                            |                                         |              |              | state, county, city, town, etc.)         |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StateId                    | ``xs:IDREF``                            | **Required** | Single       | Specifies a link to the `State` element  | If the field is invalid, then the        |
-|                            |                                         |              |              | where the election is being held.        | implementation is required to ignore the |
-|                            |                                         |              |              |                                          | ``Election`` element containing it.      |
+| StateId                    | ``xs:IDREF``                            | **Required** | Single       | Specifies a link to the `State` element  |                                          |
+|                            |                                         |              |              | where the election is being held.        |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsStatewide                | ``xs:boolean``                          | Optional     | Single       | Indicates whether the election is        | If the field is not present or invalid,  |
 |                            |                                         |              |              | statewide.                               | the implementation is required to        |
 |                            |                                         |              |              |                                          | default to "yes".                        |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | The name for the election (**NB:** while | If the element is invalid or not         |
-|                            |                                         |              |              | optional, this element is highly         | present, then the implementation is      |
-|                            |                                         |              |              | recommended).                            | required to ignore it.                   |
+| Name                       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | The name for the election (**NB:** while |                                          |
+|                            |                                         |              |              | optional, this element is highly         |                                          |
+|                            |                                         |              |              | recommended).                            |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RegistrationInfo           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies information about registration | If the element is invalid or not         |
-|                            |                                         |              |              | for this election either as text or a    | present, then the implementation is      |
-|                            |                                         |              |              | URI.                                     | required to ignore it.                   |
+| RegistrationInfo           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies information about registration |                                          |
+|                            |                                         |              |              | for this election either as text or a    |                                          |
+|                            |                                         |              |              | URI.                                     |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AbsenteeBallotInfo         | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies information about requesting   | If the element is invalid or not         |
-|                            |                                         |              |              | absentee ballots either as text or a URI | present, then the implementation is      |
-|                            |                                         |              |              |                                          | required to ignore it.                   |
+| AbsenteeBallotInfo         | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies information about requesting   |                                          |
+|                            |                                         |              |              | absentee ballots either as text or a URI |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ResultsUri                 | ``xs:anyURI``                           | Optional     | Single       | Contains a URI where results for the     | If the field is invalid or not present,  |
-|                            |                                         |              |              | election may be found                    | then the implementation is required to   |
-|                            |                                         |              |              |                                          | ignore it.                               |
+| ResultsUri                 | ``xs:anyURI``                           | Optional     | Single       | Contains a URI where results for the     |                                          |
+|                            |                                         |              |              | election may be found                    |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingHours               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-| **[deprecated]**           |                                         |              |              | Election Day polling locations are open. | present, then the implementation is      |
-|                            |                                         |              |              | If polling hours differ in specific      | required to ignore it.                   |
+| PollingHours               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  |                                          |
+| **[deprecated]**           |                                         |              |              | Election Day polling locations are open. |                                          |
+|                            |                                         |              |              | If polling hours differ in specific      |                                          |
 |                            |                                         |              |              | polling locations, alternative hours may |                                          |
 |                            |                                         |              |              | be specified in the                      |                                          |
 |                            |                                         |              |              | :ref:`multi-xml-polling-location` object |                                          |
@@ -61,23 +58,22 @@ with one Election object.
 |                            |                                         |              |              | providers move toward contributing hours |                                          |
 |                            |                                         |              |              | in this format)*.                        |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId                | ``xs:IDREF``                            | Optional     | Single       | References the                           | If the field is invalid or not present,  |
-|                            |                                         |              |              | :ref:`multi-xml-hours-open` element,     | then the implementation is required to   |
-|                            |                                         |              |              | which lists the hours of operation for   | ignore it.                               |
+| HoursOpenId                | ``xs:IDREF``                            | Optional     | Single       | References the                           |                                          |
+|                            |                                         |              |              | :ref:`multi-xml-hours-open` element,     |                                          |
+|                            |                                         |              |              | which lists the hours of operation for   |                                          |
 |                            |                                         |              |              | polling locations.                       |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HasElectionDayRegistration | ``xs:boolean``                          | Optional     | Single       | Specifies if a voter can register on the | If the field is invalid or not present,  |
-|                            |                                         |              |              | same day of the election (i.e., the last | then the implementation is required to   |
-|                            |                                         |              |              | day of the election). Valid items are    | ignore it.                               |
+| HasElectionDayRegistration | ``xs:boolean``                          | Optional     | Single       | Specifies if a voter can register on the |                                          |
+|                            |                                         |              |              | same day of the election (i.e., the last |                                          |
+|                            |                                         |              |              | day of the election). Valid items are    |                                          |
 |                            |                                         |              |              | "yes" and "no".                          |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RegistrationDeadline       | ``xs:date``                             | Optional     | Single       | Specifies the last day to register for   | If the field is invalid or not present,  |
-|                            |                                         |              |              | the election with the possible exception | then the implementation is required to   |
-|                            |                                         |              |              | of Election Day registration.            | ignore it.                               |
+| RegistrationDeadline       | ``xs:date``                             | Optional     | Single       | Specifies the last day to register for   |                                          |
+|                            |                                         |              |              | the election with the possible exception |                                          |
+|                            |                                         |              |              | of Election Day registration.            |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AbsenteeRequestDeadline    | ``xs:date``                             | Optional     | Single       | Specifies the last day to request an     | If the field is invalid or not present,  |
-|                            |                                         |              |              | absentee ballot.                         | then the implementation is required to   |
-|                            |                                         |              |              |                                          | ignore it.                               |
+| AbsenteeRequestDeadline    | ``xs:date``                             | Optional     | Single       | Specifies the last day to request an     |                                          |
+|                            |                                         |              |              | absentee ballot.                         |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

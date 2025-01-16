@@ -21,17 +21,14 @@ tags:
   csv-header-name: image_uri
   csv-type: xs:anyURI
   description: Specifies a URI that returns an image of the sample ballot.
-  error_then: =must-ignore
   type: xs:anyURI
 - _name: OrderedContestIds
   csv-header-name: ordered_contests_ids
   csv-type: xs:IDREFS
   description: Reference to a set of :ref:`$$$-ordered-contest`
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: PartyIds
   csv-header-name: party_ids
   csv-type: xs:IDREFS
   description: Reference to a set of :ref:`$$$-party`s.
-  error_then: =must-ignore
   type: xs:IDREFS

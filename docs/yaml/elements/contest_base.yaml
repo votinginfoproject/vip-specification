@@ -10,26 +10,22 @@ tags:
   csv-header-name: abbreviation
   csv-type: xs:string
   description: An abbreviation for the contest.
-  error_then: =should-ignore
   type: xs:string
 - _name: BallotSelectionIds
   csv-header-name: ballot_selection_ids
   csv-type: xs:IDREFS
   description: References a set of BallotSelections, which could be of any selection
     type that extends :ref:`$$$-ballot-selection-base`.
-  error_then: =should-ignore
   type: xs:IDREFS
 - _name: BallotSubTitle
   csv-header-name: ballot_sub_title
   csv-type: xs:string
   description: Subtitle of the contest as it appears on the ballot.
-  error_then: =should-ignore
   type: InternationalizedText
 - _name: BallotTitle
   csv-header-name: ballot_title
   csv-type: xs:string
   description: Title of the contest as it appears on the ballot.
-  error_then: =should-ignore
   type: InternationalizedText
 - _name: ElectoralDistrictId
   csv-header-name: electoral_district_id
@@ -46,19 +42,16 @@ tags:
     used for primaries and local elections. In primaries, voters may have to be registered
     as a specific party to vote, or there may be special rules for which ballot a
     voter can pull. In some local elections, non-citizens can vote.
-  error_then: =should-ignore
   type: InternationalizedText
 - _name: ExternalIdentifiers
   csv-header-name: external_identifiers
   csv-type: xs:string
   description: Other identifiers for a contest that links to another source of information.
-  error_then: =should-ignore
   type: ExternalIdentifiers
 - _name: HasRotation
   csv-header-name: has_rotation
   csv-type: xs:boolean
   description: Indicates whether the selections in the contest are rotated.
-  error_then: =should-ignore
   type: xs:boolean
 - _name: Name
   csv-header-name: name
@@ -72,19 +65,16 @@ tags:
   csv-type: xs:integer
   description: Order in which the contests are listed on the ballot. This is the default
     ordering, and can be overrides by data in a :ref:`$$$-ballot-style` element.
-  error_then: =should-ignore
   type: xs:integer
 - _name: VoteVariation
   csv-header-name: vote_variation
   csv-type: VoteVariation
   description: Vote variation associated with the contest (e.g. n-of-m, majority,
     et al).
-  error_then: =should-ignore
   type: VoteVariation
 - _name: OtherVoteVariation
   csv-header-name: other_vote_variation
   csv-type: other_vote_variation
   description: If "other" is selected as the **VoteVariation**, the name of the variation
     can be specified here.
-  error_then: =should-ignore
   type: xs:string

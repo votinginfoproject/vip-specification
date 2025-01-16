@@ -11,42 +11,36 @@ School Board, et al).
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+=========================================+==============+==============+==========================================+==========================================+
-| ContactInformation    | :ref:`multi-xml-contact-information`    | Optional     | Repeats      | Links to the                             | If the element is invalid or not         |
-|                       |                                         |              |              | :ref:`multi-xml-contact-information`     | present, then the implementation is      |
-|                       |                                         |              |              | element associated with the office.      | required to ignore it.                   |
+| ContactInformation    | :ref:`multi-xml-contact-information`    | Optional     | Repeats      | Links to the                             |                                          |
+|                       |                                         |              |              | :ref:`multi-xml-contact-information`     |                                          |
+|                       |                                         |              |              | element associated with the office.      |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
-|                       |                                         |              |              | its purpose.                             | present, then the implementation is      |
-|                       |                                         |              |              |                                          | required to ignore it.                   |
+| Description           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | A brief description of the office and    |                                          |
+|                       |                                         |              |              | its purpose.                             |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictId   | ``xs:IDREF``                            | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
-|                       |                                         |              |              | :ref:`multi-xml-electoral-district`      | the implementation is required to ignore |
-|                       |                                         |              |              | element associated with the office.      | the ``Office`` element containing it.    |
+| ElectoralDistrictId   | ``xs:IDREF``                            | **Required** | Single       | Links to the                             |                                          |
+|                       |                                         |              |              | :ref:`multi-xml-electoral-district`      |                                          |
+|                       |                                         |              |              | element associated with the office.      |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers   | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
-|                       |                                         |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
-|                       |                                         |              |              | finance systems, OCD IDs, et al.).       | required to ignore it.                   |
+| ExternalIdentifiers   | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this office  |                                          |
+|                       |                                         |              |              | to other related datasets (e.g. campaign |                                          |
+|                       |                                         |              |              | finance systems, OCD IDs, et al.).       |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FilingDeadline        | ``xs:date``                             | Optional     | Single       | Specifies the date and time when a       | If the field is invalid or not present,  |
-|                       |                                         |              |              | candidate must have filed for the        | then the implementation is required to   |
-|                       |                                         |              |              | contest for the office.                  | ignore it.                               |
+| FilingDeadline        | ``xs:date``                             | Optional     | Single       | Specifies the date and time when a       |                                          |
+|                       |                                         |              |              | candidate must have filed for the        |                                          |
+|                       |                                         |              |              | contest for the office.                  |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsPartisan            | ``xs:boolean``                          | Optional     | Single       | Indicates whether the office is          | If the field is invalid or not present,  |
-|                       |                                         |              |              | partisan.                                | then the implementation is required to   |
-|                       |                                         |              |              |                                          | ignore it.                               |
+| IsPartisan            | ``xs:boolean``                          | Optional     | Single       | Indicates whether the office is          |                                          |
+|                       |                                         |              |              | partisan.                                |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                  | :ref:`multi-xml-internationalized-text` | **Required** | Single       | The name of the office.                  | If the field is invalid or not present,  |
-|                       |                                         |              |              |                                          | the implementation is required to ignore |
-|                       |                                         |              |              |                                          | the ``Office`` element containing it.    |
+| Name                  | :ref:`multi-xml-internationalized-text` | **Required** | Single       | The name of the office.                  |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OfficeHolderPersonIds | ``xs:IDREFS``                           | Optional     | Single       | Links to the :ref:`multi-xml-person`     | If the field is invalid or not present,  |
-|                       |                                         |              |              | element(s) that hold additional          | then the implementation is required to   |
-|                       |                                         |              |              | information about the current office     | ignore it.                               |
+| OfficeHolderPersonIds | ``xs:IDREFS``                           | Optional     | Single       | Links to the :ref:`multi-xml-person`     |                                          |
+|                       |                                         |              |              | element(s) that hold additional          |                                          |
+|                       |                                         |              |              | information about the current office     |                                          |
 |                       |                                         |              |              | holder(s).                               |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Term                  | :ref:`multi-xml-term`                   | Optional     | Single       | Defines the term the office can be held. | If the element is invalid or not         |
-|                       |                                         |              |              |                                          | present, then the implementation is      |
-|                       |                                         |              |              |                                          | required to ignore it.                   |
+| Term                  | :ref:`multi-xml-term`                   | Optional     | Single       | Defines the term the office can be held. |                                          |
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
@@ -58,17 +52,15 @@ Term
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===================================+==============+==============+==========================================+==========================================+
-| Type         | :ref:`multi-xml-office-term-type` | Optional     | Single       | Specifies the type of office term (see   | If the field is invalid or not present,  |
-|              |                                   |              |              | :ref:`multi-xml-office-term-type` for    | the implementation is required to ignore |
-|              |                                   |              |              | valid values).                           | the ``Office`` element containing it.    |
+| Type         | :ref:`multi-xml-office-term-type` | **Required** | Single       | Specifies the type of office term (see   |                                          |
+|              |                                   |              |              | :ref:`multi-xml-office-term-type` for    |                                          |
+|              |                                   |              |              | valid values).                           |                                          |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StartDate    | ``xs:date``                       | Optional     | Single       | Specifies the start date for the current | If the field is invalid or not present,  |
-|              |                                   |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                   |              |              |                                          | ignore it.                               |
+| StartDate    | ``xs:date``                       | Optional     | Single       | Specifies the start date for the current |                                          |
+|              |                                   |              |              | term of the office.                      |                                          |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndDate      | ``xs:date``                       | Optional     | Single       | Specifies the end date for the current   | If the field is invalid or not present,  |
-|              |                                   |              |              | term of the office.                      | then the implementation is required to   |
-|              |                                   |              |              |                                          | ignore it.                               |
+| EndDate      | ``xs:date``                       | Optional     | Single       | Specifies the end date for the current   |                                          |
+|              |                                   |              |              | term of the office.                      |                                          |
 +--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -102,50 +94,41 @@ organizations, etc. ContactInformation is always a sub-element of another object
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag              | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+=========================================+==============+==============+==========================================+==========================================+
-| AddressLine      | ``xs:string``                           | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
-|                  |                                         |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
-|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
+| AddressLine      | ``xs:string``                           | Optional     | Repeats      | The "location" portion of a mailing      |                                          |
+|                  |                                         |              |              | address. :ref:`See usage note.           |                                          |
+|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Directions       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
-|                  |                                         |              |              | locating this entity.                    | present, then the implementation is      |
-|                  |                                         |              |              |                                          | required to ignore it.                   |
+| Directions       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       |                                          |
+|                  |                                         |              |              | locating this entity.                    |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Email            | ``xs:string``                           | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
-|                  |                                         |              |              |                                          | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Email            | ``xs:string``                           | Optional     | Repeats      | An email address for the contact.        |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Fax              | ``xs:string``                           | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
-|                  |                                         |              |              |                                          | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Fax              | ``xs:string``                           | Optional     | Repeats      | A fax line for the contact.              |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-| **[deprecated]** |                                         |              |              | the location is open *(NB: this element  | present, then the implementation is      |
-|                  |                                         |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+| Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  |                                          |
+| **[deprecated]** |                                         |              |              | the location is open *(NB: this element  |                                          |
+|                  |                                         |              |              | is deprecated in favor of the more       |                                          |
 |                  |                                         |              |              | structured :ref:`multi-xml-hours-open`   |                                          |
 |                  |                                         |              |              | element. It is strongly encouraged that  |                                          |
 |                  |                                         |              |              | data providers move toward contributing  |                                          |
 |                  |                                         |              |              | hours in this format)*.                  |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an                            | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`multi-xml-hours-open` element,     | then the implementation is required to   |
-|                  |                                         |              |              | which lists the hours of operation for a | ignore it.                               |
+| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an                            |                                          |
+|                  |                                         |              |              | :ref:`multi-xml-hours-open` element,     |                                          |
+|                  |                                         |              |              | which lists the hours of operation for a |                                          |
 |                  |                                         |              |              | location.                                |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LatLng           | :ref:`multi-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
-|                  |                                         |              |              | this entity.                             | present, then the implementation is      |
-|                  |                                         |              |              |                                          | required to ignore it.                   |
+| LatLng           | :ref:`multi-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  |                                          |
+|                  |                                         |              |              | this entity.                             |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`See usage note.                    | then the implementation is required to   |
-|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
+| Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     |                                          |
+|                  |                                         |              |              | :ref:`See usage note.                    |                                          |
+|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Phone            | ``xs:string``                           | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
-|                  |                                         |              |              |                                          | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Phone            | ``xs:string``                           | Optional     | Repeats      | A phone number for the contact.          |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Uri              | ``xs:anyURI``                           | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
-|                  |                                         |              |              | location.                                | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Uri              | ``xs:anyURI``                           | Optional     | Repeats      | An informational URI for the contact or  |                                          |
+|                  |                                         |              |              | location.                                |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _multi-xml-name-address-line-usage:

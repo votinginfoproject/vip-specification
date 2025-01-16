@@ -13,9 +13,8 @@ ballot in the proper order.
 +---------------------------+---------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
 | Tag                       | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                                  |
 +===========================+===============+==============+==============+==========================================+=================================================+
-| ContestId                 | ``xs:IDREF``  | **Required** | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
-|                           |               |              |              | :ref:`multi-xml-contest-base`.           | implementation is required to ignore the        |
-|                           |               |              |              |                                          | ``OrderedContest`` element containing it.       |
+| ContestId                 | ``xs:IDREF``  | **Required** | Single       | Links to elements that extend            |                                                 |
+|                           |               |              |              | :ref:`multi-xml-contest-base`.           |                                                 |
 +---------------------------+---------------+--------------+--------------+------------------------------------------+-------------------------------------------------+
 | OrderedBallotSelectionIds | ``xs:IDREFS`` | Optional     | Single       | Links to elements that extend            | If the field is invalid or not present, the     |
 |                           |               |              |              | :ref:`multi-xml-ballot-selection-base`.  | implementation is required to ignore it. If an  |

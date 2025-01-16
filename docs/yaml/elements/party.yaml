@@ -34,21 +34,18 @@ tags:
   csv-header-name: abbreviation
   csv-type: xs:string
   description: An abbreviation for the party name.
-  error_then: =must-ignore
   type: xs:string
 - _name: Color
   csv-header-name: color
   csv-type: HtmlColorString
   description: The preferred display color for the party, for use in maps and other
     displays.
-  error_then: =must-ignore
   type: HtmlColorString
 - _name: ExternalIdentifiers
   csv-header-name: external_identifiers
   csv-type: ExternalIdentifiers
   description: Other identifiers that link this party to other related data sets (e.g.
     a campaign finance system, etc).
-  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: IsWriteIn
   csv-header-name: is_write_in
@@ -57,25 +54,21 @@ tags:
     by a local, state, or federal organization, or is a "write-in" in jurisdictions
     which allow candidates to free-form enter their political affiliation. If this
     field is not present then it is assumed to be false.
-  error_then: =must-ignore
   type: xs:boolean
 - _name: LeaderPersonIds
   csv-header-name: leader_person_ids
   csv-type: xs:IDREFS
   description: A reference of :ref:`$$$-person` elements which are leaders of the
     `Party`.
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: LogoUri
   csv-header-name: logo_uri
   csv-type: xs:anyURI
   description: Web address of a logo to use in displays.
-  error_then: =must-ignore
   type: xs:anyURI
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
   description: The name of the party.
-  error_then: =must-ignore
   required: true
   type: InternationalizedText

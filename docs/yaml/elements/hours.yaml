@@ -11,11 +11,9 @@ tags:
   csv-header-name: start_time
   csv-type: TimeWithZone
   description: The time at which this place opens.
-  error_then: =must-ignore
   type: TimeWithZone
 - _name: EndTime
   csv-header-name: end_time
   csv-type: TimeWithZone
   description: The time at which this place closes.
-  error_then: =must-ignore
   type: TimeWithZone
