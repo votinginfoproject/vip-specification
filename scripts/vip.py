@@ -1,38 +1,22 @@
 """
 Entry point for the reST script for VIP contributors.
 
-Script usage:
-
-From the repository root (using Python 3.4 or above):
-
-  $ python scripts/vip.py -h
-
 reStructuredText (aka reST) [1] is a markup language used for
 documentation.  VIP uses reST for its documentation.
 
 This script is mainly for auto-generating much of the reST markup
-(especially the reST that involve tables).  The script generates the
-reST from configuration files that are in a format called YAML [2]
-(specifically YAML 1.1 [3]).  YAML files are much easier to edit and
-manipulate than reST when tables are involved.  The YAML can also be
-thought of as at part of the VIP documentation in an "open data" format,
-since the YAML represents tabular data stored in a structured,
-machine-readable form.
+(especially the reST that involve tables).
 
 
 [1] reST: http://docutils.sourceforge.net/rst.html
-[2] YAML: http://yaml.org/
-[3] YAML 1.1: http://yaml.org/spec/1.1/
 
 """
 
 import argparse
 import logging
 import os
-import subprocess
 import sys
 import textwrap
-
 from vippy import common
 from vippy.common import XML_DIR
 from vippy import rest
