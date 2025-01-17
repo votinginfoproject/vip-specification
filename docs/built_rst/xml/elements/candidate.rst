@@ -12,50 +12,47 @@ object. Candidate objects may **not** be reused between Contests.
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                                       | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+=================================================+==============+==============+==========================================+==========================================+
-| BallotName          | :ref:`multi-xml-internationalized-text`         | **Required** | Single       | The candidate's name as it will be       | If the element is invalid, then the      |
-|                     |                                                 |              |              | displayed on the official ballot (e.g.   | implementation is required to ignore the |
-|                     |                                                 |              |              | "Ken T. Cuccinelli II").                 | ``Candidate`` element containing it.     |
+| BallotName          | :ref:`multi-xml-internationalized-text`         | **Required** | Single       | The candidate's name as it will be       |                                          |
+|                     |                                                 |              |              | displayed on the official ballot (e.g.   |                                          |
+|                     |                                                 |              |              | "Ken T. Cuccinelli II").                 |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ContactInformation  | :ref:`multi-xml-contact-information`            | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
-|                     |                                                 |              |              | for this Candidate and/or their campaign | present, then the implementation is      |
-|                     |                                                 |              |              | (see                                     | required to ignore it.                   |
+| ContactInformation  | :ref:`multi-xml-contact-information`            | Optional     | Single       | Contact and physical address information |                                          |
+|                     |                                                 |              |              | for this Candidate and/or their campaign |                                          |
+|                     |                                                 |              |              | (see                                     |                                          |
 |                     |                                                 |              |              | :ref:`multi-xml-contact-information`).   |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers | :ref:`multi-xml-external-identifiers`           | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
-|                     |                                                 |              |              | links to another source of information   | present, then the implementation is      |
-|                     |                                                 |              |              | (e.g. a campaign committee ID that links | required to ignore it.                   |
+| ExternalIdentifiers | :ref:`multi-xml-external-identifiers`           | Optional     | Single       | Another identifier for a candidate that  |                                          |
+|                     |                                                 |              |              | links to another source of information   |                                          |
+|                     |                                                 |              |              | (e.g. a campaign committee ID that links |                                          |
 |                     |                                                 |              |              | to a campaign finance system).           |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FileDate            | ``xs:date``                                     | Optional     | Single       | Date when the candidate filed for the    | If the field is invalid or not present,  |
-|                     |                                                 |              |              | contest.                                 | then the implementation is required to   |
-|                     |                                                 |              |              |                                          | ignore it.                               |
+| FileDate            | ``xs:date``                                     | Optional     | Single       | Date when the candidate filed for the    |                                          |
+|                     |                                                 |              |              | contest.                                 |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsIncumbent         | ``xs:boolean``                                  | Optional     | Single       | Indicates whether the candidate is the   | If the field is invalid or not present,  |
-|                     |                                                 |              |              | incumbent for the office associated with | then the implementation is required to   |
-|                     |                                                 |              |              | the contest.                             | ignore it.                               |
+| IsIncumbent         | ``xs:boolean``                                  | Optional     | Single       | Indicates whether the candidate is the   |                                          |
+|                     |                                                 |              |              | incumbent for the office associated with |                                          |
+|                     |                                                 |              |              | the contest.                             |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsTopTicket         | ``xs:boolean``                                  | Optional     | Single       | Indicates whether the candidate is the   | If the field is invalid or not present,  |
-|                     |                                                 |              |              | top of a ticket that includes multiple   | then the implementation is required to   |
-|                     |                                                 |              |              | candidates.                              | ignore it.                               |
+| IsTopTicket         | ``xs:boolean``                                  | Optional     | Single       | Indicates whether the candidate is the   |                                          |
+|                     |                                                 |              |              | top of a ticket that includes multiple   |                                          |
+|                     |                                                 |              |              | candidates.                              |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PartyId             | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-party`    | If the field is invalid or not present,  |
-|                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
-|                     |                                                 |              |              | about the candidate's affiliated party.  | ignore it.                               |
+| PartyId             | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-party`    |                                          |
+|                     |                                                 |              |              | element with additional information      |                                          |
+|                     |                                                 |              |              | about the candidate's affiliated party.  |                                          |
 |                     |                                                 |              |              | This is the party affiliation that is    |                                          |
 |                     |                                                 |              |              | intended to be presented as part of      |                                          |
 |                     |                                                 |              |              | ballot information.                      |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-person`   | If the field is invalid or not present,  |
-|                     |                                                 |              |              | element with additional information      | then the implementation is required to   |
-|                     |                                                 |              |              | about the candidate.                     | ignore it.                               |
+| PersonId            | ``xs:IDREF``                                    | Optional     | Single       | Reference to a :ref:`multi-xml-person`   |                                          |
+|                     |                                                 |              |              | element with additional information      |                                          |
+|                     |                                                 |              |              | about the candidate.                     |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PostElectionStatus  | :ref:`multi-xml-candidate-post-election-status` | Optional     | Single       | Final status of the candidate (e.g.      | If the field is invalid or not present,  |
-|                     |                                                 |              |              | winner, withdrawn, etc...).              | then the implementation is required to   |
-|                     |                                                 |              |              |                                          | ignore it.                               |
+| PostElectionStatus  | :ref:`multi-xml-candidate-post-election-status` | Optional     | Single       | Final status of the candidate (e.g.      |                                          |
+|                     |                                                 |              |              | winner, withdrawn, etc...).              |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PreElectionStatus   | :ref:`multi-xml-candidate-pre-election-status`  | Optional     | Single       | Registration status of the candidate     | If the field is invalid or not present,  |
-|                     |                                                 |              |              | (e.g. filed, qualified, etc...).         | then the implementation is required to   |
-|                     |                                                 |              |              |                                          | ignore it.                               |
+| PreElectionStatus   | :ref:`multi-xml-candidate-pre-election-status`  | Optional     | Single       | Registration status of the candidate     |                                          |
+|                     |                                                 |              |              | (e.g. filed, qualified, etc...).         |                                          |
 +---------------------+-------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

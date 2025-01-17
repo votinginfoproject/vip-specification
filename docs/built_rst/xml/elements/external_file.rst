@@ -11,13 +11,10 @@ External files are packaged along with the VIP feed into a single, archived file
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===========================+==============+==============+==========================================+==========================================+
-| FileUri      | ``xs:anyURI``             | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
-|              |                           |              |              |                                          | implementation is required to ignore the |
-|              |                           |              |              |                                          | ``ExternalFile`` element containing it.  |
+| FileUri      | ``xs:anyURI``             | **Required** | Single       | The URI of the external file.            |                                          |
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Checksum     | :ref:`multi-xml-checksum` | **Required** | Single       | The cryptographic checksum of the        | If the element is invalid, then the      |
-|              |                           |              |              | referenced external file.                | implementation is required to ignore the |
-|              |                           |              |              |                                          | ``ExternalFile`` element containing it.  |
+| Checksum     | :ref:`multi-xml-checksum` | **Required** | Single       | The cryptographic checksum of the        |                                          |
+|              |                           |              |              | referenced external file.                |                                          |
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -43,13 +40,12 @@ the raw checksum value and the cryptographic hash algorithm used to compute it.
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                           | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+=====================================+==============+==============+==========================================+==========================================+
-| Algorithm    | :ref:`multi-xml-checksum-algorithm` | **Required** | Single       | The cryptographic hash algorithm used to | If the field is invalid, then the        |
-|              |                                     |              |              | compute the checksum value.              | implementation is required to ignore the |
-|              |                                     |              |              |                                          | ``Checksum`` element containing it.      |
+| Algorithm    | :ref:`multi-xml-checksum-algorithm` | **Required** | Single       | The cryptographic hash algorithm used to |                                          |
+|              |                                     |              |              | compute the checksum value.              |                                          |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Value        | ``xs:string``                       | **Required** | Single       | The raw cryptographic checksum value     | If the field is invalid, then the        |
-|              |                                     |              |              | encoded as a non-delimited, lowercase    | implementation is required to ignore the |
-|              |                                     |              |              | hexadecimal string.                      | ``Checksum`` element containing it.      |
+| Value        | ``xs:string``                       | **Required** | Single       | The raw cryptographic checksum value     |                                          |
+|              |                                     |              |              | encoded as a non-delimited, lowercase    |                                          |
+|              |                                     |              |              | hexadecimal string.                      |                                          |
 +--------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

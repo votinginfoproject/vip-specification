@@ -10,37 +10,33 @@ This element describes a political party and the metadata associated with them. 
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+=========================================+==============+==============+==========================================+==========================================+
-| Abbreviation        | ``xs:string``                           | Optional     | Single       | An abbreviation for the party name.      | If the field is invalid or not present,  |
-|                     |                                         |              |              |                                          | then the implementation is required to   |
-|                     |                                         |              |              |                                          | ignore it.                               |
+| Abbreviation        | ``xs:string``                           | Optional     | Single       | An abbreviation for the party name.      |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Color               | :ref:`multi-xml-html-color-string`      | Optional     | Single       | The preferred display color for the      | If the element is invalid or not         |
-|                     |                                         |              |              | party, for use in maps and other         | present, then the implementation is      |
-|                     |                                         |              |              | displays.                                | required to ignore it.                   |
+| Color               | :ref:`multi-xml-html-color-string`      | Optional     | Single       | The preferred display color for the      |                                          |
+|                     |                                         |              |              | party, for use in maps and other         |                                          |
+|                     |                                         |              |              | displays.                                |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this party   | If the element is invalid or not         |
-|                     |                                         |              |              | to other related data sets (e.g. a       | present, then the implementation is      |
-|                     |                                         |              |              | campaign finance system, etc).           | required to ignore it.                   |
+| ExternalIdentifiers | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers that link this party   |                                          |
+|                     |                                         |              |              | to other related data sets (e.g. a       |                                          |
+|                     |                                         |              |              | campaign finance system, etc).           |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsWriteIn           | ``xs:boolean``                          | Optional     | Single       | Signals if this political party is one   | If the field is invalid or not present,  |
-|                     |                                         |              |              | that is officially recognized by a       | then the implementation is required to   |
-|                     |                                         |              |              | local, state, or federal organization,   | ignore it.                               |
+| IsWriteIn           | ``xs:boolean``                          | Optional     | Single       | Signals if this political party is one   |                                          |
+|                     |                                         |              |              | that is officially recognized by a       |                                          |
+|                     |                                         |              |              | local, state, or federal organization,   |                                          |
 |                     |                                         |              |              | or is a "write-in" in jurisdictions      |                                          |
 |                     |                                         |              |              | which allow candidates to free-form      |                                          |
 |                     |                                         |              |              | enter their political affiliation. If    |                                          |
 |                     |                                         |              |              | this field is not present then it is     |                                          |
 |                     |                                         |              |              | assumed to be false.                     |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LeaderPersonIds     | ``xs:IDREFS``                           | Optional     | Single       | A reference of :ref:`multi-xml-person`   | If the field is invalid or not present,  |
-|                     |                                         |              |              | elements which are leaders of the        | then the implementation is required to   |
-|                     |                                         |              |              | `Party`.                                 | ignore it.                               |
+| LeaderPersonIds     | ``xs:IDREFS``                           | Optional     | Single       | A reference of :ref:`multi-xml-person`   |                                          |
+|                     |                                         |              |              | elements which are leaders of the        |                                          |
+|                     |                                         |              |              | `Party`.                                 |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LogoUri             | ``xs:anyURI``                           | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
-|                     |                                         |              |              | displays.                                | then the implementation is required to   |
-|                     |                                         |              |              |                                          | ignore it.                               |
+| LogoUri             | ``xs:anyURI``                           | Optional     | Single       | Web address of a logo to use in          |                                          |
+|                     |                                         |              |              | displays.                                |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                | :ref:`multi-xml-internationalized-text` | **Required** | Single       | The name of the party.                   | If the element is invalid, then the      |
-|                     |                                         |              |              |                                          | implementation is required to ignore it. |
+| Name                | :ref:`multi-xml-internationalized-text` | **Required** | Single       | The name of the party.                   |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

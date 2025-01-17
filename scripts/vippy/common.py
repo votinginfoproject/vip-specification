@@ -1,10 +1,9 @@
 from contextlib import contextmanager
-from pprint import pformat, pprint
+from pprint import pformat
 import copy
 import logging
 import os.path
 import yaml
-from vippy.error_handler import get_complete_error_statement
 
 _log = logging.getLogger()
 
@@ -199,8 +198,10 @@ def get_tag_value(all_types, tag_data, key):
     Return the "pre-conversion" value to put in a cell of a reST table.
     """
     if key == "error_handling":
-        is_required = get_simple_tag_value(tag_data, "required")
-        value = get_complete_error_statement(all_types, tag_data, is_required)
+        if "error" in tag_data:
+            value = tag_data["error"]
+        else:
+            value = ""
     else:
         value = get_simple_tag_value(tag_data, key)
 

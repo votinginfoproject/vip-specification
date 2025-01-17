@@ -20,7 +20,6 @@ tags:
   csv-type: ContactInformation
   description: Contact and physical address information for the election administration
     body (see :ref:`$$$-contact-information`).
-  error_then: =must-ignore
   skip_on: csv
   type: ContactInformation
 - _name: ElectionOfficialPersonId
@@ -28,20 +27,17 @@ tags:
   csv-type: xs:IDREF
   description: The individual to contact at the election administration office. The
     specified person should be the :ref:`election official <$$$-person>`.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: VoterService
   csv-header-name: voter_service
   csv-type: VoterService
   description: The types of services and appropriate contact individual available
     to voters.
-  error_then: =must-ignore
   repeating: true
   type: VoterService
 - _name: ElectionAdministrationId
   csv-header-name: election_administration_id
   csv-type: xs:IDREF
   description: The election administration that the department is a part of.
-  error_then: =must-ignore
   skip_on: xml
   type: xs:IDREF

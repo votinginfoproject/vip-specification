@@ -8,21 +8,18 @@ voter_service
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                         | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=============================+======================================+==============+==============+==========================================+==========================================+
-| description                 | ``xs:string``                        | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
-|                             |                                      |              |              | available.                               | present, then the implementation is      |
-|                             |                                      |              |              |                                          | required to ignore it.                   |
+| description                 | ``xs:string``                        | Optional     | Single       | Long description of the services         |                                          |
+|                             |                                      |              |              | available.                               |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| election_official_person_id | ``xs:IDREF``                         | Optional     | Single       | The :ref:`authority <multi-csv-person>`  | If the field is invalid or not present,  |
-|                             |                                      |              |              | for a particular voter service.          | then the implementation is required to   |
-|                             |                                      |              |              |                                          | ignore it.                               |
+| election_official_person_id | ``xs:IDREF``                         | Optional     | Single       | The :ref:`authority <multi-csv-person>`  |                                          |
+|                             |                                      |              |              | for a particular voter service.          |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| type                        | :ref:`multi-csv-voter-service-type`  | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
-|                             |                                      |              |              | <multi-csv-voter-service-type>`.         | then the implementation is required to   |
-|                             |                                      |              |              |                                          | ignore it.                               |
+| type                        | :ref:`multi-csv-voter-service-type`  | Optional     | Single       | The type of :ref:`voter service          |                                          |
+|                             |                                      |              |              | <multi-csv-voter-service-type>`.         |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type                  | ``xs:string``                        | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
-|                             |                                      |              |              | cataloging another type of voter         | then the implementation is required to   |
-|                             |                                      |              |              | service.                                 | ignore it.                               |
+| other_type                  | ``xs:string``                        | Optional     | Single       | If Type is "other", OtherType allows for |                                          |
+|                             |                                      |              |              | cataloging another type of voter         |                                          |
+|                             |                                      |              |              | service.                                 |                                          |
 +-----------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

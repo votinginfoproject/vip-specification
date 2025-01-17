@@ -17,31 +17,26 @@ tags:
   csv-header-name: contact_information
   csv-type: ContactInformation
   description: The contact for a particular voter service.
-  error_then: =must-ignore
   skip_on: csv
   type: ContactInformation
 - _name: Description
   csv-header-name: description
   csv-type: xs:string
   description: Long description of the services available.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: ElectionOfficialPersonId
   csv-header-name: election_official_person_id
   csv-type: xs:IDREF
   description: The :ref:`authority <$$$-person>` for a particular voter service.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: Type
   csv-header-name: type
   csv-type: VoterServiceType
   description: The type of :ref:`voter service <$$$-voter-service-type>`.
-  error_then: =must-ignore
   type: VoterServiceType
 - _name: OtherType
   csv-header-name: other_type
   csv-type: xs:string
   description: If Type is "other", OtherType allows for cataloging another type of
     voter service.
-  error_then: =must-ignore
   type: xs:string

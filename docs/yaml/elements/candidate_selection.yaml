@@ -29,19 +29,16 @@ tags:
   description: References a set of :ref:`$$$-candidate` elements. The number of candidates
     that can be references is unbounded in cases where the ballot selection is for
     a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: EndorsementPartyIds
   csv-header-name: endorsement_party_ids
   csv-type: xs:IDREFS
   description: References a set of :ref:`$$$-party` elements, which signifies one
     or more endorsing parties for the candidate(s).
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: IsWriteIn
   csv-header-name: is_write_in
   csv-type: xs:boolean
   description: Signifies if the particular ballot selection allows for write-in candidates.
     If true, one or more write-in candidates are allowed for this contest.
-  error_then: =must-ignore
   type: xs:boolean

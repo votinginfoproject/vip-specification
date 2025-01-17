@@ -15,54 +15,45 @@ organizations, etc. ContactInformation is always a sub-element of another object
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag           | Data Type                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===============+==========================+==============+==============+==========================================+==========================================+
-| address_line  | ``xs:string``            | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
-|               |                          |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
-|               |                          |              |              | <multi-csv-name-address-line-usage>`     | ignore it.                               |
+| address_line  | ``xs:string``            | Optional     | Repeats      | The "location" portion of a mailing      |                                          |
+|               |                          |              |              | address. :ref:`See usage note.           |                                          |
+|               |                          |              |              | <multi-csv-name-address-line-usage>`     |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| directions    | ``xs:string``            | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
-|               |                          |              |              | locating this entity.                    | present, then the implementation is      |
-|               |                          |              |              |                                          | required to ignore it.                   |
+| directions    | ``xs:string``            | Optional     | Single       | Specifies further instructions for       |                                          |
+|               |                          |              |              | locating this entity.                    |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| email         | ``xs:string``            | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
-|               |                          |              |              |                                          | then the implementation is required to   |
-|               |                          |              |              |                                          | ignore it.                               |
+| email         | ``xs:string``            | Optional     | Repeats      | An email address for the contact.        |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| fax           | ``xs:string``            | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
-|               |                          |              |              |                                          | then the implementation is required to   |
-|               |                          |              |              |                                          | ignore it.                               |
+| fax           | ``xs:string``            | Optional     | Repeats      | A fax line for the contact.              |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours         | ``xs:string``            | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-|               |                          |              |              | the location is open *(NB: this element  | present, then the implementation is      |
-|               |                          |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+| hours         | ``xs:string``            | Optional     | Single       | Contains the hours (in local time) that  |                                          |
+|               |                          |              |              | the location is open *(NB: this element  |                                          |
+|               |                          |              |              | is deprecated in favor of the more       |                                          |
 |               |                          |              |              | structured :ref:`multi-csv-hours-open`   |                                          |
 |               |                          |              |              | element. It is strongly encouraged that  |                                          |
 |               |                          |              |              | data providers move toward contributing  |                                          |
 |               |                          |              |              | hours in this format)*.                  |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_id | ``xs:IDREF``             | Optional     | Single       | References an                            | If the field is invalid or not present,  |
-|               |                          |              |              | :ref:`multi-csv-hours-open` element,     | then the implementation is required to   |
-|               |                          |              |              | which lists the hours of operation for a | ignore it.                               |
+| hours_open_id | ``xs:IDREF``             | Optional     | Single       | References an                            |                                          |
+|               |                          |              |              | :ref:`multi-csv-hours-open` element,     |                                          |
+|               |                          |              |              | which lists the hours of operation for a |                                          |
 |               |                          |              |              | location.                                |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| lat_long      | :ref:`multi-csv-lat-lng` | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
-|               |                          |              |              | this entity.                             | present, then the implementation is      |
-|               |                          |              |              |                                          | required to ignore it.                   |
+| lat_long      | :ref:`multi-csv-lat-lng` | Optional     | Single       | Specifies the latitude and longitude of  |                                          |
+|               |                          |              |              | this entity.                             |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name          | ``xs:string``            | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
-|               |                          |              |              | :ref:`See usage note.                    | then the implementation is required to   |
-|               |                          |              |              | <multi-csv-name-address-line-usage>`     | ignore it.                               |
+| name          | ``xs:string``            | Optional     | Single       | The name of the location or contact.     |                                          |
+|               |                          |              |              | :ref:`See usage note.                    |                                          |
+|               |                          |              |              | <multi-csv-name-address-line-usage>`     |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| phone         | ``xs:string``            | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
-|               |                          |              |              |                                          | then the implementation is required to   |
-|               |                          |              |              |                                          | ignore it.                               |
+| phone         | ``xs:string``            | Optional     | Repeats      | A phone number for the contact.          |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| uri           | ``xs:anyURI``            | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
-|               |                          |              |              | location.                                | then the implementation is required to   |
-|               |                          |              |              |                                          | ignore it.                               |
+| uri           | ``xs:anyURI``            | Optional     | Repeats      | An informational URI for the contact or  |                                          |
+|               |                          |              |              | location.                                |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| parent_id     | ``xs:IDREF``             | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
-|               |                          |              |              | department, voter_service, candidate,    | then the implementation is required to   |
-|               |                          |              |              | person, or office.                       | ignore it.                               |
+| parent_id     | ``xs:IDREF``             | Optional     | Repeats      | A reference to a record in source,       |                                          |
+|               |                          |              |              | department, voter_service, candidate,    |                                          |
+|               |                          |              |              | person, or office.                       |                                          |
 +---------------+--------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

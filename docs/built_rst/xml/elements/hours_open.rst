@@ -37,31 +37,28 @@ describing whether or not appointments are necessary or possible.
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type              | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+========================+==============+==============+==========================================+==========================================+
-| Hours               | :ref:`multi-xml-hours` | Optional     | Repeats      | Blocks of hours in the date range in     | If the element is invalid or not         |
-|                     |                        |              |              | which the place is open.                 | present, then the implementation is      |
-|                     |                        |              |              |                                          | required to ignore it.                   |
+| Hours               | :ref:`multi-xml-hours` | Optional     | Repeats      | Blocks of hours in the date range in     |                                          |
+|                     |                        |              |              | which the place is open.                 |                                          |
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsOnlyByAppointment | ``xs:boolean``         | Optional     | Single       | If true, the place is only open during   | If the field is invalid or not present,  |
-|                     |                        |              |              | the specified time window with an        | then the implementation is required to   |
-|                     |                        |              |              | appointment.                             | ignore it.                               |
+| IsOnlyByAppointment | ``xs:boolean``         | Optional     | Single       | If true, the place is only open during   |                                          |
+|                     |                        |              |              | the specified time window with an        |                                          |
+|                     |                        |              |              | appointment.                             |                                          |
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsOrByAppointment   | ``xs:boolean``         | Optional     | Single       | If true, the place is open during the    | If the field is invalid or not present,  |
-|                     |                        |              |              | hours specified time window and may also | then the implementation is required to   |
-|                     |                        |              |              | be open with an appointment.             | ignore it.                               |
+| IsOrByAppointment   | ``xs:boolean``         | Optional     | Single       | If true, the place is open during the    |                                          |
+|                     |                        |              |              | hours specified time window and may also |                                          |
+|                     |                        |              |              | be open with an appointment.             |                                          |
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsSubjectToChange   | ``xs:boolean``         | Optional     | Single       | If true, the place should be open during | If the field is invalid or not present,  |
-|                     |                        |              |              | the specified time window, but may be    | then the implementation is required to   |
-|                     |                        |              |              | subject to change. People should contact | ignore it.                               |
+| IsSubjectToChange   | ``xs:boolean``         | Optional     | Single       | If true, the place should be open during |                                          |
+|                     |                        |              |              | the specified time window, but may be    |                                          |
+|                     |                        |              |              | subject to change. People should contact |                                          |
 |                     |                        |              |              | prior to arrival to confirm hours are    |                                          |
 |                     |                        |              |              | still accurate.                          |                                          |
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| StartDate           | ``xs:date``            | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                     |                        |              |              | start and end times and options begin.   | then the implementation is required to   |
-|                     |                        |              |              |                                          | ignore it.                               |
+| StartDate           | ``xs:date``            | Optional     | Single       | The date at which this collection of     |                                          |
+|                     |                        |              |              | start and end times and options begin.   |                                          |
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndDate             | ``xs:date``            | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                     |                        |              |              | start and end times and options end.     | then the implementation is required to   |
-|                     |                        |              |              |                                          | ignore it.                               |
+| EndDate             | ``xs:date``            | Optional     | Single       | The date at which this collection of     |                                          |
+|                     |                        |              |              | start and end times and options end.     |                                          |
 +---------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
@@ -76,13 +73,9 @@ including a timezone offset from UTC.
 +--------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                       | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+=================================+==============+==============+==========================================+==========================================+
-| StartTime    | :ref:`multi-xml-time-with-zone` | Optional     | Single       | The time at which this place opens.      | If the element is invalid or not         |
-|              |                                 |              |              |                                          | present, then the implementation is      |
-|              |                                 |              |              |                                          | required to ignore it.                   |
+| StartTime    | :ref:`multi-xml-time-with-zone` | Optional     | Single       | The time at which this place opens.      |                                          |
 +--------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndTime      | :ref:`multi-xml-time-with-zone` | Optional     | Single       | The time at which this place closes.     | If the element is invalid or not         |
-|              |                                 |              |              |                                          | present, then the implementation is      |
-|              |                                 |              |              |                                          | required to ignore it.                   |
+| EndTime      | :ref:`multi-xml-time-with-zone` | Optional     | Single       | The time at which this place closes.     |                                          |
 +--------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 

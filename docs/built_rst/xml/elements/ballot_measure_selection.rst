@@ -12,10 +12,8 @@ BallotMeasureSelection extends :ref:`multi-xml-ballot-selection-base`.
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+=========================================+==============+==============+==========================================+==========================================+
-| Selection    | :ref:`multi-xml-internationalized-text` | **Required** | Single       | Selection text for a                     | If the element is invalid or not         |
-|              |                                         |              |              | :ref:`multi-xml-ballot-measure-contest`  | present, the implementation is required  |
-|              |                                         |              |              |                                          | to ignore the BallotMeasureSelection     |
-|              |                                         |              |              |                                          | containing it.                           |
+| Selection    | :ref:`multi-xml-internationalized-text` | **Required** | Single       | Selection text for a                     |                                          |
+|              |                                         |              |              | :ref:`multi-xml-ballot-measure-contest`  |                                          |
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -47,9 +45,9 @@ A base model for all ballot selection types:
 +---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===============+================+==============+==============+==========================================+==========================================+
-| SequenceOrder | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
-|               |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
-|               |                |              |              | is the default ordering, and can be      | ignore it.                               |
+| SequenceOrder | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    |                                          |
+|               |                |              |              | listed on the ballot or in results. This |                                          |
+|               |                |              |              | is the default ordering, and can be      |                                          |
 |               |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
 |               |                |              |              | in :ref:`multi-xml-ordered-contest`.     |                                          |
 +---------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+

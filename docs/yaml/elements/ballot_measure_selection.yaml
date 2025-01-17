@@ -35,7 +35,5 @@ tags:
   csv-header-name: selection
   csv-type: xs:string
   description: Selection text for a :ref:`$$$-ballot-measure-contest`
-  error: If the element is invalid or not present, the implementation is required
-    to ignore the BallotMeasureSelection containing it.
   required: true
   type: InternationalizedText

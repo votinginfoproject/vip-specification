@@ -21,7 +21,6 @@ tags:
   csv-type: xs:IDREF
   description: Links to the :ref:`$$$-contact-information` element associated with
     the office.
-  error_then: =must-ignore
   repeating: true
   skip_on: csv
   type: ContactInformation
@@ -29,43 +28,35 @@ tags:
   csv-header-name: description
   csv-type: xs:string
   description: A brief description of the office and its purpose.
-  error_then: =must-ignore
   type: InternationalizedText
 - _name: ElectoralDistrictId
   csv-header-name: electoral_district_id
   csv-type: xs:IDREF
   description: Links to the :ref:`$$$-electoral-district` element associated with
     the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``Office`` element containing it.
   required: true
   type: xs:IDREF
 - _name: ExternalIdentifiers
   csv-header-name: external_identifiers
   csv-type: xs:IDREF
   description: Other identifiers that link this office to other related datasets (e.g.
-    campaign finance systems, OCD IDs, et al.).
-  error_then: =must-ignore
+    campaign finance systems, OCD IDs, et al.). 
   type: ExternalIdentifiers
 - _name: FilingDeadline
   csv-header-name: filing_deadline
   csv-type: xs:date
   description: Specifies the date and time when a candidate must have filed for the
     contest for the office.
-  error_then: =must-ignore
   type: xs:date
 - _name: IsPartisan
   csv-header-name: is_partisan
   csv-type: xs:boolean
   description: Indicates whether the office is partisan.
-  error_then: =must-ignore
   type: xs:boolean
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
   description: The name of the office.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore the ``Office`` element containing it.
   required: true
   type: InternationalizedText
 - _name: OfficeHolderPersonIds
@@ -73,11 +64,9 @@ tags:
   csv-type: xs:IDREFS
   description: Links to the :ref:`$$$-person` element(s) that hold additional information
     about the current office holder(s).
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: Term
   csv-header-name: term
   csv-type: Term
   description: Defines the term the office can be held.
-  error_then: =must-ignore
   type: Term

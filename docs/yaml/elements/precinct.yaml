@@ -79,7 +79,6 @@ tags:
   csv-type: xs:IDREF
   description: Links to the :ref:`$$$-ballot-style`, which a person who lives in this
     precinct will vote.
-  error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictIds
   csv-header-name: electoral_district_ids
@@ -87,14 +86,12 @@ tags:
   description: Links to the :ref:`$$$-electoral-district`s (e.g., congressional district,
     state house district, school board district) to which the entire precinct/precinct
     split belongs. **Highly Recommended** if candidate information is to be provided.
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: ExternalIdentifiers
   csv-header-name: external_identifiers
   csv-type: ExternalIdentifiers
   description: Other identifier for the precinct that relates to another dataset (e.g.
     `OCD-ID`_).
-  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: IsMailOnly
   csv-header-name: is_mail_only
@@ -121,13 +118,11 @@ tags:
   description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
     are legal). Should be used if the `Name` field is populated by a name and not
     a number.
-  error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
   csv-type: xs:IDREFS
   description: Specifies a link to the precinct's :ref:`$$$-polling-location` object(s).
-  error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrecinctSplitName
   csv-header-name: precinct_split_name
@@ -137,7 +132,6 @@ tags:
     portion of a split precinct. Each `Precinct` object that represents one portion
     of a split precinct **must** have the same `Name` value, but different `PrecinctSplitName`
     values. See the `sample_feed.xml` file for examples.
-  error_then: =must-ignore
   type: xs:string
 - _name: SpatialBoundary
   csv-header-name: spatial_boundary_id
@@ -146,11 +140,9 @@ tags:
     within this boundary are assigned to the precinct. If a voter address also maps
     to a :doc:`StreetSegment <street_segment>`, then the precinct assignment from
     the StreetSegment will be preferred over the assignment from the spatial boundary.
-  error_then: =must-ignore
   type: SpatialBoundary
 - _name: Ward
   csv-header-name: ward
   csv-type: xs:string
   description: Specifies the ward the precinct is contained within.
-  error_then: =must-ignore
   type: xs:string

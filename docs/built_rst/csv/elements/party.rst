@@ -10,37 +10,33 @@ This element describes a political party and the metadata associated with them. 
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                  | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +======================+=======================================+==============+==============+==========================================+==========================================+
-| abbreviation         | ``xs:string``                         | Optional     | Single       | An abbreviation for the party name.      | If the field is invalid or not present,  |
-|                      |                                       |              |              |                                          | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
+| abbreviation         | ``xs:string``                         | Optional     | Single       | An abbreviation for the party name.      |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| color                | :ref:`multi-csv-html-color-string`    | Optional     | Single       | The preferred display color for the      | If the element is invalid or not         |
-|                      |                                       |              |              | party, for use in maps and other         | present, then the implementation is      |
-|                      |                                       |              |              | displays.                                | required to ignore it.                   |
+| color                | :ref:`multi-csv-html-color-string`    | Optional     | Single       | The preferred display color for the      |                                          |
+|                      |                                       |              |              | party, for use in maps and other         |                                          |
+|                      |                                       |              |              | displays.                                |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers | :ref:`multi-csv-external-identifiers` | Optional     | Single       | Other identifiers that link this party   | If the element is invalid or not         |
-|                      |                                       |              |              | to other related data sets (e.g. a       | present, then the implementation is      |
-|                      |                                       |              |              | campaign finance system, etc).           | required to ignore it.                   |
+| external_identifiers | :ref:`multi-csv-external-identifiers` | Optional     | Single       | Other identifiers that link this party   |                                          |
+|                      |                                       |              |              | to other related data sets (e.g. a       |                                          |
+|                      |                                       |              |              | campaign finance system, etc).           |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_write_in          | ``xs:boolean``                        | Optional     | Single       | Signals if this political party is one   | If the field is invalid or not present,  |
-|                      |                                       |              |              | that is officially recognized by a       | then the implementation is required to   |
-|                      |                                       |              |              | local, state, or federal organization,   | ignore it.                               |
+| is_write_in          | ``xs:boolean``                        | Optional     | Single       | Signals if this political party is one   |                                          |
+|                      |                                       |              |              | that is officially recognized by a       |                                          |
+|                      |                                       |              |              | local, state, or federal organization,   |                                          |
 |                      |                                       |              |              | or is a "write-in" in jurisdictions      |                                          |
 |                      |                                       |              |              | which allow candidates to free-form      |                                          |
 |                      |                                       |              |              | enter their political affiliation. If    |                                          |
 |                      |                                       |              |              | this field is not present then it is     |                                          |
 |                      |                                       |              |              | assumed to be false.                     |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| leader_person_ids    | ``xs:IDREFS``                         | Optional     | Single       | A reference of :ref:`multi-csv-person`   | If the field is invalid or not present,  |
-|                      |                                       |              |              | elements which are leaders of the        | then the implementation is required to   |
-|                      |                                       |              |              | `Party`.                                 | ignore it.                               |
+| leader_person_ids    | ``xs:IDREFS``                         | Optional     | Single       | A reference of :ref:`multi-csv-person`   |                                          |
+|                      |                                       |              |              | elements which are leaders of the        |                                          |
+|                      |                                       |              |              | `Party`.                                 |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| logo_uri             | ``xs:anyURI``                         | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
-|                      |                                       |              |              | displays.                                | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
+| logo_uri             | ``xs:anyURI``                         | Optional     | Single       | Web address of a logo to use in          |                                          |
+|                      |                                       |              |              | displays.                                |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                 | ``xs:string``                         | **Required** | Single       | The name of the party.                   | If the element is invalid, then the      |
-|                      |                                       |              |              |                                          | implementation is required to ignore it. |
+| name                 | ``xs:string``                         | **Required** | Single       | The name of the party.                   |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

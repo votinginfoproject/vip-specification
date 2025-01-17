@@ -21,48 +21,46 @@ is assigned to that precinct.
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                  | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
 +======================+=======================================+==============+==============+==========================================+==========================================+
-| BallotStyleId        | ``xs:IDREF``                          | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
-|                      |                                       |              |              | :ref:`multi-xml-ballot-style`, which a   | then the implementation is required to   |
-|                      |                                       |              |              | person who lives in this precinct will   | ignore it.                               |
+| BallotStyleId        | ``xs:IDREF``                          | Optional     | Single       | Links to the                             |                                          |
+|                      |                                       |              |              | :ref:`multi-xml-ballot-style`, which a   |                                          |
+|                      |                                       |              |              | person who lives in this precinct will   |                                          |
 |                      |                                       |              |              | vote.                                    |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictIds | ``xs:IDREFS``                         | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
-|                      |                                       |              |              | :ref:`multi-xml-electoral-district`s     | then the implementation is required to   |
-|                      |                                       |              |              | (e.g., congressional district, state     | ignore it.                               |
+| ElectoralDistrictIds | ``xs:IDREFS``                         | Optional     | Single       | Links to the                             |                                          |
+|                      |                                       |              |              | :ref:`multi-xml-electoral-district`s     |                                          |
+|                      |                                       |              |              | (e.g., congressional district, state     |                                          |
 |                      |                                       |              |              | house district, school board district)   |                                          |
 |                      |                                       |              |              | to which the entire precinct/precinct    |                                          |
 |                      |                                       |              |              | split belongs. **Highly Recommended** if |                                          |
 |                      |                                       |              |              | candidate information is to be provided. |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers  | :ref:`multi-xml-external-identifiers` | Optional     | Single       | Other identifier for the precinct that   | If the element is invalid or not         |
-|                      |                                       |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
-|                      |                                       |              |              | `OCD-ID`_).                              | required to ignore it.                   |
+| ExternalIdentifiers  | :ref:`multi-xml-external-identifiers` | Optional     | Single       | Other identifier for the precinct that   |                                          |
+|                      |                                       |              |              | relates to another dataset (e.g.         |                                          |
+|                      |                                       |              |              | `OCD-ID`_).                              |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsMailOnly           | ``xs:boolean``                        | Optional     | Single       | Determines if the precinct runs          | If the field is missing or invalid, the  |
 |                      |                                       |              |              | mail-only elections.                     | implementation is required to assume     |
 |                      |                                       |              |              |                                          | `IsMailOnly` is false.                   |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LocalityId           | ``xs:IDREF``                          | **Required** | Single       | Links to the :ref:`multi-xml-locality`   | If the field is invalid, then the        |
-|                      |                                       |              |              | that comprises the precinct.             | implementation is required to ignore the |
-|                      |                                       |              |              |                                          | ``Precinct`` element containing it.      |
+| LocalityId           | ``xs:IDREF``                          | **Required** | Single       | Links to the :ref:`multi-xml-locality`   |                                          |
+|                      |                                       |              |              | that comprises the precinct.             |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                 | ``xs:string``                         | **Required** | Single       | Specifies the precinct's name (or number | If the field is invalid, then the        |
-|                      |                                       |              |              | if no name exists).                      | implementation is required to ignore the |
-|                      |                                       |              |              |                                          | ``Precinct`` element containing it.      |
+| Name                 | ``xs:string``                         | **Required** | Single       | Specifies the precinct's name (or number |                                          |
+|                      |                                       |              |              | if no name exists).                      |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Number               | ``xs:string``                         | Optional     | Single       | Specifies the precinct's number (e.g.,   | If the field is invalid or not present,  |
-|                      |                                       |              |              | 32 or 32A -- alpha characters are        | then the implementation is required to   |
-|                      |                                       |              |              | legal). Should be used if the `Name`     | ignore it.                               |
+| Number               | ``xs:string``                         | Optional     | Single       | Specifies the precinct's number (e.g.,   |                                          |
+|                      |                                       |              |              | 32 or 32A -- alpha characters are        |                                          |
+|                      |                                       |              |              | legal). Should be used if the `Name`     |                                          |
 |                      |                                       |              |              | field is populated by a name and not a   |                                          |
 |                      |                                       |              |              | number.                                  |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PollingLocationIds   | ``xs:IDREFS``                         | Optional     | Single       | Specifies a link to the precinct's       | If the field is invalid or not present,  |
-|                      |                                       |              |              | :ref:`multi-xml-polling-location`        | then the implementation is required to   |
-|                      |                                       |              |              | object(s).                               | ignore it.                               |
+| PollingLocationIds   | ``xs:IDREFS``                         | Optional     | Single       | Specifies a link to the precinct's       |                                          |
+|                      |                                       |              |              | :ref:`multi-xml-polling-location`        |                                          |
+|                      |                                       |              |              | object(s).                               |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PrecinctSplitName    | ``xs:string``                         | Optional     | Single       | If this field is empty, then this        | If the field is invalid or not present,  |
-|                      |                                       |              |              | `Precinct` object represents a full      | then the implementation is required to   |
-|                      |                                       |              |              | precinct. If this field is present, then | ignore it.                               |
+| PrecinctSplitName    | ``xs:string``                         | Optional     | Single       | If this field is empty, then this        |                                          |
+|                      |                                       |              |              | `Precinct` object represents a full      |                                          |
+|                      |                                       |              |              | precinct. If this field is present, then |                                          |
 |                      |                                       |              |              | this `Precinct` object represents one    |                                          |
 |                      |                                       |              |              | portion of a split precinct. Each        |                                          |
 |                      |                                       |              |              | `Precinct` object that represents one    |                                          |
@@ -72,9 +70,9 @@ is assigned to that precinct.
 |                      |                                       |              |              | See the `sample_feed.xml` file for       |                                          |
 |                      |                                       |              |              | examples.                                |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| SpatialBoundary      | :ref:`multi-xml-spatial-boundary`     | Optional     | Single       | Defines the spatial boundary of the      | If the element is invalid or not         |
-|                      |                                       |              |              | precinct. All voter addresses contained  | present, then the implementation is      |
-|                      |                                       |              |              | within this boundary are assigned to the | required to ignore it.                   |
+| SpatialBoundary      | :ref:`multi-xml-spatial-boundary`     | Optional     | Single       | Defines the spatial boundary of the      |                                          |
+|                      |                                       |              |              | precinct. All voter addresses contained  |                                          |
+|                      |                                       |              |              | within this boundary are assigned to the |                                          |
 |                      |                                       |              |              | precinct. If a voter address also maps   |                                          |
 |                      |                                       |              |              | to a :doc:`StreetSegment                 |                                          |
 |                      |                                       |              |              | <street_segment>`, then the precinct     |                                          |
@@ -82,9 +80,8 @@ is assigned to that precinct.
 |                      |                                       |              |              | be preferred over the assignment from    |                                          |
 |                      |                                       |              |              | the spatial boundary.                    |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Ward                 | ``xs:string``                         | Optional     | Single       | Specifies the ward the precinct is       | If the field is invalid or not present,  |
-|                      |                                       |              |              | contained within.                        | then the implementation is required to   |
-|                      |                                       |              |              |                                          | ignore it.                               |
+| Ward                 | ``xs:string``                         | Optional     | Single       | Specifies the ward the precinct is       |                                          |
+|                      |                                       |              |              | contained within.                        |                                          |
 +----------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
@@ -147,10 +144,9 @@ The ``SpatialBoundary`` object defines a boundary in space. This boundary is usu
 +---------------------------+----------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                       | Data Type                                    | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===========================+==============================================+==============+==============+==========================================+==========================================+
-| ExternalGeospatialFeature | :ref:`multi-xml-external-geospatial-feature` | **Required** | Single       | The spatial boundary defined by a        | If the element is invalid, then the      |
-|                           |                                              |              |              | geospatial feature that is external to   | implementation is required to ignore the |
-|                           |                                              |              |              | the VIP feed.                            | ``SpatialBoundary`` element containing   |
-|                           |                                              |              |              |                                          | it.                                      |
+| ExternalGeospatialFeature | :ref:`multi-xml-external-geospatial-feature` | **Required** | Single       | The spatial boundary defined by a        |                                          |
+|                           |                                              |              |              | geospatial feature that is external to   |                                          |
+|                           |                                              |              |              | the VIP feed.                            |                                          |
 +---------------------------+----------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -177,20 +173,17 @@ The ``ExternalGeospatialFeature`` object contains a reference to a geospatial fe
 +-------------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type                           | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+=====================================+==============+==============+==========================================+==========================================+
-| ExternalFileId    | ``xs:IDREF``                        | **Required** | Single       | Links to the                             | If the field is invalid, then the        |
-|                   |                                     |              |              | :ref:`multi-xml-external-file`           | implementation is required to ignore the |
-|                   |                                     |              |              | containing the geospatial shape(s) that  | ``ExternalGeospatialFeature`` element    |
-|                   |                                     |              |              | define the feature's boundary.           | containing it.                           |
+| ExternalFileId    | ``xs:IDREF``                        | **Required** | Single       | Links to the                             |                                          |
+|                   |                                     |              |              | :ref:`multi-xml-external-file`           |                                          |
+|                   |                                     |              |              | containing the geospatial shape(s) that  |                                          |
+|                   |                                     |              |              | define the feature's boundary.           |                                          |
 +-------------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FileFormat        | :ref:`multi-xml-geospatial-format`  | **Required** | Single       | The format of the geospatial file.       | If the field is invalid, then the        |
-|                   |                                     |              |              |                                          | implementation is required to ignore the |
-|                   |                                     |              |              |                                          | ``ExternalGeospatialFeature`` element    |
-|                   |                                     |              |              |                                          | containing it.                           |
+| FileFormat        | :ref:`multi-xml-geospatial-format`  | **Required** | Single       | The format of the geospatial file.       |                                          |
 +-------------------+-------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FeatureIdentifier | :ref:`multi-xml-feature-identifier` | **Required** | Repeats      | Identifiers indicating which specific    | If the element is invalid, then the      |
-|                   |                                     |              |              | shape(s) to use from the geospatial      | implementation is required to ignore the |
-|                   |                                     |              |              | file. These refer to identifiers within  | ``ExternalGeospatialFeature`` element    |
-|                   |                                     |              |              | the referenced external file. This is a  | containing it.                           |
+| FeatureIdentifier | :ref:`multi-xml-feature-identifier` | **Required** | Repeats      | Identifiers indicating which specific    |                                          |
+|                   |                                     |              |              | shape(s) to use from the geospatial      |                                          |
+|                   |                                     |              |              | file. These refer to identifiers within  |                                          |
+|                   |                                     |              |              | the referenced external file. This is a  |                                          |
 |                   |                                     |              |              | repeated field in the XML specification, |                                          |
 |                   |                                     |              |              | but a scalar field in the CSV            |                                          |
 |                   |                                     |              |              | specification. If more than one          |                                          |
@@ -208,7 +201,6 @@ FeatureIdentifier
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+==============+==============+==============+==========================================+==========================================+
-| Index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |              |              |              | feature.                                 | then the implementation is required to   |
-|              |              |              |              |                                          | ignore it.                               |
+| Index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        |                                          |
+|              |              |              |              | feature.                                 |                                          |
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+

@@ -12,10 +12,8 @@ BallotMeasureSelection extends :ref:`multi-csv-ballot-selection-base`.
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| selection    | ``xs:string`` | **Required** | Single       | Selection text for a                     | If the element is invalid or not         |
-|              |               |              |              | :ref:`multi-csv-ballot-measure-contest`  | present, the implementation is required  |
-|              |               |              |              |                                          | to ignore the BallotMeasureSelection     |
-|              |               |              |              |                                          | containing it.                           |
+| selection    | ``xs:string`` | **Required** | Single       | Selection text for a                     |                                          |
+|              |               |              |              | :ref:`multi-csv-ballot-measure-contest`  |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
@@ -39,9 +37,9 @@ A base model for all ballot selection types:
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag            | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +================+================+==============+==============+==========================================+==========================================+
-| sequence_order | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    | If the field is invalid or not present,  |
-|                |                |              |              | listed on the ballot or in results. This | then the implementation is required to   |
-|                |                |              |              | is the default ordering, and can be      | ignore it.                               |
+| sequence_order | ``xs:integer`` | Optional     | Single       | The order in which a selection can be    |                                          |
+|                |                |              |              | listed on the ballot or in results. This |                                          |
+|                |                |              |              | is the default ordering, and can be      |                                          |
 |                |                |              |              | overridden by `OrderedBallotSlectionIds` |                                          |
 |                |                |              |              | in :ref:`multi-csv-ordered-contest`.     |                                          |
 +----------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+

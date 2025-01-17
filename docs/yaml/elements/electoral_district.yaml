@@ -38,14 +38,11 @@ tags:
   csv-header-name: external_identifiers
   csv-type: ExternalIdentifiers
   description: Other identifiers that link to external datasets (e.g. `OCD-IDs`_)
-  error_then: =must-ignore
   type: ExternalIdentifiers
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
   description: Specifies the electoral area's name.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore the ``ElectoralDistrict`` object containing it.
   required: true
   type: xs:string
 - _name: Number
@@ -55,14 +52,11 @@ tags:
     of the 34th State Senate District). If a number is not applicable, instead of
     leaving the field blank, leave this field out of the object; empty strings are
     not valid for xs:integer fields.
-  error_then: =must-ignore
   type: xs:integer
 - _name: Type
   csv-header-name: type
   csv-type: DistrictType
   description: Specifies the type of electoral area.
-  error: If the field is invalid or not present, then the implementation is required
-    to ignore the ``ElectoralDistrict`` object containing it.
   required: true
   type: DistrictType
 - _name: OtherType
@@ -70,5 +64,4 @@ tags:
   csv-type: xs:string
   description: Allows for cataloging a new :ref:`$$$-district-type` option when ``Type``
     is specified as "other".
-  error_then: =must-ignore
   type: xs:string

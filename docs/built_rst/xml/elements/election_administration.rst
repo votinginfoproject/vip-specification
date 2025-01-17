@@ -11,50 +11,39 @@ functions.
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
 | Tag                          | Data Type                        | Required?    | Repeats?     | Description                                                 | Error Handling                           |
 +==============================+==================================+==============+==============+=============================================================+==========================================+
-| AbsenteeUri                  | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for information on absentee       | If the field is invalid or not present,  |
-|                              |                                  |              |              | voting.                                                     | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| AbsenteeUri                  | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for information on absentee       |                                          |
+|                              |                                  |              |              | voting.                                                     |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| AmIRegisteredUri             | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for information on whether an     | If the field is invalid or not present,  |
-|                              |                                  |              |              | individual is registered.                                   | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| AmIRegisteredUri             | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for information on whether an     |                                          |
+|                              |                                  |              |              | individual is registered.                                   |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| BallotTrackingUri            | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
-|                              |                                  |              |              | ballot cast by mail                                         | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| BallotTrackingUri            | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for tracking information for a    |                                          |
+|                              |                                  |              |              | ballot cast by mail                                         |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| BallotProvisionalTrackingUri | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
-|                              |                                  |              |              | provisional ballot. To support EAC guidelines for           | then the implementation is required to   |
-|                              |                                  |              |              | "Processing Provisional Ballots"                            | ignore it.                               |
+| BallotProvisionalTrackingUri | ``xs:anyURI``                    | Optional     | Single       | Specifies the web address for tracking information for a    |                                          |
+|                              |                                  |              |              | provisional ballot. To support EAC guidelines for           |                                          |
+|                              |                                  |              |              | "Processing Provisional Ballots"                            |                                          |
 |                              |                                  |              |              | (https://www.eac.gov/research-and-data/provisional-voting/) |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| Department                   | :ref:`multi-xml-department`      | Optional     | Repeats      | Describes the administrative body for a particular voter    | If the element is invalid or not         |
-|                              |                                  |              |              | service.                                                    | present, then the implementation is      |
-|                              |                                  |              |              |                                                             | required to ignore it.                   |
+| Department                   | :ref:`multi-xml-department`      | Optional     | Repeats      | Describes the administrative body for a particular voter    |                                          |
+|                              |                                  |              |              | service.                                                    |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| ElectionNotice               | :ref:`multi-xml-election-notice` | Optional     | Single       | A place for election administrators to post last minute and | If the element is invalid or not         |
-|                              |                                  |              |              | emergency notifications pertaining to the election.         | present, then the implementation is      |
-|                              |                                  |              |              |                                                             | required to ignore it.                   |
+| ElectionNotice               | :ref:`multi-xml-election-notice` | Optional     | Single       | A place for election administrators to post last minute and |                                          |
+|                              |                                  |              |              | emergency notifications pertaining to the election.         |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| ElectionsUri                 | ``xs:anyURI``                    | Optional     | Single       | Specifies web address the administration's website.         | If the field is invalid or not present,  |
-|                              |                                  |              |              |                                                             | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| ElectionsUri                 | ``xs:anyURI``                    | Optional     | Single       | Specifies web address the administration's website.         |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| RegistrationUri              | ``xs:anyURI``                    | Optional     | Single       | Specifies web address for information on registering to     | If the field is invalid or not present,  |
-|                              |                                  |              |              | vote.                                                       | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| RegistrationUri              | ``xs:anyURI``                    | Optional     | Single       | Specifies web address for information on registering to     |                                          |
+|                              |                                  |              |              | vote.                                                       |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| RulesUri                     | ``xs:anyURI``                    | Optional     | Single       | Specifies a URI for the election rules and laws (if any)    | If the field is invalid or not present,  |
-|                              |                                  |              |              | for the jurisdiction of the administration.                 | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| RulesUri                     | ``xs:anyURI``                    | Optional     | Single       | Specifies a URI for the election rules and laws (if any)    |                                          |
+|                              |                                  |              |              | for the jurisdiction of the administration.                 |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| WhatIsOnMyBallotUri          | ``xs:anyURI``                    | Optional     | Single       | Specifies web address for information on what is on an      | If the field is invalid or not present,  |
-|                              |                                  |              |              | individual's ballot.                                        | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| WhatIsOnMyBallotUri          | ``xs:anyURI``                    | Optional     | Single       | Specifies web address for information on what is on an      |                                          |
+|                              |                                  |              |              | individual's ballot.                                        |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| WhereDoIVoteUri              | ``xs:anyURI``                    | Optional     | Single       | The Specifies web address for information on where an       | If the field is invalid or not present,  |
-|                              |                                  |              |              | individual votes based on their address.                    | then the implementation is required to   |
-|                              |                                  |              |              |                                                             | ignore it.                               |
+| WhereDoIVoteUri              | ``xs:anyURI``                    | Optional     | Single       | The Specifies web address for information on where an       |                                          |
+|                              |                                  |              |              | individual votes based on their address.                    |                                          |
 +------------------------------+----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -95,20 +84,19 @@ Department
 +--------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                      | Data Type                            | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+======================================+==============+==============+==========================================+==========================================+
-| ContactInformation       | :ref:`multi-xml-contact-information` | Optional     | Single       | Contact and physical address information | If the element is invalid or not         |
-|                          |                                      |              |              | for the election administration body     | present, then the implementation is      |
-|                          |                                      |              |              | (see                                     | required to ignore it.                   |
+| ContactInformation       | :ref:`multi-xml-contact-information` | Optional     | Single       | Contact and physical address information |                                          |
+|                          |                                      |              |              | for the election administration body     |                                          |
+|                          |                                      |              |              | (see                                     |                                          |
 |                          |                                      |              |              | :ref:`multi-xml-contact-information`).   |                                          |
 +--------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | ``xs:IDREF``                         | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
-|                          |                                      |              |              | election administration office. The      | then the implementation is required to   |
-|                          |                                      |              |              | specified person should be the           | ignore it.                               |
+| ElectionOfficialPersonId | ``xs:IDREF``                         | Optional     | Single       | The individual to contact at the         |                                          |
+|                          |                                      |              |              | election administration office. The      |                                          |
+|                          |                                      |              |              | specified person should be the           |                                          |
 |                          |                                      |              |              | :ref:`election official                  |                                          |
 |                          |                                      |              |              | <multi-xml-person>`.                     |                                          |
 +--------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VoterService             | :ref:`multi-xml-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
-|                          |                                      |              |              | contact individual available to voters.  | present, then the implementation is      |
-|                          |                                      |              |              |                                          | required to ignore it.                   |
+| VoterService             | :ref:`multi-xml-voter-service`       | Optional     | Repeats      | The types of services and appropriate    |                                          |
+|                          |                                      |              |              | contact individual available to voters.  |                                          |
 +--------------------------+--------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
@@ -120,25 +108,21 @@ VoterService
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                      | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+=========================================+==============+==============+==========================================+==========================================+
-| ContactInformation       | :ref:`multi-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
-|                          |                                         |              |              | service.                                 | present, then the implementation is      |
-|                          |                                         |              |              |                                          | required to ignore it.                   |
+| ContactInformation       | :ref:`multi-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       |                                          |
+|                          |                                         |              |              | service.                                 |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description              | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
-|                          |                                         |              |              | available.                               | present, then the implementation is      |
-|                          |                                         |              |              |                                          | required to ignore it.                   |
+| Description              | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Long description of the services         |                                          |
+|                          |                                         |              |              | available.                               |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <multi-xml-person>`  | If the field is invalid or not present,  |
-|                          |                                         |              |              | for a particular voter service.          | then the implementation is required to   |
-|                          |                                         |              |              |                                          | ignore it.                               |
+| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <multi-xml-person>`  |                                          |
+|                          |                                         |              |              | for a particular voter service.          |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :ref:`multi-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
-|                          |                                         |              |              | <multi-xml-voter-service-type>`.         | then the implementation is required to   |
-|                          |                                         |              |              |                                          | ignore it.                               |
+| Type                     | :ref:`multi-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          |                                          |
+|                          |                                         |              |              | <multi-xml-voter-service-type>`.         |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType                | ``xs:string``                           | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
-|                          |                                         |              |              | cataloging another type of voter         | then the implementation is required to   |
-|                          |                                         |              |              | service.                                 | ignore it.                               |
+| OtherType                | ``xs:string``                           | Optional     | Single       | If Type is "other", OtherType allows for |                                          |
+|                          |                                         |              |              | cataloging another type of voter         |                                          |
+|                          |                                         |              |              | service.                                 |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
@@ -157,50 +141,41 @@ organizations, etc. ContactInformation is always a sub-element of another object
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag              | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+=========================================+==============+==============+==========================================+==========================================+
-| AddressLine      | ``xs:string``                           | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
-|                  |                                         |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
-|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
+| AddressLine      | ``xs:string``                           | Optional     | Repeats      | The "location" portion of a mailing      |                                          |
+|                  |                                         |              |              | address. :ref:`See usage note.           |                                          |
+|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Directions       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
-|                  |                                         |              |              | locating this entity.                    | present, then the implementation is      |
-|                  |                                         |              |              |                                          | required to ignore it.                   |
+| Directions       | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies further instructions for       |                                          |
+|                  |                                         |              |              | locating this entity.                    |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Email            | ``xs:string``                           | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
-|                  |                                         |              |              |                                          | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Email            | ``xs:string``                           | Optional     | Repeats      | An email address for the contact.        |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Fax              | ``xs:string``                           | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
-|                  |                                         |              |              |                                          | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Fax              | ``xs:string``                           | Optional     | Repeats      | A fax line for the contact.              |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-| **[deprecated]** |                                         |              |              | the location is open *(NB: this element  | present, then the implementation is      |
-|                  |                                         |              |              | is deprecated in favor of the more       | required to ignore it.                   |
+| Hours            | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Contains the hours (in local time) that  |                                          |
+| **[deprecated]** |                                         |              |              | the location is open *(NB: this element  |                                          |
+|                  |                                         |              |              | is deprecated in favor of the more       |                                          |
 |                  |                                         |              |              | structured :ref:`multi-xml-hours-open`   |                                          |
 |                  |                                         |              |              | element. It is strongly encouraged that  |                                          |
 |                  |                                         |              |              | data providers move toward contributing  |                                          |
 |                  |                                         |              |              | hours in this format)*.                  |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an                            | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`multi-xml-hours-open` element,     | then the implementation is required to   |
-|                  |                                         |              |              | which lists the hours of operation for a | ignore it.                               |
+| HoursOpenId      | ``xs:IDREF``                            | Optional     | Single       | References an                            |                                          |
+|                  |                                         |              |              | :ref:`multi-xml-hours-open` element,     |                                          |
+|                  |                                         |              |              | which lists the hours of operation for a |                                          |
 |                  |                                         |              |              | location.                                |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| LatLng           | :ref:`multi-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
-|                  |                                         |              |              | this entity.                             | present, then the implementation is      |
-|                  |                                         |              |              |                                          | required to ignore it.                   |
+| LatLng           | :ref:`multi-xml-lat-lng`                | Optional     | Single       | Specifies the latitude and longitude of  |                                          |
+|                  |                                         |              |              | this entity.                             |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`See usage note.                    | then the implementation is required to   |
-|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     | ignore it.                               |
+| Name             | ``xs:string``                           | Optional     | Single       | The name of the location or contact.     |                                          |
+|                  |                                         |              |              | :ref:`See usage note.                    |                                          |
+|                  |                                         |              |              | <multi-xml-name-address-line-usage>`     |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Phone            | ``xs:string``                           | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
-|                  |                                         |              |              |                                          | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Phone            | ``xs:string``                           | Optional     | Repeats      | A phone number for the contact.          |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Uri              | ``xs:anyURI``                           | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
-|                  |                                         |              |              | location.                                | then the implementation is required to   |
-|                  |                                         |              |              |                                          | ignore it.                               |
+| Uri              | ``xs:anyURI``                           | Optional     | Repeats      | An informational URI for the contact or  |                                          |
+|                  |                                         |              |              | location.                                |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. _multi-xml-name-address-line-usage:
@@ -258,14 +233,12 @@ ElectionNotice
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+=========================================+==============+==============+==========================================+==========================================+
-| NoticeText   | :ref:`multi-xml-internationalized-text` | **Required** | Single       | The last minute or emergency             | If the element is invalid, then the      |
-|              |                                         |              |              | notification text should be placed here. | implementation is required to ignore the |
-|              |                                         |              |              |                                          | ``ElectionNotice`` element containing    |
-|              |                                         |              |              |                                          | it.                                      |
+| NoticeText   | :ref:`multi-xml-internationalized-text` | **Required** | Single       | The last minute or emergency             |                                          |
+|              |                                         |              |              | notification text should be placed here. |                                          |
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| NoticeUri    | ``xs:anyURI``                           | Optional     | Single       | Optional URL for additional information  | If the field is invalid or not present,  |
-|              |                                         |              |              | related to the last minute or emergency  | then the implementation is required to   |
-|              |                                         |              |              | notification.                            | ignore it.                               |
+| NoticeUri    | ``xs:anyURI``                           | Optional     | Single       | Optional URL for additional information  |                                          |
+|              |                                         |              |              | related to the last minute or emergency  |                                          |
+|              |                                         |              |              | notification.                            |                                          |
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
@@ -277,23 +250,19 @@ VoterService
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                      | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==========================+=========================================+==============+==============+==========================================+==========================================+
-| ContactInformation       | :ref:`multi-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       | If the element is invalid or not         |
-|                          |                                         |              |              | service.                                 | present, then the implementation is      |
-|                          |                                         |              |              |                                          | required to ignore it.                   |
+| ContactInformation       | :ref:`multi-xml-contact-information`    | Optional     | Single       | The contact for a particular voter       |                                          |
+|                          |                                         |              |              | service.                                 |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Description              | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Long description of the services         | If the element is invalid or not         |
-|                          |                                         |              |              | available.                               | present, then the implementation is      |
-|                          |                                         |              |              |                                          | required to ignore it.                   |
+| Description              | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Long description of the services         |                                          |
+|                          |                                         |              |              | available.                               |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <multi-xml-person>`  | If the field is invalid or not present,  |
-|                          |                                         |              |              | for a particular voter service.          | then the implementation is required to   |
-|                          |                                         |              |              |                                          | ignore it.                               |
+| ElectionOfficialPersonId | ``xs:IDREF``                            | Optional     | Single       | The :ref:`authority <multi-xml-person>`  |                                          |
+|                          |                                         |              |              | for a particular voter service.          |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :ref:`multi-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          | If the field is invalid or not present,  |
-|                          |                                         |              |              | <multi-xml-voter-service-type>`.         | then the implementation is required to   |
-|                          |                                         |              |              |                                          | ignore it.                               |
+| Type                     | :ref:`multi-xml-voter-service-type`     | Optional     | Single       | The type of :ref:`voter service          |                                          |
+|                          |                                         |              |              | <multi-xml-voter-service-type>`.         |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType                | ``xs:string``                           | Optional     | Single       | If Type is "other", OtherType allows for | If the field is invalid or not present,  |
-|                          |                                         |              |              | cataloging another type of voter         | then the implementation is required to   |
-|                          |                                         |              |              | service.                                 | ignore it.                               |
+| OtherType                | ``xs:string``                           | Optional     | Single       | If Type is "other", OtherType allows for |                                          |
+|                          |                                         |              |              | cataloging another type of voter         |                                          |
+|                          |                                         |              |              | service.                                 |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
