@@ -311,6 +311,37 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="Department" maxOccurs="unbounded">
+    <xs:sequence>
+      <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
+      <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
+      <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <!--
+                The contact information below can be used to override or
+                add specific fields to the base Departmental contact information if
+                the service has different information.  For example, if the voter
+                service has its own phone number, the ContactInformation object
+                below can be an object containing only a Phone element.
+              -->
+            <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
+            <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
+            <!--
+                This is for use if a certain person handles the particular service,
+                for example a contact person for overseas voting.
+              -->
+            <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
+            <xs:element name="Type" type="VoterServiceType" minOccurs="0" />
+            <xs:element name="OtherType" type="xs:string" minOccurs="0" />
+          </xs:all>
+          <xs:attribute name="label" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string" />
+  </xs:complexType>
+
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="xs:anyURI" minOccurs="0" />
@@ -318,38 +349,7 @@
       <xs:element name="BallotTrackingUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="BallotProvisionalTrackingUri" type="xs:anyURI" minOccurs="0" />
       <!-- A locality may have more than one department with each handling different services. -->
-      <xs:element name="Department" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
-            <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
-            <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
-              <xs:complexType>
-                <xs:all>
-                  <!--
-                      The contact information below can be used to override or
-                      add specific fields to the base Departmental contact information if
-                      the service has different information.  For example, if the voter
-                      service has its own phone number, the ContactInformation object
-                      below can be an object containing only a Phone element.
-                    -->
-                  <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
-                  <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
-                  <!--
-                      This is for use if a certain person handles the particular service,
-                      for example a contact person for overseas voting.
-                    -->
-                  <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0" />
-                  <xs:element name="Type" type="VoterServiceType" minOccurs="0" />
-                  <xs:element name="OtherType" type="xs:string" minOccurs="0" />
-                </xs:all>
-                <xs:attribute name="label" type="xs:string" />
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-          <xs:attribute name="label" type="xs:string" />
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Department" type="Department" maxOccurs="unbounded" />
       <xs:element name="ElectionNotice" type="ElectionNotice" minOccurs="0" />
       <xs:element name="ElectionsUri" type="xs:anyURI" minOccurs="0" />
       <xs:element name="RegistrationUri" type="xs:anyURI" minOccurs="0" />
