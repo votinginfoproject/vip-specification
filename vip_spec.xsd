@@ -293,8 +293,8 @@
       <xs:element name="LatLng" type="LatLng" minOccurs="0" />
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="Phone" type="AnnotatedString" minOccurs="0" />
-      <xs:element name="Uri" type="AnnotatedURI" minOccurs="0" />
+      <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Uri" type="InternationalizedURI" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
