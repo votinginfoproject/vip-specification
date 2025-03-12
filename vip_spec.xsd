@@ -208,15 +208,15 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element name="ConStatement" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="FullText" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="InfoUri" type="InternationalizedURI" minOccurs="0" />
-          <xs:element name="PassageThreshold" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="ProStatement" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="SummaryText" type="InternationalizedText" minOccurs="0" />
-          <xs:element name="Type" type="BallotMeasureType" minOccurs="0" />
-          <xs:element name="OtherType" type="xs:string" minOccurs="0" />
+          <ClearableInOverlay name="ConStatement" type="InternationalizedText" minOccurs="0" />
+          <ClearableInOverlay name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" />
+          <ClearableInOverlay name="FullText" type="InternationalizedText" minOccurs="0" />
+          <ClearableInOverlay name="InfoUri" type="InternationalizedURI" minOccurs="0" />
+          <ClearableInOverlay name="PassageThreshold" type="InternationalizedText" minOccurs="0" />
+          <ClearableInOverlay name="ProStatement" type="InternationalizedText" minOccurs="0" />
+          <ClearableInOverlay name="SummaryText" type="InternationalizedText" minOccurs="0" />
+          <ClearableInOverlay name="Type" type="BallotMeasureType" minOccurs="0" />
+          <ClearableInOverlay name="OtherType" type="xs:string" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -269,10 +269,10 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element name="NumberElected" type="xs:integer" minOccurs="0" />
-          <xs:element name="OfficeIds" type="xs:IDREFS" minOccurs="0" />
-          <xs:element name="PrimaryPartyIds" type="xs:IDREFS" minOccurs="0" />
-          <xs:element name="VotesAllowed" type="xs:integer" minOccurs="0" />
+          <ClearableInOverlay name="NumberElected" type="xs:integer" minOccurs="0" />
+          <ClearableInOverlay name="OfficeIds" type="xs:IDREFS" minOccurs="0" />
+          <ClearableInOverlay name="PrimaryPartyIds" type="xs:IDREFS" minOccurs="0" />
+          <ClearableInOverlay name="VotesAllowed" type="xs:integer" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -319,18 +319,21 @@
 
   <xs:complexType name="ContestBase" abstract="true">
     <xs:sequence>
-      <xs:element name="Abbreviation" type="xs:string" minOccurs="0" />
-      <xs:element name="BallotSelectionIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element name="BallotSubTitle" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="BallotTitle" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
-      <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
-      <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" />
-      <xs:element name="Name" type="xs:string" />
-      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" />
-      <xs:element name="VoteVariation" type="VoteVariation" minOccurs="0" />
-      <xs:element name="OtherVoteVariation" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="Abbreviation" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="BallotSelectionIds" type="xs:IDREFS" minOccurs="0" />
+      <ClearableInOverlay name="BallotSubTitle" type="InternationalizedText" minOccurs="0" />
+      <ClearableInOverlay name="BallotTitle" type="InternationalizedText" minOccurs="0" />
+      <OptionalInOverlay name="ElectoralDistrictId" type="xs:IDREF" />
+      <ClearableInOverlay name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
+      <ClearableInOverlay name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
+      <ClearableInOverlay name="HasRotation" type="xs:boolean" minOccurs="0" />
+      <OptionalInOverlay name="Name" type="xs:string" />
+      <ClearableInOverlay name="SequenceOrder" type="xs:integer" minOccurs="0" />
+      <ClearableInOverlay name="VoteVariation" type="VoteVariation" minOccurs="0" />
+      <ClearableInOverlay name="OtherVoteVariation" type="xs:string" minOccurs="0" />
+
+      <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
+      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -563,6 +566,9 @@
       <ClearableInOverlay name="ParentLocalityId" type="xs:IDREF" minOccurs="0" />
       <ClearableInOverlay name="Type" type="DistrictType" minOccurs="0" />
       <ClearableInOverlay name="OtherType" type="xs:string" minOccurs="0" />
+
+      <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
+      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -664,6 +670,9 @@
       <ClearableInOverlay name="Name" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <ClearableInOverlay name="PhotoUri" type="InternationalizedURI" minOccurs="0" maxOccurs="1" />
       <ClearableInOverlay name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
+
+      <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
+      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -682,6 +691,9 @@
       <ClearableInOverlay name="SpatialBoundary" type="SpatialBoundary" minOccurs="0" />
       <ClearableInOverlay name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
       <ClearableInOverlay name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
+
+      <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
+      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
