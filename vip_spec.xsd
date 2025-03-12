@@ -5,7 +5,7 @@
        adjusted via XSLT for main feed and overlay. -->
 
   <!-- These elements should get a clear=true|false attribute
-       in overlay files--but not feeds--in order to selectively
+       in overlay files, but not feeds, in order to selectively
        delete fields. It should only be used on elements where
        minOccurs="0" because overlay semantics are that any element(s)
        in an overlay *replace* their corresponding element(s) in

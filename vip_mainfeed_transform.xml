@@ -13,6 +13,17 @@
        since that is an overlay-only attribute. -->
   <xsl:template match="//xs:complexType[@name='ClearableInOverlay']//*[@name='clear']" />
 
+  <!-- Set minOccurs and maxOccurs to 0 on EmergencyNotice elements because they are
+       only allowed in overlays. -->
+  <xsl:template match="//*[@type = 'EmergencyNotice']">
+    <xsl:copy>
+      <xsl:attribute name="minOccurs">0</xsl:attribute>
+      <xsl:attribute name="maxOccurs">0</xsl:attribute>
+      <xsl:apply-templates select="@*[name(.) != 'minOccurs' and name(.) != 'maxOccurs']" />
+      <xsl:apply-templates select="node()" />
+    </xsl:copy>
+  </xsl:template>
+
   <!-- Root VIP feed element. -->
   <xs:element name="VipObject">
     <xs:complexType>
