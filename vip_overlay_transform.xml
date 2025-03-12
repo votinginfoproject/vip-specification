@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xsl:output method="xml" omit-xml-declarations="yes" indent="yes" encoding="UTF-8" />
+
+  <xsl:template match="node()|@*">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Root VIPO overlay element. -->
+  <xs:element name="VipOverlay">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Election" />
+        <xs:element name="ElectoralDistrict" type="ElectoralDistrict" />
+        <xs:element name="Locality" type="Locality" />
+        <xs:element name="Office" type="Office" />
+	<xs:complexType>
+	  <xs:simpleContent>
+	    <xs:extension base="PollingLocation">
+              <xs:attribute name="isNew" type="xs:boolean" default="false" />
+	    </xs:extension>	    
+	  </xs:simpleContent>
+	</xs:complexType>
+        <xs:element name="PollingLocation" type="PollingLocation" />
+        <xs:element name="Precinct" type="Precinct" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xsl:transform>

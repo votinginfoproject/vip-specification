@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xsl:output method="xml" omit-xml-declarations="yes" indent="yes" encoding="UTF-8" />
+
+  <xsl:template match="node()|@*">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="//xs:complexType[@name='ClearableInOverlay']//*[@name='clear']" />
+
+  <!-- Root VIP feed element. -->
+  <xs:element name="VipObject">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+
+        <!-- This replaces the "referendum" element in VIP -->
+        <xs:element name="BallotMeasureContest" type="BallotMeasureContest" />
+
+        <!-- Generic string for a ballot measure (referendum) selection -->
+        <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" />
+
+        <xs:element name="BallotSelection" type="BallotSelectionBase" />
+
+        <xs:element name="BallotStyle" type="BallotStyle" />
+
+        <xs:element name="Candidate" type="Candidate" />
+
+        <xs:element name="CandidateContest" type="CandidateContest" />
+
+        <xs:element name="CandidateSelection" type="CandidateSelection" />
+
+        <xs:element name="Contest" type="ContestBase" />
+
+        <xs:element name="Election" type="Election" minOccurs="1" maxOccurs="1" />
+
+        <xs:element name="ElectoralDistrict" type="ElectoralDistrict" />
+
+        <xs:element name="ExternalFile" type="ExternalFile" />
+
+        <xs:element name="Locality" type="Locality" />
+
+        <xs:element name="Office" type="Office" />
+
+        <xs:element name="OrderedContest" type="OrderedContest" />
+
+        <xs:element name="Party" type="Party" />
+
+        <xs:element name="PartyContest" type="PartyContest" />
+
+        <xs:element name="PartySelection" type="PartySelection" />
+
+        <xs:element name="Person" type="Person" />
+
+        <xs:element name="PollingLocation" type="PollingLocation" />
+
+        <xs:element name="Precinct" type="Precinct" />
+
+        <xs:element name="RetentionContest" type="RetentionContest" />
+
+        <xs:element name="Source" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="DateTime" type="xs:dateTime" />
+              <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
+              <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
+              <xs:element name="Name" type="xs:string" />
+              <xs:element name="OrganizationUri" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="TermsOfUseUri" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="VipId" type="xs:string" />
+            </xs:all>
+            <xs:attribute name="id" type="xs:ID" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+	<xs:element name="StreetSegment" type="StreetSegment" />
+
+      </xs:choice>
+      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="7.0" />
+    </xs:complexType>
+  </xs:element>
+</xsl:transform>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Working version of VIP schema based on 5.0 for comments.
-     See
-     https://github.com/votinginfoproject/vip-specification
-     for history and more information.
-  -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="7.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Base types and attributes that can be
+       adjusted via XSLT for main feed and overlay. -->
+  <xs:complexType name="ClearableInOverlay">
+    <xs:complexContent>
+      <xs:extension base="xs:element">
+        <xs:attribute name="clear" type="xs:boolean"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>  
 
   <!-- Enumeration types. -->
   <xs:simpleType name="PollingLocationType">
@@ -282,19 +286,19 @@
   <xs:complexType name="ContactInformation">
     <xs:sequence>
       <xs:element name="AddressStructured" type="SimpleAddressType"/>
-      <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <ClearableInOverlay name="Directions" type="InternationalizedText" minOccurs="0" />
+      <ClearableInOverlay name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <ClearableInOverlay name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <!-- Note: The "Hours" element is being deprecated and will be removed
            in future versions of VIP.
         -->
-      <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="HoursOpen" type="HoursOpen" minOccurs="0" />
-      <xs:element name="LatLng" type="LatLng" minOccurs="0" />
+      <ClearableInOverlay name="Hours" type="InternationalizedText" minOccurs="0" />
+      <ClearableInOverlay name="HoursOpen" type="HoursOpen" minOccurs="0" />
+      <ClearableInOverlay name="LatLng" type="LatLng" minOccurs="0" />
       <!-- This can be a person or place name. -->
-      <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Uri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="Name" type="InternationalizedText" minOccurs="0" />
+      <ClearableInOverlay name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <ClearableInOverlay name="Uri" type="InternationalizedURI" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -327,10 +331,10 @@
 
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
-      <xs:element name="AbsenteeUri" type="InternationalizedUri" minOccurs="0" />
-      <xs:element name="AmIRegisteredUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element name="BallotTrackingUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element name="BallotProvisionalTrackingUri" type="xs:InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="AbsenteeUri" type="InternationalizedUri" minOccurs="0" />
+      <ClearableInOverlay name="AmIRegisteredUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="BallotTrackingUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="BallotProvisionalTrackingUri" type="xs:InternationalizedURI" minOccurs="0" />
       <!-- A locality may have more than one department with each handling different services. -->
       <xs:element name="Department" maxOccurs="unbounded">
         <xs:complexType>
@@ -364,23 +368,23 @@
           <xs:attribute name="label" type="xs:string" />
         </xs:complexType>
       </xs:element>
-      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" />
-      <xs:element name="ElectionsUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element name="RegistrationUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element name="RulesUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element name="WhatIsOnMyBallotUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element name="WhereDoIVoteUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" />
+      <ClearableInOverlay name="ElectionsUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="RegistrationUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="RulesUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="WhatIsOnMyBallotUri" type="InternationalizedURI" minOccurs="0" />
+      <ClearableInOverlay name="WhereDoIVoteUri" type="InternationalizedURI" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
   <xs:complexType name="ElectoralDistrict">
     <xs:sequence>
-      <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
+      <ClearableInOverlay name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="Name" type="InternationalizedText" />
-      <xs:element name="Number" type="xs:integer" minOccurs="0" />
+      <ClearableInOverlay name="Number" type="xs:integer" minOccurs="0" />
       <xs:element name="Type" type="DistrictType" />
-      <xs:element name="OtherType" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="OtherType" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -537,14 +541,14 @@
 
   <xs:complexType name="Locality">
     <xs:sequence>
-      <xs:element name="ElectionAdministration" type="ElectionAdministration" minOccurs="0" />
-      <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
-      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+      <ClearableInOverlay name="ElectionAdministration" type="ElectionAdministration" minOccurs="0" />
+      <ClearableInOverlay name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
+      <ClearableInOverlay name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="Name" type="xs:string" />
-      <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element name="ParentLocalityId" type="xs:IDREF" minOccurs="0" />
-      <xs:element name="Type" type="DistrictType" minOccurs="0" />
-      <xs:element name="OtherType" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
+      <ClearableInOverlay name="ParentLocalityId" type="xs:IDREF" minOccurs="0" />
+      <ClearableInOverlay name="Type" type="DistrictType" minOccurs="0" />
+      <ClearableInOverlay name="OtherType" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -758,77 +762,6 @@
         <xs:element name="PollingLocation" type="PollingLocation" />
         <xs:element name="Precinct" type="Precinct" />
       </xs:choice>
-    </xs:complexType>
-  </xs:element>
-  
-  <!-- Root VIP feed element. -->
-  <xs:element name="VipObject">
-    <xs:complexType>
-      <xs:choice maxOccurs="unbounded">
-
-        <!-- This replaces the "referendum" element in VIP -->
-        <xs:element name="BallotMeasureContest" type="BallotMeasureContest" />
-
-        <!-- Generic string for a ballot measure (referendum) selection -->
-        <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" />
-
-        <xs:element name="BallotSelection" type="BallotSelectionBase" />
-
-        <xs:element name="BallotStyle" type="BallotStyle" />
-
-        <xs:element name="Candidate" type="Candidate" />
-
-        <xs:element name="CandidateContest" type="CandidateContest" />
-
-        <xs:element name="CandidateSelection" type="CandidateSelection" />
-
-        <xs:element name="Contest" type="ContestBase" />
-
-        <xs:element name="Election" type="Election" minOccurs="1" maxOccurs="1" />
-
-        <xs:element name="ElectoralDistrict" type="ElectoralDistrict" />
-
-        <xs:element name="ExternalFile" type="ExternalFile" />
-
-        <xs:element name="Locality" type="Locality" />
-
-        <xs:element name="Office" type="Office" />
-
-        <xs:element name="OrderedContest" type="OrderedContest" />
-
-        <xs:element name="Party" type="Party" />
-
-        <xs:element name="PartyContest" type="PartyContest" />
-
-        <xs:element name="PartySelection" type="PartySelection" />
-
-        <xs:element name="Person" type="Person" />
-
-        <xs:element name="PollingLocation" type="PollingLocation" />
-
-        <xs:element name="Precinct" type="Precinct" />
-
-        <xs:element name="RetentionContest" type="RetentionContest" />
-
-        <xs:element name="Source" minOccurs="1" maxOccurs="1">
-          <xs:complexType>
-            <xs:all>
-              <xs:element name="DateTime" type="xs:dateTime" />
-              <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
-              <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
-              <xs:element name="Name" type="xs:string" />
-              <xs:element name="OrganizationUri" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="TermsOfUseUri" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="VipId" type="xs:string" />
-            </xs:all>
-            <xs:attribute name="id" type="xs:ID" use="required" />
-          </xs:complexType>
-        </xs:element>
-
-	<xs:element name="StreetSegment" type="StreetSegment" />
-
-      </xs:choice>
-      <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="6.0" />
     </xs:complexType>
   </xs:element>
 </xs:schema>
