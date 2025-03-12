@@ -2,13 +2,23 @@
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xsl:output method="xml" omit-xml-declarations="yes" indent="yes" encoding="UTF-8" />
 
+  <!-- By default, copy input to output with no modification. -->
   <xsl:template match="node()|@*">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
 
-  <!-- Root VIPO overlay element. -->
+  <!-- Set minOccurs="0" on OptionalInOverlay elements. -->
+  <xsl:template match="//OptionalInOverlay">
+    <xsl:copy>
+      <xsl:attribute name="minOccurs">0</xsl:attribute>
+      <xsl:apply-templates select="@*[name(.)!='minOccurs']" />
+      <xsl:apply-teplates select="node()" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Root VIP Overlay element. -->
   <xs:element name="VipOverlay">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">

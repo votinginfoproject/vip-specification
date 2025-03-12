@@ -2,12 +2,15 @@
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xsl:output method="xml" omit-xml-declarations="yes" indent="yes" encoding="UTF-8" />
 
+  <!-- By default, copy input to output with no modification. -->
   <xsl:template match="node()|@*">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
 
+  <!-- Delete clear attribute from ClearableInOverlay elements
+       since that is an overlay-only attribute. -->
   <xsl:template match="//xs:complexType[@name='ClearableInOverlay']//*[@name='clear']" />
 
   <!-- Root VIP feed element. -->
