@@ -5,6 +5,9 @@ description: |-
   :ref:`$$$-candidate-contest`, :ref:`$$$-party-contest`,
   and :ref:`$$$-retention-contest` (NB: the latter because it extends
   :ref:`$$$-ballot-measure-contest`).
+
+  In overlay files, all tags have an optional `clear` boolean
+  attribute.
 tags:
 - _name: Abbreviation
   csv-header-name: abbreviation
@@ -86,5 +89,12 @@ tags:
   csv-type: other_vote_variation
   description: If "other" is selected as the **VoteVariation**, the name of the variation
     can be specified here.
+  error_then: =should-ignore
+  type: xs:string
+- _name: IsInactive
+  csv-header-name: is_inactive
+  csv-type: xs:string
+  description: If specified, the element is treated as inactive, and the value is
+    the reason (e.g. "Backup polling location").
   error_then: =should-ignore
   type: xs:string
