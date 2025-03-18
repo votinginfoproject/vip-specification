@@ -5,6 +5,10 @@ post: |-
   .. _counties: http://en.wikipedia.org/wiki/FIPS_county_code
   .. _cities: http://geonames.usgs.gov/domestic/fips55codedef.html
   .. _`Open Civic Data Division Identifier`: http://docs.opencivicdata.org/en/latest/proposals/0002.html
+
+  `IdentifierType` has two optional attributes:
+
+    - `provider`: Optional source of the information, such as the department that provided the information or the geocoder that generated it.  For `geocoder-id`
 tags:
 - _name: fips
   description: Federal Information Processing Standards codes for states_, counties_,
@@ -17,5 +21,13 @@ tags:
   description: An `Open Civic Data Division Identifier`_.
 - _name: state-level
   description: An identifier generated or used by state governments or organizations.
+- _name: latlong
+  description: A latitude/longitude pair, e.g.`40.6970243,-74.1443098`.
+- _name: pluscode
+  description: A Plus Code, e.g. `PXRX+86`.
+- _name: geocoder-id
+  description: A geocoder- or platform-specific device ID such as a Google Place ID.  The
+    enclosing element is responsible for specifying the data provider/format along
+    with the value.
 - _name: other
   description: Any identifier which doesn't fall into any of the above categories.
