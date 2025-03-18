@@ -112,8 +112,6 @@
       <xs:enumeration value="geocoder-id" />
       <xs:enumeration value="other" />
     </xs:restriction>
-    <xs:attribute name="provider" type="xs:string" />
-    <xs:attribute name="sortOrder" type="xs:string" />
   </xs:simpleType>
 
   <xs:simpleType name="OebEnum">
@@ -300,19 +298,19 @@
   <xs:complexType name="ContactInformation">
     <xs:sequence>
       <xs:element name="AddressStructured" type="SimpleAddressType"/>
-      <ClearableInOverlay name="Directions" type="InternationalizedText" minOccurs="0" />
-      <ClearableInOverlay name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <ClearableInOverlay name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:elelment name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <!-- Note: The "Hours" element is being deprecated and will be removed
            in future versions of VIP.
         -->
-      <ClearableInOverlay name="Hours" type="InternationalizedText" minOccurs="0" />
-      <ClearableInOverlay name="HoursOpen" type="HoursOpen" minOccurs="0" />
-      <ClearableInOverlay name="LatLng" type="LatLng" minOccurs="0" />
+      <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="HoursOpen" type="HoursOpen" minOccurs="0" />
+      <xs:element name="LatLng" type="LatLng" minOccurs="0" />
       <!-- This can be a person or place name. -->
-      <ClearableInOverlay name="Name" type="InternationalizedText" minOccurs="0" />
-      <ClearableInOverlay name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <ClearableInOverlay name="Uri" type="InternationalizedURI" minOccurs="0" />
+      <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Uri" type="InternationalizedURI" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -333,7 +331,7 @@
       <ClearableInOverlay name="OtherVoteVariation" type="xs:string" minOccurs="0" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="IsInactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -439,6 +437,8 @@
             <xs:element name="Value" type="xs:string" />
           </xs:all>
           <xs:attribute name="label" type="xs:string" />
+          <xs:attribute name="provider" type="xs:string" />
+          <xs:attribute name="sortOrder" type="xs:string" />
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -568,7 +568,7 @@
       <ClearableInOverlay name="OtherType" type="xs:string" minOccurs="0" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="IsInactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -672,7 +672,7 @@
       <ClearableInOverlay name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="IsInactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -693,7 +693,7 @@
       <ClearableInOverlay name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <ClearableInOverlay name="Inactive" type="xs:string" minOccurs="0" />
+      <ClearableInOverlay name="IsInactive" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
