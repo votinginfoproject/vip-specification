@@ -64,7 +64,8 @@ tags:
 - _name: TimeZone
   csv-header-name: time_zone
   csv-type: xs:string
-  description: The named time zone as defined in the [IANA Time Zone Database](https://www.iana.org/time-zones).  e.g. "America/New_York", "Etc/UTC", or "Etc/GMT+1".
+  description: The named time zone as defined in the [IANA Time Zone Database](https://www.iana.org/time-zones).  e.g.
+    "America/New_York", "Etc/UTC", or "Etc/GMT+1".
   error-then: =must-ignore
   required: true
   type: xs:string
