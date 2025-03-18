@@ -38,13 +38,9 @@ tags:
 - _name: OfficeIds
   csv-header-name: office_ids
   csv-type: xs:IDREFS
-  description: References a set of :ref:`$$$-office` elements, if available, which
-    give additional information about the offices. **Note:** the order of the office
-    IDs **must** be in the same order as the candidates listed in `BallotSelectionIds`.
-    E.g., if the various `BallotSelectionIds` reference :ref:`$$$-candidate-selection`
-    elements which reference the candidate for President first and Vice-President
-    second, the `OfficeIds` should reference the office of President first and the
-    office of Vice-President second.
+  description: |-
+    References a set of :ref:`$$$-office` elements, if available, which give additional information about the offices. **Note:** the order of the office IDs **must** be in the same order as the candidates listed in `BallotSelectionIds`. E.g., if the various `BallotSelectionIds` reference :ref:`$$$-candidate-selection` elements which reference the candidate for President first and Vice-President second, the `OfficeIds` should reference the office of President first and the office of Vice-President second.
+    In overlay files, all tags have an optional `clear` boolean attribute.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrimaryPartyIds
