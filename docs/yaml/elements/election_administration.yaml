@@ -12,9 +12,9 @@ csv-post: |-
       ea123,https://example.com/absentee,https://example.com/am-i-registered,https://www.vote.virginia.gov/,https://www.vote.virginia.gov/,This is an emergency notification for this election.,https://www.yadayada.gov,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
       ea345,https://example.com/absentee2,https://example.com/am-i-registered2,https://example.com/elections2,https://example.com/registration2,,,https://example.com/rules2,https://example.com/what-is-on-my-ballot2,https://example.com/where-do-i-vote2
       ea625,https://example.com/absentee3,https://example.com/am-i-registered3,https://example.com/elections3,https://example.com/registration3,This is an emergency notification for this election.,,https://example.com/rules3,https://example.com/what-is-on-my-ballot3,https://example.com/where-do-i-vote3
-description: |-
-  The Election Administration represents an institution for serving a locality's (or state's) election
-  functions.
+description: "The Election Administration represents an institution for serving a\
+  \ locality's (or state's) election\nfunctions.\n\nIn overlay files, all tags have\
+  \ an optional `clear` boolean\nattribute.    "
 post: |-
   .. code-block:: xml
      :linenos:
@@ -47,27 +47,27 @@ post: |-
 tags:
 - _name: AbsenteeUri
   csv-header-name: absentee_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies the web address for information on absentee voting.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: AmIRegisteredUri
   csv-header-name: am_i_registered_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies the web address for information on whether an individual
     is registered.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: BallotTrackingUri
   csv-header-name: ballot_tracking_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies the web address for tracking information for a ballot cast
     by mail
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: BallotProvisionalTrackingUri
   csv-header-name: ballot_tracking_provisional_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies the web address for tracking information for a provisional
     ballot. To support EAC guidelines for "Processing Provisional Ballots" (https://www.eac.gov/research-and-data/provisional-voting/)
   error_then: =must-ignore
@@ -80,8 +80,8 @@ tags:
   repeating: true
   skip_on: csv
   type: Department
-- _name: ElectionNotice
-  csv-header-name: election_notice
+- _name: EmergencyNotice
+  csv-header-name: emergency_notice
   csv-type: EmergencyNotice
   description: A place for election administrators to post last minute and emergency
     notifications pertaining to the election.
@@ -89,33 +89,33 @@ tags:
   type: EmergencyNotice
 - _name: ElectionsUri
   csv-header-name: elections_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies web address the administration's website.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: RegistrationUri
   csv-header-name: registration_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies web address for information on registering to vote.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: RulesUri
   csv-header-name: rules_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies a URI for the election rules and laws (if any) for the jurisdiction
     of the administration.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: WhatIsOnMyBallotUri
   csv-header-name: what_is_on_my_ballot_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies web address for information on what is on an individual's
     ballot.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: WhereDoIVoteUri
   csv-header-name: where_do_i_vote_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: The Specifies web address for information on where an individual votes
     based on their address.
   error_then: =must-ignore
