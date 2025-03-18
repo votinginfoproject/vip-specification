@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+PYTHON        = python3
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -56,8 +57,8 @@ clean_rst:
 	@rm -rf built_rst/xml/elements*
 
 rst: clean_rst
-	@cd .. && python scripts/vip.py norm_yaml
-	@cd .. && python scripts/vip.py make_rest
+	@cd .. && $(PYTHON) scripts/vip.py norm_yaml
+	@cd .. && $(PYTHON) scripts/vip.py make_rest
 
 dev: rst
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
