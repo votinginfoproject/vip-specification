@@ -37,23 +37,17 @@ tags:
   csv-header-name: :ref:`$$$-simple-address-type`
   csv-type: simple-address-type
   description: Represents the various structured parts of an address to a polling
-    location.  If multiple addresses are provided, each one must have a different language attribute.
-    All addresses are considered equally authoritative.  Multiple addresses are supported in XML format only; CSV files must have exactly one address.
-  error: **AddressStructured** should be present for a given Polling Location.
+    location.  If multiple addresses are provided, each one must have a different
+    language attribute. All addresses are considered equally authoritative.  Multiple
+    addresses are supported in XML format only; CSV files must have exactly one address.
+  error: |-
+    **AddressStructured** should be present for a given Polling Location.
     If none is present, the implementation is required to ignore the ``PollingLocation`` element containing it.
     If more than one **AddressStructured** exists with the same language code, the implementation is required to ignore the ``PollingLocation`` element containing it.
   repeating: true
   required: true
   skip_on: csv
   type: SimpleAddressType
-- _name: PlaceId
-  csv-header-name: :ref:`$$$-place-id`
-  csv-type: place-id
-  description: A place ID from a particular geocoding or mapping provider for this location.
-  repeating: true
-  required: false
-  skip_on: csv
-  type: PlaceId
 - _name: Directions
   csv-header-name: directions
   csv-type: xs:string
@@ -69,18 +63,19 @@ tags:
     hours in this format).
   error_then: =must-ignore
   type: InternationalizedText
-- _name: HoursOpenId
+- _name: HoursOpen
   csv-header-name: hours_open_id
   csv-type: xs:IDREF
-  description: Links to an :ref:`$$$-hours-open` element, which is a schedule of dates
-    and hours during which the polling location is available.
+  description: An :ref:`$$$-hours-open` element, which is a schedule of dates and
+    hours during which the polling location is available.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: PollingLocationType
   csv-header-name: polling_location_type
   csv-type: polling_location_type
-  description: Whether this polling location is for day-of, in-person early, or drop-off/drop-box voting.
-  error_then: =must_ignore
+  description: Whether this polling location is for day-of, in-person early, or drop-off/drop-box
+    voting.
+  error_then: =must-ignore
   type: PollingLocationType
 - _name: LatLng
   csv-header-name: lat_lng
@@ -92,23 +87,32 @@ tags:
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
-  description: Name of the polling location.  There must be at least one `Name` provided, and at most one per language code.
-  required: true
+  description: Name of the polling location.  There must be at least one `Name` provided,
+    and at most one per language code.
   error_then: =must-ignore
+  required: true
   type: InternationalizedText
 - _name: PhotoUri
   csv-header-name: photo_uri
-  csv-type: xs:string
+  csv-type: InternationalizedUri
   description: Contains a link to an image of the polling location.
   error_then: =must-ignore
-  type: xs:anyURI
-- _name: IsClosed
-  csv-header-name: is_closed
+  type: InternationalizedUri
+- _name: EmergencyNotice
+  csv-header-name: emergency_notice
+  csv-type: xs:string
+  description: An emergency notice that should be displayed on this polling location
+    only.
+  error_then: =must-ignore
+  skip_on: csv
+  type: EmergencyNotice
+- _name: IsInactive
+  csv-header-name: is_inactive
   csv-type: xs:boolean
-  description: Whether this polling location is closed and should be ignored.  Default is false.
-    Use this for situations like back-up polling locations where it makes sense to include the location
-    in the feed in case it needs to be activated on short notice.
-  error_then: =must_ignore
+  description: Whether this polling location is closed and should be ignored.  Default
+    is false. Use this for situations like back-up polling locations where it makes
+    sense to include the location in the feed in case it needs to be activated on
+    short notice.
+  error_then: =must-ignore
   required: false
   type: xs:boolean
-  
