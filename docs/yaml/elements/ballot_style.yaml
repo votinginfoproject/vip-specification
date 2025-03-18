@@ -5,7 +5,7 @@ csv-post: |-
      :linenos:
 
 
-      id,image_uri,ordered_contest_ids,party_ids
+      id,image_uri!en,ordered_contest_ids,party_ids
       bs00010,http://i.giphy.com/26BoCh3PgT8ai45ji.gif,oc2025,par02
       bs00011,http://i.giphy.com/3oEjHYDWEICgEpAOjK.gif,oc3000 oc2025,par01
 description: A container for the contests/measures on the ballot.
@@ -19,7 +19,7 @@ post: |-
 tags:
 - _name: ImageUri
   csv-header-name: image_uri
-  csv-type: xs:anyURI
+  csv-type: InternationalizedUri
   description: Specifies a URI that returns an image of the sample ballot.
   error_then: =must-ignore
   type: InternationalizedUri
