@@ -305,7 +305,7 @@
            in future versions of VIP.
         -->
       <xs:element name="Hours" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="HoursOpen" type="HoursOpen" minOccurs="0" />
+      <xs:element name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="LatLng" type="LatLng" minOccurs="0" />
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
@@ -445,41 +445,36 @@
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
 
-  <xs:complexType name="HoursOpen">
+  <xs:complexType name="ScheduleWithTimezone">
     <xs:sequence>
-      <xs:element name="Schedule" maxOccurs="unbounded">
+      <!-- IANA Time Zone, e.g. "Americal/New_York".  Only canonical time zones of the
+	   form Continent/City are supported to make the regex as specific as possible.
+	   Single-word aliases like CET or EST are not supported.  For hour offsets, use
+	   Etc/GMT-X and Etc/GMT+X. If time zone is not present, the hours are assumed
+           to be local time in the time zone of the enclosing entity. -->
+      <xs:element name="TimeZone" minOccurs="0">
+	<xs:simpleType>
+	  <xs:restriction base="xs:string">
+	    <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Pexico|Pacific|US)(/[A-Za-z0-9+-]+)+" />
+	  </xs:restriction>
+	</xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDate" type="xs:date" minOccurs="0" />
+      <xs:element name="EndDate" type="xs:date" minOccurs="0" />
+      <xs:element name="Hours" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-	    <!-- IANA Time Zone, e.g. "Americal/New_York".  Only canonical time zones of the
-	         form Continent/City are supported to make the regex as specific as possible.
-	         Single-word aliases like CET or EST are not supported.  For hour offsets, use
-	         Etc/GMT-X and Etc/GMT+X. -->
-	    <xs:element name="TimeZone" minOccurs="0">
-	      <xs:simpleType>
-		<xs:restriction base="xs:string">
-		  <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Pexico|Pacific|US)(/[A-Za-z0-9+-]+)+" />
-		</xs:restriction>
-	      </xs:simpleType>
-	    </xs:element>
-            <xs:element name="StartDate" type="xs:date" minOccurs="0" />
-            <xs:element name="EndDate" type="xs:date" minOccurs="0" />
-            <xs:element name="Hours" minOccurs="0" maxOccurs="unbounded">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="StartTime" type="TimeWithoutZone" maxOccurs="1" />
-                  <xs:element name="EndTime" type="TimeWithoutZone" maxOccurs="1" />
-                </xs:sequence>
-                <xs:attribute name="label" type="xs:string" />
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-            <xs:element name="IsOrByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-            <xs:element name="IsSubjectToChange" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+            <xs:element name="StartTime" type="TimeWithoutZone" maxOccurs="1" />
+            <xs:element name="EndTime" type="TimeWithoutZone" maxOccurs="1" />
           </xs:sequence>
           <xs:attribute name="label" type="xs:string" />
         </xs:complexType>
       </xs:element>
+      <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+      <xs:element name="IsOrByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+      <xs:element name="IsSubjectToChange" type="xs:boolean" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
+    <xs:attribute name="label" type="xs:string" />
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
@@ -664,7 +659,7 @@
            in future versions of VIP.
         -->
       <ClearableInOverlay name="Hours" type="InternationalizedText" minOccurs="0" />
-      <ClearableInOverlay name="HoursOpen" type="HoursOpen" minOccurs="0" />
+      <ClearableInOverlay name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
       <OptionalInOverlay name="LocationType" type="PollingLocationType" minOccurs="1" />
       <ClearableInOverlay name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" />
       <ClearableInOverlay name="Name" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
@@ -759,7 +754,7 @@
       <OptionalInOverlay name="Date" type="xs:date" />
       <ClearableInOverlay name="ElectionType" type="InternationalizedText" minOccurs="0" />
       <ClearableInOverlay name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
-      <ClearableInOverlay name="HoursOpenId" type="xs:IDREF" minOccurs="0" />
+      <ClearableInOverlay name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
       <ClearableInOverlay name="IsStatewide" type="xs:boolean" minOccurs="0" />
       <ClearableInOverlay name="Name" type="InternationalizedText" minOccurs="0" />
       <ClearableInOverlay name="RegistrationDeadline" type="xs:date" minOccurs="0" />
