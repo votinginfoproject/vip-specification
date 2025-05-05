@@ -77,6 +77,7 @@
           <xs:complexType>
             <xs:all>
               <xs:element name="DateTime" type="xs:dateTime" />
+	      <xs:element name="DefaultLanguage" type="xs:language" />
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
               <xs:element name="Name" type="xs:string" />
