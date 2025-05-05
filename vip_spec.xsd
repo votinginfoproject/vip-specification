@@ -292,7 +292,7 @@
     <xs:sequence>
       <xs:element name="Algorithm" type="ChecksumAlgorithm" minOccurs="1" />
       <xs:element name="Value" type="xs:string" minOccurs="1" />
-    </xs:sequence>
+    </xs:sequence>ledAd
   </xs:complexType>
 
   <xs:complexType name="ContactInformation">
@@ -706,12 +706,10 @@
 
   <xs:complexType name="SimpleAddressType">
     <xs:sequence>
-      <xs:element name="Line1" type="xs:string"/>
-      <xs:element name="Line2" type="xs:string" minOccurs="0" />
-      <xs:element name="Line3" type="xs:string" minOccurs="0" />
-      <xs:element name="City" type="xs:string"/>
-      <xs:element name="Region" type="xs:string"/>
-      <xs:element name="Country" type="xs:string"/>
+      <xs:element name="AddressLines" type="xs:string" maxOccurs="unbounded" />
+      <xs:element name="City" type="xs:string" minOccurs="0" />
+      <xs:element name="Region" type="xs:string" minOccurs="0" />
+      <xs:element name="Country" type="xs:string" minOccurs="0" />
       <xs:element name="PostalCode" type="xs:string" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
