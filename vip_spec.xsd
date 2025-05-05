@@ -107,6 +107,12 @@
       <xs:enumeration value="national-level" />
       <xs:enumeration value="ocd-id" />
       <xs:enumeration value="state-level" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LocationIdentifierType">
+    <xs:restriction base="xs:string">
       <xs:enumeration value="latlong" />
       <xs:enumeration value="pluscode" />
       <xs:enumeration value="geocoder-id" />
@@ -298,6 +304,7 @@
   <xs:complexType name="ContactInformation">
     <xs:sequence>
       <xs:element name="AddressStructured" type="SimpleAddressType"/>
+      <xs:element name="LocationIdentifiers" type="LocationIdentifiers" minOccurs="0"/>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
       <xs:element name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
       <xs:elelment name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
@@ -426,7 +433,6 @@
     </xs:sequence>
   </xs:complexType>
 
-
   <xs:complexType name="ExternalIdentifiers">
     <xs:sequence>
       <xs:element name="ExternalIdentifier" maxOccurs="unbounded">
@@ -438,7 +444,24 @@
           </xs:all>
           <xs:attribute name="label" type="xs:string" />
           <xs:attribute name="provider" type="xs:string" />
-          <xs:attribute name="sortOrder" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="LocationIdentifiers">
+    <xs:sequence>
+      <xs:element name="LocationIdentifier" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="Type" type="LocationIdentifierType" />
+            <xs:element name="OtherType" type="xs:string" minOccurs="0" />
+            <xs:element name="Value" type="xs:string" />
+          </xs:all>
+          <xs:attribute name="label" type="xs:string" />
+          <xs:attribute name="provider" type="xs:string" />
+          <xs:attribute name="relativePriority" type="xs:string" />
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -502,9 +525,9 @@
 
         office_mayor,Mayor,Alcalde,市長
     -->
-  <xs:complexType name="InternationalizedText">
+  <xs:complexType name="InternationalizedText" mixed="true">
     <xs:sequence>
-      <xs:element name="Text" type="LanguageString" maxOccurs="unbounded" />
+      <xs:element name="Text" type="LanguageString" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -524,9 +547,9 @@
       InternationalizedURI: a type representing URIs for the same materials in
       different languages.  It works like InternationlizedText.
     -->
-  <xs:complexType name="InternationalizedURI">
+  <xs:complexType name="InternationalizedURI" mixed="true">
     <xs:sequence>
-      <xs:element name="URI" type="LanguageString" maxOccurs="unbounded" />
+      <xs:element name="URI" type="LanguageURI" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -536,7 +559,7 @@
     -->
   <xs:complexType name="LanguageURI">
     <xs:simpleContent>
-      <xs:extension base="AnnotatedURI">
+      <xs:extension base="xs:anyURI">
         <xs:attribute name="language" type="xs:language" use="required" />
       </xs:extension>
     </xs:simpleContent>
@@ -653,6 +676,7 @@
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
       <OptionalInOverlay name="AddressStructured" type="SimpleAddressType"/>
+      <ClearableInOverlay name="LocationIdentifiers" type="LocationIdentifiers"/>
       <ClearableInOverlay name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
            Note: The "Hours" element is being deprecated and will be removed
