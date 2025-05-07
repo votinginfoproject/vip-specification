@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xsl:output method="xml" omit-xml-declarations="yes" indent="yes" encoding="UTF-8" />
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" />
+
+  <!-- Remove EmergencyNotice elements because they are  only allowed in overlays. -->
+  <xsl:template match="//*[@type = 'EmergencyNotice']" />
+
+  <!-- Replace clearable attribute on overlays with a minOccurs="0",
+       since clearable in overlays implies optional in the main feed. -->
+  <xsl:template match="//xs:element[@clearable and @type != 'EmergencyNotice']" >
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*[name(.)!='clearable' and name(.)!='optionalInOverlay']" />
+      <xsl:attribute name="minOccurs">0</xsl:attribute>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Delete the optionalInOverlay attribute. -->
+  <xsl:template match="@optionalInOverlay" />
 
   <!-- By default, copy input to output with no modification. -->
   <xsl:template match="node()|@*">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
-    </xsl:copy>
-  </xsl:template>
-
-  <!-- Delete clear attribute from ClearableInOverlay elements
-       since that is an overlay-only attribute. -->
-  <xsl:template match="//xs:complexType[@name='ClearableInOverlay']//*[@name='clear']" />
-
-  <!-- Set minOccurs and maxOccurs to 0 on EmergencyNotice elements because they are
-       only allowed in overlays. -->
-  <xsl:template match="//*[@type = 'EmergencyNotice']">
-    <xsl:copy>
-      <xsl:attribute name="minOccurs">0</xsl:attribute>
-      <xsl:attribute name="maxOccurs">0</xsl:attribute>
-      <xsl:apply-templates select="@*[name(.) != 'minOccurs' and name(.) != 'maxOccurs']" />
-      <xsl:apply-templates select="node()" />
     </xsl:copy>
   </xsl:template>
 
