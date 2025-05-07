@@ -28,9 +28,9 @@
   <!-- Enumeration types. -->
   <xs:simpleType name="PollingLocationType">
     <xs:restriction base="xs:string">
-      <xs:enumaration value="InPersonDayOf" />
-      <xs:enumaration value="InPersonEarly" />
-      <xs:enumaration value="DropOff" />
+      <xs:enumeration value="InPersonDayOf" />
+      <xs:enumeration value="InPersonEarly" />
+      <xs:enumeration value="DropOff" />
     </xs:restriction>
   </xs:simpleType>
 
