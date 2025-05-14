@@ -77,12 +77,11 @@
           <xs:complexType>
             <xs:all>
               <xs:element name="DateTime" type="xs:dateTime" />
-	      <xs:element name="DefaultLanguage" type="xs:language" />
               <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
               <xs:element name="FeedContactInformation" type="ContactInformation" minOccurs="0" />
               <xs:element name="Name" type="xs:string" />
-              <xs:element name="OrganizationUri" type="xs:anyURI" minOccurs="0" />
-              <xs:element name="TermsOfUseUri" type="xs:anyURI" minOccurs="0" />
+              <xs:element name="OrganizationUri" type="InternationalizedUri" minOccurs="0" />
+              <xs:element name="TermsOfUseUri" type="InternationalizedUri" minOccurs="0" />
               <xs:element name="VipId" type="xs:string" />
             </xs:all>
             <xs:attribute name="id" type="xs:ID" use="required" />

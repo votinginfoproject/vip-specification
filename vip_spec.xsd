@@ -168,27 +168,6 @@
   </xs:simpleType>
 
   <!-- Complex types. -->
-  <!--
-      AnnotatedString: a type representing a string with a purpose specified.
-    -->
-  <xs:complexType name="AnnotatedString">
-    <xs:simpleContent>
-      <xs:extension base="xs:string">
-        <xs:attribute name="annotation" type="ShortString" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <!--
-      AnnotatedURI: a type representing a URI with a purpose specified.
-    -->
-  <xs:complexType name="AnnotatedURI">
-    <xs:simpleContent>
-      <xs:extension base="xs:anyURI">
-        <xs:attribute name="annotation" type="ShortString" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
 
   <xs:complexType name="BallotMeasureContest">
     <xs:complexContent>
@@ -197,7 +176,7 @@
           <xs:element clearable="true" name="ConStatement" type="InternationalizedText" />
           <xs:element clearable="true" name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" />
           <xs:element clearable="true" name="FullText" type="InternationalizedText" minOccurs="0" />
-          <xs:element clearable="true" name="InfoUri" type="InternationalizedURI" minOccurs="0" />
+          <xs:element clearable="true" name="InfoUri" type="InternationalizedUri" minOccurs="0" />
           <xs:element clearable="true" name="PassageThreshold" type="InternationalizedText" minOccurs="0" />
           <xs:element clearable="true" name="ProStatement" type="InternationalizedText" minOccurs="0" />
           <xs:element clearable="true" name="SummaryText" type="InternationalizedText" minOccurs="0" />
@@ -228,7 +207,7 @@
 
   <xs:complexType name="BallotStyle">
     <xs:sequence>
-      <xs:element name="ImageUri" type="InternationalizedURI" minOccurs="0" />
+      <xs:element name="ImageUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="OrderedContestIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="PartyIds" type="xs:IDREFS" minOccurs="0" />
     </xs:sequence>
@@ -288,8 +267,8 @@
       <xs:element name="AddressStructured" type="SimpleAddressType"/>
       <xs:element name="LocationIdentifiers" type="LocationIdentifiers" minOccurs="0"/>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="Email" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Fax" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Email" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Fax" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
       <!-- Note: The "Hours" element is being deprecated and will be removed
            in future versions of VIP.
         -->
@@ -298,8 +277,8 @@
       <xs:element name="LatLng" type="LatLng" minOccurs="0" />
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="Phone" type="AnnotatedString" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Uri" type="InternationalizedURI" minOccurs="0" />
+      <xs:element name="Phone" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Uri" type="InternationalizedUri" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -328,17 +307,17 @@
   <xs:complexType name="EmergencyNotice">
     <xs:sequence>
       <xs:element name="NoticeText" type="InternationalizedText" minOccurs="1" maxOccurs="unbounded" />
-      <xs:element name="NoticeUri" type="InternationalizedURI" minOccurs="0" />
+      <xs:element name="NoticeUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="AppliesTo" type="xs:string" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
-      <xs:element clearable="true" name="AbsenteeUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="AmIRegisteredUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="BallotTrackingUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="BallotProvisionalTrackingUri" type="InternationalizedURI" minOccurs="0" />
+      <xs:element clearable="true" name="AbsenteeUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="AmIRegisteredUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="BallotTrackingUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="BallotProvisionalTrackingUri" type="InternationalizedUri" minOccurs="0" />
       <!-- A locality may have more than one department with each handling different services. -->
       <xs:element name="Department" maxOccurs="unbounded">
         <xs:complexType>
@@ -373,11 +352,11 @@
         </xs:complexType>
       </xs:element>
       <xs:element clearable="true" name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" />
-      <xs:element clearable="true" name="ElectionsUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="RegistrationUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="RulesUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="WhatIsOnMyBallotUri" type="InternationalizedURI" minOccurs="0" />
-      <xs:element clearable="true" name="WhereDoIVoteUri" type="InternationalizedURI" minOccurs="0" />
+      <xs:element clearable="true" name="ElectionsUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="RegistrationUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="RulesUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="WhatIsOnMyBallotUri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element clearable="true" name="WhereDoIVoteUri" type="InternationalizedUri" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -549,12 +528,12 @@
   </xs:complexType>
 
   <!--
-      InternationalizedURI: a type representing URIs for the same materials in
+      InternationalizedUri: a type representing URIs for the same materials in
       different languages.  It works like InternationlizedText.
     -->
-  <xs:complexType name="InternationalizedURI" mixed="true">
+  <xs:complexType name="InternationalizedUri" mixed="true">
     <xs:sequence>
-      <xs:element name="URI" type="LanguageURI" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Uri" type="LanguageUri" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -562,7 +541,7 @@
   <!--
       LanguageURI: a type representing an annotated URI with a language specified.
     -->
-  <xs:complexType name="LanguageURI">
+  <xs:complexType name="LanguageUri">
     <xs:simpleContent>
       <xs:extension base="xs:anyURI">
         <xs:attribute name="language" type="xs:language" use="required" />
@@ -635,7 +614,7 @@
       <xs:element name="ExternalIdentifiers" type="ExternalIdentifiers" minOccurs="0" />
       <xs:element name="IsWriteIn" type="xs:boolean" minOccurs="0" />
       <xs:element name="LeaderPersonIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element name="LogoUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element name="LogoUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="Name" type="InternationalizedText" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
@@ -692,7 +671,7 @@
       <xs:element optionalInOverlay="true" name="LocationType" type="PollingLocationType" minOccurs="1" />
       <xs:element clearable="true" name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" />
       <xs:element clearable="true" name="Name" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
-      <xs:element clearable="true" name="PhotoUri" type="InternationalizedURI" minOccurs="0" maxOccurs="1" />
+      <xs:element clearable="true" name="PhotoUri" type="InternationalizedUri" minOccurs="0" maxOccurs="1" />
       <xs:element clearable="true" name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
@@ -786,7 +765,7 @@
       <xs:element clearable="true" name="Name" type="InternationalizedText" minOccurs="0" />
       <xs:element clearable="true" name="RegistrationDeadline" type="xs:date" minOccurs="0" />
       <xs:element clearable="true" name="RegistrationInfo" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="ResultsUri" type="xs:anyURI" minOccurs="0" />
+      <xs:element clearable="true" name="ResultsUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element optionalInOverlay="true" name="TopLevelLocalityId" type="xs:IDREF" />
     </xs:all>
     <xs:attribute name="id" type="xs:ID" use="required" />
