@@ -502,6 +502,7 @@
           <Text language="en">Mayor</Text>
           <Text language="es">Alcalde</Text>
           <Text language="zh">市長</Text>
+          <Text language="i-default">Mayor</Text>
         </Office>
 
       The optional "label" attribute can be used to name the text being
@@ -511,7 +512,24 @@
       element could have come from a flat file with row:
 
         office_mayor,Mayor,Alcalde,市長
-    -->
+
+      The language tag "i-default" is used for the "fallback" text that clients
+      should use when a desired language version is not available.
+
+      Alternatively, the field may omit the Text elements.  In this case the body
+      of the element is treated as having lanugage "i-default":
+
+      <Office label="office_mayor">Mayor</Office>
+
+      The above example is equivalent to:
+
+      <Office label="office_may">
+        <Text language="i-default">Mayor</Text>
+      </Office>
+
+      A separate schematron rule will bar combining plain text with <Text> sub-elements
+      and will enforce that each text language is different.
+  -->
   <xs:complexType name="InternationalizedText" mixed="true">
     <xs:sequence>
       <xs:element name="Text" type="LanguageString" minOccurs="0" maxOccurs="unbounded" />
