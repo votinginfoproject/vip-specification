@@ -264,7 +264,7 @@
 
   <xs:complexType name="ContactInformation">
     <xs:sequence>
-      <xs:element name="AddressStructured" type="SimpleAddressType"/>
+      <xs:element name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded"/>
       <xs:element name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
       <xs:element name="Email" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
@@ -639,7 +639,7 @@ and will enforce that each text language is different.
   <xs:complexType name="PollingLocation">
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
-      <xs:element optionalInOverlay="true" name="AddressStructured" type="SimpleAddressType"/>
+      <xs:element optionalInOverlay="true" name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded"/>
       <xs:element optionalInOverlay="true" name="LocationIdentifier" type="LocationIdentifier" maxOccurs="unbounded"/>
       <xs:element clearable="true" name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
@@ -692,6 +692,12 @@ and will enforce that each text language is different.
     </xs:complexContent>
   </xs:complexType>
 
+  <!--
+      A repeated SimpleAddressType field can be used to specify the same address in multiple languages.
+      In this case, a separate schematron rule will enforce that each language attribute is different.
+      Use language="i-default" or don't specify the language attribute for the fallback address to
+      use when the address is not provided in the user's preferred language.
+    -->
   <xs:complexType name="SimpleAddressType">
     <xs:sequence>
       <xs:element name="AddressLines" type="xs:string" maxOccurs="unbounded" />
@@ -700,6 +706,7 @@ and will enforce that each text language is different.
       <xs:element name="Country" type="xs:string" minOccurs="0" />
       <xs:element name="PostalCode" type="xs:string" minOccurs="0" />
     </xs:sequence>
+    <xs:attribute name="language" type="xs:language" default="i-default" />
   </xs:complexType>
 
   <xs:complexType name="SpatialBoundary">
