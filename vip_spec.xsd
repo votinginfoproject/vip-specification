@@ -264,7 +264,8 @@
 
   <xs:complexType name="ContactInformation">
     <xs:sequence>
-      <xs:element name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded"/>
+      <xs:element name="MailingAddress" type="SimpleAddressType" maxOccurs="unbounded"/>
+      <xs:element name="PhysicalAddress" type="SimpleAddressType" maxOccurs="unbounded"/>
       <xs:element name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
       <xs:element name="Email" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
