@@ -69,9 +69,8 @@
               </xs:complexType>
             </xs:element>
 	    <xs:element name="StreetSegment" type="StreetSegment" minOccurs="0" maxOccurs="unbounded" />
-
-	    <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="7.0" />
 	  </xs:sequence>
+	  <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="7.0" />
 	</xs:complexType>
       </xs:element>
     </xsl:copy>
