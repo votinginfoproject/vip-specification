@@ -701,10 +701,13 @@ and will enforce that each text language is different.
     -->
   <xs:complexType name="SimpleAddressType">
     <xs:sequence>
+      <xs:element name="LocationName" type="xs:string" minOccurs="0" />
       <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
       <xs:element name="City" type="xs:string" minOccurs="0" />
+      <xs:element name="County" type="xs:string" minOccurs="0" />
       <xs:element name="Region" type="xs:string" minOccurs="0" />
       <xs:element name="Country" type="xs:string" minOccurs="0" />
+      <xs:element name="WorldRegion" type="xs:string" minOccurs="0" />
       <xs:element name="PostalCode" type="xs:string" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="language" type="xs:language" default="i-default" />
