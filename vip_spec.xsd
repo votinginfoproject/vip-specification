@@ -264,8 +264,8 @@
 
   <xs:complexType name="ContactInformation">
     <xs:sequence>
-      <xs:element name="MailingAddress" type="SimpleAddressType" maxOccurs="unbounded"/>
-      <xs:element name="PhysicalAddress" type="SimpleAddressType" maxOccurs="unbounded"/>
+      <xs:element name="MailingAddress" type="SimpleAddressType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="PhysicalAddress" type="SimpleAddressType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" />
       <xs:element name="Email" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
@@ -279,7 +279,7 @@
       <!-- This can be a person or place name. -->
       <xs:element name="Name" type="InternationalizedText" minOccurs="0" />
       <xs:element name="Phone" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="Uri" type="InternationalizedUri" minOccurs="0" />
+      <xs:element name="Uri" type="InternationalizedUri" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
   </xs:complexType>
@@ -641,7 +641,7 @@ and will enforce that each text language is different.
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
       <xs:element optionalInOverlay="true" name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded"/>
-      <xs:element optionalInOverlay="true" name="LocationIdentifier" type="LocationIdentifier" maxOccurs="unbounded"/>
+      <xs:element optionalInOverlay="true" name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element clearable="true" name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
           Note: The "Hours" element is being deprecated and will be removed
@@ -701,7 +701,7 @@ and will enforce that each text language is different.
     -->
   <xs:complexType name="SimpleAddressType">
     <xs:sequence>
-      <xs:element name="AddressLines" type="xs:string" maxOccurs="unbounded" />
+      <xs:element name="AddressLine" type="xs:string" maxOccurs="unbounded" />
       <xs:element name="City" type="xs:string" minOccurs="0" />
       <xs:element name="Region" type="xs:string" minOccurs="0" />
       <xs:element name="Country" type="xs:string" minOccurs="0" />
