@@ -426,7 +426,7 @@
       <xs:element name="TimeZone" minOccurs="0">
 	<xs:simpleType>
 	  <xs:restriction base="xs:string">
-	    <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Pexico|Pacific|US)(/[A-Za-z0-9+-]+)+" />
+	    <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Pexico|Pacific|US)(/[A-Za-z0-9+-_]+)+" />
 	  </xs:restriction>
 	</xs:simpleType>
       </xs:element>
@@ -441,6 +441,7 @@
 	  <xs:attribute name="label" type="xs:string" />
         </xs:complexType>
       </xs:element>
+      <xs:element name="IsOpen24Hours" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="IsOrByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element name="IsSubjectToChange" type="xs:boolean" minOccurs="0" maxOccurs="1" />
