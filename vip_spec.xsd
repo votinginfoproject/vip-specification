@@ -413,7 +413,7 @@
     </xs:sequence>
     <xs:attribute name="label" type="xs:string" />
     <xs:attribute name="provider" type="xs:string" />
-    <xs:attribute name="relativePriority" type="xs:string" />
+    <xs:attribute name="relativePriority" type="xs:decimal" />
   </xs:complexType>
 
   <xs:complexType name="ScheduleWithTimezone">
