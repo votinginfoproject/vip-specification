@@ -644,6 +644,8 @@ and will enforce that each text language is different.
       <xs:element clearable="true" name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded" />
       <xs:element optionalInOverlay="true" name="LocationType" type="PollingLocationType" minOccurs="1" />
       <xs:element clearable="true" name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" />
+      <!-- If present, PartyIds indicates which parties' primaries are occuring here. -->
+      <xs:element clearable="true" name="PartyIds" type="xs:IDREFS" minOccurs="0" maxOccurs="1" />
       <xs:element clearable="true" name="PhotoUri" type="InternationalizedUri" minOccurs="0" maxOccurs="1" />
       <xs:element clearable="true" name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
 
