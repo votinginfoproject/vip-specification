@@ -367,6 +367,7 @@
   <xs:complexType name="ExternalFile">
     <xs:sequence>
       <xs:element name="FileUri" type="xs:anyURI" minOccurs="1" />
+      <xs:element name="FileFormat" type="GeospatialFormat" minOccurs="1" />
       <xs:element name="Checksum" type="Checksum" minOccurs="1" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
@@ -375,7 +376,6 @@
   <xs:complexType name="ExternalGeospatialFeature">
     <xs:sequence>
       <xs:element name="ExternalFileId" type="xs:IDREF" minOccurs="1" />
-      <xs:element name="FileFormat" type="GeospatialFormat" minOccurs="1" />
       <xs:element name="FeatureIdentifier" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
