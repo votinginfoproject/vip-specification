@@ -63,25 +63,31 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Root VIP Overlay element. -->
-  <xs:element name="VipOverlay">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Election" minOccurs="0" maxOccurs="unbounded" />
-        <xs:element name="ElectoralDistrict" type="ElectoralDistrict" minOccurs="0" maxOccurs="unbounded" />
-        <xs:element name="Locality" type="Locality" minOccurs="0" maxOccurs="unbounded" />
-        <xs:element name="Office" type="Office" minOccurs="0" maxOccurs="unbounded" />
-        <xs:element name="PollingLocation" minOccurs="0" maxOccurs="unbounded" >
-	  <xs:complexType>
-	    <xs:simpleContent>
-	      <xs:extension base="PollingLocation">
-		<xs:attribute name="isNew" type="xs:boolean" default="false" />
-	      </xs:extension>	    
-	    </xs:simpleContent>
-	  </xs:complexType>
-	</xs:element>
-        <xs:element name="Precinct" type="Precinct" minOccurs="0" maxOccurs="unbounded" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xsl:template match="xs:schema">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+      <!-- Root VIP Overlay element. -->
+      <xs:element name="VipOverlay">
+	<xs:complexType>
+	  <xs:sequence>
+            <xs:element name="Election" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="ElectoralDistrict" type="ElectoralDistrict" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Locality" type="Locality" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Office" type="Office" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="PollingLocation" minOccurs="0" maxOccurs="unbounded" >
+	      <xs:complexType>
+		<xs:complexContent>
+		  <xs:extension base="PollingLocation">
+		    <xs:attribute name="isNew" type="xs:boolean" default="false" />
+		  </xs:extension>	    
+		</xs:complexContent>
+	      </xs:complexType>
+	    </xs:element>
+            <xs:element name="Precinct" type="Precinct" minOccurs="0" maxOccurs="unbounded" />
+	  </xs:sequence>
+	  <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="7.0" />
+	</xs:complexType>
+      </xs:element>
+    </xsl:copy>
+  </xsl:template>
 </xsl:transform>

@@ -282,6 +282,27 @@
       <xs:element name="AppliesTo" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="VoterService">
+    <xs:sequence>
+      <!--
+          The contact information below can be used to override or
+          add specific fields to the base Departmental contact information if
+          the service has different information.  For example, if the voter
+          service has its own phone number, the ContactInformation object
+          below can be an object containing only a Phone element.
+      -->
+      <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0"/>
+      <xs:element name="Description" type="InternationalizedText" minOccurs="0"/>
+      <!--
+          This is for use if a certain person handles the particular service,
+          for example a contact person for overseas voting.
+      -->
+      <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0"/>
+      <xs:element name="Type" type="VoterServiceType" minOccurs="0"/>
+      <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string"/>
+  </xs:complexType>
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="InternationalizedUri" minOccurs="0"/>
@@ -293,29 +314,7 @@
       <xs:element name="RegistrationUri" type="InternationalizedUri" minOccurs="0"/>
       <xs:element name="RulesUri" type="InternationalizedUri" minOccurs="0"/>
       <!-- A locality may have more than one department with each handling different services. -->
-      <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <!--
-                The contact information below can be used to override or
-                add specific fields to the base Departmental contact information if
-                the service has different information.  For example, if the voter
-                service has its own phone number, the ContactInformation object
-                below can be an object containing only a Phone element.
-            -->
-            <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0"/>
-            <xs:element name="Description" type="InternationalizedText" minOccurs="0"/>
-            <!--
-                This is for use if a certain person handles the particular service,
-                for example a contact person for overseas voting.
-            -->
-            <xs:element name="ElectionOfficialPersonId" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="Type" type="VoterServiceType" minOccurs="0"/>
-            <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
-          </xs:sequence>
-          <xs:attribute name="label" type="xs:string"/>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="VoterService" type="VoterService" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="WhatIsOnMyBallotUri" type="InternationalizedUri" minOccurs="0"/>
       <xs:element name="WhereDoIVoteUri" type="InternationalizedUri" minOccurs="0"/>
     </xs:sequence>
@@ -337,17 +336,16 @@
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
+  <xs:complexType name="FeatureIdentifier">
+    <xs:sequence>
+      <xs:element name="Index" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="ExternalGeospatialFeature">
     <xs:sequence>
       <xs:element name="ExternalFileId" type="xs:IDREF" minOccurs="1"/>
       <xs:element name="FileFormat" type="GeospatialFormat" minOccurs="1"/>
-      <xs:element name="FeatureIdentifier" minOccurs="1" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="Index" type="xs:string"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="FeatureIdentifier" type="FeatureIdentifier" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ExternalIdentifier">
@@ -369,6 +367,13 @@
     <xs:attribute name="provider" type="xs:string"/>
     <xs:attribute name="relativePriority" type="xs:decimal"/>
   </xs:complexType>
+  <xs:complexType name="Hours">
+    <xs:sequence>
+      <xs:element name="StartTime" type="TimeWithoutZone" maxOccurs="1"/>
+      <xs:element name="EndTime" type="TimeWithoutZone" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string"/>
+  </xs:complexType>
   <xs:complexType name="ScheduleWithTimezone">
     <xs:sequence>
       <!-- IANA Time Zone, e.g. "Americal/New_York".  Only canonical time zones of the
@@ -385,15 +390,7 @@
       </xs:element>
       <xs:element name="StartDate" type="xs:date" minOccurs="0"/>
       <xs:element name="EndDate" type="xs:date" minOccurs="0"/>
-      <xs:element name="Hours" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="StartTime" type="TimeWithoutZone" maxOccurs="1"/>
-            <xs:element name="EndTime" type="TimeWithoutZone" maxOccurs="1"/>
-          </xs:sequence>
-          <xs:attribute name="label" type="xs:string"/>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Hours" type="Hours" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="IsOpen24Hours" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="IsOnlyByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="IsOrByAppointment" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -502,6 +499,14 @@ and will enforce that each text language is different.
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
+  <xs:complexType name="Term">
+    <xs:sequence>
+      <xs:element name="StartDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Type" type="OfficeTermType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string"/>
+  </xs:complexType>
   <xs:complexType name="Office">
     <xs:sequence>
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded"/>
@@ -512,16 +517,7 @@ and will enforce that each text language is different.
       <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0"/>
       <xs:element name="Name" type="InternationalizedText"/>
       <xs:element name="OfficeHolderPersonIds" type="xs:IDREFS" minOccurs="0"/>
-      <xs:element name="Term" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="StartDate" type="xs:date" minOccurs="0"/>
-            <xs:element name="EndDate" type="xs:date" minOccurs="0"/>
-            <xs:element name="Type" type="OfficeTermType" minOccurs="0"/>
-          </xs:sequence>
-          <xs:attribute name="label" type="xs:string"/>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Term" type="Term" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -632,7 +628,7 @@ and will enforce that each text language is different.
       In this case, a separate schematron rule will enforce that each language attribute is different.
       Use language="i-default" or don't specify the language attribute for the fallback address to
       use when the address is not provided in the user's preferred language.
-    -->
+  -->
   <xs:complexType name="SimpleAddressType">
     <xs:sequence>
       <xs:element name="LocationName" type="xs:string" minOccurs="0"/>
