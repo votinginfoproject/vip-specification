@@ -495,109 +495,23 @@
     </xs:sequence>
     <xs:attribute name="label" type="xs:string"/>
   </xs:complexType>
+  <!-- ElectionAdministration fields are not marked clearable="true" because the entire
+       administration entity gets replaced as a single unit in overlays. -->
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
-      <xs:element name="AbsenteeUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="AmIRegisteredUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="BallotTrackingUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="BallotProvisionalTrackingUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="AbsenteeUri" type="InternationalizedUri" minOccurs="0"/>
+      <xs:element name="AmIRegisteredUri" type="InternationalizedUri" minOccurs="0"/>
+      <xs:element name="BallotTrackingUri" type="InternationalizedUri" minOccurs="0"/>
+      <xs:element name="BallotProvisionalTrackingUri" type="InternationalizedUri" minOccurs="0"/>
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0"/>
-      <xs:element name="EmergencyNotice" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="EmergencyNotice">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ElectionsUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="RegistrationUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="RulesUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0"/>
+      <xs:element name="ElectionsUri" type="InternationalizedUri" minOccurs="0"/>
+      <xs:element name="RegistrationUri" type="InternationalizedUri" minOccurs="0"/>
+      <xs:element name="RulesUri" type="InternationalizedUri" minOccurs="0"/>
       <!-- A locality may have more than one department with each handling different services. -->
-      <xs:element name="VoterService" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="VoterService">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="WhatIsOnMyBallotUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="WhereDoIVoteUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="VoterService" type="VoterService" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="WhatIsOnMyBallotUri" type="InternationalizedUri" minOccurs="0"/>
+      <xs:element name="WhereDoIVoteUri" type="InternationalizedUri" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ElectoralDistrict">
@@ -611,7 +525,7 @@
           </xs:complexContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="Name" type="InternationalizedText"/>
+      <xs:element name="Name" type="InternationalizedText" minOccurs="0"/>
       <xs:element name="Number" minOccurs="0">
         <xs:complexType>
           <xs:simpleContent>
@@ -621,7 +535,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="Type" type="DistrictType"/>
+      <xs:element name="Type" type="DistrictType" minOccurs="0"/>
       <xs:element name="OtherType" minOccurs="0">
         <xs:complexType>
           <xs:simpleContent>
@@ -1119,15 +1033,7 @@ and will enforce that each text language is different.
           </xs:complexContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="EmergencyNotice" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="EmergencyNotice">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
       <xs:element name="IsInactive" minOccurs="0">
         <xs:complexType>
@@ -1226,15 +1132,7 @@ and will enforce that each text language is different.
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="EmergencyNotice" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="EmergencyNotice">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
       <xs:element name="IsInactive" minOccurs="0">
         <xs:complexType>
@@ -1404,10 +1302,23 @@ and will enforce that each text language is different.
   <xs:element name="VipOverlay">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Election" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="BallotMeasureContest" type="BallotMeasureContest" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="BallotSelection" type="BallotSelectionBase" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="BallotStyle" type="BallotStyle" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Candidate" type="Candidate" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="CandidateContest" type="CandidateContest" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="CandidateSelection" type="CandidateSelection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Contest" type="ContestBase" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Election" type="Election" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="ElectoralDistrict" type="ElectoralDistrict" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="Locality" type="Locality" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="Office" type="Office" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="OrderedContest" type="OrderedContest" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Party" type="Party" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="PartyContest" type="PartyContest" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="PartySelection" type="PartySelection" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="PollingLocation" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:complexContent>
@@ -1418,6 +1329,7 @@ and will enforce that each text language is different.
           </xs:complexType>
         </xs:element>
         <xs:element name="Precinct" type="Precinct" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="RetentionContest" type="RetentionContest" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="7.0"/>
     </xs:complexType>

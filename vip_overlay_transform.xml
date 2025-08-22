@@ -70,10 +70,23 @@
       <xs:element name="VipOverlay">
 	<xs:complexType>
 	  <xs:sequence>
-            <xs:element name="Election" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="BallotMeasureContest" type="BallotMeasureContest" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="BallotMeasureSelection" type="BallotMeasureSelection" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="BallotSelection" type="BallotSelectionBase" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="BallotStyle" type="BallotStyle" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Candidate" type="Candidate" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="CandidateContest" type="CandidateContest" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="CandidateSelection" type="CandidateSelection" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Contest" type="ContestBase" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Election" type="Election" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="ElectoralDistrict" type="ElectoralDistrict" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="Locality" type="Locality" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="Office" type="Office" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="OrderedContest" type="OrderedContest" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Party" type="Party" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="PartyContest" type="PartyContest" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="PartySelection" type="PartySelection" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="PollingLocation" minOccurs="0" maxOccurs="unbounded" >
 	      <xs:complexType>
 		<xs:complexContent>
@@ -84,6 +97,7 @@
 	      </xs:complexType>
 	    </xs:element>
             <xs:element name="Precinct" type="Precinct" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="RetentionContest" type="RetentionContest" minOccurs="0" maxOccurs="unbounded" />
 	  </xs:sequence>
 	  <xs:attribute name="schemaVersion" type="xs:decimal" use="required" fixed="7.0" />
 	</xs:complexType>
