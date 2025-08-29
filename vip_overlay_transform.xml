@@ -2,9 +2,20 @@
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xsl:output method="xml" indent="yes" encoding="UTF-8" />
 
+  <xsl:template match="//xs:sequence" >
+    <xsl:copy>
+      <xsl:for-each select="./*[@clearable]">
+	<xsl:variable name="fieldName" select="concat('Clear', @name)" />
+	<xs:element name="{$fieldName}" type="ClearableField" minOccurs="0" />
+      </xsl:for-each>
+      <xsl:apply-templates select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+  
   <!-- Replace clearable attribute on overlays with a minOccurs="0",
        since clearable in overlays implies optional in the main feed.
        Replace the type with an extension that includes the clear attribute. -->
+<!--
   <xsl:template match="//xs:element[@clearable]" >
     <xsl:variable name="elementType" select="@type" />
     <xsl:variable name="isComplexType" select="//xs:complexType[@name=$elementType]" />
@@ -38,9 +49,10 @@
 	</xsl:otherwise>
       </xsl:choose>
     </xsl:copy>
-  </xsl:template>
+    </xsl:template>
+    -->
 
-  <xsl:template match="//xs:element[@optionalInOverlay]" >
+  <xsl:template match="//xs:element[@optionalInOverlay or @clearable]" >
     <xsl:copy>
       <xsl:apply-templates select="node()|@*[name(.)!='clearable' and name(.)!='optionalInOverlay']" />
       <xsl:attribute name="minOccurs">0</xsl:attribute>
@@ -67,6 +79,7 @@
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
       <!-- Root VIP Overlay element. -->
+      <xs:complexType name="ClearableField"/>
       <xs:element name="VipOverlay">
 	<xs:complexType>
 	  <xs:sequence>

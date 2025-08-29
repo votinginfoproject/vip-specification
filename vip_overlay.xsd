@@ -154,87 +154,24 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element name="ConStatement" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedText">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="EffectOfAbstain" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedText">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="FullText" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedText">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="InfoUri" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedUri">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="PassageThreshold" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedText">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="ProStatement" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedText">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="SummaryText" minOccurs="0">
-            <xs:complexType>
-              <xs:complexContent>
-                <xs:extension base="InternationalizedText">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="Type" minOccurs="0">
-            <xs:complexType>
-              <xs:simpleContent>
-                <xs:extension base="BallotMeasureType">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:simpleContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="OtherType" minOccurs="0">
-            <xs:complexType>
-              <xs:simpleContent>
-                <xs:extension base="xs:string">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:simpleContent>
-            </xs:complexType>
-          </xs:element>
+          <xs:element name="ClearConStatement" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearEffectOfAbstain" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearFullText" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearInfoUri" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearPassageThreshold" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearProStatement" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearSummaryText" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearType" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearOtherType" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ConStatement" type="InternationalizedText" minOccurs="0"/>
+          <xs:element name="EffectOfAbstain" type="InternationalizedText" minOccurs="0"/>
+          <xs:element name="FullText" type="InternationalizedText" minOccurs="0"/>
+          <xs:element name="InfoUri" type="InternationalizedUri" minOccurs="0"/>
+          <xs:element name="PassageThreshold" type="InternationalizedText" minOccurs="0"/>
+          <xs:element name="ProStatement" type="InternationalizedText" minOccurs="0"/>
+          <xs:element name="SummaryText" type="InternationalizedText" minOccurs="0"/>
+          <xs:element name="Type" type="BallotMeasureType" minOccurs="0"/>
+          <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -282,42 +219,14 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element name="NumberElected" minOccurs="0">
-            <xs:complexType>
-              <xs:simpleContent>
-                <xs:extension base="xs:integer">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:simpleContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="OfficeIds" minOccurs="0">
-            <xs:complexType>
-              <xs:simpleContent>
-                <xs:extension base="xs:IDREFS">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:simpleContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="PrimaryPartyIds" minOccurs="0">
-            <xs:complexType>
-              <xs:simpleContent>
-                <xs:extension base="xs:IDREFS">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:simpleContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="VotesAllowed" minOccurs="0">
-            <xs:complexType>
-              <xs:simpleContent>
-                <xs:extension base="xs:integer">
-                  <xs:attribute name="clear" type="xs:boolean"/>
-                </xs:extension>
-              </xs:simpleContent>
-            </xs:complexType>
-          </xs:element>
+          <xs:element name="ClearNumberElected" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearOfficeIds" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearPrimaryPartyIds" type="ClearableField" minOccurs="0"/>
+          <xs:element name="ClearVotesAllowed" type="ClearableField" minOccurs="0"/>
+          <xs:element name="NumberElected" type="xs:integer" minOccurs="0"/>
+          <xs:element name="OfficeIds" type="xs:IDREFS" minOccurs="0"/>
+          <xs:element name="PrimaryPartyIds" type="xs:IDREFS" minOccurs="0"/>
+          <xs:element name="VotesAllowed" type="xs:integer" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -362,108 +271,31 @@
   </xs:complexType>
   <xs:complexType name="ContestBase" abstract="true">
     <xs:sequence>
-      <xs:element name="Abbreviation" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="BallotSelectionIds" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREFS">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="BallotSubTitle" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="BallotTitle" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ClearAbbreviation" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearBallotSelectionIds" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearBallotSubTitle" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearBallotTitle" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearElectorateSpecification" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearExternalIdentifier" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearHasRotation" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearSequenceOrder" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearVoteVariation" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearOtherVoteVariation" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsInactive" type="ClearableField" minOccurs="0"/>
+      <xs:element name="Abbreviation" type="xs:string" minOccurs="0"/>
+      <xs:element name="BallotSelectionIds" type="xs:IDREFS" minOccurs="0"/>
+      <xs:element name="BallotSubTitle" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="BallotTitle" type="InternationalizedText" minOccurs="0"/>
       <xs:element name="ElectoralDistrictId" type="xs:IDREF" minOccurs="0"/>
-      <xs:element name="ElectorateSpecification" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ExternalIdentifier">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="HasRotation" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:boolean">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="HasRotation" type="xs:boolean" minOccurs="0"/>
       <xs:element name="Name" type="xs:string" minOccurs="0"/>
-      <xs:element name="SequenceOrder" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:integer">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="VoteVariation" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="VoteVariation">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="OtherVoteVariation" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0"/>
+      <xs:element name="VoteVariation" type="VoteVariation" minOccurs="0"/>
+      <xs:element name="OtherVoteVariation" type="xs:string" minOccurs="0"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element name="IsInactive" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -516,35 +348,14 @@
   </xs:complexType>
   <xs:complexType name="ElectoralDistrict">
     <xs:sequence>
-      <xs:element name="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ExternalIdentifier">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ClearExternalIdentifier" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearNumber" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearOtherType" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="Name" type="InternationalizedText" minOccurs="0"/>
-      <xs:element name="Number" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:integer">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Number" type="xs:integer" minOccurs="0"/>
       <xs:element name="Type" type="DistrictType" minOccurs="0"/>
-      <xs:element name="OtherType" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -705,80 +516,24 @@ and will enforce that each text language is different.
   </xs:complexType>
   <xs:complexType name="Locality">
     <xs:sequence>
-      <xs:element name="ElectionAdministration" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ElectionAdministration">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ExternalIdentifier">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="IsMailOnly" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:boolean">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ClearElectionAdministration" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearExternalIdentifier" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsMailOnly" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPollingLocationIds" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearParentLocalityId" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearType" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearOtherType" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsInactive" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ElectionAdministration" type="ElectionAdministration" minOccurs="0"/>
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Name" type="xs:string" minOccurs="0"/>
-      <xs:element name="PollingLocationIds" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREFS">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ParentLocalityId" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREF">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Type" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="DistrictType">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="OtherType" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0"/>
+      <xs:element name="ParentLocalityId" type="xs:IDREF" minOccurs="0"/>
+      <xs:element name="Type" type="DistrictType" minOccurs="0"/>
+      <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element name="IsInactive" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -839,310 +594,94 @@ and will enforce that each text language is different.
   </xs:complexType>
   <xs:complexType name="Person">
     <xs:sequence>
-      <xs:element name="ContactInformation" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ContactInformation">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="DateOfBirth" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:date">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ExternalIdentifier">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="FirstName" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="FullName" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Gender" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="LastName" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="MiddleName" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Nickname" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="PartyId" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREF">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Prefix" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Profession" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Suffix" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Title" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ClearContactInformation" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearDateOfBirth" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearExternalIdentifier" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearFirstName" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearFullName" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearGender" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearLastName" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearMiddleName" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearNickname" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPartyId" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPrefix" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearProfession" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearSuffix" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearTitle" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DateOfBirth" type="xs:date" minOccurs="0"/>
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FullName" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="Gender" type="xs:string" minOccurs="0"/>
+      <xs:element name="LastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Nickname" type="xs:string" minOccurs="0"/>
+      <xs:element name="PartyId" type="xs:IDREF" minOccurs="0"/>
+      <xs:element name="Prefix" type="xs:string" minOccurs="0"/>
+      <xs:element name="Profession" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="Suffix" type="xs:string" minOccurs="0"/>
+      <xs:element name="Title" type="InternationalizedText" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="PollingLocation">
     <xs:sequence>
+      <xs:element name="ClearLocationIdentifier" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearDirections" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearHours" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearSchedule" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearLatLng" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPartyIds" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPhotoUri" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsInactive" type="ClearableField" minOccurs="0"/>
       <!-- It is intentional that an address is required. -->
       <xs:element name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="Directions" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1"/>
       <!--
           Note: The "Hours" element is being deprecated and will be removed
           in future versions of VIP.
       -->
-      <xs:element name="Hours" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Schedule" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ScheduleWithTimezone">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Hours" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="LocationType" type="PollingLocationType" minOccurs="0"/>
-      <xs:element name="LatLng" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="LatLng">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1"/>
       <!-- If present, PartyIds indicates which parties' primaries are occuring here. -->
-      <xs:element name="PartyIds" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREFS">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="PhotoUri" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="PartyIds" type="xs:IDREFS" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PhotoUri" type="InternationalizedUri" minOccurs="0" maxOccurs="1"/>
       <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element name="IsInactive" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="Precinct">
     <xs:sequence>
-      <xs:element name="BallotStyleId" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREF">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ElectoralDistrictIds" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREFS">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ExternalIdentifier">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="IsMailOnly" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:boolean">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ClearBallotStyleId" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearElectoralDistrictIds" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearExternalIdentifier" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsMailOnly" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearNumber" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPollingLocationIds" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearPrecinctSplitName" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearSpatialBoundary" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearWard" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsInactive" type="ClearableField" minOccurs="0"/>
+      <xs:element name="BallotStyleId" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ElectoralDistrictIds" type="xs:IDREFS" minOccurs="0"/>
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="LocalityId" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Number" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="PollingLocationIds" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:IDREFS">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="PrecinctSplitName" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="SpatialBoundary" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="SpatialBoundary">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Ward" minOccurs="0" maxOccurs="1">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0"/>
+      <xs:element name="PrecinctSplitName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SpatialBoundary" type="SpatialBoundary" minOccurs="0"/>
+      <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element name="IsInactive" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -1204,101 +743,32 @@ and will enforce that each text language is different.
   </xs:complexType>
   <xs:complexType name="Election">
     <xs:sequence>
-      <xs:element name="AbsenteeBallotInfo" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="AbsenteeRequestDeadline" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:date">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ClearAbsenteeBallotInfo" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearAbsenteeRequestDeadline" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearElectionType" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearHasElectionDayRegistration" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearSchedule" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearIsStatewide" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearName" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearRegistrationDeadline" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearRegistrationInfo" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearResultsUri" type="ClearableField" minOccurs="0"/>
+      <xs:element name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0"/>
       <xs:element name="Date" type="xs:date" minOccurs="0"/>
-      <xs:element name="ElectionType" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="HasElectionDayRegistration" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:boolean">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Schedule" minOccurs="0" maxOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="ScheduleWithTimezone">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="IsStatewide" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:boolean">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Name" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="RegistrationDeadline" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:date">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="RegistrationInfo" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedText">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="ResultsUri" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="InternationalizedUri">
-              <xs:attribute name="clear" type="xs:boolean"/>
-            </xs:extension>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ElectionType" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="0"/>
+      <xs:element name="IsStatewide" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Name" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="RegistrationDeadline" type="xs:date" minOccurs="0"/>
+      <xs:element name="RegistrationInfo" type="InternationalizedText" minOccurs="0"/>
+      <xs:element name="ResultsUri" type="InternationalizedUri" minOccurs="0"/>
       <xs:element name="TopLevelLocalityId" type="xs:IDREF" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required"/>
   </xs:complexType>
+  <xs:complexType name="ClearableField"/>
   <xs:element name="VipOverlay">
     <xs:complexType>
       <xs:sequence>

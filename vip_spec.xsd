@@ -635,7 +635,7 @@ and will enforce that each text language is different.
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
       <xs:element optionalInOverlay="true" name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded"/>
-      <xs:element optionalInOverlay="true" name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element clearable="true" name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element clearable="true" name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <!--
           Note: The "Hours" element is being deprecated and will be removed
