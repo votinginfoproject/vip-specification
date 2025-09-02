@@ -277,9 +277,9 @@
   </xs:complexType>
   <xs:complexType name="EmergencyNotice">
     <xs:sequence>
-      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="NoticeUri" type="InternationalizedUri" minOccurs="0"/>
-      <xs:element name="AppliesTo" type="xs:string" minOccurs="0"/>
+      <xs:element name="AppliesTo" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="VoterService">
@@ -303,6 +303,8 @@
     </xs:sequence>
     <xs:attribute name="label" type="xs:string"/>
   </xs:complexType>
+  <!-- ElectionAdministration fields are not marked clearable="true" because the entire
+       administration entity gets replaced as a single unit in overlays. -->
   <xs:complexType name="ElectionAdministration">
     <xs:sequence>
       <xs:element name="AbsenteeUri" type="InternationalizedUri" minOccurs="0"/>
