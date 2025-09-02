@@ -307,9 +307,9 @@
 
   <xs:complexType name="EmergencyNotice">
     <xs:sequence>
-      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="1" maxOccurs="unbounded" />
+      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="NoticeUri" type="InternationalizedUri" minOccurs="0" />
-      <xs:element name="AppliesTo" type="xs:string" minOccurs="0" />
+      <xs:element name="AppliesTo" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
@@ -344,7 +344,6 @@
       <xs:element name="BallotTrackingUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="BallotProvisionalTrackingUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
-      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" />
       <xs:element name="ElectionsUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="RegistrationUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="RulesUri" type="InternationalizedUri" minOccurs="0" />
@@ -536,6 +535,7 @@ and will enforce that each text language is different.
   <xs:complexType name="Locality">
     <xs:sequence>
       <xs:element clearable="true" name="ElectionAdministration" type="ElectionAdministration" minOccurs="0" />
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" />
       <xs:element clearable="true" name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
       <xs:element clearable="true" name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
       <xs:element optionalInOverlay="true" name="Name" type="xs:string" />
