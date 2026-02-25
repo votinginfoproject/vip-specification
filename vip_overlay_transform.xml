@@ -2,6 +2,10 @@
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xsl:output method="xml" indent="yes" encoding="UTF-8" />
 
+  <!-- Delete the onlyInOverlay attribute. -->
+  <xsl:template match="@onlyInOverlay" />
+
+  <!-- Set the type of any element with a clearable attribute to ClearableField. -->
   <xsl:template match="//xs:sequence" >
     <xsl:copy>
       <xsl:for-each select="./*[@clearable]">
@@ -11,47 +15,10 @@
       <xsl:apply-templates select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
-  
+
   <!-- Replace clearable attribute on overlays with a minOccurs="0",
        since clearable in overlays implies optional in the main feed.
        Replace the type with an extension that includes the clear attribute. -->
-<!--
-  <xsl:template match="//xs:element[@clearable]" >
-    <xsl:variable name="elementType" select="@type" />
-    <xsl:variable name="isComplexType" select="//xs:complexType[@name=$elementType]" />
-    <xsl:copy>
-      <xsl:apply-templates select="node()|@*[name(.)!='clearable' and name(.)!='optionalInOverlay' and name(.)!='type']" />
-      <xsl:attribute name="minOccurs">0</xsl:attribute>
-      <xsl:choose>
-	<xsl:when test="$isComplexType">
-	  <xsl:element name="xs:complexType">
-	    <xs:complexContent>
-	      <xsl:element name="xs:extension">
-		<xsl:attribute name="base">
-		  <xsl:value-of select="@type" />
-		</xsl:attribute>
-		<xs:attribute name="clear" type="xs:boolean"/>
-	      </xsl:element>
-	    </xs:complexContent>
-	  </xsl:element>
-	</xsl:when>
-	<xsl:otherwise>
-	  <xsl:element name="xs:complexType">
-	    <xs:simpleContent>
-	      <xsl:element name="xs:extension">
-		<xsl:attribute name="base">
-		  <xsl:value-of select="@type" />
-		</xsl:attribute>
-		<xs:attribute name="clear" type="xs:boolean"/>
-	      </xsl:element>
-	    </xs:simpleContent>
-	  </xsl:element>
-	</xsl:otherwise>
-      </xsl:choose>
-    </xsl:copy>
-    </xsl:template>
-    -->
-
   <xsl:template match="//xs:element[@optionalInOverlay or @clearable]" >
     <xsl:copy>
       <xsl:apply-templates select="node()|@*[name(.)!='clearable' and name(.)!='optionalInOverlay']" />

@@ -2,8 +2,8 @@
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xsl:output method="xml" indent="yes" encoding="UTF-8" />
 
-  <!-- Remove EmergencyNotice elements because they are  only allowed in overlays. -->
-  <xsl:template match="//*[@type = 'EmergencyNotice']" />
+  <!-- Remove any elements with the onlyInOverlay attribute. -->
+  <xsl:template match="//*[@onlyInOverlay]" />
 
   <!-- Replace clearable attribute on overlays with a minOccurs="0",
        since clearable in overlays implies optional in the main feed. -->

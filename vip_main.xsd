@@ -496,6 +496,7 @@ and will enforce that each text language is different.
       <xs:element name="ParentLocalityId" type="xs:IDREF" minOccurs="0"/>
       <xs:element name="Type" type="DistrictType" minOccurs="0"/>
       <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
+      <xs:element name="DefaultPollingHours" type="ScheduleWithTimezone" minOccurs="0"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
       <xs:element name="IsInactive" type="xs:string" minOccurs="0"/>
     </xs:sequence>
@@ -582,8 +583,8 @@ and will enforce that each text language is different.
       <xs:element name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1"/>
       <!--
-          Note: The "Hours" element is being deprecated and will be removed
-          in future versions of VIP.
+         Note: The "Hours" element is being deprecated and will be
+         removed in future versions of VIP.
       -->
       <xs:element name="Hours" type="InternationalizedText" minOccurs="0"/>
       <xs:element name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>

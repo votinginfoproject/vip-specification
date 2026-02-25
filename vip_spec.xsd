@@ -173,15 +173,15 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element clearable="true" name="ConStatement" type="InternationalizedText" />
-          <xs:element clearable="true" name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" />
-          <xs:element clearable="true" name="FullText" type="InternationalizedText" minOccurs="0" />
-          <xs:element clearable="true" name="InfoUri" type="InternationalizedUri" minOccurs="0" />
-          <xs:element clearable="true" name="PassageThreshold" type="InternationalizedText" minOccurs="0" />
-          <xs:element clearable="true" name="ProStatement" type="InternationalizedText" minOccurs="0" />
-          <xs:element clearable="true" name="SummaryText" type="InternationalizedText" minOccurs="0" />
-          <xs:element clearable="true" name="Type" type="BallotMeasureType" minOccurs="0" />
-          <xs:element clearable="true" name="OtherType" type="xs:string" minOccurs="0" />
+          <xs:element name="ConStatement" type="InternationalizedText" clearable="true" />
+          <xs:element name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" clearable="true" />
+          <xs:element name="FullText" type="InternationalizedText" minOccurs="0" clearable="true" />
+          <xs:element name="InfoUri" type="InternationalizedUri" minOccurs="0" clearable="true" />
+          <xs:element name="PassageThreshold" type="InternationalizedText" minOccurs="0" clearable="true" />
+          <xs:element name="ProStatement" type="InternationalizedText" minOccurs="0" clearable="true" />
+          <xs:element name="SummaryText" type="InternationalizedText" minOccurs="0" clearable="true" />
+          <xs:element name="Type" type="BallotMeasureType" minOccurs="0" clearable="true" />
+          <xs:element name="OtherType" type="xs:string" minOccurs="0" clearable="true" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -234,10 +234,10 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element clearable="true" name="NumberElected" type="xs:integer" minOccurs="0" />
-          <xs:element clearable="true" name="OfficeIds" type="xs:IDREFS" minOccurs="0" />
-          <xs:element clearable="true" name="PrimaryPartyIds" type="xs:IDREFS" minOccurs="0" />
-          <xs:element clearable="true" name="VotesAllowed" type="xs:integer" minOccurs="0" />
+          <xs:element name="NumberElected" type="xs:integer" minOccurs="0" clearable="true" />
+          <xs:element name="OfficeIds" type="xs:IDREFS" minOccurs="0" clearable="true" />
+          <xs:element name="PrimaryPartyIds" type="xs:IDREFS" minOccurs="0" clearable="true" />
+          <xs:element name="VotesAllowed" type="xs:integer" minOccurs="0" clearable="true" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -286,21 +286,21 @@
 
   <xs:complexType name="ContestBase" abstract="true">
     <xs:sequence>
-      <xs:element clearable="true" name="Abbreviation" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="BallotSelectionIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element clearable="true" name="BallotSubTitle" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="BallotTitle" type="InternationalizedText" minOccurs="0" />
-      <xs:element optionalInOverlay="true" name="ElectoralDistrictId" type="xs:IDREF" />
-      <xs:element clearable="true" name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element clearable="true" name="HasRotation" type="xs:boolean" minOccurs="0" />
-      <xs:element optionalInOverlay="true" name="Name" type="xs:string" />
-      <xs:element clearable="true" name="SequenceOrder" type="xs:integer" minOccurs="0" />
-      <xs:element clearable="true" name="VoteVariation" type="VoteVariation" minOccurs="0" />
-      <xs:element clearable="true" name="OtherVoteVariation" type="xs:string" minOccurs="0" />
+      <xs:element name="Abbreviation" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="BallotSelectionIds" type="xs:IDREFS" minOccurs="0" clearable="true" />
+      <xs:element name="BallotSubTitle" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="BallotTitle" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="ElectoralDistrictId" type="xs:IDREF" optionalInOverlay="true" />
+      <xs:element name="ElectorateSpecification" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="HasRotation" type="xs:boolean" minOccurs="0" clearable="true" />
+      <xs:element name="Name" type="xs:string" optionalInOverlay="true" />
+      <xs:element name="SequenceOrder" type="xs:integer" minOccurs="0" clearable="true" />
+      <xs:element name="VoteVariation" type="VoteVariation" minOccurs="0" clearable="true" />
+      <xs:element name="OtherVoteVariation" type="xs:string" minOccurs="0" clearable="true" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element clearable="true" name="IsInactive" type="xs:string" minOccurs="0" />
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0" clearable="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -356,11 +356,11 @@
 
   <xs:complexType name="ElectoralDistrict">
     <xs:sequence>
-      <xs:element clearable="true" name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element optionalInOverlay="true" name="Name" type="InternationalizedText" />
-      <xs:element clearable="true" name="Number" type="xs:integer" minOccurs="0" />
-      <xs:element optionalInOverlay="true" name="Type" type="DistrictType" />
-      <xs:element clearable="true" name="OtherType" type="xs:string" minOccurs="0" />
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="Name" type="InternationalizedText" optionalInOverlay="true" />
+      <xs:element name="Number" type="xs:integer" minOccurs="0" clearable="true" />
+      <xs:element name="Type" type="DistrictType" optionalInOverlay="true" />
+      <xs:element name="OtherType" type="xs:string" minOccurs="0" clearable="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -534,18 +534,20 @@ and will enforce that each text language is different.
 
   <xs:complexType name="Locality">
     <xs:sequence>
-      <xs:element clearable="true" name="ElectionAdministration" type="ElectionAdministration" minOccurs="0" />
-      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" />
-      <xs:element clearable="true" name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element clearable="true" name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-      <xs:element optionalInOverlay="true" name="Name" type="xs:string" />
-      <xs:element clearable="true" name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element clearable="true" name="ParentLocalityId" type="xs:IDREF" minOccurs="0" />
-      <xs:element clearable="true" name="Type" type="DistrictType" minOccurs="0" />
-      <xs:element clearable="true" name="OtherType" type="xs:string" minOccurs="0" />
+      <xs:element name="ElectionAdministration" type="ElectionAdministration" minOccurs="0" clearable="true" />
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" onlyInOverlay="true" />
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="Name" type="xs:string" optionalInOverlay="true" />
+      <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" clearable="true" />
+      <xs:element name="ParentLocalityId" type="xs:IDREF" minOccurs="0" clearable="true" />
+      <xs:element name="Type" type="DistrictType" minOccurs="0" clearable="true" />
+      <xs:element name="OtherType" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="DefaultPollingHours" type="ScheduleWithTimezone" minOccurs="0" clearable="true" />
+      <xs:element onlyInOverlay="true" name="OverriddenPollingHours" type="ScheduleWithTimezone" minOccurs="0" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element clearable="true" name="IsInactive" type="xs:string" minOccurs="0" />
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0" clearable="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -613,20 +615,20 @@ and will enforce that each text language is different.
 
   <xs:complexType name="Person">
     <xs:sequence>
-      <xs:element clearable="true" name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element clearable="true" name="DateOfBirth" type="xs:date" minOccurs="0" />
-      <xs:element clearable="true" name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element clearable="true" name="FirstName" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="FullName" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="Gender" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="LastName" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element clearable="true" name="Nickname" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="PartyId" type="xs:IDREF" minOccurs="0" />
-      <xs:element clearable="true" name="Prefix" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="Profession" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="Suffix" type="xs:string" minOccurs="0" />
-      <xs:element clearable="true" name="Title" type="InternationalizedText" minOccurs="0" />
+      <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="DateOfBirth" type="xs:date" minOccurs="0" clearable="true" />
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="FirstName" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="FullName" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="Gender" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="LastName" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="Nickname" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="PartyId" type="xs:IDREF" minOccurs="0" clearable="true" />
+      <xs:element name="Prefix" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="Profession" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="Suffix" type="xs:string" minOccurs="0" clearable="true" />
+      <xs:element name="Title" type="InternationalizedText" minOccurs="0" clearable="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -634,45 +636,45 @@ and will enforce that each text language is different.
   <xs:complexType name="PollingLocation">
     <xs:sequence>
       <!-- It is intentional that an address is required. -->
-      <xs:element optionalInOverlay="true" name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded"/>
-      <xs:element clearable="true" name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element clearable="true" name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
+      <xs:element name="AddressStructured" type="SimpleAddressType" maxOccurs="unbounded" optionalInOverlay="true" />
+      <xs:element name="LocationIdentifier" type="LocationIdentifier" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="Directions" type="InternationalizedText" minOccurs="0" maxOccurs="1" clearable="true" />
       <!--
-          Note: The "Hours" element is being deprecated and will be removed
-          in future versions of VIP.
+         Note: The "Hours" element is being deprecated and will be
+         removed in future versions of VIP.
       -->
-      <xs:element clearable="true" name="Hours" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element optionalInOverlay="true" name="LocationType" type="PollingLocationType" minOccurs="1" />
-      <xs:element clearable="true" name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Hours" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="LocationType" type="PollingLocationType" minOccurs="1" optionalInOverlay="true" />
+      <xs:element name="LatLng" type="LatLng" minOccurs="0" maxOccurs="1" clearable="true" />
       <!-- If present, PartyIds indicates which parties' primaries are occuring here. -->
-      <xs:element clearable="true" name="PartyIds" type="xs:IDREFS" minOccurs="0" maxOccurs="1" />
-      <xs:element clearable="true" name="PhotoUri" type="InternationalizedUri" minOccurs="0" maxOccurs="1" />
-      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="PartyIds" type="xs:IDREFS" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="PhotoUri" type="InternationalizedUri" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" onlyInOverlay="true" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element clearable="true" name="IsInactive" type="xs:string" minOccurs="0" />
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0" clearable="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
 
   <xs:complexType name="Precinct">
     <xs:sequence>
-      <xs:element clearable="true" name="BallotStyleId" type="xs:IDREF" minOccurs="0" maxOccurs="1" />
-      <xs:element clearable="true" name="ElectoralDistrictIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element clearable="true" name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element clearable="true" name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-      <xs:element optionalInOverlay="true" name="LocalityId" type="xs:IDREF" minOccurs="1" maxOccurs="1" />
-      <xs:element optionalInOverlay="true" name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
-      <xs:element clearable="true" name="Number" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element clearable="true" name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" />
-      <xs:element clearable="true" name="PrecinctSplitName" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element clearable="true" name="SpatialBoundary" type="SpatialBoundary" minOccurs="0" />
-      <xs:element clearable="true" name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="BallotStyleId" type="xs:IDREF" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="ElectoralDistrictIds" type="xs:IDREFS" minOccurs="0" clearable="true" />
+      <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" clearable="true" />
+      <xs:element name="IsMailOnly" type="xs:boolean" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="LocalityId" type="xs:IDREF" minOccurs="1" maxOccurs="1" optionalInOverlay="true" />
+      <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" optionalInOverlay="true" />
+      <xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="PollingLocationIds" type="xs:IDREFS" minOccurs="0" clearable="true" />
+      <xs:element name="PrecinctSplitName" type="xs:string" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="SpatialBoundary" type="SpatialBoundary" minOccurs="0" clearable="true" />
+      <xs:element name="Ward" type="xs:string" minOccurs="0" maxOccurs="1" clearable="true" />
+      <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0" maxOccurs="unbounded" onlyInOverlay="true" />
 
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
-      <xs:element clearable="true" name="IsInactive" type="xs:string" minOccurs="0" />
+      <xs:element name="IsInactive" type="xs:string" minOccurs="0" clearable="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -739,18 +741,18 @@ and will enforce that each text language is different.
 
   <xs:complexType name="Election">
     <xs:sequence>
-      <xs:element clearable="true" name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0" />
-      <xs:element optionalInOverlay="true" name="Date" type="xs:date" />
-      <xs:element clearable="true" name="ElectionType" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" />
-      <xs:element clearable="true" name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="0" />
-      <xs:element clearable="true" name="IsStatewide" type="xs:boolean" minOccurs="0" />
-      <xs:element clearable="true" name="Name" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="RegistrationDeadline" type="xs:date" minOccurs="0" />
-      <xs:element clearable="true" name="RegistrationInfo" type="InternationalizedText" minOccurs="0" />
-      <xs:element clearable="true" name="ResultsUri" type="InternationalizedUri" minOccurs="0" />
-      <xs:element optionalInOverlay="true" name="TopLevelLocalityId" type="xs:IDREF" />
+      <xs:element name="AbsenteeBallotInfo" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="AbsenteeRequestDeadline" type="xs:date" minOccurs="0" clearable="true" />
+      <xs:element name="Date" type="xs:date" optionalInOverlay="true" />
+      <xs:element name="ElectionType" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="HasElectionDayRegistration" type="xs:boolean" minOccurs="0" clearable="true" />
+      <xs:element name="Schedule" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="0" clearable="true" />
+      <xs:element name="IsStatewide" type="xs:boolean" minOccurs="0" clearable="true" />
+      <xs:element name="Name" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="RegistrationDeadline" type="xs:date" minOccurs="0" clearable="true" />
+      <xs:element name="RegistrationInfo" type="InternationalizedText" minOccurs="0" clearable="true" />
+      <xs:element name="ResultsUri" type="InternationalizedUri" minOccurs="0" clearable="true" />
+      <xs:element name="TopLevelLocalityId" type="xs:IDREF" optionalInOverlay="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
