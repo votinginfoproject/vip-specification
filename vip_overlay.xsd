@@ -523,6 +523,8 @@ and will enforce that each text language is different.
       <xs:element name="ClearType" type="ClearableField" minOccurs="0"/>
       <xs:element name="ClearOtherType" type="ClearableField" minOccurs="0"/>
       <xs:element name="ClearDefaultPollingHours" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearDefaultEarlyVoteHours" type="ClearableField" minOccurs="0"/>
+      <xs:element name="ClearDefaultDropoffHours" type="ClearableField" minOccurs="0"/>
       <xs:element name="ClearIsInactive" type="ClearableField" minOccurs="0"/>
       <xs:element name="ElectionAdministration" type="ElectionAdministration" minOccurs="0"/>
       <xs:element name="EmergencyNotice" type="EmergencyNotice" minOccurs="0"/>
@@ -533,8 +535,13 @@ and will enforce that each text language is different.
       <xs:element name="ParentLocalityId" type="xs:IDREF" minOccurs="0"/>
       <xs:element name="Type" type="DistrictType" minOccurs="0"/>
       <xs:element name="OtherType" type="xs:string" minOccurs="0"/>
+      <!-- Default hours are specified separately for each polling location type. -->
       <xs:element name="DefaultPollingHours" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="OverriddenPollingHours" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DefaultEarlyVoteHours" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="OverriddenEarlyVoteHours" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DefaultDropoffHours" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="OverriddenDropoffHours" type="ScheduleWithTimezone" minOccurs="0" maxOccurs="unbounded"/>
       <!-- The text of an Inactive tag should be the reason the element is marked inactive. -->
       <xs:element name="IsInactive" type="xs:string" minOccurs="0"/>
     </xs:sequence>
