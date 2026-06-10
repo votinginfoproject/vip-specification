@@ -386,7 +386,7 @@
       <xs:element name="TimeZone" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Pexico|Pacific|US)(/[A-Za-z0-9+-_]+)+"/>
+            <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Mexico|Pacific|US)(/[A-Za-z0-9+-_]+)+"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
