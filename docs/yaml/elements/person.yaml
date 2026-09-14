@@ -81,27 +81,32 @@ tags:
 - _name: MiddleName
   csv-header-name: middle_name
   csv-type: xs:string
-  description: Middle name(s) of the person. Clearable in overlays.
+  description: Represents any number of names between an individual's first and last
+    names (e.g. John **Ronald Reuel** Tolkien). Clearable in overlays.
   error_then: =must-ignore
   repeating: true
   type: xs:string
 - _name: Nickname
   csv-header-name: nickname
   csv-type: xs:string
-  description: Nickname or informal name. Clearable in overlays.
+  description: Represents an individual's nickname (e.g. "Bill" for William). Clearable
+    in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: PartyId
   csv-header-name: party_id
   csv-type: xs:IDREF
-  description: References the :ref:`$$$-party` to which the person belongs. Clearable
-    in overlays.
+  description: Refers to the associated :ref:`$$$-party`. This information is intended
+    to be used by feed consumers to help them disambiguate the person's identity,
+    but not to be presented as part of ballot information (for that see :ref:`$$$-candidate`
+    PartyId). Clearable in overlays.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Prefix
   csv-header-name: prefix
   csv-type: xs:string
-  description: Name prefix (e.g. "Dr.", "Rev."). Clearable in overlays.
+  description: Specifies a prefix associated with a person (e.g. "Dr.", "Rev.", "Hon.").
+    Clearable in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: Profession
@@ -113,7 +118,8 @@ tags:
 - _name: Suffix
   csv-header-name: suffix
   csv-type: xs:string
-  description: Name suffix (e.g. "Jr.", "III", "Esq."). Clearable in overlays.
+  description: Specifies a suffix associated with a person (e.g. "Jr.", "III", "Esq.").
+    Clearable in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: Title

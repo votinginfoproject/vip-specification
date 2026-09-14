@@ -9,53 +9,54 @@ The ElectionAdministration element represents an administrative body serving a l
 
 In overlay feeds, the entire ElectionAdministration element is replaced as a single unit on the locality, or cleared using ``<ClearElectionAdministration/>``.
 
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                          | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============================+========================================+==============+==============+==========================================+==========================================+
-| AbsenteeUri                  | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for absentee voting          | If the element is invalid or not         |
-|                              |                                        |              |              | information.                             | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AmIRegisteredUri             | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for voter registration       | If the element is invalid or not         |
-|                              |                                        |              |              | status verification.                     | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| BallotTrackingUri            | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for tracking mail-in         | If the element is invalid or not         |
-|                              |                                        |              |              | ballots.                                 | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| BallotProvisionalTrackingUri | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for provisional ballot       | If the element is invalid or not         |
-|                              |                                        |              |              | tracking.                                | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ContactInformation           | :ref:`multi-xml-contact-information`   | Optional     | Single       | Primary contact information for the      | If the element is invalid or not         |
-|                              |                                        |              |              | election administration.                 | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionsUri                 | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Primary web address for the election     | If the element is invalid or not         |
-|                              |                                        |              |              | administration.                          | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RegistrationUri              | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for voter registration.      | If the element is invalid or not         |
-|                              |                                        |              |              |                                          | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RulesUri                     | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for election rules,          | If the element is invalid or not         |
-|                              |                                        |              |              | regulations, and statutes.               | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VoterService                 | :ref:`multi-xml-voter-service`         | Optional     | Repeats      | Specific voter services provided by the  | If the element is invalid or not         |
-|                              |                                        |              |              | administration (e.g. voter registration, | present, then the implementation is      |
-|                              |                                        |              |              | overseas voting).                        | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| WhatIsOnMyBallotUri          | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address where voters can see sample  | If the element is invalid or not         |
-|                              |                                        |              |              | ballots.                                 | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| WhereDoIVoteUri              | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for official polling place   | If the element is invalid or not         |
-|                              |                                        |              |              | lookup.                                  | present, then the implementation is      |
-|                              |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| Tag                          | Data Type                              | Required?    | Repeats?     | Description                                                  | Error Handling                           |
++==============================+========================================+==============+==============+==============================================================+==========================================+
+| AbsenteeUri                  | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for absentee voting information.                 | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| AmIRegisteredUri             | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for voter registration status verification.      | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| BallotTrackingUri            | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for tracking mail-in ballots.                    | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| BallotProvisionalTrackingUri | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Specifies the web address for tracking information for a     | If the element is invalid or not         |
+|                              |                                        |              |              | provisional ballot, supporting EAC guidelines for            | present, then the implementation is      |
+|                              |                                        |              |              | "Processing Provisional Ballots"                             | required to ignore it.                   |
+|                              |                                        |              |              | (https://www.eac.gov/research-and-data/provisional-voting/). |                                          |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| ContactInformation           | :ref:`multi-xml-contact-information`   | Optional     | Single       | Primary contact information for the election administration. | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| ElectionsUri                 | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Primary web address for the election administration.         | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| RegistrationUri              | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for voter registration.                          | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| RulesUri                     | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for election rules, regulations, and statutes.   | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| VoterService                 | :ref:`multi-xml-voter-service`         | Optional     | Repeats      | Specific voter services provided by the administration (e.g. | If the element is invalid or not         |
+|                              |                                        |              |              | voter registration, overseas voting).                        | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| WhatIsOnMyBallotUri          | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address where voters can see sample ballots.             | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
+| WhereDoIVoteUri              | :ref:`multi-xml-internationalized-uri` | Optional     | Single       | Web address for official polling place lookup.               | If the element is invalid or not         |
+|                              |                                        |              |              |                                                              | present, then the implementation is      |
+|                              |                                        |              |              |                                                              | required to ignore it.                   |
++------------------------------+----------------------------------------+--------------+--------------+--------------------------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
    :linenos:
@@ -120,7 +121,7 @@ VoterService
 ContactInformation
 ------------------
 
-Defines contact information (addresses, location identifiers, phone numbers, emails, schedules) for persons, election offices, voter services, or polling locations. ContactInformation has an optional attribute ``label``.
+For defining contact information about objects such as persons, boards of authorities, organizations, election offices, voter services, or polling locations. ContactInformation is always a sub-element of another object (e.g. :ref:`multi-xml-election-administration`, :ref:`multi-xml-office`, :ref:`multi-xml-person`). ContactInformation has an optional attribute ``label``, which allows the feed to refer back to the original label for the information (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 
 +--------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
 | Tag                | Data Type                               | Required?    | Repeats?     | Description                                | Error Handling                           |

@@ -20,29 +20,32 @@ When multiple ``SimpleAddressType`` elements are provided on an entity (such as 
 |              |               |              |              | AddressLine tags may appear in order     | implementation should ignore the         |
 |              |               |              |              | (e.g. street address, suite/room).       | SimpleAddressType containing it.         |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| City         | ``xs:string`` | Optional     | Single       | The city, town, or municipality.         | If the field is invalid or not present,  |
-|              |               |              |              |                                          | then the implementation is required to   |
+| City         | ``xs:string`` | Optional     | Single       | The City value of a structured address   | If the field is invalid or not present,  |
+|              |               |              |              | (e.g. "Charlottesville", "Springfield"). | then the implementation is required to   |
 |              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| County       | ``xs:string`` | Optional     | Single       | The county or parish.                    | If the field is invalid or not present,  |
-|              |               |              |              |                                          | then the implementation is required to   |
+| County       | ``xs:string`` | Optional     | Single       | The county or parish (e.g. "Albemarle    | If the field is invalid or not present,  |
+|              |               |              |              | County", "Fairfax").                     | then the implementation is required to   |
 |              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Region       | ``xs:string`` | Optional     | Single       | The state, province, or primary          | If the field is invalid or not present,  |
-|              |               |              |              | sub-national region (e.g. "VA").         | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
+| Region       | ``xs:string`` | Optional     | Single       | The Region value of a structured         | If the field is invalid or not present,  |
+|              |               |              |              | address. This is country-dependent. For  | then the implementation is required to   |
+|              |               |              |              | example, for US addresses, it is the     | ignore it.                               |
+|              |               |              |              | two-letter state abbreviation (e.g.      |                                          |
+|              |               |              |              | "VA"); for Canadian addresses it is the  |                                          |
+|              |               |              |              | province (e.g. "ON").                    |                                          |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Country      | ``xs:string`` | Optional     | Single       | The country (e.g. "USA").                | If the field is invalid or not present,  |
-|              |               |              |              |                                          | then the implementation is required to   |
+| Country      | ``xs:string`` | Optional     | Single       | The Country value of a structured        | If the field is invalid or not present,  |
+|              |               |              |              | address (e.g. "USA").                    | then the implementation is required to   |
 |              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | WorldRegion  | ``xs:string`` | Optional     | Single       | Global or continental region if          | If the field is invalid or not present,  |
-|              |               |              |              | applicable.                              | then the implementation is required to   |
+|              |               |              |              | applicable (e.g. "North America").       | then the implementation is required to   |
 |              |               |              |              |                                          | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PostalCode   | ``xs:string`` | Optional     | Single       | The postal code or ZIP code.             | If the field is invalid or not present,  |
-|              |               |              |              |                                          | then the implementation is required to   |
-|              |               |              |              |                                          | ignore it.                               |
+| PostalCode   | ``xs:string`` | Optional     | Single       | The postal code of a structured address. | If the field is invalid or not present,  |
+|              |               |              |              | In the US, this is the ZIP code (e.g.    | then the implementation is required to   |
+|              |               |              |              | "22902" or "22902-1234").                | ignore it.                               |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

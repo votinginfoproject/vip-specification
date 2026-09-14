@@ -33,13 +33,16 @@ tags:
 - _name: DateTime
   csv-header-name: date_time
   csv-type: xs:dateTime
-  description: Specifies the date and time of feed production in local time.
+  description: Specifies the date and time of feed production (e.g. "2024-11-05T08:30:00").
+    Considered to be in the timezone local to the organization.
   required: true
   type: xs:dateTime
 - _name: Description
   csv-header-name: description
   csv-type: InternationalizedText
-  description: Describes the organization and the data contained in the feed.
+  description: Specifies both the nature of the organization providing the data and
+    what data is in the feed (e.g. "Virginia Department of Elections official candidate
+    and polling location feed for the 2024 General Election").
   error_then: =must-ignore
   type: InternationalizedText
 - _name: FeedContactInformation
@@ -69,6 +72,7 @@ tags:
 - _name: VipId
   csv-header-name: vip_id
   csv-type: xs:string
-  description: FIPS code identifying the state or jurisdiction.
+  description: Specifies the ID of the organization publishing the feed. VIP uses
+    FIPS codes for this ID (e.g. "51" for Virginia).
   required: true
   type: xs:string

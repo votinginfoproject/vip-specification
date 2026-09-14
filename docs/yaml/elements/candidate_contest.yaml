@@ -38,15 +38,19 @@ tags:
 - _name: OfficeIds
   csv-header-name: office_ids
   csv-type: xs:IDREFS
-  description: References :ref:`$$$-office` elements associated with the contest.
-    Clearable in overlays.
+  description: 'References a set of :ref:`$$$-office` elements, if available, which
+    give additional information about the offices. Note: the order of the office IDs
+    must be in the same order as the candidates listed in BallotSelectionIds (e.g.,
+    if BallotSelectionIds reference candidate selections with President first and
+    Vice-President second, OfficeIds should reference the office of President first
+    and Vice-President second). Clearable in overlays.'
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrimaryPartyIds
   csv-header-name: primary_party_ids
   csv-type: xs:IDREFS
-  description: References :ref:`$$$-party` elements if the contest is party-specific.
-    Clearable in overlays.
+  description: References :ref:`$$$-party` elements if the contest is party-specific
+    (e.g. a Democratic or Republican primary). Clearable in overlays.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: VotesAllowed

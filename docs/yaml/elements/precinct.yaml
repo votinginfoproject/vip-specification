@@ -36,8 +36,10 @@ tags:
 - _name: ElectoralDistrictIds
   csv-header-name: electoral_district_ids
   csv-type: xs:IDREFS
-  description: Links to the :ref:`$$$-electoral-district` elements containing this
-    precinct. Clearable in overlays.
+  description: Links to the :ref:`$$$-electoral-district`s (e.g., congressional district,
+    state house district, school board district) to which the entire precinct/precinct
+    split belongs. Highly Recommended if candidate information is to be provided.
+    Clearable in overlays.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: ExternalIdentifier
@@ -76,7 +78,9 @@ tags:
 - _name: Number
   csv-header-name: number
   csv-type: xs:string
-  description: Precinct number or code. Clearable in overlays.
+  description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
+    are legal). Should be used if the Name field is populated by a name and not a
+    number. Clearable in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationIds
@@ -88,13 +92,22 @@ tags:
 - _name: PrecinctSplitName
   csv-header-name: precinct_split_name
   csv-type: xs:string
-  description: Sub-identifier for precinct splits. Clearable in overlays.
+  description: If this field is empty, then this Precinct object represents a full
+    precinct. If this field is present, then this Precinct object represents one portion
+    of a split precinct. Each Precinct object that represents one portion of a split
+    precinct must have the same Name value, but different PrecinctSplitName values
+    (e.g. "Split A", "Split B"). See the sample_feed.xml file for examples. Clearable
+    in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: SpatialBoundary
   csv-header-name: spatial_boundary
   csv-type: SpatialBoundary
-  description: Geospatial boundary defining the precinct polygon. Clearable in overlays.
+  description: Defines the spatial boundary of the precinct. All voter addresses contained
+    within this boundary are assigned to the precinct. If a voter address also maps
+    to a :doc:`StreetSegment <street_segment>`, then the precinct assignment from
+    the StreetSegment will be preferred over the assignment defined by the spatial
+    boundary. Clearable in overlays.
   error_then: =must-ignore
   type: SpatialBoundary
 - _name: Ward

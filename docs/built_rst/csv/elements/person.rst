@@ -40,29 +40,35 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                     |                                         |              |              | overlays.                                | then the implementation is required to   |
 |                     |                                         |              |              |                                          | ignore it.                               |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| middle_name         | ``xs:string``                           | Optional     | Repeats      | Middle name(s) of the person. Clearable  | If the field is invalid or not present,  |
-|                     |                                         |              |              | in overlays.                             | then the implementation is required to   |
-|                     |                                         |              |              |                                          | ignore it.                               |
+| middle_name         | ``xs:string``                           | Optional     | Repeats      | Represents any number of names between   | If the field is invalid or not present,  |
+|                     |                                         |              |              | an individual's first and last names     | then the implementation is required to   |
+|                     |                                         |              |              | (e.g. John **Ronald Reuel** Tolkien).    | ignore it.                               |
+|                     |                                         |              |              | Clearable in overlays.                   |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| nickname            | ``xs:string``                           | Optional     | Single       | Nickname or informal name. Clearable in  | If the field is invalid or not present,  |
-|                     |                                         |              |              | overlays.                                | then the implementation is required to   |
-|                     |                                         |              |              |                                          | ignore it.                               |
-+---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_id            | ``xs:IDREF``                            | Optional     | Single       | References the :ref:`multi-csv-party` to | If the field is invalid or not present,  |
-|                     |                                         |              |              | which the person belongs. Clearable in   | then the implementation is required to   |
+| nickname            | ``xs:string``                           | Optional     | Single       | Represents an individual's nickname      | If the field is invalid or not present,  |
+|                     |                                         |              |              | (e.g. "Bill" for William). Clearable in  | then the implementation is required to   |
 |                     |                                         |              |              | overlays.                                | ignore it.                               |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| prefix              | ``xs:string``                           | Optional     | Single       | Name prefix (e.g. "Dr.", "Rev.").        | If the field is invalid or not present,  |
-|                     |                                         |              |              | Clearable in overlays.                   | then the implementation is required to   |
-|                     |                                         |              |              |                                          | ignore it.                               |
+| party_id            | ``xs:IDREF``                            | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
+|                     |                                         |              |              | :ref:`multi-csv-party`. This information | then the implementation is required to   |
+|                     |                                         |              |              | is intended to be used by feed consumers | ignore it.                               |
+|                     |                                         |              |              | to help them disambiguate the person's   |                                          |
+|                     |                                         |              |              | identity, but not to be presented as     |                                          |
+|                     |                                         |              |              | part of ballot information (for that see |                                          |
+|                     |                                         |              |              | :ref:`multi-csv-candidate` PartyId).     |                                          |
+|                     |                                         |              |              | Clearable in overlays.                   |                                          |
++---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| prefix              | ``xs:string``                           | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
+|                     |                                         |              |              | person (e.g. "Dr.", "Rev.", "Hon.").     | then the implementation is required to   |
+|                     |                                         |              |              | Clearable in overlays.                   | ignore it.                               |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | profession          | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Occupation or profession of the person.  | If the element is invalid or not         |
 |                     |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
 |                     |                                         |              |              |                                          | required to ignore it.                   |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| suffix              | ``xs:string``                           | Optional     | Single       | Name suffix (e.g. "Jr.", "III", "Esq."). | If the field is invalid or not present,  |
-|                     |                                         |              |              | Clearable in overlays.                   | then the implementation is required to   |
-|                     |                                         |              |              |                                          | ignore it.                               |
+| suffix              | ``xs:string``                           | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
+|                     |                                         |              |              | person (e.g. "Jr.", "III", "Esq.").      | then the implementation is required to   |
+|                     |                                         |              |              | Clearable in overlays.                   | ignore it.                               |
 +---------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | title               | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Official title held by the person.       | If the element is invalid or not         |
 |                     |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |

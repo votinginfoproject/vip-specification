@@ -6,9 +6,12 @@ csv-post: |-
 
       label,directions,email,fax,hours,name,phone,uri
       ci001,Use entrance on Main St,info@example.gov,,08:00-17:00,Elections Office,555-0100,https://example.gov
-description: Defines contact information (addresses, location identifiers, phone numbers,
-  emails, schedules) for persons, election offices, voter services, or polling locations.
-  ContactInformation has an optional attribute ``label``.
+description: For defining contact information about objects such as persons, boards
+  of authorities, organizations, election offices, voter services, or polling locations.
+  ContactInformation is always a sub-element of another object (e.g. :ref:`$$$-election-administration`,
+  :ref:`$$$-office`, :ref:`$$$-person`). ContactInformation has an optional attribute
+  ``label``, which allows the feed to refer back to the original label for the information
+  (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
 post: |-
   .. code-block:: xml
      :linenos:

@@ -37,36 +37,39 @@ tags:
 - _name: City
   csv-header-name: city
   csv-type: xs:string
-  description: The city, town, or municipality.
+  description: The City value of a structured address (e.g. "Charlottesville", "Springfield").
   error_then: =must-ignore
   type: xs:string
 - _name: County
   csv-header-name: county
   csv-type: xs:string
-  description: The county or parish.
+  description: The county or parish (e.g. "Albemarle County", "Fairfax").
   error_then: =must-ignore
   type: xs:string
 - _name: Region
   csv-header-name: region
   csv-type: xs:string
-  description: The state, province, or primary sub-national region (e.g. "VA").
+  description: The Region value of a structured address. This is country-dependent.
+    For example, for US addresses, it is the two-letter state abbreviation (e.g. "VA");
+    for Canadian addresses it is the province (e.g. "ON").
   error_then: =must-ignore
   type: xs:string
 - _name: Country
   csv-header-name: country
   csv-type: xs:string
-  description: The country (e.g. "USA").
+  description: The Country value of a structured address (e.g. "USA").
   error_then: =must-ignore
   type: xs:string
 - _name: WorldRegion
   csv-header-name: world_region
   csv-type: xs:string
-  description: Global or continental region if applicable.
+  description: Global or continental region if applicable (e.g. "North America").
   error_then: =must-ignore
   type: xs:string
 - _name: PostalCode
   csv-header-name: postal_code
   csv-type: xs:string
-  description: The postal code or ZIP code.
+  description: The postal code of a structured address. In the US, this is the ZIP
+    code (e.g. "22902" or "22902-1234").
   error_then: =must-ignore
   type: xs:string

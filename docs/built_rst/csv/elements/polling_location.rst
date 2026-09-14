@@ -14,18 +14,24 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
 +---------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
 | Tag                 | Data Type                               | Required?    | Repeats?     | Description                                | Error Handling                           |
 +=====================+=========================================+==============+==============+============================================+==========================================+
-| address_structured  | :ref:`multi-csv-simple-address-type`    | **Required** | Repeats      | Structured address including facility      | AddressStructured is required for        |
-|                     |                                         |              |              | name. Required in main feed; optional in   | PollingLocation in main feeds.           |
-|                     |                                         |              |              | overlays. Multiple addresses in different  |                                          |
-|                     |                                         |              |              | languages can be specified.                |                                          |
+| address_structured  | :ref:`multi-csv-simple-address-type`    | **Required** | Repeats      | Represents the various structured parts of | AddressStructured is required for        |
+|                     |                                         |              |              | an address to a polling location. If       | PollingLocation in main feeds.           |
+|                     |                                         |              |              | multiple addresses are provided, each one  |                                          |
+|                     |                                         |              |              | must have a distinct language attribute    |                                          |
+|                     |                                         |              |              | (e.g. "en", "es"). All addresses are       |                                          |
+|                     |                                         |              |              | considered equally authoritative. Facility |                                          |
+|                     |                                         |              |              | names are specified in                     |                                          |
+|                     |                                         |              |              | AddressStructured.LocationName. Required   |                                          |
+|                     |                                         |              |              | in main feed; optional in overlays.        |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
 | location_identifier | :ref:`multi-csv-location-identifier`    | Optional     | Repeats      | External location identifier(s) (e.g. Plus | If the element is invalid or not         |
 |                     |                                         |              |              | Code, geocoder ID). Clearable in overlays. | present, then the implementation is      |
 |                     |                                         |              |              |                                            | required to ignore it.                   |
 +---------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
-| directions          | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Instructions for locating the polling site | If the element is invalid or not         |
-|                     |                                         |              |              | or room. Clearable in overlays.            | present, then the implementation is      |
-|                     |                                         |              |              |                                            | required to ignore it.                   |
+| directions          | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies further instructions for         | If the element is invalid or not         |
+|                     |                                         |              |              | locating the polling site or room (e.g.    | present, then the implementation is      |
+|                     |                                         |              |              | "Enter through gymnasium doors on north    | required to ignore it.                   |
+|                     |                                         |              |              | side of building"). Clearable in overlays. |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
 | hours               | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Operating hours as text. Clearable in      | If the element is invalid or not         |
 |                     |                                         |              |              | overlays. *(NB: deprecated in favor of     | present, then the implementation is      |
@@ -52,9 +58,12 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
 |                     |                                         |              |              | in overlays.                               | present, then the implementation is      |
 |                     |                                         |              |              |                                            | required to ignore it.                   |
 +---------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
-| is_inactive         | ``xs:string``                           | Optional     | Single       | If specified, marks the location as closed | If the field is invalid or not present,  |
-|                     |                                         |              |              | or inactive, with the text stating the     | then the implementation is required to   |
-|                     |                                         |              |              | reason why. Clearable in overlays.         | ignore it.                               |
+| is_inactive         | ``xs:string``                           | Optional     | Single       | Whether this polling location is closed or | If the field is invalid or not present,  |
+|                     |                                         |              |              | inactive, and should be ignored, with the  | then the implementation is required to   |
+|                     |                                         |              |              | text stating the reason why (e.g. "Closed  | ignore it.                               |
+|                     |                                         |              |              | due to localized flooding; voters          |                                          |
+|                     |                                         |              |              | redirected to High School", or "Backup     |                                          |
+|                     |                                         |              |              | polling location"). Clearable in overlays. |                                          |
 +---------------------+-----------------------------------------+--------------+--------------+--------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table

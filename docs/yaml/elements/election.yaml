@@ -38,7 +38,7 @@ tags:
 - _name: AbsenteeRequestDeadline
   csv-header-name: absentee_request_deadline
   csv-type: xs:date
-  description: Last day to request an absentee ballot.
+  description: Specifies the last day to request an absentee ballot (e.g. "2024-10-25").
   error_then: =must-ignore
   type: xs:date
 - _name: Date
@@ -51,13 +51,15 @@ tags:
 - _name: ElectionType
   csv-header-name: election_type
   csv-type: InternationalizedText
-  description: Type of election (e.g. General, Primary, Special).
+  description: Specifies the type or highest controlling authority for the election
+    (e.g. federal, state, county, city, town, or general, primary, special).
   error_then: =must-ignore
   type: InternationalizedText
 - _name: HasElectionDayRegistration
   csv-header-name: has_election_day_registration
   csv-type: xs:boolean
-  description: Specifies whether voters can register on election day.
+  description: Specifies if a voter can register on the same day of the election (i.e.,
+    the last day of the election). Valid values are "true" and "false".
   error_then: =must-ignore
   type: xs:boolean
 - _name: Schedule
@@ -82,7 +84,8 @@ tags:
 - _name: RegistrationDeadline
   csv-header-name: registration_deadline
   csv-type: xs:date
-  description: Last day to register to vote for the election.
+  description: Specifies the last day to register for the election with the possible
+    exception of Election Day registration (e.g. "2024-10-15").
   error_then: =must-ignore
   type: xs:date
 - _name: RegistrationInfo

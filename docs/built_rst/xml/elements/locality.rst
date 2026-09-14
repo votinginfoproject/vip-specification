@@ -26,27 +26,37 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                          |                                          |              |              | OCD-ID, FIPS). Clearable in overlays.    | required to ignore it.                   |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsMailOnly               | ``xs:boolean``                           | Optional     | Single       | Specifies if the locality runs mail-only | If the field is missing or invalid, the  |
-|                          |                                          |              |              | elections. Clearable in overlays.        | implementation is required to assume     |
-|                          |                                          |              |              |                                          | IsMailOnly is false.                     |
+|                          |                                          |              |              | elections. If true, all precincts within | implementation is required to assume     |
+|                          |                                          |              |              | this locality also run mail-only         | IsMailOnly is false.                     |
+|                          |                                          |              |              | elections unless otherwise specified.    |                                          |
+|                          |                                          |              |              | Ballot drop boxes may be used in         |                                          |
+|                          |                                          |              |              | addition to mail ballots. Clearable in   |                                          |
+|                          |                                          |              |              | overlays.                                |                                          |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Name                     | ``xs:string``                            | **Required** | Single       | Name of the locality. Required in main   | If the field is invalid, then the        |
 |                          |                                          |              |              | feed; optional in overlays.              | implementation is required to ignore the |
 |                          |                                          |              |              |                                          | ``Locality`` element containing it.      |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | PollingLocationIds       | ``xs:IDREFS``                            | Optional     | Single       | References locality-wide polling         | If the field is invalid or not present,  |
-|                          |                                          |              |              | locations (e.g. early vote sites or drop | then the implementation is required to   |
-|                          |                                          |              |              | boxes). Clearable in overlays.           | ignore it.                               |
+|                          |                                          |              |              | locations (e.g. central early vote sites | then the implementation is required to   |
+|                          |                                          |              |              | or countywide drop boxes accessible to   | ignore it.                               |
+|                          |                                          |              |              | any voter in the locality). Clearable in |                                          |
+|                          |                                          |              |              | overlays.                                |                                          |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | ParentLocalityId         | ``xs:IDREF``                             | Optional     | Single       | References the parent                    | If the field is invalid or not present,  |
 |                          |                                          |              |              | :ref:`multi-xml-locality` in the         | then the implementation is required to   |
-|                          |                                          |              |              | jurisdiction hierarchy (e.g. county      | ignore it.                               |
-|                          |                                          |              |              | pointing to state). If omitted, this is  |                                          |
-|                          |                                          |              |              | a top-level jurisdiction.                |                                          |
+|                          |                                          |              |              | jurisdiction hierarchy (e.g. a county    | ignore it.                               |
+|                          |                                          |              |              | referencing its parent state, or a town  |                                          |
+|                          |                                          |              |              | referencing its parent county). If       |                                          |
+|                          |                                          |              |              | omitted, this is a top-level             |                                          |
+|                          |                                          |              |              | jurisdiction (e.g. the state).           |                                          |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type                     | :ref:`multi-xml-district-type`           | Optional     | Single       | The kind of jurisdiction (e.g. state,    | If the field is invalid or not present,  |
-|                          |                                          |              |              | county, city) from                       | then the implementation is required to   |
-|                          |                                          |              |              | :ref:`multi-xml-district-type`.          | ignore it.                               |
-|                          |                                          |              |              | Clearable in overlays.                   |                                          |
+| Type                     | :ref:`multi-xml-district-type`           | Optional     | Single       | Defines the kind of locality (e.g.       | If the field is invalid or not present,  |
+|                          |                                          |              |              | state, county, city, town, et al.),      | then the implementation is required to   |
+|                          |                                          |              |              | which is one of the various              | ignore it.                               |
+|                          |                                          |              |              | :ref:`DistrictType enumerations          |                                          |
+|                          |                                          |              |              | <multi-xml-district-type>`. Clearable in |                                          |
+|                          |                                          |              |              | overlays.                                |                                          |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | OtherType                | ``xs:string``                            | Optional     | Single       | Allows defining a type of locality       | If the field is invalid or not present,  |
 |                          |                                          |              |              | outside :ref:`multi-xml-district-type`.  | then the implementation is required to   |
@@ -77,8 +87,10 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                          |                                          |              |              | overlays.                                | required to ignore it.                   |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | IsInactive               | ``xs:string``                            | Optional     | Single       | If specified, marks the locality as      | If the field is invalid or not present,  |
-|                          |                                          |              |              | inactive and explains the reason why.    | then the implementation is required to   |
-|                          |                                          |              |              | Clearable in overlays.                   | ignore it.                               |
+|                          |                                          |              |              | inactive and explains the reason why     | then the implementation is required to   |
+|                          |                                          |              |              | (e.g. "Jurisdiction not holding          | ignore it.                               |
+|                          |                                          |              |              | elections on this date"). Clearable in   |                                          |
+|                          |                                          |              |              | overlays.                                |                                          |
 +--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

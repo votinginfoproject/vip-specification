@@ -51,8 +51,11 @@ tags:
 - _name: AddressStructured
   csv-header-name: address_structured
   csv-type: SimpleAddressType
-  description: Structured address including facility name. Required in main feed;
-    optional in overlays. Multiple addresses in different languages can be specified.
+  description: Represents the various structured parts of an address to a polling
+    location. If multiple addresses are provided, each one must have a distinct language
+    attribute (e.g. "en", "es"). All addresses are considered equally authoritative.
+    Facility names are specified in AddressStructured.LocationName. Required in main
+    feed; optional in overlays.
   error: AddressStructured is required for PollingLocation in main feeds.
   repeating: true
   required: true
@@ -68,7 +71,9 @@ tags:
 - _name: Directions
   csv-header-name: directions
   csv-type: InternationalizedText
-  description: Instructions for locating the polling site or room. Clearable in overlays.
+  description: Specifies further instructions for locating the polling site or room
+    (e.g. "Enter through gymnasium doors on north side of building"). Clearable in
+    overlays.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Hours
@@ -124,7 +129,9 @@ tags:
 - _name: IsInactive
   csv-header-name: is_inactive
   csv-type: xs:string
-  description: If specified, marks the location as closed or inactive, with the text
-    stating the reason why. Clearable in overlays.
+  description: Whether this polling location is closed or inactive, and should be
+    ignored, with the text stating the reason why (e.g. "Closed due to localized flooding;
+    voters redirected to High School", or "Backup polling location"). Clearable in
+    overlays.
   error_then: =must-ignore
   type: xs:string

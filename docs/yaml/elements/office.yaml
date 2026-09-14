@@ -8,8 +8,8 @@ csv-post: |-
 
       id,electoral_district_id,filing_deadline,is_partisan,name,office_holder_person_ids,term_type,term_start_date,term_end_date
       off001,ed001,2024-06-01,true,Governor,per50001,full-term,2022-01-15,2026-01-15
-description: '``Office`` represents an elected or appointed government office associated
-  with an electoral district (e.g. Mayor, Governor, School Board).'
+description: '``Office`` represents the office associated with a contest or district
+  (e.g. Alderman, Mayor, Governor, School Board, et al).'
 tags:
 - _name: ContactInformation
   csv-header-name: contact_information

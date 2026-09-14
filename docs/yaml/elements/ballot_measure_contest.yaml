@@ -42,7 +42,9 @@ tags:
 - _name: EffectOfAbstain
   csv-header-name: effect_of_abstain
   csv-type: InternationalizedText
-  description: Describes effect of abstaining on the measure. Clearable in overlays.
+  description: Specifies what effect abstaining (i.e. not voting) on this proposition
+    will have (i.e. whether abstaining is considered a vote against it). Clearable
+    in overlays.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: FullText
@@ -61,8 +63,9 @@ tags:
 - _name: PassageThreshold
   csv-header-name: passage_threshold
   csv-type: InternationalizedText
-  description: Threshold required for passage (e.g. "majority", "two-thirds"). Clearable
-    in overlays.
+  description: Specifies the threshold of votes that the referendum needs in order
+    to pass. The default is a simple majority (i.e. 50% plus one vote). Other common
+    thresholds are "three-fifths" and "two-thirds". Clearable in overlays.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: ProStatement
@@ -80,7 +83,8 @@ tags:
 - _name: Type
   csv-header-name: type
   csv-type: BallotMeasureType
-  description: Type of measure from :ref:`$$$-ballot-measure-type`. Clearable in overlays.
+  description: Specifies the particular type of ballot measure from :ref:`$$$-ballot-measure-type`
+    (e.g. initiative, referendum, constitutional amendment). Clearable in overlays.
   error_then: =must-ignore
   type: BallotMeasureType
 - _name: OtherType

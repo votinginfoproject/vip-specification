@@ -62,7 +62,8 @@ tags:
 - _name: BallotProvisionalTrackingUri
   csv-header-name: ballot_tracking_provisional_uri
   csv-type: InternationalizedUri
-  description: Web address for provisional ballot tracking.
+  description: Specifies the web address for tracking information for a provisional
+    ballot, supporting EAC guidelines for "Processing Provisional Ballots" (https://www.eac.gov/research-and-data/provisional-voting/).
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: ContactInformation

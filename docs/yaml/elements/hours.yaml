@@ -2,15 +2,16 @@ _name: Hours
 _sub_types:
 - TimeWithoutZone
 csv-header-name: hours
-description: The open and close time for a location. Times must be fully specified
-  without time zone information. The time zone is specified in the containing :ref:`$$$-schedule-with-timezone`
-  element. Hours has an optional ``label`` attribute.
+description: The open and close time for a location. All times must be fully specified
+  without time zone information. The time zone is assumed to be specified in an enclosing
+  element (e.g. in a :ref:`$$$-schedule-with-timezone` element). Hours has an optional
+  ``label`` attribute.
 skip_element_on: csv
 tags:
 - _name: StartTime
   csv-header-name: start_time
   csv-type: TimeWithoutZone
-  description: The time at which the location opens.
+  description: The time at which the location opens (e.g. "06:00:00").
   error: If StartTime is invalid or not present, the implementation is required to
     ignore the Hours element containing it.
   required: true
@@ -18,7 +19,7 @@ tags:
 - _name: EndTime
   csv-header-name: end_time
   csv-type: TimeWithoutZone
-  description: The time at which the location closes.
+  description: The time at which the location closes (e.g. "19:00:00").
   error: If EndTime is invalid or not present, the implementation is required to ignore
     the Hours element containing it.
   required: true

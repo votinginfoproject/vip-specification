@@ -10,10 +10,13 @@ CandidateSelection extends :ref:`multi-csv-ballot-selection-base` and represents
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+================+==============+==============+==========================================+==========================================+
-| candidate_ids         | ``xs:IDREFS``  | **Required** | Single       | References :ref:`multi-csv-candidate`    | If CandidateIds is invalid or not        |
-|                       |                |              |              | elements that comprise this selection    | present, the implementation is required  |
-|                       |                |              |              | (e.g. candidate and running mate).       | to ignore the CandidateSelection         |
-|                       |                |              |              |                                          | containing it.                           |
+| candidate_ids         | ``xs:IDREFS``  | **Required** | Single       | References a set of                      | If CandidateIds is invalid or not        |
+|                       |                |              |              | :ref:`multi-csv-candidate` elements. The | present, the implementation is required  |
+|                       |                |              |              | number of candidates that can be         | to ignore the CandidateSelection         |
+|                       |                |              |              | referenced is unbounded in cases where   | containing it.                           |
+|                       |                |              |              | the ballot selection is for a ticket     |                                          |
+|                       |                |              |              | (e.g. "President/Vice President",        |                                          |
+|                       |                |              |              | "Governor/Lt Governor").                 |                                          |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References :ref:`multi-csv-party`        | If the field is invalid or not present,  |
 |                       |                |              |              | elements endorsing this candidate        | then the implementation is required to   |

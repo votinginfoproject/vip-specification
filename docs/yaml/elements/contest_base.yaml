@@ -40,8 +40,11 @@ tags:
 - _name: ElectorateSpecification
   csv-header-name: electorate_specification
   csv-type: InternationalizedText
-  description: Specifies rules or changes regarding eligible electors for this contest
-    (e.g. party affiliation for primaries). Clearable in overlays.
+  description: Specifies any changes to the eligible electorate for this contest past
+    the usual "all registered voters" electorate. This subtag will most often be used
+    for primaries and local elections (e.g. in closed primaries, voters may have to
+    be registered as a specific party to vote, or in some local elections, non-citizens
+    can vote). Clearable in overlays.
   error_then: =should-ignore
   type: InternationalizedText
 - _name: ExternalIdentifier
@@ -74,8 +77,8 @@ tags:
 - _name: VoteVariation
   csv-header-name: vote_variation
   csv-type: VoteVariation
-  description: Voting variation (e.g. plurality, majority, rcv) from :ref:`$$$-vote-variation`.
-    Clearable in overlays.
+  description: Vote variation associated with the contest from :ref:`$$$-vote-variation`
+    (e.g. n-of-m, majority, plurality, ranked choice, et al). Clearable in overlays.
   error_then: =should-ignore
   type: VoteVariation
 - _name: OtherVoteVariation
@@ -87,7 +90,8 @@ tags:
 - _name: IsInactive
   csv-header-name: is_inactive
   csv-type: xs:string
-  description: If specified, marks the contest as inactive with the reason why. Clearable
-    in overlays.
+  description: If specified, the element is treated as inactive, and the value describes
+    the reason (e.g. "Contest cancelled due to unopposed candidate", "Backup polling
+    location"). Clearable in overlays.
   error_then: =should-ignore
   type: xs:string

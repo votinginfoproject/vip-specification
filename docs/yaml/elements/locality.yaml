@@ -68,7 +68,9 @@ tags:
 - _name: IsMailOnly
   csv-header-name: is_mail_only
   csv-type: xs:boolean
-  description: Specifies if the locality runs mail-only elections. Clearable in overlays.
+  description: Specifies if the locality runs mail-only elections. If true, all precincts
+    within this locality also run mail-only elections unless otherwise specified.
+    Ballot drop boxes may be used in addition to mail ballots. Clearable in overlays.
   error: If the field is missing or invalid, the implementation is required to assume
     IsMailOnly is false.
   type: xs:boolean
@@ -81,21 +83,24 @@ tags:
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
   csv-type: xs:IDREFS
-  description: References locality-wide polling locations (e.g. early vote sites or
-    drop boxes). Clearable in overlays.
+  description: References locality-wide polling locations (e.g. central early vote
+    sites or countywide drop boxes accessible to any voter in the locality). Clearable
+    in overlays.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: ParentLocalityId
   csv-header-name: parent_locality_id
   csv-type: xs:IDREF
   description: References the parent :ref:`$$$-locality` in the jurisdiction hierarchy
-    (e.g. county pointing to state). If omitted, this is a top-level jurisdiction.
+    (e.g. a county referencing its parent state, or a town referencing its parent
+    county). If omitted, this is a top-level jurisdiction (e.g. the state).
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Type
   csv-header-name: type
   csv-type: DistrictType
-  description: The kind of jurisdiction (e.g. state, county, city) from :ref:`$$$-district-type`.
+  description: Defines the kind of locality (e.g. state, county, city, town, et al.),
+    which is one of the various :ref:`DistrictType enumerations <$$$-district-type>`.
     Clearable in overlays.
   error_then: =must-ignore
   type: DistrictType
@@ -161,6 +166,6 @@ tags:
   csv-header-name: is_inactive
   csv-type: xs:string
   description: If specified, marks the locality as inactive and explains the reason
-    why. Clearable in overlays.
+    why (e.g. "Jurisdiction not holding elections on this date"). Clearable in overlays.
   error_then: =must-ignore
   type: xs:string

@@ -16,13 +16,25 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                   |                |              |              | contest (i.e. "N" of N-of-M). Clearable  | then the implementation is required to   |
 |                   |                |              |              | in overlays.                             | ignore it.                               |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| office_ids        | ``xs:IDREFS``  | Optional     | Single       | References :ref:`multi-csv-office`       | If the field is invalid or not present,  |
-|                   |                |              |              | elements associated with the contest.    | then the implementation is required to   |
-|                   |                |              |              | Clearable in overlays.                   | ignore it.                               |
+| office_ids        | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
+|                   |                |              |              | :ref:`multi-csv-office` elements, if     | then the implementation is required to   |
+|                   |                |              |              | available, which give additional         | ignore it.                               |
+|                   |                |              |              | information about the offices. Note: the |                                          |
+|                   |                |              |              | order of the office IDs must be in the   |                                          |
+|                   |                |              |              | same order as the candidates listed in   |                                          |
+|                   |                |              |              | BallotSelectionIds (e.g., if             |                                          |
+|                   |                |              |              | BallotSelectionIds reference candidate   |                                          |
+|                   |                |              |              | selections with President first and      |                                          |
+|                   |                |              |              | Vice-President second, OfficeIds should  |                                          |
+|                   |                |              |              | reference the office of President first  |                                          |
+|                   |                |              |              | and Vice-President second). Clearable in |                                          |
+|                   |                |              |              | overlays.                                |                                          |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | primary_party_ids | ``xs:IDREFS``  | Optional     | Single       | References :ref:`multi-csv-party`        | If the field is invalid or not present,  |
 |                   |                |              |              | elements if the contest is               | then the implementation is required to   |
-|                   |                |              |              | party-specific. Clearable in overlays.   | ignore it.                               |
+|                   |                |              |              | party-specific (e.g. a Democratic or     | ignore it.                               |
+|                   |                |              |              | Republican primary). Clearable in        |                                          |
+|                   |                |              |              | overlays.                                |                                          |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | votes_allowed     | ``xs:integer`` | Optional     | Single       | Maximum number of selections a voter may | If the field is invalid or not present,  |
 |                   |                |              |              | make in this contest. Clearable in       | then the implementation is required to   |
@@ -70,9 +82,15 @@ In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName
 |                          |                                         |              |              | the contest. Required in main feed;      |                                          |
 |                          |                                         |              |              | optional in overlays.                    |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
-|                          |                                         |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
-|                          |                                         |              |              | party affiliation for primaries).        | ignore it.                               |
+| electorate_specification | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
+|                          |                                         |              |              | electorate for this contest past the     | present, then the implementation should  |
+|                          |                                         |              |              | usual "all registered voters"            | ignore it.                               |
+|                          |                                         |              |              | electorate. This subtag will most often  |                                          |
+|                          |                                         |              |              | be used for primaries and local          |                                          |
+|                          |                                         |              |              | elections (e.g. in closed primaries,     |                                          |
+|                          |                                         |              |              | voters may have to be registered as a    |                                          |
+|                          |                                         |              |              | specific party to vote, or in some local |                                          |
+|                          |                                         |              |              | elections, non-citizens can vote).       |                                          |
 |                          |                                         |              |              | Clearable in overlays.                   |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | external_identifier      | :ref:`multi-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
@@ -91,16 +109,19 @@ In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName
 |                          |                                         |              |              | Clearable in overlays.                   | then the implementation should ignore    |
 |                          |                                         |              |              |                                          | it.                                      |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`multi-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
-|                          |                                         |              |              | majority, rcv) from                      | then the implementation should ignore    |
-|                          |                                         |              |              | :ref:`multi-csv-vote-variation`.         | it.                                      |
-|                          |                                         |              |              | Clearable in overlays.                   |                                          |
+| vote_variation           | :ref:`multi-csv-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                          |                                         |              |              | contest from                             | then the implementation should ignore    |
+|                          |                                         |              |              | :ref:`multi-csv-vote-variation` (e.g.    | it.                                      |
+|                          |                                         |              |              | n-of-m, majority, plurality, ranked      |                                          |
+|                          |                                         |              |              | choice, et al). Clearable in overlays.   |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | other_vote_variation     | ``xs:string``                           | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
 |                          |                                         |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
 |                          |                                         |              |              |                                          | it.                                      |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_inactive              | ``xs:string``                           | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
-|                          |                                         |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
-|                          |                                         |              |              | in overlays.                             | it.                                      |
+| is_inactive              | ``xs:string``                           | Optional     | Single       | If specified, the element is treated as  | If the field is invalid or not present,  |
+|                          |                                         |              |              | inactive, and the value describes the    | then the implementation should ignore    |
+|                          |                                         |              |              | reason (e.g. "Contest cancelled due to   | it.                                      |
+|                          |                                         |              |              | unopposed candidate", "Backup polling    |                                          |
+|                          |                                         |              |              | location"). Clearable in overlays.       |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

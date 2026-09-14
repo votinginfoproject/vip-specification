@@ -7,7 +7,10 @@ csv-post: |-
       id,abbreviation,color,is_write_in,leader_person_ids,logo_uri,name
       par0001,DEM,0000FF,false,per50001,https://example.gov/dem.png,Democratic Party
       par0002,REP,FF0000,false,per50002,https://example.gov/rep.png,Republican Party
-description: The Party object represents a political party or ballot grouping.
+description: This element describes a political party and the metadata associated
+  with it. These can also include "dummy" parties to indicate a type of contest (e.g.,
+  a Voter Nominated candidate contest can use the PrimaryPartyIds field and a dummy
+  Party object to indicate that the contest is a "Top-Two" primary).
 post: |-
   .. code-block:: xml
      :linenos:
@@ -24,13 +27,15 @@ tags:
 - _name: Abbreviation
   csv-header-name: abbreviation
   csv-type: xs:string
-  description: Abbreviation for the party name (e.g. "DEM", "REP").
+  description: An abbreviation for the party name (e.g. "DEM", "REP", "LIB", "GRN").
   error_then: =must-ignore
   type: xs:string
 - _name: Color
   csv-header-name: color
   csv-type: HtmlColorString
-  description: Six-digit hexadecimal HTML color code associated with the party.
+  description: The preferred display color for the party, for use in maps and other
+    displays, as a 6-character hexadecimal HTML color code (e.g. "0000FF" for blue,
+    "FF0000" for red).
   error_then: =must-ignore
   type: HtmlColorString
 - _name: ExternalIdentifier
@@ -43,7 +48,9 @@ tags:
 - _name: IsWriteIn
   csv-header-name: is_write_in
   csv-type: xs:boolean
-  description: Indicates if the party represents write-in selections.
+  description: Signals if this political party is one that is officially recognized
+    by a local, state, or federal organization, or represents a "write-in" in jurisdictions
+    which allow candidates to free-form enter their political affiliation.
   error_then: =must-ignore
   type: xs:boolean
 - _name: LeaderPersonIds

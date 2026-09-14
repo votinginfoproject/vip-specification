@@ -72,12 +72,14 @@ tags:
 - _name: PostElectionStatus
   csv-header-name: post_election_status
   csv-type: CandidatePostElectionStatus
-  description: Post-election outcome status from :ref:`$$$-candidate-post-election-status`.
+  description: Final status of the candidate from :ref:`$$$-candidate-post-election-status`
+    (e.g. winner, withdrawn, etc...).
   error_then: =must-ignore
   type: CandidatePostElectionStatus
 - _name: PreElectionStatus
   csv-header-name: pre_election_status
   csv-type: CandidatePreElectionStatus
-  description: Pre-election qualification status from :ref:`$$$-candidate-pre-election-status`.
+  description: Registration status of the candidate from :ref:`$$$-candidate-pre-election-status`
+    (e.g. filed, qualified, etc...).
   error_then: =must-ignore
   type: CandidatePreElectionStatus

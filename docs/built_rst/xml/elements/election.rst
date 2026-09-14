@@ -16,21 +16,23 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                            |                                         |              |              | ballots.                                 | present, then the implementation is      |
 |                            |                                         |              |              |                                          | required to ignore it.                   |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AbsenteeRequestDeadline    | ``xs:date``                             | Optional     | Single       | Last day to request an absentee ballot.  | If the field is invalid or not present,  |
-|                            |                                         |              |              |                                          | then the implementation is required to   |
+| AbsenteeRequestDeadline    | ``xs:date``                             | Optional     | Single       | Specifies the last day to request an     | If the field is invalid or not present,  |
+|                            |                                         |              |              | absentee ballot (e.g. "2024-10-25").     | then the implementation is required to   |
 |                            |                                         |              |              |                                          | ignore it.                               |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Date                       | ``xs:date``                             | **Required** | Single       | Date of the election in local time.      | If the field is invalid, then the        |
 |                            |                                         |              |              | Required in main feed; optional in       | implementation is required to ignore the |
 |                            |                                         |              |              | overlays.                                | ``Election`` element containing it.      |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectionType               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Type of election (e.g. General, Primary, | If the element is invalid or not         |
-|                            |                                         |              |              | Special).                                | present, then the implementation is      |
-|                            |                                         |              |              |                                          | required to ignore it.                   |
+| ElectionType               | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the type or highest            | If the element is invalid or not         |
+|                            |                                         |              |              | controlling authority for the election   | present, then the implementation is      |
+|                            |                                         |              |              | (e.g. federal, state, county, city,      | required to ignore it.                   |
+|                            |                                         |              |              | town, or general, primary, special).     |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| HasElectionDayRegistration | ``xs:boolean``                          | Optional     | Single       | Specifies whether voters can register on | If the field is invalid or not present,  |
-|                            |                                         |              |              | election day.                            | then the implementation is required to   |
-|                            |                                         |              |              |                                          | ignore it.                               |
+| HasElectionDayRegistration | ``xs:boolean``                          | Optional     | Single       | Specifies if a voter can register on the | If the field is invalid or not present,  |
+|                            |                                         |              |              | same day of the election (i.e., the last | then the implementation is required to   |
+|                            |                                         |              |              | day of the election). Valid values are   | ignore it.                               |
+|                            |                                         |              |              | "true" and "false".                      |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Schedule                   | :ref:`multi-xml-schedule-with-timezone` | Optional     | Repeats      | Schedule of voting dates and hours for   | If the element is invalid or not         |
 |                            |                                         |              |              | the election.                            | present, then the implementation is      |
@@ -44,9 +46,10 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                            |                                         |              |              |                                          | present, then the implementation is      |
 |                            |                                         |              |              |                                          | required to ignore it.                   |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| RegistrationDeadline       | ``xs:date``                             | Optional     | Single       | Last day to register to vote for the     | If the field is invalid or not present,  |
-|                            |                                         |              |              | election.                                | then the implementation is required to   |
-|                            |                                         |              |              |                                          | ignore it.                               |
+| RegistrationDeadline       | ``xs:date``                             | Optional     | Single       | Specifies the last day to register for   | If the field is invalid or not present,  |
+|                            |                                         |              |              | the election with the possible exception | then the implementation is required to   |
+|                            |                                         |              |              | of Election Day registration (e.g.       | ignore it.                               |
+|                            |                                         |              |              | "2024-10-15").                           |                                          |
 +----------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | RegistrationInfo           | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Information about voter registration.    | If the element is invalid or not         |
 |                            |                                         |              |              |                                          | present, then the implementation is      |

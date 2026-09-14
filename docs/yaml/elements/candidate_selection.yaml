@@ -23,8 +23,9 @@ tags:
 - _name: CandidateIds
   csv-header-name: candidate_ids
   csv-type: xs:IDREFS
-  description: References :ref:`$$$-candidate` elements that comprise this selection
-    (e.g. candidate and running mate).
+  description: References a set of :ref:`$$$-candidate` elements. The number of candidates
+    that can be referenced is unbounded in cases where the ballot selection is for
+    a ticket (e.g. "President/Vice President", "Governor/Lt Governor").
   error: If CandidateIds is invalid or not present, the implementation is required
     to ignore the CandidateSelection containing it.
   required: true

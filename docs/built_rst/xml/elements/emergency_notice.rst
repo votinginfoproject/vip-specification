@@ -20,9 +20,11 @@ In VIP 7.0, EmergencyNotice elements are permitted only in feed overlays on :ref
 |              |                                         |              |              | regarding the emergency notice.          | present, then the implementation is      |
 |              |                                         |              |              |                                          | required to ignore it.                   |
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AppliesTo    | ``xs:string``                           | Optional     | Repeats      | Contexts in which this emergency notice  | If the field is invalid or not present,  |
-|              |                                         |              |              | applies. If omitted, applies generally.  | then the implementation is required to   |
-|              |                                         |              |              |                                          | ignore it.                               |
+| AppliesTo    | ``xs:string``                           | Optional     | Repeats      | If specified, the contexts in which this | If the field is invalid or not present,  |
+|              |                                         |              |              | emergency notice applies (e.g.           | then the implementation is required to   |
+|              |                                         |              |              | "polling_place", "vote_center",          | ignore it.                               |
+|              |                                         |              |              | "ballot_drop_box", "jurisdiction"). If   |                                          |
+|              |                                         |              |              | omitted, applies generally.              |                                          |
 +--------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

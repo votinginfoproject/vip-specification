@@ -37,8 +37,9 @@ tags:
 - _name: AppliesTo
   csv-header-name: applies_to
   csv-type: xs:string
-  description: Contexts in which this emergency notice applies. If omitted, applies
-    generally.
+  description: If specified, the contexts in which this emergency notice applies (e.g.
+    "polling_place", "vote_center", "ballot_drop_box", "jurisdiction"). If omitted,
+    applies generally.
   error_then: =must-ignore
   repeating: true
   required: false

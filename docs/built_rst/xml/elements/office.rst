@@ -5,7 +5,7 @@
 Office
 ======
 
-``Office`` represents an elected or appointed government office associated with an electoral district (e.g. Mayor, Governor, School Board).
+``Office`` represents the office associated with a contest or district (e.g. Alderman, Mayor, Governor, School Board, et al).
 
 +-----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |

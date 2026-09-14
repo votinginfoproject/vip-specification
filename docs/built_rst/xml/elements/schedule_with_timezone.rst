@@ -70,17 +70,17 @@ In overlay feeds, elements of type ScheduleWithTimezone are clearable using ``<C
 Hours
 -----
 
-The open and close time for a location. Times must be fully specified without time zone information. The time zone is specified in the containing :ref:`multi-xml-schedule-with-timezone` element. Hours has an optional ``label`` attribute.
+The open and close time for a location. All times must be fully specified without time zone information. The time zone is assumed to be specified in an enclosing element (e.g. in a :ref:`multi-xml-schedule-with-timezone` element). Hours has an optional ``label`` attribute.
 
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                          | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+====================================+==============+==============+==========================================+==========================================+
-| StartTime    | :ref:`multi-xml-time-without-zone` | **Required** | Single       | The time at which the location opens.    | If StartTime is invalid or not present,  |
-|              |                                    |              |              |                                          | the implementation is required to ignore |
+| StartTime    | :ref:`multi-xml-time-without-zone` | **Required** | Single       | The time at which the location opens     | If StartTime is invalid or not present,  |
+|              |                                    |              |              | (e.g. "06:00:00").                       | the implementation is required to ignore |
 |              |                                    |              |              |                                          | the Hours element containing it.         |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndTime      | :ref:`multi-xml-time-without-zone` | **Required** | Single       | The time at which the location closes.   | If EndTime is invalid or not present,    |
-|              |                                    |              |              |                                          | the implementation is required to ignore |
+| EndTime      | :ref:`multi-xml-time-without-zone` | **Required** | Single       | The time at which the location closes    | If EndTime is invalid or not present,    |
+|              |                                    |              |              | (e.g. "19:00:00").                       | the implementation is required to ignore |
 |              |                                    |              |              |                                          | the Hours element containing it.         |
 +--------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 

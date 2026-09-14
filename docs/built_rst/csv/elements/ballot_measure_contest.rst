@@ -16,9 +16,11 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                   |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
 |                   |                                         |              |              |                                          | required to ignore it.                   |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| effect_of_abstain | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Describes effect of abstaining on the    | If the element is invalid or not         |
-|                   |                                         |              |              | measure. Clearable in overlays.          | present, then the implementation is      |
-|                   |                                         |              |              |                                          | required to ignore it.                   |
+| effect_of_abstain | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies what effect abstaining (i.e.   | If the element is invalid or not         |
+|                   |                                         |              |              | not voting) on this proposition will     | present, then the implementation is      |
+|                   |                                         |              |              | have (i.e. whether abstaining is         | required to ignore it.                   |
+|                   |                                         |              |              | considered a vote against it). Clearable |                                          |
+|                   |                                         |              |              | in overlays.                             |                                          |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | full_text         | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Full legal text of the ballot measure.   | If the element is invalid or not         |
 |                   |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
@@ -28,9 +30,12 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                   |                                         |              |              | about the measure. Clearable in          | present, then the implementation is      |
 |                   |                                         |              |              | overlays.                                | required to ignore it.                   |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| passage_threshold | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Threshold required for passage (e.g.     | If the element is invalid or not         |
-|                   |                                         |              |              | "majority", "two-thirds"). Clearable in  | present, then the implementation is      |
-|                   |                                         |              |              | overlays.                                | required to ignore it.                   |
+| passage_threshold | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies the threshold of votes that    | If the element is invalid or not         |
+|                   |                                         |              |              | the referendum needs in order to pass.   | present, then the implementation is      |
+|                   |                                         |              |              | The default is a simple majority (i.e.   | required to ignore it.                   |
+|                   |                                         |              |              | 50% plus one vote). Other common         |                                          |
+|                   |                                         |              |              | thresholds are "three-fifths" and        |                                          |
+|                   |                                         |              |              | "two-thirds". Clearable in overlays.     |                                          |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | pro_statement     | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Statement in support of the measure.     | If the element is invalid or not         |
 |                   |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
@@ -40,9 +45,12 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 |                   |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
 |                   |                                         |              |              |                                          | required to ignore it.                   |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| type              | :ref:`multi-csv-ballot-measure-type`    | Optional     | Single       | Type of measure from                     | If the field is invalid or not present,  |
-|                   |                                         |              |              | :ref:`multi-csv-ballot-measure-type`.    | then the implementation is required to   |
-|                   |                                         |              |              | Clearable in overlays.                   | ignore it.                               |
+| type              | :ref:`multi-csv-ballot-measure-type`    | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
+|                   |                                         |              |              | measure from                             | then the implementation is required to   |
+|                   |                                         |              |              | :ref:`multi-csv-ballot-measure-type`     | ignore it.                               |
+|                   |                                         |              |              | (e.g. initiative, referendum,            |                                          |
+|                   |                                         |              |              | constitutional amendment). Clearable in  |                                          |
+|                   |                                         |              |              | overlays.                                |                                          |
 +-------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | other_type        | ``xs:string``                           | Optional     | Single       | Custom measure type if Type is "other".  | If the field is invalid or not present,  |
 |                   |                                         |              |              | Clearable in overlays.                   | then the implementation is required to   |
@@ -90,9 +98,15 @@ In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName
 |                          |                                         |              |              | the contest. Required in main feed;      |                                          |
 |                          |                                         |              |              | optional in overlays.                    |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
-|                          |                                         |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
-|                          |                                         |              |              | party affiliation for primaries).        | ignore it.                               |
+| electorate_specification | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
+|                          |                                         |              |              | electorate for this contest past the     | present, then the implementation should  |
+|                          |                                         |              |              | usual "all registered voters"            | ignore it.                               |
+|                          |                                         |              |              | electorate. This subtag will most often  |                                          |
+|                          |                                         |              |              | be used for primaries and local          |                                          |
+|                          |                                         |              |              | elections (e.g. in closed primaries,     |                                          |
+|                          |                                         |              |              | voters may have to be registered as a    |                                          |
+|                          |                                         |              |              | specific party to vote, or in some local |                                          |
+|                          |                                         |              |              | elections, non-citizens can vote).       |                                          |
 |                          |                                         |              |              | Clearable in overlays.                   |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | external_identifier      | :ref:`multi-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
@@ -111,16 +125,19 @@ In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName
 |                          |                                         |              |              | Clearable in overlays.                   | then the implementation should ignore    |
 |                          |                                         |              |              |                                          | it.                                      |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`multi-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
-|                          |                                         |              |              | majority, rcv) from                      | then the implementation should ignore    |
-|                          |                                         |              |              | :ref:`multi-csv-vote-variation`.         | it.                                      |
-|                          |                                         |              |              | Clearable in overlays.                   |                                          |
+| vote_variation           | :ref:`multi-csv-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
+|                          |                                         |              |              | contest from                             | then the implementation should ignore    |
+|                          |                                         |              |              | :ref:`multi-csv-vote-variation` (e.g.    | it.                                      |
+|                          |                                         |              |              | n-of-m, majority, plurality, ranked      |                                          |
+|                          |                                         |              |              | choice, et al). Clearable in overlays.   |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | other_vote_variation     | ``xs:string``                           | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
 |                          |                                         |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
 |                          |                                         |              |              |                                          | it.                                      |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_inactive              | ``xs:string``                           | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
-|                          |                                         |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
-|                          |                                         |              |              | in overlays.                             | it.                                      |
+| is_inactive              | ``xs:string``                           | Optional     | Single       | If specified, the element is treated as  | If the field is invalid or not present,  |
+|                          |                                         |              |              | inactive, and the value describes the    | then the implementation should ignore    |
+|                          |                                         |              |              | reason (e.g. "Contest cancelled due to   | it.                                      |
+|                          |                                         |              |              | unopposed candidate", "Backup polling    |                                          |
+|                          |                                         |              |              | location"). Clearable in overlays.       |                                          |
 +--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
