@@ -1,29 +1,45 @@
 _name: EmergencyNotice
 csv-header-name: emergency_notice
+description: |-
+  A notification for election administrators to post emergency or last-minute updates (e.g. polling place relocations, hours extensions, severe weather alerts).
+
+  In VIP 7.0, EmergencyNotice elements are permitted only in feed overlays on :ref:`$$$-locality`, :ref:`$$$-polling-location`, and :ref:`$$$-precinct` elements.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <EmergencyNotice>
+        <NoticeText>
+           <Text language="en">Polling location moved due to water main break.</Text>
+           <Text language="es">El centro de votación se ha trasladado debido a una rotura de tubería.</Text>
+        </NoticeText>
+        <NoticeUri>https://elections.example.gov/notices/precinct-203</NoticeUri>
+        <AppliesTo>polling_place</AppliesTo>
+     </EmergencyNotice>
+skip_element_on: csv
 tags:
 - _name: NoticeText
-  csv-header-name: election_notice_text
-  csv-type: xs:string
-  description: The last minute or emergency notification text should be placed here.  This
-    is not intended for general, informational messages.
-  required: true
+  csv-header-name: notice_text
+  csv-type: InternationalizedText
+  description: The emergency notification text, which may be localized in multiple
+    languages.
+  error_then: =must-ignore
+  repeating: true
+  required: false
   type: InternationalizedText
 - _name: NoticeUri
-  csv-header-name: election_notice_uri
+  csv-header-name: notice_uri
   csv-type: InternationalizedUri
-  description: Optional URL for additional information related to the last minute
-    or emergency notification.
+  description: Web address for additional information regarding the emergency notice.
   error_then: =must-ignore
+  required: false
   type: InternationalizedUri
 - _name: AppliesTo
-  csv-header-name: applies-to
+  csv-header-name: applies_to
   csv-type: xs:string
-  description: If specified, the contexts in which this emergency notice applies.
-    Users should ignore emergency notices that do not contain an `AppliesTo` that
-    they support. If no `AppliesTo` is specified, this is assumed to be a general
-    notification and users may determine whether to show it in their context.  Public
-    APIs such as the Civic Info API should always transmit election notices that have
-    no `AppliesTo` specified.
+  description: Contexts in which this emergency notice applies. If omitted, applies
+    generally.
   error_then: =must-ignore
-  skip_element_on: csv
+  repeating: true
+  required: false
   type: xs:string

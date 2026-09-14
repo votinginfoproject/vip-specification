@@ -5,56 +5,48 @@
 BallotMeasureContest
 ====================
 
-The BallotMeasureContest provides information about a ballot measure before the voters, including
-summary statements on each side. Extends :ref:`multi-xml-contest-base`.
+BallotMeasureContest extends :ref:`multi-xml-contest-base` and provides information about a ballot measure or referendum before the voters.
+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearConStatement/>``, ``<ClearProStatement/>``, ``<ClearFullText/>``).
 
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag              | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==================+=========================================+==============+==============+==========================================+==========================================+
-| ConStatement     | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a statement in opposition to   | If the element is invalid or not         |
-|                  |                                         |              |              | the referendum. It does not necessarily  | present, then the implementation is      |
-|                  |                                         |              |              | appear on the ballot.                    | required to ignore it.                   |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EffectOfAbstain  | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies what effect abstaining (i.e.   | If the element is invalid or not         |
-|                  |                                         |              |              | not voting) on this proposition will     | present, then the implementation is      |
-|                  |                                         |              |              | have (i.e. whether abstaining is         | required to ignore it.                   |
-|                  |                                         |              |              | considered a vote against it).           |                                          |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| FullText         | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the full text of the           | If the element is invalid or not         |
-|                  |                                         |              |              | referendum as it appears on the ballot.  | present, then the implementation is      |
+| ConStatement     | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Statement in opposition to the measure.  | If the element is invalid or not         |
+|                  |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
 |                  |                                         |              |              |                                          | required to ignore it.                   |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| InfoUri          | ``xs:anyURI``                           | Optional     | Single       | Specifies a URI that links to additional | If the field is invalid or not present,  |
-|                  |                                         |              |              | information about the referendum.        | then the implementation is required to   |
+| EffectOfAbstain  | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Describes effect of abstaining on the    | If the element is invalid or not         |
+|                  |                                         |              |              | measure. Clearable in overlays.          | present, then the implementation is      |
+|                  |                                         |              |              |                                          | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| FullText         | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Full legal text of the ballot measure.   | If the element is invalid or not         |
+|                  |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                  |                                         |              |              |                                          | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| InfoUri          | :ref:`multi-xml-internationalized-uri`  | Optional     | Single       | Web address for additional information   | If the element is invalid or not         |
+|                  |                                         |              |              | about the measure. Clearable in          | present, then the implementation is      |
+|                  |                                         |              |              | overlays.                                | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| PassageThreshold | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Threshold required for passage (e.g.     | If the element is invalid or not         |
+|                  |                                         |              |              | "majority", "two-thirds"). Clearable in  | present, then the implementation is      |
+|                  |                                         |              |              | overlays.                                | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ProStatement     | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Statement in support of the measure.     | If the element is invalid or not         |
+|                  |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                  |                                         |              |              |                                          | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SummaryText      | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Summary explanation of the measure.      | If the element is invalid or not         |
+|                  |                                         |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                  |                                         |              |              |                                          | required to ignore it.                   |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Type             | :ref:`multi-xml-ballot-measure-type`    | Optional     | Single       | Type of measure from                     | If the field is invalid or not present,  |
+|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`.    | then the implementation is required to   |
+|                  |                                         |              |              | Clearable in overlays.                   | ignore it.                               |
++------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| OtherType        | ``xs:string``                           | Optional     | Single       | Custom measure type if Type is "other".  | If the field is invalid or not present,  |
+|                  |                                         |              |              | Clearable in overlays.                   | then the implementation is required to   |
 |                  |                                         |              |              |                                          | ignore it.                               |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| PassageThreshold | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies the threshold of votes that    | If the element is invalid or not         |
-|                  |                                         |              |              | the referendum needs in order to pass.   | present, then the implementation is      |
-|                  |                                         |              |              | The default is a simple majority (i.e.   | required to ignore it.                   |
-|                  |                                         |              |              | 50% plus one vote). Other common         |                                          |
-|                  |                                         |              |              | thresholds are "three-fifths" and        |                                          |
-|                  |                                         |              |              | "two-thirds". If there are `competing    |                                          |
-|                  |                                         |              |              | initiatives`_, information about their   |                                          |
-|                  |                                         |              |              | effect on the passage of the             |                                          |
-|                  |                                         |              |              | BallotMeasureContest would go here.      |                                          |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ProStatement     | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a statement in favor of the    | If the element is invalid or not         |
-|                  |                                         |              |              | referendum. It does not necessarily      | present, then the implementation is      |
-|                  |                                         |              |              | appear on the ballot.                    | required to ignore it.                   |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| SummaryText      | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies a short summary of the         | If the element is invalid or not         |
-|                  |                                         |              |              | referendum that is on the ballot, below  | present, then the implementation is      |
-|                  |                                         |              |              | the title, but above the text.           | required to ignore it.                   |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Type             | :ref:`multi-xml-ballot-measure-type`    | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
-|                  |                                         |              |              | measure. Must be one of the valid        | then the implementation is required to   |
-|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`     | ignore it.                               |
-|                  |                                         |              |              | options.                                 |                                          |
-+------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherType        | ``xs:string``                           | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                  |                                         |              |              | :ref:`multi-xml-ballot-measure-type`     | then the implementation is required to   |
-|                  |                                         |              |              | option, when Type is specified as        | ignore it.                               |
-|                  |                                         |              |              | "other."                                 |                                          |
 +------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -63,27 +55,19 @@ summary statements on each side. Extends :ref:`multi-xml-contest-base`.
    <BallotMeasureContest id="bmc30001">
       <BallotSelectionIds>bms30001a bms30001b</BallotSelectionIds>
       <BallotTitle>
-         <Text language="en">State of the State</Text>
-         <Text language="es">Estado del Estado.</Text>
+         <Text language="en">State Bond Initiative</Text>
+         <Text language="es">Iniciativa de Bonos del Estado</Text>
       </BallotTitle>
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>
-      <Name>Referendum on Virginia</Name>
-      <ConStatement label="bmc30001con">
-         <Text language="en">This is no good.</Text>
-         <Text language="es">Esto no es bueno.</Text>
+      <Name>Bond Initiative</Name>
+      <ConStatement>
+         <Text language="en">Opponents argue this increases state debt.</Text>
       </ConStatement>
-      <EffectOfAbstain label="bmc30001abs">
-         <Text language="en">Nothing will happen.</Text>
-         <Text language="es">Nada pasará.</Text>
-      </EffectOfAbstain>
-      <ProStatement label="bmc30001pro">
-         <Text language="en">Everything will be great.</Text>
-         <Text language="es">Todo va a estar bien.</Text>
+      <ProStatement>
+         <Text language="en">Supporters state this funds critical school repairs.</Text>
       </ProStatement>
       <Type>referendum</Type>
    </BallotMeasureContest>
-
-.. _competing initiatives: http://ballotpedia.org/Laws_governing_the_initiative_process_in_California#Competing_initiatives
 
 
 .. _multi-xml-contest-base:
@@ -91,71 +75,66 @@ summary statements on each side. Extends :ref:`multi-xml-contest-base`.
 ContestBase
 -----------
 
-A base model for all Contest types: :ref:`multi-xml-ballot-measure-contest`,
-:ref:`multi-xml-candidate-contest`, :ref:`multi-xml-party-contest`,
-and :ref:`multi-xml-retention-contest` (NB: the latter because it extends
-:ref:`multi-xml-ballot-measure-contest`).
+A base model for all Contest types: :ref:`multi-xml-ballot-measure-contest`, :ref:`multi-xml-candidate-contest`, :ref:`multi-xml-party-contest`, and :ref:`multi-xml-retention-contest`.
+
+In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
 
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                     | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=========================+=========================================+==============+==============+==========================================+==========================================+
 | Abbreviation            | ``xs:string``                           | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                         |                                         |              |              |                                          | then the implementation should ignore    |
+|                         |                                         |              |              | Clearable in overlays.                   | then the implementation should ignore    |
 |                         |                                         |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| BallotSelectionIds      | ``xs:IDREFS``                           | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                         |                                         |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                         |                                         |              |              | that extends                             | it.                                      |
-|                         |                                         |              |              | :ref:`multi-xml-ballot-selection-base`.  |                                          |
+| BallotSelectionIds      | ``xs:IDREFS``                           | Optional     | Single       | References BallotSelections belonging to | If the field is invalid or not present,  |
+|                         |                                         |              |              | this contest. Clearable in overlays.     | then the implementation should ignore    |
+|                         |                                         |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | BallotSubTitle          | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                         |                                         |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                         |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
 |                         |                                         |              |              |                                          | ignore it.                               |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | BallotTitle             | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                         |                                         |              |              | the ballot.                              | present, then the implementation should  |
+|                         |                                         |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
 |                         |                                         |              |              |                                          | ignore it.                               |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectoralDistrictId     | ``xs:IDREF``                            | **Required** | Single       | References an                            | If the field is invalid, then the        |
+| ElectoralDistrictId     | ``xs:IDREF``                            | **Required** | Single       | References the                           | If the field is invalid, then the        |
 |                         |                                         |              |              | :ref:`multi-xml-electoral-district`      | implementation is required to ignore the |
-|                         |                                         |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
-|                         |                                         |              |              | scope of the contest.                    |                                          |
+|                         |                                         |              |              | representing the geographical scope of   | ``ContestBase`` element containing it.   |
+|                         |                                         |              |              | the contest. Required in main feed;      |                                          |
+|                         |                                         |              |              | optional in overlays.                    |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ElectorateSpecification | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                         |                                         |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                         |                                         |              |              | usual, "all registered voters"           | ignore it.                               |
-|                         |                                         |              |              | electorate. This subtag will most often  |                                          |
-|                         |                                         |              |              | be used for primaries and local          |                                          |
-|                         |                                         |              |              | elections. In primaries, voters may have |                                          |
-|                         |                                         |              |              | to be registered as a specific party to  |                                          |
-|                         |                                         |              |              | vote, or there may be special rules for  |                                          |
-|                         |                                         |              |              | which ballot a voter can pull. In some   |                                          |
-|                         |                                         |              |              | local elections, non-citizens can vote.  |                                          |
+| ElectorateSpecification | :ref:`multi-xml-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
+|                         |                                         |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
+|                         |                                         |              |              | party affiliation for primaries).        | ignore it.                               |
+|                         |                                         |              |              | Clearable in overlays.                   |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ExternalIdentifiers     | :ref:`multi-xml-external-identifiers`   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                         |                                         |              |              | links to another source of information.  | present, then the implementation should  |
-|                         |                                         |              |              |                                          | ignore it.                               |
+| ExternalIdentifier      | :ref:`multi-xml-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                         |                                         |              |              | contest to other sources. Clearable in   | present, then the implementation should  |
+|                         |                                         |              |              | overlays.                                | ignore it.                               |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | HasRotation             | ``xs:boolean``                          | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                         |                                         |              |              | contest are rotated.                     | then the implementation should ignore    |
+|                         |                                         |              |              | contest rotate on the ballot. Clearable  | then the implementation should ignore    |
+|                         |                                         |              |              | in overlays.                             | it.                                      |
++-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Name                    | ``xs:string``                           | **Required** | Single       | Name of the contest. Required in main    | If the field is invalid, then the        |
+|                         |                                         |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                         |                                         |              |              |                                          | ``ContestBase`` element containing it.   |
++-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| SequenceOrder           | ``xs:integer``                          | Optional     | Single       | Default ballot ordering for the contest. | If the field is invalid or not present,  |
+|                         |                                         |              |              | Clearable in overlays.                   | then the implementation should ignore    |
 |                         |                                         |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Name                    | ``xs:string``                           | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                         |                                         |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                         |                                         |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
-|                         |                                         |              |              | purpose).                                |                                          |
+| VoteVariation           | :ref:`multi-xml-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
+|                         |                                         |              |              | majority, rcv) from                      | then the implementation should ignore    |
+|                         |                                         |              |              | :ref:`multi-xml-vote-variation`.         | it.                                      |
+|                         |                                         |              |              | Clearable in overlays.                   |                                          |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| SequenceOrder           | ``xs:integer``                          | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                         |                                         |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                         |                                         |              |              | ordering, and can be overrides by data   | it.                                      |
-|                         |                                         |              |              | in a :ref:`multi-xml-ballot-style`       |                                          |
-|                         |                                         |              |              | element.                                 |                                          |
-+-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| VoteVariation           | :ref:`multi-xml-vote-variation`         | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                         |                                         |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
+| OtherVoteVariation      | ``xs:string``                           | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
+|                         |                                         |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
 |                         |                                         |              |              |                                          | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| OtherVoteVariation      | ``xs:string``                           | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                         |                                         |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                         |                                         |              |              | variation can be specified here.         | it.                                      |
+| IsInactive              | ``xs:string``                           | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
+|                         |                                         |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
+|                         |                                         |              |              | in overlays.                             | it.                                      |
 +-------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

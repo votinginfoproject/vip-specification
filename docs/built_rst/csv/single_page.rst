@@ -20,64 +20,55 @@ Elements
 ballot_measure_contest
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The BallotMeasureContest provides information about a ballot measure before the voters, including
-summary statements on each side. Extends :ref:`single-csv-contest-base`.
+BallotMeasureContest extends :ref:`single-csv-contest-base` and provides information about a ballot measure or referendum before the voters.
 
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag               | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===================+===============+==============+==============+==========================================+==========================================+
-| con_statement     | ``xs:string`` | Optional     | Single       | Specifies a statement in opposition to   | If the element is invalid or not         |
-|                   |               |              |              | the referendum. It does not necessarily  | present, then the implementation is      |
-|                   |               |              |              | appear on the ballot.                    | required to ignore it.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| effect_of_abstain | ``xs:string`` | Optional     | Single       | Specifies what effect abstaining (i.e.   | If the element is invalid or not         |
-|                   |               |              |              | not voting) on this proposition will     | present, then the implementation is      |
-|                   |               |              |              | have (i.e. whether abstaining is         | required to ignore it.                   |
-|                   |               |              |              | considered a vote against it).           |                                          |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| full_text         | ``xs:string`` | Optional     | Single       | Specifies the full text of the           | If the element is invalid or not         |
-|                   |               |              |              | referendum as it appears on the ballot.  | present, then the implementation is      |
-|                   |               |              |              |                                          | required to ignore it.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| info_uri          | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that links to additional | If the field is invalid or not present,  |
-|                   |               |              |              | information about the referendum.        | then the implementation is required to   |
-|                   |               |              |              |                                          | ignore it.                               |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| passage_threshold | ``xs:string`` | Optional     | Single       | Specifies the threshold of votes that    | If the element is invalid or not         |
-|                   |               |              |              | the referendum needs in order to pass.   | present, then the implementation is      |
-|                   |               |              |              | The default is a simple majority (i.e.   | required to ignore it.                   |
-|                   |               |              |              | 50% plus one vote). Other common         |                                          |
-|                   |               |              |              | thresholds are "three-fifths" and        |                                          |
-|                   |               |              |              | "two-thirds". If there are `competing    |                                          |
-|                   |               |              |              | initiatives`_, information about their   |                                          |
-|                   |               |              |              | effect on the passage of the             |                                          |
-|                   |               |              |              | BallotMeasureContest would go here.      |                                          |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| pro_statement     | ``xs:string`` | Optional     | Single       | Specifies a statement in favor of the    | If the element is invalid or not         |
-|                   |               |              |              | referendum. It does not necessarily      | present, then the implementation is      |
-|                   |               |              |              | appear on the ballot.                    | required to ignore it.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| summary_text      | ``xs:string`` | Optional     | Single       | Specifies a short summary of the         | If the element is invalid or not         |
-|                   |               |              |              | referendum that is on the ballot, below  | present, then the implementation is      |
-|                   |               |              |              | the title, but above the text.           | required to ignore it.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| type              | ``xs:string`` | Optional     | Single       | Specifies the particular type of ballot  | If the field is invalid or not present,  |
-|                   |               |              |              | measure. Must be one of the valid        | then the implementation is required to   |
-|                   |               |              |              | :ref:`single-csv-ballot-measure-type`    | ignore it.                               |
-|                   |               |              |              | options.                                 |                                          |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type        | ``xs:string`` | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                   |               |              |              | :ref:`single-csv-ballot-measure-type`    | then the implementation is required to   |
-|                   |               |              |              | option, when Type is specified as        | ignore it.                               |
-|                   |               |              |              | "other."                                 |                                          |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearConStatement/>``, ``<ClearProStatement/>``, ``<ClearFullText/>``).
+
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag               | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++===================+==========================================+==============+==============+==========================================+==========================================+
+| con_statement     | :ref:`single-csv-internationalized-text` | Optional     | Single       | Statement in opposition to the measure.  | If the element is invalid or not         |
+|                   |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| effect_of_abstain | :ref:`single-csv-internationalized-text` | Optional     | Single       | Describes effect of abstaining on the    | If the element is invalid or not         |
+|                   |                                          |              |              | measure. Clearable in overlays.          | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| full_text         | :ref:`single-csv-internationalized-text` | Optional     | Single       | Full legal text of the ballot measure.   | If the element is invalid or not         |
+|                   |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| info_uri          | :ref:`single-csv-internationalized-uri`  | Optional     | Single       | Web address for additional information   | If the element is invalid or not         |
+|                   |                                          |              |              | about the measure. Clearable in          | present, then the implementation is      |
+|                   |                                          |              |              | overlays.                                | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| passage_threshold | :ref:`single-csv-internationalized-text` | Optional     | Single       | Threshold required for passage (e.g.     | If the element is invalid or not         |
+|                   |                                          |              |              | "majority", "two-thirds"). Clearable in  | present, then the implementation is      |
+|                   |                                          |              |              | overlays.                                | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| pro_statement     | :ref:`single-csv-internationalized-text` | Optional     | Single       | Statement in support of the measure.     | If the element is invalid or not         |
+|                   |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| summary_text      | :ref:`single-csv-internationalized-text` | Optional     | Single       | Summary explanation of the measure.      | If the element is invalid or not         |
+|                   |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                   |                                          |              |              |                                          | required to ignore it.                   |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| type              | :ref:`single-csv-ballot-measure-type`    | Optional     | Single       | Type of measure from                     | If the field is invalid or not present,  |
+|                   |                                          |              |              | :ref:`single-csv-ballot-measure-type`.   | then the implementation is required to   |
+|                   |                                          |              |              | Clearable in overlays.                   | ignore it.                               |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_type        | ``xs:string``                            | Optional     | Single       | Custom measure type if Type is "other".  | If the field is invalid or not present,  |
+|                   |                                          |              |              | Clearable in overlays.                   | then the implementation is required to   |
+|                   |                                          |              |              |                                          | ignore it.                               |
++-------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,abbreviation,ballot_selection_ids,ballot_sub_title,ballot_title,elecoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation,con_statement,effect_of_abstain,full_text,info_uri,passage_threshold,pro_statement,summary_text,type,other_type
-    bmc0001,HB2,bs001 bs002 bs003,Raising levy for School Bond,School Bond Issue,ed001,all registered voters,,54,false,School Bond,42,majority,,This is no good.,No effect,A measure to do raise funds for etc etc,www.ballotmeasure.com,two-thirds,Everything will be great.,It’s a referendum about school funding,referendum,
+    id,abbreviation,ballot_selection_ids,ballot_title,electoral_district_id,name,passage_threshold,type
+    bmc0001,HB2,bs001 bs002,School Bond Issue,ed001,School Bond Issue,majority,referendum
 
 
 .. _single-csv-contest-base:
@@ -85,74 +76,69 @@ summary statements on each side. Extends :ref:`single-csv-contest-base`.
 contest_base
 ^^^^^^^^^^^^
 
-A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`,
-:ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`,
-and :ref:`single-csv-retention-contest` (NB: the latter because it extends
-:ref:`single-csv-ballot-measure-contest`).
+A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`, :ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`, and :ref:`single-csv-retention-contest`.
 
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+==================================+==============+==============+==========================================+==========================================+
-| abbreviation             | ``xs:string``                    | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                          |                                  |              |              |                                          | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_selection_ids     | ``xs:IDREFS``                    | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                          |                                  |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                          |                                  |              |              | that extends                             | it.                                      |
-|                          |                                  |              |              | :ref:`single-csv-ballot-selection-base`. |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_sub_title         | ``xs:string``                    | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_title             | ``xs:string``                    | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | scope of the contest.                    |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                          |                                  |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                          |                                  |              |              | usual, "all registered voters"           | ignore it.                               |
-|                          |                                  |              |              | electorate. This subtag will most often  |                                          |
-|                          |                                  |              |              | be used for primaries and local          |                                          |
-|                          |                                  |              |              | elections. In primaries, voters may have |                                          |
-|                          |                                  |              |              | to be registered as a specific party to  |                                          |
-|                          |                                  |              |              | vote, or there may be special rules for  |                                          |
-|                          |                                  |              |              | which ballot a voter can pull. In some   |                                          |
-|                          |                                  |              |              | local elections, non-citizens can vote.  |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:string``                    | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                          |                                  |              |              | links to another source of information.  | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_rotation             | ``xs:boolean``                   | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | purpose).                                |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                          |                                  |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                          |                                  |              |              | ordering, and can be overrides by data   | it.                                      |
-|                          |                                  |              |              | in a :ref:`single-csv-ballot-style`      |                                          |
-|                          |                                  |              |              | element.                                 |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`single-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_vote_variation     | ``other_vote_variation``         | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                          |                                  |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                          |                                  |              |              | variation can be specified here.         | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| abbreviation             | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_selection_ids     | ``xs:IDREFS``                            | Optional     | Single       | References BallotSelections belonging to | If the field is invalid or not present,  |
+|                          |                                          |              |              | this contest. Clearable in overlays.     | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_sub_title         | :ref:`single-csv-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_title             | :ref:`single-csv-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``                             | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                          |                                          |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
+|                          |                                          |              |              | representing the geographical scope of   | ``ContestBase`` element containing it.   |
+|                          |                                          |              |              | the contest. Required in main feed;      |                                          |
+|                          |                                          |              |              | optional in overlays.                    |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electorate_specification | :ref:`single-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
+|                          |                                          |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
+|                          |                                          |              |              | party affiliation for primaries).        | ignore it.                               |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier      | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                          |                                          |              |              | contest to other sources. Clearable in   | present, then the implementation should  |
+|                          |                                          |              |              | overlays.                                | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_rotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                          |                                          |              |              | contest rotate on the ballot. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | ``xs:string``                            | **Required** | Single       | Name of the contest. Required in main    | If the field is invalid, then the        |
+|                          |                                          |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                          |                                          |              |              |                                          | ``ContestBase`` element containing it.   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| sequence_order           | ``xs:integer``                           | Optional     | Single       | Default ballot ordering for the contest. | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| vote_variation           | :ref:`single-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
+|                          |                                          |              |              | majority, rcv) from                      | then the implementation should ignore    |
+|                          |                                          |              |              | :ref:`single-csv-vote-variation`.        | it.                                      |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_vote_variation     | ``xs:string``                            | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
+|                          |                                          |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive              | ``xs:string``                            | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
+|                          |                                          |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-ballot-measure-selection:
@@ -229,27 +215,27 @@ ballot_style
 
 A container for the contests/measures on the ballot.
 
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+===============+==============+==============+==========================================+==========================================+
-| image_uri            | ``xs:anyURI`` | Optional     | Single       | Specifies a URI that returns an image of | If the field is invalid or not present,  |
-|                      |               |              |              | the sample ballot.                       | then the implementation is required to   |
-|                      |               |              |              |                                          | ignore it.                               |
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ordered_contests_ids | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                      |               |              |              | :ref:`single-csv-ordered-contest`        | then the implementation is required to   |
-|                      |               |              |              |                                          | ignore it.                               |
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_ids            | ``xs:IDREFS`` | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
-|                      |               |              |              | :ref:`single-csv-party`s.                | then the implementation is required to   |
-|                      |               |              |              |                                          | ignore it.                               |
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
++----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                  | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
++======================+=========================================+==============+==============+==========================================+==========================================+
+| image_uri            | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Specifies a URI that returns an image of | If the element is invalid or not         |
+|                      |                                         |              |              | the sample ballot.                       | present, then the implementation is      |
+|                      |                                         |              |              |                                          | required to ignore it.                   |
++----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ordered_contests_ids | ``xs:IDREFS``                           | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
+|                      |                                         |              |              | :ref:`single-csv-ordered-contest`        | then the implementation is required to   |
+|                      |                                         |              |              |                                          | ignore it.                               |
++----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| party_ids            | ``xs:IDREFS``                           | Optional     | Single       | Reference to a set of                    | If the field is invalid or not present,  |
+|                      |                                         |              |              | :ref:`single-csv-party`s.                | then the implementation is required to   |
+|                      |                                         |              |              |                                          | ignore it.                               |
++----------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
 
-    id,image_uri,ordered_contest_ids,party_ids
+    id,image_uri!en,ordered_contest_ids,party_ids
     bs00010,http://i.giphy.com/26BoCh3PgT8ai45ji.gif,oc2025,par02
     bs00011,http://i.giphy.com/3oEjHYDWEICgEpAOjK.gif,oc3000 oc2025,par01
 
@@ -259,63 +245,57 @@ A container for the contests/measures on the ballot.
 candidate
 ~~~~~~~~~
 
-The Candidate object represents a candidate in a contest. If a candidate is
-running in multiple contests, each contest **must** have its own Candidate
-object. Candidate objects may **not** be reused between Contests.
+The Candidate object represents a candidate in a contest. If a candidate is running in multiple contests, each contest **must** have its own Candidate object.
 
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type                                        | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+==================================================+==============+==============+==========================================+==========================================+
-| ballot_name          | ``xs:string``                                    | **Required** | Single       | The candidate's name as it will be       | If the element is invalid, then the      |
-|                      |                                                  |              |              | displayed on the official ballot (e.g.   | implementation is required to ignore the |
-|                      |                                                  |              |              | "Ken T. Cuccinelli II").                 | ``Candidate`` element containing it.     |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers | :ref:`single-csv-external-identifiers`           | Optional     | Single       | Another identifier for a candidate that  | If the element is invalid or not         |
-|                      |                                                  |              |              | links to another source of information   | present, then the implementation is      |
-|                      |                                                  |              |              | (e.g. a campaign committee ID that links | required to ignore it.                   |
-|                      |                                                  |              |              | to a campaign finance system).           |                                          |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| file_date            | ``xs:date``                                      | Optional     | Single       | Date when the candidate filed for the    | If the field is invalid or not present,  |
-|                      |                                                  |              |              | contest.                                 | then the implementation is required to   |
-|                      |                                                  |              |              |                                          | ignore it.                               |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_incumbent         | ``xs:boolean``                                   | Optional     | Single       | Indicates whether the candidate is the   | If the field is invalid or not present,  |
-|                      |                                                  |              |              | incumbent for the office associated with | then the implementation is required to   |
-|                      |                                                  |              |              | the contest.                             | ignore it.                               |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_top_ticket        | ``xs:boolean``                                   | Optional     | Single       | Indicates whether the candidate is the   | If the field is invalid or not present,  |
-|                      |                                                  |              |              | top of a ticket that includes multiple   | then the implementation is required to   |
-|                      |                                                  |              |              | candidates.                              | ignore it.                               |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_id             | ``xs:IDREF``                                     | Optional     | Single       | Reference to a :ref:`single-csv-party`   | If the field is invalid or not present,  |
-|                      |                                                  |              |              | element with additional information      | then the implementation is required to   |
-|                      |                                                  |              |              | about the candidate's affiliated party.  | ignore it.                               |
-|                      |                                                  |              |              | This is the party affiliation that is    |                                          |
-|                      |                                                  |              |              | intended to be presented as part of      |                                          |
-|                      |                                                  |              |              | ballot information.                      |                                          |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| person_id            | ``xs:IDREF``                                     | Optional     | Single       | Reference to a :ref:`single-csv-person`  | If the field is invalid or not present,  |
-|                      |                                                  |              |              | element with additional information      | then the implementation is required to   |
-|                      |                                                  |              |              | about the candidate.                     | ignore it.                               |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| post_election_status | :ref:`single-csv-candidate-post-election-status` | Optional     | Single       | Final status of the candidate (e.g.      | If the field is invalid or not present,  |
-|                      |                                                  |              |              | winner, withdrawn, etc...).              | then the implementation is required to   |
-|                      |                                                  |              |              |                                          | ignore it.                               |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| pre_election_status  | :ref:`single-csv-candidate-pre-election-status`  | Optional     | Single       | Registration status of the candidate     | If the field is invalid or not present,  |
-|                      |                                                  |              |              | (e.g. filed, qualified, etc...).         | then the implementation is required to   |
-|                      |                                                  |              |              |                                          | ignore it.                               |
-+----------------------+--------------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| Tag                  | Data Type                                        | Required?    | Repeats?     | Description                                       | Error Handling                           |
++======================+==================================================+==============+==============+===================================================+==========================================+
+| ballot_name          | :ref:`single-csv-internationalized-text`         | **Required** | Single       | The candidate's name as it will appear on the     | If the element is invalid, then the      |
+|                      |                                                  |              |              | ballot.                                           | implementation is required to ignore the |
+|                      |                                                  |              |              |                                                   | ``Candidate`` element containing it.     |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| contact_information  | :ref:`single-csv-contact-information`            | Optional     | Single       | Campaign or official contact information for the  | If the element is invalid or not         |
+|                      |                                                  |              |              | candidate.                                        | present, then the implementation is      |
+|                      |                                                  |              |              |                                                   | required to ignore it.                   |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| external_identifier  | :ref:`single-csv-external-identifier`            | Optional     | Repeats      | External identifier(s) linking this candidate to  | If the element is invalid or not         |
+|                      |                                                  |              |              | external systems.                                 | present, then the implementation is      |
+|                      |                                                  |              |              |                                                   | required to ignore it.                   |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| file_date            | ``xs:date``                                      | Optional     | Single       | Date when the candidate filed for office.         | If the field is invalid or not present,  |
+|                      |                                                  |              |              |                                                   | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| is_incumbent         | ``xs:boolean``                                   | Optional     | Single       | Indicates whether the candidate currently holds   | If the field is invalid or not present,  |
+|                      |                                                  |              |              | the office.                                       | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| is_top_ticket        | ``xs:boolean``                                   | Optional     | Single       | Indicates whether the candidate is at the top of  | If the field is invalid or not present,  |
+|                      |                                                  |              |              | a ticket.                                         | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| party_id             | ``xs:IDREF``                                     | Optional     | Single       | References the candidate's affiliated             | If the field is invalid or not present,  |
+|                      |                                                  |              |              | :ref:`single-csv-party`.                          | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| person_id            | ``xs:IDREF``                                     | Optional     | Single       | References the underlying                         | If the field is invalid or not present,  |
+|                      |                                                  |              |              | :ref:`single-csv-person` record.                  | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| post_election_status | :ref:`single-csv-candidate-post-election-status` | Optional     | Single       | Post-election outcome status from                 | If the field is invalid or not present,  |
+|                      |                                                  |              |              | :ref:`single-csv-candidate-post-election-status`. | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
+| pre_election_status  | :ref:`single-csv-candidate-pre-election-status`  | Optional     | Single       | Pre-election qualification status from            | If the field is invalid or not present,  |
+|                      |                                                  |              |              | :ref:`single-csv-candidate-pre-election-status`.  | then the implementation is required to   |
+|                      |                                                  |              |              |                                                   | ignore it.                               |
++----------------------+--------------------------------------------------+--------------+--------------+---------------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,ballot_name,external_identifier_type,external_identifier_othertype,external_identifier_value,file_date,is_incumbent,is_top_ticket,party_id,person_id,post_election_status,pre_election_status
-    can001,Jude Fawley,,,,2016-12-01,true,false,par01,per50001,,filed
-    can002,Arabella Donn,,,,2016-12-01,false,false,par02,per50002,,qualified
-    can003,John Coltrane,,,,2016-09-23,false,false,par02,per50003,,qualified
-    can004,Miles Davis,,,,2016-05-26,false,false,par01,per50004,,qualified
+    id,ballot_name,file_date,is_incumbent,is_top_ticket,party_id,person_id,post_election_status,pre_election_status
+    can001,Jude Fawley,2024-03-01,true,false,par01,per50001,,qualified
 
 
 .. _single-csv-candidate-contest:
@@ -323,48 +303,35 @@ object. Candidate objects may **not** be reused between Contests.
 candidate_contest
 ~~~~~~~~~~~~~~~~~
 
-CandidateContest extends :ref:`single-csv-contest-base` and represents a contest among
-candidates.
+CandidateContest extends :ref:`single-csv-contest-base` and represents a contest among candidates.
+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearNumberElected/>``, ``<ClearOfficeIds/>``, ``<ClearPrimaryPartyIds/>``, ``<ClearVotesAllowed/>``).
 
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag               | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +===================+================+==============+==============+==========================================+==========================================+
-| number_elected    | ``xs:integer`` | Optional     | Single       | Number of candidates that are elected in | If the field is invalid or not present,  |
-|                   |                |              |              | the contest (i.e. "N" of N-of-M).        | then the implementation is required to   |
-|                   |                |              |              |                                          | ignore it.                               |
+| number_elected    | ``xs:integer`` | Optional     | Single       | Number of candidates elected in this     | If the field is invalid or not present,  |
+|                   |                |              |              | contest (i.e. "N" of N-of-M). Clearable  | then the implementation is required to   |
+|                   |                |              |              | in overlays.                             | ignore it.                               |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| office_ids        | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                   |                |              |              | :ref:`single-csv-office` elements, if    | then the implementation is required to   |
-|                   |                |              |              | available, which give additional         | ignore it.                               |
-|                   |                |              |              | information about the offices. **Note:** |                                          |
-|                   |                |              |              | the order of the office IDs **must** be  |                                          |
-|                   |                |              |              | in the same order as the candidates      |                                          |
-|                   |                |              |              | listed in `BallotSelectionIds`. E.g., if |                                          |
-|                   |                |              |              | the various `BallotSelectionIds`         |                                          |
-|                   |                |              |              | reference                                |                                          |
-|                   |                |              |              | :ref:`single-csv-candidate-selection`    |                                          |
-|                   |                |              |              | elements which reference the candidate   |                                          |
-|                   |                |              |              | for President first and Vice-President   |                                          |
-|                   |                |              |              | second, the `OfficeIds` should reference |                                          |
-|                   |                |              |              | the office of President first and the    |                                          |
-|                   |                |              |              | office of Vice-President second.         |                                          |
+| office_ids        | ``xs:IDREFS``  | Optional     | Single       | References :ref:`single-csv-office`      | If the field is invalid or not present,  |
+|                   |                |              |              | elements associated with the contest.    | then the implementation is required to   |
+|                   |                |              |              | Clearable in overlays.                   | ignore it.                               |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | primary_party_ids | ``xs:IDREFS``  | Optional     | Single       | References :ref:`single-csv-party`       | If the field is invalid or not present,  |
-|                   |                |              |              | elements, if the contest is related to a | then the implementation is required to   |
-|                   |                |              |              | particular party.                        | ignore it.                               |
+|                   |                |              |              | elements if the contest is               | then the implementation is required to   |
+|                   |                |              |              | party-specific. Clearable in overlays.   | ignore it.                               |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| votes_allowed     | ``xs:integer`` | Optional     | Single       | Maximum number of votes/write-ins per    | If the field is invalid or not present,  |
-|                   |                |              |              | voter in this contest.                   | then the implementation is required to   |
-|                   |                |              |              |                                          | ignore it.                               |
+| votes_allowed     | ``xs:integer`` | Optional     | Single       | Maximum number of selections a voter may | If the field is invalid or not present,  |
+|                   |                |              |              | make in this contest. Clearable in       | then the implementation is required to   |
+|                   |                |              |              | overlays.                                | ignore it.                               |
 +-------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,abbreviation,ballot_selection_ids,ballot_sub_title,ballot_title,electoral_district_id,electorate_specification,external_identifier_type,external_identifier_othertype,external_identifier_value,has_rotation,name,sequence_order,vote_variation,other_vote_variation,number_elected,office_ids,primary_party_ids,votes_allowed
-    cancon001,SE-1,bs001 bs002,,Governor of Virginia,ed001,all registered voters,fips,,49,true,Governor,1,,,1,off001,par01,1
-    cancon002,SE-2,bs003 bs004,,Lieutenant Governor of Virginia,ed001,all registered voters,fips,,49,true,Lt Governor,2,,,1,off002,par01,1
+    id,ballot_selection_ids,ballot_title,electoral_district_id,name,number_elected,office_ids,primary_party_ids,votes_allowed
+    cc001,cs001 cs002,Governor of Virginia,ed001,Governor,1,off001,par01,1
 
 
 .. _single-csv-contest-base:
@@ -372,74 +339,69 @@ candidates.
 contest_base
 ^^^^^^^^^^^^
 
-A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`,
-:ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`,
-and :ref:`single-csv-retention-contest` (NB: the latter because it extends
-:ref:`single-csv-ballot-measure-contest`).
+A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`, :ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`, and :ref:`single-csv-retention-contest`.
 
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+==================================+==============+==============+==========================================+==========================================+
-| abbreviation             | ``xs:string``                    | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                          |                                  |              |              |                                          | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_selection_ids     | ``xs:IDREFS``                    | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                          |                                  |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                          |                                  |              |              | that extends                             | it.                                      |
-|                          |                                  |              |              | :ref:`single-csv-ballot-selection-base`. |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_sub_title         | ``xs:string``                    | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_title             | ``xs:string``                    | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | scope of the contest.                    |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                          |                                  |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                          |                                  |              |              | usual, "all registered voters"           | ignore it.                               |
-|                          |                                  |              |              | electorate. This subtag will most often  |                                          |
-|                          |                                  |              |              | be used for primaries and local          |                                          |
-|                          |                                  |              |              | elections. In primaries, voters may have |                                          |
-|                          |                                  |              |              | to be registered as a specific party to  |                                          |
-|                          |                                  |              |              | vote, or there may be special rules for  |                                          |
-|                          |                                  |              |              | which ballot a voter can pull. In some   |                                          |
-|                          |                                  |              |              | local elections, non-citizens can vote.  |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:string``                    | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                          |                                  |              |              | links to another source of information.  | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_rotation             | ``xs:boolean``                   | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | purpose).                                |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                          |                                  |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                          |                                  |              |              | ordering, and can be overrides by data   | it.                                      |
-|                          |                                  |              |              | in a :ref:`single-csv-ballot-style`      |                                          |
-|                          |                                  |              |              | element.                                 |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`single-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_vote_variation     | ``other_vote_variation``         | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                          |                                  |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                          |                                  |              |              | variation can be specified here.         | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| abbreviation             | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_selection_ids     | ``xs:IDREFS``                            | Optional     | Single       | References BallotSelections belonging to | If the field is invalid or not present,  |
+|                          |                                          |              |              | this contest. Clearable in overlays.     | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_sub_title         | :ref:`single-csv-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_title             | :ref:`single-csv-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``                             | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                          |                                          |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
+|                          |                                          |              |              | representing the geographical scope of   | ``ContestBase`` element containing it.   |
+|                          |                                          |              |              | the contest. Required in main feed;      |                                          |
+|                          |                                          |              |              | optional in overlays.                    |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electorate_specification | :ref:`single-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
+|                          |                                          |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
+|                          |                                          |              |              | party affiliation for primaries).        | ignore it.                               |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier      | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                          |                                          |              |              | contest to other sources. Clearable in   | present, then the implementation should  |
+|                          |                                          |              |              | overlays.                                | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_rotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                          |                                          |              |              | contest rotate on the ballot. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | ``xs:string``                            | **Required** | Single       | Name of the contest. Required in main    | If the field is invalid, then the        |
+|                          |                                          |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                          |                                          |              |              |                                          | ``ContestBase`` element containing it.   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| sequence_order           | ``xs:integer``                           | Optional     | Single       | Default ballot ordering for the contest. | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| vote_variation           | :ref:`single-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
+|                          |                                          |              |              | majority, rcv) from                      | then the implementation should ignore    |
+|                          |                                          |              |              | :ref:`single-csv-vote-variation`.        | it.                                      |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_vote_variation     | ``xs:string``                            | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
+|                          |                                          |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive              | ``xs:string``                            | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
+|                          |                                          |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-candidate-selection:
@@ -447,40 +409,31 @@ and :ref:`single-csv-retention-contest` (NB: the latter because it extends
 candidate_selection
 ~~~~~~~~~~~~~~~~~~~
 
-CandidateSelection extends :ref:`single-csv-ballot-selection-base` and represents a
-ballot selection for a candidate contest.
+CandidateSelection extends :ref:`single-csv-ballot-selection-base` and represents a ballot selection for one or more candidates in a candidate contest.
 
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                   | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=======================+================+==============+==============+==========================================+==========================================+
-| candidate_ids         | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                       |                |              |              | :ref:`single-csv-candidate` elements.    | then the implementation is required to   |
-|                       |                |              |              | The number of candidates that can be     | ignore it.                               |
-|                       |                |              |              | references is unbounded in cases where   |                                          |
-|                       |                |              |              | the ballot selection is for a ticket     |                                          |
-|                       |                |              |              | (e.g. "President/Vice President",        |                                          |
-|                       |                |              |              | "Governor/Lt Governor").                 |                                          |
+| candidate_ids         | ``xs:IDREFS``  | **Required** | Single       | References :ref:`single-csv-candidate`   | If CandidateIds is invalid or not        |
+|                       |                |              |              | elements that comprise this selection    | present, the implementation is required  |
+|                       |                |              |              | (e.g. candidate and running mate).       | to ignore the CandidateSelection         |
+|                       |                |              |              |                                          | containing it.                           |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                       |                |              |              | :ref:`single-csv-party` elements, which  | then the implementation is required to   |
-|                       |                |              |              | signifies one or more endorsing parties  | ignore it.                               |
-|                       |                |              |              | for the candidate(s).                    |                                          |
+| endorsement_party_ids | ``xs:IDREFS``  | Optional     | Single       | References :ref:`single-csv-party`       | If the field is invalid or not present,  |
+|                       |                |              |              | elements endorsing this candidate        | then the implementation is required to   |
+|                       |                |              |              | selection.                               | ignore it.                               |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_write_in           | ``xs:boolean`` | Optional     | Single       | Signifies if the particular ballot       | If the field is invalid or not present,  |
-|                       |                |              |              | selection allows for write-in            | then the implementation is required to   |
-|                       |                |              |              | candidates. If true, one or more         | ignore it.                               |
-|                       |                |              |              | write-in candidates are allowed for this |                                          |
-|                       |                |              |              | contest.                                 |                                          |
+| is_write_in           | ``xs:boolean`` | Optional     | Single       | Signifies whether this selection         | If the field is invalid or not present,  |
+|                       |                |              |              | represents a write-in line.              | then the implementation is required to   |
+|                       |                |              |              |                                          | ignore it.                               |
 +-----------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
     id,sequence_order,candidate_ids,endorsement_party_ids,is_write_in
-    cs001,3,can004,par01,false
-    cs002,2,can001 can002,par03 par02,false
-    cs003,1,can003,par02 par03,true
+    cs001,1,can001,par01,false
+    cs002,2,can002,par02,false
 
 
 .. _single-csv-ballot-selection-base:
@@ -535,73 +488,65 @@ the raw checksum value and the cryptographic hash algorithm used to compute it.
 contact_information
 ~~~~~~~~~~~~~~~~~~~
 
-For defining contact information about objects such as persons, boards of authorities,
-organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-:ref:`single-csv-election-administration`, :ref:`single-csv-office`,
-:ref:`single-csv-person`, :ref:`single-csv-source`). ContactInformation has an optional attribute
-``label``, which allows the feed to refer back to the original label for the information
-(e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
+Defines contact information (addresses, location identifiers, phone numbers, emails, schedules) for persons, election offices, voter services, or polling locations. ContactInformation has an optional attribute ``label``.
 
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag           | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===============+===========================+==============+==============+==========================================+==========================================+
-| address_line  | ``xs:string``             | Optional     | Repeats      | The "location" portion of a mailing      | If the field is invalid or not present,  |
-|               |                           |              |              | address. :ref:`See usage note.           | then the implementation is required to   |
-|               |                           |              |              | <single-csv-name-address-line-usage>`    | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| directions    | ``xs:string``             | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
-|               |                           |              |              | locating this entity.                    | present, then the implementation is      |
-|               |                           |              |              |                                          | required to ignore it.                   |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| email         | ``xs:string``             | Optional     | Repeats      | An email address for the contact.        | If the field is invalid or not present,  |
-|               |                           |              |              |                                          | then the implementation is required to   |
-|               |                           |              |              |                                          | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| fax           | ``xs:string``             | Optional     | Repeats      | A fax line for the contact.              | If the field is invalid or not present,  |
-|               |                           |              |              |                                          | then the implementation is required to   |
-|               |                           |              |              |                                          | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours         | ``xs:string``             | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-|               |                           |              |              | the location is open *(NB: this element  | present, then the implementation is      |
-|               |                           |              |              | is deprecated in favor of the more       | required to ignore it.                   |
-|               |                           |              |              | structured :ref:`single-csv-hours-open`  |                                          |
-|               |                           |              |              | element. It is strongly encouraged that  |                                          |
-|               |                           |              |              | data providers move toward contributing  |                                          |
-|               |                           |              |              | hours in this format)*.                  |                                          |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_id | ``xs:IDREF``              | Optional     | Single       | References an                            | If the field is invalid or not present,  |
-|               |                           |              |              | :ref:`single-csv-hours-open` element,    | then the implementation is required to   |
-|               |                           |              |              | which lists the hours of operation for a | ignore it.                               |
-|               |                           |              |              | location.                                |                                          |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| lat_long      | :ref:`single-csv-lat-lng` | Optional     | Single       | Specifies the latitude and longitude of  | If the element is invalid or not         |
-|               |                           |              |              | this entity.                             | present, then the implementation is      |
-|               |                           |              |              |                                          | required to ignore it.                   |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name          | ``xs:string``             | Optional     | Single       | The name of the location or contact.     | If the field is invalid or not present,  |
-|               |                           |              |              | :ref:`See usage note.                    | then the implementation is required to   |
-|               |                           |              |              | <single-csv-name-address-line-usage>`    | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| phone         | ``xs:string``             | Optional     | Repeats      | A phone number for the contact.          | If the field is invalid or not present,  |
-|               |                           |              |              |                                          | then the implementation is required to   |
-|               |                           |              |              |                                          | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| uri           | ``xs:anyURI``             | Optional     | Repeats      | An informational URI for the contact or  | If the field is invalid or not present,  |
-|               |                           |              |              | location.                                | then the implementation is required to   |
-|               |                           |              |              |                                          | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| parent_id     | ``xs:IDREF``              | Optional     | Repeats      | A reference to a record in source,       | If the field is invalid or not present,  |
-|               |                           |              |              | department, voter_service, candidate,    | then the implementation is required to   |
-|               |                           |              |              | person, or office.                       | ignore it.                               |
-+---------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| Tag                 | Data Type                                | Required?    | Repeats?     | Description                                 | Error Handling                           |
++=====================+==========================================+==============+==============+=============================================+==========================================+
+| mailing_address     | :ref:`single-csv-simple-address-type`    | Optional     | Repeats      | Structured mailing address for the contact. | If the element is invalid or not         |
+|                     |                                          |              |              | Multiple addresses in different languages   | present, then the implementation is      |
+|                     |                                          |              |              | can be specified.                           | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| physical_address    | :ref:`single-csv-simple-address-type`    | Optional     | Repeats      | Structured physical address for the         | If the element is invalid or not         |
+|                     |                                          |              |              | contact. Multiple addresses in different    | present, then the implementation is      |
+|                     |                                          |              |              | languages can be specified.                 | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| location_identifier | :ref:`single-csv-location-identifier`    | Optional     | Repeats      | External location identifier(s) (e.g. Plus  | If the element is invalid or not         |
+|                     |                                          |              |              | Code, coordinates).                         | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| directions          | :ref:`single-csv-internationalized-text` | Optional     | Single       | Directions for finding or reaching the      | If the element is invalid or not         |
+|                     |                                          |              |              | contact location.                           | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| email               | :ref:`single-csv-internationalized-text` | Optional     | Repeats      | Email address(es) for the contact.          | If the element is invalid or not         |
+|                     |                                          |              |              |                                             | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| fax                 | :ref:`single-csv-internationalized-text` | Optional     | Repeats      | Fax number(s) for the contact.              | If the element is invalid or not         |
+|                     |                                          |              |              |                                             | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| hours               | :ref:`single-csv-internationalized-text` | Optional     | Single       | Operating hours as free-form text. *(NB:    | If the element is invalid or not         |
+|                     |                                          |              |              | deprecated in favor of                      | present, then the implementation is      |
+|                     |                                          |              |              | :ref:`single-csv-schedule-with-timezone`)*. | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| schedule            | :ref:`single-csv-schedule-with-timezone` | Optional     | Repeats      | Structured schedule with dates and          | If the element is invalid or not         |
+|                     |                                          |              |              | operating hours.                            | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| lat_lng             | :ref:`single-csv-lat-lng`                | Optional     | Single       | Latitude and longitude coordinates.         | If the element is invalid or not         |
+|                     |                                          |              |              |                                             | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| name                | :ref:`single-csv-internationalized-text` | Optional     | Single       | Person or place name associated with this   | If the element is invalid or not         |
+|                     |                                          |              |              | contact information.                        | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| phone               | :ref:`single-csv-internationalized-text` | Optional     | Repeats      | Telephone number(s) for the contact.        | If the element is invalid or not         |
+|                     |                                          |              |              |                                             | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| uri                 | :ref:`single-csv-internationalized-uri`  | Optional     | Repeats      | Web address(es) for the contact.            | If the element is invalid or not         |
+|                     |                                          |              |              |                                             | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,address_line_1,address_line_2,address_line_3,directions,email,fax,hours,hours_open_id,latitude,longitude,latlng_source,name,phone,uri,parent_id
-    ci0827,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,off001
-    ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
+    label,directions,email,fax,hours,name,phone,uri
+    ci001,Use entrance on Main St,info@example.gov,,08:00-17:00,Elections Office,555-0100,https://example.gov
 
 
 .. _single-csv-contest-base:
@@ -609,108 +554,69 @@ organizations, etc. ContactInformation is always a sub-element of another object
 contest_base
 ~~~~~~~~~~~~
 
-A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`,
-:ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`,
-and :ref:`single-csv-retention-contest` (NB: the latter because it extends
-:ref:`single-csv-ballot-measure-contest`).
+A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`, :ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`, and :ref:`single-csv-retention-contest`.
 
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+==================================+==============+==============+==========================================+==========================================+
-| abbreviation             | ``xs:string``                    | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                          |                                  |              |              |                                          | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_selection_ids     | ``xs:IDREFS``                    | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                          |                                  |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                          |                                  |              |              | that extends                             | it.                                      |
-|                          |                                  |              |              | :ref:`single-csv-ballot-selection-base`. |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_sub_title         | ``xs:string``                    | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_title             | ``xs:string``                    | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | scope of the contest.                    |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                          |                                  |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                          |                                  |              |              | usual, "all registered voters"           | ignore it.                               |
-|                          |                                  |              |              | electorate. This subtag will most often  |                                          |
-|                          |                                  |              |              | be used for primaries and local          |                                          |
-|                          |                                  |              |              | elections. In primaries, voters may have |                                          |
-|                          |                                  |              |              | to be registered as a specific party to  |                                          |
-|                          |                                  |              |              | vote, or there may be special rules for  |                                          |
-|                          |                                  |              |              | which ballot a voter can pull. In some   |                                          |
-|                          |                                  |              |              | local elections, non-citizens can vote.  |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:string``                    | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                          |                                  |              |              | links to another source of information.  | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_rotation             | ``xs:boolean``                   | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | purpose).                                |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                          |                                  |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                          |                                  |              |              | ordering, and can be overrides by data   | it.                                      |
-|                          |                                  |              |              | in a :ref:`single-csv-ballot-style`      |                                          |
-|                          |                                  |              |              | element.                                 |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`single-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_vote_variation     | ``other_vote_variation``         | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                          |                                  |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                          |                                  |              |              | variation can be specified here.         | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
 
-
-.. _single-csv-department:
-
-department
-~~~~~~~~~~
-
-+-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                         | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=============================+=======================================+==============+==============+==========================================+==========================================+
-| election_official_person_id | ``xs:IDREF``                          | Optional     | Single       | The individual to contact at the         | If the field is invalid or not present,  |
-|                             |                                       |              |              | election administration office. The      | then the implementation is required to   |
-|                             |                                       |              |              | specified person should be the           | ignore it.                               |
-|                             |                                       |              |              | :ref:`election official                  |                                          |
-|                             |                                       |              |              | <single-csv-person>`.                    |                                          |
-+-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| voter_service               | :ref:`single-csv-voter-service`       | Optional     | Repeats      | The types of services and appropriate    | If the element is invalid or not         |
-|                             |                                       |              |              | contact individual available to voters.  | present, then the implementation is      |
-|                             |                                       |              |              |                                          | required to ignore it.                   |
-+-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| election_administration_id  | ``xs:IDREF``                          | Optional     | Single       | The election administration that the     | If the field is invalid or not present,  |
-|                             |                                       |              |              | department is a part of.                 | then the implementation is required to   |
-|                             |                                       |              |              |                                          | ignore it.                               |
-+-----------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: csv-table
-   :linenos:
-
-
-    id,election_official_person_id,election_administration_id
-    dep01,per50002,ea123
-    dep02,per50002,ea345
-    dep03,per50002,ea625
-    dep04,per50002,ea625
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| abbreviation             | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_selection_ids     | ``xs:IDREFS``                            | Optional     | Single       | References BallotSelections belonging to | If the field is invalid or not present,  |
+|                          |                                          |              |              | this contest. Clearable in overlays.     | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_sub_title         | :ref:`single-csv-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_title             | :ref:`single-csv-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``                             | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                          |                                          |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
+|                          |                                          |              |              | representing the geographical scope of   | ``ContestBase`` element containing it.   |
+|                          |                                          |              |              | the contest. Required in main feed;      |                                          |
+|                          |                                          |              |              | optional in overlays.                    |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electorate_specification | :ref:`single-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
+|                          |                                          |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
+|                          |                                          |              |              | party affiliation for primaries).        | ignore it.                               |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier      | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                          |                                          |              |              | contest to other sources. Clearable in   | present, then the implementation should  |
+|                          |                                          |              |              | overlays.                                | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_rotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                          |                                          |              |              | contest rotate on the ballot. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | ``xs:string``                            | **Required** | Single       | Name of the contest. Required in main    | If the field is invalid, then the        |
+|                          |                                          |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                          |                                          |              |              |                                          | ``ContestBase`` element containing it.   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| sequence_order           | ``xs:integer``                           | Optional     | Single       | Default ballot ordering for the contest. | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| vote_variation           | :ref:`single-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
+|                          |                                          |              |              | majority, rcv) from                      | then the implementation should ignore    |
+|                          |                                          |              |              | :ref:`single-csv-vote-variation`.        | it.                                      |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_vote_variation     | ``xs:string``                            | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
+|                          |                                          |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive              | ``xs:string``                            | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
+|                          |                                          |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-election:
@@ -718,87 +624,69 @@ department
 election
 ~~~~~~~~
 
-The Election object represents an Election Day, which usually consists of many individual contests
-and/or referenda. A feed must contain **exactly one** Election object. All relationships in the
-feed (e.g., street segment to precinct to polling location) are assumed to relate only to
-the Election specified by this object. It is permissible, and recommended, to combine unrelated
-contests (e.g., a special election and a general election) that occur on the same day into one feed
-with one Election object.
+The Election object represents an election event. A feed must contain **exactly one** Election object in the main feed. In feed overlays, Election can appear to update election metadata.
 
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===============================+================+==============+==============+==========================================+==========================================+
-| date                          | ``xs:date``    | **Required** | Single       | Specifies when the election is being     | If the field is invalid, then the        |
-|                               |                |              |              | held. The `Date` is considered to be in  | implementation is required to ignore the |
-|                               |                |              |              | the timezone local to the state holding  | ``Election`` element containing it.      |
-|                               |                |              |              | the election.                            |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| election_type                 | ``xs:string``  | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
-|                               |                |              |              | authority for election (e.g., federal,   | present, then the implementation is      |
-|                               |                |              |              | state, county, city, town, etc.)         | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| state_id                      | ``xs:IDREF``   | **Required** | Single       | Specifies a link to the `State` element  | If the field is invalid, then the        |
-|                               |                |              |              | where the election is being held.        | implementation is required to ignore the |
-|                               |                |              |              |                                          | ``Election`` element containing it.      |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_statewide                  | ``xs:boolean`` | Optional     | Single       | Indicates whether the election is        | If the field is not present or invalid,  |
-|                               |                |              |              | statewide.                               | the implementation is required to        |
-|                               |                |              |              |                                          | default to "yes".                        |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                          | ``xs:string``  | Optional     | Single       | The name for the election (**NB:** while | If the element is invalid or not         |
-|                               |                |              |              | optional, this element is highly         | present, then the implementation is      |
-|                               |                |              |              | recommended).                            | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| registration_info             | ``xs:string``  | Optional     | Single       | Specifies information about registration | If the element is invalid or not         |
-|                               |                |              |              | for this election either as text or a    | present, then the implementation is      |
-|                               |                |              |              | URI.                                     | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| absentee_ballot_info          | ``xs:string``  | Optional     | Single       | Specifies information about requesting   | If the element is invalid or not         |
-|                               |                |              |              | absentee ballots either as text or a URI | present, then the implementation is      |
-|                               |                |              |              |                                          | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| results_uri                   | ``xs:anyURI``  | Optional     | Single       | Contains a URI where results for the     | If the field is invalid or not present,  |
-|                               |                |              |              | election may be found                    | then the implementation is required to   |
-|                               |                |              |              |                                          | ignore it.                               |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| polling_hours                 | ``xs:string``  | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-|                               |                |              |              | Election Day polling locations are open. | present, then the implementation is      |
-|                               |                |              |              | If polling hours differ in specific      | required to ignore it.                   |
-|                               |                |              |              | polling locations, alternative hours may |                                          |
-|                               |                |              |              | be specified in the                      |                                          |
-|                               |                |              |              | :ref:`single-csv-polling-location`       |                                          |
-|                               |                |              |              | object *(NB: this element is deprecated  |                                          |
-|                               |                |              |              | in favor of the more structured          |                                          |
-|                               |                |              |              | :ref:`single-csv-hours-open` element. It |                                          |
-|                               |                |              |              | is strongly encouraged that data         |                                          |
-|                               |                |              |              | providers move toward contributing hours |                                          |
-|                               |                |              |              | in this format)*.                        |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_ids                | ``xs:IDREF``   | Optional     | Single       | References the                           | If the field is invalid or not present,  |
-|                               |                |              |              | :ref:`single-csv-hours-open` element,    | then the implementation is required to   |
-|                               |                |              |              | which lists the hours of operation for   | ignore it.                               |
-|                               |                |              |              | polling locations.                       |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_election_day_registration | ``xs:boolean`` | Optional     | Single       | Specifies if a voter can register on the | If the field is invalid or not present,  |
-|                               |                |              |              | same day of the election (i.e., the last | then the implementation is required to   |
-|                               |                |              |              | day of the election). Valid items are    | ignore it.                               |
-|                               |                |              |              | "yes" and "no".                          |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| registration_deadline         | ``xs:date``    | Optional     | Single       | Specifies the last day to register for   | If the field is invalid or not present,  |
-|                               |                |              |              | the election with the possible exception | then the implementation is required to   |
-|                               |                |              |              | of Election Day registration.            | ignore it.                               |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| absentee_request_deadline     | ``xs:date``    | Optional     | Single       | Specifies the last day to request an     | If the field is invalid or not present,  |
-|                               |                |              |              | absentee ballot.                         | then the implementation is required to   |
-|                               |                |              |              |                                          | ignore it.                               |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearSchedule/>``, ``<ClearAbsenteeBallotInfo/>``). Fields that are required in the main feed (Date and TopLevelLocalityId) are optional in overlays.
+
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                           | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============================+==========================================+==============+==============+==========================================+==========================================+
+| absentee_ballot_info          | :ref:`single-csv-internationalized-text` | Optional     | Single       | Information about requesting absentee    | If the element is invalid or not         |
+|                               |                                          |              |              | ballots.                                 | present, then the implementation is      |
+|                               |                                          |              |              |                                          | required to ignore it.                   |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| absentee_request_deadline     | ``xs:date``                              | Optional     | Single       | Last day to request an absentee ballot.  | If the field is invalid or not present,  |
+|                               |                                          |              |              |                                          | then the implementation is required to   |
+|                               |                                          |              |              |                                          | ignore it.                               |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| date                          | ``xs:date``                              | **Required** | Single       | Date of the election in local time.      | If the field is invalid, then the        |
+|                               |                                          |              |              | Required in main feed; optional in       | implementation is required to ignore the |
+|                               |                                          |              |              | overlays.                                | ``Election`` element containing it.      |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| election_type                 | :ref:`single-csv-internationalized-text` | Optional     | Single       | Type of election (e.g. General, Primary, | If the element is invalid or not         |
+|                               |                                          |              |              | Special).                                | present, then the implementation is      |
+|                               |                                          |              |              |                                          | required to ignore it.                   |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_election_day_registration | ``xs:boolean``                           | Optional     | Single       | Specifies whether voters can register on | If the field is invalid or not present,  |
+|                               |                                          |              |              | election day.                            | then the implementation is required to   |
+|                               |                                          |              |              |                                          | ignore it.                               |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| schedule                      | :ref:`single-csv-schedule-with-timezone` | Optional     | Repeats      | Schedule of voting dates and hours for   | If the element is invalid or not         |
+|                               |                                          |              |              | the election.                            | present, then the implementation is      |
+|                               |                                          |              |              |                                          | required to ignore it.                   |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_statewide                  | ``xs:boolean``                           | Optional     | Single       | Indicates whether the election is        | If the field is invalid or not present,  |
+|                               |                                          |              |              | statewide.                               | then the implementation is required to   |
+|                               |                                          |              |              |                                          | ignore it.                               |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                          | :ref:`single-csv-internationalized-text` | Optional     | Single       | The name of the election.                | If the element is invalid or not         |
+|                               |                                          |              |              |                                          | present, then the implementation is      |
+|                               |                                          |              |              |                                          | required to ignore it.                   |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| registration_deadline         | ``xs:date``                              | Optional     | Single       | Last day to register to vote for the     | If the field is invalid or not present,  |
+|                               |                                          |              |              | election.                                | then the implementation is required to   |
+|                               |                                          |              |              |                                          | ignore it.                               |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| registration_info             | :ref:`single-csv-internationalized-text` | Optional     | Single       | Information about voter registration.    | If the element is invalid or not         |
+|                               |                                          |              |              |                                          | present, then the implementation is      |
+|                               |                                          |              |              |                                          | required to ignore it.                   |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| results_uri                   | :ref:`single-csv-internationalized-uri`  | Optional     | Single       | Web address where election results may   | If the element is invalid or not         |
+|                               |                                          |              |              | be found.                                | present, then the implementation is      |
+|                               |                                          |              |              |                                          | required to ignore it.                   |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| top_level_locality_id         | ``xs:IDREF``                             | **Required** | Single       | Links to the top-level                   | If the field is invalid or not present,  |
+|                               |                                          |              |              | :ref:`single-csv-locality` for the       | the implementation is required to ignore |
+|                               |                                          |              |              | election (e.g. the state locality).      | the Election containing it.              |
+|                               |                                          |              |              | Required in main feed; optional in       |                                          |
+|                               |                                          |              |              | overlays.                                |                                          |
++-------------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,date,name,election_type,state_id,is_statewide,registration_info,absentee_ballot_info,results_uri,polling_hours,has_election_day_registration,registration_deadline,absentee_request_deadline,hours_open_id
-    e001,10-08-2016,Best Hot Dog,State,st51,true,www.registrationinfo.com,You can vote absentee,http://hotdogcontest.gov/results,Noon to 3p.m.,true,10/08/2016,,ho002
+    id,date,name,election_type,top_level_locality_id,is_statewide,registration_info,absentee_ballot_info,results_uri,has_election_day_registration,registration_deadline,absentee_request_deadline
+    ele001,2024-11-05,2024 General Election,General,loc51,true,https://vote.va.gov/register,https://vote.va.gov/absentee,https://vote.va.gov/results,false,2024-10-15,2024-10-25
 
 
 .. _single-csv-election-administration:
@@ -806,80 +694,63 @@ with one Election object.
 election_administration
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The Election Administration represents an institution for serving a locality's (or state's) election
-functions.
+The ElectionAdministration element represents an administrative body serving a locality's election functions. In VIP 7.0, ElectionAdministration is embedded directly by value inside a :ref:`single-csv-locality` element rather than referenced by an ID.
 
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| Tag                             | Data Type                         | Required?    | Repeats?     | Description                                                 | Error Handling                           |
-+=================================+===================================+==============+==============+=============================================================+==========================================+
-| absentee_uri                    | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for information on absentee       | If the field is invalid or not present,  |
-|                                 |                                   |              |              | voting.                                                     | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| am_i_registered_uri             | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for information on whether an     | If the field is invalid or not present,  |
-|                                 |                                   |              |              | individual is registered.                                   | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| ballot_tracking_uri             | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
-|                                 |                                   |              |              | ballot cast by mail                                         | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| ballot_tracking_provisional_uri | ``xs:anyURI``                     | Optional     | Single       | Specifies the web address for tracking information for a    | If the field is invalid or not present,  |
-|                                 |                                   |              |              | provisional ballot. To support EAC guidelines for           | then the implementation is required to   |
-|                                 |                                   |              |              | "Processing Provisional Ballots"                            | ignore it.                               |
-|                                 |                                   |              |              | (https://www.eac.gov/research-and-data/provisional-voting/) |                                          |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| election_notice                 | :ref:`single-csv-election-notice` | Optional     | Single       | A place for election administrators to post last minute and | If the element is invalid or not         |
-|                                 |                                   |              |              | emergency notifications pertaining to the election.         | present, then the implementation is      |
-|                                 |                                   |              |              |                                                             | required to ignore it.                   |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| elections_uri                   | ``xs:anyURI``                     | Optional     | Single       | Specifies web address the administration's website.         | If the field is invalid or not present,  |
-|                                 |                                   |              |              |                                                             | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| registration_uri                | ``xs:anyURI``                     | Optional     | Single       | Specifies web address for information on registering to     | If the field is invalid or not present,  |
-|                                 |                                   |              |              | vote.                                                       | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| rules_uri                       | ``xs:anyURI``                     | Optional     | Single       | Specifies a URI for the election rules and laws (if any)    | If the field is invalid or not present,  |
-|                                 |                                   |              |              | for the jurisdiction of the administration.                 | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| what_is_on_my_ballot_uri        | ``xs:anyURI``                     | Optional     | Single       | Specifies web address for information on what is on an      | If the field is invalid or not present,  |
-|                                 |                                   |              |              | individual's ballot.                                        | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
-| where_do_i_vote_uri             | ``xs:anyURI``                     | Optional     | Single       | The Specifies web address for information on where an       | If the field is invalid or not present,  |
-|                                 |                                   |              |              | individual votes based on their address.                    | then the implementation is required to   |
-|                                 |                                   |              |              |                                                             | ignore it.                               |
-+---------------------------------+-----------------------------------+--------------+--------------+-------------------------------------------------------------+------------------------------------------+
+In overlay feeds, the entire ElectionAdministration element is replaced as a single unit on the locality, or cleared using ``<ClearElectionAdministration/>``.
+
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                             | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
++=================================+=========================================+==============+==============+==========================================+==========================================+
+| absentee_uri                    | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for absentee voting          | If the element is invalid or not         |
+|                                 |                                         |              |              | information.                             | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| am_i_registered_uri             | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for voter registration       | If the element is invalid or not         |
+|                                 |                                         |              |              | status verification.                     | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_tracking_uri             | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for tracking mail-in         | If the element is invalid or not         |
+|                                 |                                         |              |              | ballots.                                 | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_tracking_provisional_uri | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for provisional ballot       | If the element is invalid or not         |
+|                                 |                                         |              |              | tracking.                                | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| contact_information             | :ref:`single-csv-contact-information`   | Optional     | Single       | Primary contact information for the      | If the element is invalid or not         |
+|                                 |                                         |              |              | election administration.                 | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| elections_uri                   | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Primary web address for the election     | If the element is invalid or not         |
+|                                 |                                         |              |              | administration.                          | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| registration_uri                | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for voter registration.      | If the element is invalid or not         |
+|                                 |                                         |              |              |                                          | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| rules_uri                       | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for election rules,          | If the element is invalid or not         |
+|                                 |                                         |              |              | regulations, and statutes.               | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| voter_service                   | :ref:`single-csv-voter-service`         | Optional     | Repeats      | Specific voter services provided by the  | If the element is invalid or not         |
+|                                 |                                         |              |              | administration (e.g. voter registration, | present, then the implementation is      |
+|                                 |                                         |              |              | overseas voting).                        | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| what_is_on_my_ballot_uri        | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address where voters can see sample  | If the element is invalid or not         |
+|                                 |                                         |              |              | ballots.                                 | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| where_do_i_vote_uri             | :ref:`single-csv-internationalized-uri` | Optional     | Single       | Web address for official polling place   | If the element is invalid or not         |
+|                                 |                                         |              |              | lookup.                                  | present, then the implementation is      |
+|                                 |                                         |              |              |                                          | required to ignore it.                   |
++---------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-    id,absentee_uri,am_i_registered_uri,ballot_tracking_uri,ballot_tracking_provisional_uri,election_notice_text,election_notice_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
-    ea123,https://example.com/absentee,https://example.com/am-i-registered,https://www.vote.virginia.gov/,https://www.vote.virginia.gov/,This is an emergency notification for this election.,https://www.yadayada.gov,https://example.com/elections,https://example.com/registration,https://example.com/rules,https://example.com/what-is-on-my-ballot,https://example.com/where-do-i-vote
-    ea345,https://example.com/absentee2,https://example.com/am-i-registered2,https://example.com/elections2,https://example.com/registration2,,,https://example.com/rules2,https://example.com/what-is-on-my-ballot2,https://example.com/where-do-i-vote2
-    ea625,https://example.com/absentee3,https://example.com/am-i-registered3,https://example.com/elections3,https://example.com/registration3,This is an emergency notification for this election.,,https://example.com/rules3,https://example.com/what-is-on-my-ballot3,https://example.com/where-do-i-vote3
-
-
-.. _single-csv-election-notice:
-
-election_notice
-~~~~~~~~~~~~~~~
-
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+===============+==============+==============+==========================================+==========================================+
-| election_notice_text | ``xs:string`` | **Required** | Single       | The last minute or emergency             | If the element is invalid, then the      |
-|                      |               |              |              | notification text should be placed here. | implementation is required to ignore the |
-|                      |               |              |              |                                          | ``ElectionNotice`` element containing    |
-|                      |               |              |              |                                          | it.                                      |
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| election_notice_uri  | ``xs:string`` | Optional     | Single       | Optional URL for additional information  | If the field is invalid or not present,  |
-|                      |               |              |              | related to the last minute or emergency  | then the implementation is required to   |
-|                      |               |              |              | notification.                            | ignore it.                               |
-+----------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+    absentee_uri,am_i_registered_uri,ballot_tracking_uri,ballot_tracking_provisional_uri,elections_uri,registration_uri,rules_uri,what_is_on_my_ballot_uri,where_do_i_vote_uri
+    https://example.com/absentee,https://example.com/registered,https://vote.virginia.gov/track,https://vote.virginia.gov/provisional,https://example.com/elections,https://example.com/register,https://example.com/rules,https://example.com/ballot,https://example.com/poll
 
 
 .. _single-csv-electoral-district:
@@ -887,48 +758,41 @@ election_notice
 electoral_district
 ~~~~~~~~~~~~~~~~~~
 
-The ``ElectoralDistrict`` object represents the geographic area in which contests are held. Examples
-of ``ElectoralDistrict`` include: "the state of Maryland", "Virginia's 5th Congressional District",
-or "Union School District". The geographic area that comprises a ``ElectoralDistrict`` is defined by
-which precincts link to the ``ElectoralDistrict``.
+An ElectoralDistrict represents a geographic boundary or jurisdiction for representation, contests, and offices.
 
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+========================================+==============+==============+==========================================+==========================================+
-| external_identifiers | :ref:`single-csv-external-identifiers` | Optional     | Single       | Other identifiers that link to external  | If the element is invalid or not         |
-|                      |                                        |              |              | datasets (e.g. `OCD-IDs`_)               | present, then the implementation is      |
-|                      |                                        |              |              |                                          | required to ignore it.                   |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                 | ``xs:string``                          | **Required** | Single       | Specifies the electoral area's name.     | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore the ``ElectoralDistrict`` object  |
-|                      |                                        |              |              |                                          | containing it.                           |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| number               | ``xs:integer``                         | Optional     | Single       | Specifies the district number of the     | If the field is invalid or not present,  |
-|                      |                                        |              |              | district (e.g. 34, in the case of the    | then the implementation is required to   |
-|                      |                                        |              |              | 34th State Senate District). If a number | ignore it.                               |
-|                      |                                        |              |              | is not applicable, instead of leaving    |                                          |
-|                      |                                        |              |              | the field blank, leave this field out of |                                          |
-|                      |                                        |              |              | the object; empty strings are not valid  |                                          |
-|                      |                                        |              |              | for xs:integer fields.                   |                                          |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| type                 | :ref:`single-csv-district-type`        | **Required** | Single       | Specifies the type of electoral area.    | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore the ``ElectoralDistrict`` object  |
-|                      |                                        |              |              |                                          | containing it.                           |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type           | ``xs:string``                          | Optional     | Single       | Allows for cataloging a new              | If the field is invalid or not present,  |
-|                      |                                        |              |              | :ref:`single-csv-district-type` option   | then the implementation is required to   |
-|                      |                                        |              |              | when ``Type`` is specified as "other".   | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearNumber/>``, ``<ClearExternalIdentifier/>``). Name and Type are optional in overlays.
+
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=====================+==========================================+==============+==============+==========================================+==========================================+
+| external_identifier | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                     |                                          |              |              | district to other datasets (e.g.         | present, then the implementation is      |
+|                     |                                          |              |              | OCD-ID). Clearable in overlays.          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                | :ref:`single-csv-internationalized-text` | **Required** | Single       | Name of the district. Required in main   | If the element is invalid, then the      |
+|                     |                                          |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                     |                                          |              |              |                                          | ``ElectoralDistrict`` element containing |
+|                     |                                          |              |              |                                          | it.                                      |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| number              | ``xs:integer``                           | Optional     | Single       | Number of the district (e.g. "57").      | If the field is invalid or not present,  |
+|                     |                                          |              |              | Clearable in overlays.                   | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| type                | :ref:`single-csv-district-type`          | **Required** | Single       | Type of district from                    | If the field is invalid, then the        |
+|                     |                                          |              |              | :ref:`single-csv-district-type`.         | implementation is required to ignore the |
+|                     |                                          |              |              | Required in main feed; optional in       | ``ElectoralDistrict`` element containing |
+|                     |                                          |              |              | overlays.                                | it.                                      |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_type          | ``xs:string``                            | Optional     | Single       | Custom district type if Type is "other". | If the field is invalid or not present,  |
+|                     |                                          |              |              | Clearable in overlays.                   | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,number,type,other_type
-    ed001,ocd-id,,ocd-division/country:us/state:ny/borough:brooklyn,Brooklyn,1,borough,
-    ed002,other,community-board,4,CB 4,2,other,community-board
+    id,name,number,type,other_type
+    ed60129,57th House of Delegates District,57,state-house,
 
 
 .. _single-csv-external-file:
@@ -936,18 +800,17 @@ which precincts link to the ``ElectoralDistrict``.
 external_file
 ~~~~~~~~~~~~~
 
-The ``ExternalFile`` object holds a reference to a file external to the feed itself. 
-External files are packaged along with the VIP feed into a single, archived file. 
+The ``ExternalFile`` object holds a reference to a file external to the feed itself, such as a shapefile archive. External files are packaged along with the VIP feed into a single archive.
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
-|              |               |              |              |                                          | implementation is required to ignore the |
+| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI or filename of the external      | If the field is invalid, then the        |
+|              |               |              |              | file.                                    | implementation is required to ignore the |
 |              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | checksum_id  | ``xs:IDREF``  | **Required** | Single       | The cryptographic checksum of the        | If the element is invalid, then the      |
-|              |               |              |              | referenced external file.                | implementation is required to ignore the |
+|              |               |              |              | external file.                           | implementation is required to ignore the |
 |              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
@@ -1002,67 +865,29 @@ The ``ExternalGeospatialFeature`` object contains a reference to a geospatial fe
 external_identifier
 ~~~~~~~~~~~~~~~~~~~
 
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type           | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+=====================+==============+==============+==========================================+==========================================+
-| type         | ``identifier_type`` | **Required** | Single       | Specifies the type of identifier. Must   | If the field is invalid or not present,  |
-|              |                     |              |              | be one of the valid types as defined by  | the implementation is required to ignore |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_type   | ``xs:string``       | Optional     | Single       | Allows for cataloging an                 | If the field is invalid or not present,  |
-|              |                     |              |              | ``ExternalIdentifier`` type that falls   | then the implementation is required to   |
-|              |                     |              |              | outside the options listed in            | ignore it.                               |
-|              |                     |              |              | :ref:`single-csv-identifier-type`.       |                                          |
-|              |                     |              |              | ``Type`` should be set to "other" when   |                                          |
-|              |                     |              |              | using this field.                        |                                          |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| value        | ``xs:string``       | **Required** | Single       | Specifies the identifier.                | If the field is invalid or not present,  |
-|              |                     |              |              |                                          | the implementation is required to ignore |
-|              |                     |              |              |                                          | the ``ElectionIdentifier`` containing    |
-|              |                     |              |              |                                          | it.                                      |
-+--------------+---------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+Specifies an external identifier for an entity, linking it to another dataset or system. ExternalIdentifier has optional attributes ``label`` and ``provider``.
 
+In overlay feeds, this element is clearable using ``<ClearExternalIdentifier/>`` on elements where it is marked clearable.
 
-.. _single-csv-external-identifiers:
-
-external_identifiers
-~~~~~~~~~~~~~~~~~~~~
-
-The ``ExternalIdentifiers`` element allows VIP data to connect with external datasets (e.g.
-candidates with campaign finance datasets, electoral geographies with `OCD-IDs`_ that allow for
-greater connectivity with additional datasets, etc...). Examples for ``ExternalIdentifiers`` can be
-found on the objects that support them:
-
-* :ref:`single-csv-candidate`
-
-* Any element that extends :ref:`single-csv-contest-base`
-
-* :ref:`single-csv-electoral-district`
-
-* :ref:`single-csv-locality`
-
-* :ref:`single-csv-office`
-
-* :ref:`single-csv-party`
-
-* :ref:`single-csv-precinct`
-
-* :ref:`single-csv-state`
-
-.. _OCD-IDs: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                 | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=====================+=======================================+==============+==============+==========================================+==========================================+
-| external_identifier | :ref:`single-csv-external-identifier` | **Required** | Repeats      | Defines the identifier and the type of   | At least one valid `ExternalIdentifier`_ |
-|                     |                                       |              |              | identifier it is (see                    | must be present for                      |
-|                     |                                       |              |              | `ExternalIdentifier`_ for complete       | ``ExternalIdentifiers`` to be valid. If  |
-|                     |                                       |              |              | information).                            | no valid `ExternalIdentifier`_ is        |
-|                     |                                       |              |              |                                          | present, the implementation is required  |
-|                     |                                       |              |              |                                          | to ignore the ``ExternalIdentifiers``    |
-|                     |                                       |              |              |                                          | element.                                 |
-+---------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type                         | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===================================+==============+==============+==========================================+==========================================+
+| type         | :ref:`single-csv-identifier-type` | **Required** | Single       | Specifies the type of identifier from    | If the field is invalid or not present,  |
+|              |                                   |              |              | :ref:`single-csv-identifier-type`.       | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ExternalIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_type   | ``xs:string``                     | Optional     | Single       | Allows defining an identifier type       | If the field is invalid or not present,  |
+|              |                                   |              |              | outside                                  | then the implementation is required to   |
+|              |                                   |              |              | :ref:`single-csv-identifier-type`. Type  | ignore it.                               |
+|              |                                   |              |              | should be set to "other" when using this |                                          |
+|              |                                   |              |              | field.                                   |                                          |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| value        | ``xs:string``                     | **Required** | Single       | Specifies the identifier value.          | If the field is invalid or not present,  |
+|              |                                   |              |              |                                          | the implementation is required to ignore |
+|              |                                   |              |              |                                          | the ``ExternalIdentifier`` containing    |
+|              |                                   |              |              |                                          | it.                                      |
++--------------+-----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-feature-identifier:
@@ -1070,13 +895,14 @@ found on the objects that support them:
 feature_identifier
 ~~~~~~~~~~~~~~~~~~
 
-+--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag          | Data Type    | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==============+==============+==============+==============+==========================================+==========================================+
-| index        | ``xs:int``   | Optional     | Single       | The index value for the shapefile        | If the field is invalid or not present,  |
-|              |              |              |              | feature.                                 | then the implementation is required to   |
-|              |              |              |              |                                          | ignore it.                               |
-+--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++==============+===============+==============+==============+==========================================+==========================================+
+| index        | ``xs:string`` | **Required** | Single       | The index value for the shapefile        | If the Index field is invalid or not     |
+|              |               |              |              | feature.                                 | present, the implementation is required  |
+|              |               |              |              |                                          | to ignore the FeatureIdentifier          |
+|              |               |              |              |                                          | containing it.                           |
++--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-html-color-string:
@@ -1119,61 +945,100 @@ latitude and longitude values are measured in decimal degrees.
 locality
 ~~~~~~~~
 
-The Locality object represents the jurisdiction below the :ref:`single-csv-state` (e.g. county).
+The Locality object represents any jurisdictional level—including states, counties, cities, and towns. Localities form a tree hierarchy using ``ParentLocalityId``, with the root locality representing the state (with ``Type="state"``).
 
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| Tag                        | Data Type                              | Required?    | Repeats?     | Description                               | Error Handling                           |
-+============================+========================================+==============+==============+===========================================+==========================================+
-| election_administration_id | ``xs:IDREF``                           | Optional     | Single       | Links to the locality's                   | If the field is invalid or not present,  |
-|                            |                                        |              |              | :ref:`single-csv-election-administration` | then the implementation is required to   |
-|                            |                                        |              |              | object.                                   | ignore it.                               |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| external_identifiers       | :ref:`single-csv-external-identifiers` | Optional     | Single       | Another identifier for a locality that    | If the element is invalid or not         |
-|                            |                                        |              |              | links to another dataset (e.g. `OCD-ID`_) | present, then the implementation is      |
-|                            |                                        |              |              |                                           | required to ignore it.                   |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| is_mail_only               | ``xs:boolean``                         | Optional     | Single       | Determines if the locality runs mail-only | If the field is missing or invalid, the  |
-|                            |                                        |              |              | elections. If this is true, then all      | implementation is required to assume     |
-|                            |                                        |              |              | precincts a part of the locality will     | `IsMailOnly` is false.                   |
-|                            |                                        |              |              | also run mail-only elections. Drop boxes  |                                          |
-|                            |                                        |              |              | may be used in addition to this flag      |                                          |
-|                            |                                        |              |              | using a :ref:`polling location            |                                          |
-|                            |                                        |              |              | <single-csv-polling-location>` record     |                                          |
-|                            |                                        |              |              | configured as a Drop Box.                 |                                          |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| name                       | ``xs:string``                          | **Required** | Single       | Specifies the name of a locality.         | If the field is invalid, then the        |
-|                            |                                        |              |              |                                           | implementation is required to ignore the |
-|                            |                                        |              |              |                                           | ``Locality`` element containing it.      |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| polling_location_ids       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to a set of the          | If the field is invalid or not present,  |
-|                            |                                        |              |              | locality's :ref:`polling locations        | the implementation is required to ignore |
-|                            |                                        |              |              | <single-csv-polling-location>`s. If early | it. However, the implementation should   |
-|                            |                                        |              |              | vote centers or ballot drop locations are | still check to see if there are any      |
-|                            |                                        |              |              | locality-wide, they should be specified   | polling locations associated with this   |
-|                            |                                        |              |              | here.                                     | locality's state.                        |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| state_id                   | ``xs:IDREF``                           | **Required** | Single       | References the locality's                 | If the field is invalid, then the        |
-|                            |                                        |              |              | :ref:`single-csv-state`.                  | implementation is required to ignore the |
-|                            |                                        |              |              |                                           | ``Locality`` element containing it.      |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| type                       | :ref:`single-csv-district-type`        | Optional     | Single       | Defines the kind of locality (e.g.        | If the field is invalid or not present,  |
-|                            |                                        |              |              | county, town, et al.), which is one of    | then the implementation is required to   |
-|                            |                                        |              |              | the various :ref:`DistrictType            | ignore it.                               |
-|                            |                                        |              |              | enumerations <single-csv-district-type>`. |                                          |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
-| other_type                 | ``xs:string``                          | Optional     | Single       | Allows for defining a type of locality    | If the field is invalid or not present,  |
-|                            |                                        |              |              | that falls outside the options listed in  | then the implementation is required to   |
-|                            |                                        |              |              | :ref:`DistrictType                        | ignore it.                               |
-|                            |                                        |              |              | <single-csv-district-type>`.              |                                          |
-+----------------------------+----------------------------------------+--------------+--------------+-------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearDefaultPollingHours/>``, ``<ClearElectionAdministration/>``, ``<ClearIsInactive/>``). Name is optional in overlays. Emergency notices and overridden hours are only permitted in overlays.
+
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                         | Data Type                                 | Required?    | Repeats?     | Description                              | Error Handling                           |
++=============================+===========================================+==============+==============+==========================================+==========================================+
+| election_administration     | :ref:`single-csv-election-administration` | Optional     | Single       | The election administration entity for   | If the element is invalid or not         |
+|                             |                                           |              |              | this locality. In overlays, this entity  | present, then the implementation is      |
+|                             |                                           |              |              | is replaced as a single unit or cleared  | required to ignore it.                   |
+|                             |                                           |              |              | with <ClearElectionAdministration/>.     |                                          |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier         | :ref:`single-csv-external-identifier`     | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                             |                                           |              |              | locality to external datasets (e.g.      | present, then the implementation is      |
+|                             |                                           |              |              | OCD-ID, FIPS). Clearable in overlays.    | required to ignore it.                   |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_mail_only                | ``xs:boolean``                            | Optional     | Single       | Specifies if the locality runs mail-only | If the field is missing or invalid, the  |
+|                             |                                           |              |              | elections. Clearable in overlays.        | implementation is required to assume     |
+|                             |                                           |              |              |                                          | IsMailOnly is false.                     |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                        | ``xs:string``                             | **Required** | Single       | Name of the locality. Required in main   | If the field is invalid, then the        |
+|                             |                                           |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                             |                                           |              |              |                                          | ``Locality`` element containing it.      |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| polling_location_ids        | ``xs:IDREFS``                             | Optional     | Single       | References locality-wide polling         | If the field is invalid or not present,  |
+|                             |                                           |              |              | locations (e.g. early vote sites or drop | then the implementation is required to   |
+|                             |                                           |              |              | boxes). Clearable in overlays.           | ignore it.                               |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| parent_locality_id          | ``xs:IDREF``                              | Optional     | Single       | References the parent                    | If the field is invalid or not present,  |
+|                             |                                           |              |              | :ref:`single-csv-locality` in the        | then the implementation is required to   |
+|                             |                                           |              |              | jurisdiction hierarchy (e.g. county      | ignore it.                               |
+|                             |                                           |              |              | pointing to state). If omitted, this is  |                                          |
+|                             |                                           |              |              | a top-level jurisdiction.                |                                          |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| type                        | :ref:`single-csv-district-type`           | Optional     | Single       | The kind of jurisdiction (e.g. state,    | If the field is invalid or not present,  |
+|                             |                                           |              |              | county, city) from                       | then the implementation is required to   |
+|                             |                                           |              |              | :ref:`single-csv-district-type`.         | ignore it.                               |
+|                             |                                           |              |              | Clearable in overlays.                   |                                          |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_type                  | ``xs:string``                             | Optional     | Single       | Allows defining a type of locality       | If the field is invalid or not present,  |
+|                             |                                           |              |              | outside :ref:`single-csv-district-type`. | then the implementation is required to   |
+|                             |                                           |              |              | Clearable in overlays.                   | ignore it.                               |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| default_polling_hours       | :ref:`single-csv-schedule-with-timezone`  | Optional     | Repeats      | Default operating hours for day-of       | If the element is invalid or not         |
+|                             |                                           |              |              | polling locations throughout this        | present, then the implementation is      |
+|                             |                                           |              |              | locality. Clearable in overlays.         | required to ignore it.                   |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| default_early_vote_hours    | :ref:`single-csv-schedule-with-timezone`  | Optional     | Repeats      | Default operating hours for in-person    | If the element is invalid or not         |
+|                             |                                           |              |              | early voting locations throughout this   | present, then the implementation is      |
+|                             |                                           |              |              | locality. Clearable in overlays.         | required to ignore it.                   |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| default_dropoff_hours       | :ref:`single-csv-schedule-with-timezone`  | Optional     | Repeats      | Default operating hours for ballot       | If the element is invalid or not         |
+|                             |                                           |              |              | drop-off locations throughout this       | present, then the implementation is      |
+|                             |                                           |              |              | locality. Clearable in overlays.         | required to ignore it.                   |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive                 | ``xs:string``                             | Optional     | Single       | If specified, marks the locality as      | If the field is invalid or not present,  |
+|                             |                                           |              |              | inactive and explains the reason why.    | then the implementation is required to   |
+|                             |                                           |              |              | Clearable in overlays.                   | ignore it.                               |
++-----------------------------+-------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
+    id,name,parent_locality_id,type,other_type,is_mail_only,polling_location_ids
+    loc51,Virginia,,state,,false,
+    loc70001,Albemarle County,loc51,county,,false,pl001 pl002
 
-    id,election_administration_id,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,name,polling_location_ids,state_id,type,other_type
-    loc001,ea123,ocd-id,,ocd-division/country:us/state:co/county:denver,true,Locality #1,poll001 poll002,st51,city,
-    loc002,ea345,,,,,Locality #2,,st51,other,unique type
+
+.. _single-csv-location-identifier:
+
+location_identifier
+~~~~~~~~~~~~~~~~~~~
+
+Specifies an external identifier for a physical location (e.g. a polling location or contact address), such as a latitude/longitude pair, Plus Code, or geocoder ID. LocationIdentifier has optional attributes ``label``, ``provider`` (e.g. "Google"), and ``relativePriority`` (a decimal number indicating the relative preference of this identifier when multiple identifiers are provided).
+
+In overlay feeds, this element is clearable using ``<ClearLocationIdentifier/>``.
+
++--------------+--------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| Tag          | Data Type                                  | Required?    | Repeats?     | Description                                 | Error Handling                           |
++==============+============================================+==============+==============+=============================================+==========================================+
+| type         | :ref:`single-csv-location-identifier-type` | **Required** | Single       | Specifies the type of location identifier   | If the field is invalid or not present,  |
+|              |                                            |              |              | from                                        | the implementation is required to ignore |
+|              |                                            |              |              | :ref:`single-csv-location-identifier-type`. | the ``LocationIdentifier`` containing    |
+|              |                                            |              |              |                                             | it.                                      |
++--------------+--------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| other_type   | ``xs:string``                              | Optional     | Single       | Specifies the type of identifier if         | If the field is invalid or not present,  |
+|              |                                            |              |              | ``Type`` is set to "other".                 | then the implementation is required to   |
+|              |                                            |              |              |                                             | ignore it.                               |
++--------------+--------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| value        | ``xs:string``                              | **Required** | Single       | Specifies the identifier value (e.g. Plus   | If the field is invalid or not present,  |
+|              |                                            |              |              | Code, coordinates, Place ID).               | the implementation is required to ignore |
+|              |                                            |              |              |                                             | the ``LocationIdentifier`` containing    |
+|              |                                            |              |              |                                             | it.                                      |
++--------------+--------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-office:
@@ -1181,54 +1046,54 @@ The Locality object represents the jurisdiction below the :ref:`single-csv-state
 office
 ~~~~~~
 
-``Office`` represents the office associated with a contest or district (e.g. Alderman, Mayor,
-School Board, et al).
+``Office`` represents an elected or appointed government office associated with an electoral district (e.g. Mayor, Governor, School Board).
 
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+========================+==============+==============+==========================================+==========================================+
-| description              | ``xs:string``          | Optional     | Single       | A brief description of the office and    | If the element is invalid or not         |
-|                          |                        |              |              | its purpose.                             | present, then the implementation is      |
-|                          |                        |              |              |                                          | required to ignore it.                   |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``           | **Required** | Single       | Links to the                             | If the field is invalid or not present,  |
-|                          |                        |              |              | :ref:`single-csv-electoral-district`     | the implementation is required to ignore |
-|                          |                        |              |              | element associated with the office.      | the ``Office`` element containing it.    |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:IDREF``           | Optional     | Single       | Other identifiers that link this office  | If the element is invalid or not         |
-|                          |                        |              |              | to other related datasets (e.g. campaign | present, then the implementation is      |
-|                          |                        |              |              | finance systems, OCD IDs, et al.).       | required to ignore it.                   |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| filing_deadline          | ``xs:date``            | Optional     | Single       | Specifies the date and time when a       | If the field is invalid or not present,  |
-|                          |                        |              |              | candidate must have filed for the        | then the implementation is required to   |
-|                          |                        |              |              | contest for the office.                  | ignore it.                               |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_partisan              | ``xs:boolean``         | Optional     | Single       | Indicates whether the office is          | If the field is invalid or not present,  |
-|                          |                        |              |              | partisan.                                | then the implementation is required to   |
-|                          |                        |              |              |                                          | ignore it.                               |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``          | **Required** | Single       | The name of the office.                  | If the field is invalid or not present,  |
-|                          |                        |              |              |                                          | the implementation is required to ignore |
-|                          |                        |              |              |                                          | the ``Office`` element containing it.    |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| office_holder_person_ids | ``xs:IDREFS``          | Optional     | Single       | Links to the :ref:`single-csv-person`    | If the field is invalid or not present,  |
-|                          |                        |              |              | element(s) that hold additional          | then the implementation is required to   |
-|                          |                        |              |              | information about the current office     | ignore it.                               |
-|                          |                        |              |              | holder(s).                               |                                          |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| term                     | :ref:`single-csv-term` | Optional     | Single       | Defines the term the office can be held. | If the element is invalid or not         |
-|                          |                        |              |              |                                          | present, then the implementation is      |
-|                          |                        |              |              |                                          | required to ignore it.                   |
-+--------------------------+------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| contact_information      | :ref:`single-csv-contact-information`    | Optional     | Repeats      | Contact information for the office.      | If the element is invalid or not         |
+|                          |                                          |              |              |                                          | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| description              | :ref:`single-csv-internationalized-text` | Optional     | Single       | Brief description of the office and its  | If the element is invalid or not         |
+|                          |                                          |              |              | responsibilities.                        | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``                             | **Required** | Single       | Links to the                             | If ElectoralDistrictId is invalid or not |
+|                          |                                          |              |              | :ref:`single-csv-electoral-district`     | present, the implementation is required  |
+|                          |                                          |              |              | representing the geographical scope of   | to ignore the Office containing it.      |
+|                          |                                          |              |              | the office.                              |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier      | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                          |                                          |              |              | office to external systems (e.g.         | present, then the implementation is      |
+|                          |                                          |              |              | OCD-ID).                                 | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| filing_deadline          | ``xs:date``                              | Optional     | Single       | Filing deadline date for candidates      | If the field is invalid or not present,  |
+|                          |                                          |              |              | running for this office.                 | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_partisan              | ``xs:boolean``                           | Optional     | Single       | Indicates whether the office is          | If the field is invalid or not present,  |
+|                          |                                          |              |              | partisan.                                | then the implementation is required to   |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | :ref:`single-csv-internationalized-text` | **Required** | Single       | Official name of the office.             | If Name is invalid or not present, the   |
+|                          |                                          |              |              |                                          | implementation is required to ignore the |
+|                          |                                          |              |              |                                          | Office containing it.                    |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| office_holder_person_ids | ``xs:IDREFS``                            | Optional     | Single       | References to :ref:`single-csv-person`   | If the field is invalid or not present,  |
+|                          |                                          |              |              | elements for the current office          | then the implementation is required to   |
+|                          |                                          |              |              | holder(s).                               | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| term                     | :ref:`single-csv-term`                   | Optional     | Single       | Defines the term length and dates of the | If the element is invalid or not         |
+|                          |                                          |              |              | office.                                  | present, then the implementation is      |
+|                          |                                          |              |              |                                          | required to ignore it.                   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,electoral_district_id,external_identifier_type,external_identifier_othertype,external_identifier_value,filing_deadline,is_partisan,name,office_holder_person_ids,term_type,term_start_date,term_end_date
-    off001,ed001,,,,,true,Deputy Chief of Staff,per50003,full-term,2002-01-21,
-    off002,ed001,,,,,true,Deputy Deputy Chief of Staff,per50001,unexpired-term,2002-01-21,
-    off003,ed001,,,,,false,General Secretary of Secretaries,per50004,full-term,2002-01-21,
+    id,electoral_district_id,filing_deadline,is_partisan,name,office_holder_person_ids,term_type,term_start_date,term_end_date
+    off001,ed001,2024-06-01,true,Governor,per50001,full-term,2022-01-15,2026-01-15
 
 
 .. _single-csv-ordered-contest:
@@ -1273,53 +1138,46 @@ ballot in the proper order.
 party
 ~~~~~
 
-This element describes a political party and the metadata associated with them. These can also include "dummy" parties to indicate a type of contest (e.g., a Voter Nominated :ref:`single-csv-candidate-contest` can use the **PrimaryPartyIds** field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
+The Party object represents a political party or ballot grouping.
 
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                  | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+======================+========================================+==============+==============+==========================================+==========================================+
-| abbreviation         | ``xs:string``                          | Optional     | Single       | An abbreviation for the party name.      | If the field is invalid or not present,  |
-|                      |                                        |              |              |                                          | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| color                | :ref:`single-csv-html-color-string`    | Optional     | Single       | The preferred display color for the      | If the element is invalid or not         |
-|                      |                                        |              |              | party, for use in maps and other         | present, then the implementation is      |
-|                      |                                        |              |              | displays.                                | required to ignore it.                   |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers | :ref:`single-csv-external-identifiers` | Optional     | Single       | Other identifiers that link this party   | If the element is invalid or not         |
-|                      |                                        |              |              | to other related data sets (e.g. a       | present, then the implementation is      |
-|                      |                                        |              |              | campaign finance system, etc).           | required to ignore it.                   |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_write_in          | ``xs:boolean``                         | Optional     | Single       | Signals if this political party is one   | If the field is invalid or not present,  |
-|                      |                                        |              |              | that is officially recognized by a       | then the implementation is required to   |
-|                      |                                        |              |              | local, state, or federal organization,   | ignore it.                               |
-|                      |                                        |              |              | or is a "write-in" in jurisdictions      |                                          |
-|                      |                                        |              |              | which allow candidates to free-form      |                                          |
-|                      |                                        |              |              | enter their political affiliation. If    |                                          |
-|                      |                                        |              |              | this field is not present then it is     |                                          |
-|                      |                                        |              |              | assumed to be false.                     |                                          |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| leader_person_ids    | ``xs:IDREFS``                          | Optional     | Single       | A reference of :ref:`single-csv-person`  | If the field is invalid or not present,  |
-|                      |                                        |              |              | elements which are leaders of the        | then the implementation is required to   |
-|                      |                                        |              |              | `Party`.                                 | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| logo_uri             | ``xs:anyURI``                          | Optional     | Single       | Web address of a logo to use in          | If the field is invalid or not present,  |
-|                      |                                        |              |              | displays.                                | then the implementation is required to   |
-|                      |                                        |              |              |                                          | ignore it.                               |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                 | ``xs:string``                          | **Required** | Single       | The name of the party.                   | If the element is invalid, then the      |
-|                      |                                        |              |              |                                          | implementation is required to ignore it. |
-+----------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=====================+==========================================+==============+==============+==========================================+==========================================+
+| abbreviation        | ``xs:string``                            | Optional     | Single       | Abbreviation for the party name (e.g.    | If the field is invalid or not present,  |
+|                     |                                          |              |              | "DEM", "REP").                           | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| color               | :ref:`single-csv-html-color-string`      | Optional     | Single       | Six-digit hexadecimal HTML color code    | If the element is invalid or not         |
+|                     |                                          |              |              | associated with the party.               | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                     |                                          |              |              | party to other datasets.                 | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_write_in         | ``xs:boolean``                           | Optional     | Single       | Indicates if the party represents        | If the field is invalid or not present,  |
+|                     |                                          |              |              | write-in selections.                     | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| leader_person_ids   | ``xs:IDREFS``                            | Optional     | Single       | References to :ref:`single-csv-person`   | If the field is invalid or not present,  |
+|                     |                                          |              |              | elements for party leadership.           | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| logo_uri            | :ref:`single-csv-internationalized-uri`  | Optional     | Single       | URI pointing to the party logo.          | If the element is invalid or not         |
+|                     |                                          |              |              |                                          | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                | :ref:`single-csv-internationalized-text` | **Required** | Single       | Official name of the party.              | If the element is invalid, then the      |
+|                     |                                          |              |              |                                          | implementation is required to ignore the |
+|                     |                                          |              |              |                                          | ``Party`` element containing it.         |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,is_write_in,leader_person_ids,logo_uri,name
-    par01,REP,ff0000,,,,true,,http://example.com/elephant.png,Republican
-    par02,DEM,0000ff,,,,false,per01,http://example.com/donkey.png,Democrat
-    par03,GRN,efefef,,,,,,http://example.com/tree.png,Green
-    par04,WFP,ee99aa,,,,,,http://example.com/worker.png,Working Families Party
+    id,abbreviation,color,is_write_in,leader_person_ids,logo_uri,name
+    par0001,DEM,0000FF,false,per50001,https://example.gov/dem.png,Democratic Party
+    par0002,REP,FF0000,false,per50002,https://example.gov/rep.png,Republican Party
 
 
 .. _single-csv-party-contest:
@@ -1345,74 +1203,69 @@ outside of the United States).
 contest_base
 ^^^^^^^^^^^^
 
-A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`,
-:ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`,
-and :ref:`single-csv-retention-contest` (NB: the latter because it extends
-:ref:`single-csv-ballot-measure-contest`).
+A base model for all Contest types: :ref:`single-csv-ballot-measure-contest`, :ref:`single-csv-candidate-contest`, :ref:`single-csv-party-contest`, and :ref:`single-csv-retention-contest`.
 
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                        | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+==================================+==============+==============+==========================================+==========================================+
-| abbreviation             | ``xs:string``                    | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                          |                                  |              |              |                                          | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_selection_ids     | ``xs:IDREFS``                    | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                          |                                  |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                          |                                  |              |              | that extends                             | it.                                      |
-|                          |                                  |              |              | :ref:`single-csv-ballot-selection-base`. |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_sub_title         | ``xs:string``                    | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_title             | ``xs:string``                    | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                          |                                  |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                     | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                  |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
-|                          |                                  |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | scope of the contest.                    |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | ``xs:string``                    | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                          |                                  |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                          |                                  |              |              | usual, "all registered voters"           | ignore it.                               |
-|                          |                                  |              |              | electorate. This subtag will most often  |                                          |
-|                          |                                  |              |              | be used for primaries and local          |                                          |
-|                          |                                  |              |              | elections. In primaries, voters may have |                                          |
-|                          |                                  |              |              | to be registered as a specific party to  |                                          |
-|                          |                                  |              |              | vote, or there may be special rules for  |                                          |
-|                          |                                  |              |              | which ballot a voter can pull. In some   |                                          |
-|                          |                                  |              |              | local elections, non-citizens can vote.  |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:string``                    | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                          |                                  |              |              | links to another source of information.  | present, then the implementation should  |
-|                          |                                  |              |              |                                          | ignore it.                               |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_rotation             | ``xs:boolean``                   | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest are rotated.                     | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                    | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                  |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                  |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
-|                          |                                  |              |              | purpose).                                |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| sequence_order           | ``xs:integer``                   | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                          |                                  |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                          |                                  |              |              | ordering, and can be overrides by data   | it.                                      |
-|                          |                                  |              |              | in a :ref:`single-csv-ballot-style`      |                                          |
-|                          |                                  |              |              | element.                                 |                                          |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`single-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                          |                                  |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
-|                          |                                  |              |              |                                          | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_vote_variation     | ``other_vote_variation``         | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                          |                                  |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                          |                                  |              |              | variation can be specified here.         | it.                                      |
-+--------------------------+----------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
+
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+==========================================+==============+==============+==========================================+==========================================+
+| abbreviation             | ``xs:string``                            | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_selection_ids     | ``xs:IDREFS``                            | Optional     | Single       | References BallotSelections belonging to | If the field is invalid or not present,  |
+|                          |                                          |              |              | this contest. Clearable in overlays.     | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_sub_title         | :ref:`single-csv-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_title             | :ref:`single-csv-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                          |                                          |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                          |              |              |                                          | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``                             | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                          |                                          |              |              | :ref:`single-csv-electoral-district`     | implementation is required to ignore the |
+|                          |                                          |              |              | representing the geographical scope of   | ``ContestBase`` element containing it.   |
+|                          |                                          |              |              | the contest. Required in main feed;      |                                          |
+|                          |                                          |              |              | optional in overlays.                    |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electorate_specification | :ref:`single-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
+|                          |                                          |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
+|                          |                                          |              |              | party affiliation for primaries).        | ignore it.                               |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier      | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                          |                                          |              |              | contest to other sources. Clearable in   | present, then the implementation should  |
+|                          |                                          |              |              | overlays.                                | ignore it.                               |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_rotation             | ``xs:boolean``                           | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                          |                                          |              |              | contest rotate on the ballot. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | ``xs:string``                            | **Required** | Single       | Name of the contest. Required in main    | If the field is invalid, then the        |
+|                          |                                          |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                          |                                          |              |              |                                          | ``ContestBase`` element containing it.   |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| sequence_order           | ``xs:integer``                           | Optional     | Single       | Default ballot ordering for the contest. | If the field is invalid or not present,  |
+|                          |                                          |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| vote_variation           | :ref:`single-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
+|                          |                                          |              |              | majority, rcv) from                      | then the implementation should ignore    |
+|                          |                                          |              |              | :ref:`single-csv-vote-variation`.        | it.                                      |
+|                          |                                          |              |              | Clearable in overlays.                   |                                          |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_vote_variation     | ``xs:string``                            | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
+|                          |                                          |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
+|                          |                                          |              |              |                                          | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive              | ``xs:string``                            | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
+|                          |                                          |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
+|                          |                                          |              |              | in overlays.                             | it.                                      |
++--------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-party-selection:
@@ -1467,91 +1320,75 @@ A base model for all ballot selection types:
 person
 ~~~~~~
 
-``Person`` defines information about a person. The person may be a candidate, election administrator,
-or elected official. These elements reference ``Person``:
+The Person object represents an individual (such as a candidate, election official, or party leader).
 
-* :ref:`single-csv-candidate`
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearContactInformation/>``, ``<ClearPartyId/>``, ``<ClearProfession/>``).
 
-* :ref:`single-csv-election-administration`
-
-* :ref:`single-csv-office`
-
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                    | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+========================+========================================+==============+==============+==========================================+==========================================+
-| date_of_birth          | ``xs:date``                            | Optional     | Single       | Represents the individual's date of      | If the field is invalid or not present,  |
-|                        |                                        |              |              | birth.                                   | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers   | :ref:`single-csv-external-identifiers` | Optional     | Single       | Identifiers for this person.             | If the element is invalid or not         |
-|                        |                                        |              |              |                                          | present, then the implementation is      |
-|                        |                                        |              |              |                                          | required to ignore it.                   |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| first_name             | ``xs:string``                          | Optional     | Single       | Represents an individual's first name.   | If the field is invalid or not present,  |
-|                        |                                        |              |              |                                          | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| full_name              | ``xs:string``                          | Optional     | Single       | Specifies a person's full name (**NB:**  | If the element is invalid or not         |
-|                        |                                        |              |              | this information is                      | present, then the implementation is      |
-|                        |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
-|                        |                                        |              |              | because it sometimes appears on ballots  |                                          |
-|                        |                                        |              |              | in multiple languages).                  |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| gender                 | ``xs:string``                          | Optional     | Single       | Specifies a person's gender.             | If the field is invalid or not present,  |
-|                        |                                        |              |              |                                          | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| last_name              | ``xs:string``                          | Optional     | Single       | Represents an individual's last name.    | If the field is invalid or not present,  |
-|                        |                                        |              |              |                                          | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| middle_name            | ``xs:string``                          | Optional     | Repeats      | Represents any number of names between   | If the field is invalid or not present,  |
-|                        |                                        |              |              | an individual's first and last names     | then the implementation is required to   |
-|                        |                                        |              |              | (e.g. John **Ronald Reuel** Tolkien).    | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| nickname               | ``xs:string``                          | Optional     | Single       | Represents an individual's nickname.     | If the field is invalid or not present,  |
-|                        |                                        |              |              |                                          | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| party_id               | ``xs:IDREF``                           | Optional     | Single       | Refers to the associated                 | If the field is invalid or not present,  |
-|                        |                                        |              |              | :ref:`single-csv-party`. This            | then the implementation is required to   |
-|                        |                                        |              |              | information is intended to be used by    | ignore it.                               |
-|                        |                                        |              |              | feed consumers to help them disambiguate |                                          |
-|                        |                                        |              |              | the person's identity, but not to be     |                                          |
-|                        |                                        |              |              | presented as part of any ballot          |                                          |
-|                        |                                        |              |              | information. For that see                |                                          |
-|                        |                                        |              |              | :ref:`single-csv-candidate` **PartyId**. |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| prefix                 | ``xs:string``                          | Optional     | Single       | Specifies a prefix associated with a     | If the field is invalid or not present,  |
-|                        |                                        |              |              | person (e.g. Dr.).                       | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| profession             | ``xs:string``                          | Optional     | Single       | Specifies a person's profession (**NB:** | If the element is invalid or not         |
-|                        |                                        |              |              | this information is                      | present, then the implementation is      |
-|                        |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
-|                        |                                        |              |              | because it sometimes appears on ballots  |                                          |
-|                        |                                        |              |              | in multiple languages).                  |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| suffix                 | ``xs:string``                          | Optional     | Single       | Specifies a suffix associated with a     | If the field is invalid or not present,  |
-|                        |                                        |              |              | person (e.g. Jr.).                       | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| title                  | ``xs:string``                          | Optional     | Single       | A title associated with a person         | If the element is invalid or not         |
-|                        |                                        |              |              | (**NB:** this information is             | present, then the implementation is      |
-|                        |                                        |              |              | :ref:`single-csv-internationalized-text` | required to ignore it.                   |
-|                        |                                        |              |              | because it sometimes appears on ballots  |                                          |
-|                        |                                        |              |              | in multiple languages).                  |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                 | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=====================+==========================================+==============+==============+==========================================+==========================================+
+| contact_information | :ref:`single-csv-contact-information`    | Optional     | Repeats      | Contact information for the person.      | If the element is invalid or not         |
+|                     |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| date_of_birth       | ``xs:date``                              | Optional     | Single       | Date of birth of the person. Clearable   | If the field is invalid or not present,  |
+|                     |                                          |              |              | in overlays.                             | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier | :ref:`single-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                     |                                          |              |              | person to external systems. Clearable in | present, then the implementation is      |
+|                     |                                          |              |              | overlays.                                | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| first_name          | ``xs:string``                            | Optional     | Single       | First name of the person. Clearable in   | If the field is invalid or not present,  |
+|                     |                                          |              |              | overlays.                                | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| full_name           | :ref:`single-csv-internationalized-text` | Optional     | Single       | Full legal or preferred name of the      | If the element is invalid or not         |
+|                     |                                          |              |              | person. Clearable in overlays.           | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| gender              | ``xs:string``                            | Optional     | Single       | Gender of the person. Clearable in       | If the field is invalid or not present,  |
+|                     |                                          |              |              | overlays.                                | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| last_name           | ``xs:string``                            | Optional     | Single       | Last name of the person. Clearable in    | If the field is invalid or not present,  |
+|                     |                                          |              |              | overlays.                                | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| middle_name         | ``xs:string``                            | Optional     | Repeats      | Middle name(s) of the person. Clearable  | If the field is invalid or not present,  |
+|                     |                                          |              |              | in overlays.                             | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| nickname            | ``xs:string``                            | Optional     | Single       | Nickname or informal name. Clearable in  | If the field is invalid or not present,  |
+|                     |                                          |              |              | overlays.                                | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| party_id            | ``xs:IDREF``                             | Optional     | Single       | References the :ref:`single-csv-party`   | If the field is invalid or not present,  |
+|                     |                                          |              |              | to which the person belongs. Clearable   | then the implementation is required to   |
+|                     |                                          |              |              | in overlays.                             | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| prefix              | ``xs:string``                            | Optional     | Single       | Name prefix (e.g. "Dr.", "Rev.").        | If the field is invalid or not present,  |
+|                     |                                          |              |              | Clearable in overlays.                   | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| profession          | :ref:`single-csv-internationalized-text` | Optional     | Single       | Occupation or profession of the person.  | If the element is invalid or not         |
+|                     |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| suffix              | ``xs:string``                            | Optional     | Single       | Name suffix (e.g. "Jr.", "III", "Esq."). | If the field is invalid or not present,  |
+|                     |                                          |              |              | Clearable in overlays.                   | then the implementation is required to   |
+|                     |                                          |              |              |                                          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| title               | :ref:`single-csv-internationalized-text` | Optional     | Single       | Official title held by the person.       | If the element is invalid or not         |
+|                     |                                          |              |              | Clearable in overlays.                   | present, then the implementation is      |
+|                     |                                          |              |              |                                          | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,date_of_birth,first_name,gender,last_name,middle_name,nickname,party_id,prefix,profession,suffix,title
-    per50001,1961-08-04,Barack,male,Obama,Hussein,,par02,,President,II,Mr. President
-    per50002,1985-11-21,Carly,female,Jepsen,Rae,,par01,,Recording Artist,,
-    per50003,1926-09-23,John,male,Coltrane,William,Trane,par02,,Recording Artist,Saint,
-    per50004,1926-05-26,Miles,male,Davis,Dewey,,par01,,Recording Artist,III,
+    id,first_name,last_name,middle_name,nickname,prefix,suffix,title,profession,party_id,date_of_birth,gender
+    per50001,Ken,Cuccinelli,T.,,II,,Attorney General,Attorney,par0001,1968-07-30,male
 
 
 .. _single-csv-polling-location:
@@ -1559,119 +1396,64 @@ or elected official. These elements reference ``Person``:
 polling_location
 ~~~~~~~~~~~~~~~~
 
-The PollingLocation object represents a site where voters cast or drop off ballots.
+The PollingLocation object represents a site where voters cast ballots in person or drop off early/absentee ballots. In VIP 7.0, facility names are placed in ``AddressStructured.LocationName``.
 
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                                   | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=======================================+===========================+==============+==============+==========================================+==========================================+
-| address_line                          | ``xs:string``             | Optional     | Repeats      | Represents the various parts of an       | One of AddressStructured and AddressLine |
-|                                       |                           |              |              | address to a polling location.           | should be present for a given Polling    |
-|                                       |                           |              |              |                                          | Location. If none is present, the        |
-|                                       |                           |              |              |                                          | implementation is required to ignore the |
-|                                       |                           |              |              |                                          | ``PollingLocation`` element containing   |
-|                                       |                           |              |              |                                          | it.                                      |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| directions                            | ``xs:string``             | Optional     | Single       | Specifies further instructions for       | If the element is invalid or not         |
-|                                       |                           |              |              | locating the polling location.           | present, then the implementation is      |
-|                                       |                           |              |              |                                          | required to ignore it.                   |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours                                 | ``xs:string``             | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-|                                       |                           |              |              | the polling location is open (**NB:**    | present, then the implementation is      |
-|                                       |                           |              |              | this element is deprecated in favor of   | required to ignore it.                   |
-|                                       |                           |              |              | the more structured                      |                                          |
-|                                       |                           |              |              | :ref:`single-csv-hours-open` element. It |                                          |
-|                                       |                           |              |              | is strongly encouraged that data         |                                          |
-|                                       |                           |              |              | providers move toward contributing hours |                                          |
-|                                       |                           |              |              | in this format).                         |                                          |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_id                         | ``xs:IDREF``              | Optional     | Single       | Links to an :ref:`single-csv-hours-open` | If the field is invalid or not present,  |
-|                                       |                           |              |              | element, which is a schedule of dates    | then the implementation is required to   |
-|                                       |                           |              |              | and hours during which the polling       | ignore it.                               |
-|                                       |                           |              |              | location is available.                   |                                          |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_drop_box                           | ``xs:boolean``            | Optional     | Single       | Indicates if this polling location is a  | If the field is invalid or not present,  |
-|                                       |                           |              |              | drop box.                                | then the implementation is required to   |
-|                                       |                           |              |              |                                          | ignore it.                               |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_early_voting                       | ``xs:boolean``            | Optional     | Single       | Indicates if this polling location is an | If the field is invalid or not present,  |
-|                                       |                           |              |              | early vote site.                         | then the implementation is required to   |
-|                                       |                           |              |              |                                          | ignore it.                               |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                                  | ``xs:string``             | Optional     | Single       | Name of the polling location.            | If the field is invalid or not present,  |
-|                                       |                           |              |              |                                          | then the implementation is required to   |
-|                                       |                           |              |              |                                          | ignore it.                               |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| photo_uri                             | ``xs:string``             | Optional     | Single       | Contains a link to an image of the       | If the field is invalid or not present,  |
-|                                       |                           |              |              | polling location.                        | then the implementation is required to   |
-|                                       |                           |              |              |                                          | ignore it.                               |
-+---------------------------------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearSchedule/>``, ``<ClearDirections/>``, ``<ClearPhotoUri/>``, ``<ClearIsInactive/>``). AddressStructured and LocationType are optional in overlays.
+EmergencyNotice is permitted only in overlays.
+In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indicate that a polling location is newly added rather than modifying an existing one.
+
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| Tag                 | Data Type                                | Required?    | Repeats?     | Description                                 | Error Handling                           |
++=====================+==========================================+==============+==============+=============================================+==========================================+
+| address_structured  | :ref:`single-csv-simple-address-type`    | **Required** | Repeats      | Structured address including facility name. | AddressStructured is required for        |
+|                     |                                          |              |              | Required in main feed; optional in          | PollingLocation in main feeds.           |
+|                     |                                          |              |              | overlays. Multiple addresses in different   |                                          |
+|                     |                                          |              |              | languages can be specified.                 |                                          |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| location_identifier | :ref:`single-csv-location-identifier`    | Optional     | Repeats      | External location identifier(s) (e.g. Plus  | If the element is invalid or not         |
+|                     |                                          |              |              | Code, geocoder ID). Clearable in overlays.  | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| directions          | :ref:`single-csv-internationalized-text` | Optional     | Single       | Instructions for locating the polling site  | If the element is invalid or not         |
+|                     |                                          |              |              | or room. Clearable in overlays.             | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| hours               | :ref:`single-csv-internationalized-text` | Optional     | Single       | Operating hours as text. Clearable in       | If the element is invalid or not         |
+|                     |                                          |              |              | overlays. *(NB: deprecated in favor of      | present, then the implementation is      |
+|                     |                                          |              |              | :ref:`single-csv-schedule-with-timezone`)*. | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| schedule            | :ref:`single-csv-schedule-with-timezone` | Optional     | Repeats      | Structured schedule of operating dates and  | If the element is invalid or not         |
+|                     |                                          |              |              | hours. Clearable in overlays.               | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| location_type       | :ref:`single-csv-polling-location-type`  | **Required** | Single       | The type of voting conducted at this        | LocationType is required for             |
+|                     |                                          |              |              | location (InPersonDayOf, InPersonEarly, or  | PollingLocation in main feeds.           |
+|                     |                                          |              |              | DropOff). Required in main feed; optional   |                                          |
+|                     |                                          |              |              | in overlays.                                |                                          |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| lat_lng             | :ref:`single-csv-lat-lng`                | Optional     | Single       | Latitude and longitude coordinates.         | If the element is invalid or not         |
+|                     |                                          |              |              | Clearable in overlays.                      | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| party_ids           | ``xs:IDREFS``                            | Optional     | Single       | If present, indicates which parties'        | If the field is invalid or not present,  |
+|                     |                                          |              |              | primaries occur at this location. Clearable | then the implementation is required to   |
+|                     |                                          |              |              | in overlays.                                | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| photo_uri           | :ref:`single-csv-internationalized-uri`  | Optional     | Single       | Link to a photo of the location. Clearable  | If the element is invalid or not         |
+|                     |                                          |              |              | in overlays.                                | present, then the implementation is      |
+|                     |                                          |              |              |                                             | required to ignore it.                   |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
+| is_inactive         | ``xs:string``                            | Optional     | Single       | If specified, marks the location as closed  | If the field is invalid or not present,  |
+|                     |                                          |              |              | or inactive, with the text stating the      | then the implementation is required to   |
+|                     |                                          |              |              | reason why. Clearable in overlays.          | ignore it.                               |
++---------------------+------------------------------------------+--------------+--------------+---------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,name,address_line,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
-    poll001,ALBERMARLE HIGH SCHOOL,,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
-    poll002,Public Library,Main St Denver CO,,,,,,next to the checkout counter,7am-8pm,www.picture.com,,false,true,38.0754627,78.5014875,Google Maps
-
-
-.. _single-csv-lat-lng:
-
-lat_long
-^^^^^^^^
-
-The latitude and longitude of a polling location in `WGS 84`_ format. Both
-latitude and longitude values are measured in decimal degrees.
-
-+---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag           | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===============+===============+==============+==============+==========================================+==========================================+
-| latitude      | ``xs:double`` | **Required** | Single       | The latitude of the polling location.    | If the field is invalid, then the        |
-|               |               |              |              |                                          | implementation is required to ignore it. |
-+---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| longitude     | ``xs:double`` | **Required** | Single       | The longitude of the polling location.   | If the field is invalid, then the        |
-|               |               |              |              |                                          | implementation is required to ignore it. |
-+---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| latlng_source | ``xs:string`` | Optional     | Single       | The system used to perform the lookup    | If the field is invalid or not present,  |
-|               |               |              |              | from location name to lat/lng. For       | then the implementation is required to   |
-|               |               |              |              | example, this could be the name of a     | ignore it.                               |
-|               |               |              |              | geocoding service.                       |                                          |
-+---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-
-.. _single-csv-simple-address-type:
-
-simple_address_type
-^^^^^^^^^^^^^^^^^^^
-
-A ``SimpleAddressType`` represents a structured address.
-
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag               | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===================+===============+==============+==============+==========================================+==========================================+
-| structured_line_1 | ``xs:string`` | **Required** | Single       | The address line for a structured        | If no ``Line1`` is provided, the         |
-|                   |               |              |              | address. Should include the street       | implementation should ignore the         |
-|                   |               |              |              | number, street name, and any prefix and  | ``SimpleAddressType``.                   |
-|                   |               |              |              | suffix.                                  |                                          |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_line_2 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line2`` is provided, the         |
-|                   |               |              |              |                                          | implementation should ignore it.         |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_line_3 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line3`` is provided, the         |
-|                   |               |              |              |                                          | implementation should ignore it.         |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_city   | ``xs:string`` | **Required** | Single       | The City value of a structured address.  | If ``City`` is not provided, the         |
-|                   |               |              |              |                                          | implementation should ignore the         |
-|                   |               |              |              |                                          | ``SimpleAddressType``.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_state  | ``xs:string`` | **Required** | Single       | The State value of a structured address. | If ``State`` is not provided, the        |
-|                   |               |              |              |                                          | implementation should ignore the         |
-|                   |               |              |              |                                          | ``SimpleAddressType``.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_zip    | ``xs:string`` | Optional     | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
-|                   |               |              |              |                                          | implementation should ignore the         |
-|                   |               |              |              |                                          | ``SimpleAddressType``.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+    id,location_type,directions,photo_uri,party_ids,is_inactive
+    poll001,InPersonDayOf,Use gymnasium entrance,https://example.gov/poll.jpg,,
+    poll002,DropOff,Curbside ballot drop box,,,Water main break
 
 
 .. _single-csv-precinct:
@@ -1679,96 +1461,69 @@ A ``SimpleAddressType`` represents a structured address.
 precinct
 ~~~~~~~~
 
-The Precinct object represents a precinct, which is contained within a Locality. While the id
-attribute does not have to be static across feeds for one election, the combination of
-:ref:`Source.VipId <single-csv-source>`, :ref:`Locality.Name <single-csv-locality>`, :ref:`Precinct.Ward <single-csv-precinct>`,
-:ref:`Precinct.Name <single-csv-precinct>`, and :ref:`Precinct.Number <single-csv-precinct>` should remain constant across
-feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
-non-required fields is fine).
+The Precinct object represents a voting precinct or precinct split within a Locality.
 
-Voters can be assigned to a precinct in two ways. A voter location modeled by :doc:`StreetSegment <street_segment>`
-is assigned to a precinct by :doc:`StreetSegment.PrecinctId <street_segment>`.
-Alternatively, a precinct's spatial boundary can be modeled with :doc:`Precinct.SpatialBoundary  <precinct>`.
-Any registered voter address contained within the spatial boundary of the precinct
-is assigned to that precinct.
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearBallotStyleId/>``, ``<ClearPollingLocationIds/>``, ``<ClearIsInactive/>``). LocalityId and Name are optional in overlays. EmergencyNotice is permitted only in overlays.
 
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                    | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+========================+========================================+==============+==============+==========================================+==========================================+
-| ballot_style_id        | ``xs:IDREF``                           | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
-|                        |                                        |              |              | :ref:`single-csv-ballot-style`, which a  | then the implementation is required to   |
-|                        |                                        |              |              | person who lives in this precinct will   | ignore it.                               |
-|                        |                                        |              |              | vote.                                    |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_ids | ``xs:IDREFS``                          | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
-|                        |                                        |              |              | :ref:`single-csv-electoral-district`s    | then the implementation is required to   |
-|                        |                                        |              |              | (e.g., congressional district, state     | ignore it.                               |
-|                        |                                        |              |              | house district, school board district)   |                                          |
-|                        |                                        |              |              | to which the entire precinct/precinct    |                                          |
-|                        |                                        |              |              | split belongs. **Highly Recommended** if |                                          |
-|                        |                                        |              |              | candidate information is to be provided. |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers   | :ref:`single-csv-external-identifiers` | Optional     | Single       | Other identifier for the precinct that   | If the element is invalid or not         |
-|                        |                                        |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
-|                        |                                        |              |              | `OCD-ID`_).                              | required to ignore it.                   |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_mail_only           | ``xs:boolean``                         | Optional     | Single       | Determines if the precinct runs          | If the field is missing or invalid, the  |
-|                        |                                        |              |              | mail-only elections.                     | implementation is required to assume     |
-|                        |                                        |              |              |                                          | `IsMailOnly` is false.                   |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| locality_id            | ``xs:IDREF``                           | **Required** | Single       | Links to the :ref:`single-csv-locality`  | If the field is invalid, then the        |
-|                        |                                        |              |              | that comprises the precinct.             | implementation is required to ignore the |
-|                        |                                        |              |              |                                          | ``Precinct`` element containing it.      |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                   | ``xs:string``                          | **Required** | Single       | Specifies the precinct's name (or number | If the field is invalid, then the        |
-|                        |                                        |              |              | if no name exists).                      | implementation is required to ignore the |
-|                        |                                        |              |              |                                          | ``Precinct`` element containing it.      |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| number                 | ``xs:string``                          | Optional     | Single       | Specifies the precinct's number (e.g.,   | If the field is invalid or not present,  |
-|                        |                                        |              |              | 32 or 32A -- alpha characters are        | then the implementation is required to   |
-|                        |                                        |              |              | legal). Should be used if the `Name`     | ignore it.                               |
-|                        |                                        |              |              | field is populated by a name and not a   |                                          |
-|                        |                                        |              |              | number.                                  |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| polling_location_ids   | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to the precinct's       | If the field is invalid or not present,  |
-|                        |                                        |              |              | :ref:`single-csv-polling-location`       | then the implementation is required to   |
-|                        |                                        |              |              | object(s).                               | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| precinct_split_name    | ``xs:string``                          | Optional     | Single       | If this field is empty, then this        | If the field is invalid or not present,  |
-|                        |                                        |              |              | `Precinct` object represents a full      | then the implementation is required to   |
-|                        |                                        |              |              | precinct. If this field is present, then | ignore it.                               |
-|                        |                                        |              |              | this `Precinct` object represents one    |                                          |
-|                        |                                        |              |              | portion of a split precinct. Each        |                                          |
-|                        |                                        |              |              | `Precinct` object that represents one    |                                          |
-|                        |                                        |              |              | portion of a split precinct **must**     |                                          |
-|                        |                                        |              |              | have the same `Name` value, but          |                                          |
-|                        |                                        |              |              | different `PrecinctSplitName` values.    |                                          |
-|                        |                                        |              |              | See the `sample_feed.xml` file for       |                                          |
-|                        |                                        |              |              | examples.                                |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| spatial_boundary_id    | ``xs:IDREF``                           | Optional     | Single       | Defines the spatial boundary of the      | If the element is invalid or not         |
-|                        |                                        |              |              | precinct. All voter addresses contained  | present, then the implementation is      |
-|                        |                                        |              |              | within this boundary are assigned to the | required to ignore it.                   |
-|                        |                                        |              |              | precinct. If a voter address also maps   |                                          |
-|                        |                                        |              |              | to a :doc:`StreetSegment                 |                                          |
-|                        |                                        |              |              | <street_segment>`, then the precinct     |                                          |
-|                        |                                        |              |              | assignment from the StreetSegment will   |                                          |
-|                        |                                        |              |              | be preferred over the assignment from    |                                          |
-|                        |                                        |              |              | the spatial boundary.                    |                                          |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ward                   | ``xs:string``                          | Optional     | Single       | Specifies the ward the precinct is       | If the field is invalid or not present,  |
-|                        |                                        |              |              | contained within.                        | then the implementation is required to   |
-|                        |                                        |              |              |                                          | ignore it.                               |
-+------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                    | Data Type                             | Required?    | Repeats?     | Description                              | Error Handling                           |
++========================+=======================================+==============+==============+==========================================+==========================================+
+| ballot_style_id        | ``xs:IDREF``                          | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
+|                        |                                       |              |              | :ref:`single-csv-ballot-style` voted by  | then the implementation is required to   |
+|                        |                                       |              |              | electors in this precinct. Clearable in  | ignore it.                               |
+|                        |                                       |              |              | overlays.                                |                                          |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_ids | ``xs:IDREFS``                         | Optional     | Single       | Links to the                             | If the field is invalid or not present,  |
+|                        |                                       |              |              | :ref:`single-csv-electoral-district`     | then the implementation is required to   |
+|                        |                                       |              |              | elements containing this precinct.       | ignore it.                               |
+|                        |                                       |              |              | Clearable in overlays.                   |                                          |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier    | :ref:`single-csv-external-identifier` | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                        |                                       |              |              | precinct to other datasets (e.g.         | present, then the implementation is      |
+|                        |                                       |              |              | OCD-ID). Clearable in overlays.          | required to ignore it.                   |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_mail_only           | ``xs:boolean``                        | Optional     | Single       | Specifies if this precinct conducts      | If the field is missing or invalid, the  |
+|                        |                                       |              |              | mail-only elections. Clearable in        | implementation is required to assume     |
+|                        |                                       |              |              | overlays.                                | IsMailOnly is false.                     |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| locality_id            | ``xs:IDREF``                          | **Required** | Single       | References the containing                | If LocalityId is invalid or not present, |
+|                        |                                       |              |              | :ref:`single-csv-locality`. Required in  | the implementation is required to ignore |
+|                        |                                       |              |              | main feed; optional in overlays.         | the Precinct containing it.              |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                   | ``xs:string``                         | **Required** | Single       | Name of the precinct. Required in main   | If Name is invalid or not present, the   |
+|                        |                                       |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                        |                                       |              |              |                                          | Precinct containing it.                  |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| number                 | ``xs:string``                         | Optional     | Single       | Precinct number or code. Clearable in    | If the field is invalid or not present,  |
+|                        |                                       |              |              | overlays.                                | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| polling_location_ids   | ``xs:IDREFS``                         | Optional     | Single       | Links to polling locations serving this  | If the field is invalid or not present,  |
+|                        |                                       |              |              | precinct. Clearable in overlays.         | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| precinct_split_name    | ``xs:string``                         | Optional     | Single       | Sub-identifier for precinct splits.      | If the field is invalid or not present,  |
+|                        |                                       |              |              | Clearable in overlays.                   | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| spatial_boundary       | :ref:`single-csv-spatial-boundary`    | Optional     | Single       | Geospatial boundary defining the         | If the element is invalid or not         |
+|                        |                                       |              |              | precinct polygon. Clearable in overlays. | present, then the implementation is      |
+|                        |                                       |              |              |                                          | required to ignore it.                   |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ward                   | ``xs:string``                         | Optional     | Single       | Ward identifier if applicable. Clearable | If the field is invalid or not present,  |
+|                        |                                       |              |              | in overlays.                             | then the implementation is required to   |
+|                        |                                       |              |              |                                          | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive            | ``xs:string``                         | Optional     | Single       | If specified, marks the precinct as      | If the field is invalid or not present,  |
+|                        |                                       |              |              | inactive, stating the reason why.        | then the implementation is required to   |
+|                        |                                       |              |              | Clearable in overlays.                   | ignore it.                               |
++------------------------+---------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,spatial_boundary_id,ward
-    pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,sb1,,5
-    pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,,6
-    pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,sb1,7
+    id,ballot_style_id,electoral_district_ids,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,ward
+    pre90111,bs00010,ed001 ed002,false,loc70001,203 - GEORGETOWN,0203,pl00001,split13,5
 
 
 .. _single-csv-retention-contest:
@@ -1793,52 +1548,59 @@ contest where a candidate is retained in a position (e.g. a judge).
 +--------------+--------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-csv-schedule:
+.. _single-csv-schedule-with-timezone:
 
-schedule
-~~~~~~~~
+schedule_with_timezone
+~~~~~~~~~~~~~~~~~~~~~~
 
-A sub-portion of the schedule. This describes a range of days, along with one or
-more set of open and close times for those days, as well as the options
-describing whether or not appointments are necessary or possible.
+Defines a schedule of dates and hours of operation with an optional IANA time zone. If the time zone is omitted, hours are assumed to be in the local time of the enclosing entity. ScheduleWithTimezone has an optional ``label`` attribute.
+
+In overlay feeds, elements of type ScheduleWithTimezone are clearable using ``<ClearSchedule/>`` (or ``<ClearDefaultPollingHours/>``, etc. depending on the tag name).
 
 +------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                    | Data Type               | Required?    | Repeats?     | Description                              | Error Handling                           |
 +========================+=========================+==============+==============+==========================================+==========================================+
-| is_only_by_appointment | ``xs:boolean``          | Optional     | Single       | If true, the place is only open during   | If the field is invalid or not present,  |
-|                        |                         |              |              | the specified time window with an        | then the implementation is required to   |
+| time_zone              | ``xs:string``           | Optional     | Single       | The named IANA time zone (e.g.           | If the field is invalid or not present,  |
+|                        |                         |              |              | "America/New_York", "Etc/UTC",           | then the implementation is required to   |
+|                        |                         |              |              | "Etc/GMT+1"). Must match canonical       | ignore it.                               |
+|                        |                         |              |              | Continent/City format. If not present,   |                                          |
+|                        |                         |              |              | hours are assumed to be in local time.   |                                          |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| start_date             | ``xs:date``             | Optional     | Single       | The date on which this schedule begins.  | If the field is invalid or not present,  |
+|                        |                         |              |              |                                          | then the implementation is required to   |
+|                        |                         |              |              |                                          | ignore it.                               |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| end_date               | ``xs:date``             | Optional     | Single       | The date on which this schedule ends.    | If the field is invalid or not present,  |
+|                        |                         |              |              |                                          | then the implementation is required to   |
+|                        |                         |              |              |                                          | ignore it.                               |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| hours                  | :ref:`single-csv-hours` | Optional     | Repeats      | Blocks of hours during which the         | If the element is invalid or not         |
+|                        |                         |              |              | location is open on days in the date     | present, then the implementation is      |
+|                        |                         |              |              | range.                                   | required to ignore it.                   |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_open_24_hours       | ``xs:boolean``          | Optional     | Single       | Indicates if the location is open 24     | If the field is invalid or not present,  |
+|                        |                         |              |              | hours a day during this date range (e.g. | then the implementation is required to   |
+|                        |                         |              |              | 24-hour ballot drop boxes).              | ignore it.                               |
++------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_only_by_appointment | ``xs:boolean``          | Optional     | Single       | If true, the location is only open       | If the field is invalid or not present,  |
+|                        |                         |              |              | during the specified window with an      | then the implementation is required to   |
 |                        |                         |              |              | appointment.                             | ignore it.                               |
 +------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_or_by_appointment   | ``xs:boolean``          | Optional     | Single       | If true, the place is open during the    | If the field is invalid or not present,  |
-|                        |                         |              |              | hours specified time window and may also | then the implementation is required to   |
-|                        |                         |              |              | be open with an appointment.             | ignore it.                               |
+| is_or_by_appointment   | ``xs:boolean``          | Optional     | Single       | If true, the location is open during the | If the field is invalid or not present,  |
+|                        |                         |              |              | window and may also be open by           | then the implementation is required to   |
+|                        |                         |              |              | appointment.                             | ignore it.                               |
 +------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_subject_to_change   | ``xs:boolean``          | Optional     | Single       | If true, the place should be open during | If the field is invalid or not present,  |
-|                        |                         |              |              | the specified time window, but may be    | then the implementation is required to   |
-|                        |                         |              |              | subject to change. People should contact | ignore it.                               |
-|                        |                         |              |              | prior to arrival to confirm hours are    |                                          |
-|                        |                         |              |              | still accurate.                          |                                          |
-+------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_date             | ``xs:date``             | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                        |                         |              |              | start and end times and options begin.   | then the implementation is required to   |
+| is_subject_to_change   | ``xs:boolean``          | Optional     | Single       | If true, hours may be subject to change. | If the field is invalid or not present,  |
+|                        |                         |              |              | Voters should verify prior to arrival.   | then the implementation is required to   |
 |                        |                         |              |              |                                          | ignore it.                               |
-+------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| end_date               | ``xs:date``             | Optional     | Single       | The date at which this collection of     | If the field is invalid or not present,  |
-|                        |                         |              |              | start and end times and options end.     | then the implementation is required to   |
-|                        |                         |              |              |                                          | ignore it.                               |
-+------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_id          | ``xs:IDREF``            | **Required** | Single       | A reference to the associated hours_open | If the field is invalid, then the        |
-|                        |                         |              |              | element.                                 | implementation is required to ignore it. |
 +------------------------+-------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,start_time,end_time,is_only_by_appointment,is_or_by_appointment,is_subject_to_change,start_date,end_date,hours_open_id
-    sch001,07:00:00-06:00,22:00:00-06:00,,true,,2016-10-10,2016-10-12,ho001
-    sch002,09:00:00-06:00,20:00:00-06:00,true,,,2016-10-13,2016-10-15,ho001
-    sch003,08:00:00-06:00,14:00:00-06:00,,,true,2016-10-10,2016-10-15,ho002
+    id,time_zone,start_date,end_date,is_open_24_hours,is_only_by_appointment,is_or_by_appointment,is_subject_to_change
+    sch001,America/New_York,2024-10-10,2024-10-12,false,false,true,false
+    sch002,America/New_York,2024-10-13,2024-10-15,false,true,false,false
 
 
 .. _single-csv-simple-address-type:
@@ -1846,34 +1608,45 @@ describing whether or not appointments are necessary or possible.
 simple_address_type
 ~~~~~~~~~~~~~~~~~~~
 
-A ``SimpleAddressType`` represents a structured address.
+A ``SimpleAddressType`` represents a structured physical or mailing address. It has an optional attribute, ``language``, which defaults to ``i-default``.
 
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag               | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===================+===============+==============+==============+==========================================+==========================================+
-| structured_line_1 | ``xs:string`` | **Required** | Single       | The address line for a structured        | If no ``Line1`` is provided, the         |
-|                   |               |              |              | address. Should include the street       | implementation should ignore the         |
-|                   |               |              |              | number, street name, and any prefix and  | ``SimpleAddressType``.                   |
-|                   |               |              |              | suffix.                                  |                                          |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_line_2 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line2`` is provided, the         |
-|                   |               |              |              |                                          | implementation should ignore it.         |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_line_3 | ``xs:string`` | Optional     | Single       | Additional field for an address          | If no ``Line3`` is provided, the         |
-|                   |               |              |              |                                          | implementation should ignore it.         |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_city   | ``xs:string`` | **Required** | Single       | The City value of a structured address.  | If ``City`` is not provided, the         |
-|                   |               |              |              |                                          | implementation should ignore the         |
-|                   |               |              |              |                                          | ``SimpleAddressType``.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_state  | ``xs:string`` | **Required** | Single       | The State value of a structured address. | If ``State`` is not provided, the        |
-|                   |               |              |              |                                          | implementation should ignore the         |
-|                   |               |              |              |                                          | ``SimpleAddressType``.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| structured_zip    | ``xs:string`` | Optional     | Single       | The ZIP code of a structured address.    | If ``Zip`` is not provided, the          |
-|                   |               |              |              |                                          | implementation should ignore the         |
-|                   |               |              |              |                                          | ``SimpleAddressType``.                   |
-+-------------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+When multiple ``SimpleAddressType`` elements are provided on an entity (such as ``AddressStructured`` on a polling location, or ``MailingAddress`` / ``PhysicalAddress`` on contact information), each must have a distinct ``language`` attribute to specify the address in multiple languages.
+
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag           | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============+===============+==============+==============+==========================================+==========================================+
+| location_name | ``xs:string`` | Optional     | Single       | The name of the location or facility     | If the field is invalid or not present,  |
+|               |               |              |              | (e.g. "Albemarle High School").          | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| address_line  | ``xs:string`` | **Required** | Repeats      | Street address line(s). Multiple         | If no AddressLine is provided, the       |
+|               |               |              |              | AddressLine tags may appear in order     | implementation should ignore the         |
+|               |               |              |              | (e.g. street address, suite/room).       | SimpleAddressType containing it.         |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| city          | ``xs:string`` | Optional     | Single       | The city, town, or municipality.         | If the field is invalid or not present,  |
+|               |               |              |              |                                          | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| county        | ``xs:string`` | Optional     | Single       | The county or parish.                    | If the field is invalid or not present,  |
+|               |               |              |              |                                          | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| region        | ``xs:string`` | Optional     | Single       | The state, province, or primary          | If the field is invalid or not present,  |
+|               |               |              |              | sub-national region (e.g. "VA").         | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| country       | ``xs:string`` | Optional     | Single       | The country (e.g. "USA").                | If the field is invalid or not present,  |
+|               |               |              |              |                                          | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| world_region  | ``xs:string`` | Optional     | Single       | Global or continental region if          | If the field is invalid or not present,  |
+|               |               |              |              | applicable.                              | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| postal_code   | ``xs:string`` | Optional     | Single       | The postal code or ZIP code.             | If the field is invalid or not present,  |
+|               |               |              |              |                                          | then the implementation is required to   |
+|               |               |              |              |                                          | ignore it.                               |
++---------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
 .. _single-csv-source:
@@ -1881,53 +1654,45 @@ A ``SimpleAddressType`` represents a structured address.
 source
 ~~~~~~
 
-The Source object represents the organization that is publishing the information. This object is
-the only required object in the feed file, and only one source object is allowed to be present.
+The Source object represents the organization publishing the information. In a VIP 7.0 main feed file, exactly one Source object must be present. Source is excluded from feed overlays.
 
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                         | Data Type       | Required?    | Repeats?     | Description                              | Error Handling                           |
-+=============================+=================+==============+==============+==========================================+==========================================+
-| name                        | ``xs:string``   | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
-|                             |                 |              |              | that is providing the information.       | implementation is required to ignore the |
-|                             |                 |              |              |                                          | ``Source`` element containing it.        |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vip_id                      | ``xs:string``   | **Required** | Single       | Specifies the ID of the organization.    | If the field is invalid, then the        |
-|                             |                 |              |              | VIP uses FIPS_ codes for this ID.        | implementation is required to ignore the |
-|                             |                 |              |              |                                          | ``Source`` element containing it.        |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| date_time                   | ``xs:dateTime`` | **Required** | Single       | Specifies the date and time of the feed  | If the field is invalid, then the        |
-|                             |                 |              |              | production. The date/time is considered  | implementation is required to ignore the |
-|                             |                 |              |              | to be in the timezone local to the       | ``Source`` element containing it.        |
-|                             |                 |              |              | organization.                            |                                          |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| description                 | ``xs:string``   | Optional     | Single       | Specifies both the nature of the         | If the element is invalid or not         |
-|                             |                 |              |              | organization providing the data and what | present, then the implementation is      |
-|                             |                 |              |              | data is in the feed.                     | required to ignore it.                   |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| organization_uri            | ``xs:string``   | Optional     | Single       | Specifies a URI to the home page of the  | If the field is invalid or not present,  |
-|                             |                 |              |              | organization publishing the data.        | then the implementation is required to   |
-|                             |                 |              |              |                                          | ignore it.                               |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| feed_contact_information_id | ``xs:IDREF``    | Optional     | Single       | Reference to the                         | If the element is invalid or not         |
-|                             |                 |              |              | :ref:`single-csv-person` who will        | present, then the implementation is      |
-|                             |                 |              |              | respond to inquiries about the           | required to ignore it.                   |
-|                             |                 |              |              | information contained within the file.   |                                          |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| terms_of_use_uri            | ``xs:anyURI``   | Optional     | Single       | Specifies the website where the Terms of | If the field is invalid or not present,  |
-|                             |                 |              |              | Use for the information in this file can | then the implementation is required to   |
-|                             |                 |              |              | be found.                                | ignore it.                               |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| version                     | ``xs:string``   | Optional     | Single       | Specifies the version of the data        | If the field is invalid or not present,  |
-|                             |                 |              |              |                                          | then the implementation is required to   |
-|                             |                 |              |              |                                          | ignore it.                               |
-+-----------------------------+-----------------+--------------+--------------+------------------------------------------+------------------------------------------+
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                         | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
++=============================+==========================================+==============+==============+==========================================+==========================================+
+| date_time                   | ``xs:dateTime``                          | **Required** | Single       | Specifies the date and time of feed      | If the field is invalid, then the        |
+|                             |                                          |              |              | production in local time.                | implementation is required to ignore the |
+|                             |                                          |              |              |                                          | ``Source`` element containing it.        |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| description                 | :ref:`single-csv-internationalized-text` | Optional     | Single       | Describes the organization and the data  | If the element is invalid or not         |
+|                             |                                          |              |              | contained in the feed.                   | present, then the implementation is      |
+|                             |                                          |              |              |                                          | required to ignore it.                   |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| feed_contact_information_id | :ref:`single-csv-contact-information`    | Optional     | Single       | Contact information for inquiries about  | If the element is invalid or not         |
+|                             |                                          |              |              | the feed data.                           | present, then the implementation is      |
+|                             |                                          |              |              |                                          | required to ignore it.                   |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                        | ``xs:string``                            | **Required** | Single       | Specifies the name of the organization   | If the field is invalid, then the        |
+|                             |                                          |              |              | publishing the feed.                     | implementation is required to ignore the |
+|                             |                                          |              |              |                                          | ``Source`` element containing it.        |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| organization_uri            | :ref:`single-csv-internationalized-uri`  | Optional     | Single       | Web address of the organization          | If the element is invalid or not         |
+|                             |                                          |              |              | publishing the feed.                     | present, then the implementation is      |
+|                             |                                          |              |              |                                          | required to ignore it.                   |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| terms_of_use_uri            | :ref:`single-csv-internationalized-uri`  | Optional     | Single       | Web address where Terms of Use for the   | If the element is invalid or not         |
+|                             |                                          |              |              | feed data can be found.                  | present, then the implementation is      |
+|                             |                                          |              |              |                                          | required to ignore it.                   |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| vip_id                      | ``xs:string``                            | **Required** | Single       | FIPS code identifying the state or       | If the field is invalid, then the        |
+|                             |                                          |              |              | jurisdiction.                            | implementation is required to ignore the |
+|                             |                                          |              |              |                                          | ``Source`` element containing it.        |
++-----------------------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version
-    source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,"State Board of Elections, Commonwealth of Virginia",http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
+    id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id
+    source01,2024-10-24T14:25:28,SBE is official source,"State Board of Elections",http://www.sbe.virginia.gov/,http://example.com/terms,51
 
 
 .. _single-csv-spatial-boundary:
@@ -1953,184 +1718,91 @@ The ``SpatialBoundary`` object defines a boundary in space. This boundary is usu
     sb1,egf1
 
 
-.. _single-csv-state:
-
-state
-~~~~~
-
-The State object includes state-wide election information. The ID attribute is
-recommended to be the state's FIPS code, along with the prefix "st".
-
-+----------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                        | Data Type                              | Required?    | Repeats?     | Description                              | Error Handling                           |
-+============================+========================================+==============+==============+==========================================+==========================================+
-| election_administration_id | ``xs:IDREF``                           | Optional     | Single       | Links to the state's election            | If the field is invalid or not present,  |
-|                            |                                        |              |              | administration object.                   | then the implementation is required to   |
-|                            |                                        |              |              |                                          | ignore it.                               |
-+----------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers       | :ref:`single-csv-external-identifiers` | Optional     | Single       | Other identifier for the state that      | If the element is invalid or not         |
-|                            |                                        |              |              | relates to another dataset (e.g.         | present, then the implementation is      |
-|                            |                                        |              |              | `OCD-ID`_).                              | required to ignore it.                   |
-+----------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                       | ``xs:string``                          | **Required** | Single       | Specifiers the name of a state, such as  | If the field is invalid, then the        |
-|                            |                                        |              |              | Alabama.                                 | implementation is required to ignore the |
-|                            |                                        |              |              |                                          | ``State`` element containing it.         |
-+----------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| polling_location_ids       | ``xs:IDREFS``                          | Optional     | Single       | Specifies a link to the state's          | If the field is invalid or not present,  |
-|                            |                                        |              |              | :ref:`polling locations                  | then the implementation is required to   |
-|                            |                                        |              |              | <single-csv-polling-location>`. If early | ignore it.                               |
-|                            |                                        |              |              | vote centers or ballot drop locations    |                                          |
-|                            |                                        |              |              | are state-wide (e.g., anyone in the      |                                          |
-|                            |                                        |              |              | state can use them), they can be         |                                          |
-|                            |                                        |              |              | specified here, but you are encouraged   |                                          |
-|                            |                                        |              |              | to only use the                          |                                          |
-|                            |                                        |              |              | :ref:`single-csv-precinct` element.      |                                          |
-+----------------------------+----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-
-.. code-block:: csv-table
-   :linenos:
-
-
-    id,election_administration_id,external_identifier_type,external_identifier_othertype,external_identifier_value,name,polling_location_ids
-    st51,ea123,ocd-id,,ocd-division/country:us/state:va,Virginia,
-
-
 .. _single-csv-street-segment:
 
 street_segment
 ~~~~~~~~~~~~~~
 
-A Street Segment objection represents a portion of a street and the links to the precinct that this
-geography (i.e., segment) is contained within. The start address house number must be less than the
-end address house number unless the segment consists of only one address, in which case these values
-are equal.
+A StreetSegment object represents a range of house numbers along a street and links them to the containing :ref:`single-csv-precinct`. Street segments are excluded from feed overlays.
 
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                    | Data Type                  | Required?    | Repeats?     | Description                              | Error Handling                           |
 +========================+============================+==============+==============+==========================================+==========================================+
-| address_direction      | ``xs:string``              | Optional     | Single       | Specifies the (inter-)cardinal direction | If the field is invalid or not present,  |
-|                        |                            |              |              | of the entire address. An example is     | then the implementation is required to   |
-|                        |                            |              |              | "NE" for the address "100 E Capitol St   | ignore it.                               |
-|                        |                            |              |              | NE."                                     |                                          |
+| address_direction      | ``xs:string``              | Optional     | Single       | Specifies trailing directional component | If the field is invalid or not present,  |
+|                        |                            |              |              | of the address (e.g. "NE").              | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| city                   | ``xs:string``              | **Required** | Single       | The city specifies the city or town of   | If the field is invalid, then the        |
-|                        |                            |              |              | the address.                             | implementation is required to ignore the |
+| city                   | ``xs:string``              | **Required** | Single       | City or municipality name.               | If the field is invalid, then the        |
+|                        |                            |              |              |                                          | implementation is required to ignore the |
 |                        |                            |              |              |                                          | ``StreetSegment`` element containing it. |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| includes_all_addresses | ``xs:boolean``             | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
-|                        |                            |              |              | address on this street. If this is       | then the implementation is required to   |
-|                        |                            |              |              | *true*, then the values of               | ignore it.                               |
-|                        |                            |              |              | **StartHouseNumber** and                 |                                          |
-|                        |                            |              |              | **EndHouseNumber** should be ignored.    |                                          |
-|                        |                            |              |              | The value of **OddEvenBoth** must be     |                                          |
-|                        |                            |              |              | *both*.                                  |                                          |
+| includes_all_addresses | ``xs:boolean``             | Optional     | Single       | If true, the segment covers all          | If the field is invalid or not present,  |
+|                        |                            |              |              | addresses on this street. OddEvenBoth    | then the implementation is required to   |
+|                        |                            |              |              | must be "both".                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| includes_all_streets   | ``xs:boolean``             | Optional     | Single       | Specifies if the segment covers every    | If the field is invalid or not present,  |
-|                        |                            |              |              | street in this city. If this is *true*,  | then the implementation is required to   |
-|                        |                            |              |              | then the values of **OddEvenBoth**,      | ignore it.                               |
-|                        |                            |              |              | **StartHouseNumber**,                    |                                          |
-|                        |                            |              |              | **EndHouseNumber**, **StreetName**, and  |                                          |
-|                        |                            |              |              | **Zip** should be ignored.               |                                          |
+| includes_all_streets   | ``xs:boolean``             | Optional     | Single       | If true, covers all streets in the city. | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| odd_even_both          | :ref:`single-csv-oeb-enum` | Optional     | Single       | Specifies whether the odd side of the    | If the field is not present or invalid,  |
-|                        |                            |              |              | street (in terms of house numbers), the  | the implementation is required to ignore |
-|                        |                            |              |              | even side, or both are in included in    | the StreetSegment containing it.         |
-|                        |                            |              |              | the street segment.                      |                                          |
+| odd_even_both          | :ref:`single-csv-oeb-enum` | **Required** | Single       | Specifies whether odd, even, or both     | If OddEvenBoth is missing or invalid,    |
+|                        |                            |              |              | sides of the street are included from    | the implementation is required to ignore |
+|                        |                            |              |              | :ref:`single-csv-oeb-enum`.              | the StreetSegment containing it.         |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| precinct_id            | ``xs:IDREF``               | **Required** | Single       | References the                           | If the field is invalid, then the        |
-|                        |                            |              |              | :ref:`single-csv-precinct` that contains | implementation is required to ignore the |
-|                        |                            |              |              | the entire street segment. If a precinct | ``StreetSegment`` element containing it. |
-|                        |                            |              |              | has a :ref:`single-csv-spatial-boundary` |                                          |
-|                        |                            |              |              | which also contains the entire street    |                                          |
-|                        |                            |              |              | segment, then the precinct assignment    |                                          |
-|                        |                            |              |              | from the segment will be preferred over  |                                          |
-|                        |                            |              |              | the assignment defined by the spatial    |                                          |
-|                        |                            |              |              | boundary.                                |                                          |
-+------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| start_house_number     | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
-|                        |                            |              |              | segment starts. This value is necessary  | **IncludesAllStreets** are true, if the  |
-|                        |                            |              |              | for the street segment to make any       | field is not present or invalid, the     |
-|                        |                            |              |              | sense. Unless **IncludesAllAddresses**   | implementation is required to ignore the |
-|                        |                            |              |              | or **IncludesAllStreets** are true, this | StreetSegment element containing it. If  |
-|                        |                            |              |              | value must be less than or equal to      | the **StartHouseNumber** is greater than |
-|                        |                            |              |              | **EndHouseNumber**. If                   | the **EndHouseNumber**, the              |
-|                        |                            |              |              | **IncludesAllAddresses** or              | implementation should ignore the element |
-|                        |                            |              |              | **IncludesAllStreets** are true, this    | containing them.                         |
-|                        |                            |              |              | value is ignored.                        |                                          |
-+------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| end_house_number       | ``xs:integer``             | Optional     | Single       | The house number at which the street     | Unless **IncludesAllAddresses** or       |
-|                        |                            |              |              | segment ends. This value is necessary    | **IncludesAllStreets** are true, if the  |
-|                        |                            |              |              | for the street segment to make any       | field is not present or invalid, the     |
-|                        |                            |              |              | sense. Unless **IncludesAllAddresses**   | implementation is required to ignore the |
-|                        |                            |              |              | or **IncludesAllStreets** are true, it   | StreetSegment element containing it. If  |
-|                        |                            |              |              | must be greater than or equal to         | the **EndHouseNumber** is less than the  |
-|                        |                            |              |              | **StartHouseNumber**. If                 | **StartHouseNumber**, the implementation |
-|                        |                            |              |              | **IncludesAllAddresses** or              | should ignore the element containing it. |
-|                        |                            |              |              | **IncludesAllStreets** are true, this    |                                          |
-|                        |                            |              |              | value is ignored.                        |                                          |
-+------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| house_number_prefix    | ``xs:string``              | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
-|                        |                            |              |              | letters or slashes (e.g., 'B' in 'B22    | then the implementation is required to   |
-|                        |                            |              |              | Main St'). If this value is present then | ignore it.                               |
-|                        |                            |              |              | **StartHouseNumber** must be equal to    |                                          |
-|                        |                            |              |              | **EndHouseNumber**. This field cannot be |                                          |
-|                        |                            |              |              | used if **IncludesAllAddresses** or      |                                          |
-|                        |                            |              |              | **IncludesAllStreets** are true.         |                                          |
-+------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| house_number_suffix    | ``xs:string``              | Optional     | Single       | Part of a street address. It may contain | If the field is invalid or not present,  |
-|                        |                            |              |              | letters or slashes (e.g., 1/2 in '22 1/2 | then the implementation is required to   |
-|                        |                            |              |              | Main St'). If this value is present then | ignore it.                               |
-|                        |                            |              |              | **StartHouseNumber** must be equal to    |                                          |
-|                        |                            |              |              | **EndHouseNumber**. This field cannot be |                                          |
-|                        |                            |              |              | used if **IncludesAllAddresses** or      |                                          |
-|                        |                            |              |              | **IncludesAllStreets** are true.         |                                          |
-+------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| state                  | ``xs:string``              | **Required** | Single       | Specifies the two-letter state           | If the field is invalid, then the        |
-|                        |                            |              |              | abbreviation of the address.             | implementation is required to ignore the |
+| precinct_id            | ``xs:IDREF``               | **Required** | Single       | References the containing                | If the field is invalid, then the        |
+|                        |                            |              |              | :ref:`single-csv-precinct`.              | implementation is required to ignore the |
 |                        |                            |              |              |                                          | ``StreetSegment`` element containing it. |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| street_direction       | ``xs:string``              | Optional     | Single       | Specifies the (inter-)cardinal direction | If the field is invalid or not present,  |
-|                        |                            |              |              | of the street address (e.g., the "E" in  | then the implementation is required to   |
-|                        |                            |              |              | "100 E Capitol St NE").                  | ignore it.                               |
+| start_house_number     | ``xs:integer``             | Optional     | Single       | Starting house number for the segment    | If the field is invalid or not present,  |
+|                        |                            |              |              | range.                                   | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| street_name            | ``xs:string``              | Optional     | Single       | Represents the name of the street for    | If the field is invalid or not present,  |
-|                        |                            |              |              | the address. A special wildcard, "*",    | then the implementation is required to   |
-|                        |                            |              |              | denotes every street in the given        | ignore it.                               |
-|                        |                            |              |              | city/town. It optionally may contain     |                                          |
-|                        |                            |              |              | street direction, street suffix or       |                                          |
-|                        |                            |              |              | address direction (e.g., both "Capitol"  |                                          |
-|                        |                            |              |              | and "E Capitol St NE" are acceptable for |                                          |
-|                        |                            |              |              | the address "100 E Capitol St NE"),      |                                          |
-|                        |                            |              |              | however this is not preferred. Preferred |                                          |
-|                        |                            |              |              | is street name alone (e.g. "Capitol").   |                                          |
+| end_house_number       | ``xs:integer``             | Optional     | Single       | Ending house number for the segment      | If the field is invalid or not present,  |
+|                        |                            |              |              | range.                                   | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| street_suffix          | ``xs:string``              | Optional     | Single       | Represents the abbreviated,              | If the field is invalid or not present,  |
-|                        |                            |              |              | non-directional suffix to the street     | then the implementation is required to   |
-|                        |                            |              |              | name. An example is "St" for the address | ignore it.                               |
-|                        |                            |              |              | "100 E Capitol St NE."                   |                                          |
+| house_number_prefix    | ``xs:string``              | Optional     | Single       | Prefix to the house number if any.       | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| unit_number            | ``xs:string``              | Optional     | Repeats      | The apartment/unit number for a street   | If the field is invalid or not present,  |
-|                        |                            |              |              | segment. If this value is present then   | then the implementation is required to   |
-|                        |                            |              |              | **StartHouseNumber** must be equal to    | ignore it.                               |
-|                        |                            |              |              | **EndHouseNumber**. This field cannot be |                                          |
-|                        |                            |              |              | used if **IncludesAllAddresses** or      |                                          |
-|                        |                            |              |              | **IncludesAllStreets** are true.         |                                          |
+| house_number_suffix    | ``xs:string``              | Optional     | Single       | Suffix to the house number if any.       | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| zip                    | ``xs:string``              | Optional     | Single       | Specifies the zip code of the address.   | If the field is invalid or not present,  |
-|                        |                            |              |              | It may be 5 or 9 digits, and it may      | then the implementation is required to   |
-|                        |                            |              |              | include a hyphen ('-'). It is required   | ignore it.                               |
-|                        |                            |              |              | as it helps with geocoding, which is     |                                          |
-|                        |                            |              |              | crucial for distributors.                |                                          |
+| region                 | ``xs:string``              | **Required** | Single       | State, province, or primary sub-national | If the field is invalid, then the        |
+|                        |                            |              |              | region (e.g. "VA").                      | implementation is required to ignore the |
+|                        |                            |              |              |                                          | ``StreetSegment`` element containing it. |
++------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| country                | ``xs:string``              | Optional     | Single       | Country code or name (e.g. "USA").       | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
++------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| street_direction       | ``xs:string``              | Optional     | Single       | Leading directional prefix for the       | If the field is invalid or not present,  |
+|                        |                            |              |              | street (e.g. "N", "NW").                 | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
++------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| street_name            | ``xs:string``              | Optional     | Single       | Street name.                             | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
++------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| street_suffix          | ``xs:string``              | Optional     | Single       | Street type suffix (e.g. "St", "Ave",    | If the field is invalid or not present,  |
+|                        |                            |              |              | "Rd").                                   | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
++------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| unit_number            | ``xs:string``              | Optional     | Repeats      | Unit, apartment, or suite number(s).     | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
++------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| postal_code            | ``xs:string``              | Optional     | Single       | Postal code or ZIP code.                 | If the field is invalid or not present,  |
+|                        |                            |              |              |                                          | then the implementation is required to   |
+|                        |                            |              |              |                                          | ignore it.                               |
 +------------------------+----------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,house_number_prefix,house_number_suffix,state,street_direction,street_name,street_suffix,unit_number,zip
-    ss000001,N,Washington,false,false,odd,pre90113,101,199,,,DC,NW,Delaware,St,,20001
-    ss000002,S,Washington,true,false,both,pre90112,,,,,DC,SE,Wisconsin,Ave,,20002
-    ss000003,N,Washington,false,false,even,pre90113,100,100,A,1/2,DC,NW,Delaware,St,,20001
+    id,address_direction,city,includes_all_addresses,includes_all_streets,odd_even_both,precinct_id,start_house_number,end_house_number,house_number_prefix,house_number_suffix,region,country,street_direction,street_name,street_suffix,unit_number,postal_code
+    ss000001,N,Washington,false,false,odd,pre90113,101,199,,,DC,USA,NW,Delaware,St,,20001
+    ss000002,S,Washington,true,false,both,pre90112,,,,,DC,USA,SE,Wisconsin,Ave,,20002
 
 
 .. _single-csv-term:
@@ -2155,33 +1827,14 @@ term
 +-----------------+------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 
-.. _single-csv-time-with-zone:
+.. _single-csv-time-without-zone:
 
-time_with_zone
-~~~~~~~~~~~~~~
+time_without_zone
+~~~~~~~~~~~~~~~~~
 
-A string pattern restricting the value to a time with an included offset from
-UTC. The pattern is
+A time value with no time zone. The time zone is specified in an enclosing structure, such as a :ref:`single-csv-schedule-with-timezone` element. The pattern is:
 
-``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))``
-
-.. code-block:: xml
-   :linenos:
-
-   <HoursOpen id="hours0001">
-     <Schedule>
-       <Hours>
-         <StartTime>06:00:00-05:00</StartTime>
-         <EndTime>12:00:00-05:00</EndTime>
-       </Hours>
-       <Hours>
-         <StartTime>13:00:00-05:00</StartTime>
-         <EndTime>19:00:00-05:00</EndTime>
-       </Hours>
-       <StartDate>2013-11-05</StartDate>
-       <EndDate>2013-11-05</EndDate>
-     </Schedule>
-   </HoursOpen>
+``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))``
 
 
 .. _single-csv-voter-service:
@@ -2401,6 +2054,8 @@ Geospatial file formats that are supported by the VIP specification.
 identifier_type
 ~~~~~~~~~~~~~~~
 
+Enumeration describing the set of supported external identifier types for entities such as contests, districts, candidates, and localities.
+
 +----------------+----------------------------------------------------+
 | Tag            | Description                                        |
 +================+====================================================+
@@ -2418,9 +2073,35 @@ identifier_type
 | state-level    | An identifier generated or used by state           |
 |                | governments or organizations.                      |
 +----------------+----------------------------------------------------+
-| other          | Any identifier which doesn't fall into any of the  |
+| other          | Any identifier which does not fall into any of the |
 |                | above categories.                                  |
 +----------------+----------------------------------------------------+
+
+
+.. _single-csv-location-identifier-type:
+
+location_identifier_type
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enumeration describing the set of supported location identifier types.
+
++--------------+----------------------------------------------------+
+| Tag          | Description                                        |
++==============+====================================================+
+| latlong      | A latitude/longitude pair, e.g.                    |
+|              | `40.6970243,-74.1443098`.                          |
++--------------+----------------------------------------------------+
+| pluscode     | An Open Location Code / Plus Code, e.g.            |
+|              | `87G8PXRX+86`.                                     |
++--------------+----------------------------------------------------+
+| geocoder-id  | A geocoder- or platform-specific identifier such   |
+|              | as a Google Place ID. The enclosing element        |
+|              | specifies the data provider along with the value.  |
++--------------+----------------------------------------------------+
+| other        | Any location identifier that does not fall into    |
+|              | the above categories. When using this value,       |
+|              | OtherType should be specified.                     |
++--------------+----------------------------------------------------+
 
 
 .. _single-csv-oeb-enum:
@@ -2453,6 +2134,27 @@ office_term_type
 | unexpired-term | This election is for an office for which the       |
 |                | original term is not yet complete.                 |
 +----------------+----------------------------------------------------+
+
+
+.. _single-csv-polling-location-type:
+
+polling_location_type
+~~~~~~~~~~~~~~~~~~~~~
+
+A list of the various types of polling locations.
+
++---------------+----------------------------------------------------+
+| Tag           | Description                                        |
++===============+====================================================+
+| InPersonDayOf | A location for in-person voting on election day.   |
++---------------+----------------------------------------------------+
+| InPersonEarly | A location for in-person voting before election    |
+|               | day.                                               |
++---------------+----------------------------------------------------+
+| DropOff       | A location for dropping off a completed early or   |
+|               | absentee ballot.  This includes both staffed       |
+|               | locations and ballot drop boxex.                   |
++---------------+----------------------------------------------------+
 
 
 .. _single-csv-vote-variation:

@@ -4,149 +4,118 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
-      id,address_line_1,address_line_2,address_line_3,directions,email,fax,hours,hours_open_id,latitude,longitude,latlng_source,name,phone,uri,parent_id
-      ci0827,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,off001
-      ci0828,The White House,1600 Pennsylvania Ave,,,josh@example.com,,Early to very late,,,,,Josh Lyman,555-111-2222,http://lemonlyman.example.com,vs01
-description: |-
-  For defining contact information about objects such as persons, boards of authorities,
-  organizations, etc. ContactInformation is always a sub-element of another object (e.g.
-  :ref:`$$$-election-administration`, :ref:`$$$-office`,
-  :ref:`$$$-person`, :ref:`$$$-source`). ContactInformation has an optional attribute
-  ``label``, which allows the feed to refer back to the original label for the information
-  (e.g. if the contact information came from a CSV, ``label`` may refer to a row ID).
+      label,directions,email,fax,hours,name,phone,uri
+      ci001,Use entrance on Main St,info@example.gov,,08:00-17:00,Elections Office,555-0100,https://example.gov
+description: Defines contact information (addresses, location identifiers, phone numbers,
+  emails, schedules) for persons, election offices, voter services, or polling locations.
+  ContactInformation has an optional attribute ``label``.
 post: |-
-  .. _$$$-name-address-line-usage:
-
-  ``Name`` and ``AddressLine`` Usage Note
-  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-  The ``Name`` and ``AddressLine`` fields should be chosen so that a display
-  or mailing address can be constructed programmatically by joining the
-  ``Name`` and ``AddressLine`` fields together.  For example, for the
-  following address::
-
-      Department of Elections
-      1 Dr. Carlton B. Goodlett Place, Room 48
-      San Francisco, CA 94102
-
-  The name could be "Department of Elections" and the first address line
-  could be "1 Dr. Carlton B. Goodlett Place, Room 48."
-
-  However, VIP does not yet support the representation of mailing addresses
-  whose "name" portion spans more than one line, for example::
-
-      California Secretary of State
-      Elections Division
-      1500 11th Street
-      Sacramento, CA 95814
-
-  For addresses like the above, we recommend choosing a name like, "California
-  Secretary of State, Elections Division" with "1500 11th Street" as the
-  first address line. This would result in a programmatically constructed
-  address like the following::
-
-      California Secretary of State, Elections Division
-      1500 11th Street
-      Sacramento, CA 95814
-
   .. code-block:: xml
      :linenos:
 
-     <ContactInformation label="ci10861a">
-        <AddressLine>1600 Pennsylvania Ave</AddressLine>
-        <AddressLine>Washington, DC 20006</AddressLine>
-        <Email>president@whitehouse.gov</Email>
-        <Phone>202-456-1111</Phone>
-        <Phone annotation="TDD">202-456-6213</Phone>
-        <Uri>http://www.whitehouse.gov</Uri>
+     <ContactInformation label="office_contact">
+        <PhysicalAddress language="en">
+           <LocationName>City Hall</LocationName>
+           <AddressLine>100 N Main St, Room 101</AddressLine>
+           <City>Springfield</City>
+           <Region>IL</Region>
+           <PostalCode>62701</PostalCode>
+        </PhysicalAddress>
+        <LocationIdentifier provider="google">
+           <Type>pluscode</Type>
+           <Value>86HJQPRX+86</Value>
+        </LocationIdentifier>
+        <Email>elections@springfield.gov</Email>
+        <Phone>217-555-0100</Phone>
+        <Schedule>
+           <TimeZone>America/Chicago</TimeZone>
+           <Hours>
+              <StartTime>08:30:00</StartTime>
+              <EndTime>16:30:00</EndTime>
+           </Hours>
+        </Schedule>
+        <Uri>https://elections.springfield.gov</Uri>
      </ContactInformation>
-primary_type_on: csv
 tags:
-- _name: AddressStructured
-  csv-header-name: :ref:`$$$-simple-address-type`
-  csv-type: simple-address-type
-  description: Represents the various structured parts of an address to a polling
-    location.  If multiple addresses are provided, each one must have a different
-    language attribute.  All addresses are considered equally authoritative.  Multiple
-    addresses are supported in XML format only; CSV files must have exactly one address.
-  error: |-
-    **AddressStructured** should be present for a given Contact Information.
-    If none is present, the implementation is required to ignore the ``ContactInformation`` element containing it.
-    If more than one **AddressStructured** exists with the same language code, the implementation is required to ignore the ``ContactInformation`` element containing it.
+- _name: MailingAddress
+  csv-header-name: mailing_address
+  csv-type: SimpleAddressType
+  description: Structured mailing address for the contact. Multiple addresses in different
+    languages can be specified.
+  error_then: =must-ignore
   repeating: true
-  required: true
   type: SimpleAddressType
+- _name: PhysicalAddress
+  csv-header-name: physical_address
+  csv-type: SimpleAddressType
+  description: Structured physical address for the contact. Multiple addresses in
+    different languages can be specified.
+  error_then: =must-ignore
+  repeating: true
+  type: SimpleAddressType
+- _name: LocationIdentifier
+  csv-header-name: location_identifier
+  csv-type: LocationIdentifier
+  description: External location identifier(s) (e.g. Plus Code, coordinates).
+  error_then: =must-ignore
+  repeating: true
+  type: LocationIdentifier
 - _name: Directions
   csv-header-name: directions
-  csv-type: xs:string
-  description: Specifies further instructions for locating this entity.
+  csv-type: InternationalizedText
+  description: Directions for finding or reaching the contact location.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Email
   csv-header-name: email
-  csv-type: xs:string
-  description: An email address for the contact.  Multiple languages may be provided
-    if there are distinct e-mail addresses for communicating in different languages.
+  csv-type: InternationalizedText
+  description: Email address(es) for the contact.
   error_then: =must-ignore
   repeating: true
   type: InternationalizedText
 - _name: Fax
   csv-header-name: fax
-  csv-type: xs:string
-  description: A fax line for the contact.  Multiple languages may be provided if
-    there are distinct numbers for communicating in different languages.
+  csv-type: InternationalizedText
+  description: Fax number(s) for the contact.
   error_then: =must-ignore
   repeating: true
   type: InternationalizedText
-- _name: Hours **[deprecated]**
+- _name: Hours
   csv-header-name: hours
-  csv-type: xs:string
-  description: 'Contains the hours (in local time) that the location is open *(NB:
-    this element is deprecated in favor of the more structured :ref:`$$$-hours-open`
-    element. It is strongly encouraged that data providers move toward contributing
-    hours in this format)*.'
+  csv-type: InternationalizedText
+  description: 'Operating hours as free-form text. *(NB: deprecated in favor of :ref:`$$$-schedule-with-timezone`)*.'
   error_then: =must-ignore
   type: InternationalizedText
-- _name: HoursOpen
-  csv-header-name: hours_open
-  csv-type: ???
-  description: An `$$$-hours-open` element, which lists the hours of operation for
-    a location.
+- _name: Schedule
+  csv-header-name: schedule
+  csv-type: ScheduleWithTimezone
+  description: Structured schedule with dates and operating hours.
   error_then: =must-ignore
-  type: xs:IDREF
+  repeating: true
+  type: ScheduleWithTimezone
 - _name: LatLng
-  csv-header-name: lat_long
+  csv-header-name: lat_lng
   csv-type: LatLng
-  description: Specifies the latitude and longitude of this entity.
+  description: Latitude and longitude coordinates.
   error_then: =must-ignore
   type: LatLng
 - _name: Name
   csv-header-name: name
-  csv-type: xs:string
-  description: The name of the location or contact. :ref:`See usage note. <$$$-name-address-line-usage>`
+  csv-type: InternationalizedText
+  description: Person or place name associated with this contact information.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Phone
   csv-header-name: phone
-  csv-type: xs:string
-  description: A phone number for the contact.
+  csv-type: InternationalizedText
+  description: Telephone number(s) for the contact.
   error_then: =must-ignore
   repeating: true
-  type: xs:string
+  type: InternationalizedText
 - _name: Uri
   csv-header-name: uri
   csv-type: InternationalizedUri
-  description: An informational URI for the contact or location.
+  description: Web address(es) for the contact.
   error_then: =must-ignore
   repeating: true
   type: InternationalizedUri
-- _name: ParentId
-  csv-header-name: parent_id
-  csv-type: xs:IDREF
-  description: A reference to a record in source, department, voter_service, candidate,
-    person, or office.
-  error_then: =must-ignore
-  repeating: true
-  skip_on: xml
-  type: xs:IDREF

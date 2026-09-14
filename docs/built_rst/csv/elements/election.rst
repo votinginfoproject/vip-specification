@@ -5,84 +5,66 @@
 election
 ========
 
-The Election object represents an Election Day, which usually consists of many individual contests
-and/or referenda. A feed must contain **exactly one** Election object. All relationships in the
-feed (e.g., street segment to precinct to polling location) are assumed to relate only to
-the Election specified by this object. It is permissible, and recommended, to combine unrelated
-contests (e.g., a special election and a general election) that occur on the same day into one feed
-with one Election object.
+The Election object represents an election event. A feed must contain **exactly one** Election object in the main feed. In feed overlays, Election can appear to update election metadata.
 
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                           | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
-+===============================+================+==============+==============+==========================================+==========================================+
-| date                          | ``xs:date``    | **Required** | Single       | Specifies when the election is being     | If the field is invalid, then the        |
-|                               |                |              |              | held. The `Date` is considered to be in  | implementation is required to ignore the |
-|                               |                |              |              | the timezone local to the state holding  | ``Election`` element containing it.      |
-|                               |                |              |              | the election.                            |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| election_type                 | ``xs:string``  | Optional     | Single       | Specifies the highest controlling        | If the element is invalid or not         |
-|                               |                |              |              | authority for election (e.g., federal,   | present, then the implementation is      |
-|                               |                |              |              | state, county, city, town, etc.)         | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| state_id                      | ``xs:IDREF``   | **Required** | Single       | Specifies a link to the `State` element  | If the field is invalid, then the        |
-|                               |                |              |              | where the election is being held.        | implementation is required to ignore the |
-|                               |                |              |              |                                          | ``Election`` element containing it.      |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| is_statewide                  | ``xs:boolean`` | Optional     | Single       | Indicates whether the election is        | If the field is not present or invalid,  |
-|                               |                |              |              | statewide.                               | the implementation is required to        |
-|                               |                |              |              |                                          | default to "yes".                        |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                          | ``xs:string``  | Optional     | Single       | The name for the election (**NB:** while | If the element is invalid or not         |
-|                               |                |              |              | optional, this element is highly         | present, then the implementation is      |
-|                               |                |              |              | recommended).                            | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| registration_info             | ``xs:string``  | Optional     | Single       | Specifies information about registration | If the element is invalid or not         |
-|                               |                |              |              | for this election either as text or a    | present, then the implementation is      |
-|                               |                |              |              | URI.                                     | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| absentee_ballot_info          | ``xs:string``  | Optional     | Single       | Specifies information about requesting   | If the element is invalid or not         |
-|                               |                |              |              | absentee ballots either as text or a URI | present, then the implementation is      |
-|                               |                |              |              |                                          | required to ignore it.                   |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| results_uri                   | ``xs:anyURI``  | Optional     | Single       | Contains a URI where results for the     | If the field is invalid or not present,  |
-|                               |                |              |              | election may be found                    | then the implementation is required to   |
-|                               |                |              |              |                                          | ignore it.                               |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| polling_hours                 | ``xs:string``  | Optional     | Single       | Contains the hours (in local time) that  | If the element is invalid or not         |
-|                               |                |              |              | Election Day polling locations are open. | present, then the implementation is      |
-|                               |                |              |              | If polling hours differ in specific      | required to ignore it.                   |
-|                               |                |              |              | polling locations, alternative hours may |                                          |
-|                               |                |              |              | be specified in the                      |                                          |
-|                               |                |              |              | :ref:`multi-csv-polling-location` object |                                          |
-|                               |                |              |              | *(NB: this element is deprecated in      |                                          |
-|                               |                |              |              | favor of the more structured             |                                          |
-|                               |                |              |              | :ref:`multi-csv-hours-open` element. It  |                                          |
-|                               |                |              |              | is strongly encouraged that data         |                                          |
-|                               |                |              |              | providers move toward contributing hours |                                          |
-|                               |                |              |              | in this format)*.                        |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| hours_open_ids                | ``xs:IDREF``   | Optional     | Single       | References the                           | If the field is invalid or not present,  |
-|                               |                |              |              | :ref:`multi-csv-hours-open` element,     | then the implementation is required to   |
-|                               |                |              |              | which lists the hours of operation for   | ignore it.                               |
-|                               |                |              |              | polling locations.                       |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_election_day_registration | ``xs:boolean`` | Optional     | Single       | Specifies if a voter can register on the | If the field is invalid or not present,  |
-|                               |                |              |              | same day of the election (i.e., the last | then the implementation is required to   |
-|                               |                |              |              | day of the election). Valid items are    | ignore it.                               |
-|                               |                |              |              | "yes" and "no".                          |                                          |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| registration_deadline         | ``xs:date``    | Optional     | Single       | Specifies the last day to register for   | If the field is invalid or not present,  |
-|                               |                |              |              | the election with the possible exception | then the implementation is required to   |
-|                               |                |              |              | of Election Day registration.            | ignore it.                               |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| absentee_request_deadline     | ``xs:date``    | Optional     | Single       | Specifies the last day to request an     | If the field is invalid or not present,  |
-|                               |                |              |              | absentee ballot.                         | then the implementation is required to   |
-|                               |                |              |              |                                          | ignore it.                               |
-+-------------------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearSchedule/>``, ``<ClearAbsenteeBallotInfo/>``). Fields that are required in the main feed (Date and TopLevelLocalityId) are optional in overlays.
+
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                           | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
++===============================+=========================================+==============+==============+==========================================+==========================================+
+| absentee_ballot_info          | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Information about requesting absentee    | If the element is invalid or not         |
+|                               |                                         |              |              | ballots.                                 | present, then the implementation is      |
+|                               |                                         |              |              |                                          | required to ignore it.                   |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| absentee_request_deadline     | ``xs:date``                             | Optional     | Single       | Last day to request an absentee ballot.  | If the field is invalid or not present,  |
+|                               |                                         |              |              |                                          | then the implementation is required to   |
+|                               |                                         |              |              |                                          | ignore it.                               |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| date                          | ``xs:date``                             | **Required** | Single       | Date of the election in local time.      | If the field is invalid, then the        |
+|                               |                                         |              |              | Required in main feed; optional in       | implementation is required to ignore the |
+|                               |                                         |              |              | overlays.                                | ``Election`` element containing it.      |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| election_type                 | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Type of election (e.g. General, Primary, | If the element is invalid or not         |
+|                               |                                         |              |              | Special).                                | present, then the implementation is      |
+|                               |                                         |              |              |                                          | required to ignore it.                   |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_election_day_registration | ``xs:boolean``                          | Optional     | Single       | Specifies whether voters can register on | If the field is invalid or not present,  |
+|                               |                                         |              |              | election day.                            | then the implementation is required to   |
+|                               |                                         |              |              |                                          | ignore it.                               |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| schedule                      | :ref:`multi-csv-schedule-with-timezone` | Optional     | Repeats      | Schedule of voting dates and hours for   | If the element is invalid or not         |
+|                               |                                         |              |              | the election.                            | present, then the implementation is      |
+|                               |                                         |              |              |                                          | required to ignore it.                   |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_statewide                  | ``xs:boolean``                          | Optional     | Single       | Indicates whether the election is        | If the field is invalid or not present,  |
+|                               |                                         |              |              | statewide.                               | then the implementation is required to   |
+|                               |                                         |              |              |                                          | ignore it.                               |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                          | :ref:`multi-csv-internationalized-text` | Optional     | Single       | The name of the election.                | If the element is invalid or not         |
+|                               |                                         |              |              |                                          | present, then the implementation is      |
+|                               |                                         |              |              |                                          | required to ignore it.                   |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| registration_deadline         | ``xs:date``                             | Optional     | Single       | Last day to register to vote for the     | If the field is invalid or not present,  |
+|                               |                                         |              |              | election.                                | then the implementation is required to   |
+|                               |                                         |              |              |                                          | ignore it.                               |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| registration_info             | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Information about voter registration.    | If the element is invalid or not         |
+|                               |                                         |              |              |                                          | present, then the implementation is      |
+|                               |                                         |              |              |                                          | required to ignore it.                   |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| results_uri                   | :ref:`multi-csv-internationalized-uri`  | Optional     | Single       | Web address where election results may   | If the element is invalid or not         |
+|                               |                                         |              |              | be found.                                | present, then the implementation is      |
+|                               |                                         |              |              |                                          | required to ignore it.                   |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| top_level_locality_id         | ``xs:IDREF``                            | **Required** | Single       | Links to the top-level                   | If the field is invalid or not present,  |
+|                               |                                         |              |              | :ref:`multi-csv-locality` for the        | the implementation is required to ignore |
+|                               |                                         |              |              | election (e.g. the state locality).      | the Election containing it.              |
+|                               |                                         |              |              | Required in main feed; optional in       |                                          |
+|                               |                                         |              |              | overlays.                                |                                          |
++-------------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: csv-table
    :linenos:
 
-
-    id,date,name,election_type,state_id,is_statewide,registration_info,absentee_ballot_info,results_uri,polling_hours,has_election_day_registration,registration_deadline,absentee_request_deadline,hours_open_id
-    e001,10-08-2016,Best Hot Dog,State,st51,true,www.registrationinfo.com,You can vote absentee,http://hotdogcontest.gov/results,Noon to 3p.m.,true,10/08/2016,,ho002
+    id,date,name,election_type,top_level_locality_id,is_statewide,registration_info,absentee_ballot_info,results_uri,has_election_day_registration,registration_deadline,absentee_request_deadline
+    ele001,2024-11-05,2024 General Election,General,loc51,true,https://vote.va.gov/register,https://vote.va.gov/absentee,https://vote.va.gov/results,false,2024-10-15,2024-10-25

@@ -6,151 +6,116 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
-      id,ballot_style_id,electoral_district_ids,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,spatial_boundary_id,ward
-      pre90111,bs00010,ed001,ocd-id,,ocd-division/country:us,false,loc001,203 - GEORGETOWN,0203,poll001 poll002,split13,sb1,,5
-      pre90112,bs00011,ed002,fips,,42,false,loc001,203 - GEORGETOWN,0203,poll003,split26,,6
-      pre90113,bs00010,ed003,,,,false,loc002,203 - GEORGETOWN,0203,poll004,split54,sb1,7
+      id,ballot_style_id,electoral_district_ids,is_mail_only,locality_id,name,number,polling_location_ids,precinct_split_name,ward
+      pre90111,bs00010,ed001 ed002,false,loc70001,203 - GEORGETOWN,0203,pl00001,split13,5
 description: |-
-  The Precinct object represents a precinct, which is contained within a Locality. While the id
-  attribute does not have to be static across feeds for one election, the combination of
-  :ref:`Source.VipId <$$$-source>`, :ref:`Locality.Name <$$$-locality>`, :ref:`Precinct.Ward <$$$-precinct>`,
-  :ref:`Precinct.Name <$$$-precinct>`, and :ref:`Precinct.Number <$$$-precinct>` should remain constant across
-  feeds for one election (NB: not all of the fields just mentioned are required -- omitting those
-  non-required fields is fine).
+  The Precinct object represents a voting precinct or precinct split within a Locality.
 
-  Voters can be assigned to a precinct in two ways. A voter location modeled by :doc:`StreetSegment <street_segment>`
-  is assigned to a precinct by :doc:`StreetSegment.PrecinctId <street_segment>`.
-  Alternatively, a precinct's spatial boundary can be modeled with :doc:`Precinct.SpatialBoundary  <precinct>`.
-  Any registered voter address contained within the spatial boundary of the precinct
-  is assigned to that precinct.
+  In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearBallotStyleId/>``, ``<ClearPollingLocationIds/>``, ``<ClearIsInactive/>``). LocalityId and Name are optional in overlays. EmergencyNotice is permitted only in overlays.
 post: |-
-  .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
   .. code-block:: xml
      :linenos:
 
      <Precinct id="pre90111">
         <BallotStyleId>bs00010</BallotStyleId>
-        <ElectoralDistrictIds>ed60129 ed60311 ed60054</ElectoralDistrictIds>
+        <ElectoralDistrictIds>ed60129 ed60311</ElectoralDistrictIds>
         <IsMailOnly>false</IsMailOnly>
         <LocalityId>loc70001</LocalityId>
         <Name>203 - GEORGETOWN</Name>
         <Number>0203</Number>
-        <PollingLocationIds>pl81274</PollingLocationIds>
-        <SpatialBoundary>
-          <ExternalGeospatialFeature>
-            <ExternalFileId>ef1</ExternalFileId>
-            <FileFormat>shp</FileFormat>
-            <FeatureIdentifier>
-                <Index>3</Index>
-            </FeatureIdentifier>
-          </ExternalGeospatialFeature>
-        </SpatialBoundary>
-     </Precinct>
-     <!--
-       Precinct split. Name and PollingLocationIds are the same but
-       PrecinctSplitName is present, the ElectoralDistrictIds are different,
-       and the BallotStyleId is different.
-     -->
-     <Precinct id="pre90348sp0000">
-       <BallotStyleId>bs00002</BallotStyleId>
-       <ElectoralDistrictIds>ed60129 ed60054 ed60150</ElectoralDistrictIds>
-       <IsMailOnly>false</IsMailOnly>
-       <LocalityId>loc70001</LocalityId>
-       <Name>201 - JACK JOUETT</Name>
-       <Number>0201</Number>
-       <PollingLocationIds>pl00000 pl81273 pl81662</PollingLocationIds>
-       <PrecinctSplitName>0000</PrecinctSplitName>
-     </Precinct>
-     <Precinct id="pre90348sp0001">
-       <BallotStyleId>bs00015</BallotStyleId>
-       <ElectoralDistrictIds>ed60129 ed60054 ed60267</ElectoralDistrictIds>
-       <IsMailOnly>false</IsMailOnly>
-       <LocalityId>loc70001</LocalityId>
-       <Name>201 - JACK JOUETT</Name>
-       <Number>0201</Number>
-       <PollingLocationIds>pl00000 pl81273 pl81662</PollingLocationIds>
-       <PrecinctSplitName>0001</PrecinctSplitName>
+        <PollingLocationIds>pl00001</PollingLocationIds>
      </Precinct>
 tags:
 - _name: BallotStyleId
   csv-header-name: ballot_style_id
   csv-type: xs:IDREF
-  description: Links to the :ref:`$$$-ballot-style`, which a person who lives in this
-    precinct will vote.
+  description: Links to the :ref:`$$$-ballot-style` voted by electors in this precinct.
+    Clearable in overlays.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: ElectoralDistrictIds
   csv-header-name: electoral_district_ids
   csv-type: xs:IDREFS
-  description: Links to the :ref:`$$$-electoral-district`s (e.g., congressional district,
-    state house district, school board district) to which the entire precinct/precinct
-    split belongs. **Highly Recommended** if candidate information is to be provided.
+  description: Links to the :ref:`$$$-electoral-district` elements containing this
+    precinct. Clearable in overlays.
   error_then: =must-ignore
   type: xs:IDREFS
-- _name: ExternalIdentifiers
-  csv-header-name: external_identifiers
-  csv-type: ExternalIdentifiers
-  description: Other identifier for the precinct that relates to another dataset (e.g.
-    `OCD-ID`_).
+- _name: ExternalIdentifier
+  csv-header-name: external_identifier
+  csv-type: ExternalIdentifier
+  description: External identifier(s) linking this precinct to other datasets (e.g.
+    OCD-ID). Clearable in overlays.
   error_then: =must-ignore
-  type: ExternalIdentifiers
+  repeating: true
+  type: ExternalIdentifier
 - _name: IsMailOnly
   csv-header-name: is_mail_only
   csv-type: xs:boolean
-  description: Determines if the precinct runs mail-only elections.
+  description: Specifies if this precinct conducts mail-only elections. Clearable
+    in overlays.
   error: If the field is missing or invalid, the implementation is required to assume
-    `IsMailOnly` is false.
+    IsMailOnly is false.
   type: xs:boolean
 - _name: LocalityId
   csv-header-name: locality_id
   csv-type: xs:IDREF
-  description: Links to the :ref:`$$$-locality` that comprises the precinct.
+  description: References the containing :ref:`$$$-locality`. Required in main feed;
+    optional in overlays.
+  error: If LocalityId is invalid or not present, the implementation is required to
+    ignore the Precinct containing it.
   required: true
   type: xs:IDREF
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
-  description: Specifies the precinct's name (or number if no name exists).
+  description: Name of the precinct. Required in main feed; optional in overlays.
+  error: If Name is invalid or not present, the implementation is required to ignore
+    the Precinct containing it.
   required: true
   type: xs:string
 - _name: Number
   csv-header-name: number
   csv-type: xs:string
-  description: Specifies the precinct's number (e.g., 32 or 32A -- alpha characters
-    are legal). Should be used if the `Name` field is populated by a name and not
-    a number.
+  description: Precinct number or code. Clearable in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
   csv-type: xs:IDREFS
-  description: Specifies a link to the precinct's :ref:`$$$-polling-location` object(s).
+  description: Links to polling locations serving this precinct. Clearable in overlays.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: PrecinctSplitName
   csv-header-name: precinct_split_name
   csv-type: xs:string
-  description: If this field is empty, then this `Precinct` object represents a full
-    precinct. If this field is present, then this `Precinct` object represents one
-    portion of a split precinct. Each `Precinct` object that represents one portion
-    of a split precinct **must** have the same `Name` value, but different `PrecinctSplitName`
-    values. See the `sample_feed.xml` file for examples.
+  description: Sub-identifier for precinct splits. Clearable in overlays.
   error_then: =must-ignore
   type: xs:string
 - _name: SpatialBoundary
-  csv-header-name: spatial_boundary_id
-  csv-type: xs:IDREF
-  description: Defines the spatial boundary of the precinct. All voter addresses contained
-    within this boundary are assigned to the precinct. If a voter address also maps
-    to a :doc:`StreetSegment <street_segment>`, then the precinct assignment from
-    the StreetSegment will be preferred over the assignment from the spatial boundary.
+  csv-header-name: spatial_boundary
+  csv-type: SpatialBoundary
+  description: Geospatial boundary defining the precinct polygon. Clearable in overlays.
   error_then: =must-ignore
   type: SpatialBoundary
 - _name: Ward
   csv-header-name: ward
   csv-type: xs:string
-  description: Specifies the ward the precinct is contained within.
+  description: Ward identifier if applicable. Clearable in overlays.
+  error_then: =must-ignore
+  type: xs:string
+- _name: EmergencyNotice
+  csv-header-name: emergency_notice
+  csv-type: EmergencyNotice
+  description: Emergency notice specific to this precinct. Permitted only in feed
+    overlays.
+  error_then: =must-ignore
+  repeating: true
+  skip_on: csv
+  type: EmergencyNotice
+- _name: IsInactive
+  csv-header-name: is_inactive
+  csv-type: xs:string
+  description: If specified, marks the precinct as inactive, stating the reason why.
+    Clearable in overlays.
   error_then: =must-ignore
   type: xs:string

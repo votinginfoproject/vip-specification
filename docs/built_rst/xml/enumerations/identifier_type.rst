@@ -5,6 +5,8 @@
 IdentifierType
 ==============
 
+Enumeration describing the set of supported external identifier types for entities such as contests, districts, candidates, and localities.
+
 +----------------+----------------------------------------------------+
 | Tag            | Description                                        |
 +================+====================================================+
@@ -22,7 +24,7 @@ IdentifierType
 | state-level    | An identifier generated or used by state           |
 |                | governments or organizations.                      |
 +----------------+----------------------------------------------------+
-| other          | Any identifier which doesn't fall into any of the  |
+| other          | Any identifier which does not fall into any of the |
 |                | above categories.                                  |
 +----------------+----------------------------------------------------+
 
@@ -30,3 +32,8 @@ IdentifierType
 .. _counties: http://en.wikipedia.org/wiki/FIPS_county_code
 .. _cities: http://geonames.usgs.gov/domestic/fips55codedef.html
 .. _`Open Civic Data Division Identifier`: http://docs.opencivicdata.org/en/latest/proposals/0002.html
+
+ExternalIdentifier has optional attributes:
+
+  - ``label``: Optional label for tracking purposes.
+  - ``provider``: Optional source of the information, such as the department or authority that provided the identifier.

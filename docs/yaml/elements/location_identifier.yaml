@@ -1,0 +1,42 @@
+_name: LocationIdentifier
+csv-header-name: location_identifier
+description: |-
+  Specifies an external identifier for a physical location (e.g. a polling location or contact address), such as a latitude/longitude pair, Plus Code, or geocoder ID. LocationIdentifier has optional attributes ``label``, ``provider`` (e.g. "Google"), and ``relativePriority`` (a decimal number indicating the relative preference of this identifier when multiple identifiers are provided).
+
+  In overlay feeds, this element is clearable using ``<ClearLocationIdentifier/>``.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <LocationIdentifier provider="google" relativePriority="1.0">
+        <Type>pluscode</Type>
+        <Value>87G8PXRX+86</Value>
+     </LocationIdentifier>
+     <LocationIdentifier provider="google" relativePriority="0.8">
+        <Type>geocoder-id</Type>
+        <Value>ChIJ2eUgeAK6j4ARbn5u_wAGqWA</Value>
+     </LocationIdentifier>
+tags:
+- _name: Type
+  csv-header-name: type
+  csv-type: LocationIdentifierType
+  description: Specifies the type of location identifier from :ref:`$$$-location-identifier-type`.
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``LocationIdentifier`` containing it.
+  required: true
+  type: LocationIdentifierType
+- _name: OtherType
+  csv-header-name: other_type
+  csv-type: xs:string
+  description: Specifies the type of identifier if ``Type`` is set to "other".
+  error_then: =must-ignore
+  type: xs:string
+- _name: Value
+  csv-header-name: value
+  csv-type: xs:string
+  description: Specifies the identifier value (e.g. Plus Code, coordinates, Place
+    ID).
+  error: If the field is invalid or not present, the implementation is required to
+    ignore the ``LocationIdentifier`` containing it.
+  required: true
+  type: xs:string

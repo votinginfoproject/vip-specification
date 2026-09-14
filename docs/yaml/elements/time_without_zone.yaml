@@ -1,27 +1,19 @@
 _name: TimeWithoutZone
 csv-header-name: time_without_zone
 description: |-
-  A time value with no time zone.  The time zone is assumed to be
-  specificed in an enclosing structure, such as a `Schedule`
-  element. The pattern is
+  A time value with no time zone. The time zone is specified in an enclosing structure, such as a :ref:`$$$-schedule-with-timezone` element. The pattern is:
 
   ``(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]|(24:00:00))``
 post: |-
   .. code-block:: xml
      :linenos:
 
-     <HoursOpen id="hours0001">
-       <Schedule>
-         <TimeZone>America/New_York</TimeZone>
-         <Hours>
+     <Schedule>
+        <TimeZone>America/New_York</TimeZone>
+        <Hours>
            <StartTime>06:00:00</StartTime>
-           <EndTime>12:00:00</EndTime>
-         </Hours>
-         <Hours>
-           <StartTime>13:00:00</StartTime>
            <EndTime>19:00:00</EndTime>
-         </Hours>
-         <StartDate>2013-11-05</StartDate>
-         <EndDate>2013-11-05</EndDate>
-       </Schedule>
-     </HoursOpen>
+        </Hours>
+        <StartDate>2024-11-05</StartDate>
+        <EndDate>2024-11-05</EndDate>
+     </Schedule>

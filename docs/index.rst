@@ -3,10 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the VIP Specification documentation
-==============================================
-Welcome to the `Voting Information Project's`_ (VIP) :ref:`open XML <xml-docs>` and :ref:`CSV <csv-docs>`
-format specification. This data format provides an easy way to produce data that
+Welcome to the VIP Specification documentation (VIP 7.0)
+=========================================================
+Welcome to the `Voting Information Project's`_ (VIP) open XML, CSV, and Feed Overlay format specification (Version 7.0). This data format provides an easy way to produce data that
 lets developers take a voter's address, compare it to street segments, and
 determine that voter's precinct (or precinct split). Knowing a voter's precinct
 allows :ref:`information disseminators <vip-publishers>` to provide voters with
@@ -36,6 +35,17 @@ XML Documentation
    :maxdepth: 2
 
    xml
+
+
+.. _overlay-docs-section:
+
+Feed Overlay Documentation
+--------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   overlay
 
 
 .. _csv-docs:

@@ -10,25 +10,22 @@ XML Specification
 Getting Started
 ---------------
 
-The actual election information specifies collections of elements, some containing links between
-each other. The entire set of tags must be encapsulated in a root object named VipObject. See the
-`sample xml file`_ and `xsd file`_ for more details.
+The election data specification describes a collection of interconnected entities encapsulated in a root object named ``<VipObject>`` with attribute ``schemaVersion="7.0"``. See the `sample xml file`_ and `xsd file`_ for more details.
 
-Each top-level tag is a container for other fields, described in their own section. The only required
-top-level tags are the :doc:`source object <built_rst/xml/elements/source>` and the
-:doc:`election object <built_rst/xml/elements/election>`, each of which must be present exactly once. All other
+Each top-level tag is a container for other fields, described in its own section below. The only required
+top-level tags are the :doc:`Source object <built_rst/xml/elements/source>` and the
+:doc:`Election object <built_rst/xml/elements/election>`, each of which must be present exactly once. All other
 top-level tags can be repeated an unlimited number of times, or not included at all; order of
-top-level tags does not matter. Each top-level tag is required to have a single attribute, "id",
-which is required to be unique in a data file. The id attribute for the state object should be the
-state's FIPS number and this is strongly recommended. The id attributes are not required to remain
-constant for the same piece of semantic data across multiple productions of the feed (e.g.
-candidate Michael Smith, running for dogcatcher in Iowa, is not required to have the same candidate
-id attribute each time the state of Iowa publishes data).
+top-level tags does not matter. Each top-level entity is required to have a unique "id" attribute.
+
+In VIP 7.0, political geography is represented hierarchically using the :doc:`Locality object <built_rst/xml/elements/locality>` (which replaces the former ``State`` element). The state-level jurisdiction is represented as a root ``<Locality>`` element with ``Type="state"`` (and typically has an ID based on the state's FIPS code, e.g. ``loc51``). Sub-jurisdictions (such as counties, cities, and towns) point to their enclosing jurisdiction using ``ParentLocalityId``. The :doc:`Election <built_rst/xml/elements/election>` element connects to the state via ``TopLevelLocalityId``.
+
+In addition to full base feeds, VIP 7.0 introduces :doc:`Feed Overlays <overlay>` (defined in ``vip_overlay.xsd``) to distribute targeted delta updates, emergency notifications, and hours overrides.
 
 In general, subtag data can appear a maximum of one time within each top-level tag object and in any
-order. Exceptions are noted below.
+order, unless designated as repeating.
 
-For the data itself, the special characters &, <, and > need to be encoded as &amp;, &lt;, and &gt;,
+For character data, the XML special characters &, <, and > must be encoded as &amp;, &lt;, and &gt;,
 respectively.
 
 .. _sample xml file: https://github.com/votinginfoproject/vip-specification/blob/master/sample_feed.xml

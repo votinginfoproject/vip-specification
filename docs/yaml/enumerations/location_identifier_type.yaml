@@ -1,0 +1,14 @@
+_name: LocationIdentifierType
+csv-header-name: location_identifier_type
+description: Enumeration describing the set of supported location identifier types.
+tags:
+- _name: latlong
+  description: A latitude/longitude pair, e.g. `40.6970243,-74.1443098`.
+- _name: pluscode
+  description: An Open Location Code / Plus Code, e.g. `87G8PXRX+86`.
+- _name: geocoder-id
+  description: A geocoder- or platform-specific identifier such as a Google Place
+    ID. The enclosing element specifies the data provider along with the value.
+- _name: other
+  description: Any location identifier that does not fall into the above categories.
+    When using this value, OtherType should be specified.

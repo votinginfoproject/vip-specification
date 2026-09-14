@@ -1,100 +1,93 @@
 _name: ContestBase
 csv-header-name: contest_base
 description: |-
-  A base model for all Contest types: :ref:`$$$-ballot-measure-contest`,
-  :ref:`$$$-candidate-contest`, :ref:`$$$-party-contest`,
-  and :ref:`$$$-retention-contest` (NB: the latter because it extends
-  :ref:`$$$-ballot-measure-contest`).
+  A base model for all Contest types: :ref:`$$$-ballot-measure-contest`, :ref:`$$$-candidate-contest`, :ref:`$$$-party-contest`, and :ref:`$$$-retention-contest`.
 
-  In overlay files, all tags have an optional `clear` boolean
-  attribute.
+  In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
 tags:
 - _name: Abbreviation
   csv-header-name: abbreviation
   csv-type: xs:string
-  description: An abbreviation for the contest.
+  description: An abbreviation for the contest. Clearable in overlays.
   error_then: =should-ignore
   type: xs:string
 - _name: BallotSelectionIds
   csv-header-name: ballot_selection_ids
   csv-type: xs:IDREFS
-  description: References a set of BallotSelections, which could be of any selection
-    type that extends :ref:`$$$-ballot-selection-base`.
+  description: References BallotSelections belonging to this contest. Clearable in
+    overlays.
   error_then: =should-ignore
   type: xs:IDREFS
 - _name: BallotSubTitle
   csv-header-name: ballot_sub_title
-  csv-type: xs:string
-  description: Subtitle of the contest as it appears on the ballot.
+  csv-type: InternationalizedText
+  description: Subtitle of the contest as it appears on the ballot. Clearable in overlays.
   error_then: =should-ignore
   type: InternationalizedText
 - _name: BallotTitle
   csv-header-name: ballot_title
-  csv-type: xs:string
-  description: Title of the contest as it appears on the ballot.
+  csv-type: InternationalizedText
+  description: Title of the contest as it appears on the ballot. Clearable in overlays.
   error_then: =should-ignore
   type: InternationalizedText
 - _name: ElectoralDistrictId
   csv-header-name: electoral_district_id
   csv-type: xs:IDREF
-  description: References an :ref:`$$$-electoral-district` element that represents
-    the geographical scope of the contest.
+  description: References the :ref:`$$$-electoral-district` representing the geographical
+    scope of the contest. Required in main feed; optional in overlays.
   required: true
   type: xs:IDREF
 - _name: ElectorateSpecification
   csv-header-name: electorate_specification
-  csv-type: xs:string
-  description: Specifies any changes to the eligible electorate for this contest past
-    the usual, "all registered voters" electorate. This subtag will most often be
-    used for primaries and local elections. In primaries, voters may have to be registered
-    as a specific party to vote, or there may be special rules for which ballot a
-    voter can pull. In some local elections, non-citizens can vote.
+  csv-type: InternationalizedText
+  description: Specifies rules or changes regarding eligible electors for this contest
+    (e.g. party affiliation for primaries). Clearable in overlays.
   error_then: =should-ignore
   type: InternationalizedText
-- _name: ExternalIdentifiers
-  csv-header-name: external_identifiers
-  csv-type: xs:string
-  description: Other identifiers for a contest that links to another source of information.
+- _name: ExternalIdentifier
+  csv-header-name: external_identifier
+  csv-type: ExternalIdentifier
+  description: External identifier(s) linking this contest to other sources. Clearable
+    in overlays.
   error_then: =should-ignore
-  type: ExternalIdentifiers
+  repeating: true
+  type: ExternalIdentifier
 - _name: HasRotation
   csv-header-name: has_rotation
   csv-type: xs:boolean
-  description: Indicates whether the selections in the contest are rotated.
+  description: Indicates whether the selections in the contest rotate on the ballot.
+    Clearable in overlays.
   error_then: =should-ignore
   type: xs:boolean
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
-  description: 'Name of the contest, not necessarily how it appears on the ballot
-    (NB: BallotTitle should be used for this purpose).'
+  description: Name of the contest. Required in main feed; optional in overlays.
   required: true
   type: xs:string
 - _name: SequenceOrder
   csv-header-name: sequence_order
   csv-type: xs:integer
-  description: Order in which the contests are listed on the ballot. This is the default
-    ordering, and can be overrides by data in a :ref:`$$$-ballot-style` element.
+  description: Default ballot ordering for the contest. Clearable in overlays.
   error_then: =should-ignore
   type: xs:integer
 - _name: VoteVariation
   csv-header-name: vote_variation
   csv-type: VoteVariation
-  description: Vote variation associated with the contest (e.g. n-of-m, majority,
-    et al).
+  description: Voting variation (e.g. plurality, majority, rcv) from :ref:`$$$-vote-variation`.
+    Clearable in overlays.
   error_then: =should-ignore
   type: VoteVariation
 - _name: OtherVoteVariation
   csv-header-name: other_vote_variation
-  csv-type: other_vote_variation
-  description: If "other" is selected as the **VoteVariation**, the name of the variation
-    can be specified here.
+  csv-type: xs:string
+  description: Custom voting variation if VoteVariation is "other". Clearable in overlays.
   error_then: =should-ignore
   type: xs:string
 - _name: IsInactive
   csv-header-name: is_inactive
   csv-type: xs:string
-  description: If specified, the element is treated as inactive, and the value is
-    the reason (e.g. "Backup polling location").
+  description: If specified, marks the contest as inactive with the reason why. Clearable
+    in overlays.
   error_then: =should-ignore
   type: xs:string

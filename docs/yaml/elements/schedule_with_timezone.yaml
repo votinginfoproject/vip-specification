@@ -1,0 +1,89 @@
+_name: ScheduleWithTimezone
+_sub_types:
+- Hours
+csv-header-name: schedule_with_timezone
+csv-post: |-
+  .. code-block:: csv-table
+     :linenos:
+
+      id,time_zone,start_date,end_date,is_open_24_hours,is_only_by_appointment,is_or_by_appointment,is_subject_to_change
+      sch001,America/New_York,2024-10-10,2024-10-12,false,false,true,false
+      sch002,America/New_York,2024-10-13,2024-10-15,false,true,false,false
+description: |-
+  Defines a schedule of dates and hours of operation with an optional IANA time zone. If the time zone is omitted, hours are assumed to be in the local time of the enclosing entity. ScheduleWithTimezone has an optional ``label`` attribute.
+
+  In overlay feeds, elements of type ScheduleWithTimezone are clearable using ``<ClearSchedule/>`` (or ``<ClearDefaultPollingHours/>``, etc. depending on the tag name).
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <Schedule label="early_voting_week1">
+        <TimeZone>America/New_York</TimeZone>
+        <StartDate>2024-10-21</StartDate>
+        <EndDate>2024-10-25</EndDate>
+        <Hours>
+           <StartTime>08:00:00</StartTime>
+           <EndTime>17:00:00</EndTime>
+        </Hours>
+        <IsOpen24Hours>false</IsOpen24Hours>
+        <IsOnlyByAppointment>false</IsOnlyByAppointment>
+        <IsOrByAppointment>false</IsOrByAppointment>
+        <IsSubjectToChange>false</IsSubjectToChange>
+     </Schedule>
+tags:
+- _name: TimeZone
+  csv-header-name: time_zone
+  csv-type: xs:string
+  description: The named IANA time zone (e.g. "America/New_York", "Etc/UTC", "Etc/GMT+1").
+    Must match canonical Continent/City format. If not present, hours are assumed
+    to be in local time.
+  error_then: =must-ignore
+  type: xs:string
+- _name: StartDate
+  csv-header-name: start_date
+  csv-type: xs:date
+  description: The date on which this schedule begins.
+  error_then: =must-ignore
+  type: xs:date
+- _name: EndDate
+  csv-header-name: end_date
+  csv-type: xs:date
+  description: The date on which this schedule ends.
+  error_then: =must-ignore
+  type: xs:date
+- _name: Hours
+  csv-header-name: hours
+  csv-type: Hours
+  description: Blocks of hours during which the location is open on days in the date
+    range.
+  error_then: =must-ignore
+  repeating: true
+  type: Hours
+- _name: IsOpen24Hours
+  csv-header-name: is_open_24_hours
+  csv-type: xs:boolean
+  description: Indicates if the location is open 24 hours a day during this date range
+    (e.g. 24-hour ballot drop boxes).
+  error_then: =must-ignore
+  type: xs:boolean
+- _name: IsOnlyByAppointment
+  csv-header-name: is_only_by_appointment
+  csv-type: xs:boolean
+  description: If true, the location is only open during the specified window with
+    an appointment.
+  error_then: =must-ignore
+  type: xs:boolean
+- _name: IsOrByAppointment
+  csv-header-name: is_or_by_appointment
+  csv-type: xs:boolean
+  description: If true, the location is open during the window and may also be open
+    by appointment.
+  error_then: =must-ignore
+  type: xs:boolean
+- _name: IsSubjectToChange
+  csv-header-name: is_subject_to_change
+  csv-type: xs:boolean
+  description: If true, hours may be subject to change. Voters should verify prior
+    to arrival.
+  error_then: =must-ignore
+  type: xs:boolean

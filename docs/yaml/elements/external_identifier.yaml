@@ -1,52 +1,47 @@
 _name: ExternalIdentifier
 csv-header-name: external_identifier
+description: |-
+  Specifies an external identifier for an entity, linking it to another dataset or system. ExternalIdentifier has optional attributes ``label`` and ``provider``.
+
+  In overlay feeds, this element is clearable using ``<ClearExternalIdentifier/>`` on elements where it is marked clearable.
 post: |-
   .. code-block:: xml
      :linenos:
 
-     <ExternalIdentifiers>
-        <ExternalIdentifier>
-           <Type>ocd-id</Type>
-           <Value>ocd-division/country:us/state:nc/county:durham</Value>
-        </ExternalIdentifier>
-        <ExternalIdentifier>
-           <Type>FIPS</Type>
-           <Value>37063</Value>
-        </ExternalIdentifier>
-        <ExternalIdentifier>
-           <Type>OTHER</Type>
-           <OtherType>GNIS</OtherType>
-           <Value>1008550</Value>
-        </ExternalIdentifier>
-        <external_identifer>
-           <Type>OTHER</Type>
-           <OtherType>census</OtherType>
-           <Value>99063</Value>
-        </ExternalIdentifier>
-     </ExternalIdentifiers>
+     <ExternalIdentifier>
+        <Type>ocd-id</Type>
+        <Value>ocd-division/country:us/state:nc/county:durham</Value>
+     </ExternalIdentifier>
+     <ExternalIdentifier>
+        <Type>fips</Type>
+        <Value>37063</Value>
+     </ExternalIdentifier>
+     <ExternalIdentifier>
+        <Type>other</Type>
+        <OtherType>census</OtherType>
+        <Value>99063</Value>
+     </ExternalIdentifier>
 tags:
 - _name: Type
   csv-header-name: type
-  csv-type: identifier_type
-  description: Specifies the type of identifier. Must be one of the valid types as
-    defined by :ref:`$$$-identifier-type`.
+  csv-type: IdentifierType
+  description: Specifies the type of identifier from :ref:`$$$-identifier-type`.
   error: If the field is invalid or not present, the implementation is required to
-    ignore the ``ElectionIdentifier`` containing it.
+    ignore the ``ExternalIdentifier`` containing it.
   required: true
   type: IdentifierType
 - _name: OtherType
   csv-header-name: other_type
   csv-type: xs:string
-  description: Allows for cataloging an ``ExternalIdentifier`` type that falls outside
-    the options listed in :ref:`$$$-identifier-type`. ``Type`` should be set to "other"
-    when using this field.
+  description: Allows defining an identifier type outside :ref:`$$$-identifier-type`.
+    Type should be set to "other" when using this field.
   error_then: =must-ignore
   type: xs:string
 - _name: Value
   csv-header-name: value
   csv-type: xs:string
-  description: Specifies the identifier.
+  description: Specifies the identifier value.
   error: If the field is invalid or not present, the implementation is required to
-    ignore the ``ElectionIdentifier`` containing it.
+    ignore the ``ExternalIdentifier`` containing it.
   required: true
   type: xs:string

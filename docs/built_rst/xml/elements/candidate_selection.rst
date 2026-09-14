@@ -5,30 +5,23 @@
 CandidateSelection
 ==================
 
-CandidateSelection extends :ref:`multi-xml-ballot-selection-base` and represents a
-ballot selection for a candidate contest.
+CandidateSelection extends :ref:`multi-xml-ballot-selection-base` and represents a ballot selection for one or more candidates in a candidate contest.
 
 +---------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag                 | Data Type      | Required?    | Repeats?     | Description                              | Error Handling                           |
 +=====================+================+==============+==============+==========================================+==========================================+
-| CandidateIds        | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                     |                |              |              | :ref:`multi-xml-candidate` elements. The | then the implementation is required to   |
-|                     |                |              |              | number of candidates that can be         | ignore it.                               |
-|                     |                |              |              | references is unbounded in cases where   |                                          |
-|                     |                |              |              | the ballot selection is for a ticket     |                                          |
-|                     |                |              |              | (e.g. "President/Vice President",        |                                          |
-|                     |                |              |              | "Governor/Lt Governor").                 |                                          |
+| CandidateIds        | ``xs:IDREFS``  | **Required** | Single       | References :ref:`multi-xml-candidate`    | If CandidateIds is invalid or not        |
+|                     |                |              |              | elements that comprise this selection    | present, the implementation is required  |
+|                     |                |              |              | (e.g. candidate and running mate).       | to ignore the CandidateSelection         |
+|                     |                |              |              |                                          | containing it.                           |
 +---------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| EndorsementPartyIds | ``xs:IDREFS``  | Optional     | Single       | References a set of                      | If the field is invalid or not present,  |
-|                     |                |              |              | :ref:`multi-xml-party` elements, which   | then the implementation is required to   |
-|                     |                |              |              | signifies one or more endorsing parties  | ignore it.                               |
-|                     |                |              |              | for the candidate(s).                    |                                          |
+| EndorsementPartyIds | ``xs:IDREFS``  | Optional     | Single       | References :ref:`multi-xml-party`        | If the field is invalid or not present,  |
+|                     |                |              |              | elements endorsing this candidate        | then the implementation is required to   |
+|                     |                |              |              | selection.                               | ignore it.                               |
 +---------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| IsWriteIn           | ``xs:boolean`` | Optional     | Single       | Signifies if the particular ballot       | If the field is invalid or not present,  |
-|                     |                |              |              | selection allows for write-in            | then the implementation is required to   |
-|                     |                |              |              | candidates. If true, one or more         | ignore it.                               |
-|                     |                |              |              | write-in candidates are allowed for this |                                          |
-|                     |                |              |              | contest.                                 |                                          |
+| IsWriteIn           | ``xs:boolean`` | Optional     | Single       | Signifies whether this selection         | If the field is invalid or not present,  |
+|                     |                |              |              | represents a write-in line.              | then the implementation is required to   |
+|                     |                |              |              |                                          | ignore it.                               |
 +---------------------+----------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml

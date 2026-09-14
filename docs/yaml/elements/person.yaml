@@ -1,132 +1,124 @@
 _name: Person
-_sub_types:
-- ContactInformation
 csv-header-name: person
 csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
-      id,date_of_birth,first_name,gender,last_name,middle_name,nickname,party_id,prefix,profession,suffix,title
-      per50001,1961-08-04,Barack,male,Obama,Hussein,,par02,,President,II,Mr. President
-      per50002,1985-11-21,Carly,female,Jepsen,Rae,,par01,,Recording Artist,,
-      per50003,1926-09-23,John,male,Coltrane,William,Trane,par02,,Recording Artist,Saint,
-      per50004,1926-05-26,Miles,male,Davis,Dewey,,par01,,Recording Artist,III,
+      id,first_name,last_name,middle_name,nickname,prefix,suffix,title,profession,party_id,date_of_birth,gender
+      per50001,Ken,Cuccinelli,T.,,II,,Attorney General,Attorney,par0001,1968-07-30,male
 description: |-
-  ``Person`` defines information about a person. The person may be a candidate, election administrator,
-  or elected official. These elements reference ``Person``:
+  The Person object represents an individual (such as a candidate, election official, or party leader).
 
-  * :ref:`$$$-candidate`
-
-  * :ref:`$$$-election-administration`
-
-  * :ref:`$$$-office`
+  In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearContactInformation/>``, ``<ClearPartyId/>``, ``<ClearProfession/>``).
 post: |-
   .. code-block:: xml
      :linenos:
 
-     <Person id="per50001">
-        <ContactInformation label="ci60002">
-          <Email>rwashburne@albemarle.org</Email>
-          <Phone>4349724173</Phone>
+     <Person id="per10961">
+        <ContactInformation>
+           <Email>ken@example.com</Email>
+           <Phone>804-555-0100</Phone>
         </ContactInformation>
-        <FirstName>RICHARD</FirstName>
-        <LastName>WASHBURNE</LastName>
-        <MiddleName>J.</MiddleName>
-        <Nickname>JAKE</Nickname>
+        <FirstName>Ken</FirstName>
+        <FullName>
+           <Text language="en">Ken T. Cuccinelli II</Text>
+        </FullName>
+        <Gender>male</Gender>
+        <LastName>Cuccinelli</LastName>
+        <MiddleName>T.</MiddleName>
+        <PartyId>par0001</PartyId>
+        <Suffix>II</Suffix>
         <Title>
-          <Text language="en">General Registrar Physical</Text>
+           <Text language="en">Attorney General</Text>
         </Title>
      </Person>
 tags:
 - _name: ContactInformation
-  csv-header-name: contact_information_id
-  csv-type: xs:IDREF
-  description: Refers to the associated :ref:`$$$-contact-information`.
+  csv-header-name: contact_information
+  csv-type: ContactInformation
+  description: Contact information for the person. Clearable in overlays.
   error_then: =must-ignore
   repeating: true
-  skip_on: csv
   type: ContactInformation
 - _name: DateOfBirth
   csv-header-name: date_of_birth
   csv-type: xs:date
-  description: Represents the individual's date of birth.
+  description: Date of birth of the person. Clearable in overlays.
   error_then: =must-ignore
   type: xs:date
-- _name: ExternalIdentifiers
-  csv-header-name: external_identifiers
-  csv-type: ExternalIdentifiers
-  description: Identifiers for this person.
+- _name: ExternalIdentifier
+  csv-header-name: external_identifier
+  csv-type: ExternalIdentifier
+  description: External identifier(s) linking this person to external systems. Clearable
+    in overlays.
   error_then: =must-ignore
-  type: ExternalIdentifiers
+  repeating: true
+  type: ExternalIdentifier
 - _name: FirstName
   csv-header-name: first_name
   csv-type: xs:string
-  description: Represents an individual's first name.
+  description: First name of the person. Clearable in overlays.
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: FullName
   csv-header-name: full_name
-  csv-type: xs:string
-  description: Specifies a person's full name.
+  csv-type: InternationalizedText
+  description: Full legal or preferred name of the person. Clearable in overlays.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Gender
   csv-header-name: gender
   csv-type: xs:string
-  description: Specifies a person's gender.
+  description: Gender of the person. Clearable in overlays.
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: LastName
   csv-header-name: last_name
   csv-type: xs:string
-  description: Represents an individual's last name.
+  description: Last name of the person. Clearable in overlays.
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: MiddleName
   csv-header-name: middle_name
   csv-type: xs:string
-  description: Represents any number of names between an individual's first and last
-    names (e.g. John **Ronald Reuel** Tolkien).
+  description: Middle name(s) of the person. Clearable in overlays.
   error_then: =must-ignore
   repeating: true
-  type: InternationalizedText
+  type: xs:string
 - _name: Nickname
   csv-header-name: nickname
   csv-type: xs:string
-  description: Represents an individual's nickname.
+  description: Nickname or informal name. Clearable in overlays.
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: PartyId
   csv-header-name: party_id
   csv-type: xs:IDREF
-  description: Refers to the associated :ref:`$$$-party`. This information is intended
-    to be used by feed consumers to help them disambiguate the person's identity,
-    but not to be presented as part of any ballot information. For that see :ref:`$$$-candidate`
-    **PartyId**.
+  description: References the :ref:`$$$-party` to which the person belongs. Clearable
+    in overlays.
   error_then: =must-ignore
   type: xs:IDREF
 - _name: Prefix
   csv-header-name: prefix
   csv-type: xs:string
-  description: Specifies a prefix associated with a person (e.g. Dr.).
+  description: Name prefix (e.g. "Dr.", "Rev."). Clearable in overlays.
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: Profession
   csv-header-name: profession
-  csv-type: xs:string
-  description: Specifies a person's profession.
+  csv-type: InternationalizedText
+  description: Occupation or profession of the person. Clearable in overlays.
   error_then: =must-ignore
   type: InternationalizedText
 - _name: Suffix
   csv-header-name: suffix
   csv-type: xs:string
-  description: Specifies a suffix associated with a person (e.g. Jr.).
+  description: Name suffix (e.g. "Jr.", "III", "Esq."). Clearable in overlays.
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: Title
   csv-header-name: title
-  csv-type: xs:string
-  description: A title associated with a person.
+  csv-type: InternationalizedText
+  description: Official title held by the person. Clearable in overlays.
   error_then: =must-ignore
   type: InternationalizedText

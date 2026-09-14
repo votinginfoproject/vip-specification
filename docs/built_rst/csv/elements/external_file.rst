@@ -5,18 +5,17 @@
 external_file
 =============
 
-The ``ExternalFile`` object holds a reference to a file external to the feed itself. 
-External files are packaged along with the VIP feed into a single, archived file. 
+The ``ExternalFile`` object holds a reference to a file external to the feed itself, such as a shapefile archive. External files are packaged along with the VIP feed into a single archive.
 
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type     | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===============+==============+==============+==========================================+==========================================+
-| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
-|              |               |              |              |                                          | implementation is required to ignore the |
+| file_uri     | ``xs:anyURI`` | **Required** | Single       | The URI or filename of the external      | If the field is invalid, then the        |
+|              |               |              |              | file.                                    | implementation is required to ignore the |
 |              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | checksum_id  | ``xs:IDREF``  | **Required** | Single       | The cryptographic checksum of the        | If the element is invalid, then the      |
-|              |               |              |              | referenced external file.                | implementation is required to ignore the |
+|              |               |              |              | external file.                           | implementation is required to ignore the |
 |              |               |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------+--------------+--------------+------------------------------------------+------------------------------------------+
 

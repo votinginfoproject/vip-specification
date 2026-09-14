@@ -5,6 +5,8 @@
 identifier_type
 ===============
 
+Enumeration describing the set of supported external identifier types for entities such as contests, districts, candidates, and localities.
+
 +----------------+----------------------------------------------------+
 | Tag            | Description                                        |
 +================+====================================================+
@@ -22,6 +24,6 @@ identifier_type
 | state-level    | An identifier generated or used by state           |
 |                | governments or organizations.                      |
 +----------------+----------------------------------------------------+
-| other          | Any identifier which doesn't fall into any of the  |
+| other          | Any identifier which does not fall into any of the |
 |                | above categories.                                  |
 +----------------+----------------------------------------------------+

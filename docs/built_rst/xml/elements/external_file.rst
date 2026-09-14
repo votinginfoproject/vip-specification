@@ -5,18 +5,17 @@
 ExternalFile
 ============
 
-The ``ExternalFile`` object holds a reference to a file external to the feed itself. 
-External files are packaged along with the VIP feed into a single, archived file. 
+The ``ExternalFile`` object holds a reference to a file external to the feed itself, such as a shapefile archive. External files are packaged along with the VIP feed into a single archive.
 
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                 | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+===========================+==============+==============+==========================================+==========================================+
-| FileUri      | ``xs:anyURI``             | **Required** | Single       | The URI of the external file.            | If the field is invalid, then the        |
-|              |                           |              |              |                                          | implementation is required to ignore the |
+| FileUri      | ``xs:anyURI``             | **Required** | Single       | The URI or filename of the external      | If the field is invalid, then the        |
+|              |                           |              |              | file.                                    | implementation is required to ignore the |
 |              |                           |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Checksum     | :ref:`multi-xml-checksum` | **Required** | Single       | The cryptographic checksum of the        | If the element is invalid, then the      |
-|              |                           |              |              | referenced external file.                | implementation is required to ignore the |
+|              |                           |              |              | external file.                           | implementation is required to ignore the |
 |              |                           |              |              |                                          | ``ExternalFile`` element containing it.  |
 +--------------+---------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
@@ -26,10 +25,10 @@ External files are packaged along with the VIP feed into a single, archived file
    <ExternalFile id="ef1">
       <FileUri>precinct_shapes.zip</FileUri>
       <Checksum>
-        <Algorithm>sha-256</Algorithm>
-        <Value>65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e</Value>
+         <Algorithm>sha-256</Algorithm>
+         <Value>65b634c5037f8a344616020d8060d233daa37b0f032a71d0d15ad7a5d3afa68e</Value>
       </Checksum>
-   </State>
+   </ExternalFile>
 
 
 .. _multi-xml-checksum:

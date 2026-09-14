@@ -1,81 +1,66 @@
 _name: Party
-_sub_types:
-- HtmlColorString
 csv-header-name: party
 csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
-      id,abbreviation,color,external_identifier_type,external_identifier_othertype,external_identifier_value,is_write_in,leader_person_ids,logo_uri,name
-      par01,REP,ff0000,,,,true,,http://example.com/elephant.png,Republican
-      par02,DEM,0000ff,,,,false,per01,http://example.com/donkey.png,Democrat
-      par03,GRN,efefef,,,,,,http://example.com/tree.png,Green
-      par04,WFP,ee99aa,,,,,,http://example.com/worker.png,Working Families Party
-description: This element describes a political party and the metadata associated
-  with them. These can also include "dummy" parties to indicate a type of contest
-  (e.g., a Voter Nominated :ref:`$$$-candidate-contest` can use the **PrimaryPartyIds**
-  field and a dummy Party object to indicate that the contest is a "Top-Two" primary).
+      id,abbreviation,color,is_write_in,leader_person_ids,logo_uri,name
+      par0001,DEM,0000FF,false,per50001,https://example.gov/dem.png,Democratic Party
+      par0002,REP,FF0000,false,per50002,https://example.gov/rep.png,Republican Party
+description: The Party object represents a political party or ballot grouping.
 post: |-
   .. code-block:: xml
      :linenos:
 
      <Party id="par0001">
-       <Abbreviation>REP</Abbreviation>
-       <Color>e91d0e</Color>
-       <IsWriteIn>false</IsWriteIn>
-       <LeaderPersonIds>per01</LeaderPersonIds>
-       <Name>
-         <Text language="en">Republican</Text>
-       </Name>
+        <Abbreviation>DEM</Abbreviation>
+        <Color>0000FF</Color>
+        <Name>
+           <Text language="en">Democratic Party</Text>
+           <Text language="es">Partido Demócrata</Text>
+        </Name>
      </Party>
 tags:
 - _name: Abbreviation
   csv-header-name: abbreviation
   csv-type: xs:string
-  description: An abbreviation for the party name.
+  description: Abbreviation for the party name (e.g. "DEM", "REP").
   error_then: =must-ignore
-  type: InternationalizedText
+  type: xs:string
 - _name: Color
   csv-header-name: color
   csv-type: HtmlColorString
-  description: The preferred display color for the party, for use in maps and other
-    displays.
+  description: Six-digit hexadecimal HTML color code associated with the party.
   error_then: =must-ignore
   type: HtmlColorString
-- _name: ExternalIdentifiers
-  csv-header-name: external_identifiers
-  csv-type: ExternalIdentifiers
-  description: Other identifiers that link this party to other related data sets (e.g.
-    a campaign finance system, etc).
+- _name: ExternalIdentifier
+  csv-header-name: external_identifier
+  csv-type: ExternalIdentifier
+  description: External identifier(s) linking this party to other datasets.
   error_then: =must-ignore
-  type: ExternalIdentifiers
+  repeating: true
+  type: ExternalIdentifier
 - _name: IsWriteIn
   csv-header-name: is_write_in
   csv-type: xs:boolean
-  description: Signals if this political party is one that is officially recognized
-    by a local, state, or federal organization, or is a "write-in" in jurisdictions
-    which allow candidates to free-form enter their political affiliation. If this
-    field is not present then it is assumed to be false.
+  description: Indicates if the party represents write-in selections.
   error_then: =must-ignore
   type: xs:boolean
 - _name: LeaderPersonIds
   csv-header-name: leader_person_ids
   csv-type: xs:IDREFS
-  description: A reference of :ref:`$$$-person` elements which are leaders of the
-    `Party`.
+  description: References to :ref:`$$$-person` elements for party leadership.
   error_then: =must-ignore
   type: xs:IDREFS
 - _name: LogoUri
   csv-header-name: logo_uri
-  csv-type: xs:anyURI
-  description: Web address of a logo to use in displays.
+  csv-type: InternationalizedUri
+  description: URI pointing to the party logo.
   error_then: =must-ignore
-  type: xs:anyURI
+  type: InternationalizedUri
 - _name: Name
   csv-header-name: name
-  csv-type: xs:string
-  description: The name of the party.
-  error_then: =must-ignore
+  csv-type: InternationalizedText
+  description: Official name of the party.
   required: true
   type: InternationalizedText

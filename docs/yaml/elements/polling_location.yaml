@@ -4,115 +4,127 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
+      id,location_type,directions,photo_uri,party_ids,is_inactive
+      poll001,InPersonDayOf,Use gymnasium entrance,https://example.gov/poll.jpg,,
+      poll002,DropOff,Curbside ballot drop box,,,Water main break
+description: |-
+  The PollingLocation object represents a site where voters cast ballots in person or drop off early/absentee ballots. In VIP 7.0, facility names are placed in ``AddressStructured.LocationName``.
 
-      id,name,structured_line_1,structured_city,structured_state,structured_zip,directions,hours,photo_uri,hours_open_id,is_drop_box,is_early_voting,latitude,longitude,latlng_source
-      poll001,ALBERMARLE HIGH SCHOOL,2775 Hydraulic Rd,Charlottesville,VA,22901,Use back door,7am-8pm,www.picture.com,ho001,false,true,38.0754627,78.5014875,Google Maps
-description: The PollingLocation object represents a site where voters cast or drop
-  off ballots.
-extends:
-- LatLng
-- SimpleAddressType
+  In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearSchedule/>``, ``<ClearDirections/>``, ``<ClearPhotoUri/>``, ``<ClearIsInactive/>``). AddressStructured and LocationType are optional in overlays.
+  EmergencyNotice is permitted only in overlays.
+  In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indicate that a polling location is newly added rather than modifying an existing one.
 post: |-
   .. code-block:: xml
      :linenos:
 
-     <PollingLocation id="pl00000">
-        <AddressStructured>
-           <Line1>2775 Hydraulic Rd</Line1>
+     <PollingLocation id="pl00001">
+        <AddressStructured language="en">
+           <LocationName>ALBEMARLE HIGH SCHOOL</LocationName>
+           <AddressLine>2775 Hydraulic Rd</AddressLine>
            <City>CHARLOTTESVILLE</City>
-           <State>VA</State>
-           <Zip>22901</Zip>
+           <Region>VA</Region>
+           <PostalCode>22901</PostalCode>
         </AddressStructured>
-        <HoursOpenId>hours0002</HoursOpenId>
-        <IsDropBox>true</IsDropBox>
-        <IsEarlyVoting>true</IsEarlyVoting>
+        <LocationIdentifier provider="google" relativePriority="1.0">
+           <Type>pluscode</Type>
+           <Value>87G83W52+4F</Value>
+        </LocationIdentifier>
+        <LocationType>InPersonDayOf</LocationType>
+        <Directions>
+           <Text language="en">Use gymnasium entrance on east side.</Text>
+        </Directions>
+        <Schedule>
+           <TimeZone>America/New_York</TimeZone>
+           <StartDate>2024-11-05</StartDate>
+           <EndDate>2024-11-05</EndDate>
+           <Hours>
+              <StartTime>06:00:00</StartTime>
+              <EndTime>19:00:00</EndTime>
+           </Hours>
+        </Schedule>
         <LatLng>
-           <Latitude>38.009939</Latitude>
-           <Longitude>-78.506204</Longitude>
+           <Latitude>38.0754627</Latitude>
+           <Longitude>-78.5014875</Longitude>
         </LatLng>
-        <Name>ALBERMARLE HIGH SCHOOL</Name>
      </PollingLocation>
 tags:
 - _name: AddressStructured
-  csv-header-name: :ref:`$$$-simple-address-type`
-  csv-type: simple-address-type
-  description: Represents the various structured parts of an address to a polling
-    location.  If multiple addresses are provided, each one must have a different
-    language attribute. All addresses are considered equally authoritative.  Multiple
-    addresses are supported in XML format only; CSV files must have exactly one address.
-  error: |-
-    **AddressStructured** should be present for a given Polling Location.
-    If none is present, the implementation is required to ignore the ``PollingLocation`` element containing it.
-    If more than one **AddressStructured** exists with the same language code, the implementation is required to ignore the ``PollingLocation`` element containing it.
+  csv-header-name: address_structured
+  csv-type: SimpleAddressType
+  description: Structured address including facility name. Required in main feed;
+    optional in overlays. Multiple addresses in different languages can be specified.
+  error: AddressStructured is required for PollingLocation in main feeds.
   repeating: true
   required: true
-  skip_on: csv
   type: SimpleAddressType
+- _name: LocationIdentifier
+  csv-header-name: location_identifier
+  csv-type: LocationIdentifier
+  description: External location identifier(s) (e.g. Plus Code, geocoder ID). Clearable
+    in overlays.
+  error_then: =must-ignore
+  repeating: true
+  type: LocationIdentifier
 - _name: Directions
   csv-header-name: directions
-  csv-type: xs:string
-  description: Specifies further instructions for locating the polling location.
+  csv-type: InternationalizedText
+  description: Instructions for locating the polling site or room. Clearable in overlays.
   error_then: =must-ignore
   type: InternationalizedText
-- _name: Hours **[deprecated]**
+- _name: Hours
   csv-header-name: hours
-  csv-type: xs:string
-  description: Contains the hours (in local time) that the polling location is open
-    (**NB:** this element is deprecated in favor of the more structured :ref:`$$$-hours-open`
-    element. It is strongly encouraged that data providers move toward contributing
-    hours in this format).
+  csv-type: InternationalizedText
+  description: 'Operating hours as text. Clearable in overlays. *(NB: deprecated in
+    favor of :ref:`$$$-schedule-with-timezone`)*.'
   error_then: =must-ignore
   type: InternationalizedText
-- _name: HoursOpen
-  csv-header-name: hours_open_id
-  csv-type: xs:IDREF
-  description: An :ref:`$$$-hours-open` element, which is a schedule of dates and
-    hours during which the polling location is available.
+- _name: Schedule
+  csv-header-name: schedule
+  csv-type: ScheduleWithTimezone
+  description: Structured schedule of operating dates and hours. Clearable in overlays.
   error_then: =must-ignore
-  type: xs:IDREF
-- _name: PollingLocationType
-  csv-header-name: polling_location_type
-  csv-type: polling_location_type
-  description: Whether this polling location is for day-of, in-person early, or drop-off/drop-box
-    voting.
-  error_then: =must-ignore
+  repeating: true
+  type: ScheduleWithTimezone
+- _name: LocationType
+  csv-header-name: location_type
+  csv-type: PollingLocationType
+  description: The type of voting conducted at this location (InPersonDayOf, InPersonEarly,
+    or DropOff). Required in main feed; optional in overlays.
+  error: LocationType is required for PollingLocation in main feeds.
+  required: true
   type: PollingLocationType
 - _name: LatLng
   csv-header-name: lat_lng
   csv-type: LatLng
-  description: Specifies the latitude and longitude of this polling location.
+  description: Latitude and longitude coordinates. Clearable in overlays.
   error_then: =must-ignore
-  skip_on: csv
   type: LatLng
-- _name: Name
-  csv-header-name: name
-  csv-type: xs:string
-  description: Name of the polling location.  There must be at least one `Name` provided,
-    and at most one per language code.
+- _name: PartyIds
+  csv-header-name: party_ids
+  csv-type: xs:IDREFS
+  description: If present, indicates which parties' primaries occur at this location.
+    Clearable in overlays.
   error_then: =must-ignore
-  required: true
-  type: InternationalizedText
+  type: xs:IDREFS
 - _name: PhotoUri
   csv-header-name: photo_uri
   csv-type: InternationalizedUri
-  description: Contains a link to an image of the polling location.
+  description: Link to a photo of the location. Clearable in overlays.
   error_then: =must-ignore
   type: InternationalizedUri
 - _name: EmergencyNotice
   csv-header-name: emergency_notice
-  csv-type: xs:string
-  description: An emergency notice that should be displayed on this polling location
-    only.
+  csv-type: EmergencyNotice
+  description: Emergency notice specific to this polling location. Permitted only
+    in feed overlays.
   error_then: =must-ignore
+  repeating: true
   skip_on: csv
   type: EmergencyNotice
 - _name: IsInactive
   csv-header-name: is_inactive
-  csv-type: xs:boolean
-  description: Whether this polling location is closed and should be ignored.  Default
-    is false. Use this for situations like back-up polling locations where it makes
-    sense to include the location in the feed in case it needs to be activated on
-    short notice.
+  csv-type: xs:string
+  description: If specified, marks the location as closed or inactive, with the text
+    stating the reason why. Clearable in overlays.
   error_then: =must-ignore
-  required: false
-  type: xs:boolean
+  type: xs:string

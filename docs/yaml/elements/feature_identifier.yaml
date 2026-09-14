@@ -3,8 +3,9 @@ csv-header-name: feature_identifier
 tags:
 - _name: Index
   csv-header-name: index
-  csv-type: xs:int
+  csv-type: xs:string
   description: The index value for the shapefile feature.
-  error_then: =must-ignore
-  required: false
-  type: xs:int
+  error: If the Index field is invalid or not present, the implementation is required
+    to ignore the FeatureIdentifier containing it.
+  required: true
+  type: xs:string

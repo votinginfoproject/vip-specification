@@ -1,61 +1,72 @@
 _name: SimpleAddressType
 csv-header-name: simple_address_type
-description: A ``SimpleAddressType`` represents a structured address.  It has one
-  optional attribute, ``language``, that must contain the 2-character `language code`
-  for the language it contains.  If not specified, it is assumed to be `en`.
+description: |-
+  A ``SimpleAddressType`` represents a structured physical or mailing address. It has an optional attribute, ``language``, which defaults to ``i-default``.
+
+  When multiple ``SimpleAddressType`` elements are provided on an entity (such as ``AddressStructured`` on a polling location, or ``MailingAddress`` / ``PhysicalAddress`` on contact information), each must have a distinct ``language`` attribute to specify the address in multiple languages.
+post: |-
+  .. code-block:: xml
+     :linenos:
+
+     <AddressStructured language="en">
+        <LocationName>Albemarle High School</LocationName>
+        <AddressLine>2775 Hydraulic Rd</AddressLine>
+        <City>Charlottesville</City>
+        <County>Albemarle</County>
+        <Region>VA</Region>
+        <Country>USA</Country>
+        <PostalCode>22901</PostalCode>
+     </AddressStructured>
 tags:
-- _name: Line1
-  csv-header-name: structured_line_1
+- _name: LocationName
+  csv-header-name: location_name
   csv-type: xs:string
-  description: The address line for a structured address. Should include the street
-    number, street name, and any prefix and suffix.
-  error: If no ``Line1`` is provided, the implementation should ignore the ``SimpleAddressType``.
-  repreating: false
+  description: The name of the location or facility (e.g. "Albemarle High School").
+  error_then: =must-ignore
+  type: xs:string
+- _name: AddressLine
+  csv-header-name: address_line
+  csv-type: xs:string
+  description: Street address line(s). Multiple AddressLine tags may appear in order
+    (e.g. street address, suite/room).
+  error: If no AddressLine is provided, the implementation should ignore the SimpleAddressType
+    containing it.
+  repeating: true
   required: true
-  type: xs:string
-- _name: Line2
-  csv-header-name: structured_line_2
-  csv-type: xs:string
-  description: Additional field for an address
-  error: If no ``Line2`` is provided, the implementation should ignore it.
-  repreating: false
-  type: xs:string
-- _name: Line3
-  csv-header-name: structured_line_3
-  csv-type: xs:string
-  description: Additional field for an address
-  error: If no ``Line3`` is provided, the implementation should ignore it.
-  repreating: false
   type: xs:string
 - _name: City
-  csv-header-name: structured_city
+  csv-header-name: city
   csv-type: xs:string
-  description: The City value of a structured address.
-  error: If ``City`` is not provided, the implementation should ignore the ``SimpleAddressType``.
-  required: true
+  description: The city, town, or municipality.
+  error_then: =must-ignore
+  type: xs:string
+- _name: County
+  csv-header-name: county
+  csv-type: xs:string
+  description: The county or parish.
+  error_then: =must-ignore
   type: xs:string
 - _name: Region
-  csv-header-name: structured_region
+  csv-header-name: region
   csv-type: xs:string
-  description: The Region value of a structured address.  This is country-dependent.  For
-    example, for US addresses, it is the state; for Canadian addresses it is the province.
-  error: If ``State`` is not provided but is required for the address''s country,
-    the implementation may ignore the ``SimpleAddressType``.
-  required: false
-  type: xs:string
-- _name: PostalCode
-  csv-header-name: structured_postal_code
-  csv-type: xs:string
-  description: The postal code code of a structured address.  In the US, this is the
-    zip code.
-  error: If ``Zip`` is not provided but is required for the address''s country, the
-    implementation may ignore the ``SimpleAddressType``.
-  required: false
+  description: The state, province, or primary sub-national region (e.g. "VA").
+  error_then: =must-ignore
   type: xs:string
 - _name: Country
-  csv-header-name: structured_country
+  csv-header-name: country
   csv-type: xs:string
-  description: The Country value of a structured address.
-  error: If ``Country`` is not provided, the implementation may ignore the ``SimpleAddressType``.
-  required: true
+  description: The country (e.g. "USA").
+  error_then: =must-ignore
+  type: xs:string
+- _name: WorldRegion
+  csv-header-name: world_region
+  csv-type: xs:string
+  description: Global or continental region if applicable.
+  error_then: =must-ignore
+  type: xs:string
+- _name: PostalCode
+  csv-header-name: postal_code
+  csv-type: xs:string
+  description: The postal code or ZIP code.
+  error_then: =must-ignore
   type: xs:string

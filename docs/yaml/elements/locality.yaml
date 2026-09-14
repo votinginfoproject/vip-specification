@@ -4,88 +4,163 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
+      id,name,parent_locality_id,type,other_type,is_mail_only,polling_location_ids
+      loc51,Virginia,,state,,false,
+      loc70001,Albemarle County,loc51,county,,false,pl001 pl002
+description: |-
+  The Locality object represents any jurisdictional level—including states, counties, cities, and towns. Localities form a tree hierarchy using ``ParentLocalityId``, with the root locality representing the state (with ``Type="state"``).
 
-      id,election_administration_id,external_identifier_type,external_identifier_othertype,external_identifier_value,is_mail_only,name,polling_location_ids,state_id,type,other_type
-      loc001,ea123,ocd-id,,ocd-division/country:us/state:co/county:denver,true,Locality #1,poll001 poll002,st51,city,
-      loc002,ea345,,,,,Locality #2,,st51,other,unique type
-description: The Locality object represents the jurisdiction below the :ref:`$$$-state`
-  (e.g. county).
+  In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` (e.g. ``<ClearDefaultPollingHours/>``, ``<ClearElectionAdministration/>``, ``<ClearIsInactive/>``). Name is optional in overlays. Emergency notices and overridden hours are only permitted in overlays.
 post: |-
-  .. _OCD-ID: http://opencivicdata.readthedocs.org/en/latest/ocdids.html
-
   .. code-block:: xml
      :linenos:
 
+     <!-- State-level locality (root) -->
+     <Locality id="loc51">
+        <Name>Virginia</Name>
+        <Type>state</Type>
+        <ElectionAdministration>
+           <ElectionsUri>https://www.elections.virginia.gov/</ElectionsUri>
+           <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
+        </ElectionAdministration>
+     </Locality>
+
+     <!-- County-level locality referencing parent state -->
      <Locality id="loc70001">
-       <ElectionAdministrationId>ea40001</ElectionAdministrationId>
-       <ExternalIdentifiers>
-         <ExternalIdentifier>
-           <Type>ocd-id</Type>
-           <Value>ocd-division/country:us/state:va/county:albemarle</Value>
-         </ExternalIdentifier>
-       </ExternalIdentifiers>
-       <IsMailOnly>true</IsMailOnly>
-       <Name>ALBEMARLE COUNTY</Name>
-       <StateId>st51</StateId>
-       <Type>county</Type>
+        <Name>ALBEMARLE COUNTY</Name>
+        <ParentLocalityId>loc51</ParentLocalityId>
+        <Type>county</Type>
+        <IsMailOnly>false</IsMailOnly>
+        <PollingLocationIds>pl00001 pl00002</PollingLocationIds>
+        <DefaultPollingHours>
+           <TimeZone>America/New_York</TimeZone>
+           <Hours>
+              <StartTime>06:00:00</StartTime>
+              <EndTime>19:00:00</EndTime>
+           </Hours>
+        </DefaultPollingHours>
      </Locality>
 tags:
-- _name: ElectionAdministrationId
-  csv-header-name: election_administration_id
-  csv-type: xs:IDREF
-  description: Links to the locality's :ref:`$$$-election-administration` object.
+- _name: ElectionAdministration
+  csv-header-name: election_administration
+  csv-type: ElectionAdministration
+  description: The election administration entity for this locality. In overlays,
+    this entity is replaced as a single unit or cleared with <ClearElectionAdministration/>.
   error_then: =must-ignore
-  type: xs:IDREF
-- _name: ExternalIdentifiers
-  csv-header-name: external_identifiers
-  csv-type: ExternalIdentifiers
-  description: Another identifier for a locality that links to another dataset (e.g.
-    `OCD-ID`_)
+  type: ElectionAdministration
+- _name: EmergencyNotice
+  csv-header-name: emergency_notice
+  csv-type: EmergencyNotice
+  description: Emergency notification applicable locality-wide. Permitted only in
+    feed overlays.
   error_then: =must-ignore
-  type: ExternalIdentifiers
+  repeating: false
+  skip_on: csv
+  type: EmergencyNotice
+- _name: ExternalIdentifier
+  csv-header-name: external_identifier
+  csv-type: ExternalIdentifier
+  description: External identifier(s) linking this locality to external datasets (e.g.
+    OCD-ID, FIPS). Clearable in overlays.
+  error_then: =must-ignore
+  repeating: true
+  type: ExternalIdentifier
 - _name: IsMailOnly
   csv-header-name: is_mail_only
   csv-type: xs:boolean
-  description: Determines if the locality runs mail-only elections. If this is true,
-    then all precincts a part of the locality will also run mail-only elections. Drop
-    boxes may be used in addition to this flag using a :ref:`polling location <$$$-polling-location>`
-    record configured as a Drop Box.
+  description: Specifies if the locality runs mail-only elections. Clearable in overlays.
   error: If the field is missing or invalid, the implementation is required to assume
-    `IsMailOnly` is false.
+    IsMailOnly is false.
   type: xs:boolean
 - _name: Name
   csv-header-name: name
   csv-type: xs:string
-  description: Specifies the name of a locality.
+  description: Name of the locality. Required in main feed; optional in overlays.
   required: true
-  type: InternationalizedText
+  type: xs:string
 - _name: PollingLocationIds
   csv-header-name: polling_location_ids
   csv-type: xs:IDREFS
-  description: Specifies a link to a set of the locality's :ref:`polling locations
-    <$$$-polling-location>`s. If early vote centers or ballot drop locations are locality-wide,
-    they should be specified here.
-  error: If the field is invalid or not present, the implementation is required to
-    ignore it. However, the implementation should still check to see if there are
-    any polling locations associated with this locality's state.
+  description: References locality-wide polling locations (e.g. early vote sites or
+    drop boxes). Clearable in overlays.
+  error_then: =must-ignore
   type: xs:IDREFS
-- _name: StateId
-  csv-header-name: state_id
+- _name: ParentLocalityId
+  csv-header-name: parent_locality_id
   csv-type: xs:IDREF
-  description: References the locality's :ref:`$$$-state`.
-  required: true
+  description: References the parent :ref:`$$$-locality` in the jurisdiction hierarchy
+    (e.g. county pointing to state). If omitted, this is a top-level jurisdiction.
+  error_then: =must-ignore
   type: xs:IDREF
 - _name: Type
   csv-header-name: type
   csv-type: DistrictType
-  description: Defines the kind of locality (e.g. county, town, et al.), which is
-    one of the various :ref:`DistrictType enumerations <$$$-district-type>`.
+  description: The kind of jurisdiction (e.g. state, county, city) from :ref:`$$$-district-type`.
+    Clearable in overlays.
   error_then: =must-ignore
   type: DistrictType
 - _name: OtherType
   csv-header-name: other_type
   csv-type: xs:string
-  description: Allows for defining a type of locality that falls outside the options
-    listed in :ref:`DistrictType <$$$-district-type>`.
+  description: Allows defining a type of locality outside :ref:`$$$-district-type`.
+    Clearable in overlays.
+  error_then: =must-ignore
+  type: xs:string
+- _name: DefaultPollingHours
+  csv-header-name: default_polling_hours
+  csv-type: ScheduleWithTimezone
+  description: Default operating hours for day-of polling locations throughout this
+    locality. Clearable in overlays.
+  error_then: =must-ignore
+  repeating: true
+  type: ScheduleWithTimezone
+- _name: OverriddenPollingHours
+  csv-header-name: overridden_polling_hours
+  csv-type: ScheduleWithTimezone
+  description: Overridden polling hours for day-of locations in this locality. Permitted
+    only in feed overlays.
+  error_then: =must-ignore
+  repeating: true
+  skip_on: csv
+  type: ScheduleWithTimezone
+- _name: DefaultEarlyVoteHours
+  csv-header-name: default_early_vote_hours
+  csv-type: ScheduleWithTimezone
+  description: Default operating hours for in-person early voting locations throughout
+    this locality. Clearable in overlays.
+  error_then: =must-ignore
+  repeating: true
+  type: ScheduleWithTimezone
+- _name: OverriddenEarlyVoteHours
+  csv-header-name: overridden_early_vote_hours
+  csv-type: ScheduleWithTimezone
+  description: Overridden early voting hours in this locality. Permitted only in feed
+    overlays.
+  error_then: =must-ignore
+  repeating: true
+  skip_on: csv
+  type: ScheduleWithTimezone
+- _name: DefaultDropoffHours
+  csv-header-name: default_dropoff_hours
+  csv-type: ScheduleWithTimezone
+  description: Default operating hours for ballot drop-off locations throughout this
+    locality. Clearable in overlays.
+  error_then: =must-ignore
+  repeating: true
+  type: ScheduleWithTimezone
+- _name: OverriddenDropoffHours
+  csv-header-name: overridden_dropoff_hours
+  csv-type: ScheduleWithTimezone
+  description: Overridden drop-off hours in this locality. Permitted only in feed
+    overlays.
+  error_then: =must-ignore
+  repeating: true
+  skip_on: csv
+  type: ScheduleWithTimezone
+- _name: IsInactive
+  csv-header-name: is_inactive
+  csv-type: xs:string
+  description: If specified, marks the locality as inactive and explains the reason
+    why. Clearable in overlays.
   error_then: =must-ignore
   type: xs:string

@@ -23,71 +23,66 @@ outside of the United States).
 contest_base
 ------------
 
-A base model for all Contest types: :ref:`multi-csv-ballot-measure-contest`,
-:ref:`multi-csv-candidate-contest`, :ref:`multi-csv-party-contest`,
-and :ref:`multi-csv-retention-contest` (NB: the latter because it extends
-:ref:`multi-csv-ballot-measure-contest`).
+A base model for all Contest types: :ref:`multi-csv-ballot-measure-contest`, :ref:`multi-csv-candidate-contest`, :ref:`multi-csv-party-contest`, and :ref:`multi-csv-retention-contest`.
 
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| Tag                      | Data Type                       | Required?    | Repeats?     | Description                              | Error Handling                           |
-+==========================+=================================+==============+==============+==========================================+==========================================+
-| abbreviation             | ``xs:string``                   | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
-|                          |                                 |              |              |                                          | then the implementation should ignore    |
-|                          |                                 |              |              |                                          | it.                                      |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_selection_ids     | ``xs:IDREFS``                   | Optional     | Single       | References a set of BallotSelections,    | If the field is invalid or not present,  |
-|                          |                                 |              |              | which could be of any selection type     | then the implementation should ignore    |
-|                          |                                 |              |              | that extends                             | it.                                      |
-|                          |                                 |              |              | :ref:`multi-csv-ballot-selection-base`.  |                                          |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_sub_title         | ``xs:string``                   | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
-|                          |                                 |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                 |              |              |                                          | ignore it.                               |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| ballot_title             | ``xs:string``                   | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
-|                          |                                 |              |              | the ballot.                              | present, then the implementation should  |
-|                          |                                 |              |              |                                          | ignore it.                               |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electoral_district_id    | ``xs:IDREF``                    | **Required** | Single       | References an                            | If the field is invalid, then the        |
-|                          |                                 |              |              | :ref:`multi-csv-electoral-district`      | implementation is required to ignore the |
-|                          |                                 |              |              | element that represents the geographical | ``ContestBase`` element containing it.   |
-|                          |                                 |              |              | scope of the contest.                    |                                          |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| electorate_specification | ``xs:string``                   | Optional     | Single       | Specifies any changes to the eligible    | If the element is invalid or not         |
-|                          |                                 |              |              | electorate for this contest past the     | present, then the implementation should  |
-|                          |                                 |              |              | usual, "all registered voters"           | ignore it.                               |
-|                          |                                 |              |              | electorate. This subtag will most often  |                                          |
-|                          |                                 |              |              | be used for primaries and local          |                                          |
-|                          |                                 |              |              | elections. In primaries, voters may have |                                          |
-|                          |                                 |              |              | to be registered as a specific party to  |                                          |
-|                          |                                 |              |              | vote, or there may be special rules for  |                                          |
-|                          |                                 |              |              | which ballot a voter can pull. In some   |                                          |
-|                          |                                 |              |              | local elections, non-citizens can vote.  |                                          |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| external_identifiers     | ``xs:string``                   | Optional     | Single       | Other identifiers for a contest that     | If the element is invalid or not         |
-|                          |                                 |              |              | links to another source of information.  | present, then the implementation should  |
-|                          |                                 |              |              |                                          | ignore it.                               |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| has_rotation             | ``xs:boolean``                  | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
-|                          |                                 |              |              | contest are rotated.                     | then the implementation should ignore    |
-|                          |                                 |              |              |                                          | it.                                      |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| name                     | ``xs:string``                   | **Required** | Single       | Name of the contest, not necessarily how | If the field is invalid, then the        |
-|                          |                                 |              |              | it appears on the ballot (NB:            | implementation is required to ignore the |
-|                          |                                 |              |              | BallotTitle should be used for this      | ``ContestBase`` element containing it.   |
-|                          |                                 |              |              | purpose).                                |                                          |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| sequence_order           | ``xs:integer``                  | Optional     | Single       | Order in which the contests are listed   | If the field is invalid or not present,  |
-|                          |                                 |              |              | on the ballot. This is the default       | then the implementation should ignore    |
-|                          |                                 |              |              | ordering, and can be overrides by data   | it.                                      |
-|                          |                                 |              |              | in a :ref:`multi-csv-ballot-style`       |                                          |
-|                          |                                 |              |              | element.                                 |                                          |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| vote_variation           | :ref:`multi-csv-vote-variation` | Optional     | Single       | Vote variation associated with the       | If the field is invalid or not present,  |
-|                          |                                 |              |              | contest (e.g. n-of-m, majority, et al).  | then the implementation should ignore    |
-|                          |                                 |              |              |                                          | it.                                      |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| other_vote_variation     | ``other_vote_variation``        | Optional     | Single       | If "other" is selected as the            | If the field is invalid or not present,  |
-|                          |                                 |              |              | **VoteVariation**, the name of the       | then the implementation should ignore    |
-|                          |                                 |              |              | variation can be specified here.         | it.                                      |
-+--------------------------+---------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+In overlay feeds, clearable fields can be cleared using empty ``<Clear{FieldName}/>`` elements (e.g. ``<ClearAbbreviation/>``, ``<ClearBallotSelectionIds/>``, ``<ClearIsInactive/>``). Name and ElectoralDistrictId are optional in overlays.
+
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| Tag                      | Data Type                               | Required?    | Repeats?     | Description                              | Error Handling                           |
++==========================+=========================================+==============+==============+==========================================+==========================================+
+| abbreviation             | ``xs:string``                           | Optional     | Single       | An abbreviation for the contest.         | If the field is invalid or not present,  |
+|                          |                                         |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                         |              |              |                                          | it.                                      |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_selection_ids     | ``xs:IDREFS``                           | Optional     | Single       | References BallotSelections belonging to | If the field is invalid or not present,  |
+|                          |                                         |              |              | this contest. Clearable in overlays.     | then the implementation should ignore    |
+|                          |                                         |              |              |                                          | it.                                      |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_sub_title         | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Subtitle of the contest as it appears on | If the element is invalid or not         |
+|                          |                                         |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                         |              |              |                                          | ignore it.                               |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| ballot_title             | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Title of the contest as it appears on    | If the element is invalid or not         |
+|                          |                                         |              |              | the ballot. Clearable in overlays.       | present, then the implementation should  |
+|                          |                                         |              |              |                                          | ignore it.                               |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electoral_district_id    | ``xs:IDREF``                            | **Required** | Single       | References the                           | If the field is invalid, then the        |
+|                          |                                         |              |              | :ref:`multi-csv-electoral-district`      | implementation is required to ignore the |
+|                          |                                         |              |              | representing the geographical scope of   | ``ContestBase`` element containing it.   |
+|                          |                                         |              |              | the contest. Required in main feed;      |                                          |
+|                          |                                         |              |              | optional in overlays.                    |                                          |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| electorate_specification | :ref:`multi-csv-internationalized-text` | Optional     | Single       | Specifies rules or changes regarding     | If the element is invalid or not         |
+|                          |                                         |              |              | eligible electors for this contest (e.g. | present, then the implementation should  |
+|                          |                                         |              |              | party affiliation for primaries).        | ignore it.                               |
+|                          |                                         |              |              | Clearable in overlays.                   |                                          |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| external_identifier      | :ref:`multi-csv-external-identifier`    | Optional     | Repeats      | External identifier(s) linking this      | If the element is invalid or not         |
+|                          |                                         |              |              | contest to other sources. Clearable in   | present, then the implementation should  |
+|                          |                                         |              |              | overlays.                                | ignore it.                               |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| has_rotation             | ``xs:boolean``                          | Optional     | Single       | Indicates whether the selections in the  | If the field is invalid or not present,  |
+|                          |                                         |              |              | contest rotate on the ballot. Clearable  | then the implementation should ignore    |
+|                          |                                         |              |              | in overlays.                             | it.                                      |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| name                     | ``xs:string``                           | **Required** | Single       | Name of the contest. Required in main    | If the field is invalid, then the        |
+|                          |                                         |              |              | feed; optional in overlays.              | implementation is required to ignore the |
+|                          |                                         |              |              |                                          | ``ContestBase`` element containing it.   |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| sequence_order           | ``xs:integer``                          | Optional     | Single       | Default ballot ordering for the contest. | If the field is invalid or not present,  |
+|                          |                                         |              |              | Clearable in overlays.                   | then the implementation should ignore    |
+|                          |                                         |              |              |                                          | it.                                      |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| vote_variation           | :ref:`multi-csv-vote-variation`         | Optional     | Single       | Voting variation (e.g. plurality,        | If the field is invalid or not present,  |
+|                          |                                         |              |              | majority, rcv) from                      | then the implementation should ignore    |
+|                          |                                         |              |              | :ref:`multi-csv-vote-variation`.         | it.                                      |
+|                          |                                         |              |              | Clearable in overlays.                   |                                          |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| other_vote_variation     | ``xs:string``                           | Optional     | Single       | Custom voting variation if VoteVariation | If the field is invalid or not present,  |
+|                          |                                         |              |              | is "other". Clearable in overlays.       | then the implementation should ignore    |
+|                          |                                         |              |              |                                          | it.                                      |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
+| is_inactive              | ``xs:string``                           | Optional     | Single       | If specified, marks the contest as       | If the field is invalid or not present,  |
+|                          |                                         |              |              | inactive with the reason why. Clearable  | then the implementation should ignore    |
+|                          |                                         |              |              | in overlays.                             | it.                                      |
++--------------------------+-----------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+

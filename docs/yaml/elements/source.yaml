@@ -4,12 +4,11 @@ csv-post: |-
   .. code-block:: csv-table
      :linenos:
 
-
-      id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id,version
-      source01,2016-06-02T10:24:08,SBE is the official source for Virginia data,"State Board of Elections, Commonwealth of Virginia",http://www.sbe.virginia.gov/,http://example.com/terms,51,5.1
-description: |-
-  The Source object represents the organization that is publishing the information. This object is
-  the only required object in the feed file, and only one source object is allowed to be present.
+      id,date_time,description,name,organization_uri,terms_of_use_uri,vip_id
+      source01,2024-10-24T14:25:28,SBE is official source,"State Board of Elections",http://www.sbe.virginia.gov/,http://example.com/terms,51
+description: The Source object represents the organization publishing the information.
+  In a VIP 7.0 main feed file, exactly one Source object must be present. Source is
+  excluded from feed overlays.
 post: |-
   .. _FIPS: https://www.census.gov/geo/reference/codes/cou.html
 
@@ -17,67 +16,59 @@ post: |-
      :linenos:
 
      <Source id="src1">
-        <DateTime>2013-10-24T14:25:28</DateTime>
+        <DateTime>2024-10-24T14:25:28</DateTime>
         <Description>
-           <Text language="en">SBE is the official source for Virginia data</Text>
+           <Text language="en">SBE is the official source for Virginia election data.</Text>
         </Description>
+        <FeedContactInformation>
+           <Name>State Board of Elections Support</Name>
+           <Email>elections@sbe.virginia.gov</Email>
+        </FeedContactInformation>
         <Name>State Board of Elections, Commonwealth of Virginia</Name>
         <OrganizationUri>http://www.sbe.virginia.gov/</OrganizationUri>
+        <TermsOfUseUri>http://www.sbe.virginia.gov/terms</TermsOfUseUri>
         <VipId>51</VipId>
-        <Version>5.0</Version>
      </Source>
 tags:
-- _name: Name
-  csv-header-name: name
-  csv-type: xs:string
-  description: Specifies the name of the organization that is providing the information.
-  required: true
-  type: xs:string
-- _name: VipId
-  csv-header-name: vip_id
-  csv-type: xs:string
-  description: Specifies the ID of the organization. VIP uses FIPS_ codes for this
-    ID.
-  required: true
-  type: xs:string
 - _name: DateTime
   csv-header-name: date_time
   csv-type: xs:dateTime
-  description: Specifies the date and time of the feed production. The date/time is
-    considered to be in the timezone local to the organization.
+  description: Specifies the date and time of feed production in local time.
   required: true
   type: xs:dateTime
 - _name: Description
   csv-header-name: description
-  csv-type: xs:string
-  description: Specifies both the nature of the organization providing the data and
-    what data is in the feed.
+  csv-type: InternationalizedText
+  description: Describes the organization and the data contained in the feed.
   error_then: =must-ignore
   type: InternationalizedText
-- _name: OrganizationUri
-  csv-header-name: organization_uri
-  csv-type: xs:string
-  description: Specifies a URI to the home page of the organization publishing the
-    data.
-  error_then: =must-ignore
-  type: xs:string
 - _name: FeedContactInformation
   csv-header-name: feed_contact_information_id
-  csv-type: xs:IDREF
-  description: Reference to the :ref:`$$$-person` who will respond to inquiries about
-    the information contained within the file.
+  csv-type: ContactInformation
+  description: Contact information for inquiries about the feed data.
   error_then: =must-ignore
   type: ContactInformation
-- _name: TouUri
-  csv-header-name: terms_of_use_uri
-  csv-type: xs:anyURI
-  description: Specifies the website where the Terms of Use for the information in
-    this file can be found.
-  error_then: =must-ignore
-  type: xs:anyURI
-- _name: Version
-  csv-header-name: version
+- _name: Name
+  csv-header-name: name
   csv-type: xs:string
-  description: Specifies the version of the data
+  description: Specifies the name of the organization publishing the feed.
+  required: true
+  type: xs:string
+- _name: OrganizationUri
+  csv-header-name: organization_uri
+  csv-type: InternationalizedUri
+  description: Web address of the organization publishing the feed.
   error_then: =must-ignore
+  type: InternationalizedUri
+- _name: TermsOfUseUri
+  csv-header-name: terms_of_use_uri
+  csv-type: InternationalizedUri
+  description: Web address where Terms of Use for the feed data can be found.
+  error_then: =must-ignore
+  type: InternationalizedUri
+- _name: VipId
+  csv-header-name: vip_id
+  csv-type: xs:string
+  description: FIPS code identifying the state or jurisdiction.
+  required: true
   type: xs:string
