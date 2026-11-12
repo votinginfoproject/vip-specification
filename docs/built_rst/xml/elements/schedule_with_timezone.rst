@@ -99,10 +99,10 @@ A time value with no time zone. The time zone is specified in an enclosing struc
 
    <Schedule>
       <TimeZone>America/New_York</TimeZone>
+      <StartDate>2024-11-05</StartDate>
+      <EndDate>2024-11-05</EndDate>
       <Hours>
          <StartTime>06:00:00</StartTime>
          <EndTime>19:00:00</EndTime>
       </Hours>
-      <StartDate>2024-11-05</StartDate>
-      <EndDate>2024-11-05</EndDate>
    </Schedule>

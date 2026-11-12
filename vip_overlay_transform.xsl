@@ -16,13 +16,24 @@
     </xsl:copy>
   </xsl:template>
 
+  <!-- Rewrite IDREF/IDREFS to NCName/NCNameList in overlays so references to
+       base-feed entity IDs validate in strict W3C XSD 1.0 processors. -->
+  <xsl:template match="xs:element/@type[. = 'xs:IDREF']">
+    <xsl:attribute name="type">xs:NCName</xsl:attribute>
+  </xsl:template>
+
+  <xsl:template match="xs:element/@type[. = 'xs:IDREFS']">
+    <xsl:attribute name="type">NCNameList</xsl:attribute>
+  </xsl:template>
+
   <!-- Replace clearable attribute on overlays with a minOccurs="0",
        since clearable in overlays implies optional in the main feed.
        Replace the type with an extension that includes the clear attribute. -->
   <xsl:template match="//xs:element[@optionalInOverlay or @clearable]" >
     <xsl:copy>
-      <xsl:apply-templates select="node()|@*[name(.)!='clearable' and name(.)!='optionalInOverlay']" />
+      <xsl:apply-templates select="@*[name(.)!='clearable' and name(.)!='optionalInOverlay']" />
       <xsl:attribute name="minOccurs">0</xsl:attribute>
+      <xsl:apply-templates select="node()" />
     </xsl:copy>
   </xsl:template>
 
@@ -33,19 +44,18 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Set minOccurs="0" on OptionalInOverlay elements. -->
-  <xsl:template match="//OptionalInOverlay">
-    <xsl:copy>
-      <xsl:attribute name="minOccurs">0</xsl:attribute>
-      <xsl:apply-templates select="@*[name(.)!='minOccurs']" />
-      <xsl:apply-templates select="node()" />
-    </xsl:copy>
-  </xsl:template>
-
   <xsl:template match="xs:schema">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
       <!-- Root VIP Overlay element. -->
+      <xs:simpleType name="NCNameList">
+        <xs:restriction>
+          <xs:simpleType>
+            <xs:list itemType="xs:NCName" />
+          </xs:simpleType>
+          <xs:minLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
       <xs:complexType name="ClearableField"/>
       <xs:element name="VipOverlay">
 	<xs:complexType>
@@ -58,7 +68,7 @@
             <xs:element name="CandidateContest" type="CandidateContest" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="CandidateSelection" type="CandidateSelection" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="Contest" type="ContestBase" minOccurs="0" maxOccurs="unbounded" />
-            <xs:element name="Election" type="Election" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Election" type="Election" minOccurs="0" maxOccurs="1" />
             <xs:element name="ElectoralDistrict" type="ElectoralDistrict" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="Locality" type="Locality" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="Office" type="Office" minOccurs="0" maxOccurs="unbounded" />

@@ -98,21 +98,21 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 
    <!-- State-level locality (root) -->
    <Locality id="loc51">
-      <Name>Virginia</Name>
-      <Type>state</Type>
       <ElectionAdministration>
          <ElectionsUri>https://www.elections.virginia.gov/</ElectionsUri>
          <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
       </ElectionAdministration>
+      <Name>Virginia</Name>
+      <Type>state</Type>
    </Locality>
 
    <!-- County-level locality referencing parent state -->
    <Locality id="loc70001">
+      <IsMailOnly>false</IsMailOnly>
       <Name>ALBEMARLE COUNTY</Name>
+      <PollingLocationIds>pl00001 pl00002</PollingLocationIds>
       <ParentLocalityId>loc51</ParentLocalityId>
       <Type>county</Type>
-      <IsMailOnly>false</IsMailOnly>
-      <PollingLocationIds>pl00001 pl00002</PollingLocationIds>
       <DefaultPollingHours>
          <TimeZone>America/New_York</TimeZone>
          <Hours>

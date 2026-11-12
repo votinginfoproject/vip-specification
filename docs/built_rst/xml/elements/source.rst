@@ -49,13 +49,13 @@ The Source object represents the organization publishing the information. In a V
    :linenos:
 
    <Source id="src1">
-      <DateTime>2024-10-24T14:25:28</DateTime>
+      <DateTime>2024-10-24T14:25:28-04:00</DateTime>
       <Description>
-         <Text language="en">SBE is the official source for Virginia election data.</Text>
+         <Text language="i-default">SBE is the official source for Virginia election data.</Text>
       </Description>
       <FeedContactInformation>
-         <Name>State Board of Elections Support</Name>
          <Email>elections@sbe.virginia.gov</Email>
+         <Name>State Board of Elections Support</Name>
       </FeedContactInformation>
       <Name>State Board of Elections, Commonwealth of Virginia</Name>
       <OrganizationUri>http://www.sbe.virginia.gov/</OrganizationUri>

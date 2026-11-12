@@ -19,7 +19,7 @@ post: |-
      <CandidateContest id="cc20003">
         <BallotSelectionIds>cs10961 cs10962</BallotSelectionIds>
         <BallotTitle>
-           <Text language="en">Governor of Virginia</Text>
+           <Text language="i-default">Governor of Virginia</Text>
         </BallotTitle>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <Name>Governor</Name>

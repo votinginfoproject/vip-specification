@@ -15,16 +15,16 @@ post: |-
      :linenos:
 
      <Election id="ele30000">
+        <AbsenteeRequestDeadline>2024-10-25</AbsenteeRequestDeadline>
         <Date>2024-11-05</Date>
-        <Name>
-           <Text language="en">2024 General Election</Text>
-           <Text language="es">Elecciones Generales de 2024</Text>
-        </Name>
         <ElectionType>General</ElectionType>
         <HasElectionDayRegistration>false</HasElectionDayRegistration>
         <IsStatewide>true</IsStatewide>
+        <Name>
+           <Text language="i-default">2024 General Election</Text>
+           <Text language="es">Elecciones Generales de 2024</Text>
+        </Name>
         <RegistrationDeadline>2024-10-15</RegistrationDeadline>
-        <AbsenteeRequestDeadline>2024-10-25</AbsenteeRequestDeadline>
         <ResultsUri>https://www.sbe.virginia.gov/ElectionResults.html</ResultsUri>
         <TopLevelLocalityId>loc51</TopLevelLocalityId>
      </Election>

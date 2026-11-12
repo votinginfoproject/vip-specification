@@ -17,7 +17,7 @@ post: |-
      :linenos:
 
      <ContactInformation label="office_contact">
-        <PhysicalAddress language="en">
+        <PhysicalAddress language="i-default">
            <LocationName>City Hall</LocationName>
            <AddressLine>100 N Main St, Room 101</AddressLine>
            <City>Springfield</City>
@@ -29,7 +29,6 @@ post: |-
            <Value>86HJQPRX+86</Value>
         </LocationIdentifier>
         <Email>elections@springfield.gov</Email>
-        <Phone>217-555-0100</Phone>
         <Schedule>
            <TimeZone>America/Chicago</TimeZone>
            <Hours>
@@ -37,6 +36,7 @@ post: |-
               <EndTime>16:30:00</EndTime>
            </Hours>
         </Schedule>
+        <Phone>217-555-0100</Phone>
         <Uri>https://elections.springfield.gov</Uri>
      </ContactInformation>
 tags:

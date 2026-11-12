@@ -51,7 +51,7 @@ When multiple ``SimpleAddressType`` elements are provided on an entity (such as 
 .. code-block:: xml
    :linenos:
 
-   <AddressStructured language="en">
+   <AddressStructured language="i-default">
       <LocationName>Albemarle High School</LocationName>
       <AddressLine>2775 Hydraulic Rd</AddressLine>
       <City>Charlottesville</City>

@@ -21,7 +21,7 @@ post: |-
         </ContactInformation>
         <FirstName>Ken</FirstName>
         <FullName>
-           <Text language="en">Ken T. Cuccinelli II</Text>
+           <Text language="i-default">Ken T. Cuccinelli II</Text>
         </FullName>
         <Gender>male</Gender>
         <LastName>Cuccinelli</LastName>
@@ -29,7 +29,7 @@ post: |-
         <PartyId>par0001</PartyId>
         <Suffix>II</Suffix>
         <Title>
-           <Text language="en">Attorney General</Text>
+           <Text language="i-default">Attorney General</Text>
         </Title>
      </Person>
 tags:

@@ -85,7 +85,7 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
       </ContactInformation>
       <FirstName>Ken</FirstName>
       <FullName>
-         <Text language="en">Ken T. Cuccinelli II</Text>
+         <Text language="i-default">Ken T. Cuccinelli II</Text>
       </FullName>
       <Gender>male</Gender>
       <LastName>Cuccinelli</LastName>
@@ -93,6 +93,6 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
       <PartyId>par0001</PartyId>
       <Suffix>II</Suffix>
       <Title>
-         <Text language="en">Attorney General</Text>
+         <Text language="i-default">Attorney General</Text>
       </Title>
    </Person>

@@ -67,7 +67,6 @@ In overlay feeds, the entire ElectionAdministration element is replaced as a sin
       <BallotTrackingUri>https://www.vote.virginia.gov/track</BallotTrackingUri>
       <BallotProvisionalTrackingUri>https://www.vote.virginia.gov/provisional</BallotProvisionalTrackingUri>
       <ContactInformation label="ea_contact">
-         <Name>Virginia Department of Elections</Name>
          <PhysicalAddress>
             <AddressLine>Washington Building, First Floor</AddressLine>
             <AddressLine>1100 Bank Street</AddressLine>
@@ -75,8 +74,9 @@ In overlay feeds, the entire ElectionAdministration element is replaced as a sin
             <Region>VA</Region>
             <PostalCode>23219</PostalCode>
          </PhysicalAddress>
-         <Phone>804-864-8901</Phone>
          <Email>info@elections.virginia.gov</Email>
+         <Name>Virginia Department of Elections</Name>
+         <Phone>804-864-8901</Phone>
       </ContactInformation>
       <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
       <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
@@ -179,7 +179,7 @@ For defining contact information about objects such as persons, boards of author
    :linenos:
 
    <ContactInformation label="office_contact">
-      <PhysicalAddress language="en">
+      <PhysicalAddress language="i-default">
          <LocationName>City Hall</LocationName>
          <AddressLine>100 N Main St, Room 101</AddressLine>
          <City>Springfield</City>
@@ -191,7 +191,6 @@ For defining contact information about objects such as persons, boards of author
          <Value>86HJQPRX+86</Value>
       </LocationIdentifier>
       <Email>elections@springfield.gov</Email>
-      <Phone>217-555-0100</Phone>
       <Schedule>
          <TimeZone>America/Chicago</TimeZone>
          <Hours>
@@ -199,5 +198,6 @@ For defining contact information about objects such as persons, boards of author
             <EndTime>16:30:00</EndTime>
          </Hours>
       </Schedule>
+      <Phone>217-555-0100</Phone>
       <Uri>https://elections.springfield.gov</Uri>
    </ContactInformation>

@@ -22,6 +22,8 @@ In VIP 7.0, political geography is represented hierarchically using the :doc:`Lo
 
 In addition to full base feeds, VIP 7.0 introduces :doc:`Feed Overlays <overlay>` (defined in ``vip_overlay.xsd``) to distribute targeted delta updates, emergency notifications, and hours overrides.
 
+Both the base feed XSD (``vip_main.xsd``) and overlay XSD (``vip_overlay.xsd``) are generated from ``vip_spec.xsd`` using the XSLT stylesheets ``vip_mainfeed_transform.xsl`` and ``vip_overlay_transform.xsl``. Companion Schematron rules are defined in ``vip_spec.sch`` and transformed by ``vip_mainfeed_schematron_transform.xsl`` and ``vip_overlay_schematron_transform.xsl`` into standalone ``vip_main.sch`` and ``vip_overlay.sch`` files. Use ``python3 scripts/vip.py build_schemas`` to regenerate all derived schemas, and ``python3 scripts/vip.py validate <file.xml> [--phase strict|full]`` to validate XML documents against both XSD and Schematron.
+
 In general, subtag data can appear a maximum of one time within each top-level tag object and in any
 order, unless designated as repeating.
 

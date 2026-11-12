@@ -17,9 +17,9 @@ post: |-
 
      <Party id="par0001">
         <Abbreviation>DEM</Abbreviation>
-        <Color>0000FF</Color>
+        <Color>0000ff</Color>
         <Name>
-           <Text language="en">Democratic Party</Text>
+           <Text language="i-default">Democratic Party</Text>
            <Text language="es">Partido Demócrata</Text>
         </Name>
      </Party>
