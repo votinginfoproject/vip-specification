@@ -19,16 +19,16 @@ post: |-
      <BallotMeasureContest id="bmc30001">
         <BallotSelectionIds>bms30001a bms30001b</BallotSelectionIds>
         <BallotTitle>
-           <Text language="en">State Bond Initiative</Text>
+           <Text language="i-default">State Bond Initiative</Text>
            <Text language="es">Iniciativa de Bonos del Estado</Text>
         </BallotTitle>
         <ElectoralDistrictId>ed60129</ElectoralDistrictId>
         <Name>Bond Initiative</Name>
         <ConStatement>
-           <Text language="en">Opponents argue this increases state debt.</Text>
+           <Text language="i-default">Opponents argue this increases state debt.</Text>
         </ConStatement>
         <ProStatement>
-           <Text language="en">Supporters state this funds critical school repairs.</Text>
+           <Text language="i-default">Supporters state this funds critical school repairs.</Text>
         </ProStatement>
         <Type>referendum</Type>
      </BallotMeasureContest>

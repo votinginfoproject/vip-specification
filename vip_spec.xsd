@@ -2,9 +2,9 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" version="7.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- Note: xs:element entities in this file can optionally contain a
-       clearable="true" *or* an optionalInOverlay="true" attribute.
-       These attributes are process by vip_mainfeed_transform.xsd and
-       vip_overlay_transform.xsd via XSLT to create valid XSD schemas
+       clearable="true", optionalInOverlay="true", or onlyInOverlay="true"
+       attribute. These attributes are processed by vip_mainfeed_transform.xsl
+       and vip_overlay_transform.xsl via XSLT to create valid XSD schemas
        for VIP feeds and VIP overlays. -->
 
   <!-- Enumeration types. -->
@@ -173,7 +173,7 @@
     <xs:complexContent>
       <xs:extension base="ContestBase">
         <xs:sequence>
-          <xs:element name="ConStatement" type="InternationalizedText" clearable="true" />
+          <xs:element name="ConStatement" type="InternationalizedText" minOccurs="0" clearable="true" />
           <xs:element name="EffectOfAbstain" type="InternationalizedText" minOccurs="0" clearable="true" />
           <xs:element name="FullText" type="InternationalizedText" minOccurs="0" clearable="true" />
           <xs:element name="InfoUri" type="InternationalizedUri" minOccurs="0" clearable="true" />
@@ -192,7 +192,7 @@
     <xs:complexContent>
       <xs:extension base="BallotSelectionBase">
         <xs:sequence>
-          <xs:element name="Selection" type="InternationalizedText" />
+          <xs:element name="Selection" type="InternationalizedText" optionalInOverlay="true" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -216,7 +216,7 @@
 
   <xs:complexType name="Candidate">
     <xs:sequence>
-      <xs:element name="BallotName" type="InternationalizedText" />
+      <xs:element name="BallotName" type="InternationalizedText" optionalInOverlay="true" />
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" />
       <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="FileDate" type="xs:date" minOccurs="0" />
@@ -247,7 +247,7 @@
     <xs:complexContent>
       <xs:extension base="BallotSelectionBase">
         <xs:sequence>
-          <xs:element name="CandidateIds" type="xs:IDREFS" />
+          <xs:element name="CandidateIds" type="xs:IDREFS" optionalInOverlay="true" />
           <xs:element name="EndorsementPartyIds" type="xs:IDREFS" minOccurs="0" />
           <xs:element name="IsWriteIn" type="xs:boolean" minOccurs="0" />
         </xs:sequence>
@@ -307,7 +307,7 @@
 
   <xs:complexType name="EmergencyNotice">
     <xs:sequence>
-      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="NoticeText" type="InternationalizedText" minOccurs="0" maxOccurs="1" />
       <xs:element name="NoticeUri" type="InternationalizedUri" minOccurs="0" />
       <xs:element name="AppliesTo" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
@@ -418,15 +418,17 @@
 
   <xs:complexType name="ScheduleWithTimezone">
     <xs:sequence>
-      <!-- IANA Time Zone, e.g. "Americal/New_York".  Only canonical time zones of the
-	   form Continent/City are supported to make the regex as specific as possible.
-	   Single-word aliases like CET or EST are not supported.  For hour offsets, use
-	   Etc/GMT-X and Etc/GMT+X. If time zone is not present, the hours are assumed
-	   to be local time in the time zone of the enclosing entity. -->
+      <!-- IANA Time Zone, e.g. "America/New_York". Canonical Continent/City
+	   time zones are preferred; multi-segment backward-compatible aliases
+	   (such as US/Eastern) are permitted by XSD but emit a Schematron
+	   warning. Single-word aliases like CET or EST are not supported.
+	   For hour offsets, use Etc/GMT-X and Etc/GMT+X. If time zone is not
+	   present, the hours are assumed to be local time in the time zone of
+	   the enclosing entity. -->
       <xs:element name="TimeZone" minOccurs="0">
 	<xs:simpleType>
 	  <xs:restriction base="xs:string">
-	    <xs:pattern value="(Africa|America|Antarctica|Asia|Atlantic|Australia|Etc|Europe|Indian|Mexico|Pacific|US)(/[A-Za-z0-9+-_]+)+" />
+	    <xs:pattern value="(Africa|America|Antarctica|Arctic|Asia|Atlantic|Australia|Brazil|Canada|Chile|Etc|Europe|Indian|Mexico|Pacific|US)(/[A-Za-z0-9+_-]+)+" />
 	  </xs:restriction>
 	</xs:simpleType>
       </xs:element>
@@ -571,11 +573,11 @@ and will enforce that each text language is different.
     <xs:sequence>
       <xs:element name="ContactInformation" type="ContactInformation" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="Description" type="InternationalizedText" minOccurs="0" />
-      <xs:element name="ElectoralDistrictId" type="xs:IDREF" />
+      <xs:element name="ElectoralDistrictId" type="xs:IDREF" optionalInOverlay="true" />
       <xs:element name="ExternalIdentifier" type="ExternalIdentifier" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="FilingDeadline" type="xs:date" minOccurs="0" />
       <xs:element name="IsPartisan" type="xs:boolean" minOccurs="0" />
-      <xs:element name="Name" type="InternationalizedText" />
+      <xs:element name="Name" type="InternationalizedText" optionalInOverlay="true" />
       <xs:element name="OfficeHolderPersonIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="Term" type="Term" minOccurs="0" />
     </xs:sequence>
@@ -584,7 +586,7 @@ and will enforce that each text language is different.
 
   <xs:complexType name="OrderedContest">
     <xs:sequence>
-      <xs:element name="ContestId" type="xs:IDREF" />
+      <xs:element name="ContestId" type="xs:IDREF" optionalInOverlay="true" />
       <xs:element name="OrderedBallotSelectionIds" type="xs:IDREFS" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
@@ -598,7 +600,7 @@ and will enforce that each text language is different.
       <xs:element name="IsWriteIn" type="xs:boolean" minOccurs="0" />
       <xs:element name="LeaderPersonIds" type="xs:IDREFS" minOccurs="0" />
       <xs:element name="LogoUri" type="InternationalizedUri" minOccurs="0" />
-      <xs:element name="Name" type="InternationalizedText" />
+      <xs:element name="Name" type="InternationalizedText" optionalInOverlay="true" />
     </xs:sequence>
     <xs:attribute name="id" type="xs:ID" use="required" />
   </xs:complexType>
@@ -613,7 +615,7 @@ and will enforce that each text language is different.
     <xs:complexContent>
       <xs:extension base="BallotSelectionBase">
         <xs:sequence>
-          <xs:element name="PartyIds" type="xs:IDREFS" />
+          <xs:element name="PartyIds" type="xs:IDREFS" optionalInOverlay="true" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -689,7 +691,7 @@ and will enforce that each text language is different.
     <xs:complexContent>
       <xs:extension base="BallotMeasureContest">
         <xs:sequence>
-          <xs:element name="CandidateId" type="xs:IDREF" />
+          <xs:element name="CandidateId" type="xs:IDREF" optionalInOverlay="true" />
           <xs:element name="OfficeId" type="xs:IDREF" minOccurs="0" />
         </xs:sequence>
       </xs:extension>

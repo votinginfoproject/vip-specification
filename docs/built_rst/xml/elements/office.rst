@@ -78,7 +78,7 @@ Term
      <FilingDeadline>2013-01-01</FilingDeadline>
      <IsPartisan>false</IsPartisan>
      <Name>
-       <Text language="en">Governor</Text>
+       <Text language="i-default">Governor</Text>
      </Name>
      <Term>
        <Type>full-term</Type>

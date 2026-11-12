@@ -78,16 +78,16 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
    <BallotMeasureContest id="bmc30001">
       <BallotSelectionIds>bms30001a bms30001b</BallotSelectionIds>
       <BallotTitle>
-         <Text language="en">State Bond Initiative</Text>
+         <Text language="i-default">State Bond Initiative</Text>
          <Text language="es">Iniciativa de Bonos del Estado</Text>
       </BallotTitle>
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>
       <Name>Bond Initiative</Name>
       <ConStatement>
-         <Text language="en">Opponents argue this increases state debt.</Text>
+         <Text language="i-default">Opponents argue this increases state debt.</Text>
       </ConStatement>
       <ProStatement>
-         <Text language="en">Supporters state this funds critical school repairs.</Text>
+         <Text language="i-default">Supporters state this funds critical school repairs.</Text>
       </ProStatement>
       <Type>referendum</Type>
    </BallotMeasureContest>
@@ -195,13 +195,13 @@ BallotMeasureSelection extends :ref:`single-xml-ballot-selection-base`.
 
    <BallotMeasureSelection id="bms30001a">
       <Selection label="bms30001at">
-         <Text language="en">Yes</Text>
+         <Text language="i-default">Yes</Text>
          <Text language="es">Sí</Text>
       </Selection>
    </BallotMeasureSelection>
    <BallotMeasureSelection id="bms30001b">
       <Selection label="bms30001bt">
-         <Text language="en">No</Text>
+         <Text language="i-default">No</Text>
          <Text language="es">No</Text>
       </Selection>
    </BallotMeasureSelection>
@@ -334,7 +334,7 @@ The Candidate object represents a candidate in a contest. If a candidate is runn
 
    <Candidate id="can10961">
       <BallotName>
-         <Text language="en">Ken T. Cuccinelli II</Text>
+         <Text language="i-default">Ken T. Cuccinelli II</Text>
       </BallotName>
       <PartyId>par0001</PartyId>
       <PersonId>per10961</PersonId>
@@ -388,7 +388,7 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
    <CandidateContest id="cc20003">
       <BallotSelectionIds>cs10961 cs10962</BallotSelectionIds>
       <BallotTitle>
-         <Text language="en">Governor of Virginia</Text>
+         <Text language="i-default">Governor of Virginia</Text>
       </BallotTitle>
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>
       <Name>Governor</Name>
@@ -625,7 +625,7 @@ For defining contact information about objects such as persons, boards of author
    :linenos:
 
    <ContactInformation label="office_contact">
-      <PhysicalAddress language="en">
+      <PhysicalAddress language="i-default">
          <LocationName>City Hall</LocationName>
          <AddressLine>100 N Main St, Room 101</AddressLine>
          <City>Springfield</City>
@@ -637,7 +637,6 @@ For defining contact information about objects such as persons, boards of author
          <Value>86HJQPRX+86</Value>
       </LocationIdentifier>
       <Email>elections@springfield.gov</Email>
-      <Phone>217-555-0100</Phone>
       <Schedule>
          <TimeZone>America/Chicago</TimeZone>
          <Hours>
@@ -645,6 +644,7 @@ For defining contact information about objects such as persons, boards of author
             <EndTime>16:30:00</EndTime>
          </Hours>
       </Schedule>
+      <Phone>217-555-0100</Phone>
       <Uri>https://elections.springfield.gov</Uri>
    </ContactInformation>
 
@@ -798,16 +798,16 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
    :linenos:
 
    <Election id="ele30000">
+      <AbsenteeRequestDeadline>2024-10-25</AbsenteeRequestDeadline>
       <Date>2024-11-05</Date>
-      <Name>
-         <Text language="en">2024 General Election</Text>
-         <Text language="es">Elecciones Generales de 2024</Text>
-      </Name>
       <ElectionType>General</ElectionType>
       <HasElectionDayRegistration>false</HasElectionDayRegistration>
       <IsStatewide>true</IsStatewide>
+      <Name>
+         <Text language="i-default">2024 General Election</Text>
+         <Text language="es">Elecciones Generales de 2024</Text>
+      </Name>
       <RegistrationDeadline>2024-10-15</RegistrationDeadline>
-      <AbsenteeRequestDeadline>2024-10-25</AbsenteeRequestDeadline>
       <ResultsUri>https://www.sbe.virginia.gov/ElectionResults.html</ResultsUri>
       <TopLevelLocalityId>loc51</TopLevelLocalityId>
    </Election>
@@ -880,7 +880,6 @@ In overlay feeds, the entire ElectionAdministration element is replaced as a sin
       <BallotTrackingUri>https://www.vote.virginia.gov/track</BallotTrackingUri>
       <BallotProvisionalTrackingUri>https://www.vote.virginia.gov/provisional</BallotProvisionalTrackingUri>
       <ContactInformation label="ea_contact">
-         <Name>Virginia Department of Elections</Name>
          <PhysicalAddress>
             <AddressLine>Washington Building, First Floor</AddressLine>
             <AddressLine>1100 Bank Street</AddressLine>
@@ -888,8 +887,9 @@ In overlay feeds, the entire ElectionAdministration element is replaced as a sin
             <Region>VA</Region>
             <PostalCode>23219</PostalCode>
          </PhysicalAddress>
-         <Phone>804-864-8901</Phone>
          <Email>info@elections.virginia.gov</Email>
+         <Name>Virginia Department of Elections</Name>
+         <Phone>804-864-8901</Phone>
       </ContactInformation>
       <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
       <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
@@ -992,7 +992,7 @@ For defining contact information about objects such as persons, boards of author
    :linenos:
 
    <ContactInformation label="office_contact">
-      <PhysicalAddress language="en">
+      <PhysicalAddress language="i-default">
          <LocationName>City Hall</LocationName>
          <AddressLine>100 N Main St, Room 101</AddressLine>
          <City>Springfield</City>
@@ -1004,7 +1004,6 @@ For defining contact information about objects such as persons, boards of author
          <Value>86HJQPRX+86</Value>
       </LocationIdentifier>
       <Email>elections@springfield.gov</Email>
-      <Phone>217-555-0100</Phone>
       <Schedule>
          <TimeZone>America/Chicago</TimeZone>
          <Hours>
@@ -1012,6 +1011,7 @@ For defining contact information about objects such as persons, boards of author
             <EndTime>16:30:00</EndTime>
          </Hours>
       </Schedule>
+      <Phone>217-555-0100</Phone>
       <Uri>https://elections.springfield.gov</Uri>
    </ContactInformation>
 
@@ -1066,7 +1066,7 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
          <Value>ocd-division/country:us/state:va/sldl:57</Value>
       </ExternalIdentifier>
       <Name>
-         <Text language="en">Virginia's 57th House of Delegates district</Text>
+         <Text language="i-default">Virginia's 57th House of Delegates district</Text>
       </Name>
       <Number>57</Number>
       <Type>state-house</Type>
@@ -1085,7 +1085,7 @@ In VIP 7.0, EmergencyNotice elements are permitted only in feed overlays on :ref
 +--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 | Tag          | Data Type                                | Required?    | Repeats?     | Description                              | Error Handling                           |
 +==============+==========================================+==============+==============+==========================================+==========================================+
-| NoticeText   | :ref:`single-xml-internationalized-text` | Optional     | Repeats      | The emergency notification text, which   | If the element is invalid or not         |
+| NoticeText   | :ref:`single-xml-internationalized-text` | Optional     | Single       | The emergency notification text, which   | If the element is invalid or not         |
 |              |                                          |              |              | may be localized in multiple languages.  | present, then the implementation is      |
 |              |                                          |              |              |                                          | required to ignore it.                   |
 +--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
@@ -1093,11 +1093,11 @@ In VIP 7.0, EmergencyNotice elements are permitted only in feed overlays on :ref
 |              |                                          |              |              | regarding the emergency notice.          | present, then the implementation is      |
 |              |                                          |              |              |                                          | required to ignore it.                   |
 +--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
-| AppliesTo    | ``xs:string``                            | Optional     | Repeats      | If specified, the contexts in which this | If the field is invalid or not present,  |
-|              |                                          |              |              | emergency notice applies (e.g.           | then the implementation is required to   |
-|              |                                          |              |              | "polling_place", "vote_center",          | ignore it.                               |
-|              |                                          |              |              | "ballot_drop_box", "jurisdiction"). If   |                                          |
-|              |                                          |              |              | omitted, applies generally.              |                                          |
+| AppliesTo    | ``xs:string``                            | Optional     | Repeats      | If specified, the serving contexts in    | If the field is invalid or not present,  |
+|              |                                          |              |              | which this emergency notice applies      | then the implementation is required to   |
+|              |                                          |              |              | (e.g. "api", "search", "maps"). If       | ignore it.                               |
+|              |                                          |              |              | omitted, applies generally across all    |                                          |
+|              |                                          |              |              | serving contexts.                        |                                          |
 +--------------+------------------------------------------+--------------+--------------+------------------------------------------+------------------------------------------+
 
 .. code-block:: xml
@@ -1105,11 +1105,12 @@ In VIP 7.0, EmergencyNotice elements are permitted only in feed overlays on :ref
 
    <EmergencyNotice>
       <NoticeText>
-         <Text language="en">Polling location moved due to water main break.</Text>
+         <Text language="i-default">Polling location moved due to water main break.</Text>
          <Text language="es">El centro de votación se ha trasladado debido a una rotura de tubería.</Text>
       </NoticeText>
       <NoticeUri>https://elections.example.gov/notices/precinct-203</NoticeUri>
-      <AppliesTo>polling_place</AppliesTo>
+      <AppliesTo>search</AppliesTo>
+      <AppliesTo>maps</AppliesTo>
    </EmergencyNotice>
 
 
@@ -1317,12 +1318,12 @@ A time value with no time zone. The time zone is specified in an enclosing struc
 
    <Schedule>
       <TimeZone>America/New_York</TimeZone>
+      <StartDate>2024-11-05</StartDate>
+      <EndDate>2024-11-05</EndDate>
       <Hours>
          <StartTime>06:00:00</StartTime>
          <EndTime>19:00:00</EndTime>
       </Hours>
-      <StartDate>2024-11-05</StartDate>
-      <EndDate>2024-11-05</EndDate>
    </Schedule>
 
 
@@ -1546,21 +1547,21 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
 
    <!-- State-level locality (root) -->
    <Locality id="loc51">
-      <Name>Virginia</Name>
-      <Type>state</Type>
       <ElectionAdministration>
          <ElectionsUri>https://www.elections.virginia.gov/</ElectionsUri>
          <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>
       </ElectionAdministration>
+      <Name>Virginia</Name>
+      <Type>state</Type>
    </Locality>
 
    <!-- County-level locality referencing parent state -->
    <Locality id="loc70001">
+      <IsMailOnly>false</IsMailOnly>
       <Name>ALBEMARLE COUNTY</Name>
+      <PollingLocationIds>pl00001 pl00002</PollingLocationIds>
       <ParentLocalityId>loc51</ParentLocalityId>
       <Type>county</Type>
-      <IsMailOnly>false</IsMailOnly>
-      <PollingLocationIds>pl00001 pl00002</PollingLocationIds>
       <DefaultPollingHours>
          <TimeZone>America/New_York</TimeZone>
          <Hours>
@@ -1689,7 +1690,7 @@ Term
      <FilingDeadline>2013-01-01</FilingDeadline>
      <IsPartisan>false</IsPartisan>
      <Name>
-       <Text language="en">Governor</Text>
+       <Text language="i-default">Governor</Text>
      </Name>
      <Term>
        <Type>full-term</Type>
@@ -1784,9 +1785,9 @@ This element describes a political party and the metadata associated with it. Th
 
    <Party id="par0001">
       <Abbreviation>DEM</Abbreviation>
-      <Color>0000FF</Color>
+      <Color>0000ff</Color>
       <Name>
-         <Text language="en">Democratic Party</Text>
+         <Text language="i-default">Democratic Party</Text>
          <Text language="es">Partido Demócrata</Text>
       </Name>
    </Party>
@@ -2006,7 +2007,7 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
       </ContactInformation>
       <FirstName>Ken</FirstName>
       <FullName>
-         <Text language="en">Ken T. Cuccinelli II</Text>
+         <Text language="i-default">Ken T. Cuccinelli II</Text>
       </FullName>
       <Gender>male</Gender>
       <LastName>Cuccinelli</LastName>
@@ -2014,7 +2015,7 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
       <PartyId>par0001</PartyId>
       <Suffix>II</Suffix>
       <Title>
-         <Text language="en">Attorney General</Text>
+         <Text language="i-default">Attorney General</Text>
       </Title>
    </Person>
 
@@ -2093,7 +2094,7 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
    :linenos:
 
    <PollingLocation id="pl00001">
-      <AddressStructured language="en">
+      <AddressStructured language="i-default">
          <LocationName>ALBEMARLE HIGH SCHOOL</LocationName>
          <AddressLine>2775 Hydraulic Rd</AddressLine>
          <City>CHARLOTTESVILLE</City>
@@ -2104,9 +2105,8 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
          <Type>pluscode</Type>
          <Value>87G83W52+4F</Value>
       </LocationIdentifier>
-      <LocationType>InPersonDayOf</LocationType>
       <Directions>
-         <Text language="en">Use gymnasium entrance on east side.</Text>
+         <Text language="i-default">Use gymnasium entrance on east side.</Text>
       </Directions>
       <Schedule>
          <TimeZone>America/New_York</TimeZone>
@@ -2117,6 +2117,7 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
             <EndTime>19:00:00</EndTime>
          </Hours>
       </Schedule>
+      <LocationType>InPersonDayOf</LocationType>
       <LatLng>
          <Latitude>38.0754627</Latitude>
          <Longitude>-78.5014875</Longitude>
@@ -2332,7 +2333,7 @@ contest where a candidate is retained in a position (e.g. a judge).
    <RetentionContest id="rc40001">
       <BallotSelectionIds>rc40001a rc40001b</BallotSelectionIds>
       <BallotTitle>
-         <Text language="en">Retention of Supreme Court Justice</Text>
+         <Text language="i-default">Retention of Supreme Court Justice</Text>
          <Text language="es">La retención de juez de la Corte Suprema</Text>
       </BallotTitle>
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>
@@ -2441,12 +2442,12 @@ A time value with no time zone. The time zone is specified in an enclosing struc
 
    <Schedule>
       <TimeZone>America/New_York</TimeZone>
+      <StartDate>2024-11-05</StartDate>
+      <EndDate>2024-11-05</EndDate>
       <Hours>
          <StartTime>06:00:00</StartTime>
          <EndTime>19:00:00</EndTime>
       </Hours>
-      <StartDate>2024-11-05</StartDate>
-      <EndDate>2024-11-05</EndDate>
    </Schedule>
 
 
@@ -2501,7 +2502,7 @@ When multiple ``SimpleAddressType`` elements are provided on an entity (such as 
 .. code-block:: xml
    :linenos:
 
-   <AddressStructured language="en">
+   <AddressStructured language="i-default">
       <LocationName>Albemarle High School</LocationName>
       <AddressLine>2775 Hydraulic Rd</AddressLine>
       <City>Charlottesville</City>
@@ -2561,13 +2562,13 @@ The Source object represents the organization publishing the information. In a V
    :linenos:
 
    <Source id="src1">
-      <DateTime>2024-10-24T14:25:28</DateTime>
+      <DateTime>2024-10-24T14:25:28-04:00</DateTime>
       <Description>
-         <Text language="en">SBE is the official source for Virginia election data.</Text>
+         <Text language="i-default">SBE is the official source for Virginia election data.</Text>
       </Description>
       <FeedContactInformation>
-         <Name>State Board of Elections Support</Name>
          <Email>elections@sbe.virginia.gov</Email>
+         <Name>State Board of Elections Support</Name>
       </FeedContactInformation>
       <Name>State Board of Elections, Commonwealth of Virginia</Name>
       <OrganizationUri>http://www.sbe.virginia.gov/</OrganizationUri>
@@ -2825,7 +2826,7 @@ Term
      <FilingDeadline>2013-01-01</FilingDeadline>
      <IsPartisan>false</IsPartisan>
      <Name>
-       <Text language="en">Governor</Text>
+       <Text language="i-default">Governor</Text>
      </Name>
      <Term>
        <Type>full-term</Type>
@@ -2847,12 +2848,12 @@ A time value with no time zone. The time zone is specified in an enclosing struc
 
    <Schedule>
       <TimeZone>America/New_York</TimeZone>
+      <StartDate>2024-11-05</StartDate>
+      <EndDate>2024-11-05</EndDate>
       <Hours>
          <StartTime>06:00:00</StartTime>
          <EndTime>19:00:00</EndTime>
       </Hours>
-      <StartDate>2024-11-05</StartDate>
-      <EndDate>2024-11-05</EndDate>
    </Schedule>
 
 

@@ -27,7 +27,7 @@ contest where a candidate is retained in a position (e.g. a judge).
    <RetentionContest id="rc40001">
       <BallotSelectionIds>rc40001a rc40001b</BallotSelectionIds>
       <BallotTitle>
-         <Text language="en">Retention of Supreme Court Justice</Text>
+         <Text language="i-default">Retention of Supreme Court Justice</Text>
          <Text language="es">La retención de juez de la Corte Suprema</Text>
       </BallotTitle>
       <ElectoralDistrictId>ed60129</ElectoralDistrictId>

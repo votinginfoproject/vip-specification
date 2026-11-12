@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IanaTimeZones>
+  <Zone canonical="true">Africa/Abidjan</Zone>
+  <Zone canonical="true">Africa/Accra</Zone>
+  <Zone canonical="true">Africa/Addis_Ababa</Zone>
+  <Zone canonical="true">Africa/Algiers</Zone>
+  <Zone canonical="true">Africa/Asmara</Zone>
+  <Zone canonical="false" target="Africa/Asmara">Africa/Asmera</Zone>
+  <Zone canonical="true">Africa/Bamako</Zone>
+  <Zone canonical="true">Africa/Bangui</Zone>
+  <Zone canonical="true">Africa/Banjul</Zone>
+  <Zone canonical="true">Africa/Bissau</Zone>
+  <Zone canonical="true">Africa/Blantyre</Zone>
+  <Zone canonical="true">Africa/Brazzaville</Zone>
+  <Zone canonical="true">Africa/Bujumbura</Zone>
+  <Zone canonical="true">Africa/Cairo</Zone>
+  <Zone canonical="true">Africa/Casablanca</Zone>
+  <Zone canonical="true">Africa/Ceuta</Zone>
+  <Zone canonical="true">Africa/Conakry</Zone>
+  <Zone canonical="true">Africa/Dakar</Zone>
+  <Zone canonical="true">Africa/Dar_es_Salaam</Zone>
+  <Zone canonical="true">Africa/Djibouti</Zone>
+  <Zone canonical="true">Africa/Douala</Zone>
+  <Zone canonical="true">Africa/El_Aaiun</Zone>
+  <Zone canonical="true">Africa/Freetown</Zone>
+  <Zone canonical="true">Africa/Gaborone</Zone>
+  <Zone canonical="true">Africa/Harare</Zone>
+  <Zone canonical="true">Africa/Johannesburg</Zone>
+  <Zone canonical="true">Africa/Juba</Zone>
+  <Zone canonical="true">Africa/Kampala</Zone>
+  <Zone canonical="true">Africa/Khartoum</Zone>
+  <Zone canonical="true">Africa/Kigali</Zone>
+  <Zone canonical="true">Africa/Kinshasa</Zone>
+  <Zone canonical="true">Africa/Lagos</Zone>
+  <Zone canonical="true">Africa/Libreville</Zone>
+  <Zone canonical="true">Africa/Lome</Zone>
+  <Zone canonical="true">Africa/Luanda</Zone>
+  <Zone canonical="true">Africa/Lubumbashi</Zone>
+  <Zone canonical="true">Africa/Lusaka</Zone>
+  <Zone canonical="true">Africa/Malabo</Zone>
+  <Zone canonical="true">Africa/Maputo</Zone>
+  <Zone canonical="true">Africa/Maseru</Zone>
+  <Zone canonical="true">Africa/Mbabane</Zone>
+  <Zone canonical="true">Africa/Mogadishu</Zone>
+  <Zone canonical="true">Africa/Monrovia</Zone>
+  <Zone canonical="true">Africa/Nairobi</Zone>
+  <Zone canonical="true">Africa/Ndjamena</Zone>
+  <Zone canonical="true">Africa/Niamey</Zone>
+  <Zone canonical="true">Africa/Nouakchott</Zone>
+  <Zone canonical="true">Africa/Ouagadougou</Zone>
+  <Zone canonical="true">Africa/Porto-Novo</Zone>
+  <Zone canonical="true">Africa/Sao_Tome</Zone>
+  <Zone canonical="false" target="Africa/Bamako">Africa/Timbuktu</Zone>
+  <Zone canonical="true">Africa/Tripoli</Zone>
+  <Zone canonical="true">Africa/Tunis</Zone>
+  <Zone canonical="true">Africa/Windhoek</Zone>
+  <Zone canonical="true">America/Adak</Zone>
+  <Zone canonical="true">America/Anchorage</Zone>
+  <Zone canonical="true">America/Anguilla</Zone>
+  <Zone canonical="true">America/Antigua</Zone>
+  <Zone canonical="true">America/Araguaina</Zone>
+  <Zone canonical="true">America/Argentina/Buenos_Aires</Zone>
+  <Zone canonical="true">America/Argentina/Catamarca</Zone>
+  <Zone canonical="false" target="America/Argentina/Catamarca">America/Argentina/ComodRivadavia</Zone>
+  <Zone canonical="true">America/Argentina/Cordoba</Zone>
+  <Zone canonical="true">America/Argentina/Jujuy</Zone>
+  <Zone canonical="true">America/Argentina/La_Rioja</Zone>
+  <Zone canonical="true">America/Argentina/Mendoza</Zone>
+  <Zone canonical="true">America/Argentina/Rio_Gallegos</Zone>
+  <Zone canonical="true">America/Argentina/Salta</Zone>
+  <Zone canonical="true">America/Argentina/San_Juan</Zone>
+  <Zone canonical="true">America/Argentina/San_Luis</Zone>
+  <Zone canonical="true">America/Argentina/Tucuman</Zone>
+  <Zone canonical="true">America/Argentina/Ushuaia</Zone>
+  <Zone canonical="true">America/Aruba</Zone>
+  <Zone canonical="true">America/Asuncion</Zone>
+  <Zone canonical="true">America/Atikokan</Zone>
+  <Zone canonical="false" target="America/Adak">America/Atka</Zone>
+  <Zone canonical="true">America/Bahia</Zone>
+  <Zone canonical="true">America/Bahia_Banderas</Zone>
+  <Zone canonical="true">America/Barbados</Zone>
+  <Zone canonical="true">America/Belem</Zone>
+  <Zone canonical="true">America/Belize</Zone>
+  <Zone canonical="true">America/Blanc-Sablon</Zone>
+  <Zone canonical="true">America/Boa_Vista</Zone>
+  <Zone canonical="true">America/Bogota</Zone>
+  <Zone canonical="true">America/Boise</Zone>
+  <Zone canonical="false" target="America/Argentina/Buenos_Aires">America/Buenos_Aires</Zone>
+  <Zone canonical="true">America/Cambridge_Bay</Zone>
+  <Zone canonical="true">America/Campo_Grande</Zone>
+  <Zone canonical="true">America/Cancun</Zone>
+  <Zone canonical="true">America/Caracas</Zone>
+  <Zone canonical="false" target="America/Argentina/Catamarca">America/Catamarca</Zone>
+  <Zone canonical="true">America/Cayenne</Zone>
+  <Zone canonical="true">America/Cayman</Zone>
+  <Zone canonical="true">America/Chicago</Zone>
+  <Zone canonical="true">America/Chihuahua</Zone>
+  <Zone canonical="true">America/Ciudad_Juarez</Zone>
+  <Zone canonical="false" target="America/Atikokan">America/Coral_Harbour</Zone>
+  <Zone canonical="false" target="America/Argentina/Cordoba">America/Cordoba</Zone>
+  <Zone canonical="true">America/Costa_Rica</Zone>
+  <Zone canonical="true">America/Coyhaique</Zone>
+  <Zone canonical="true">America/Creston</Zone>
+  <Zone canonical="true">America/Cuiaba</Zone>
+  <Zone canonical="true">America/Curacao</Zone>
+  <Zone canonical="true">America/Danmarkshavn</Zone>
+  <Zone canonical="true">America/Dawson</Zone>
+  <Zone canonical="true">America/Dawson_Creek</Zone>
+  <Zone canonical="true">America/Denver</Zone>
+  <Zone canonical="true">America/Detroit</Zone>
+  <Zone canonical="true">America/Dominica</Zone>
+  <Zone canonical="true">America/Edmonton</Zone>
+  <Zone canonical="true">America/Eirunepe</Zone>
+  <Zone canonical="true">America/El_Salvador</Zone>
+  <Zone canonical="false" target="America/Tijuana">America/Ensenada</Zone>
+  <Zone canonical="true">America/Fort_Nelson</Zone>
+  <Zone canonical="false" target="America/Indiana/Indianapolis">America/Fort_Wayne</Zone>
+  <Zone canonical="true">America/Fortaleza</Zone>
+  <Zone canonical="true">America/Glace_Bay</Zone>
+  <Zone canonical="false" target="America/Nuuk">America/Godthab</Zone>
+  <Zone canonical="true">America/Goose_Bay</Zone>
+  <Zone canonical="true">America/Grand_Turk</Zone>
+  <Zone canonical="true">America/Grenada</Zone>
+  <Zone canonical="true">America/Guadeloupe</Zone>
+  <Zone canonical="true">America/Guatemala</Zone>
+  <Zone canonical="true">America/Guayaquil</Zone>
+  <Zone canonical="true">America/Guyana</Zone>
+  <Zone canonical="true">America/Halifax</Zone>
+  <Zone canonical="true">America/Havana</Zone>
+  <Zone canonical="true">America/Hermosillo</Zone>
+  <Zone canonical="true">America/Indiana/Indianapolis</Zone>
+  <Zone canonical="true">America/Indiana/Knox</Zone>
+  <Zone canonical="true">America/Indiana/Marengo</Zone>
+  <Zone canonical="true">America/Indiana/Petersburg</Zone>
+  <Zone canonical="true">America/Indiana/Tell_City</Zone>
+  <Zone canonical="true">America/Indiana/Vevay</Zone>
+  <Zone canonical="true">America/Indiana/Vincennes</Zone>
+  <Zone canonical="true">America/Indiana/Winamac</Zone>
+  <Zone canonical="false" target="America/Indiana/Indianapolis">America/Indianapolis</Zone>
+  <Zone canonical="true">America/Inuvik</Zone>
+  <Zone canonical="true">America/Iqaluit</Zone>
+  <Zone canonical="true">America/Jamaica</Zone>
+  <Zone canonical="false" target="America/Argentina/Jujuy">America/Jujuy</Zone>
+  <Zone canonical="true">America/Juneau</Zone>
+  <Zone canonical="true">America/Kentucky/Louisville</Zone>
+  <Zone canonical="true">America/Kentucky/Monticello</Zone>
+  <Zone canonical="false" target="America/Indiana/Knox">America/Knox_IN</Zone>
+  <Zone canonical="true">America/Kralendijk</Zone>
+  <Zone canonical="true">America/La_Paz</Zone>
+  <Zone canonical="true">America/Lima</Zone>
+  <Zone canonical="true">America/Los_Angeles</Zone>
+  <Zone canonical="false" target="America/Kentucky/Louisville">America/Louisville</Zone>
+  <Zone canonical="true">America/Lower_Princes</Zone>
+  <Zone canonical="true">America/Maceio</Zone>
+  <Zone canonical="true">America/Managua</Zone>
+  <Zone canonical="true">America/Manaus</Zone>
+  <Zone canonical="true">America/Marigot</Zone>
+  <Zone canonical="true">America/Martinique</Zone>
+  <Zone canonical="true">America/Matamoros</Zone>
+  <Zone canonical="true">America/Mazatlan</Zone>
+  <Zone canonical="false" target="America/Argentina/Mendoza">America/Mendoza</Zone>
+  <Zone canonical="true">America/Menominee</Zone>
+  <Zone canonical="true">America/Merida</Zone>
+  <Zone canonical="true">America/Metlakatla</Zone>
+  <Zone canonical="true">America/Mexico_City</Zone>
+  <Zone canonical="true">America/Miquelon</Zone>
+  <Zone canonical="true">America/Moncton</Zone>
+  <Zone canonical="true">America/Monterrey</Zone>
+  <Zone canonical="true">America/Montevideo</Zone>
+  <Zone canonical="false" target="America/Toronto">America/Montreal</Zone>
+  <Zone canonical="true">America/Montserrat</Zone>
+  <Zone canonical="true">America/Nassau</Zone>
+  <Zone canonical="true">America/New_York</Zone>
+  <Zone canonical="false" target="America/Toronto">America/Nipigon</Zone>
+  <Zone canonical="true">America/Nome</Zone>
+  <Zone canonical="true">America/Noronha</Zone>
+  <Zone canonical="true">America/North_Dakota/Beulah</Zone>
+  <Zone canonical="true">America/North_Dakota/Center</Zone>
+  <Zone canonical="true">America/North_Dakota/New_Salem</Zone>
+  <Zone canonical="true">America/Nuuk</Zone>
+  <Zone canonical="true">America/Ojinaga</Zone>
+  <Zone canonical="true">America/Panama</Zone>
+  <Zone canonical="false" target="America/Iqaluit">America/Pangnirtung</Zone>
+  <Zone canonical="true">America/Paramaribo</Zone>
+  <Zone canonical="true">America/Phoenix</Zone>
+  <Zone canonical="true">America/Port-au-Prince</Zone>
+  <Zone canonical="true">America/Port_of_Spain</Zone>
+  <Zone canonical="false" target="America/Rio_Branco">America/Porto_Acre</Zone>
+  <Zone canonical="true">America/Porto_Velho</Zone>
+  <Zone canonical="true">America/Puerto_Rico</Zone>
+  <Zone canonical="true">America/Punta_Arenas</Zone>
+  <Zone canonical="false" target="America/Winnipeg">America/Rainy_River</Zone>
+  <Zone canonical="true">America/Rankin_Inlet</Zone>
+  <Zone canonical="true">America/Recife</Zone>
+  <Zone canonical="true">America/Regina</Zone>
+  <Zone canonical="true">America/Resolute</Zone>
+  <Zone canonical="true">America/Rio_Branco</Zone>
+  <Zone canonical="false" target="America/Argentina/Cordoba">America/Rosario</Zone>
+  <Zone canonical="false" target="America/Tijuana">America/Santa_Isabel</Zone>
+  <Zone canonical="true">America/Santarem</Zone>
+  <Zone canonical="true">America/Santiago</Zone>
+  <Zone canonical="true">America/Santo_Domingo</Zone>
+  <Zone canonical="true">America/Sao_Paulo</Zone>
+  <Zone canonical="true">America/Scoresbysund</Zone>
+  <Zone canonical="false" target="America/Denver">America/Shiprock</Zone>
+  <Zone canonical="true">America/Sitka</Zone>
+  <Zone canonical="true">America/St_Barthelemy</Zone>
+  <Zone canonical="true">America/St_Johns</Zone>
+  <Zone canonical="true">America/St_Kitts</Zone>
+  <Zone canonical="true">America/St_Lucia</Zone>
+  <Zone canonical="true">America/St_Thomas</Zone>
+  <Zone canonical="true">America/St_Vincent</Zone>
+  <Zone canonical="true">America/Swift_Current</Zone>
+  <Zone canonical="true">America/Tegucigalpa</Zone>
+  <Zone canonical="true">America/Thule</Zone>
+  <Zone canonical="false" target="America/Toronto">America/Thunder_Bay</Zone>
+  <Zone canonical="true">America/Tijuana</Zone>
+  <Zone canonical="true">America/Toronto</Zone>
+  <Zone canonical="true">America/Tortola</Zone>
+  <Zone canonical="true">America/Vancouver</Zone>
+  <Zone canonical="false" target="America/St_Thomas">America/Virgin</Zone>
+  <Zone canonical="true">America/Whitehorse</Zone>
+  <Zone canonical="true">America/Winnipeg</Zone>
+  <Zone canonical="true">America/Yakutat</Zone>
+  <Zone canonical="false" target="America/Edmonton">America/Yellowknife</Zone>
+  <Zone canonical="true">Antarctica/Casey</Zone>
+  <Zone canonical="true">Antarctica/Davis</Zone>
+  <Zone canonical="true">Antarctica/DumontDUrville</Zone>
+  <Zone canonical="true">Antarctica/Macquarie</Zone>
+  <Zone canonical="true">Antarctica/Mawson</Zone>
+  <Zone canonical="true">Antarctica/McMurdo</Zone>
+  <Zone canonical="true">Antarctica/Palmer</Zone>
+  <Zone canonical="true">Antarctica/Rothera</Zone>
+  <Zone canonical="false" target="Antarctica/McMurdo">Antarctica/South_Pole</Zone>
+  <Zone canonical="true">Antarctica/Syowa</Zone>
+  <Zone canonical="true">Antarctica/Troll</Zone>
+  <Zone canonical="true">Antarctica/Vostok</Zone>
+  <Zone canonical="true">Arctic/Longyearbyen</Zone>
+  <Zone canonical="true">Asia/Aden</Zone>
+  <Zone canonical="true">Asia/Almaty</Zone>
+  <Zone canonical="true">Asia/Amman</Zone>
+  <Zone canonical="true">Asia/Anadyr</Zone>
+  <Zone canonical="true">Asia/Aqtau</Zone>
+  <Zone canonical="true">Asia/Aqtobe</Zone>
+  <Zone canonical="true">Asia/Ashgabat</Zone>
+  <Zone canonical="false" target="Asia/Ashgabat">Asia/Ashkhabad</Zone>
+  <Zone canonical="true">Asia/Atyrau</Zone>
+  <Zone canonical="true">Asia/Baghdad</Zone>
+  <Zone canonical="true">Asia/Bahrain</Zone>
+  <Zone canonical="true">Asia/Baku</Zone>
+  <Zone canonical="true">Asia/Bangkok</Zone>
+  <Zone canonical="true">Asia/Barnaul</Zone>
+  <Zone canonical="true">Asia/Beirut</Zone>
+  <Zone canonical="true">Asia/Bishkek</Zone>
+  <Zone canonical="true">Asia/Brunei</Zone>
+  <Zone canonical="false" target="Asia/Kolkata">Asia/Calcutta</Zone>
+  <Zone canonical="true">Asia/Chita</Zone>
+  <Zone canonical="false" target="Asia/Ulaanbaatar">Asia/Choibalsan</Zone>
+  <Zone canonical="false" target="Asia/Shanghai">Asia/Chongqing</Zone>
+  <Zone canonical="false" target="Asia/Shanghai">Asia/Chungking</Zone>
+  <Zone canonical="true">Asia/Colombo</Zone>
+  <Zone canonical="false" target="Asia/Dhaka">Asia/Dacca</Zone>
+  <Zone canonical="true">Asia/Damascus</Zone>
+  <Zone canonical="true">Asia/Dhaka</Zone>
+  <Zone canonical="true">Asia/Dili</Zone>
+  <Zone canonical="true">Asia/Dubai</Zone>
+  <Zone canonical="true">Asia/Dushanbe</Zone>
+  <Zone canonical="true">Asia/Famagusta</Zone>
+  <Zone canonical="true">Asia/Gaza</Zone>
+  <Zone canonical="false" target="Asia/Shanghai">Asia/Harbin</Zone>
+  <Zone canonical="true">Asia/Hebron</Zone>
+  <Zone canonical="true">Asia/Ho_Chi_Minh</Zone>
+  <Zone canonical="true">Asia/Hong_Kong</Zone>
+  <Zone canonical="true">Asia/Hovd</Zone>
+  <Zone canonical="true">Asia/Irkutsk</Zone>
+  <Zone canonical="false" target="Europe/Istanbul">Asia/Istanbul</Zone>
+  <Zone canonical="true">Asia/Jakarta</Zone>
+  <Zone canonical="true">Asia/Jayapura</Zone>
+  <Zone canonical="true">Asia/Jerusalem</Zone>
+  <Zone canonical="true">Asia/Kabul</Zone>
+  <Zone canonical="true">Asia/Kamchatka</Zone>
+  <Zone canonical="true">Asia/Karachi</Zone>
+  <Zone canonical="false" target="Asia/Urumqi">Asia/Kashgar</Zone>
+  <Zone canonical="true">Asia/Kathmandu</Zone>
+  <Zone canonical="false" target="Asia/Kathmandu">Asia/Katmandu</Zone>
+  <Zone canonical="true">Asia/Khandyga</Zone>
+  <Zone canonical="true">Asia/Kolkata</Zone>
+  <Zone canonical="true">Asia/Krasnoyarsk</Zone>
+  <Zone canonical="true">Asia/Kuala_Lumpur</Zone>
+  <Zone canonical="true">Asia/Kuching</Zone>
+  <Zone canonical="true">Asia/Kuwait</Zone>
+  <Zone canonical="false" target="Asia/Macau">Asia/Macao</Zone>
+  <Zone canonical="true">Asia/Macau</Zone>
+  <Zone canonical="true">Asia/Magadan</Zone>
+  <Zone canonical="true">Asia/Makassar</Zone>
+  <Zone canonical="true">Asia/Manila</Zone>
+  <Zone canonical="true">Asia/Muscat</Zone>
+  <Zone canonical="true">Asia/Nicosia</Zone>
+  <Zone canonical="true">Asia/Novokuznetsk</Zone>
+  <Zone canonical="true">Asia/Novosibirsk</Zone>
+  <Zone canonical="true">Asia/Omsk</Zone>
+  <Zone canonical="true">Asia/Oral</Zone>
+  <Zone canonical="true">Asia/Phnom_Penh</Zone>
+  <Zone canonical="true">Asia/Pontianak</Zone>
+  <Zone canonical="true">Asia/Pyongyang</Zone>
+  <Zone canonical="true">Asia/Qatar</Zone>
+  <Zone canonical="true">Asia/Qostanay</Zone>
+  <Zone canonical="true">Asia/Qyzylorda</Zone>
+  <Zone canonical="false" target="Asia/Yangon">Asia/Rangoon</Zone>
+  <Zone canonical="true">Asia/Riyadh</Zone>
+  <Zone canonical="false" target="Asia/Ho_Chi_Minh">Asia/Saigon</Zone>
+  <Zone canonical="true">Asia/Sakhalin</Zone>
+  <Zone canonical="true">Asia/Samarkand</Zone>
+  <Zone canonical="true">Asia/Seoul</Zone>
+  <Zone canonical="true">Asia/Shanghai</Zone>
+  <Zone canonical="true">Asia/Singapore</Zone>
+  <Zone canonical="true">Asia/Srednekolymsk</Zone>
+  <Zone canonical="true">Asia/Taipei</Zone>
+  <Zone canonical="true">Asia/Tashkent</Zone>
+  <Zone canonical="true">Asia/Tbilisi</Zone>
+  <Zone canonical="true">Asia/Tehran</Zone>
+  <Zone canonical="false" target="Asia/Jerusalem">Asia/Tel_Aviv</Zone>
+  <Zone canonical="false" target="Asia/Thimphu">Asia/Thimbu</Zone>
+  <Zone canonical="true">Asia/Thimphu</Zone>
+  <Zone canonical="true">Asia/Tokyo</Zone>
+  <Zone canonical="true">Asia/Tomsk</Zone>
+  <Zone canonical="false" target="Asia/Makassar">Asia/Ujung_Pandang</Zone>
+  <Zone canonical="true">Asia/Ulaanbaatar</Zone>
+  <Zone canonical="false" target="Asia/Ulaanbaatar">Asia/Ulan_Bator</Zone>
+  <Zone canonical="true">Asia/Urumqi</Zone>
+  <Zone canonical="true">Asia/Ust-Nera</Zone>
+  <Zone canonical="true">Asia/Vientiane</Zone>
+  <Zone canonical="true">Asia/Vladivostok</Zone>
+  <Zone canonical="true">Asia/Yakutsk</Zone>
+  <Zone canonical="true">Asia/Yangon</Zone>
+  <Zone canonical="true">Asia/Yekaterinburg</Zone>
+  <Zone canonical="true">Asia/Yerevan</Zone>
+  <Zone canonical="true">Atlantic/Azores</Zone>
+  <Zone canonical="true">Atlantic/Bermuda</Zone>
+  <Zone canonical="true">Atlantic/Canary</Zone>
+  <Zone canonical="true">Atlantic/Cape_Verde</Zone>
+  <Zone canonical="false" target="Atlantic/Faroe">Atlantic/Faeroe</Zone>
+  <Zone canonical="true">Atlantic/Faroe</Zone>
+  <Zone canonical="false" target="Europe/Oslo">Atlantic/Jan_Mayen</Zone>
+  <Zone canonical="true">Atlantic/Madeira</Zone>
+  <Zone canonical="true">Atlantic/Reykjavik</Zone>
+  <Zone canonical="true">Atlantic/South_Georgia</Zone>
+  <Zone canonical="true">Atlantic/St_Helena</Zone>
+  <Zone canonical="true">Atlantic/Stanley</Zone>
+  <Zone canonical="false" target="Australia/Sydney">Australia/ACT</Zone>
+  <Zone canonical="true">Australia/Adelaide</Zone>
+  <Zone canonical="true">Australia/Brisbane</Zone>
+  <Zone canonical="true">Australia/Broken_Hill</Zone>
+  <Zone canonical="false" target="Australia/Sydney">Australia/Canberra</Zone>
+  <Zone canonical="false" target="Australia/Hobart">Australia/Currie</Zone>
+  <Zone canonical="true">Australia/Darwin</Zone>
+  <Zone canonical="true">Australia/Eucla</Zone>
+  <Zone canonical="true">Australia/Hobart</Zone>
+  <Zone canonical="false" target="Australia/Lord_Howe">Australia/LHI</Zone>
+  <Zone canonical="true">Australia/Lindeman</Zone>
+  <Zone canonical="true">Australia/Lord_Howe</Zone>
+  <Zone canonical="true">Australia/Melbourne</Zone>
+  <Zone canonical="false" target="Australia/Sydney">Australia/NSW</Zone>
+  <Zone canonical="false" target="Australia/Darwin">Australia/North</Zone>
+  <Zone canonical="true">Australia/Perth</Zone>
+  <Zone canonical="false" target="Australia/Brisbane">Australia/Queensland</Zone>
+  <Zone canonical="false" target="Australia/Adelaide">Australia/South</Zone>
+  <Zone canonical="true">Australia/Sydney</Zone>
+  <Zone canonical="false" target="Australia/Hobart">Australia/Tasmania</Zone>
+  <Zone canonical="false" target="Australia/Melbourne">Australia/Victoria</Zone>
+  <Zone canonical="false" target="Australia/Perth">Australia/West</Zone>
+  <Zone canonical="false" target="Australia/Broken_Hill">Australia/Yancowinna</Zone>
+  <Zone canonical="false" target="America/Rio_Branco">Brazil/Acre</Zone>
+  <Zone canonical="false" target="America/Noronha">Brazil/DeNoronha</Zone>
+  <Zone canonical="false" target="America/Sao_Paulo">Brazil/East</Zone>
+  <Zone canonical="false" target="America/Manaus">Brazil/West</Zone>
+  <Zone canonical="false" target="America/Halifax">Canada/Atlantic</Zone>
+  <Zone canonical="false" target="America/Winnipeg">Canada/Central</Zone>
+  <Zone canonical="false" target="America/Toronto">Canada/Eastern</Zone>
+  <Zone canonical="false" target="America/Edmonton">Canada/Mountain</Zone>
+  <Zone canonical="false" target="America/St_Johns">Canada/Newfoundland</Zone>
+  <Zone canonical="false" target="America/Vancouver">Canada/Pacific</Zone>
+  <Zone canonical="false" target="America/Regina">Canada/Saskatchewan</Zone>
+  <Zone canonical="false" target="America/Whitehorse">Canada/Yukon</Zone>
+  <Zone canonical="false" target="America/Santiago">Chile/Continental</Zone>
+  <Zone canonical="false" target="Pacific/Easter">Chile/EasterIsland</Zone>
+  <Zone canonical="true">Etc/GMT</Zone>
+  <Zone canonical="false" target="Etc/GMT">Etc/GMT+0</Zone>
+  <Zone canonical="true">Etc/GMT+1</Zone>
+  <Zone canonical="true">Etc/GMT+10</Zone>
+  <Zone canonical="true">Etc/GMT+11</Zone>
+  <Zone canonical="true">Etc/GMT+12</Zone>
+  <Zone canonical="true">Etc/GMT+2</Zone>
+  <Zone canonical="true">Etc/GMT+3</Zone>
+  <Zone canonical="true">Etc/GMT+4</Zone>
+  <Zone canonical="true">Etc/GMT+5</Zone>
+  <Zone canonical="true">Etc/GMT+6</Zone>
+  <Zone canonical="true">Etc/GMT+7</Zone>
+  <Zone canonical="true">Etc/GMT+8</Zone>
+  <Zone canonical="true">Etc/GMT+9</Zone>
+  <Zone canonical="false" target="Etc/GMT">Etc/GMT-0</Zone>
+  <Zone canonical="true">Etc/GMT-1</Zone>
+  <Zone canonical="true">Etc/GMT-10</Zone>
+  <Zone canonical="true">Etc/GMT-11</Zone>
+  <Zone canonical="true">Etc/GMT-12</Zone>
+  <Zone canonical="true">Etc/GMT-13</Zone>
+  <Zone canonical="true">Etc/GMT-14</Zone>
+  <Zone canonical="true">Etc/GMT-2</Zone>
+  <Zone canonical="true">Etc/GMT-3</Zone>
+  <Zone canonical="true">Etc/GMT-4</Zone>
+  <Zone canonical="true">Etc/GMT-5</Zone>
+  <Zone canonical="true">Etc/GMT-6</Zone>
+  <Zone canonical="true">Etc/GMT-7</Zone>
+  <Zone canonical="true">Etc/GMT-8</Zone>
+  <Zone canonical="true">Etc/GMT-9</Zone>
+  <Zone canonical="false" target="Etc/GMT">Etc/GMT0</Zone>
+  <Zone canonical="false" target="Etc/GMT">Etc/Greenwich</Zone>
+  <Zone canonical="false" target="Etc/UTC">Etc/UCT</Zone>
+  <Zone canonical="true">Etc/UTC</Zone>
+  <Zone canonical="false" target="Etc/UTC">Etc/Universal</Zone>
+  <Zone canonical="false" target="Etc/UTC">Etc/Zulu</Zone>
+  <Zone canonical="true">Europe/Amsterdam</Zone>
+  <Zone canonical="true">Europe/Andorra</Zone>
+  <Zone canonical="true">Europe/Astrakhan</Zone>
+  <Zone canonical="true">Europe/Athens</Zone>
+  <Zone canonical="false" target="Europe/London">Europe/Belfast</Zone>
+  <Zone canonical="true">Europe/Belgrade</Zone>
+  <Zone canonical="true">Europe/Berlin</Zone>
+  <Zone canonical="true">Europe/Bratislava</Zone>
+  <Zone canonical="true">Europe/Brussels</Zone>
+  <Zone canonical="true">Europe/Bucharest</Zone>
+  <Zone canonical="true">Europe/Budapest</Zone>
+  <Zone canonical="true">Europe/Busingen</Zone>
+  <Zone canonical="true">Europe/Chisinau</Zone>
+  <Zone canonical="true">Europe/Copenhagen</Zone>
+  <Zone canonical="true">Europe/Dublin</Zone>
+  <Zone canonical="true">Europe/Gibraltar</Zone>
+  <Zone canonical="true">Europe/Guernsey</Zone>
+  <Zone canonical="true">Europe/Helsinki</Zone>
+  <Zone canonical="true">Europe/Isle_of_Man</Zone>
+  <Zone canonical="true">Europe/Istanbul</Zone>
+  <Zone canonical="true">Europe/Jersey</Zone>
+  <Zone canonical="true">Europe/Kaliningrad</Zone>
+  <Zone canonical="false" target="Europe/Kyiv">Europe/Kiev</Zone>
+  <Zone canonical="true">Europe/Kirov</Zone>
+  <Zone canonical="true">Europe/Kyiv</Zone>
+  <Zone canonical="true">Europe/Lisbon</Zone>
+  <Zone canonical="true">Europe/Ljubljana</Zone>
+  <Zone canonical="true">Europe/London</Zone>
+  <Zone canonical="true">Europe/Luxembourg</Zone>
+  <Zone canonical="true">Europe/Madrid</Zone>
+  <Zone canonical="true">Europe/Malta</Zone>
+  <Zone canonical="true">Europe/Mariehamn</Zone>
+  <Zone canonical="true">Europe/Minsk</Zone>
+  <Zone canonical="true">Europe/Monaco</Zone>
+  <Zone canonical="true">Europe/Moscow</Zone>
+  <Zone canonical="false" target="Asia/Nicosia">Europe/Nicosia</Zone>
+  <Zone canonical="true">Europe/Oslo</Zone>
+  <Zone canonical="true">Europe/Paris</Zone>
+  <Zone canonical="true">Europe/Podgorica</Zone>
+  <Zone canonical="true">Europe/Prague</Zone>
+  <Zone canonical="true">Europe/Riga</Zone>
+  <Zone canonical="true">Europe/Rome</Zone>
+  <Zone canonical="true">Europe/Samara</Zone>
+  <Zone canonical="true">Europe/San_Marino</Zone>
+  <Zone canonical="true">Europe/Sarajevo</Zone>
+  <Zone canonical="true">Europe/Saratov</Zone>
+  <Zone canonical="true">Europe/Simferopol</Zone>
+  <Zone canonical="true">Europe/Skopje</Zone>
+  <Zone canonical="true">Europe/Sofia</Zone>
+  <Zone canonical="true">Europe/Stockholm</Zone>
+  <Zone canonical="true">Europe/Tallinn</Zone>
+  <Zone canonical="true">Europe/Tirane</Zone>
+  <Zone canonical="false" target="Europe/Chisinau">Europe/Tiraspol</Zone>
+  <Zone canonical="true">Europe/Ulyanovsk</Zone>
+  <Zone canonical="false" target="Europe/Kyiv">Europe/Uzhgorod</Zone>
+  <Zone canonical="true">Europe/Vaduz</Zone>
+  <Zone canonical="true">Europe/Vatican</Zone>
+  <Zone canonical="true">Europe/Vienna</Zone>
+  <Zone canonical="true">Europe/Vilnius</Zone>
+  <Zone canonical="true">Europe/Volgograd</Zone>
+  <Zone canonical="true">Europe/Warsaw</Zone>
+  <Zone canonical="true">Europe/Zagreb</Zone>
+  <Zone canonical="false" target="Europe/Kyiv">Europe/Zaporozhye</Zone>
+  <Zone canonical="true">Europe/Zurich</Zone>
+  <Zone canonical="true">Indian/Antananarivo</Zone>
+  <Zone canonical="true">Indian/Chagos</Zone>
+  <Zone canonical="true">Indian/Christmas</Zone>
+  <Zone canonical="true">Indian/Cocos</Zone>
+  <Zone canonical="true">Indian/Comoro</Zone>
+  <Zone canonical="true">Indian/Kerguelen</Zone>
+  <Zone canonical="true">Indian/Mahe</Zone>
+  <Zone canonical="true">Indian/Maldives</Zone>
+  <Zone canonical="true">Indian/Mauritius</Zone>
+  <Zone canonical="true">Indian/Mayotte</Zone>
+  <Zone canonical="true">Indian/Reunion</Zone>
+  <Zone canonical="false" target="America/Tijuana">Mexico/BajaNorte</Zone>
+  <Zone canonical="false" target="America/Mazatlan">Mexico/BajaSur</Zone>
+  <Zone canonical="false" target="America/Mexico_City">Mexico/General</Zone>
+  <Zone canonical="true">Pacific/Apia</Zone>
+  <Zone canonical="true">Pacific/Auckland</Zone>
+  <Zone canonical="true">Pacific/Bougainville</Zone>
+  <Zone canonical="true">Pacific/Chatham</Zone>
+  <Zone canonical="true">Pacific/Chuuk</Zone>
+  <Zone canonical="true">Pacific/Easter</Zone>
+  <Zone canonical="true">Pacific/Efate</Zone>
+  <Zone canonical="false" target="Pacific/Kanton">Pacific/Enderbury</Zone>
+  <Zone canonical="true">Pacific/Fakaofo</Zone>
+  <Zone canonical="true">Pacific/Fiji</Zone>
+  <Zone canonical="true">Pacific/Funafuti</Zone>
+  <Zone canonical="true">Pacific/Galapagos</Zone>
+  <Zone canonical="true">Pacific/Gambier</Zone>
+  <Zone canonical="true">Pacific/Guadalcanal</Zone>
+  <Zone canonical="true">Pacific/Guam</Zone>
+  <Zone canonical="true">Pacific/Honolulu</Zone>
+  <Zone canonical="false" target="Pacific/Honolulu">Pacific/Johnston</Zone>
+  <Zone canonical="true">Pacific/Kanton</Zone>
+  <Zone canonical="true">Pacific/Kiritimati</Zone>
+  <Zone canonical="true">Pacific/Kosrae</Zone>
+  <Zone canonical="true">Pacific/Kwajalein</Zone>
+  <Zone canonical="true">Pacific/Majuro</Zone>
+  <Zone canonical="true">Pacific/Marquesas</Zone>
+  <Zone canonical="true">Pacific/Midway</Zone>
+  <Zone canonical="true">Pacific/Nauru</Zone>
+  <Zone canonical="true">Pacific/Niue</Zone>
+  <Zone canonical="true">Pacific/Norfolk</Zone>
+  <Zone canonical="true">Pacific/Noumea</Zone>
+  <Zone canonical="true">Pacific/Pago_Pago</Zone>
+  <Zone canonical="true">Pacific/Palau</Zone>
+  <Zone canonical="true">Pacific/Pitcairn</Zone>
+  <Zone canonical="true">Pacific/Pohnpei</Zone>
+  <Zone canonical="false" target="Pacific/Pohnpei">Pacific/Ponape</Zone>
+  <Zone canonical="true">Pacific/Port_Moresby</Zone>
+  <Zone canonical="true">Pacific/Rarotonga</Zone>
+  <Zone canonical="true">Pacific/Saipan</Zone>
+  <Zone canonical="false" target="Pacific/Pago_Pago">Pacific/Samoa</Zone>
+  <Zone canonical="true">Pacific/Tahiti</Zone>
+  <Zone canonical="true">Pacific/Tarawa</Zone>
+  <Zone canonical="true">Pacific/Tongatapu</Zone>
+  <Zone canonical="false" target="Pacific/Chuuk">Pacific/Truk</Zone>
+  <Zone canonical="true">Pacific/Wake</Zone>
+  <Zone canonical="true">Pacific/Wallis</Zone>
+  <Zone canonical="false" target="Pacific/Chuuk">Pacific/Yap</Zone>
+  <Zone canonical="false" target="America/Anchorage">US/Alaska</Zone>
+  <Zone canonical="false" target="America/Adak">US/Aleutian</Zone>
+  <Zone canonical="false" target="America/Phoenix">US/Arizona</Zone>
+  <Zone canonical="false" target="America/Chicago">US/Central</Zone>
+  <Zone canonical="false" target="America/Indiana/Indianapolis">US/East-Indiana</Zone>
+  <Zone canonical="false" target="America/New_York">US/Eastern</Zone>
+  <Zone canonical="false" target="Pacific/Honolulu">US/Hawaii</Zone>
+  <Zone canonical="false" target="America/Indiana/Knox">US/Indiana-Starke</Zone>
+  <Zone canonical="false" target="America/Detroit">US/Michigan</Zone>
+  <Zone canonical="false" target="America/Denver">US/Mountain</Zone>
+  <Zone canonical="false" target="America/Los_Angeles">US/Pacific</Zone>
+  <Zone canonical="false" target="Pacific/Pago_Pago">US/Samoa</Zone>
+</IanaTimeZones>

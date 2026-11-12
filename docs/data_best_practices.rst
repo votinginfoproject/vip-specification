@@ -129,7 +129,7 @@ Optional elements without values should be omitted from XML feed.
 
 Specific Data Types
 -------------------
-Elements with a data type of ``xs:integer`` must contain a valid whole number greater than zero.
+Elements with a data type of ``xs:integer`` must contain a valid whole number. Non-negative zero-based values (``>= 0``) are used for fields such as ``FeatureIdentifier/Index`` and ``SequenceOrder``, whereas count fields such as ``NumberElected`` and ``VotesAllowed`` must be greater than zero (``>= 1``).
 
 Elements with a data type of ``xs:anyURI`` should be entered as a fully qualified domain name
 (e.g. https://www.votinginfoproject.org/)
@@ -138,8 +138,7 @@ Elements with a data type of ``xs:dateTime`` should be entered in `ISO-8601`_ fo
 
 Elements with a data type of ``xs:boolean`` should either have a value of ``true`` or ``false``
 
-Elements with a data type of ``xs:language`` should contain a two character, lower-case, value corresponding to the
-`ISO 639`_ standard.
+Elements with a data type of ``xs:language`` should contain a valid BCP-47 language tag (such as ``en``, ``es``, ``zh-Hans``, or ``es-419``) or the ``i-default`` fallback language tag.
 
 Elements that have enumerations which include an ``other`` should have a corresponding value assigned to ``OtherType`` within
 the containing element.  For example:

@@ -49,7 +49,7 @@ In overlay feeds, clearable fields can be cleared using ``<Clear{FieldName}/>`` 
          <Value>ocd-division/country:us/state:va/sldl:57</Value>
       </ExternalIdentifier>
       <Name>
-         <Text language="en">Virginia's 57th House of Delegates district</Text>
+         <Text language="i-default">Virginia's 57th House of Delegates district</Text>
       </Name>
       <Number>57</Number>
       <Type>state-house</Type>

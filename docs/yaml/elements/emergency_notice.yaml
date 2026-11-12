@@ -10,11 +10,12 @@ post: |-
 
      <EmergencyNotice>
         <NoticeText>
-           <Text language="en">Polling location moved due to water main break.</Text>
+           <Text language="i-default">Polling location moved due to water main break.</Text>
            <Text language="es">El centro de votación se ha trasladado debido a una rotura de tubería.</Text>
         </NoticeText>
         <NoticeUri>https://elections.example.gov/notices/precinct-203</NoticeUri>
-        <AppliesTo>polling_place</AppliesTo>
+        <AppliesTo>search</AppliesTo>
+        <AppliesTo>maps</AppliesTo>
      </EmergencyNotice>
 skip_element_on: csv
 tags:
@@ -24,7 +25,6 @@ tags:
   description: The emergency notification text, which may be localized in multiple
     languages.
   error_then: =must-ignore
-  repeating: true
   required: false
   type: InternationalizedText
 - _name: NoticeUri
@@ -37,9 +37,9 @@ tags:
 - _name: AppliesTo
   csv-header-name: applies_to
   csv-type: xs:string
-  description: If specified, the contexts in which this emergency notice applies (e.g.
-    "polling_place", "vote_center", "ballot_drop_box", "jurisdiction"). If omitted,
-    applies generally.
+  description: If specified, the serving contexts in which this emergency notice applies
+    (e.g. "api", "search", "maps"). If omitted, applies generally across all serving
+    contexts.
   error_then: =must-ignore
   repeating: true
   required: false

@@ -23,7 +23,6 @@ post: |-
         <BallotTrackingUri>https://www.vote.virginia.gov/track</BallotTrackingUri>
         <BallotProvisionalTrackingUri>https://www.vote.virginia.gov/provisional</BallotProvisionalTrackingUri>
         <ContactInformation label="ea_contact">
-           <Name>Virginia Department of Elections</Name>
            <PhysicalAddress>
               <AddressLine>Washington Building, First Floor</AddressLine>
               <AddressLine>1100 Bank Street</AddressLine>
@@ -31,8 +30,9 @@ post: |-
               <Region>VA</Region>
               <PostalCode>23219</PostalCode>
            </PhysicalAddress>
-           <Phone>804-864-8901</Phone>
            <Email>info@elections.virginia.gov</Email>
+           <Name>Virginia Department of Elections</Name>
+           <Phone>804-864-8901</Phone>
         </ContactInformation>
         <ElectionsUri>http://www.sbe.virginia.gov/</ElectionsUri>
         <RegistrationUri>https://www.vote.virginia.gov/</RegistrationUri>

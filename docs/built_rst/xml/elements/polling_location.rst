@@ -74,7 +74,7 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
    :linenos:
 
    <PollingLocation id="pl00001">
-      <AddressStructured language="en">
+      <AddressStructured language="i-default">
          <LocationName>ALBEMARLE HIGH SCHOOL</LocationName>
          <AddressLine>2775 Hydraulic Rd</AddressLine>
          <City>CHARLOTTESVILLE</City>
@@ -85,9 +85,8 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
          <Type>pluscode</Type>
          <Value>87G83W52+4F</Value>
       </LocationIdentifier>
-      <LocationType>InPersonDayOf</LocationType>
       <Directions>
-         <Text language="en">Use gymnasium entrance on east side.</Text>
+         <Text language="i-default">Use gymnasium entrance on east side.</Text>
       </Directions>
       <Schedule>
          <TimeZone>America/New_York</TimeZone>
@@ -98,6 +97,7 @@ In overlays, PollingLocation has an optional attribute ``isNew="true"`` to indic
             <EndTime>19:00:00</EndTime>
          </Hours>
       </Schedule>
+      <LocationType>InPersonDayOf</LocationType>
       <LatLng>
          <Latitude>38.0754627</Latitude>
          <Longitude>-78.5014875</Longitude>

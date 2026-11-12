@@ -90,9 +90,9 @@ The :ref:`multi-xml-emergency-notice` element communicates urgent alerts, emerge
 
 An ``<EmergencyNotice>`` includes:
 
-* ``NoticeText``: Localized alert text (type :ref:`multi-xml-internationalized-text`, repeating with ``language`` attributes).
+* ``NoticeText``: Optional localized alert text (type :ref:`multi-xml-internationalized-text`, max 1 per notice, supporting localized ``<Text>`` sub-elements with ``language`` attributes including ``i-default``).
 * ``NoticeUri``: Optional link to official emergency documentation or press releases.
-* ``AppliesTo``: Scope of the emergency notice (e.g. ``polling_place``, ``vote_center``, ``ballot_drop_box``, ``jurisdiction``).
+* ``AppliesTo``: Optional repeating serving contexts (such as ``api``, ``search``, or ``maps``) specifying which downstream surfaces should display the emergency notice. If omitted, the notice applies to all serving contexts.
 
 Locality Hour Overrides
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -111,7 +111,17 @@ To keep overlay processing predictable and lightweight, the following entities f
 
 * **Source:** A feed overlay does not define a new :ref:`multi-xml-source` object; the overlay is bound to the existing base feed.
 * **StreetSegment:** Street segment address mappings remain in the base feed and cannot be modified via overlays.
-* **ExternalFile:** External bulk geospatial boundary files are not distributed via overlays.
+* **ExternalFile:** External bulk geospatial boundary files cannot be distributed or created via overlays. However, a :ref:`multi-xml-precinct` overlay may clear its ``SpatialBoundary`` using ``<ClearSpatialBoundary/>`` or reassign an existing ``SpatialBoundary`` (referencing an ``ExternalFile`` and feature index already defined in the base feed).
+
+
+Validation with Schematron
+--------------------------
+
+In addition to XML Schema validation against ``vip_overlay.xsd``, VIP 7.0 provides a Schematron schema (``vip_overlay.sch``) enforcing semantic constraints such as internationalization fallbacks, schedule/date ordering, ``other`` enum pairing, geospatial format checks, and overlay-specific rules.
+
+* **Default ``strict`` phase:** Enforces all error-level rules (required fields on ``isNew="true"`` polling locations, non-empty overlay entities, ``EmergencyNotice`` structure, and cross-document checks when a base feed is available).
+* **``full`` phase (``-p full``):** Activates all ``strict`` error rules plus advisory warnings (such as backward-compatible IANA time zone aliases, deprecated free-text ``Hours``, or clearing fields on a new ``PollingLocation``).
+* **Cross-document validation against a base feed:** Supply ``<?vip-base-feed href="base_feed.xml"?>`` in the overlay XML or pass ``--base-feed base_feed.xml`` to ``python3 scripts/vip.py validate`` to verify overlay entity IDs, target references, ``SpatialBoundary`` reassignments, and merged ``other`` enum pairings against the base feed.
 
 
 Examples
@@ -120,7 +130,7 @@ Examples
 Example 1: Polling Location Emergency Relocation & Notice
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this example, polling location ``pl204`` experienced an emergency water main break and was moved to an alternate location. The overlay updates its address, adds an emergency notice with multilingual text, and updates its schedule:
+In this example, polling location ``pl204`` experienced an emergency water main break and was moved to an alternate location. The overlay updates its address, adds an emergency notice with multilingual text, and updates its driving directions:
 
 .. code-block:: xml
    :linenos:
@@ -139,18 +149,20 @@ In this example, polling location ``pl204`` experienced an emergency water main 
             <PostalCode>62701</PostalCode>
          </AddressStructured>
 
+         <Directions>
+            <Text language="i-default">Enter through side gymnasium doors off 5th Avenue.</Text>
+            <Text language="es">Entre por las puertas laterales del gimnasio en la 5ta Avenida.</Text>
+         </Directions>
+
          <EmergencyNotice>
             <NoticeText>
-               <Text language="en">Polling site relocated from Community Center to Middle School Gym due to water main break.</Text>
+               <Text language="i-default">Polling site relocated from Community Center to Middle School Gym due to water main break.</Text>
                <Text language="es">El centro de votación se trasladó del Centro Comunitario al gimnasio de la escuela intermedia por rotura de tubería.</Text>
             </NoticeText>
             <NoticeUri>https://elections.springfield.gov/notices/precinct-12-relocation</NoticeUri>
-            <AppliesTo>polling_place</AppliesTo>
+            <AppliesTo>search</AppliesTo>
+            <AppliesTo>maps</AppliesTo>
          </EmergencyNotice>
-
-         <Directions>
-            <Text language="en">Enter through side gymnasium doors off 5th Avenue.</Text>
-         </Directions>
       </PollingLocation>
 
    </VipOverlay>
@@ -168,6 +180,11 @@ A new emergency ballot drop box ``pl9001`` is deployed to handle high voter turn
                xsi:noNamespaceSchemaLocation="http://votinginfoproject.github.io/schemas/vip_overlay.xsd"
                schemaVersion="7.0">
 
+      <!-- Add new drop box ID to existing locality polling locations list -->
+      <Locality id="loc7001">
+         <PollingLocationIds>pl201 pl202 pl203 pl204 pl9001</PollingLocationIds>
+      </Locality>
+
       <!-- Declare new drop box location -->
       <PollingLocation id="pl9001" isNew="true">
          <AddressStructured>
@@ -177,23 +194,14 @@ A new emergency ballot drop box ``pl9001`` is deployed to handle high voter turn
             <Region>IL</Region>
             <PostalCode>62701</PostalCode>
          </AddressStructured>
-         <LocationType>drop-box</LocationType>
          <Schedule>
             <TimeZone>America/Chicago</TimeZone>
-            <Hours>
-               <StartTime>06:00:00</StartTime>
-               <EndTime>20:00:00</EndTime>
-            </Hours>
             <StartDate>2024-10-25</StartDate>
             <EndDate>2024-11-05</EndDate>
             <IsOpen24Hours>true</IsOpen24Hours>
          </Schedule>
+         <LocationType>DropOff</LocationType>
       </PollingLocation>
-
-      <!-- Add new drop box ID to existing locality polling locations list -->
-      <Locality id="loc7001">
-         <PollingLocationIds>pl201 pl202 pl203 pl204 pl9001</PollingLocationIds>
-      </Locality>
 
    </VipOverlay>
 
@@ -211,9 +219,9 @@ Polling location ``pl305`` is closed due to severe weather. The overlay sets ``I
                schemaVersion="7.0">
 
       <PollingLocation id="pl305">
-         <IsInactive>Facility closed due to localized power outage. Voters directed to County Courthouse (pl101).</IsInactive>
          <ClearDirections/>
          <ClearPhotoUri/>
+         <IsInactive>Facility closed due to localized power outage. Voters directed to County Courthouse (pl101).</IsInactive>
       </PollingLocation>
 
    </VipOverlay>
@@ -234,20 +242,21 @@ Following a court ruling on election day, voting hours across all polling places
       <Locality id="loc7002">
          <EmergencyNotice>
             <NoticeText>
-               <Text language="en">Pursuant to Superior Court Order #24-EV-982, all polling places in the county will remain open until 9:00 PM.</Text>
+               <Text language="i-default">Pursuant to Superior Court Order #24-EV-982, all polling places in the county will remain open until 9:00 PM.</Text>
             </NoticeText>
             <NoticeUri>https://elections.county.gov/orders/hours-extension.pdf</NoticeUri>
-            <AppliesTo>polling_place</AppliesTo>
+            <AppliesTo>api</AppliesTo>
+            <AppliesTo>search</AppliesTo>
          </EmergencyNotice>
 
          <OverriddenPollingHours>
             <TimeZone>America/Chicago</TimeZone>
+            <StartDate>2024-11-05</StartDate>
+            <EndDate>2024-11-05</EndDate>
             <Hours>
                <StartTime>06:00:00</StartTime>
                <EndTime>21:00:00</EndTime>
             </Hours>
-            <StartDate>2024-11-05</StartDate>
-            <EndDate>2024-11-05</EndDate>
          </OverriddenPollingHours>
       </Locality>
 
